@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			INPUT - Detecing mouseovers
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to detect mouseovers with Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. Oct 2015		- created!
+				12. Nov 			- added how to turn off mouseovers
+				25. March 2017		- reworked for improved style
+				21. October 2018	- updated style and clarified				- Drapak
+				4. November 2018	- fixed quotes in code examples				- Drapak
+				
+		-->
+		<style>
+			#imageId{
+				height:	50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INPUT: <em>Detecting mouseovers</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<!--
+				<span class="langstyle">//INPUT HTML:</span> 
+				<code>onmouseover="<var>someFunction();</var>"</code><br>
+				<span class="indent">&mdash; triggers <code>someFunction()</code> when the mouse enters an element<br>
+					
+				<span class="langstyle">//INPUT HTML:</span> 
+				<code>onmouseout="<var>someFunction();</var>"</code><br>
+				<span class="indent">&mdash; triggers <code>someFunction()</code> when the mouse leaves an element<br>
+				<br>
+				-->
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>
+					document.querySelector( "#<var>exampleId</var>" ).onmouseover = someFunction;
+				</code><br>
+				<span class="indent">
+					&mdash; triggers someFunction when the mouse goes over <var>exampleId</var>
+				</span><br>
+					
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>
+					document.querySelector( "#<var>exampleId</var>" ).onmouseout = someFunction;
+				</code><br>
+				<span class="indent">
+					&mdash; triggers someFunction when the mouse leaves <var>exampleId</var>
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>
+					document.querySelector( "#<var>exampleId</var>" ).onmouseover = "";
+				</code><br>
+				<span class="indent">
+					&mdash; removes the mouseover event from <var>exampleId</var>
+				</span><br>
+					
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>
+					document.querySelector( "#<var>exampleId</var>" ).onmouseout = "";
+				</code><br>
+				<span class="indent">
+					&mdash; removes the mouseout event from <var>exampleId</var>
+				</span><br>				
+			</p>
+			
+			<h2>The scamper of tiny mice...</h2>
+			
+			<p>
+				We have been writing code that responds to many different <strong>events</strong>:
+				<ul>
+					<li>
+						<code>
+							document.querySelector( "#<var>exampleId</var>" ).onclick 
+							= <var>someFunction;</var>
+						</code>
+					</li>
+					<li>
+						<code>
+							document.querySelector( "#<var>exampleId</var>" ).onchange 
+							= <var>someFunction;</var>
+						</code>
+					</li>
+					<li>
+						<code>
+							document.querySelector( "#<var>exampleId</var>" ).onload 
+							= <var>someFunction;</var>
+						</code>
+					</li>
+					<li>
+						<code>
+							document.querySelector( "#<var>exampleId</var>" ).onkeydown 
+							= <var>someFunction;</var>
+						</code>
+					</li>
+					<li>
+						... and it's friends, <code>onkeyup</code>, 
+						and <code>onkeypress</code>
+					</li>
+				</ul>
+			</p>
+			
+			<p>
+				I am sure that you have come across code that changes things 
+				whenever you mouse over top of something.
+				This is how you do that in HTML:
+			</p>
+			
+			<dl>
+				<dt>
+					<code>
+						document.querySelector( "#<var>exampleId</var>" ).onmouseover 
+						= <var>someFunction;</var>
+					</code>
+				</dt>
+				<dd>
+					triggers <code>someFunction</code> whenever the mouse enters an element
+				</dd>
+				<dt>
+					<code>
+						document.querySelector( "#<var>exampleId</var>" ).onmouseout 
+						= <var>someFunction;</var>
+					</code>
+				</dt>
+				<dd>
+					triggers <code>someFunction</code> 
+					whenever the mouse leaves an element
+				</dd>
+			</dl>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/event_onmouseover.asp">
+						onmouseover Event</a> and 
+					<a href="http://www.w3schools.com/jsref/event_onmouseout.asp">
+						onmouseout Event</a>
+				</li>
+			</ul>
+
+			<h2>Example code</h2>
+			<hr />
+			<p>
+				I'm more than just a rock!
+				<img id="imageId" src="https://www.kasandbox.org/programming-images/cute/Rock.png">
+			</p>
+			<hr />
+			<p>
+				When your mouse goes over the rock image (with <code>id="imageId"</code>), 
+				it will trigger the <code>onmouseover</code> event and replace the rock with a heart.
+			</p>
+			<p>
+				When your mouse leaves the image, 
+				it will trigger the <code>onmouseout</code> event and replace the heart back with the rock.
+			</p>
+			<p>Here is the code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to detect mouseovers with Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                12. Oct 2015    - created!                                      - Drapak
+                25. March 2017  - reworked for better style                     - Drapak
+                21. Oct 2018    - reworked again for style and clarity          - Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #imageId{
+                height: 50px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            I'm more that just a rock!
+            </span><span class="sc1">&lt;img</span><span class="sc8"> 
+                </span><span class='withborder'><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span></span><span class="sc8">
+                </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"Move over me to change me!"</span><span class="sc8">
+                </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/Rock.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: replace #imageId with a heart image</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">showHeart</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in showHeart...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class='withborder'><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span></span><span class="sc41">    
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://www.kasandbox.org/programming-images/space/healthheart.png"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: replace #imageId with a rock image</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">showRock</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in showRock...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">        
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://www.kasandbox.org/programming-images/cute/Rock.png"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach showRock and showHeart to #imageId's mouseover and mouseout events</span><span class="sc41">
+            </span><span class='withborder'><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onmouseover</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showHeart</span><span class="sc50">;</span></span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onmouseout</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showRock</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Removing mouseover events</h2>
+			
+			<p>
+				You can remove an <code>onmouseover</code> or <code>onmouseout</code> event 
+				by using javascript to replace the function name with an empty string.
+				For example:
+			</p>
+			
+			<pre><code>document.querySelector( "#<var>exampleId</var>" ).onmouseover = "";	//PROCESS: removes the mouseover event from #exampleId
+document.querySelector( "#<var>exampleId</var>" ).onmouseout = "";	//PROCESS: removes the mouseout event from #exampleId</code></pre>
+			
+			
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-detecting-mouseovers/4648473375408128">Live example: Detecting mouseovers</a></h2>
+			<script src="https://www.khanacademy.org/computer-programming/live-example-detecting-mouseovers/4648473375408128/embed.js?editor=yes&amp;buttons=yes&amp;author=yes&amp;embed=yes"></script>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			//OUTPUT: replace #imageId with a heart image
+			var showHeart = function () {
+				document.getElementById('imageId').src	= "https://www.kasandbox.org/programming-images/space/healthheart.png";
+			}
+
+			//OUTPUT: replace #imageId with a rock image
+			var showRock = function () {
+				document.getElementById('imageId').src	= "https://www.kasandbox.org/programming-images/cute/Rock.png";
+			}
+			
+			//INPUT: attach showRock and showHeart to #imageId's mouseover and mouseout events
+			document.getElementById('imageId').onmouseover	= showHeart;
+			document.getElementById('imageId').onmouseout	= showRock;
+		</script>
+
+	</body>
+</html>

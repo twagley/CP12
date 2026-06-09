@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12</title>
+		<meta 
+			name="description" 
+			content="Computer Programming 12 provides an introduction to programming to high school students">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. July 2015		- created!
+				3/4 September 2015 	- added resources
+				9. September 		- prettified the resources
+				31. January 2017	- fixed up for new procedures
+				4. Feb				- changed criteria to tag matching
+				4. February 2018	- tweaked for awesome
+				6. September 2018	- fixed indentation
+				2. September 2021	- removed Google classroom code
+		-->
+
+		<script>
+		</script>
+
+		<style>
+			iframe {
+				width: 600px;
+				height: 600px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> &mdash; 
+			<em>Assignment: Hello world!</em>
+		</header>
+
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//HTML: <a href="htmlBasic.shtml">Basics</a><br />
+				//STYLE: <a href="styleTags.shtml">Capitalizing tags</a><br />				
+			</p>
+
+
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/5 = HTML: Handed in with correct file name</li>
+				<li>___/5 = HTML: Well formed and matching tags</li>
+			</ul>
+			
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Use Notepad so that in the future you are thankful for real code editors like Sublime
+				</li>		
+				<li>
+					See how information is contained inside descriptive HTML tags
+				</li>		
+				<li>
+					Get an introduction to the general structure of an HTML document
+				</li>		
+				<li>
+					Get used to the flow and rhythm of typing code
+				</li>		
+				<li>
+					Get used to the horrible, horrible pickiness of filenames and code tags
+				</li>				
+			</ul>
+			
+			<h1>A great beginning</h1>
+			<p>Type the example code into your document.</p>
+			<p>
+				Use Notepad as your editor. 
+				You can find it by going to <code>Start Menu</code> &rarr; <code>All Programs</code> &rarr; <code>Accessories</code> &rarr; <code>Notepad</code>.
+			</p>
+			<p>
+				Change the code to suit your personality, 
+				but follow the same format as the example as closely as you can. 
+				Please don't cut and paste: 
+				part of coding is learning the rhythm of typing in the language. 
+			</p>
+			
+			<pre class="notouchy"><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Hello World!</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"My first HTML program!"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--
+		Change log: 
+			8. August 2015  	- created!
+			4. February 2018	- moved script to end for better style
+			6. September 2018 	- fixed shameful indentation
+        --&gt;</span><span class="sc0">
+		
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            /* Your Cascading Style Sheets (CSS) code will go in here someday ...*/
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Hello world!</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Type something prideful and witty in here:
+            "Look! I am a programing </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">superstar!</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">"
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">My favourite website</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            The website that I visit the most often is
+            </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"http://cbc.ca/news"</span><span class="sc1">&gt;</span><span class="sc0">CBC News</span><span class="sc1">&lt;/a&gt;</span><span class="sc0">.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">An awesome image</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://imgs.xkcd.com/comics/sandwich.png"</span><span class="sc1">&gt;</span>
+		
+	<span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// Your Javascript programming code will go in here someday...</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+	
+			<p>
+				The above code will create the following:<br>
+				<iframe src="./supporting/HelloWorld.shtml"></iframe>
+			</p>
+			<h2>Saving your work</h2>
+			<p>
+				In this course, work is passed in electronically to your teacher. 
+				This means that if it does not get saved electronically and passed in, 
+				it does not get marked.
+			</p>
+			<p>
+				As soon as you start working, save your work temporarily to the <code>D:/</code> drive.
+			</p>
+			<p>
+				Save the empty document as 
+				"<code>HelloWorld-LastName.html</code>"  
+				Programmers usually save their documents with the correct filename before they even begin. 
+			</p>
+			<p>
+				Note the <strong>exact characters used</strong> in your filename. 
+				In computer programming you need to be <strong>exact</strong> 
+				about your code and filenames or things won't work the way you would like. 
+				If you do not get the filename correct, you will lose half the points for the assignment.
+				Seriously!
+				<strong>Be precise!</strong>
+			</p>
+			<p>
+				Once you are finished, drag and drop your document into your Google Drive.
+				Then join the Computer Programming class in Google classroom. 
+				Submit <code>HelloWorld-LastName.html</code> to the assignment called <strong>HelloWorld!</strong>
+			</p>
+
+			<h2>Extend and expand</h2>
+			<p>I am curious what else you can do. Do you know any HTML? Put some additional code in there!</p>
+		</article>		
+				
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Bucket list
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript arrays to create a bucket list">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				1. November 2015	- created!									- Drapak
+				28. November 2018	- reworked for better style					- Drapak
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.06 Skill-builder: <em>Bucket list</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: <a href="processUsingArrays.shtml">Using arrays</a>
+				</li>
+
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty 
+				<a href="3.06S-BucketList-LastName.html">template</a> as 
+				"<code>3.06S-BucketList-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use arrays and <code>.join()</code> to create a bucket list of 
+				things to do during your lifetime.<br>
+				The phrase <em>bucket list</em> was inspired by a 
+				<a href="https://en.wikipedia.org/wiki/The_Bucket_List">2007 
+				movie starring Morgan Freeman</a>.
+			</p>
+			
+			<h2>For example</h2>
+
+			<h4>Drapak's bucket list</h4>
+			<div id="outputID"></div>
+			<p>
+				<button onclick="mainProcedure();">
+					Click to learn about my lifelong goals!
+				</button><br>		
+			</p>
+			
+			<h2>Hints</h2>
+			<ol>
+				<li>
+					Create a <code>&lt;div></code> with <code>id="outputId"</code> 
+					in the body of your code
+				</li>
+				<li>
+					Create a button that will trigger <code>mainProcedure</code>
+				</li>
+				<li>initialize your bucket list array</li>
+				<li>
+					create an output function that will insert a result into 
+					<code>outputId</code>
+				</li>
+				<li>
+					create a process function that will <code>.join()</code> 
+					your bucket list array together
+				</li>
+				<li>
+					create a <code>mainProcedure</code> function that will pass the bucket 
+					list array as an arugment/parameter to your process function, and then 
+					pass the results to your output function
+				</li>
+				<li>
+					reread //PROCESS: 
+					<a href="processUsingArrays.shtml">Using arrays</a> for more info
+				</li>
+			</ol>
+			
+		</article>
+ 		<script>
+			var _0xe562=["\x6C\x65\x61\x72\x6E\x20\x61\x75\x74\x6F\x20\x72\x65\x70\x61\x69\x72","\x6F\x76\x65\x72\x63\x6F\x6D\x65\x20\x6D\x79\x20\x66\x65\x61\x72\x20\x6F\x66\x20\x68\x65\x69\x67\x68\x74\x73","\x62\x75\x69\x6C\x64\x20\x61\x20\x64\x65\x63\x6B\x20\x77\x69\x74\x68\x20\x6D\x79\x20\x73\x6F\x6E","\x68\x65\x6C\x70\x20\x70\x65\x6F\x70\x6C\x65\x20\x69\x6E\x20\x74\x72\x6F\x75\x62\x6C\x65\x20\x77\x69\x74\x68\x20\x74\x68\x65\x20\x6C\x61\x77\x20\x66\x69\x6E\x64\x20\x67\x6F\x6F\x64\x20\x77\x6F\x72\x6B","\x62\x75\x69\x6C\x64\x20\x61\x20\x33\x44\x20\x6F\x72\x20\x43\x4E\x43\x20\x70\x72\x69\x6E\x74\x65\x72","\x62\x75\x69\x6C\x64\x20\x61\x20\x73\x68\x65\x64\x20\x77\x69\x74\x68\x20\x6D\x79\x20\x73\x6F\x6E","\x6D\x61\x6B\x65\x20\x61\x20\x73\x63\x75\x6C\x70\x74\x75\x72\x65\x20\x73\x68\x6F\x77\x69\x6E\x67\x20\x74\x68\x65\x20\x66\x72\x69\x65\x6E\x64\x73\x68\x69\x70\x73\x20\x62\x65\x74\x77\x65\x65\x6E\x20\x73\x74\x75\x64\x65\x6E\x74\x73","\x74\x61\x6B\x65\x20\x74\x68\x65\x20\x46\x6F\x75\x6E\x64\x61\x74\x69\x6F\x6E\x20\x59\x65\x61\x72\x20\x50\x72\x6F\x67\x72\x61\x6D\x6D\x65\x20\x61\x74\x20\x4B\x69\x6E\x67\x27\x73\x20\x66\x6F\x72\x20\x66\x75\x6E","\x76\x69\x73\x69\x74\x20\x74\x68\x65\x20\x50\x72\x61\x64\x6F\x20\x6D\x75\x73\x65\x75\x6D\x20\x69\x6E\x20\x53\x70\x61\x69\x6E","\x6D\x61\x6B\x65\x20\x61\x6E\x20\x65\x6E\x63\x6F\x64\x65\x64\x20\x4C\x45\x44\x20\x63\x6C\x6F\x63\x6B","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65","\x6C\x6F\x67","\x69\x6E\x20\x6D\x61\x6B\x65\x4C\x69\x73\x74\x2C\x20\x74\x68\x69\x73\x41\x72\x72\x3A","","\x3C\x6F\x6C\x3E\x3C\x6C\x69\x3E","\x3C\x2F\x6C\x69\x3E\x3C\x6C\x69\x3E","\x6A\x6F\x69\x6E","\x3C\x2F\x6C\x69\x3E\x3C\x2F\x6F\x6C\x3E","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x4C\x69\x73\x74\x2C\x20\x6C\x69\x73\x74\x53\x74\x72\x69\x6E\x67\x3A","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64"];var bucketArr=[_0xe562[0],_0xe562[1],_0xe562[2],_0xe562[3],_0xe562[4],_0xe562[5],_0xe562[6],_0xe562[7],_0xe562[8],_0xe562[9]];var mainProcedure=function(){console[_0xe562[11]](_0xe562[10]);var _0x297dx3=makeList(bucketArr);outputList(_0x297dx3);};var makeList=function(_0x297dx5){console[_0xe562[11]](_0xe562[12]+_0x297dx5);var _0x297dx6=_0xe562[13];_0x297dx6=_0x297dx6+_0xe562[14];_0x297dx6=_0x297dx6+_0x297dx5[_0xe562[16]](_0xe562[15]);_0x297dx6=_0x297dx6+_0xe562[17];return _0x297dx6;};var outputList=function(_0x297dx3){console[_0xe562[11]](_0xe562[18]+_0x297dx3);document[_0xe562[21]](_0xe562[20])[_0xe562[19]]=_0x297dx3;};		
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

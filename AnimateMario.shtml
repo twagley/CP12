@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Animate Mario
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: use CSS to animate Mario">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="CSS animation, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				18. Sept 2015		- created!										- Drapak
+				11. February 2018	- cleaned up code								- Drapak
+									- moved script to end for good style			- Drapak
+				23. September 2018	- reworked style and set up as EXTRA			- Drapak
+				
+		-->
+
+		<style>
+			img {
+				height:	50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 1.07 EXTRA: <em>Animate Mario</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//CSS: <a href="cssAnimation.shtml">Animation</a><br>
+				//STYLE: <a href="styleAvoidLongLines.shtml">Avoid long lines</a><br>
+			</p>
+
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Have fun playing with a different kind of animation
+				</li>
+				<li>
+					Keep in mind: THIS IS NOT THE USUAL WAY TO ANIMATE IN HTML!
+				</li>
+				<li>
+					Learn how to program with shorter lines
+				</li>		
+			</ul>			
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save this 
+				<a href="1.07X-AnimateMario-LastName.html">empty template</a> 
+				as "<code>1.07X-AnimateMario-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+			<h2>The assignment</h2>
+			<p>
+				Use CSS animation to move Mario through a side-scrolling platformer. 
+			</p>
+					
+			<h3>Image bank</h3>
+			
+			<ul>			
+				<li>
+					<img src="http://drapak.ca/cpg/img/marioMap.png">
+					<code>&lt;img src="http://drapak.ca/cpg/img/marioMap.png"></code>
+				</li>
+				<li>
+					<img src="http://drapak.ca/cpg/img/marioGoodGuy.png">
+					<code>&lt;img src="http://drapak.ca/cpg/img/marioGoodGuy.png"></code>
+				</li>
+				<li>
+					<img src="http://drapak.ca/cpg/img/marioBadGuy.png">
+					<code>&lt;img src="http://drapak.ca/cpg/img/marioBadGuy.png"></code>
+				</li>
+			</ul>
+			
+			<h2>Extend and expand</h2>
+			
+			<p>There are other side scrolling platformers out there.</p>
+			<p>
+				Find maps, and movable objects.
+				Link to them and make them move!
+			</p>
+			<p>
+				Can you add the bad guys and have them move as you go?
+				What about making the background sccroll by?
+			</p>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+		<script>
+		</script>
+	</body>
+</html>

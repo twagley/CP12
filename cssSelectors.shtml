@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			CSS Selectors
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to use tags, IDs, and classes in CSS">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				20. Sept 2015	- created!
+				26. Sept		- added learn more link
+				16. Sept 2018	- updated style
+		-->
+
+
+		<style>
+			iframe {
+				margin-left: 50px;
+				height:	300px;
+				width: 700px;
+			}
+			#orangeId {
+				background-color: #FED9A1;
+				color: darkorange;
+			}
+			#floatingId {
+				width:				350px;
+				background-color:	lightGray;
+				color:				darkBlue;
+				border:				2px solid darkBlue;
+				position:			relative;
+				left:				250px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Selectors: tags, Ids, and classes</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">HTML</span> 
+					<code>id="exampleId"</code> 
+					&mdash; sets the <code>id</code> of an element to "exampleId"<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>#exampleId {color: red;}</code> 
+					&mdash; makes element with <code>id="exampleId"</code> red<br />
+				<br />
+
+				<span class="langstyle">HTML</span> 
+					<code>class="exampleClass"</code> 
+					&mdash; sets the <code>class</code> of an element to "exampleClass"<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>.exampleClass {color: blue;}</code> 
+					&mdash; makes all elements with <code>class="exampleClass"</code> blue<br />
+			</p>
+			
+			<h2>What the difference between CSS tags, IDs, and classes?</h2>
+
+			<p>
+				There are many kind of CSS selectors. 
+				The ones that we use in this course are <strong>tags</strong>,
+				<strong>IDs</strong>, and <strong>classes</strong>.
+			</p>
+			
+			<ul>
+				<li>
+					CSS <strong>tag</strong> selectors 
+					&mdash; <code>p {color:red;}</code>&mdash;
+					are used to apply a style to every element in your document using that tag.
+				</li>
+				<li>
+					CSS <strong>Id</strong> selectors 
+					&mdash; <code>#exampleId {color:red;}</code>&mdash;
+					are used to apply a style to a <strong>single</strong> element in your document 
+					with <code>id="exampleId"</code>.
+				</li>
+				<li>
+					CSS <strong>class</strong> selectors 
+					&mdash; <code>.exampleClass {color:blue;}</code>&mdash;
+					are used to apply a style to <strong>multiple</strong> elements in your document 
+					sharing <code>class="exampleClass"</code>.
+				</li>
+			</ul>
+
+			<h3>CSS tag/ID/class example code</h3>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            /* use tag names to apply to HTML tags */
+            p {
+                color: blue;
+            }
+            
+            /* use a hashtag (#) to refer to single Ids */
+            #exampleId {
+                color: red;
+            }
+            
+            /* use a period-dot (.) to refer to a class group*/
+            .exampleClass {
+                font-style: italic;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">CSS tag/ID/class example</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">There are three main CSS selectors that are used most frequently.</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"exampleClass"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Tag selectors</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> 
+            are used to apply a style to HTML tags with the same name
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"exampleClass"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Id selectors</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> are used to apply a style to a 
+            </span><span class="sc1">&lt;em</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"exampleId"</span><span class="sc1">&gt;</span><span class="sc0">single</span><span class="sc1">&lt;/em&gt;</span><span class="sc0"> individual HTML element
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"exampleClass"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Class selectors</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> 
+            are used to apply a style to a group of similar HTML elements
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Knowing when to use each one will be handy later on in 
+            applying styles correctly and in programming Javascript
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span><span class="sc0">
+</span></div></body>
+</html></code></pre>
+			<br />
+			<p>The above code produces:</p>
+			
+			<iframe src="supporting/cssStyleContainers.shtml"></iframe>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-basics">
+						CSS basics
+					</a>,
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-selecting-by-id">
+						CSS: selecting by id
+					</a>, and 
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-selecting-by-class">
+						CSS: selecting by class
+					</a>,
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/css/css_selectors.asp">
+						CSS selectors
+					</a>
+				</li>
+			</ul>
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-css-selectors/4757075115769856">Live example: CSS Selectors</a></h2> 
+			<script src="https://www.khanacademy.org/computer-programming/live-example-css-selectors/4757075115769856/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

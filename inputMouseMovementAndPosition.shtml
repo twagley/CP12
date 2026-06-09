@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: INPUT - Read mouse movement and position</title>
+		<meta name="description" content="Learn how to read mouse movement and position">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				22. November 2015	- created!
+				7. May 2017			- reworked style and examples
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INPUT: <em>Read mouse movements and position</em>
+		</header>
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<pre><code><span class="sc2">//INPUT: listen for mouse movements and get the coordinates
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">onmousemove</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc19 withborder">event</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">topCoordinate</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="withborder sc19">event</span><span class="sc10">.</span><span class="withborder sc11">clientY</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">leftCoordinate</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="withborder sc19">event</span><span class="sc10">.</span><span class="withborder sc11">clientX</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+</span><span class="sc2">// see code example below for a procedure-oriented and object-oriented code examples</span></code></pre>
+			
+			<h2>Listening for mouse movement</h2>
+			<p>Your programs can trigger things whenever a mouse is moved by using the following snippet of code at the end of your <code>&lt;script&gt;</code>:</p>
+			
+			<pre><code><span class="sc19 withborder">document</span><span class="sc10">.</span><span class="sc11">onmousemove</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="withborder sc19">event</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+// code inside here is triggered by mouse movement
+</span><span class="sc10">}</span><span class="sc0"></code></pre>
+			
+			<h2>Find the current mouse position</h2>
+			
+			<p>
+				Once you have the <code class="">event</code> variable 
+				that contains the information about the <code>onmouseover</code> event, 
+				the mouse position can be accessed through two variables:
+			</p>
+			<pre><code><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">topCoordinate</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="withborder sc19">event</span><span class="sc10">.</span><span class="withborder sc11">clientY</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">leftCoordinate</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="withborder sc19">event</span><span class="sc10">.</span><span class="withborder sc11">clientX</span><span class="sc10">;</span><span class="sc0"></code></pre>
+			
+			
+			<p>
+				Because of this, it is very handy to be able to find out the size and orientation of the screen so you can 
+				customize your output for the user. 
+			</p>
+						
+			<h2>Example code</h2>
+			<h3>Current mouse position:</h3>
+			<p>
+				Top: <span id="topID"></span><br />
+				Left: <span id="leftID"></span>
+			</p>
+				
+			<p><br />The above was created with the following <strong>object-oriented</strong> code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Read mouse movement and position</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to read mouse movement and position"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">Current mouse position:</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Top: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topID"</span><span class="sc1">&gt;&lt;/span&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Left: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;
+        </span><span class="sc0">
+	</span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//mouse OBJECT</span><span class="sc41">
+            </span><span class="sc43">//  properties:</span><span class="sc41">
+            </span><span class="sc43">//      .top    -top coordinate in pixels</span><span class="sc41">
+            </span><span class="sc43">//      .left:  -left coordinate in pixels</span><span class="sc41">
+            </span><span class="sc43">//  methods:</span><span class="sc41">
+            </span><span class="sc43">//      .getCurrentPosition( event )    -gets the current mouse position from an onmousemove event</span><span class="sc41">
+            </span><span class="sc43">//      .displayPosition( )             -displays the current position in #topID and #leftID</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mouse</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">  </span><span class="sc43">// top coordinate in pixels</span><span class="sc41">
+                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">  </span><span class="sc43">// left coordinate in pixels</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: get and store the mouse position from the mouse movement event</span><span class="sc41">
+                </span><span class="sc46">getCurrentPosition</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.top</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.clientY</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.clientX</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display the current mouse position</span><span class="sc41">
+                </span><span class="sc46">displayPosition</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'topID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'leftID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: listen for mouse movements</span><span class="sc41">
+            </span><span class="sc46">document.onmousemove</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">mouse.getCurrentPosition</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">mouse.displayPosition</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">   
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<p><br />It could have also been created by the identical <strong>procedurally-oriented</strong> code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Read mouse movement and position</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to read mouse movement and position"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">Current mouse position:</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Top: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topID"</span><span class="sc1">&gt;&lt;/span&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Left: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INPUT: get the current position returned by the mouse event</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getCurrentMousePosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topCoordinate</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.clientY</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftCoordinate</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.clientX</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">    </span><span class="sc43">// there are two parts to the coordinate, so it is best to return it as an object</span><span class="sc41">
+                    </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">topCoordinate</span><span class="sc50">,</span><span class="sc41"> 
+                    </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">leftCoordinate</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: display the current mouse position</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">coordinateObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'topID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">coordinateObj.top</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'leftID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">coordinateObj.left</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">coordinateObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getCurrentMousePosition</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">event</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">displayPosition</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">coordinateObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: listen for mouse movements and trigger mainProcedure each time</span><span class="sc41">
+            </span><span class="sc46 withborder">document.onmousemove</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					MDN on
+					<a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">
+						MouseEvent
+					</a> 
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/jsref/event_clientx.asp">
+						MouseEvent clientX Property
+					</a> 
+				</li>
+			</ul>
+
+
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			//mouse OBJECT
+			// 	properties:
+			// 		.top	-top coordinate in pixels
+			//		.left:	-left coordinate in pixels
+			// 	methods:
+			//		.getCurrentPosition( event )	-gets the current mouse position from an onmousemove event
+			//		.displayPosition( )				-displays the current position in #topID and #leftID
+			var mouse = {
+				top:	0,	// top coordinate in pixels
+				left: 	0,	// left coordinate in pixels
+				
+				//INPUT: get and store the mouse position from the mouse movement event
+				getCurrentPosition: function ( event ) {
+					this.top    = event.clientY;
+					this.left   = event.clientX;
+				},
+				
+				//OUTPUT: display the current mouse position
+				displayPosition: function () {
+					document.getElementById('topID').innerHTML 	= this.top;
+					document.getElementById('leftID').innerHTML	= this.left;
+				}
+			};
+			
+			//INPUT: listen for mouse movements and trigger mainProcedure each time
+			document.onmousemove = function ( event ) {
+				mouse.getCurrentPosition( event );
+				mouse.displayPosition();
+			}	
+		</script>
+	</body>
+</html>

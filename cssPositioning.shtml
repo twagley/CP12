@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			CSS Positioning
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to position elements using CSS">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				15. Sept 2015		- created!
+				16. Sept 			- added buttons to demonstrate each command
+				18. Sept			- removed example 5
+				26. Sept			- added learn more link
+				11. February 2018	- simplified, added the short version
+				16. September 2018	- fixed Id style, long lines, and clarified
+				
+		-->
+
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Positioning</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">CSS</span> 
+				<code>height: 100px;</code> 
+				&mdash; sets the height of an element to 100px<br>
+				<span class="langstyle">CSS</span> 
+				<code>width: 100px;</code> 
+				&mdash; sets the width of an element to 100px<br>
+				<span class="langstyle">CSS</span> 
+				<code>z-index: 2;</code> 
+				&mdash; sets the stack order of an element<br>
+				<br>
+				<span class="langstyle">CSS</span> 
+				<code>position: static;</code> 
+				&mdash; makes an element unmovable<br>
+				<span class="langstyle">CSS</span> 
+				<code>position: fixed;</code> 
+				&mdash; positions according to the browser window<br>
+				<span class="langstyle">CSS</span> 
+				<code>position: relative;</code> 
+				&mdash; positions according to the usual position in the document<br>
+				<span class="langstyle">CSS</span> 
+				<code>position: absolute;</code> 
+				&mdash; positions according to the whole HTML document<br>
+				<br>
+				<span class="langstyle">CSS</span> 
+				<code>top: 100px;</code> 
+				&mdash; positions an element 100px from the top<br>
+				<span class="langstyle">CSS</span> 
+				<code>bottom: 100px;</code> 
+				&mdash; positions an element 100px from the bottom<br>
+				<span class="langstyle">CSS</span> 
+				<code>left: 100px;</code> 
+				&mdash; positions an element 100px from the left<br>
+				<span class="langstyle">CSS</span> 
+				<code>right: 100px;</code> 
+				&mdash; positions an element 100px from the right<br>
+
+
+			</p>
+			
+			<h2>The short version</h2>
+			
+			<code><pre>&lt;style>
+	/* It is helpful to always use position: absolute when you are learning */ 
+	#exampleId {
+		position: 	absolute;
+		top: 		100px;
+		left: 		100px;
+	}
+&lt;/style>
+			</pre></code>
+			
+			<h2>Sometimes you want to change where things are</h2>
+
+			<p>
+				You can use CSS to change the location of things. 
+				Below are three images all in a row. 
+				You can apply the following styles to each of them.
+			</p>
+			
+			<div>
+	            <img
+					id="image0Id"
+					src="https://www.kasandbox.org/programming-images/space/0.png">
+                <img 
+					id="image1Id"
+					src="https://www.kasandbox.org/programming-images/space/1.png">
+                <img 
+					id="image2Id"
+					src="https://www.kasandbox.org/programming-images/space/2.png">
+                <img 
+					id="image3Id"
+					src="https://www.kasandbox.org/programming-images/space/3.png">
+			</div>
+
+			<br>
+			<table>
+				<thead>
+					<tr>
+						<th>Image 0</th>
+						<th>Image 1</th>
+						<th>Image 2</th>
+						<th>Image 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<button type="button" id="position0ButtonId">
+								set <code>position: static;</code>
+							</button>
+						</td>
+						<td>
+
+							<button type="button" id="position1ButtonId">
+								set <code>position: fixed;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="position2ButtonId">
+								set <code>position: relative;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="position3ButtonId">
+								set <code>position: absolute;</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" id="top0ButtonId">
+								set <code>top: 100px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="top1ButtonId">
+								set <code>top: 100px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="top2ButtonId">
+								set <code>top: 100px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="top3ButtonId">
+								set <code>top: 100px;</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" id="left0ButtonId">
+								set <code>left: 200px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="left1ButtonId">
+								set <code>left: 200px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="left2ButtonId">
+								set <code>left: 200px;</code>
+							</button>
+						</td>
+						<td>
+							<button type="button" id="left3ButtonId">
+								set <code>left: 200px;</code>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<script>
+				//INPUT: set up the click events for the position buttons
+				document.getElementById('position0ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image0Id').style.position = 'static'
+					}
+				);
+				document.getElementById('position1ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image1Id').style.position = 'fixed'
+					}
+				);
+				document.getElementById('position2ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image2Id').style.position = 'relative'
+					}
+				);
+				document.getElementById('position3ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image3Id').style.position = 'absolute'
+					}
+				);
+
+				//INPUT: set up the click events for the top buttons
+				document.getElementById('top0ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image0Id').style.top = '100px'
+					}
+				);
+				document.getElementById('top1ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image1Id').style.top = '100px'
+					}
+				);
+				document.getElementById('top2ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image2Id').style.top = '100px'
+					}
+				);
+				document.getElementById('top3ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image3Id').style.top = '100px'
+					}
+				);
+
+				//INPUT: set up the click events for the left buttons
+				document.getElementById('left0ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image0Id').style.left = '200px'
+					}
+				);
+				document.getElementById('left1ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image1Id').style.left = '200px'
+					}
+				);
+				document.getElementById('left2ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image2Id').style.left = '200px'
+					}
+				);
+				document.getElementById('left3ButtonId').addEventListener(
+					"click", function() {
+						document.getElementById('image3Id').style.left = '200px'
+					}
+				);
+			</script>
+
+			<p>
+				<br>
+				So what is happening?
+				Obviously, <code>top: 100px;</code> and <code>left: 200px;</code>
+				place the images to the top and left of things. 
+			</p>
+			<p>
+				But to the top and left of what?
+			</p>
+
+			<h3>It all depends on the positioning mode</h3>
+			
+			<ul>
+				<li>
+					<strong><code>position: static</code></strong>
+					&mdash; makes the element <strong>unmovable</strong>
+				</li>
+				<li>
+					<strong><code>position: fixed</code></strong> 
+					&mdash; sets the position according to <strong>the browser window</strong>
+				</li>
+				<li>
+					<strong><code>position: relative</code></strong> 
+					&mdash; sets the position according to 
+					<strong>the element's normal position</strong>
+				</li>
+				<li>
+					<strong><code>position: absolute</code></strong> 
+					&mdash; sets the position according to <strong>the whole document</strong>
+				</li>
+			</ul>
+			
+			<h2>
+				<strong>Watch out!</strong> 
+				Everything starts off as <code>position: static</code>!
+			</h2>
+			<p>
+				Until you set an HTML to another 
+				<code>position</code> mode, 
+				it <strong>WILL NOT MOVE!</strong>
+			</p>
+			<p>
+				The safest mode for beginners is to use 
+				<code>position: absolute;</code>
+			</p>
+			
+			<h2>
+				<strong>Words of wisdom:</strong>
+				only use <code>top:</code> and <code>left:</code> positions!
+			</h2>
+			<p>
+				People will view your work on different devices.
+				These devices will have screens of different sizes and height:width ratios.
+				To keep your pages visually consistent, avoid using 
+				<code>bottom:</code> and <code>right:</code> positioning.
+			</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/p/css-width-height-and-overflow">
+						height, width, and overflow
+					</a>,
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/p/css-position">
+						CSS position
+					</a>, and
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/p/css-floating-elements">
+						CSS floating elements
+					</a>,
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/css/css_positioning.asp">
+						CSS positioning 
+					</a>
+				</li>
+			</ul>
+
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-css-positioning/6470565471846400">Live example: CSS Positioning</a></h2>
+			<script src="https://www.khanacademy.org/computer-programming/live-example-css-positioning/6470565471846400/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+		</article>						
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

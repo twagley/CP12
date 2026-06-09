@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Images for student projects</title>
+		<meta name="description" content="Images hosted on drapak.ca">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				5. December 2015	- created!
+				20. December 2015	- moved to drapak.ca
+		-->
+
+        <script>
+            var avatarArr = [
+                "leaf-blue.png",
+                "leaf-green.png",
+                "leaf-grey.png",
+                "leaf-orange.png",
+                "leaf-red.png",
+                "leaf-yellow.png",
+                "leafers-seed.png",
+                "leafers-seedling.png",
+                "leafers-sapling.png",
+                "leafers-tree.png",
+                "leafers-ultimate.png",
+                "marcimus.png",
+                "mr-pants.png",
+                "mr-pink.png",
+                "piceratops-seed.png",
+                "piceratops-seedling.png",
+                "piceratops-seed.png",
+                "piceratops-seedling.png",
+                "piceratops-sapling.png",
+                "piceratops-tree.png",
+                "piceratops-ultimate.png",
+                "old-spice-man.png",
+                "orange-juice-squid.png",
+                "aqualine-seed.png",
+                "aqualine-seedling.png",
+                "aqualine-sapling.png",
+                "aqualine-tree.png",
+                "aqualine-ultimate.png",
+                "purple-pi.png",
+                "questionmark.png",
+                "robot_female_1.png",
+                "robot_female_2.png",
+                "robot_female_3.png",
+                "robot_male_1.png",
+                "robot_male_2.png",
+                "robot_male_3.png",
+                "spunky-sam.png"
+            ];
+            
+            var creatureArr = [
+                "Hopper-Happy.png",
+                "Hopper-Cool.png",
+                "Hopper-Jumping.png",
+                "OhNoes.png",
+                "BabyWinston.png",
+                "Winston.png"
+            ];
+            
+            var cuteArr = [
+                "Blank.png",
+                "BrownBlock.png",
+                "ChestClosed.png",
+                "ChestLid.png",
+                "ChestOpen.png",
+                "DirtBlock.png",
+                "DoorTallClosed.png",
+                "DoorTallOpen.png",
+                "EnemyBug.png",
+                "GemBlue.png",
+                "GemGreen.png",
+                "GemOrange.png",
+                "GrassBlock.png",
+                "Heart.png",
+                "Key.png",
+                "PlainBlock.png",
+                "RampEast.png",
+                "RampNorth.png",
+                "RampSouth.png",
+                "RampWest.png",
+                "Rock.png",
+                "RoofEast.png",
+                "RoofNorth.png",
+                "RoofNorthEast.png",
+                "RoofNorthWest.png",
+                "RoofSouth.png",
+                "RoofSouthEast.png",
+                "RoofSouthWest.png",
+                "RoofWest.png",
+                "Selector.png",
+                "ShadowEast.png",
+                "ShadowWest.png",
+                "ShadowNorth.png",
+                "ShadowSouth.png",
+                "ShadowNorthEast.png",
+                "ShadowNorthWest.png",
+                "ShadowSouthEast.png",
+                "ShadowSouthWest.png",
+                "ShadowSideWest.png",
+                "Star.png",
+                "StoneBlock.png",
+                "StoneBlockTall.png",
+                "TreeShort.png",
+                "TreeTall.png",
+                "TreeUgly.png",
+                "WallBlock.png",
+                "WallBlockTall.png",
+                "WaterBlock.png",
+                "WindowTall.png",
+                "WoodBlock.png"
+            ];
+            
+            var spaceArr = [
+                "background.png",
+                "beetleship.png",
+                "collisioncircle.png",
+                "girl1.png",
+                "girl2.png",
+                "girl3.png",
+                "girl4.png",
+                "girl5.png",
+                "healthheart.png",
+                "minus.png",
+                "octopus.png",
+                "planet.png",
+                "plus.png",
+                "rocketship.png",
+                "star.png",
+                "0.png",
+                "1.png",
+                "2.png",
+                "3.png",
+                "4.png",
+                "5.png",
+                "6.png",
+                "7.png",
+                "8.png",
+                "9.png"
+            ];
+
+            var animalArr = [
+                "birds_rainbow-lorakeets.png",
+                "butterfly.png",
+                "butterfly_monarch.png",
+                "cat.png",
+                "cheetah.png",
+                "crocodiles.png",
+                "dog_sleeping-puppy.png",
+                "dogs_collies.png",
+                "fox.png",
+                "horse.png",
+                "kangaroos.png",
+                "komodo-dragon.png",
+                "penguins.png",
+                "rabbit.png",
+                "retriever.png",
+                "shark.png",
+                "snake_green-tree-boa.png",
+                "spider.png"  
+            ];            
+            
+            var landscapeArr = [
+                "beach-at-dusk.png",
+                "beach-in-hawaii.png",
+                "beach-sunset.png",
+                "beach-waves-at-sunset.png",
+                "beach-waves-daytime.png",
+                "beach-with-palm-trees.png",
+                "beach.png",
+                "clouds-from-plane.png",
+                "crop-circle.png",
+                "fields-of-grain.png",
+                "fields-of-wine.png",
+                "lake.png",
+                "lava.png",
+                "lotus-garden.png",
+                "mountain_matterhorn.png",
+                "mountains-and-lake.png",
+                "mountains-in-hawaii.png",
+                "mountains-sunset.png",
+                "sand-dunes.png",
+                "waterfall_niagara-falls.png"
+            ];
+
+            var foodArr = [
+                "bananas.png",
+                "berries.png",
+                "broccoli.png",
+                "brussels-sprouts.png",
+                "cake.png",
+                "chocolates.png",
+                "coffee-beans.png",
+                "croissant.png",
+                "dumplings.png",
+                "fish_grilled-snapper.png",
+                "fruits.png",
+                "grapes.png",
+                "hamburger.png",
+                "ice-cream.png",
+                "mushroom.png",
+                "oysters.png",
+                "pasta.png",
+                "potato-chips.png",
+                "potatoes.png",
+                "shish-kebab.png",
+                "strawberries.png",
+                "sushi.png",
+                "tomatoes.png"
+            ];            
+
+            var holidayArr = [
+                "fireworks-2015.png",
+                "fireworks-in-sky.png",
+                "fireworks-over-harbor.png",
+                "fireworks-scattered.png",
+                "gingerbread-family.png",
+                "gingerbread-house.png",
+                "gingerbread-houses.png",
+                "gingerbread-man.png",
+                "hannukah-dreidel.png",
+                "hannukah-menorah.png",
+                "house-with-lights.png",
+                "reindeer.png",
+                "snow-crystal1.png",
+                "snow-crystal2.png",
+                "snow-crystal3.png",
+                "snowy-slope-with-trees.png",
+                "stocking-empty.png",
+                "xmas-cookies.png",
+                "xmas-ornament-boat.png",
+                "xmas-ornament-on-tree.png",
+                "xmas-ornaments.png",
+                "xmas-presents.png",
+                "xmas-scene-holly-border.png",
+                "xmas-tree-with-presents.png",
+                "xmas-tree.png",
+                "xmas-wreath.png"
+            ];       
+
+			var spriteArr = [
+				"link-down.png",
+				"link-left.png",
+				"link-right.png",
+				"link-up.png",
+				"marioBadGuy.png",
+				"marioGoodGuy.png"
+				];
+			
+            var terrainArr = [
+				"BrownBlock.png",
+				"DirtBlock.png",
+				"GrassBlock.png",
+				"PlainBlock.png",
+				"RoofSouth.png",
+				"StoneBlock.png",
+				"WaterBlock.png",
+				"WoodBlock.png",
+				"WallBlock.png",
+				"TreeUgly.png"
+			];
+			
+            var planetArr = [
+				"Mercury.png",
+				"Venus.png",
+				"Earth.png",
+				"Mars.png",
+				"Jupiter.png",
+				"Saturn.png",
+				"Uranus.png",
+				"Neptune.png",
+			];
+			
+			var gameBoardArr =[
+				"gameBoard-allGoPieces.jpg",
+				"gameBoard-Go-black.png",
+				"gameBoard-Go-white.png",
+				"gameBoard-goBoard.svg",
+				"gameBoard-Monopoly-100Dollar.png",
+				"gameBoard-Monopoly-10Dollar.png",
+				"gameBoard-Monopoly-1Dollar.png",
+				"gameBoard-Monopoly-20Dollar.png",
+				"gameBoard-Monopoly-500Dollar.png",
+				"gameBoard-Monopoly-50Dollar.png",
+				"gameBoard-Monopoly-5Dollar.png",
+				"gameBoard-Monopoly-board.jpg",
+				"gameBoard-Monopoly-boot.png",
+				"gameBoard-Monopoly-car.png",
+				"gameBoard-Monopoly-cat.png",
+				"gameBoard-Monopoly-die.png",
+				"gameBoard-Monopoly-hat.png",
+				"gameBoard-Monopoly-hotel.png",
+				"gameBoard-Monopoly-house.png",
+				"gameBoard-Monopoly-iron.png",
+				"gameBoard-Monopoly-Money.jpg",
+				"gameBoard-Monopoly-ship.png",
+				"gameBoard-Monopoly-thimble.png",
+				"gameBoard-Monopoly-wheelbarrow.png",
+				"gameBoard-monopolyBoard.jpg",
+				"gameBoard-monopolyMoney.jpg",
+				"gameBoard-Parcheesi-blue.svg",
+				"gameBoard-Parcheesi-green.svg",
+				"gameBoard-Parcheesi-red.svg",
+				"gameBoard-Parcheesi-yellow.svg",
+				"gameBoard-parcheesi.png",
+				"gameBoard-parcheesi.svg",
+			
+			];
+			var pacmanLargeArr = [
+				"pacmanBigRight0.png",
+				"pacmanBigRight1.png",
+				"pacmanBigRight2.png"
+			];
+			
+			var pacmanMediumArr = [
+				"pacmanBlinkyFrecklesRight0.png",
+				"pacmanBlinkyFrecklesRight1.png",
+				"pacmanBlinkySlugDownRight.png",
+				"pacmanBlinkySlugUp.png",
+				"pacmanSlug0.png",
+				"pacmanSlug1.png",			
+				"pacmanRedSlug0.png",
+				"pacmanRedSlug1.png",
+				"pacmanBlankMedium.png",
+				"pacmanBlinkyDown0.png",
+				"pacmanBlinkyDown1.png",
+				"pacmanBlinkyLeft0.png",
+				"pacmanBlinkyLeft1.png",
+				"pacmanBlinkyRight0.png",
+				"pacmanBlinkyRight1.png",
+				"pacmanBlinkyUp0.png",
+				"pacmanBlinkyUp1.png",
+				"pacmanClydeDown0.png",
+				"pacmanClydeDown1.png",
+				"pacmanClydeLeft0.png",
+				"pacmanClydeLeft1.png",
+				"pacmanClydeRight0.png",
+				"pacmanClydeRight1.png",
+				"pacmanClydeUp0.png",
+				"pacmanClydeUp1.png",
+				"pacmanInkyDown0.png",
+				"pacmanInkyDown1.png",
+				"pacmanInkyLeft0.png",
+				"pacmanInkyLeft1.png",
+				"pacmanInkyRight0.png",
+				"pacmanInkyRight1.png",
+				"pacmanInkyUp0.png",
+				"pacmanInkyUp1.png",
+				"pacmanPinkyDown0.png",
+				"pacmanPinkyDown1.png",
+				"pacmanPinkyLeft0.png",
+				"pacmanPinkyLeft1.png",
+				"pacmanPinkyRight0.png",
+				"pacmanPinkyRight1.png",
+				"pacmanPinkyUp0.png",
+				"pacmanPinkyUp1.png",
+				"pacmanEyesDown0.png",
+				"pacmanEyesDown1.png",
+				"pacmanEyesLeft0.png",
+				"pacmanEyesLeft1.png",
+				"pacmanEyesRight0.png",
+				"pacmanEyesRight1.png",
+				"pacmanEyesUp0.png",
+				"pacmanEyesUp1.png",
+				"pacmanGhostFlash0.png",
+				"pacmanGhostFlash1.png",
+				"pacmanGhostFlash2.png",
+				"pacmanGhostFlash3.png",
+				"pacmanMoveDown0.png",
+				"pacmanMoveDown1.png",
+				"pacmanMoveDown2.png",
+				"pacmanMoveLeft0.png",
+				"pacmanMoveLeft1.png",
+				"pacmanMoveLeft2.png",
+				"pacmanMoveRight0.png",
+				"pacmanMoveRight1.png",
+				"pacmanMoveRight2.png",
+				"pacmanMoveUp0.png",
+				"pacmanMoveUp1.png",
+				"pacmanMoveUp2.png",
+				"pacmanDeath0.png",
+				"pacmanDeath1.png",
+				"pacmanDeath2.png",
+				"pacmanDeath3.png",
+				"pacmanDeath4.png",
+				"pacmanDeath5.png",
+				"pacmanDeath6.png",
+				"pacmanDeath7.png",
+				"pacmanDeath8.png",
+				"pacmanDeath9.png",
+				"pacmanDeath10.png",
+				"pacmanDeath11.png",
+				"pacmanExplode.png",
+				"pacmanLargeCornerDownRight.png",
+				"pacmanLargeCornerLeftDown.png",
+				"pacmanLargeCornerLeftUp.png",
+				"pacmanLargeCornerUpRight.png",
+				"pacmanLargeHorizontal.png",
+				"pacmanLargeVertical.png",
+				"pacmanPrizeApple.png",
+				"pacmanPrizeCherries.png",
+				"pacmanPrizeFlower.png",
+				"pacmanPrizeGrape.png",
+				"pacmanPrizeKey.png",
+				"pacmanPrizeLemon.png",
+				"pacmanPrizeOrange.png",
+				"pacmanPrizeStrawberry.png",
+				"pacmanScore200.png",
+				"pacmanScore400.png",
+				"pacmanScore800.png",
+				"pacmanScore1600.png",
+			];
+			
+			var pacmanSmallArr = [
+				"pacmanDoubleCornerDownRight.png",
+				"pacmanDoubleCornerLeftDown.png",
+				"pacmanDoubleCornerLeftUp.png",
+				"pacmanDoubleCornerShortDownRight.png",
+				"pacmanDoubleCornerShortLeftDown.png",
+				"pacmanDoubleCornerShortLeftUp.png",
+				"pacmanDoubleCornerShortUpRight.png",
+				"pacmanDoubleCornerUpRight.png",
+				"pacmanDoubleHorizonatalDown.png",
+				"pacmanDoubleHorizonatalEndLeft.png",
+				"pacmanDoubleHorizonatalEndRight.png",
+				"pacmanDoubleHorizonatalUp.png",
+				"pacmanDoubleVerticalLeft.png",
+				"pacmanDoubleVerticalRight.png",
+				"pacmanCornerDoubleDownSingleRight.png",
+				"pacmanCornerDoubleLeftSingleDown.png",
+				"pacmanCornerDoubleUpSingleRight.png",
+				"pacmanCornerSingleLeftDoubleDown.png",
+				"pacmanCornerSingleLeftDoubleRight.png",
+				"pacmanCornerSingleLeftDoubleUp.png",
+				"pacmanSingleCornerLongDownRight.png",
+				"pacmanSingleCornerLongLeftDown.png",
+				"pacmanSingleCornerLongLeftUp.png",
+				"pacmanSingleCornerLongUpRight.png",
+				"pacmanSingleCornerMediumDownRight.png",
+				"pacmanSingleCornerMediumLeftDown.png",
+				"pacmanSingleCornerMediumLeftUp.png",
+				"pacmanSingleCornerMediumUpRight.png",
+				"pacmanSingleCornerShortDownRight.png",
+				"pacmanSingleCornerShortLeftDown.png",
+				"pacmanSingleCornerShortLeftUp.png",
+				"pacmanSingleCornerShortUpRight.png",
+				"pacmanSingleHorizonatalDown.png",
+				"pacmanSingleHorizonatalUp.png",
+				"pacmanSingleVerticalLeft.png",
+				"pacmanSingleVerticalRight.png",
+				"pacmanBlankSmall.png",
+				"pacmanDotLarge.png",
+				"pacmanDotMedium.png",
+				"pacmanDotSmall.png",
+				"pacmanHexadecimal.png",
+				"pacmanHexadecimal1.png",
+				"pacmanHexadecimal2.png",
+				"pacmanHexadecimal3.png",
+				"pacmanHexadecimal4.png",
+				"pacmanHexadecimal5.png",
+				"pacmanHexadecimal6.png",
+				"pacmanHexadecimal7.png",
+				"pacmanHexadecimal8.png",
+				"pacmanHexadecimal9.png",
+				"pacmanHexadecimalA.png",
+				"pacmanHexadecimalB.png",
+				"pacmanHexadecimalC.png",
+				"pacmanHexadecimalD.png",
+				"pacmanHexadecimalE.png",
+				"pacmanHexadecimalF.png",
+				"pacmanLetter0.png",
+				"pacmanLetter1.png",
+				"pacmanLetter2.png",
+				"pacmanLetter3.png",
+				"pacmanLetter4.png",
+				"pacmanLetter5.png",
+				"pacmanLetter6.png",
+				"pacmanLetter7.png",
+				"pacmanLetter8.png",
+				"pacmanLetter9.png",
+				"pacmanLetterA.png",
+				"pacmanLetterB.png",
+				"pacmanLetterC.png",
+				"pacmanLetterD.png",
+				"pacmanLetterE.png",
+				"pacmanLetterF.png",
+				"pacmanLetterG.png",
+				"pacmanLetterH.png",
+				"pacmanLetterI.png",
+				"pacmanLetterJ.png",
+				"pacmanLetterK.png",
+				"pacmanLetterL.png",
+				"pacmanLetterM.png",
+				"pacmanLetterN.png",
+				"pacmanLetterO.png",
+				"pacmanLetterP.png",
+				"pacmanLetterQ.png",
+				"pacmanLetterR.png",
+				"pacmanLetterS.png",
+				"pacmanLetterT.png",
+				"pacmanLetterU.png",
+				"pacmanLetterV.png",
+				"pacmanLetterW.png",
+				"pacmanLetterX.png",
+				"pacmanLetterY.png",
+				"pacmanLetterZ.png",
+				"pacmanLetterCopyright.png",
+				"pacmanLetterCornerDownRight.png",
+				"pacmanLetterCornerLeftDown.png",
+				"pacmanLetterCornerLeftUp.png",
+				"pacmanLetterCornerUpRight.png",
+				"pacmanLetterDash.png",
+				"pacmanLetterExclamationMark.png",
+				"pacmanLetterPeriod.png",
+				"pacmanLetterQuote.png",
+				"pacmanLetterSlash.png",
+				"pacmanLetterSpace.png",
+				"pacmanScore10x.png",
+				"pacmanScore1x.png",
+				"pacmanScore3x.png",
+				"pacmanScore5x.png",
+				"pacmanScore7x.png",
+				"pacmanScoreX00.png",
+			];
+			
+			var pacmanMiscArr = [
+				"pacmanNamco.png",
+				"pacmanScore00.png",
+				"pacmanScore20.png",
+				"pacmanScore30.png",
+				"pacmanScore50.png",
+				"pacmanScorePoints.png",
+			];
+			
+            //OUTPUT: zoom in on one image
+            var showBigImage = function ( imageElement ) {
+                // link to new source
+                document.getElementById('bigImageID').src 
+                    = imageElement.src;
+                // add title of image source
+                document.getElementById('bigImageID').title 
+                    = "Left click to copy image location:\n" 
+                    + imageElement.src;
+                // add click to hide the image again
+                document.getElementById('bigImageID').onclick 
+                    = function () {
+                        hideBigImage();
+                    };
+            }
+            
+            //OUTPUT: hide the zoom image
+            var hideBigImage = function () {
+                // remove the image
+                document.getElementById('bigImageID').removeAttribute('src');
+                // remove the click event
+                document.getElementById('bigImageID').removeAttribute('onclick');
+            }
+            
+            //OUTPUT: this displays the images from the array 
+            var displayImages = function ( sourcePrefix, imageArr, outputID ) {
+                for (i in imageArr) {
+                    // create variables for element and source link
+                    var newImage    = document.createElement("img");
+                    var imageSource = sourcePrefix + imageArr[ i ]
+                    
+                    // add source title, and click function
+                    newImage.src    = imageSource;
+                    newImage.title  = "Right click to copy image location:\n" 
+                                    + imageSource;
+                    newImage.onclick = function () {
+                        showBigImage( this );
+                    }
+                    
+                    // output the image to the page 
+                    document.getElementById( outputID )
+                        .appendChild( newImage );
+                }
+            }
+            
+            // runs when the page is loaded
+            var mainProcedure = function () {
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/avatars/", 
+                    avatarArr, 
+                    'avatarID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/creatures/", 
+                    creatureArr, 
+                    'creatureID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/cute/", 
+                    cuteArr, 
+                    'cuteID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/space/", 
+                    spaceArr, 
+                    'spaceID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/animals/", 
+                    animalArr, 
+                    'animalID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/landscapes/", 
+                    landscapeArr, 
+                    'landscapeID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/food/", 
+                    foodArr, 
+                    'foodID'
+                );
+                displayImages( 
+                    "https://www.kasandbox.org/programming-images/seasonal/", 
+                    holidayArr, 
+                    'holidayID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/terrain/", 
+                    terrainArr, 
+                    'terrainID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/sprites/", 
+                    spriteArr, 
+                    'spriteID'
+                );
+				console.log('displaying planets')
+                displayImages( 
+                    "http://drapak.ca/cpg/img/planets/", 
+                    planetArr, 
+                    'planetID'
+                );
+				console.log('displaying gamebaoard')
+                displayImages( 
+                    "http://drapak.ca/cpg/img/gameBoard/", 
+                    gameBoardArr, 
+                    'gameBoardID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/pacman/", 
+                    pacmanLargeArr, 
+                    'pacmanLargeID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/pacman/", 
+                    pacmanMediumArr, 
+                    'pacmanMediumID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/pacman/", 
+                    pacmanSmallArr, 
+                    'pacmanSmallID'
+                );
+                displayImages( 
+                    "http://drapak.ca/cpg/img/pacman/", 
+                    pacmanMiscArr, 
+                    'pacmanMiscID'
+                );
+            }
+        </script>
+        <style>
+            p {
+                width: 90%;
+            }
+            li {
+                font-size: 16px;
+            }
+            img {
+                max-height: 45px;
+                max-width:  45px;
+                padding: 2px;
+            }
+            img:hover {
+                max-height: 90px;
+                max-width:  90px;
+            }
+            #bigImageID {
+                position:   fixed;
+                max-width:  80%;
+                max-height: 80%;
+                top:        10%;
+                left:       10%;
+            }
+        </style>
+    </head>
+    <body onload="mainProcedure();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; <em>Images for student projects</em>
+		</header>
+
+		<article>
+			<p>
+				Click on the image to view larger.<br /> 
+				Right-click and use <strong>Copy Image Location</strong> 
+				to get the image source address.<br />
+			</p>
+			
+			<h4>
+				Jump to:
+			</h4>
+			<p>
+				<strong>Khan Academy's</strong>
+				<a href="#avatarID">avatars</a> &ndash;
+				<a href="#creatureID">creatures</a> &ndash; 
+				<a href="#cuteID">cute</a> &ndash;
+				<a href="#spaceID">space</a> &ndash;
+				<a href="#animalID">animals</a> &ndash;
+				<a href="#landscapeID">landscapes</a> &ndash;
+				<a href="#foodID">food</a> &ndash;
+				<a href="#holidayID">holiday</a>
+			</p>
+			<p>				
+				<strong>Drapak.ca's</strong>
+				<a href="#spriteID">character sprites</a> &ndash;
+				<a href="#terrainID">terrain</a> &ndash;
+				<a href="#planetID">planets</a> &ndash;
+				<a href="#gameBoardID">board game pieces</a> &ndash;
+				<strong>Pacman:</strong>
+				<a href="#pacmanLargeID">Large</a> &ndash;
+				<a href="#pacmanMediumID">Medium</a> &ndash;
+				<a href="#pacmanSmallID">Small</a> &ndash;
+				<a href="#pacmanMiscID">Misc</a>
+			</p>
+			<img id="bigImageID" />			
+
+			<h2>
+				Images hosted by <a href="http://khanacademy.org">Khan Academy</a>
+			</h2>
+			
+			<h4>Avatars</h4>
+			<p id="avatarID"></p>
+
+			<h4>Creatures</h4>
+			<p id="creatureID"></p>
+
+			<h4>Cute</h4>
+			<p id="cuteID"></p>
+			
+			<h4>Space</h4>
+			<p id="spaceID"></p>
+			
+			<h4>Animals</h4>
+			<p id="animalID"></p>
+					
+			<h4>Landscapes</h4>
+			<p id="landscapeID"></p>
+
+			<h4>Food</h4>
+			<p id="foodID"></p>
+
+			<h4>Holiday</h4>
+			<p id="holidayID"></p>
+
+			
+			<h2>
+				Images hosted by drapak.ca
+			</h2>
+			
+			<h4>Character sprites</h4>
+			<p id="spriteID"></p>
+
+			<h4>Terrain</h4>
+			<p id="terrainID"></p>
+
+			<h4>Planets</h4>
+			<p id="planetID"></p>
+			
+			<h4>Board game pieces</h4>
+			<p id="gameBoardID"></p>
+
+			<h4>Pacman: Large images</h4>
+			<p id="pacmanLargeID"></p>
+
+			<h4>Pacman: Medium images</h4>
+			<p id="pacmanMediumID"></p>
+
+			<h4>Pacman: Small images</h4>
+			<p id="pacmanSmallID"></p>
+
+			<h4>Pacman: Misc images</h4>
+			<p id="pacmanMiscID"></p>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

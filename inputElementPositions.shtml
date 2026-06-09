@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			INPUT - Read element positions
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to read element positions with Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				26. Sept 2015	- created!										- Drapak
+				2. Oct			- added clearer example code					- Drapak
+				5. March 2017	- added code example with clearer style			- Drapak
+				3. October 2018	- updated Id style								- Drapak
+				9. October 2018	- fixed long lines								- Drapak
+				27. Oct 2018	- moved to querySelector						- Drapak
+				2. Nov 2018		- added offsetRight/offsetBottom				- Drapak
+				21. Oct 2019	- corrected example code 						- Tyson Wagley
+		-->			
+		<script>
+
+		</script>
+
+		<style>
+			iframe {
+				height: 300px;
+				width: 600px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INPUT: <em>Read element positions</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>document.querySelector( <var>"#exampleId"</var> ).offsetTop</code><br>
+				<span class="indent">
+					&mdash; returns the top position of <var>#exampleId</var> 
+					in relation to its parent element
+				</span>
+				<br>
+				<br>
+
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>document.querySelector( <var>"#exampleId"</var> ).offsetLeft</code><br>
+				<span class="indent">
+					&mdash; returns the left position of 
+					<var>#exampleId</var>  in relation to its parent element
+				</span>
+			</p>
+			
+			<h2>Find out where something is</h2>
+			
+			<p>
+				When you want to move something around, 
+				you often need to read the current position of something.
+			</p>
+			
+			<p>
+				In Javascript, if you have an HTML element that has an 
+				<code>id</code> and has been set to <code>position: absolute</code>, 
+				you can read the top and left positions of it using the following code:<br>
+				<br>
+				<code>document.querySelector( <var>'#exampleId'</var> ).offsetTop</code><br>
+				<code>document.querySelector( <var>'#exampleId'</var> ).offsetLeft</code>
+			</p>			
+			
+			<h2>Common errors</h2>
+			
+			<p>
+				Although Javascript will allow you to find out the <code>.offsetRight</code> 
+				or <code>.offsetBottom</code> of something, in practical use, you only ever 
+				use <code>.offsetTop</code> and <code>.offsetLeft</code>.
+			</p>
+			
+			<p>
+				<strong>
+					Avoid using <code>.offsetBottom</code> and <code>.offsetRight</code>.
+					They can lead to confusing or buggy code.
+				</strong>
+			</p>
+			
+			<p> 
+				As well, remember that the <code>.offset*</code> properties only ever return
+				a number. It does not give you the units of measure (px).
+			</p>
+	
+			
+			<h2>Example code</h2>
+			<iframe class="indent" src="supporting/inputElementPositions.shtml"></iframe>
+			
+			<p><br>The above code was created with:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">INPUT - Read element positions</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to read element positions with Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                26. Sept 2015   - created!                                  - Drapak
+                2. Oct 2015     - simplified and add console logs           - Drapak
+                5. March 2017   - reworked for clearer programming style    - Drapak
+                9. October 2018 - moved to new id style                     - Drapak
+                27. Oct 2018    - moved to querySelector and clear variables- Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #imageId {
+                width: 100px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">
+            Current position of </span><span class="sc1">&lt;code&gt;</span><span class="sc0">#imageId</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">:
+            </span><span class="sc1">&lt;img</span><span class="sc8"> 
+                </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> 
+                </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/food/sushi.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Show number of pixels from the top of the window
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Show number of pixels from the left of the window
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+ 
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: pop up the number of pixels from the TOP</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayTopPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displayTopPosition...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: read the current position from the top of the screen</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">currentTop</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">offsetTop</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: pop up the current left position</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">currentTop</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: pop up the number of pixels from the LEFT</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayLeftPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displayLeftPosition...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">//INPUT: read the current position from the left of the screen              </span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">currentLeft</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">offsetLeft</span><span class="sc50">;</span><span class="sc41">
+
+                </span><span class="sc43">//OUTPUT: pop up the current top position               </span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">currentLeft</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger displayTopPosition when #topButtonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#topButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">displayTopPosition</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger displayLeftPosition when #leftButtonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#leftButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">displayLeftPosition</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					MSDN on
+					<a href="https://msdn.microsoft.com/en-us/library/ms534303(VS.85).aspx">
+						offsetTop property
+					</a> and 
+					<a href="https://msdn.microsoft.com/en-us/library/ms534200(v=vs.85).aspx">
+						offsetLeft property
+					</a>
+				</li>
+			</ul>
+
+
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

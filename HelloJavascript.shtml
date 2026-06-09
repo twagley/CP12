@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: Hello Javascript!
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Hello Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="First Javascript assignment, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. Sept 2015		- created!										- Drapak
+				26. February 2017	- updated to seperate js from html				- Drapak
+				23. September 2018	- updated code style							- Drapak
+		-->
+
+
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.01 Skill-builder: <em>Hello Javascript!</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//OUTPUT: 
+						<a href="outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>,
+						<code>.innerHTML</code>, and <code>console.log()</code></a>
+					</li>
+					<li>
+						//INPUT: <a href="inputButtons.shtml">Buttons</a>
+					</li>
+				</ul>
+			</p>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Use HTML to create a whole bunch of buttons</li>
+				<li>
+					Include functions that will show that you know how to use 
+					<strong>a selection</strong> of the following:
+					<ol>
+						<li><code>alert()</code></li>
+						<li><code>console.log()</code></li>
+						<li><code>.innerHTML</code> to insert code inside something</li>
+						<li><code>.innerHTML</code> to replace code that already exists</li>
+					</ol>
+				</li>
+				<li>
+					Use <code>onclick</code> javascript to make 
+					the buttons able to trigger functions
+				</li>
+			</ol>
+						
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.01S-HelloJavascript-LastName.html">empty template</a> as 
+				"<code>2.01S-HelloJavascript-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>Extend and expand</h2>
+			<p>Use CSS to style your buttons!</p>
+			<p>
+				Make a keyboard of buttons! Buttons galore!
+			</p>
+			<p>
+				<em>Coding secret:</em>
+				<code>onclick</code> allows almost anything to become a button.
+				Try turning sentences, or words, or pictures into clickable objects.
+			</p>
+			
+		</article>
+			
+		<script>
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

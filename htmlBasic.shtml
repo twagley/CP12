@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Basic HTML</title>
+		<meta name="description" content="Learn how to create a basic HTML Page">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015	- created!
+				26. Sept		- added learn more link
+				15. November 	- added title property to img
+		-->
+
+		<script>
+		</script>
+
+		<style>
+			.strike {
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header><a href="/cpg/">Computer Programming 12</a> &mdash; <em>Basic HTML</em></header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">page HTML</span> <code>&lt;!doctype html&gt;</code> - at top of HTML5 documents<br />
+				<span class="langstyle">page HTML</span> <code>&lt;html&gt;</code> - contains all the HTML code<br />
+				<span class="langstyle">page HTML</span> <code>&lt;head&gt;</code> - information outside the window, like the title<br />
+				<span class="langstyle">page HTML</span> <code>&lt;body&gt;</code> - information inside the window<br />
+				<br/>
+				<span class="langstyle">block HTML</span> <code>&lt;h1&gt;</code> - makes a large heading<br />
+				<span class="langstyle">block HTML</span> <code>&lt;p&gt;</code> - makes a new paragraph<br />
+				<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;strong&gt;</code> - emphasizes text<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;a href=""&gt;</code> - create a hyperlink<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;img src="" title="kittens"&gt;</code> - displays an image with pop up title saying "kittens"
+			</p>		
+
+			<h1>Howdy Programmer!</h1>
+			<p>
+				Welcome to the world of Hyper Text Markup Language - <strong>HTML</strong>. 
+				Think of HTML as a language that controls how things are displayed in a web browser. 
+			</p>
+
+			<h2>The anatomy of a webpage</h2>
+			<p>
+				Many webpages use a combination of several programming languages to make magic happen.
+				They use:
+			</p>
+			<ol>
+				<li>HyperText Markup Language (<strong>HTML</strong>) to show things to the user</li>
+				<li>Cascading Style Sheets (<strong>CSS</strong>) to change the design and visuals of those things</li>
+				<li>and they use <strong>Javascript</strong> to change and process things</li>
+			</ol>
+			<p>
+				We are going to start by learning HTML, but let's see how they all fit in the same page.
+			</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Parts of a Web Page</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"This page shows the different basic parts of a web page"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                27. July 2015   - created!
+        --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<h3>The anatomy explained</h3>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- this shows that this document is written in HTML5 - the most recent version --&gt;</span><span class="sc0">
+    
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- this shows that this page is written in english --&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- the 'head' block of an HTML document contains code to support what is displayed in the body --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- "UTF-8" is a character set that includes a wide range of international characters --&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Parts of a Web Page</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- this is the title that shows up in bookmarks and the title bar --&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"This page shows the different basic parts of a web page"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- the description is used by search engines. Use it to describe your page --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- the "author" meta tag is where the programmer puts theire name --&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                27. July 2015   - created!
+                28. July 2015   - added comments to explain each part of the page
+        --&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- the change log is for you to help you track how you have modified your code --&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            /* ...the Cascading Style Sheets (CSS) design code goes inside the </span><span class="sc1">&lt;style&gt;</span><span class="sc0"> block... */
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- ...the HyperText Markup Language (HTML) text goes inside the &lt;body&gt; block... --&gt;</span><span class="sc0">
+		       
+	</span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// ...the Javascript programming code goes inside the &lt;script&gt; block...</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<h2>Using HTML tags</h2>
+			<p>
+				The programming code of HTML is made of <strong>tags</strong>.
+			</p>
+			<p>
+				For example, <code>&lt;!doctype html&gt;</code> means we are using the latest version of HTML, HTML5.
+			</p>
+			<p>
+				Anything inside the <code>&lt;title&gt;</code> tag appears on the title bar.
+			</p>
+			<p>
+				<code>&lt;h1&gt;</code> tags are used to enclose the biggest headings in a document. 
+				Use them to organize the information in your documents.
+			</p>
+			<p>
+				<code>&lt;p&gt;</code> tags are very common and used to enclose paragraphs in your document.
+			</p>
+			<p>
+				For most tags, you use them as a <strong>pair</strong>, 
+				normal at the beginning and then with a slash at the end: 
+				<code>&lt;strong&gt;emphasized text&lt;/strong&gt;</code>.
+			</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/html-tags-continued/p/html-links">
+						links
+					</a>
+					and 
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/p/html-images">
+						images
+					</a>
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/html/html_links.asp">links</a>, 
+					<a href="http://www.w3schools.com/html/html_images.asp">images</a>, 
+					<a href="http://www.w3schools.com/html/html_paragraphs.asp">paragraphs</a>,
+					<a href="http://www.w3schools.com/html/html_headings.asp">headings</a>, and 
+					<a href="http://www.w3schools.com/html/html_formatting.asp">formatting</a> 
+					&mdash; <strong>Note:</strong> 
+					using <code>&lt;b></code> and <code>&lt;i></code> is no longer considered good programming style.
+				</li>
+			</ul>
+
+			<h3><a href="https://www.khanacademy.org/computer-programming/live-example-hello-world/4834807768023040">Live example: Hello world!</a></h3>
+			<p><script src="https://www.khanacademy.org/computer-programming/live-example-hello-world/4834807768023040/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script></p> 			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

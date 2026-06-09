@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			INIT - Using arrays
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use arrays in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				18. October 2015	-created									- Drapak
+				28. October 2018	- updated style and clarified examples		- Drapak
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Creating arrays</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INIT:</span> 
+				<code>var exampleArr = [];</code><br>
+				<span class="indent">&mdash; define an empty array</span><br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code>exampleArr[ 0 ] = 6;</code><br>
+				<span class="indent">
+					&mdash; assigns 6 to the first element of <var>exampleArr</var>
+				</span><br>
+
+				<span class="langstyle">//INIT:</span> 
+				<code>
+					var stringArr 
+					= [ "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet" ];
+				</code><br>
+				<span class="indent">
+					&mdash; defines an array with the elements listed
+				</span><br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code>var listString = "do,ra,mi,fa,so,la,ti,do";</code><br>
+				<span class="indent">
+					<code>var stringArr = listString.split(',');</code>
+				</span><br>
+				<span class="indent">
+					&mdash; defines a string array with the elements listed
+				</span><br>
+				<br>
+
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>console.log( <var>stringArr[ 0 ]</var> )</code><br>
+				<span class="indent">&mdash; prints "Red" to the console log</span><br>
+			</p>
+			
+			<h2>All your data in a row...</h2>
+			
+			<p>Variables can hold many different kinds of information</p>
+			<dl>
+				<dt>String information</dt>
+				<dd><code>var exampleVar = "Hello!";</code></dd>
+				<dt>Numerical information</dt>
+				<dd><code>var exampleVar = 32;</code></dd>
+				<dt>Boolean (true/false)</dt>
+				<dd><code>var exampleVar = true;</code></dd>
+				<dt>Object information</dt>
+				<dd>
+					<code>var exampleVar = { firstName: "Steve", lastName: "Jobs" };</code>
+				</dd>
+				<dt>Function information</dt>
+				<dd>
+					<code>
+						var exampleVar 
+						= function () { console.log( "I'm inside a function!" ); };
+					</code>
+				</dd>
+			</dl>
+			
+			<p>
+				There is another kind of variable structure called an <strong>array</strong>.
+				Arrays are a <strong>series</strong> of other variables.
+			</p>
+			
+			<p>
+				To create an object, we enclose the object properties inside curly brackets: 
+				<code>{}</code>.
+			</p>
+			
+			<p>
+				But to create an array, we enclose the series inside 
+				<strong>square brackets:</strong> <code>[]</code>.
+				For example:</p>
+			
+			<pre><code>//INIT: set up stringArr
+var stringArr = [
+	"Red",
+	"Orange",
+	"Yellow",
+	"Green",
+	"Blue",
+	
+	"Indigo",
+	"Violet"
+];</code></pre>
+			
+			<pre><code>//INIT: set up numberArr
+var numberArr = [
+	2,
+	3,
+	5,
+	7,
+	11,
+	
+	13,
+	17,
+	19,
+	23,
+	29
+];</code></pre>
+
+			<pre><code>//INIT: set up booleanArr
+var booleanArr = [
+	true,
+	false,
+	true,
+	true,
+	false,
+	
+	true,
+	true
+];</code></pre>
+			
+			<h2>Arrays are numbered starting with zero.</h2>
+		
+			<p>
+				Let's look again at our string array example:
+			</p>
+			
+			<pre><code>//INIT: set up stringArr
+var stringArr = [
+	"Red",
+	"Orange",
+	"Yellow",
+	"Green",
+	"Blue",
+	
+	"Indigo",
+	"Violet"
+];</code></pre>
+
+			<p>
+				We can <strong>index numbers</strong> to find the 
+				<strong>values</strong> of the individual 
+				<strong>elements</strong> of the array.
+			</p>
+			
+			<table>
+				<caption>
+					Understanding the information inside <var>stringArr</var>
+				</caption>
+				<thead>
+					<tr>
+						<th>index</th>
+						<th>value</th>
+						<th>element</th>
+						<th>example</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>0</th>
+						<td>"Red"</td>
+						<td><code>stringArr[ 0 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 0)">
+								click to show the value of <code>stringArr[ 0 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>1</th>
+						<td>"Orange"</td>
+						<td><code>stringArr[ 1 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 1)">
+								click to show the value of <code>stringArr[ 1 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>"Yellow"</td>
+						<td><code>stringArr[ 2 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 2)">
+								click to show the value of <code>stringArr[ 2 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>"Green"</td>
+						<td><code>stringArr[ 3 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 3)">
+								click to show the value of <code>stringArr[ 3 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>4</th>
+						<td>"Blue"</td>
+						<td><code>stringArr[ 4 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 4)">
+								click to show the value of <code>stringArr[ 4 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>5</th>
+						<td>"Indigo"</td>
+						<td><code>stringArr[ 5 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 5)">
+								click to show the value of <code>stringArr[ 5 ]</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<th>6</th>
+						<td>"Violet"</td>
+						<td><code>stringArr[ 6 ]</code></td>
+						<td>
+							<button onclick="showStringArr(this, 6)">
+								click to show the value of <code>stringArr[ 6 ]</code>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p>
+				Notice that the first element of the array is at index zero.
+				Arrays always start counting from zero.
+			</p>
+			<p>
+				This means the last element of an array with length <var>n</var> 
+				will always be at index <var>n - 1</var>.
+			</p>
+			
+			<p>
+				In our example, the seven element 
+				<var>stringArr</var>'s last element is at index 6.
+			</p>
+			
+			<h2>Adding to an empty array</h2>
+			
+			<p>
+				You don't have to create an array all at once.
+				You can create an empty array and then add directly to the array. 
+			</p>
+			
+			<pre><code>//INIT: set up primeNumbersArr
+var primeNumbersArr = [];
+
+primeNumbersArr[ 0 ] = 2;
+primeNumbersArr[ 1 ] = 3;
+primeNumbersArr[ 2 ] = 5;
+primeNumbersArr[ 3 ] = 7;
+primeNumbersArr[ 4 ] = 11;
+
+primeNumbersArr[ 5 ] = 13;
+primeNumbersArr[ 6 ] = 17;
+primeNumbersArr[ 7 ] = 19;
+primeNumbersArr[ 8 ] = 23;
+primeNumbersArr[ 9 ] = 29;
+
+primeNumbersArr[ 10 ] = 31;	
+
+//Note: it helps to group your arrays into fives to help humans count the elements</code></pre>
+			
+			
+			<h2>Displaying a whole array</h2>
+			
+			<p>
+				If you use an array reference, <code>exampleArr</code>, i
+				nstead of an individual array element, <code>exampleArr[0]</code>, 
+				it will return the entire contents of your array separated by commas:
+			</p>
+			
+			<p>
+				For example:
+			</p>
+			<pre><code>//the following line will show all the elements of stringArr, separated by commas:
+document.querySelector( '#buttonId').innerHTML = stringArr;</code><br></pre>
+			<p>
+				<button 
+					onclick="this.innerHTML = stringArr;">
+					Click to trigger 
+					<code>document.querySelector( '#buttonId' ).innerHTML = stringArr;</code>
+				</button>
+			</p>
+			
+			<p>
+				This is really handy for lots of things. 
+				It is very handy for debugging:
+				you can output the contents of arrays to the console log, for example.
+				Check look at the developer console to see what comes out...
+			</p>
+			
+			<pre><code>console.log( 'stringArr:' + stringArr );</code></pre>
+				
+			<h2>Using <code>.split()</code> to create arrays</h2>
+			
+			<p>
+				There is a string method called <code>.split()</code> 
+				that will split a string into an array:
+			</p>
+			
+			<pre><code>//INIT: create an array of notes
+var noteString = "do,ra,mi,fa,so,la,ti,do";
+var noteArr = noteString.split(',');
+
+console.log( 'noteArr:' + noteArr );</code></pre>
+
+			<p>I often use <code>.split()</code> to make typing in arrays easier.</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/arrays/p/intro-to-arrays">
+						Intro to arrays
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_arrays.asp">
+						JavaScript Arrays
+					</a> and
+					<a href="http://www.w3schools.com/js/js_array_methods.asp">
+						JavaScript Array methods
+					</a>and
+					<a href="http://www.w3schools.com/jsref/jsref_split.asp">
+						JavaScript .split()
+					</a>
+				</li>
+			</ul>
+			
+		</article>		
+		<script>
+			//INIT: set up stringArr and primeNumbersArr
+			var stringArr = [
+				"Red",
+				"Orange",
+				"Yellow",
+				"Green",
+				"Blue",
+				
+				"Indigo",
+				"Violet"
+			];
+			
+			var primeNumbersArr = [];
+
+			primeNumbersArr[ 0 ] = 2;
+			primeNumbersArr[ 1 ] = 3;
+			primeNumbersArr[ 2 ] = 5;
+			primeNumbersArr[ 3 ] = 7;
+			primeNumbersArr[ 4 ] = 11;
+
+			primeNumbersArr[ 5 ] = 13;
+			primeNumbersArr[ 6 ] = 17;
+			primeNumbersArr[ 7 ] = 19;
+			primeNumbersArr[ 8 ] = 23;
+			primeNumbersArr[ 9 ] = 29;
+
+			primeNumbersArr[ 10 ] = 31;
+				
+			//OUTPUT: send stringArr to the console
+			console.log( 'stringArr:' + stringArr );			
+			
+			//OUTPUT: replace the triggering element button with the stringArr at indexNumber
+			var showStringArr = function ( thisElement, indexNumber ) {	
+				thisElement.innerHTML = stringArr [ indexNumber ];
+			}
+			
+			//INIT: create an array of notes
+			var noteString = "do,ra,mi,fa,so,la,ti,do";
+			var noteArr = noteString.split(',');
+			
+			console.log( 'noteArr:' + noteArr );
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

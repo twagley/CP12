@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Cakey Clicker</title>
+		<meta 
+			name="description" 
+			content="Use onclick and Javascript style manipulation to create a simple clicking game">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				25. February 2018	- Created! 									- Drapak
+				3. October 2018		- modified for new assignment number 		- Drapak
+				9. October 2018		- moved template link						- Drapak
+				12. Oct 2018	- added changing position resources				- Drapak				
+		-->
+
+		<style>
+			iframe {
+				margin-left:	0px;
+				width: 			90%;
+				height:			800px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//MAKE: 2.05 Hand-in: <em>Cakey Clicker</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//INPUT: <a href="inputButtons.shtml">Buttons</a>
+					</li>
+					<li>
+						//INPUT: <a href="inputText.shtml">Text</a>
+					</li>
+					<br>
+					<li>
+						//INIT: <a href="initVariableAssignment.shtml">Using variables</a>
+					</li>
+					<br>
+					<li>
+						//PROCESS: <a href="processBasicMath.shtml">Basic math</a>
+					</li>
+					<br>
+					<li>
+						//OUTPUT: <a href="outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>, <code>.innerHTML</code>, and <code>console.log()</code></a>
+					</li>
+					<li>
+						//OUTPUT: <a href="outputChangeTextStyles.shtml">Changing text styles</a>
+					</li>
+					<li>
+						//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a>
+					</li>
+					<br>
+					<li>
+						//STYLE: <a href="styleXAndVWherePossible.shtml">Use cut and paste where possible</a>
+					</li>
+					<li>
+						//STYLE: <a href="styleMath.shtml">Space out mathematical expressions</a>
+					</li>
+				</ul>
+			</p>
+
+			<h2>Evaluation</h2>
+			<ul>
+				<li>
+					<strong>___/10 HTML-CSS:</strong>
+					including <strong>ANY TEN</strong> of the following:
+					<ol>
+						<li>a span</li>
+						<li>a heading</li>
+						<li>a table</li>
+						<li>a div for output</li>
+						<li>a list</li>
+						<li>
+							a descriptive paragraph<br>
+							<br>
+							<strong>The following must be inside <code>&lt;style></code>:</strong><br>
+							<br>
+						</li>
+						<li>applying a style to a tag</li>
+						<li>applying a style to an #ID or .class</li>
+						<li>applying a color, opacity, or background color</li>
+						<li>applying a border</li>
+						<li>applying a font size</li>
+						<li>applying the font family, style, or weight</li>
+						<li>applying a width</li>
+						<li>applying text-align or vertical-align</li>
+						<li>applying a position</li>
+						<li>applying a top measurement</li>
+						<li>applying a left measurement</li>
+						<li>applying a display style</li>
+						<li>applying margin-left or margin-right</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 INPUT:</strong> including <strong>ANY FOUR</strong> of:
+					<ol>
+						<li>a text area box</li>
+						<li>an input line</li>
+						<li>buttons</li>
+						<li>things that work with <code>document.getElementById().onclick</code></li>
+						<li>things that work with <code>document.getElementById().onchange</code></li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including:
+					<ol>
+						<li>successfully reading a text input</li>
+						<li>assigning a variable</li>
+						<li>using basic math (font-size, probably)</li>
+						<li>using <code>parseInt()</code> or <code>parseFloat()</code></li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including <strong>ANY FOUR</strong> of:
+					<ol>
+						<li>changing the color or background using Javascript</li>
+						<li>changing the weight or style of a font using Javascript</li>
+						<li>changing the size of a font using Javascript</li>
+						<li>changing the top or left position of something using Javascript</li>
+						<li>changing the border or width of something using Javascript</li>
+						<li>output using <code>.innerHTML</code></li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> 
+					<ol>
+						<li>add your name to the filename</li>
+						<li>write your name as the author</li>
+						<li>update the change log</li>
+						<li>correctly indent everything</li>
+						<li>use lowercase for all your HTML tags</li>
+						<li>use camelCase for all your ids and classes</li>
+						<li>avoid lines greater than 96 characters in length</li>
+						<li>restrict your style code to the head of your HTML file</li>
+						<li>space out your mathematical operators</li>
+						<li>write comments for your if statements</li>
+						<li>use descriptive variable names</li>
+					</ol>
+				</li>
+			</ul>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Use onclick and Javascript style manipulation to create a simple clicking game</li>
+			</ol>
+						
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.05H-CakeyClicker-LastName.html">empty template</a> as 
+				"<code>2.05H-CakeyClicker-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+			<h2>An example</h2>
+			<iframe class="indent" src="supporting/CakeyClicker.html"></iframe>
+
+			
+
+			<script>
+
+			</script>
+					
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

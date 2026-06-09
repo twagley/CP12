@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			High or Low
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to convert your code to function pipelines">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. October 2015	- created!
+				21. October 2018	- updated style and clarified examples		- Drapak
+				4. November 2018	- new exercise based on MyBiggestStart		- Drapak
+
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+		<style>
+			img {
+				width:	80px;
+			}
+			#exampleId body {
+				background-color:	lightYellow;
+				font-family:		Arial;
+				color:				darkOrange;
+			}
+			#exampleId h1, #exampleId h2, #exampleId h3 {
+				color:				brown;
+			}
+			#exampleId h1 {
+				font-size:			40px;
+			}
+			#exampleId #emojiId {
+				position:			relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.13 Skill-builder: 
+			<em>High or Low</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionParametersAndReturns.shtml">Functional programming</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionDefinitionsCallsReferences.shtml">Functions: 
+					Definition, trigger, or reference?</a>
+				</li>
+				<li>
+					//STYLE: 
+					<a href="styleFunctionPipelines.shtml">Use function pipelines</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.13S-HighOrLow-LastName.html">empty template</a> as 
+				"<code>2.13S-HighOrLow-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Here is what the initial program does:
+			</p>
+			
+			<div id="exampleId">
+				<h2>Guess High or Low!</h2>
+				<p>
+					It is the online game where you win <strong>nothing</strong>!
+					Even if you guess correctly!
+				</p>
+				<h3>
+					I am thinking of a number from 1 to 20. What is it?
+				</h3>
+				<p>
+					Your guess: 
+					<input type='text' id='inputId'>
+					<button id='buttonId'>Guess!</button>
+				</p>
+				
+				<h1 id='emojiId'>?</h1>
+				
+				<h3 id='outputId'>Type in a number to start!</h3>			
+			</div>
+			
+			<p>
+				Now convert this program from a sequential program 
+				into one that uses function pipelines.
+			</p>
+
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+
+ 		<script>
+			//INIT: generate a random number when the page loads.
+			const computerGuess = Math.ceil( Math.random() * 20 );
+			
+			//INIT: set up a distance to animate things
+			const ANIMATION_DISTANCE = 20;
+			
+			//MAIN: this does everything in one big blobby function
+			const mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				//INPUT: read in the number string from the input line
+				var inputString	= document.querySelector( '#inputId' ).value;
+				
+				//PROCESS: transform the string into an integer
+				var inputNumber = parseInt( inputString );
+				
+				console.log( 'inputNumber=' + inputNumber + '...' ); 
+				
+				//IF: the number entered is greater than the computer's number
+				if ( inputNumber > computerGuess ) {
+					console.log( "player's guess is higher" );
+					
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Nope. Try something smaller!';
+						
+					//OUTPUT: display a down arrow
+					document.querySelector( '#emojiId' ).innerHTML	= '⬇️';	
+
+					//OUTPUT: animate the emoji up
+					$( '#emojiId' ).animate( 
+						{ top: 			'+=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ top: 			'-=20px' },
+						{ duration: 	50 }
+					);				
+					
+				//IF: the number entered is less than the computer's number
+				} else if ( inputNumber < computerGuess ) {
+					console.log( "player's guess is lower" );
+				
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Nuh uh. Try something bigger!';
+						
+					//OUTPUT: display an up arrow
+					document.querySelector( '#emojiId' ).innerHTML	= '⬆️';
+					
+					//OUTPUT: animate the emoji down
+					$( '#emojiId' ).animate( 
+						{ top: 			'-=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ top: 			'+=20px' },
+						{ duration: 	50 }
+					);				
+													
+				//IF: the number entered is equal to the computer's number
+				} else if ( inputNumber == computerGuess ) {
+					console.log( "player's guess is equal" );
+
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Yay! Got it!';
+						
+					//OUTPUT: display a heart
+					document.querySelector( '#emojiId' ).innerHTML	= '💖';
+					
+					//OUTPUT: animate the emoji to a large font size
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'+=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'-=20px' },
+						{ duration: 	50 }
+					);				
+																		
+				//ELSE: some other condition: not <, >, or =. Probably not a number
+				} else {
+					console.log( 'Oh noes! No number was entered!' );
+
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= "That's not a number! Try again!";
+						
+					//OUTPUT: display an up arrow
+					document.querySelector( '#emojiId' ).innerHTML	= '?';	
+					
+					//OUTPUT: animate the emoji to a smaller font size
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'-=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'+=20px' },
+						{ duration: 	50 }
+					);
+				}
+			}
+			
+
+			//INPUT: run mainProcedure when the button is clicked 
+			//		or the input line changes
+			document.querySelector( '#buttonId' ).onclick = mainProcedure;
+			document.querySelector( '#inputId' ).onchange = mainProcedure;
+		</script>
+	</body>
+</html>

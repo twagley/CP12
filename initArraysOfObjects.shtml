@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: INIT - Creating arrays of objects</title>
+		<meta name="description" content="Learn how to create arrays of objects">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				14. November 2015	-created
+		-->
+
+		<script>
+
+
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Creating arrays of objects</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="indent langstyle">//INIT:</span>  <span class="indent">&mdash; define array of objects</span><br />
+				
+				<pre><code>var flowerArr	=[	
+	{ name: 'rose', 		color: 'red' },		// flowerArr[ 0 ]
+	{ name: 'lilac',	 	color: 'lilac' },	// flowerArr[ 1 ]
+	{ name: 'tiger lily',	 	color: 'orange' },	// flowerArr[ 2 ]
+	{ name: 'bluebells', 		color: 'blue' },	// flowerArr[ 3 ]
+	{ name: 'black-eyed susans', 	color: 'yellow' }	// flowerArr[ 4 ]
+];</code></pre>
+			</p>
+
+			<h2>Storing information in complex ways</h2>
+			<p>We have learned a number of ways of storing information:</p>
+			<ol>
+				<li>
+					Numbers, such as: <br />
+					<code>var <var>numberVariable</var> = 42;</code>
+				</li>
+				<li>
+					Strings, such as: <br />
+					<code>var <var>stringVariable</var> = "Hello world!";</code>
+				</li>
+				<li>
+					Functions, such as: <br />
+					<code>var <var>mainProcedure</var> = function () { alert( 'Hello world!' ) }</code>
+				</li>
+				<li>
+					Arrays, such as: <br />
+					<code>var <var>marxArray</var> = [ "Harpo", "Groucho", "Chico", "Karl" ];</code>
+				</li>
+				<li>
+					Objects, such as: <br />
+					<code>var <var>chickenObject</var> = { name: "Plucky", taste: "quite good!" };</code>
+				</li>
+				<!--
+				<li>
+					And arrays of arrays (two-dimensional arrays), such as: <br />
+					<code>var <var>twoDimensionalArr</var> = [ [1,0,1], [0,1,0], [1,0,1] ];</code>
+				</li>
+				-->
+			</ol>
+			
+			<p>However, most real data worth processing is complex, and combines many of these together.</p>
+			
+			<p>These can be combined in many ways: arrays of objects, objects of arrays, arrays of arrays, and so on.</p>
+			
+			<h2>Arrays of objects</h2>
+			
+			<p>Let me give you a simple example using cars in a parking lot. Let's say that I have an object that I use to describe a car:</p>
+			<pre><code>var <var>myCarObject</var> = {
+	<var>make</var>:	"Toyota",
+	<var>model</var>:	"Yaris", 
+	<var>year</var>:	2007,
+	<var>colour</var>:	"blue"
+};</code></pre>
+			
+			<p>
+				Great, there's one car. 
+				But there is more than one car in the lot. 
+				There are three! So let's add the others...
+			</p>
+			
+			<pre><code>var <var>jeremysCarObject</var> = {
+	<var>make</var>:	"Ariel",
+	<var>model</var>:	"Atom", 
+	<var>year</var>:	2008,
+	<var>colour</var>:	"deathly silver"
+	};	
+
+var <var>maysCarObject</var> = {
+	<var>make</var>:	"Rolls-Royce",
+	<var>model</var>:	"Phantom", 
+	<var>year</var>:	1956,
+	<var>colour</var>:	"sterling silver"
+	};</code></pre>
+			
+			<p>So let's check that you understand this:</p>
+			<table>
+				<tr>
+					<th>myCarObject.colour</th>
+					<td class="question" data-answer="blue"></td>
+				</tr>
+				<tr>
+					<th>jeremysCarObject.year</th>
+					<td class="question" data-answer="2008"></td>
+				</tr>
+				<tr>
+					<th>maysCarObject.colour</th>
+					<td class="question" data-answer="sterling silver"></td>
+				</tr>
+				<tr>
+					<th>jeremysCarObject.make</th>
+					<td class="question" data-answer="Ariel"></td>
+				</tr>
+			</table>
+			
+			<h2>An array of objects</h2>
+			<p>
+				Since we have three cars in the parking lot, it would make sense that we would link them together.
+				In fact, we can join them into an array!
+			</p>
+			<code><pre>var <var>parkingLot</var> = [
+	{ 	make:	"Toyota",		// parkingLot[ 0 ]
+		model:	"Yaris", 
+		year:	2007,
+		colour:	"blue" },
+		
+	{	make:	"Ariel",		// parkingLot[ 1 ]
+		model:	"Atom", 
+		year:	2008,
+		colour:	"deathly silver" },
+		
+	{	make:	"Rolls-Royce",		// parkingLot[ 2 ]
+		model:	"Phantom", 
+		year:	1956,
+		colour:	"sterling silver" }
+];</pre></code>
+			
+			<p>Now we have an array with three cars inside it, each with their own properties. <var>parkingLot</var> now has a structure like this:</p>
+			
+			<table>
+				<tr>
+					<th>parkingLot</th>
+					<th>[0]</th>
+					<th>[1]</th>
+					<th>[2]</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<var>make</var>:	"Toyota",&nbsp;&nbsp;&nbsp;<br />
+						<var>model</var>:	"Yaris", <br />
+						<var>year</var>:	2007,<br />
+						<var>colour</var>:	"blue"
+					</td>
+					<td>
+						<var>make</var>:	"Ariel",<br />
+						<var>model</var>:	"Atom", <br />
+						<var>year</var>:	2008,<br />
+						<var>colour</var>:	"deathly silver"&nbsp;&nbsp;&nbsp;
+					</td>
+					<td>
+						<var>make</var>:	"Rolls-Royce",<br />
+						<var>model</var>:	"Phantom", <br />
+						<var>year</var>:	1956,<br />
+						<var>colour</var>:	"sterling silver"&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+			</table>
+			
+			<p>
+				We now have an array of objects! 
+				Let's check to see if you understand this...
+			</p>
+
+			<table>
+				<tr>
+					<th>What is <var>parkingLot[2].make</var>?</th>
+					<td class="question" data-answer="Rolls-Royce"></td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[0].year</var>?</th>
+					<td class="question" data-answer="2007"></td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[1].model</var>?</th>
+					<td class="question" data-answer="Atom"></td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[2].year</var>?</th>
+					<td class="question" data-answer="1956"></td>
+				</tr>
+			</table>			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					drapak.ca's
+					<a href="processUsingArraysOfObjectsToCreateATable.shtml">
+						Using arrays of objects to create a table
+					</a>
+					<a href="processUsingArraysOfObjectsToCreateAMap.shtml">
+						Using arrays of objects to create a map
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+			<h2>Code example</h2>
+			<hr />
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code></code></pre>
+			-->
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

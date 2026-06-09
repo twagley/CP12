@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			INIT - Using libraries
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use libraries in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. October 2015	- created
+				25. March 2017	- moved and updated to jquery 3.0
+				25. March 2018	- updated to jQuery 3.3.1
+		-->
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Using libraries</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">jQuery //INIT:</span> 
+				<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;</code><br />
+				<span class="indent">&mdash; loads jQuery library</span><br />
+			</p>
+			
+			<h2>jQuery and using libraries</h2>
+
+			<p>
+				Javascript is a full and capable language with pretty good (although not 
+				perfect) fundamentals.
+				It compares well with other languages. 
+				However, while it is possible to do a great many things with Javascript, 
+				it is often a lot of work to do it.
+				Programmers will often create sets of functions and procedures 
+				that will automate repetitive, programming intensive tasks. 
+				For example, if you are constantly programming maps into your programs, 
+				you will want to make one great set of code that you can then borrow
+				and use in many of your other programs.
+			</p>
+
+			<p>	
+				This set of code is called a <strong>library</strong>.
+				Code libraries can share a set of useful programming functions to more than one
+				program. I have made dozens of code libraries in the past to support large or
+				repetitive projects. For example, if I am constantly validating user security
+				among a couple hundred web pages, I will write one shared library that will
+				help apply security consistently and with less effort. Writing one library to
+				use with many programs means less work and less repetition.
+			</p>
+			
+			<h3>Introducing jQuery</h3>
+			<p>
+				<strong>jQuery</strong> is a set of libraries developed by Google to help
+				make and run Google web apps.
+				The home of the jQuery community is at: <a href="jquery.com">jquery.com</a>.
+			</p>
+			<p>jQuery's libraries allow you to do things like:</p>
+				<ul>
+					<li>animate things easily and simply</li>
+					<li>handle input events a little more gracefully</li>
+					<li>handle reading data from outside sources</li>
+					<li>handle making webpages work well on different devices</li>
+					<li>and more</li>
+				</ul>
+			<p>In this lesson, we will be using jQuery to simplify <strong>animation</strong>.</p>
+
+			<h3>Linking the jQuery library to your code</h3>
+			<p>
+				In the head of your document, you can add the jQuery library by adding this 
+				before your <code>&lt;script&gt;</code>:</p>
+			<p>
+				<code>
+					&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+				</code>
+			</p>
+			<p>
+				Every time your page is loaded, it will now contact a google webserver, 
+				and download the library so that your browser can use it.
+				This slows down the load speed of your page a little.
+				Some people download their own copy of the library and point the 
+				<code>&lt;script src="..."&gt;</code> to their downloaded copy. 
+				Sometimes this actually slows things down more &mdash; 
+				it all depends on internet traffic and server power.
+			</p>
+			
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-js-jquery">
+						HTML/JS: Making webpages interactive with jQuery
+					</a>
+				</li>
+				<li>
+					jQuery's 
+					<a href="http://api.jquery.com/">
+						api documentation
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/outputChangePosition.shtml"></iframe>
+
+			<p>...is made with the following code:</p>
+			<pre><code></code></pre>
+			-->
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

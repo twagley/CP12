@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Formula Solver
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to read text input, apply style changes, and calculate things">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. Sept 2015	- created!											- Drapak
+				3. March 2017	- reworked for new programming style				- Drapak
+				23. September 2018	 - moved to to 2.04 and updated style			- Drapak
+		-->
+
+
+		<style>
+
+		</style>
+	</head>
+
+	<body id="bodyID">
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.04 Skill-builder: <em>Formula solver</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//INIT: 
+						<a href="initVariableAssignment.shtml">Using variables</a>
+					</li>
+					<li>
+						//PROCESS: <a href="processBasicMath.shtml">Basic math</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleMath.shtml">Space out mathematical expressions</a>
+					</li>
+					<br />
+					<li>
+						math.com's 
+						<a href="http://www.math.com/tables/tables.htm">formulas 
+						and tables</a> 
+					</li>
+					<li>
+						basic-mathematics.com's 
+						<a href="http://www.basic-mathematics.com/basic-math-formulas.html">basic 
+						math formulas</a>
+					</li>
+				</ul>
+			</p>
+
+			<h2>The assignment</h2>
+
+			<p>
+				Create a page that will calculate the answer to a formula, 
+				given some information.
+			</p>
+			
+			<ol>
+				<li>Choose a formula for you to calculate</li>
+				<li>
+					Create a the HTML of your page. 
+					You will need:
+				</li>
+				<ul>
+					<li>A title</li>
+					<li>A description of what your page will do</li>
+					<li>An input line for the user to enter something</li>
+					<li>A button to trigger the calculations</li>
+					<li>A place for an answer to appear</li>
+				</ul>
+				<li>Give each text input, button, and output area an ID</li>
+				<li>
+					Use Javascript to attach <code>onclick</code> to buttons 
+					and <code>onchange</code> to text input areas
+				</li>
+				<li>
+					Create a function that will:
+				</li>
+				<ol>
+					<li>read the input line, and store the value in a variable</li>
+					<li>perform a calculation, and store the result in a variable</li>
+					<li>output the result into an element using <code>.innerHTML</code></li>
+				</ol>
+			</ol>
+
+			<h4>
+				HINT: look carefully at the //PROCESS: 
+				<a href="processBasicMath.shtml">Basic math</a> example code
+			</h4>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.04S-FormulaSolver-LastName.html">empty template</a> as 
+				"<code>2.04S-FormulaSolver-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Use CSS to style your page.
+			</p>
+			<p>
+				Find the most complex formula you can with multiple variables.
+			</p>
+			
+		</article>
+			
+		<script>
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

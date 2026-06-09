@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Exam description</title>
+		<meta name="description" content="Exam description for Computer Programming 12">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--This page creates the skill checklist and exam proposal for the CPG 12 exam project
+		
+			Created:	21. May 2015
+			Updated:	22. May 2015	- added examples for the project
+						13. December	- reworked for Fall 2015
+						2. January 2016	- added hints
+						29. May 2017	- Removed claimed ideas
+		-->
+
+		<script>
+		</script>	
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//EXAM: <em>Skills description</em>
+		</header>
+
+		<article>
+			<h2>The Assignment</h2>
+			<p>
+				You are going to individually create a program that demonstrates the skills you have learned this semester.
+				Each of you will choose a different program to make. 
+				Claim your project early.
+			</p>
+			
+			<p>
+				It is up to you to ensure that you demonstrate all the skills required.
+				Your exam will be marked according to the specific skills you show in your project. 
+				You will get credit for that skill if it works naturally and purposefully as part of solving your program's task. 
+			</p>
+						
+			<h2>Exam evaluation (The exam is worth 20% of your final mark)</h2>
+			<ul>
+				<li><strong>10%</strong> - //HTML</li>
+				<li><strong>10%</strong> - //CSS</li>
+				<li><strong>5%</strong> - //INIT</li>
+				<li><strong>5%</strong> - //INPUT</li>
+				<li><strong>15%</strong> - //PROCESS</li>
+				<li><strong>5%</strong> - //OUTPUT</li>
+				<li><strong>20%</strong> - //Programming structure</li>
+				<li><strong>20%</strong> - //STYLE</li>
+				<li><strong>10%</strong> - //CHECKLIST</li>
+			</ul>
+		
+			<h2>Questions to ask before you start</h2>
+			
+			<ol>
+				<li>What will you program do?</li>
+				<li>What will your user interface look like?</li>
+				<li>What variables and data structures will you need to store information?</li>
+				<li>What will you have to set up during initialization?</li>
+				<li>What will you use for input?</li>
+				<li>Please list the processing functions/methods that will be required:</li>
+				<li>What will you do for output?</li>
+				<li>How will you use an object oriented programming in your program?</li>
+			</ol>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Please save your work as "<code>Exam-LastName.html</code>".
+			</p>
+			
+ 
+			<h2>Some examples of applicable programs</h2>
+			<ul>
+				<li>A simple game: A version of X's and O's, hangman, minesweeper, connect four, 2048, checkers, chess</li>
+				<li>A unit-to-unit battle simulator</li>
+				<li>A program to demonstrate properties of physics, chemistry, biology, or another science (eg, the game of life)</li>
+				<li>A fractal generator or math toy</li>
+				<li>A twitter bot</li>
+				<li>A statistics viewer or analyser</li>
+				<li>A random encounter generator</li>
+				<li>An interactive map</li>
+				<li>A sound board</li>
+				<li>A inventory checklist</li>
+				<li>An online shopping cart</li>
+				<li>A bank account balancer</li>
+				<li>Team game roster creator</li>
+				<li>An online portfolio: photo gallery, sound clips, video clips</li>
+				<li>A dramatic experience creator</li>
+				<li>A military organization tool</li>
+				<li>A car price calculator</li>
+				<li>An interactive graduation ceremony</li>
+				<li>A news site</li>
+				<li>A stock monitor</li>
+				<li>and so much more...</li>
+				<li>a dating sim</li>
+				<li>Conway's game of life</li>
+				<br />
+				<li><a href="examples/SieveExample.html">Sieve of Eratosthenes</a></li>
+				<li><a href="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-map-of-cities-of-the-world/5512987497070592">A map creator</a></li>	
+			</ul>
+			
+			<h2>Hints</h2>
+			<ul>
+				<li>Get things working in <strong>bite-sized</strong> chunks.</li>
+				<li>Use console logs to tell you where you are in your code.</li>
+				<li>Use console logs to tell you what values your variables contain.</li>
+				<li>Do CSS work when you are stuck or need a break.</li>
+				<li>Plan your data structures carefully before you start.</li>
+				<li>Have a clear definition of what you want input and what you want to output. This makes the process much easier.</li>
+				<li>When looking online for advice, keep in mind that the quality of publicly available code is iffy. Get me to take a quick look at it...</li>
+			</ul>
+			<!--
+			<h2>Claimed ideas</h2>
+			<ul>
+				<li>JC &ndash; </li>
+				<li>LC &ndash; </li>
+				<li>SC &ndash; </li>
+				<li>MC &ndash; </li>
+				<li>AM &ndash; </li>
+				<li>LI &ndash; </li>
+				<li>MJ &ndash; </li>
+				<li>DK &ndash; </li>
+				<li>KL &ndash; </li>
+				<li>MM &ndash; </li>
+				<li>AM &ndash; </li>
+				<li>DM &ndash; </li>
+				<li>NO &ndash; </li>
+				<li>SP &ndash; </li>
+				<li>JP &ndash; </li>
+				<li>TP &ndash; </li>
+				<li>SP &ndash; </li>
+				<li>HR &ndash; </li>
+				<li>CSa &ndash; </li>
+				<li>CSl &ndash; </li>
+				<li>CT &ndash; </li>
+				<li>WT &ndash; </li>
+				<li>MT &ndash; </li>
+				<li>SW &ndash; </li>
+				<li>IY &ndash; </li>
+			</ul>
+			
+			-->
+ 		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>
+			
+ 
+ 
+
+ 
+
+
+
+ 
+

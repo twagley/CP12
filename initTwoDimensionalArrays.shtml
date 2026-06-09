@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			INIT - Creating two dimensional arrays
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to create two dimensional arrays">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				11. November 2015	-created									- Drapak
+				9. Dec 2018			- updated style 							- Drapak
+		-->
+
+		<script>
+
+
+		</script>
+		<style>
+			td, th {
+				padding: 8px;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Creating two dimensional arrays</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="indent langstyle">//INIT:</span>  <span class="indent">&mdash; define a two dimensional array</span><br>
+				
+				<pre><code>var exampleArr	=[	// rows 0-3, columns 0-3
+	[0,1,0,0], // row 0 = exampleArr [ 0 ]
+	[0,1,1,0], // row 1 = exampleArr [ 1 ]
+	[0,0,1,0], // row 2 = exampleArr [ 2 ]
+	[0,0,1,0]  // row 3 = exampleArr [ 3 ]
+];</code></pre>
+			</p>
+			
+			<h2>Two dimensional arrays</h2>
+			
+			<p>
+				You are quite familiar with one-dimensional arrays by now.
+				You so you know that...
+			</p>
+			
+			<pre><code>
+var <var>colourArray</var> =[
+	"Red", 			<var>// element 0</var>
+	"Orange", 		<var>// element 1</var>
+	"Yellow", 		<var>// element 2</var>
+	"Green", 		<var>// element 3</var>
+	"Blue", 		<var>// element 4</var>
+	"Indigo", 		<var>// element 5</var>
+	"Violet"		<var>// element 6</var>
+];</code></pre>
+			
+			<p>...will create <var>colorArray</var> with the following structure:</p>
+			
+			<table>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+					<td class="withborder">5</td>
+					<td class="withborder">6</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Red</td>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+					<td class="withborder">Violet</td>
+				</tr>
+			</table>
+			
+			<h3>Introducing two-dimensional arrays</h3>
+			
+			<p>Now imagine an array where each element is an array, like this:</p>
+			
+			<pre><code>
+var <var>sampleArray</var> =<strong>[</strong>	
+	[ <var>"Cyan"</var>, 	<var>"Yellow"</var>, 	<var>"Magenta"</var>	]<strong>,</strong>		<var>// row 0</var>
+	[ <var>1</var>, 		<var>2</var>, 		<var>3</var>		]<strong>,</strong>		<var>// row 1</var>
+	[ <var>"a"</var>, 		<var>"b"</var>, 		<var>"c"</var>		]<strong>,</strong>		<var>// row 2</var>
+	[ <var>"gold"</var>, 	<var>"silver"</var>, 	<var>"bronze"</var>		]		<var>// row 3</var>
+<strong>];</strong></code></pre>
+			
+			<p>
+				This will create a <strong>two dimensional array</strong>, 
+				with data stored like this:
+			</p>
+			
+			<table>
+				<tr>
+					<th></th>
+					<th>[x][0]</th>
+					<th>[x][1]</th>
+					<th>[x][2]</th>
+				</tr>
+				<tr>
+					<th>[0][x]</th>
+					<td  >
+						sampleArray[0][0] = 
+						<span class="question" data-answer="Cyan"></span>
+					</td>
+					<td  >
+						sampleArray[0][1] = 
+						<span class="question" data-answer="Yellow"></span>
+						</td>
+					<td  >
+						sampleArray[0][2] = 
+						<span class="question" data-answer="Magenta"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>[1][x]</th>
+					<td  >
+						sampleArray[1][0] = 
+						<span class="question" data-answer="1"></span>
+					</td>
+					<td  >
+						sampleArray[1][1] = 
+						<span class="question" data-answer="2"></span>
+					</td>
+					<td  >
+						sampleArray[1][2] = 
+						<span class="question" data-answer="3"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>[2][x]</th>
+					<td >
+						sampleArray[2][0] = 
+						<span class="question" data-answer="a"></span>
+					</td>
+					<td  >
+						sampleArray[2][1] = 
+						<span class="question" data-answer="b"></span>
+					</td>
+					<td  >
+						sampleArray[2][2] = 
+						<span class="question" data-answer="c"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>[3][x]</th>
+					<td  >
+						sampleArray[3][0] = 
+						<span class="question" data-answer="gold"></span>
+					</td>
+					<td   >
+						sampleArray[3][1] = 
+						<span class="question" data-answer="silver"></span>
+					</td>
+					<td   >
+						sampleArray[3][2] = 
+						<span class="question" data-answer="bronze"></span>
+					</td>
+				</tr>
+			</table>
+			
+			<p>
+				Take a guess which values will contained in each cell, and then click to see if you are right.
+			</p>
+			
+			<!--
+			<h3>A quick review of how to make a table in HTML</h3>
+			
+			<p>Remember that a table is a collection of table rows (<code>&lt;tr></code>) that are broken into individual cells (<code>&lt;td></code>).</p>
+			
+			<p>So the following code...</p>
+			
+			<pre><code>
+	&lt;table>
+		&lt;caption><var>A table of awesome</var>&lt;/caption>
+		
+		&lt;tr>
+			&lt;th>&lt;/th>
+			&lt;th><var>[x][0]</var>&lt;/th>
+			&lt;th><var>[x][1]</var>&lt;/th>
+			&lt;th><var>[x][2]</var>&lt;/th>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[0][x]</var>&lt;/th>
+			&lt;td><var>[0][0]</var>&lt;/td>
+			&lt;td><var>[0][1]</var>&lt;/td>
+			&lt;td><var>[0][2]</var>&lt;/td>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[1][x]</var>&lt;/th>
+			&lt;td><var>[1][0]</var>&lt;/td>
+			&lt;td><var>[1][1]</var>&lt;/td>
+			&lt;td><var>[1][2]</var>&lt;/td>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[2][x]</var>&lt;/th>
+			&lt;td><var>[2][0]</var>&lt;/td>
+			&lt;td><var>[2][1]</var>&lt;/td>
+			&lt;td><var>[2][2]</var>&lt;/td>
+		&lt;/tr>
+	&lt;/table>
+			</code></pre>
+			
+			<p>...will create this table: (except for the red borders, that's just so you can see the cells clearly...)</p>
+			
+			<table>
+				<caption>A table of awesome</caption>
+				<tr>
+					<th class="withborder"></th>
+					<th class="withborder">[x][0]</th>
+					<th class="withborder">[x][1]</th>
+					<th class="withborder">[x][2]</th>
+				</tr>
+				<tr>
+					<th class="withborder">[0][x]</th>
+					<td class="withborder">[0][0]</td>
+					<td class="withborder">[0][1]</td>
+					<td class="withborder">[0][2]</td>
+				</tr>
+				<tr>
+					<th class="withborder">[1][x]</th>
+					<td class="withborder">[1][0]</td>
+					<td class="withborder">[1][1]</td>
+					<td class="withborder">[1][2]</td>
+				</tr>
+				<tr>
+					<th class="withborder">[2][x]</th>
+					<td class="withborder">[2][0]</td>
+					<td class="withborder">[2][1]</td>
+					<td class="withborder">[2][2]</td>
+				</tr>
+			</table>
+			-->
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					drapak.ca's
+					<a href="processUsingTwoDimensionalArrays.shtml">
+						Using two-dimensional arrays and nested loops
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+			<h2>Code example</h2>
+			
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code></code></pre>
+			-->
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

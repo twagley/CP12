@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Get your personal data
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use JSON and .get to retrieve your personal data">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. November 2018	- created 									- Drapak
+				
+		-->
+
+		<style>
+			iframe {
+				width: 50%;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.03 EXTRA: <em>Get your personal data</em>
+		</header>
+				
+		<article>
+
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INPUT: <a href="inputGet.shtml">Getting information from websites</a>
+				</li>
+				<li>
+					//PROCESS: <a href="processJSON.shtml">
+//PROCESS: JSON — Bundling data for transfer</a>
+				</li>
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Save the <a href="3.03X-GetYourPersonalData-LastName.html">template</a> as: 
+				"<code>3.03X-GetYourPersonalData-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/GetYourDemographicData.html"></iframe>
+			
+			
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Online demographic data</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Create a page that uses Javascript to grab your online demographics data"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!--
+            20. November 2018   - Created                                       - Drapak
+            
+            Finished:   
+        --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">My demographic information as extracted from PowerSchool</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;table&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;thead&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/thead&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;tbody&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td&gt;</span><span class="sc0">Name</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"nameId"</span><span class="sc1">&gt;&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td&gt;</span><span class="sc0">Phone number</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"phoneId"</span><span class="sc1">&gt;&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td&gt;</span><span class="sc0">Street</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"streetId"</span><span class="sc1">&gt;&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td&gt;</span><span class="sc0">Postal</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"postalId"</span><span class="sc1">&gt;&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/tbody&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/table&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: display the results of the transfer</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayResults</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">demographicsObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displayResults. demographicsObj = '</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">demographicsObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#nameId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">demographicsObj.preferred_first_last</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#phoneId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">demographicsObj.home_phone</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#streetId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">     
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">demographicsObj.street</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#postalId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">     
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">demographicsObj.postal</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: this function takes the results of the data request</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">processJSON</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in processJSON...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'   data='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'   status='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//IF: this was successful, send the info to the console...</span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'success'</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// convert the JSONstring back into an object</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">demographicsObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">JSON.parse</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                                        
+                    </span><span class="sc46">displayResults</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">demographicsObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc43">//IF: the transfer was not successful, show an error message to the console</span><span class="sc41">
+                </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'WARNING: demographics downloaded unsuccessfully'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">               
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+
+            </span><span class="sc43">//INPUT: get the demographics data from the web server</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getDemographics</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getDemographics...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc43">//Set up the information to use to get the demographics information.</span><span class="sc41">
+                </span><span class="sc43">//You MUST request a personal token from Mr. Drapak to access YOUR info</span><span class="sc41">
+                
+                </span><span class="sc47">const</span><span class="sc41"> </span><span class="sc46">EMAIL</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'ddrapak@gnspes.ca'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">const</span><span class="sc41"> </span><span class="sc46">TOKEN</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'AdaLovelaceStartedItAll'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">const</span><span class="sc41"> </span><span class="sc46">URL</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://drapak.ca/cpg/getDemographics.php'</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// create an object that contains the information needed to make the request</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">informationRequestObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       
+                    </span><span class="sc49">'email'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">EMAIL</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc49">'token'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">TOKEN</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc43">//Use jQuery to get your request from the webserver</span><span class="sc41">
+                </span><span class="sc43">//The request has three parts:</span><span class="sc41">
+                </span><span class="sc43">//  1) the URL of the program to request information from</span><span class="sc41">
+                </span><span class="sc43">//  2) the information to send to that program for the request</span><span class="sc41">
+                </span><span class="sc43">//  3) the function to run when the request is complete</span><span class="sc41">
+
+                $</span><span class="sc50">.</span><span class="sc46">get</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">URL</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">informationRequestObj</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">processJSON</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">   
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT EVENT: get the demographics data from the server when the page is loaded</span><span class="sc41">
+            </span><span class="sc46">document.body.onload</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getDemographics</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+
+ 		<script>
+		</script>
+	</body>
+</html>

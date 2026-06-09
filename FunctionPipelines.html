@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Function pipelines</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page shows how to pass data in an out of functions gracefully
+		
+			Created:	1. April 2015 
+			Updated:	
+		-->
+
+		<script>
+			// Notice that each function keeps its own variables.
+			// There are no shared variables between the functions.
+	
+			function mainProcedure () { 
+				var numToDouble		=readNumber();
+				
+				var doubledNumber 	=doubleNumber(numToDouble);
+				
+				outputNumber(doubledNumber);			
+			}
+			
+			// INPUT: 	reads #inputID to get the double-able number, and returns it
+			function readNumber () {
+				console.log('in readNumber...');
+				
+				var inputNumber		=document.getElementById('inputID').value;
+				return inputNumber;
+			}
+			
+			// PROCESS: accepts thisNumber, multiplies it by 2, and returns it
+			function doubleNumber (thisNumber) {
+				console.log('in doubleNumber: ' + thisNumber);
+
+				var newNumber  	=thisNumber * 2;
+				return newNumber;
+			}
+			
+			// OUTPUT: accepts thisNumber and outputs it inside #outputID
+			function outputNumber (thisNumber) {
+				console.log('in outputNumber: ' + thisNumber);
+				
+				document.getElementById('outputID').innerHTML	=thisNumber;
+			}
+			
+			function mainProcedure2 () { 
+				// grab the degrees, convert it to radians, and output it...
+				outputNumber2( convertDegreesToRadians ( readDegrees() ) );	
+			}
+			
+			// INPUT: 	reads the value at #inputID to get the degrees, and returns it
+			function readDegrees () {
+				console.log('in readDegrees...');
+				
+				return document.getElementById('inputID2').value;
+			}
+			
+			// PROCESS: accepts thisDegrees, converts it to radians, and returns it
+			function convertDegreesToRadians (thisDegrees) {
+				console.log('in convertDegreesToRadians: ' + thisDegrees);
+
+				return thisDegrees * Math.PI / 180;
+			}
+			
+			// OUTPUT: accepts thisNumber and outputs it inside #outputID
+			function outputNumber2 (thisNumber) {
+				console.log('in outputNumber: ' + thisNumber);
+				
+				document.getElementById('outputID2').innerHTML	=thisNumber;
+			}
+
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.21 Skill builder: Function pipelines</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">function JS</span> <code>function functionName(<var>somethingIn</var>) {return <var>somethingOut</var>}</code> - use a function pipeline<br />
+
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Taking in the input, pushing out the output</h2>
+			
+			<p>
+				We've been making a lot of programs. 
+				They have tended to follow this structure:
+			</p>
+			<ol>
+				<li>INIT: initialize and declare the variables</li>
+				<li>INPUT: read something</li>
+				<li>PROCESS: do something to the thing you read</li>
+				<li>OUTPUT: have some kind of result</li>
+			</ol>
+			
+			<p>
+				This is a good structure, and it works for small programs. 
+				But our programs are about to get bigger.
+				Big programs can be hard to understand unless you develop great style.				
+			</p>
+
+			<h3>Great style includes how you handle variables in your functions.</h3>
+			
+			<p>
+				So far we have <strong>declared our variables globally at the start of our <code>&lt;script></code></strong>, 
+				and our functions have read and altered those variables, like this:<br />
+				<img src="img/FunctionPipeline-AddOne-Old.png">
+			</p>
+			
+			<p>
+				Sometimes programs get long. 
+				I have written programs that would easily take 20-40 pages to print, not including the libraries.
+				Now, imagine how hard it would be to track all of your variables from the top of the page down to the bottom in a truly long program!
+				Confusion becomes more frequent, and your code becomes less flexible.
+			</p>
+			
+			
+			<p>
+				There is another way to do it, however.
+				Imagine if you could make functions that take their own input and spit out their own output.
+				Then you would be able to write a program with <strong>no global variables</strong> at all.
+			</p>
+			
+			<p>And that is an <strong>extremely useful long term habit</strong> as you make more complex code.</p>
+			
+			<p>
+				Here is how you can change it: (notice the differences from above...)<br />				
+				<img src="img/FunctionPipeline-AddOne-New.png">
+			</p>
+			
+			<h3>Using <code>function functionName(<var>somethingIn</var>) {return <var>somethingOut</var>}</code></h3>
+			
+			<p>The stylish way to create a function is to set it up like this:</p>
+			
+			<pre><code>
+	function getSquare (<var>inputNumber</var>) {
+		var <var>outputVariable</var> =Math.pow(<var>inputNumber</var>, 2) <var>// do something to inputNumber, like square it</var>
+		return <var>outputVariable</var>;
+		}
+			</code></pre>
+			
+			<p>Now you can make code like this:</p>
+			
+			<pre><code>
+	var <var>answer</var> =getSquare(<var>16</var>); <var>// makes answer equal to 256</var>
+			</code></pre>
+			
+			<p>This can be simplified even further with the same results, by cutting out the variables in the middle:</p>
+			
+			<pre><code>
+	function getSquare (<var>inputNumber</var>) {
+		return Math.pow(<var>inputNumber</var>, 2) <var>// return the square of inputNumber</var>
+		}
+			</code></pre>
+			
+			
+			<h3>Example One: The number doubler</h3>
+			
+			<p>
+				<strong>Enter a number to double:</strong> 
+				<input type="input" id="inputID" name="inputID" size="3" value="42"> 
+				<button type="button" onclick="mainProcedure();">Math it up!</button>
+			</p>
+		
+			<p><strong>The answer is: </strong><span id="outputID"></span></p>
+
+			<p>
+				Let's look at the code:<br />
+				<img src="img/FunctionPipeline-NumberDoubler.png">
+			</p>
+			
+			<p>
+				<strong>There are no global variables</strong> in this example. 
+				Instead the information is passed from one function to another, like this:<br />
+				<br />
+				<code>readNumber()</code> &rarr; <code>doubleNumber()</code> &rarr; <code>outputNumber()</code> <br />
+				<br />
+				This is called a <strong>function pipeline</strong>.
+			</p>
+			
+			
+			<h3>Example Two: Degrees to radians</h3>
+			
+			<p>Let's look at another example:</p>
+			
+			<p>
+				<strong>Enter the degrees to convert to radians: </strong>
+				<input type="input" id="inputID2" name="inputID2" size="3" value="180">&deg;
+				<button type="button" onclick="mainProcedure2();">Circumambulate!</button>
+			</p>
+			<p><strong>The answer is:</strong> <span id="outputID2"></span></p>
+			<p>
+				The code in this one is simpler:<br />
+				<img src="img/FunctionPipeline-DegreesToRadians.png">
+			</p>
+			<p>
+				The <strong>function pipeline</strong> in this example works like this:<br />
+				<br />
+				<code>readDegrees()</code> &rarr; <code>convertDegreesToRadians()</code> &rarr; <code>outputNumber()</code> <br />
+			</p>
+		
+		
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.21S-FunctionPipelines-LastName.html">template</a> and rename it to your last name, such as "<code>1.21S-FunctionPipelines-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>Modify your template so that it uses function pipelines to perform a calculation</h4>
+			
+			
+			<p>You will need to consider the following:</p>
+			
+			<ul>
+				<li>Remember: <strong>no global variables</strong>, only variables inside individual functions</li>
+				<li>Use <code>function functionName(<var>somethingIn</var>) {return <var>somethingOut</var>}</code> to create pipelines</li>
+				<li>Choose your own calculation, simple or complex, for your assignment.</li>
+				<li>
+					For example, you could determine the number of transitions a cesium atom does, given a time in seconds from the user. 
+					Cesium atoms are used in highly accurate atomic clocks. 
+					A cesium atom has 9 192 631 770 transition cycles per second.
+				</li>
+			</ul>
+			
+
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized (chunked) code into separate init/input/processing/output functions</li>
+				<li>___/2 &mdash; Successful creation and use of arrays</li>
+				<li>___/2 &mdash; Successful use of time functions</li>
+				<li>___/1 &mdash; Successful use of timers</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			
+			<h2>Do it with style</h2>
+			<h4>Discover what your variables are</h4>
+			<p>Inside modern browsers is a Javascript console with a line that allows you to type in commands.</p>
+			<p>One of the things that it allows you to do is type in variable names so that you can see what is inside.</p>
+			<p>Try running the console on this page and type in: <code>monthNames</code>.</p>
+			-->
+				
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

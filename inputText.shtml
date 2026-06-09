@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			INPUT - Text Input
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to use text input with Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				22. Sept 2015	- created!											- DRapak
+				21. March 2017	- removed the <br>									- Drapak
+				23. September 2018 - reworked code and examples for style			- Drapak
+				14. October 2018	- clarified examples							- Drapak
+		-->
+		
+		<style>
+			iframe {
+				height: 350px;
+				width: 600px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INPUT: <em>Text input</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INPUT HTML:</span> 
+				<code>
+					&lt;input id="<var>inputId</var>" type="text" 
+					value="<var>default text</var>">
+				</code> <br>
+				<span class="indent">
+					&mdash; displays a text input line: 
+					<input id="inputId" type="text" value="default text">
+				</span><br>
+				<br>
+					
+				<span class="langstyle">//INPUT HTML:</span> 
+				<code>
+					&lt;textarea id="<var>inputId</var>" 
+					rows="<var>2</var>" cols="<var>30</var>">
+					<var>default text</var>
+					&lt;/textarea>
+				</code> <br>
+				<span class="indent">
+					&mdash; displays a text input box: 
+					<textarea id="input2ID" rows="2" cols="30"> default text </textarea>
+				</span><br>
+				<br>
+					
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>var <var>enteredText</var> 
+					= document.getElementById( "<var>inputId</var> ").value</code> <br>
+				<span class="indent">
+					&mdash; stores what was typed into <var>#inputId</var> 
+					into the variable <var>enteredText</var>
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//INPUT JS:</span> 
+				<code>
+					document.getElementById( "<var>inputId</var>" ).onchange 
+					= <var>mainProcedure</var>;
+				</code> <br>
+				<span class="indent">
+					&mdash; triggers <var>mainProcedure()</var> on 
+					<kbd>tab</kbd> and <kbd>enter</kbd> after an input change
+				</span><br>
+				<br>
+					
+			</p>
+			
+			<h2>Two ways to input text strings</h2>
+			<p>There are a couple of ways to enter text into a web page.</p>
+			
+			<h4>For short strings, use an input line</h4>
+			<p>
+				<code>
+					&lt;input id="<var>inputId</var>" type="text" 
+					value="<var>default text</var>">
+				</code><br>
+				<span class="indent">displays:</span><br>
+				<input id="inputId" type="text" value="default text">
+			</p>
+			
+			<h4>For long strings, use a textarea box</h4>
+			<p>
+				<code>
+					&lt;textarea id="<var>inputId</var>" 
+					rows="<var>4</var>" cols="<var>50</var>">
+					<var>default text</var>
+					&lt;/textarea>
+				</code><br>
+				<span class="indent">displays:</span><br>
+				<textarea id="input2ID" rows="4" cols="50"> default text </textarea>
+			</p>
+			
+			<h2>Using Javascript to read text strings</h2>
+
+			<p>
+				You can program scripts to read the text that your users have entered.
+			</p>
+			<p>
+				The entered text in stored inside 
+				<code>document.getElementById( "<var>inputId</var>" ).value</code>
+			</p>
+
+			<h2>Using <code>onchange</code> to trigger functions when text is editted</h2>
+			<p>
+				Remember how you can use <code>onclick</code> 
+				to trigger a function when something is clicked?
+			</p>
+			<p>
+				Well, if you add <code>onchange</code> to an input element, 
+				you can trigger a function whenever someone presses 
+				<kbd>tab</kbd> or <kbd>enter</kbd>
+				after changing a text input.
+			</p>
+			<p>
+				<em>For example:</em>
+				<code>
+					document.getElementById( "<var>inputId</var>" ).onchange 
+					= <var>mainProcedure</var>;
+				</code>
+			</p>
+			<p>
+				However, most users have come to expect a button to trigger things as well.
+				<strong>Use both a button and <code>onchange</code> when possible</strong>.
+			</p>
+			
+			<h2>Example code</h2>
+			<iframe class="indent" src="supporting/inputText.shtml"></iframe>
+			
+			<p>...is the result of the following code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc7">'bodyId'</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Displaying and reading text input</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">This does not actually change the colors on the page - </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">YET!</span><span class="sc1">&lt;/strong&gt;&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Enter a font color:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"fontId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"blue"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"fontButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+                pop up </span><span class="sc1">&lt;code&gt;</span><span class="sc0">document.getElementById( "fontId" ).value</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> 
+            </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            
+            Enter a background color:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;textarea</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundId"</span><span class="sc8"> </span><span class="sc3">rows</span><span class="sc8">=</span><span class="sc6">"5"</span><span class="sc8"> </span><span class="sc3">cols</span><span class="sc8">=</span><span class="sc6">"40"</span><span class="sc1">&gt;</span><span class="sc0">lightBlue</span><span class="sc1">&lt;/textarea&gt;&lt;br&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+                pop up </span><span class="sc1">&lt;code&gt;</span><span class="sc0">document.getElementById( "backgroundId" ).value</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> 
+            </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INPUT-OUTPUT: read in and then display the font color</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">showFontColor</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc43">//INPUT: store the color that was typed into the input line</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newFontColor</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"fontId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display what color was typed as a pop up message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">newFontColor</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT-OUTPUT: read in and then display the background color</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">showBackground</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc43">//INPUT: store the background color that was typed into the textarea</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newBackground</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"backgroundId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display what background color was typed as a pop up message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">newBackground</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach showFontColor to fontId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'fontId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showFontColor</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc43">//INPUT: attach showFontColor to fontButtonId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'fontButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showFontColor</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach showBackground to backgroundId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'backgroundId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showBackground</span><span class="sc50">;</span><span class="sc41">           
+            </span><span class="sc43">//INPUT: attach showBackground to backgroundButtonId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'backgroundButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showBackground</span><span class="sc50">;</span><span class="sc41">           
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<!--
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-text-input-in-js/5507965699358720"> Live example: Text Input in JS </a></h2>
+			<script src="https://www.khanacademy.org/computer-programming/live-example-text-input-in-js/5507965699358720/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+			-->
+		</article>		
+		<script>
+            //INPUT: read in the input line
+            var showInputLine = function (){
+                alert(
+                    document.getElementById("inputLineId").value
+                );
+            }
+            
+            //INPUT: read in the input box
+            var showInputBox = function (){
+                alert(
+                    document.getElementById("inputBoxId").value
+                );
+            }
+		</script>
+
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

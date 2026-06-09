@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			HTML - Showing dice in unicode
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to show dice in HTML unicode">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. October 2015	-created
+				25. March 2017		- reworked style and added JS hint
+		-->
+
+		<style>
+			th, td {
+				padding: 	3px;
+				text-align:	center;
+			}
+			#dice, #outputId {
+				font-size:	30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//HTML and OUTPUT: <em>Unicode dice</em>
+		</header>
+
+		<article>
+
+			<h2>Unicode has dice symbols built in</h2>
+			<p>
+				You may not need to find images of dice in order to create your programs. 
+				Many fonts already have images of dice built in to them thanks to the 
+				thoroughness of unicode.
+			</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>
+							roll
+						</th>
+						<th>
+							die symbol
+						</th>
+						<th>
+							HTML code
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>&#9856;</td>
+						<td><code>&amp;#9856;</code></td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>&#9857;</td>
+						<td><code>&amp;#9857;</code></td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>&#9858;</td>
+						<td><code>&amp;#9858;</code></td>
+					</tr>
+					<tr>
+						<th>4</th>
+						<td>&#9859;</td>
+						<td><code>&amp;#9859;</code></td>
+					</tr>
+					<tr>
+						<th>5</th>
+						<td>&#9860;</td>
+						<td><code>&amp;#9860;</code></td>
+					</tr>
+					<tr>
+						<th>6</th>
+						<td>&#9861;</td>
+						<td><code>&amp;#9861;</code></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p>
+				You will notice how tiny they are, however. 
+				Here are the same dice symbols with CSS settings of:
+				<code>font-size: 30px;</code>
+			</p>
+			
+			<p>
+				A collection of larger dice: 
+				<span id="dice">&#9856; &#9857; &#9858; &#9859; &#9860; &#9861;</span>
+			</p>
+			
+			<h2>Use Javascript math to display a die</h2>
+			<p>
+				You will notice that all the unicode numbers of the dice are in sequence.
+				You can take advantage of this fact to automatically display the die numbers, 
+				based on the number that was rolled:
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>
+							<var>roll</var>
+						</th>
+						<th>
+							die symbol
+						</th>
+						<th>
+							HTML code
+						</th>
+						<th>
+							Javascript string
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>&#9856;</td>
+						<td><code>&amp;#9856;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 1 ) + ";"</code></td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>&#9857;</td>
+						<td><code>&amp;#9857;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 2 ) + ";"</code></td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>&#9858;</td>
+						<td><code>&amp;#9858;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 3 ) + ";"</code></td>
+					</tr>
+					<tr>
+						<th>4</th>
+						<td>&#9859;</td>
+						<td><code>&amp;#9859;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 4 ) + ";"</code></td>
+					</tr>
+					<tr>
+						<th>5</th>
+						<td>&#9860;</td>
+						<td><code>&amp;#9860;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 5 ) + ";"</code></td>
+					</tr>
+					<tr>
+						<th>6</th>
+						<td>&#9861;</td>
+						<td><code>&amp;#9861;</code></td>
+						<td><code>"&amp;#" + ( 9855 + 6 ) + ";"</code></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h4>Combined code:</h4>
+			<p>
+				Put those together and you have:<br />
+				<code>
+					var <var>dieSymbol</var> = "&amp;#" + ( 9855 + <var>roll</var> ) + ";"
+				</code><br>
+				<code>document.querySelector( '<var>#outputId</var>' ).innerHTML 
+					= <var>dieSymbol</var>;</code>
+			</p>
+
+			<p>
+				If you combine this with 
+				<a href="processRandomnessAndRounding.shtml">code that generates 
+				<code><var>roll</var></code> randomly</a>, 
+				you can do this:
+			</p>
+			
+			<h2>For example:</h2>
+			<p>
+				Click the button to roll a die:
+				<button id="buttonId">Click me!</button><br />
+				<span id="outputId"></span>
+			</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Wikipedia's 
+					<a href="https://en.wikipedia.org/wiki/Miscellaneous_Symbols">
+						Miscellaneous Symbols
+					</a>
+				</li>
+			</ul>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			var rollDie = function () {
+				document.getElementById('outputId').innerHTML 
+					= "&#" + ( 9855 + Math.ceil( Math.random() * 6) ) + ";";
+			}
+			
+			document.getElementById('buttonId').onclick	= rollDie;
+		</script>
+	</body>
+</html>

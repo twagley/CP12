@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Build a Clock</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows how to use Javascript and arrays to output the time
+		
+			Created:	30. March 2015 
+			Updated:	
+		-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			var _0x487b=["\x2C\x20","\x73\x70\x6C\x69\x74","\x4A\x61\x6E\x75\x61\x72\x79\x2C\x20\x46\x65\x62\x72\x75\x61\x72\x79\x2C\x20\x4D\x61\x72\x63\x68\x2C\x20\x41\x70\x72\x69\x6C\x2C\x20\x4D\x61\x79\x2C\x20\x4A\x75\x6E\x65\x2C\x20\x4A\x75\x6C\x79\x2C\x20\x41\x75\x67\x75\x73\x74\x2C\x20\x53\x65\x70\x74\x65\x6D\x62\x65\x72\x2C\x20\x4F\x63\x74\x6F\x62\x65\x72\x2C\x20\x4E\x6F\x76\x65\x6D\x62\x65\x72\x2C\x20\x44\x65\x63\x65\x6D\x62\x65\x72","\x53\x75\x6E\x64\x61\x79\x2C\x20\x4D\x6F\x6E\x64\x61\x79\x2C\x20\x54\x75\x65\x73\x64\x61\x79\x2C\x20\x57\x65\x64\x6E\x65\x73\x64\x61\x79\x2C\x20\x54\x68\x75\x72\x73\x64\x61\x79\x2C\x20\x46\x72\x69\x64\x61\x79\x2C\x20\x53\x61\x74\x75\x72\x64\x61\x79","\x74\x68\x65\x72\x65\x49\x73\x4E\x6F\x5A\x65\x72\x6F\x74\x68\x2C\x20\x31\x73\x74\x2C\x20\x32\x6E\x64\x2C\x20\x33\x72\x64\x2C\x20\x34\x74\x68\x2C\x20\x35\x74\x68\x2C\x20\x36\x74\x68\x2C\x20\x37\x74\x68\x2C\x20\x38\x74\x68\x2C\x20\x39\x74\x68\x2C\x20\x31\x30\x74\x68\x2C\x20\x31\x31\x74\x68\x2C\x20\x31\x32\x74\x68\x2C\x20\x31\x33\x74\x68\x2C\x20\x31\x34\x74\x68\x2C\x20\x31\x35\x74\x68\x2C\x20\x31\x36\x74\x68\x2C\x20\x31\x37\x74\x68\x2C\x20\x31\x38\x74\x68\x2C\x20\x31\x39\x74\x68\x2C\x20\x32\x30\x74\x68\x2C\x20\x32\x31\x73\x74\x2C\x20\x32\x32\x6E\x64\x2C\x20\x32\x33\x72\x64\x2C\x20\x32\x34\x74\x68\x2C\x20\x32\x35\x74\x68\x2C\x20\x32\x36\x74\x68\x2C\x20\x32\x37\x74\x68\x2C\x20\x32\x38\x74\x68\x2C\x20\x32\x39\x74\x68\x2C\x20\x33\x30\x74\x68\x2C\x20\x33\x31\x73\x74","\x31\x32\x2C\x20\x31\x2C\x20\x32\x2C\x20\x33\x2C\x20\x34\x2C\x20\x35\x2C\x20\x36\x2C\x20\x37\x2C\x20\x38\x2C\x20\x39\x2C\x20\x31\x30\x2C\x20\x31\x31\x2C\x20\x31\x32\x2C\x20\x31\x2C\x20\x32\x2C\x20\x33\x2C\x20\x34\x2C\x20\x35\x2C\x20\x36\x2C\x20\x37\x2C\x20\x38\x2C\x20\x39\x2C\x20\x31\x30\x2C\x20\x31\x31","\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D","","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x6C\x65\x61\x76\x69\x6E\x67\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x69\x6E\x20\x67\x72\x61\x62\x54\x69\x6D\x65\x50\x72\x6F\x63\x65\x73\x73\x41\x6E\x64\x44\x69\x73\x70\x6C\x61\x79\x2E\x2E\x2E","\x69\x6E\x20\x67\x65\x74\x44\x61\x74\x65\x4F\x62\x6A\x65\x63\x74\x2E\x2E\x2E","\x69\x6E\x20\x63\x61\x6C\x63\x75\x6C\x61\x74\x65\x44\x61\x74\x65\x49\x6E\x66\x6F\x2E\x2E\x2E\x20\x63\x79\x63\x6C\x65\x3A","\x67\x65\x74\x48\x6F\x75\x72\x73","\x3A","\x67\x65\x74\x4D\x69\x6E\x75\x74\x65\x73","\x67\x65\x74\x53\x65\x63\x6F\x6E\x64\x73","\x20\x6F\x6E\x20","\x67\x65\x74\x44\x61\x79","\x67\x65\x74\x4D\x6F\x6E\x74\x68","\x20","\x67\x65\x74\x44\x61\x74\x65","\x67\x65\x74\x46\x75\x6C\x6C\x59\x65\x61\x72","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x54\x69\x6D\x65\x41\x6E\x64\x44\x61\x74\x65\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64"];var monthNames=_0x487b[2][_0x487b[1]](_0x487b[0]);var daysOfWeek=_0x487b[3][_0x487b[1]](_0x487b[0]);var ordinalNumbers=_0x487b[4][_0x487b[1]](_0x487b[0]);var hours=_0x487b[5][_0x487b[1]](_0x487b[0]);var AMOrPM=_0x487b[6][_0x487b[1]](_0x487b[0]);var dateObject;var outputString=_0x487b[7];var cycle=0;function mainProcedure(){console[_0x487b[9]](_0x487b[8]);grabTimeProcessAndDisplay();setInterval(function(){grabTimeProcessAndDisplay()},1000);console[_0x487b[9]](_0x487b[10]);}function grabTimeProcessAndDisplay(){console[_0x487b[9]](_0x487b[11]);getDateObject();calculateDateInfo();outputTimeAndDate();}function getDateObject(){console[_0x487b[9]](_0x487b[12]);dateObject= new Date();}function calculateDateInfo(){cycle++;console[_0x487b[9]](_0x487b[13]+cycle);outputString=hours[dateObject[_0x487b[14]]()]+_0x487b[15]+dateObject[_0x487b[16]]()+_0x487b[15]+dateObject[_0x487b[17]]()+AMOrPM[dateObject[_0x487b[14]]()]+_0x487b[18]+daysOfWeek[dateObject[_0x487b[19]]()]+_0x487b[0]+monthNames[dateObject[_0x487b[20]]()]+_0x487b[21]+ordinalNumbers[dateObject[_0x487b[22]]()]+_0x487b[0]+dateObject[_0x487b[23]]();}function outputTimeAndDate(){console[_0x487b[9]](_0x487b[24]);document[_0x487b[27]](_0x487b[26])[_0x487b[25]]=outputString;}		
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<header>
+			<h1>1.20 Hand in: Build a Clock</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">time JS</span> <code>setTimeout(function(){<var>someFunction()</var>}, 4000);</code> &mdash; triggers <var>someFunction() after 4 seconds</var><br />
+				<br />
+				<span class="langstyle">time JS</span> <code>setInterval(function(){<var>someFunction()</var>}, 4000);</code> &mdash; repeats <var>someFunction() every 4 seconds</var><br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Timers: Intervals and timeouts</h2>
+			
+			<p>
+				By now you have probably wanted to have some kind of delay in your program. 
+				You have probably wanted it for an animation effect or something similar. 
+				Most languages have some kind of command for that, like <code>sleep(1000);</code> or <code>wait(1000);</code>, or something similar. 
+			</p>
+			
+			<p>But not Javascript. Because that would lock up the browser.</p>
+		
+			<p>
+				Javascript does this in a different way.
+				Javascript's method is:
+			</p>
+			<ol>
+				<li>More complicated</li>
+				<li>More powerful</li>
+				<li>and quite different from many other languages.</li>				
+			</ol>
+			
+			<h3>Using <code>setTimeout()</code> to set a delay</h3>
+			<p>In Javascript, if you want something to happen, you put it into the function, and then set a <strong>Timeout()</strong> to call it after a certain amount of time.</p>
+			<p>For example:</p>
+			<pre><code>
+	&lt;head&gt;
+		&lt;script&gt;
+			function buttonTimer () {	// PROCESS: trigger changeTheButtonText() after 3 seconds
+				<strong>setTimeout(function () {</strong>	// set the timer
+					<strong>changeTheButtonText()</strong>	// triggering changeTheButtonText()
+					<strong>}, 3000); </strong>		// after three seconds
+			}
+		
+			function changeTheButtonText() { // OUTPUT: output 'bang' into #buttonID
+				document.getElementById('buttonID').innerHTML = "Bang!"
+			}
+			
+		
+		&lt;/script&gt;
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		&lt;p&gt;
+			&lt;button id="buttonID" type="button" onclick="buttonTimer();"&gt;Click and wait three seconds&lt;/button&gt;
+		&lt;/p&gt;
+	&lt;/body&gt;
+			</code></pre>
+			
+			<p>
+				Makes this:
+				<button id="buttonID" type="button" onclick="setTimeout(function(){document.getElementById('buttonID').innerHTML = 'Bang!'}, 3000);">Click and wait three seconds</button>
+			</p>
+			
+			<p>The key to this is the command above in red: <code><strong>setTimeout(function(){changeTheButtonText();},3000);</strong></code></p>
+			
+			<p>In this specific case, <code>setTimeout()</code> is used to trigger the <code>changeTheButtonText()</code> function after 3000ms (3 seconds).</p>
+			
+			<p><strong>Note:</strong> keeping the brackets straight is tricky. Work very hard to make sure your parentheses and braces match!</p>
+			
+			<p>Here is another example:</p>
+			
+			<pre><code>
+	&lt;head&gt;
+		&lt;!-- load jQuery for animation --&gt;
+		&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt; 
+		
+		&lt;script&gt;
+			function buttonTimer () {	// PROCESS: trigger animateTheButton() after 1 second
+				<strong>setTimeout(function () {</strong>	// set the timer
+					<strong>animateTheButton()</strong>	// triggering animateTheButton()
+					<strong>}, 1000); </strong>		// after 1 second
+			}
+		
+			function animateTheButton() { // OUTPUT: animate the #buttonID by changing its size
+				$("#buttonID").animate({fontSize: "30px"});
+				$("#buttonID").animate({fontSize: "100px"});
+				$("#buttonID").animate({fontSize: "16px"});
+			}
+			
+		
+		&lt;/script&gt;
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		&lt;p&gt;
+			&lt;button id="buttonID" type="button" onclick="buttonTimer();"&gt;Click and wait a second&lt;/button&gt;
+		&lt;/p&gt;
+	&lt;/body&gt;
+			</code></pre>
+			<p>
+				Makes this:
+				<button id="buttonID2" type="button" onclick="setTimeout(function(){$('#buttonID2').animate({fontSize: '30px'});$('#buttonID2').animate({fontSize: '100px'});$('#buttonID2').animate({fontSize: '16px'});}, 1000);">Click and wait a second</button>
+			</p>
+			
+			
+			<h3>Using <code>setInterval()</code> to periodically repeat a function</h3>
+			<p>The <code>setInterval()</code> command works similarly, but it keeps repeating the function. For example:</p>
+			
+			<pre><code>
+	&lt;head&gt;
+		&lt;script&gt;
+			var elapsedSeconds	=0;	// INIT: start with the number of seconds being zero
+		
+			function buttonTimer () {	// PROCESS: change the button text repeatedly each second
+				<strong>setInterval(function(){</strong>		// set the repeating timer
+					<strong>elapsedSeconds++; </strong>	// that will add one to elapsedSeconds
+					<strong>changeTheButtonText();</strong>	// and trigger changeTheButtonText()
+					<strong>}, 1000);</strong>		// every second
+			}
+		
+			function changeTheButtonText() { 	// OUTPUT: display elapsedSeconds inside #buttonID
+				document.getElementById('buttonID').innerHTML = elapsedSeconds + " seconds since you clicked...";
+			}
+			
+		
+		&lt;/script&gt;
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		&lt;p&gt;
+			&lt;button id="buttonID" type="button" onclick="buttonTimer();"&gt;Click and wait a second&lt;/button&gt;
+		&lt;/p&gt;
+	&lt;/body&gt;
+			</code></pre>
+			<p>
+				Makes this:
+				<button id="buttonID3" type="button" onclick="var elapsedSeconds=0;setInterval(function(){elapsedSeconds++; document.getElementById('buttonID3').innerHTML = elapsedSeconds + ' seconds since you clicked...'}, 1000);">Click and wait a second</button>
+			</p>
+			<p>
+				Again, the key to this is the command above in red: <br />
+				<code><strong>setInterval(function() {elapsedSeconds++; changeTheButton()}, 1000);</strong></code>
+			</p>
+			
+			<p>
+				Notice that you can trigger more than one command repeatedly. 
+				In this specific case, <code>setInterval()</code> is used to trigger both the  <code>elapsedSeconds++;</code> and <code>changeTheButton()</code> commands after 1000ms (1 second).
+			</p>
+			
+			<h3>Avoiding the delay on the first run</h3>
+			
+			<p>
+				You are going to make a clock. 
+				It is going to tick away steadily, updating the time and date every second.
+				But you probably want it to display the time right away.
+			</p>
+			
+			<p>The way to do this is to trigger the clock display once before calling <code>setInterval()</code>. For example:</p>
+
+			<p>
+				<img src="img/BuildAClockInterval.png"><br />
+				Makes this:
+			</p>
+			<p>
+				The time is currently: 
+				<strong><span id="outputID"></span></strong>
+			</p>
+			
+			<p id="outputID"></p>
+			
+			<p>
+				Notice that the code above calls <code>grabTimeProcessAndDisplay()</code> <strong>twice.</strong>
+				Once, right away so that the time shows up immediately.
+				And a second time inside <code>setInterval()</code> so that the time will refresh itself every second.
+			</p>
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.20H-BuildAClock-LastName.html">template</a> and rename it to your last name, such as "<code>1.20H-BuildAClock-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>In this assignment you will add code to the template to create a program that displays (and updates each second) the current time and date in the following format:</h4>
+			
+			<p>
+				"The time is currently: <strong>9:08:14pm on Monday, March 30th, 2015</strong>", for <a href="examples/BuildAClockExample.html">example</a>.
+			</p>
+			
+			<p>Please keep in mind the following:</p>
+			<ol>
+				<li>Start by initializing the arrays. I have provided some information for you to help. How will will you convert this into arrays?</li>
+				<li>Remember to use intelligent variable names, such as: <var>dayOfTheWeek</var>.</li>
+				<li>Remember to split your functions into separate parts: INIT, INPUT, PROCESS, and OUTPUT.</li>
+				<li>In your descriptive comments for each function, indicate whether the function is for INIT, INPUT, PROCESS, or OUTPUT.</li>
+				<li>Use <code>onload="mainProcedure();"</code> to start the process rolling, not a button.</li>
+				<li>Use <code>setTimeout()</code> or <code>setInterval()</code> to update the time and date each second</li>
+				<li>Use arrays to convert the information from the <code>Date()</code> functions into human-readable text</li>
+				<li>Is there another way to deal with am/pm?</li>
+				<li>How do you avoid: <strong>9:8:4pm</strong>?</li>
+			</ol>
+
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized (chunked) code into separate init/input/processing/output functions</li>
+				<li>___/2 &mdash; Successful creation and use of arrays</li>
+				<li>___/2 &mdash; Successful use of time functions</li>
+				<li>___/1 &mdash; Successful use of timers</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

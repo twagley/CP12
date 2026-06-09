@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Draw a Maze</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows how to transfer two-dimensional arrays into a table
+		
+			Created:	31. March 2015 
+			Updated:	1. April 2015 	-changed first 2D array example to sampleArray
+										-added step by step hints to assignment category
+						14. April 2015	-reworked code examples for function pipelines
+										-added 'new code' info on nested loops
+		-->
+
+		<script>
+			// INIT: define the ticTacToe array and the string to fill the table
+			var ticTacToe =[	["O", "X", "O"],	// row 0
+								["X", "X", "O"],	// row 1
+								["X", "O", "X"]	];	// row 2
+								
+			var tableInnerHTML	="";	// this will store the string that will go inside the table		
+			
+			
+			function mainProcedure () {	// triggered by a button click
+				console.log("in mainProcedure...");
+				
+				processTicTacToe();
+				outputTableInformation();
+			}
+			
+			function processTicTacToe() { //PROCESS: This uses a nested loop through each elements of ticTacToe 
+				console.log("in processTicTacToe...");
+				// we want to be able to extract info into each cell, like: ticTactoe[row][column]
+				
+				for (thisRow=0; thisRow <= 2; thisRow++) {		// loop thisRow through 0 -> 2
+					tableInnerHTML	=tableInnerHTML+"<tr>";		// start the HTML for a new row
+					
+					for (thisColumn=0; thisColumn <= 2; thisColumn++) {		// loop thisRow through 0 -> 2
+					
+						tableInnerHTML	=tableInnerHTML						
+										+ "<td>"							// start the HTML for a new cell
+										+ ticTacToe[thisRow][thisColumn]	// add the letter stored in this cell of ticTacToe
+										+ "</td>";							// end the HTML for a new cell
+					}
+					
+					tableInnerHTML	=tableInnerHTML+"</tr>";	// end the HTML for a new row					
+				}
+			}
+			
+			function outputTableInformation () {  //OUTPUT: this puts the table information inside the table labelled "tableID"
+				console.log("in outputTableInformation...");
+				
+				document.getElementById("tableID").innerHTML	=tableInnerHTML;
+			}
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.25 Skill builder: Draw a maze</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>Nested loops:</p>
+				<pre><code>
+	for (<var>i=0</var>; <var>i<10</var>; <var>i++</var>) { <var>// loop dimension 1</var>
+		for (<var>j=0</var>; <var>j<10</var>; <var>j++</var>) { <var>// loop dimension 2</var>
+			console.log( arrayVar[i][j] );
+		}
+	}
+				</code></pre>
+			<p>
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Two dimensional arrays</h2>
+			
+			<p>
+				You are quite familiar with one-dimensional arrays by now.
+				You so you know that...
+			</p>
+			<pre><code>
+	var <var>colourArray</var> =[<var>"Red", 		<var>// element 0</var>
+			"Orange", 		<var>// element 1</var>
+			"Yellow", 		<var>// element 2</var>
+			"Green", 		<var>// element 3</var>
+			"Blue", 		<var>// element 4</var>
+			"Indigo", 		<var>// element 5</var>
+			"Violet"</var>	];		<var>// element 6</var>
+			</code></pre>
+			
+			<p>...will create <var>colorArray</var> with the following structure:</p>
+			
+			<table>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+					<td class="withborder">5</td>
+					<td class="withborder">6</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Red</td>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+					<td class="withborder">Violet</td>
+				</tr>
+			</table>
+			
+			<h3>Introducing two-dimensional arrays</h3>
+			
+			<p>Now imagine an array where each element is an array, like this:</p>
+			
+			<pre><code>
+	var <var>sampleArray</var> =<strong>[</strong>	[<var>"Cyan"</var>, 	<var>"Yellow"</var>, 	<var>"Magenta"</var>	]<strong>,</strong>		<var>// row 0</var>
+				[<var>1</var>, 		<var>2</var>, 		<var>3</var>		]<strong>,</strong>		<var>// row 1</var>
+				[<var>"a"</var>, 		<var>"b"</var>, 		<var>"c"</var>		]<strong>,</strong>		<var>// row 2</var>
+				[<var>"gold"</var>, 	<var>"silver"</var>, 	<var>"bronze"</var>		]	<strong>];</strong>	<var>// row 3</var>
+			</code></pre>
+			
+			<p>This will create a <strong>two dimensional array</strong>, with data stored like this:</p>
+			
+			<table>
+				<tr>
+					<th></th>
+					<th>[x][0]</th>
+					<th>[x][1]</th>
+					<th>[x][2]</th>
+				</tr>
+				<tr>
+					<th>[0][x]</th>
+					<td id="chart00" class="withborder" onmouseover ="document.getElementById('chart00').innerHTML='Cyan';">sampleArray[0][0]</td>
+					<td id="chart01" class="withborder" onmouseover ="document.getElementById('chart01').innerHTML='Yellow';">sampleArray[0][1]</td>
+					<td id="chart02" class="withborder" onmouseover ="document.getElementById('chart02').innerHTML='Magenta';">sampleArray[0][2]</td>
+				</tr>
+				<tr>
+					<th>[1][x]</th>
+					<td id="chart10" class="withborder" onmouseover ="document.getElementById('chart10').innerHTML='1';">sampleArray[1][0]</td>
+					<td id="chart11" class="withborder" onmouseover ="document.getElementById('chart11').innerHTML='2';">sampleArray[1][1]</td>
+					<td id="chart12" class="withborder" onmouseover ="document.getElementById('chart12').innerHTML='3';">sampleArray[1][2]</td>
+				</tr>
+				<tr>
+					<th>[2][x]</th>
+					<td id="chart20" class="withborder" onmouseover ="document.getElementById('chart20').innerHTML='a';">sampleArray[2][0]</td>
+					<td id="chart21" class="withborder" onmouseover ="document.getElementById('chart21').innerHTML='b';">sampleArray[2][1]</td>
+					<td id="chart22" class="withborder" onmouseover ="document.getElementById('chart22').innerHTML='c';">sampleArray[2][2]</td>
+				</tr>
+				<tr>
+					<th>[3][x]</th>
+					<td id="chart30" class="withborder" onmouseover ="document.getElementById('chart30').innerHTML='gold';">sampleArray[3][0]</td>
+					<td id="chart31" class="withborder" onmouseover ="document.getElementById('chart31').innerHTML='silver';">sampleArray[3][1]</td>
+					<td id="chart32" class="withborder" onmouseover ="document.getElementById('chart32').innerHTML='bronze';">sampleArray[3][2]</td>
+				</tr>
+			</table>
+
+			<p>Take a guess which values will contained in each cell, and then roll over the table cells to see if you are right.</p>
+			
+			<p>For example, what will be the value of <var>colourArray</var>[2][2]?</p>
+			
+			<h3>A quick review of how to make a table in HTML</h3>
+			
+			<p>Remember that a table is a collection of table rows (<code>&lt;tr></code>) that are broken into individual cells (<code>&lt;td></code>).</p>
+			
+			<p>So the following code...</p>
+			
+			<pre><code>
+	&lt;table>
+		&lt;caption><var>A table of awesome</var>&lt;/caption>
+		
+		&lt;tr>
+			&lt;th>&lt;/th>
+			&lt;th><var>[x][0]</var>&lt;/th>
+			&lt;th><var>[x][1]</var>&lt;/th>
+			&lt;th><var>[x][2]</var>&lt;/th>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[0][x]</var>&lt;/th>
+			&lt;td><var>[0][0]</var>&lt;/td>
+			&lt;td><var>[0][1]</var>&lt;/td>
+			&lt;td><var>[0][2]</var>&lt;/td>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[1][x]</var>&lt;/th>
+			&lt;td><var>[1][0]</var>&lt;/td>
+			&lt;td><var>[1][1]</var>&lt;/td>
+			&lt;td><var>[1][2]</var>&lt;/td>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;th><var>[2][x]</var>&lt;/th>
+			&lt;td><var>[2][0]</var>&lt;/td>
+			&lt;td><var>[2][1]</var>&lt;/td>
+			&lt;td><var>[2][2]</var>&lt;/td>
+		&lt;/tr>
+	&lt;/table>
+			</code></pre>
+			
+			<p>...will create this table: (except for the red borders, that's just so you can see the cells clearly...)</p>
+			
+			<table>
+				<caption>A table of awesome</caption>
+				<tr>
+					<th class="withborder"></th>
+					<th class="withborder">[x][0]</th>
+					<th class="withborder">[x][1]</th>
+					<th class="withborder">[x][2]</th>
+				</tr>
+				<tr>
+					<th class="withborder">[0][x]</th>
+					<td class="withborder">[0][0]</td>
+					<td class="withborder">[0][1]</td>
+					<td class="withborder">[0][2]</td>
+				</tr>
+				<tr>
+					<th class="withborder">[1][x]</th>
+					<td class="withborder">[1][0]</td>
+					<td class="withborder">[1][1]</td>
+					<td class="withborder">[1][2]</td>
+				</tr>
+				<tr>
+					<th class="withborder">[2][x]</th>
+					<td class="withborder">[2][0]</td>
+					<td class="withborder">[2][1]</td>
+					<td class="withborder">[2][2]</td>
+				</tr>
+			</table>
+			
+			<h3>Using nested loops and an array to create a table</h3>
+			
+			<p>
+				Arrays are great structures for holding useful data.
+				Let's say that we have a two dimensional array called <var>ticTacToe</var>:
+			</p>
+			<pre><code>
+	var <var>ticTacToe</var> =[	["O", "X", "O"],	<var>// row 0</var>
+			["X", "X", "O"],	<var>// row 1</var>
+			["X", "O", "X"]	];	<var>// row 2</var>
+			</code></pre>
+			
+			<p>And let's say that we have an empty table with no rows (<code>&lt;tr></code>) or cells (<code>&lt;td></code>), with <code>id="tableID"</code>:</p>
+			<pre><code>
+	&lt;table id="tableID">
+	
+	&lt;/table>
+			</code></pre>
+			
+			<p>Which, when first displayed, would look invisible, because it is has no data:</p>
+			
+			<table id="tableID">
+			</table>
+			
+			<p>
+				<strong>It is there, trust me. </strong>
+				And because this table has <code>id="<var>tableID</var>"</code>, we can use <code>.innerHTML</code> to make a program to put rows and cells inside it.
+			</p>
+			
+			<p>The way to do this is to use a <strong>nested loop</strong>: two or more loops inside each other.</p>
+			<p>
+				For example, say I wanted to create a brief chunk of code to print the contents of each element of <var>ticTacToe</var> to <code>console.log()</code>. 
+				Two loops inside the other (one for the rows, and then one for the columns) will do the trick:
+			</p>
+			
+			<p><img src="img/DrawAMazeNestedLoop.png"></p>
+
+			<p>By now you probably have figured out how to combine table HTML, 2D arrays, and nested loops to fill up our empty table.</p>
+			<p>It works like this: <button type="button" onclick="mainProcedure();">Tictactoeify the empty table above</button></p>
+			<p>Let's look at the program code:</p>
+			
+			<p><img src="img/DrawAMapCode.png"></p>
+			
+			<p>You can examine this in <a href="examples\DrawAMazeExample2.html">it's own page with full readable code</a>.</p>
+
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.26S-DrawAMaze-LastName.html">template</a> and rename it to your last name, such as "<code>1.26S-DrawAMaze-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>In this assignment you will add code to the template to use the information from an array to draw an HTML table of a maze.</h4>
+			
+			<p>The example code follows this pipeline:</p>
+			
+			<table>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<th class="withborder">initMazeArray()</th>
+				</tr>
+				<tr>
+					<td class="withborder centered">return <strong>mazeArray</strong></td>
+				</tr>
+				<tr>
+					<th>&#8659;</th>
+				</tr>
+				<tr>
+					<th class="withborder">createHtmlTableFromMazeArray(<strong>mazeArray</strong>)</th>
+				</tr>
+				<tr>
+					<td class="withborder centered">return <strong>htmlTable</strong></td>
+				</tr>
+				<tr>
+					<th>&#8659;</th>
+				</tr>
+				<tr>
+					<th class="withborder">outputTableInformation(<strong>htmlTable</strong>)</th>
+				</tr>
+			</table>				
+
+			<p>You will need to consider the following:</p>
+			<ul>
+				<li>The <var>mazeCell</var> array is 21x21 instead of <var>ticTacToe</var>'s 3x3, but don't worry, the code structure is actually a little simpler</li>
+				<li>I have included some CSS code to create the table cell's shape</li>
+				<li>In the template, you simply have to recreate the <strong>nested loop</strong> code that will create the table's <code>&lt;tr></code> and <code>&lt;td></code> elements</li>
+				<li>You will have to change the <code>style="background-color: "</code> of the <code>&lt;td></code> cells depending on whether <var>mazeCell</var> contains a zero or one</li>
+				<li>Your result will <a href="examples/DrawAMazeExample.html">look like this</a></li>
+			</ul>
+			
+
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized (chunked) code into separate init/input/processing/output functions</li>
+				<li>___/2 &mdash; Successful creation and use of arrays</li>
+				<li>___/2 &mdash; Successful use of time functions</li>
+				<li>___/1 &mdash; Successful use of timers</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			
+			<h2>Do it with style</h2>
+			<h4>Discover what your variables are</h4>
+			<p>Inside modern browsers is a Javascript console with a line that allows you to type in commands.</p>
+			<p>One of the things that it allows you to do is type in variable names so that you can see what is inside.</p>
+			<p>Try running the console on this page and type in: <code>monthNames</code>.</p>
+			-->
+				
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

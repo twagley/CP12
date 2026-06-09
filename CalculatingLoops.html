@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<title>Triggered loops</title>
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<script>
+			var maxMultiple		=0;
+			var outputString	="<h4>Your multiples of three:</h4><p>";
+
+			/*	This triggers the input/processing/output process */
+			function mainProcedure () {
+				readMaxMultiple();
+				calculateMultiples();
+				outputMultiples();
+			}
+			
+			function readMaxMultiple () {
+				maxMultiple	=document.getElementById("maxMultiple").value;
+			}
+			
+			function calculateMultiples () {
+				for (thisMultiple=0; thisMultiple <= maxMultiple; thisMultiple = thisMultiple + 3) {
+					outputString	=outputString + thisMultiple.toString() + "<br />";
+				}
+			}
+			
+			function outputMultiples () {
+				outputString	=outputString + "</p>";
+				document.getElementById("outputArea").innerHTML	=outputString;
+			}
+		
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.12 Hand-in: Calculating loops</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+			<span class="langstyle">string JS</span> <code><var>someNumber</var>.toString();</code> - converts a number to a string<br />
+			<span class="langstyle">page JS</span> <code>alert(<var>message</var>);</code> - pops up a message over the window<br />
+			<p><span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></p>
+		</aside>
+				
+		<article>
+			<h2>Loops that calculate</h2>
+			<p>In Otto the Robot and the Ms. Pacman exercise you used loops to simply repeat the same thing many times.</p>
+			<p>In this assignment you will be creating loops that will calculate something useful.</p>
+			
+			<h3>For loop structure</h3>
+			<p><strong>for</strong> loops work like this:</p>
+			<pre><code>
+	for (<var>loopVariable = 0</var>; <var>loopVariable < 10</var>; <var>loopVariable = loopVariable +1</var>) {
+		/*	repeated thing goes in here */
+		}
+			</code></pre>
+			
+			<p>More generally, a <strong>for</strong> loop is:</p>
+			<pre><code>
+	for (<strong>initial variable condition</strong>; <strong>cycle while true</strong>; <strong>variable change at end of cycle</strong>) {
+		/*	repeated thing goes in here */
+		}
+			</code></pre>
+			
+			<h3>Example code: multiples of three</h3>
+			
+			<p>	Look at the following code</p>
+			<!--
+			<pre><code>
+	var maxMultiple		=0;
+	var outputString	="&lt;h4&gt;Your multiples of three:&lt;/h4&gt;&lt;p&gt;";
+
+	/*	This triggers the input/processing/output process */
+	function mainProcedure () {
+		readMaxMultiple();
+		calculateMultiples();
+		outputMultiples();
+	}
+
+	/*	This reads in the maximum multiple of three to calculate */
+	function readMaxMultiple () {
+		maxMultiple	=document.getElementById("maxMultiple").value; /* 30, for example*/
+	}
+
+	/*	This loops through the multiples of three and and outputs 
+		In each loop, it adds the calculated multiple to the outputString
+	*/
+	function calculateMultiples () {
+		for (thisMultiple=0; thisMultiple <= maxMultiple; thisMultiple = thisMultiple + 3) {
+			outputString	=outputString + thisMultiple.toString() + "&lt;br /&gt;";
+		}
+	}
+
+	/*	This outputs the string containing the multiples to the outputArea */
+	function outputMultiples () {
+		outputString	=outputString + "&lt;/p&gt;";
+		document.getElementById("outputArea").innerHTML	=outputString;
+	}
+			</code></pre>
+			-->
+			<p><img class="withborder" src="img/CalculatingLoopsExample.png"></p>
+			<h3>Focus questions</h3>
+			<p>What do you expect will be the precise output?</p>
+			<p>What do you think <code>thisMultiple.toString()</code> does?</p>
+			<p>
+				What is the difference between:
+				<ul>
+					<li><code>document.getElementById(<var>"someID"</var>).value</code></li>
+					<li><code>document.getElementById(<var>"someID"</var>).innerHTML</code></li>
+				</ul>
+			</p>
+			
+			<h3>Multiples of three</h3>
+			<p>
+				Please enter the maximum multiple of three to list: 
+				<input type="text" id="maxMultiple" name="maxMultiple" size="2" value="30"><br />
+				<button type="button" onclick="mainProcedure();">Calculate multiples</button><br />
+				
+				<output id="outputArea" name="outputArea"></output>
+			</p>
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.12H-CalculatingLoops-LastName.html">template</a> and save it as "<code>1.12H-CalculatingLoops-LastName.html</code>" in your Computer Programming 12 directory.</p>
+
+			<h2>The assignment</h2>
+			<p>You are going to be creating a program that does something similar to the Multiples of three example. Please create a web page that:</p>
+			<ol>
+				<li>Asks the user to input a number</li>
+				<li>Uses some kind of event, like clicking a button, to trigger your Javascript code.</li>
+				<li>Breaks down your code into separate functions following input/processing/output</li>
+				<li>Uses loops to perform a calculation</li>
+				<li>And outputs the results</li>
+				<li>Has well-commented code with good style</li>
+			</ol>
+						
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2.5 &mdash; Create an effective HTML user interface for input and output</li>
+				<li>___/2.5 &mdash; Chunks code into separate functions following input/processing/output</li>
+				<li>___/2.5 &mdash; Use loops to perform calculations</li>
+				<li>___/2.5 &mdash; Well-commented code with good style</li>
+			</ul>
+
+			<h2>Extend &amp; expand</h2>
+			<p>How can you do this with style?</p>
+			<p>Powers of two?</p>
+			<p>Progressive fractions: 1/1, 1/2, 1/3, 1/4...</p>
+			<p>How could you alter to code so that you could enter both the initial variable value, the increment, and the maximum multiple?</p>
+			<p>Can you use loops to generate a times table?</p>
+		</article>
+		<footer>
+			<div class="legal">Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> &mdash; This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			HTML: Display Unicode characters</title>
+		<meta 
+			name="description" 
+			content="Learn how to display Unicode characters in HTML">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				5. Oct 2015		- created										- Drapak
+				21. March 2017	- moved scripts to bottom for better style		- Drapak
+				9. October 2018	- style updates 								- Drapak
+				27. Oct 2018	- moved to querySelector						- Drapak
+		-->
+		<style>
+			#unicodeCharacterId, #unicodeNumberId  { font-weight:	bold; }
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//HTML: <em>Converting to Unicode characters</em>
+		</header>
+
+		<article>
+		
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">HTML</span> 
+				<code>&amp;#74;</code><br />
+				<span class="indent">&mdash; shows the character with unicode #74, or 'J'<br />
+			</p>
+						
+			<h2>Each character has a code number</h2>
+
+			<p>
+				For example:
+			</p>
+			<ul>
+				<li>
+					J's code is Unicode character number 74 &mdash; &amp;#74;
+				</li>
+				<li>
+					the space character is Unicode character number 32 &mdash; &amp;#32;
+				</li>
+				<li>
+					the enter key is Unicode character number 13 &mdash; &amp;#13;
+				</li>
+				
+				<li>
+					a sun symbol (&#9728;) is Unicode character number 9728 
+					&mdash; &amp;#9728;
+				</li>
+				<li>
+					an anchor symbol (&#9875;) is Unicode character number 9875 
+					&mdash; &amp;#9875;
+				</li>
+			</ul>
+			
+			<p>
+				The origins of these codes go back decades, 
+				and more and more characters are being added to Unicode all the time, 
+				particularly for non-European languages.
+			</p>
+			
+			<h2>
+				Javascript keyboards read the Unicode number 
+				instead of the actual symbol pressed.
+			</h2>
+			
+			<p>
+				This is good in many ways. 
+				For example, string comparisons in <code>if</code> statements 
+				are slower than numerical comparisions.
+			</p>
+			<p>
+				However, if you want to display which key was pressed, 
+				you have to convert it into an HTML code that can be displayed.
+				You do this by adding <code>&amp;#</code> in front of the Unicode number, 
+				and <code>;</code> after, and this will display in HTML 
+				as the actual unicode character.
+			</p>
+			
+			
+			
+			<p>For example: <code>&amp;#74;</code> will display <strong>J</strong> in HTML.</p>
+			<p>
+				In Javascript you can create the HTML code with: <br>
+				<br />
+				<code>
+					var <var>unicodeCharacter</var>	= "&#" + <var>unicodeNumber</var> + ";";
+				</code>
+			</p>
+			
+			<h2>Basic example: A number to character convertor</h2>
+			<hr />
+			
+			<h4>Convert unicode (UTF-8) numbers to their characters</h4>
+			<p>
+				Unicode number: 
+				<input id="inputId" type="text" value="72">
+				<button id="buttonId">Convert number to character</button>
+			</p>
+			<p>
+				This character: "<span id="unicodeCharacterId"> </span>", 
+				can be coded in HTML as: 
+				<code>&amp;#<span id="unicodeNumberId"> </span>;</code>
+			</p>
+			<hr />
+			<p>...is made from:</p>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">My unicode to character converter</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Display a unicode character given the code number"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                5. Oct 2015     - created!                                      - Drapak
+                21. March 2017  - moved to script to bottom for better style    - Drapak
+                27. Oct 2018    - updated style and clarified code              - Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            span { font-weight: bold; }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">Convert unicode (UTF-8) numbers to their characters</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Unicode number: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"72"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Convert number to character</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            This character: "</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"unicodeCharacterId"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">", 
+            can be coded in HTML as: 
+            </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;amp;</span><span class="sc0">#</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"unicodeNumberId"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">convertUnicode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc48">"in convertUnicode..."</span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: read the input line </span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: create the HTML code to display the unicode character</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeCharacter</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"&amp;#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">";"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: output the raw unicodeNumber</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#unicodeNumberId '</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: output the unicode character</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#unicodeCharacterId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">unicodeCharacter</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger convertUnicode when the button is clicked or tab/enter is hit.</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">convertUnicode</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">convertUnicode</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<!--
+			<h2>Common mistakes</h2>
+			<ul>
+				<li>
+					<strong>using one equals, = instead of two equals, ==</strong> <br />
+					= is for assignment, == is for comparision
+				</li>
+				<li>
+					<strong>losing track of curly brackets</strong><br />
+					All those <code>{}</code> start to get confusing. 
+					Click on one of the brackets to see the it's partner is.
+				</li>
+			</ul>
+			-->
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Wikipedia's
+					<a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">
+						List of Unicode characters
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/charsets/ref_html_utf8.asp">
+						HTML Unicode (UTF-8) Reference
+					</a>
+				</li>
+			</ul>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+			var convertUnicode = function () {
+				console.log( "in convertUnicode..." );
+				
+				//INPUT: read the input line 
+				var unicodeNumber		= document.getElementById( 'inputId' ).value;
+				
+				//PROCESS: create the HTML code to display the unicode character
+				var unicodeCharacter	= "&#" + unicodeNumber + ";";
+				
+				//OUTPUT: output the raw unicodeNumber
+				document.getElementById( 'unicodeNumberId' ).innerHTML		= unicodeNumber;
+				
+				//OUTPUT: output the unicode character
+				document.getElementById( 'unicodeCharacterId' ).innerHTML	= unicodeCharacter;
+			}
+			
+			//INPUT: 
+			document.querySelector( '#buttonId' ).onclick	= convertUnicode;
+			document.querySelector( '#inputId' ).onchange	= convertUnicode;
+		</script>
+	</body>
+</html>

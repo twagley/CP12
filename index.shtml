@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12</title>
+		<meta 
+			name="description" 
+			content="Computer Programming 12 provides an introduction to programming to high school students">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. July 2015		- created!										- Drapak
+				22. September		- added menubar on top							- Drapak
+				18. October			- reorganized into floating divs				- Drapak
+				31. January 2017	- new semester!									- Drapak
+				26. March 2017		- removed due dates								- Drapak
+				12. April 2017		- added 3.04 CharacterGenerator					- Drapak
+				23. MAy 2017		- added 4.04 Random Monster Swarm				- Drapak
+				27. December 2017	- started to add quick reference links			- Drapak
+				28. January 2018	- better spaced the reference links				- Drapak
+				23. February 2018	- added modals									- Drapak
+				25. February 2018	- added 2.04 CakeyClicker						- Drapak
+				25. March 2018		- added background images						- Drapak
+				23. September 2018	- renumbered js assignments						- Drapak
+									- reworked some code style						- Drapak
+				4. November 2018	- added MyBiggestStar and HighOrLow				- Drapak
+				14. Nov 2018		- relinked to new markerator					- Drapak
+				20. Nov 2018		- linked JSON									- Drapak
+				2. September 2021	- 
+		-->
+
+
+		<style>
+			.strike {
+				text-decoration: 	line-through;
+			}
+			.reference a {
+				opacity: 			0.9;
+				font-size:			0.9em;
+				text-decoration: 	underline #cccccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>Computer Programming 12</header>
+
+		<article>
+			<h3>
+				Jump to... &nbsp;
+				<a href="#makeID">//Make</a> &nbsp;
+				<a href="#htmlID">//HTML-CSS</a> &nbsp;
+				<a href="#initID">//Init</a> &nbsp;
+				<a href="#inputID">//Input</a> &nbsp;
+				<a href="#processID">//Process</a> &nbsp;
+				<a href="#outputID">//Output</a> &nbsp;
+				<a href="#styleID">//Style</a> &nbsp;
+				<a href="#solveID">//Solve</a> &nbsp;
+				<a href="/gallery/#computerProgramming12">//Gallery</a> &nbsp;
+			</h3>
+			
+			<h2 id="makeID">//MAKE: Build your skills</h2>
+			<div class="floatbox">
+				<ul class="floaty">
+					<li>
+						<strong>1.01H</strong> - 
+						<a href="HelloWorld.shtml">Hello world!</a>
+						<!-- - <strong>due 2. February</strong> -->
+					</li>
+					<li>
+						1.02S - 
+						<a href="Lists.shtml">Survey lists</a>
+					</li>
+					<li>
+						1.03S - 
+						<a href="DataTypes.shtml">Datatypes and tables</a>
+					</li>
+					<li>
+						<strong>1.04H</strong> - 
+						<a href="OttoTheRobot.shtml">Otto the Robot</a>
+						<!-- - <strong>due ----</strong> -->
+					</li>
+					<li>
+						1.05S - 
+						<a href="TextFormatting.shtml">Hello color!</a>
+					</li>
+					<li>
+						1.06S - 
+						<a href="ConstructAPicture.shtml">Construct a picture</a>
+					</li>
+					<li>
+						1.07X - 
+						<a href="AnimateMario.shtml">Animate Mario</a>
+					</li>
+					<li>
+						<strong>1.08H</strong> - 
+						<a href="MakeAGameBoard.shtml">Make a game board</a>
+						<!-- - <strong>due ----</strong> -->
+					</li>
+				</ul>
+
+				<ul class="floaty">
+					<li>
+						2.01S - 
+						<a href="HelloJavascript.shtml">Hello Javascript!</a>
+					</li>
+					<li>
+						2.02S - 
+						<a href="colorChanger.shtml">Color changer</a>
+					</li>			
+					<li>
+						2.03X - 
+						<a href="Modals.shtml">Modals</a>
+					</li>			
+					<li>
+						2.04S - 
+						<a href="FormulaSolver.shtml">Formula solver</a>
+					</li>			
+					<li>
+						<strong>2.05H</strong> - 
+						<a href="FontStyleConsole.shtml">Font style console</a>
+						<strong>-OR-</strong><br>
+						<strong>2.05H</strong> - 
+						<a href="CakeyClicker.shtml">Cakey clicker</a>
+					</li>			
+					<li>
+						2.06S - 
+						<a href="MoveThingsWithButtons.shtml">Move things with buttons</a>
+					</li>			
+					<li>
+						2.07S - 
+						<a href="DefuseTheBomb.shtml">Defuse the bomb!</a>
+					</li>			
+					<li>
+						2.08S - 
+						<a href="KeyboardReader.shtml">Keyboard reader</a>
+					</li>	
+					<li>
+						<strong>2.09H</strong> - 
+						<a href="KeyboardMotionControl.shtml">Keyboard motion control</a>
+					</li>			
+					<li>
+						2.10S - 
+						<a href="MoveThingsAroundSmoothly.shtml">Move things around smoothly</a>
+					</li>	
+					<li>
+						2.11S - 
+						<a href="RollSomeDice.shtml">Roll some dice</a>
+					</li>
+					<li>
+						2.12S - 
+						<a href="MyBiggestStar.shtml">My biggest star</a>
+					</li>
+					<li>
+						2.13S - 
+						<a href="HighOrLow.shtml">High or low</a>
+					</li>					<li>
+						<strong>2.14H</strong> - 
+						<a href="ShyLinkIsShy.shtml">Shy Link is shy</a>
+					</li>
+				</ul>
+				
+				<ul class="floaty">
+					<li>
+						3.01S - 
+						<a href="MadLibs.shtml">Mad libs</a>
+					</li>
+					<li>
+						3.02S - 
+						<a href="MakeABarGraph.shtml">Make a bar graph</a>
+					</li>
+					<li>
+						3.03X - 
+						<a href="GetYourPersonalData.shtml">Get your personal data</a>
+					</li>
+					<li>
+						3.04S - 
+						<a href="Fireworks.shtml">Fireworks</a>
+					</li>
+					<li>
+						<strong>3.05H</strong> - 
+						<a href="TheSkyAtNight.shtml">The sky at night</a> 
+						<strong>-OR-</strong><br>
+						<strong>3.05H</strong> - 
+						<a href="CharacterGeneratorII.shtml">Character generator</a>
+						
+						<!-- - <strong>due ----</strong> -->
+					</li>
+					<li>
+						3.06S - 
+						<a href="BucketList.shtml">Bucket list</a>
+					</li>
+					<li>
+						3.07S - 
+						<a href="MakeARainbow.shtml">Make a rainbow</a>
+					</li>
+					<li>
+						3.08X - 
+						Get your updated marks-
+						<em>Perhaps in the future...</em>
+					</li>
+					<li>
+						<strong>3.09H</strong> - 
+						<a href="MakeATableWithArraysOfObjects.shtml">Make a table</a>
+					</li>
+					<li>
+						3.10S - 
+						<a href="CreateAMaze.shtml">Create a maze</a>
+					</li>
+					<li>
+						3.11X - 
+						<a href="CreateAMap.shtml">Create a map</a>
+					</li>
+				</ul>
+				<ul class="floaty">
+					<li>
+						4.01S - 
+						<a href="ObjectOrientedKeyboardControl.shtml">Object oriented 
+						keyboard control</a>
+					</li>
+					<li>
+						<strong>4.02H</strong> - 
+						<a href="MazeAndMovement.shtml">Make a maze and 
+						something to move on it</a>
+					</li>
+					<li>
+						4.03S - 
+						<a href="MiceAndImages.shtml">Mice and images</a>
+					</li>
+					<li>
+						4.04X - 
+						<a href="TravelAndFindThings.shtml">Travel through a maze 
+						and find things</a>
+					</li>
+					<li>
+						4.05S - 
+						<a href="RandomMonsterSwarm.shtml">Random Monster Swarm</a>
+					</li>
+					<li>
+						4.06X - 
+						<a href="MonsterChasers.shtml">Monster Chasers</a>
+					</li>
+					<!--
+					<li>Find things before they eat you!</li>
+					-->
+				</ul>
+				<ul class="floaty">
+					<li>
+						<strong>Exam project: </strong>
+					</li>
+					<ul>
+						<li>
+							<a href="examDescription.shtml">Exam description</a>
+						</li>
+						<li>
+							<a href="http://citadelcreates.drapak.ca/cpg/markerator.html">
+								The Markerator!
+							</a>
+						</li>
+						<li>
+							Printable checklist: 
+							[<a href="examSkillsChecklist.pdf">pdf</a>] or 
+							[<a href="examSkillsChecklist.docx">docx</a>]
+						</li>
+					</ul>
+					<li>
+						Our Javascript reference sheet: 
+						[<a href="JavascriptReferenceSheet.pdf">pdf</a>] 
+						[<a href="JavascriptReferenceSheet.pub">pub</a>]<br />
+					</li>
+					<li>
+						<a href="timer.html">Online timer</a>
+					</li>
+					<li>
+						<strong>Reference sites:</strong> 
+						<a href="http://www.w3schools.com/">W3Schools</a>, 
+						<a href="https://developer.mozilla.org/en-US/">Mozilla 
+						developers network</a>
+					</li>
+					
+				</ul>
+			</div>
+
+			<h2 id="htmlID">//HTML-CSS: Learn the basics of web page coding</h2>
+			
+			<div class="floatbox">
+				<ul class="floaty reference">
+					<strong>HTML:</strong>&nbsp;
+					<a href="cssSelectors.shtml">class=&quot;&quot;</a>&nbsp; 
+					<a href="cssSelectors.shtml">id=&quot;&quot;</a>&nbsp;
+					<a href="htmlConvertUnicode.shtml">&amp;#74;</a>&nbsp;
+					<br>
+					<br>
+					<a href="htmlBasic.shtml">&lt;!doctype html></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;a href=&quot;&quot;></a>&nbsp;
+					<a href="outputAddingAndPlayingAudio.shtml">&lt;audio></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;body></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;br></a>&nbsp;
+					<a href="inputButtons.shtml">&lt;button></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;caption></a>&nbsp;
+					<a href="cssStyleContainers.shtml">&lt;div></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;h1></a>&nbsp;
+					<a href="htmlLists.shtml">&lt;h2></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;head></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;html></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;img src=&quot;&quot;></a>&nbsp;
+					<a href="inputText.shtml">&lt;input></a>&nbsp;
+					<a href="htmlLists.shtml">&lt;li></a>&nbsp;
+					<a href="htmlLists.shtml">&lt;ol></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;p></a>&nbsp;
+					<a href="initUsingLibraries.shtml">&lt;script src=""></a>&nbsp;
+					<a href="outputAddingAndPlayingAudio.shtml">&lt;source></a>&nbsp;
+					<a href="cssStyleContainers.shtml">&lt;span></a>&nbsp;
+					<a href="htmlBasic.shtml">&lt;strong></a>&nbsp;
+					<a href="cssTextFormatting.shtml">&lt;style></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;table></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;td></a>&nbsp;
+					<a href="inputText.shtml">&lt;textarea></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;th></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;thead></a>&nbsp;
+					<a href="htmlTables.shtml">&lt;tr></a>&nbsp;
+					<a href="htmlLists.shtml">&lt;ul></a>
+					
+					<br>
+					<br>
+					
+					<strong>CSS:</strong>&nbsp;<a href="cssSelectors.shtml">.class</a>&nbsp;
+					<a href="cssSelectors.shtml">#Id</a>&nbsp;
+					
+					<br>
+					<br>
+					<a href="cssColor.shtml">#FF0000</a>&nbsp;
+					<a href="cssColor.shtml">rgb(255, 0, 0)</a>&nbsp;
+					<br>
+					<br>
+					<a href="cssAnimation.shtml">@keyframes exampleAnimation</a>&nbsp;
+					<a href="cssAnimation.shtml">animation-duration:</a>&nbsp;
+					<a href="cssAnimation.shtml">animation-iteration-count:</a>&nbsp;
+					<a href="cssAnimation.shtml">animation-name:</a>&nbsp;
+					<a href="cssAnimation.shtml">animation-timing-function:</a>&nbsp;
+					<br>
+					<br>
+					<a href="cssBackgroundImage.shtml">background:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">background-color:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">border:</a>&nbsp;
+					<a href="cssPositioning.shtml">bottom:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">color:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">font-family:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">font-size:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">font-style:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">font-weight:</a>&nbsp;
+					<a href="cssPositioning.shtml">height:</a>&nbsp;
+					<a href="cssPositioning.shtml">left:</a>&nbsp;
+					<a href="cssColor.shtml">opacity:</a>&nbsp;
+					<a href="cssPositioning.shtml">position:</a>&nbsp;
+					<a href="cssPositioning.shtml">right:</a>&nbsp;
+					<a href="cssPositioning.shtml">top:</a>&nbsp;
+					<a href="cssTextFormatting.shtml">width: </a>&nbsp;
+					<a href="cssPositioning.shtml">z-index:</a>&nbsp;
+				</ul>
+				
+				<ul class="floaty">			
+					<li>
+						//HTML: <a href="htmlBasic.shtml">Basics</a>
+					</li>
+					<li>
+						//HTML: <a href="htmlLists.shtml">Lists</a>
+					</li>
+					<li>
+						//HTML: <a href="htmlTables.shtml">Tables</a>
+					</li>
+					<li>
+						//HTML: 
+						<a href="htmlTablesTwoKinds.shtml">Two kinds of HTML tables</a>
+					</li>
+					<li>
+						//HTML: 
+						<a href="htmlConvertUnicode.shtml">Converting to 
+						Unicode characters</a>
+					</li>
+					<li>
+						//HTML and OUTPUT: 
+						<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+					</li>
+					<br />
+					<li>
+						<strong>//HTML: 
+						<a href="htmlImageResources.shtml">Image resources 
+						for projects</a></strong>
+					</li>
+				</ul>
+				<ul class="floaty">
+					<li>
+						//CSS: <a href="cssTextFormatting.shtml">Text formatting</a>
+					</li>
+					<li>
+						//CSS: <a href="cssBackgroundImage.shtml">Background images</a>
+					</li>
+					<li>
+						//CSS: <a href="cssUsingIDs.shtml">Applying styles using IDs</a>
+					</li>
+					<li>
+						//CSS: <a href="cssPositioning.shtml">Positioning</a>
+					</li>
+					<li>
+						//CSS: <a href="cssAnimation.shtml">Animation</a>
+					</li>
+					<li>
+						//CSS: <a href="cssColor.shtml">Color</a>
+					</li>
+					<li>
+						//CSS: 
+						<a href="cssSelectors.shtml">Selectors: tags, 
+						IDs, and classes</a>
+					</li>
+					<li>
+						//CSS: 
+						<a href="cssStyleContainers.shtml">Style containers: 
+						<code>&lt;div></code> and <code>&lt;span></code></a>
+					</li>
+				</ul>
+			</div>
+				
+
+
+			<h2 id="initID">//INIT: Find out about variables and data structures</h2>
+			
+			<div class="floatbox">
+				<ul class="floaty reference">
+					<a href="initUsingLibraries.shtml">&lt;script src=""></a>&nbsp;
+					<a href="initVariableAssignment.shtml">var</a>&nbsp;
+					<a href="initVariableAssignment.shtml">=0</a>&nbsp;
+					<a href="initVariableAssignment.shtml">=&quot;&quot;</a>&nbsp;
+					<a href="initDatatypes.shtml">true</a>&nbsp;
+					<a href="initDatatypes.shtml">false</a>&nbsp;
+					<a href="initObjectConstructors.shtml">=new ConstructorObj()</a> 
+					
+					<br>
+					<br>
+					
+					<a href="initObjects.shtml">exampleObj={}</a>&nbsp;
+					<a href="initObjects.shtml">exampleObj{}</a>&nbsp;
+					<a href="initObjects.shtml">exampleObj.propertyName</a>&nbsp; 
+					<a href="initObjects.shtml">exampleObj[ 'propertyName' ]</a>&nbsp; 
+					<a href="initObjects.shtml">exampleObj{ propertyName: propertyInfo }</a>
+					
+					<br>
+					<br>
+					
+					<a href="initArrays.shtml">exampleArr=[]</a>&nbsp; 
+					<a href="initArrays.shtml">exampleArr[]</a>&nbsp; 
+					<a href="initArrays.shtml">.split()</a>&nbsp; 
+
+					<a href="initTwoDimensionalArrays.shtml">exampleArr[][]</a>&nbsp; 
+					<a href="initArraysOfObjects.shtml">exampleArr[]{}</a>
+				</ul>
+				<ul class="floaty reference">
+				</ul>
+				<ul class="floaty">			
+					<li>
+						//INIT: <a href="initDatatypes.shtml">Datatypes</a>
+					</li>
+					<li>
+						//INIT: <a href="initVariableAssignment.shtml">Using variables</a>
+					</li>
+					<li>
+						//INIT: <a href="initUsingLibraries.shtml">Using libraries</a>
+					</li>
+					<li>
+						//INIT: <a href="initObjects.shtml">Objects</a>
+					</li>
+					<li>
+						//INIT: <a href="initArrays.shtml">Creating arrays</a>
+					</li>
+					<li>
+						//INIT: 
+						<a href="initTwoDimensionalArrays.shtml">Creating 
+						two-dimensional arrays</a>
+					</li>
+					<li>
+						//INIT: <a href="initArraysOfObjects.shtml">Creating 
+						arrays of objects</a>
+					</li>
+					<li>
+						//INIT: Variable scope
+					</li>
+					<li>
+						//INIT: <a href="initObjectsWithMethods.shtml">Creating 
+						objects with methods</a>
+					</li>
+					<li>
+						//INIT: 
+						<a href="initObjectConstructors.shtml">Creating objects 
+						using object constructors</a>
+					</li>
+				</ul>
+				<ul class="floaty">			
+					<li>
+						<a href="ComplexDataStructures.html">Complex data structures</a>
+						- Arrays of objects, anyone?
+					</li>
+					<li>
+						<a href="TaeKwonDo.html">Tae Kwon Do</a>
+						- store characteristic data in arrays and display it
+					</li>
+					<li>
+						<a href="TellingTime.html">Telling time</a>
+						- using arrays to interpret time information
+					</li>
+					<li>
+						<a href="BuildAClock.html">Build a clock</a>
+						-  make a simple clock using arrays, date objects, and timers
+					</li>
+					<li>
+						<a href="VariableScope.html">Variable scope</a>
+						- when to declare variables in your program<br />
+					</li>
+					<!--
+					<li>
+						<a href="DrawAMaze.html">Draw a maze</a> - extract information from a two dimensional array to <a href="examples/DrawAMazeExample.html">draw a map</a>				
+					</li>
+					<li>
+						<a href="DrawMsPacmanMaze.html">Draw the Ms Pacman maze</a> - use complex data and function pipelines to draw a maze
+					</li>
+					<li>
+						Object Oriented Programming I: <a href="ObjectOrientedProgramming.html">Object oriented programming with methods</a> - an intro
+					</li>
+					<li>
+						Object Oriented Programming II: <a href="ObjectConstructors.html">Object constructors</a> - using OOP to create multiple objects with the same methods
+					</li>
+					-->
+				</ul>
+			</div>  <!-- #floatbox -->
+
+			<h2 id="inputID">//INPUT: How you get information from the environment?</h2>
+			<div class="floatbox">
+				<ul class="floaty reference">
+					<a href="inputMouseMovementAndPosition.shtml">.clientY</a>&nbsp;
+					<a href="inputMouseMovementAndPosition.shtml">.clientX</a>&nbsp;
+					<a href="inputElementPositions.shtml">.offsetLeft</a>&nbsp;
+					<a href="inputElementPositions.shtml">.offsetTop</a>&nbsp;
+					<br>
+					<br><strong>Events:</strong>
+					<a href="inputText.shtml">.onchange</a>&nbsp;
+					<a href="inputButtons.shtml">.onclick</a>&nbsp;
+					<a href="inputReadingKeypresses.shtml">.onkeydown</a>&nbsp;
+					<a href="outputAlertInnerHtmlAndConsoleLog.shtml">.onload</a>&nbsp;
+					<a href="inputMouseMovementAndPosition.shtml">.onmousemove </a>&nbsp;
+					<a href="inputDetectingMouseovers.shtml">.onmouseout</a>&nbsp;
+					<a href="inputDetectingMouseovers.shtml">.onmouseover</a>&nbsp;
+					<br>
+					<br>
+					<a href="inputText.shtml">.value</a>&nbsp;
+					<a href="inputReadingKeypresses.shtml">keyEvent.which 
+					|| keyEvent.keyCode</a>&nbsp;
+					<a href="inputScreenHeightAndWidth.shtml">window.innerHeight</a>&nbsp;
+					<a href="inputScreenHeightAndWidth.shtml">window.innerWidth</a>&nbsp;
+					<br>
+					<br>
+					<a href="inputGet.shtml">.get()</a>&nbsp;					
+				</ul>
+				
+				<ul class="floaty">
+					<li>
+						//INPUT: 
+						<a href="inputButtons.shtml">Buttons</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputText.shtml">Text</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputElementPositions.shtml">Read element positions</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputReadingKeypresses.shtml">Reading keypresses</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputDetectingMouseovers.shtml">Detecting mouseovers</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputGet.shtml">Getting information from websites</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputScreenHeightAndWidth.shtml">Reading the 
+						height and width of the screen</a>
+					</li>
+					<li>
+						//INPUT: 
+						<a href="inputMouseMovementAndPosition.shtml">Reading mouse 
+						movements and position</a>
+					</li>
+					<li>
+						//INPUT: Reading the time
+					</li>
+
+					<br />
+		
+					<li>
+						<a href="TellingTime.html">Telling time</a> 
+						- using arrays to interpret time information
+					</li>
+				</ul>
+			</div> <!-- #floatbox -->
+			
+			<h2 id="processID">
+				//PROCESS: Learn about how to manipulate and process information
+			</h2>
+			<div class="floatbox">
+				<ul class="floaty reference">
+					<a href="processStringAddition.shtml">"" + ""</a>&nbsp;
+					<a href="processIfElseConditionals.shtml">==</a>&nbsp;
+					<br>
+					<br>
+					<a href="processStringAddition.shtml">.concat()</a>&nbsp;
+					<a href="processUsingArrays.shtml">.join()</a>&nbsp;
+					<a href="processUsingArrays.shtml">.length</a>&nbsp;
+					<a href="processUsingArrays.shtml">.push()</a>&nbsp;
+					<a href="initArrays.shtml">.split()</a>&nbsp;
+					<br>
+					<br>
+					<a href="processIfElseConditionals.shtml">else</a>&nbsp;
+					<a href="processIfElseConditionals.shtml">else if ()</a>&nbsp;
+					<a href="processForLoops.shtml">for ()</a>&nbsp;
+					<a href="processFunctionParametersAndReturns.shtml">function ()</a>&nbsp;
+					<a href="processIfElseConditionals.shtml">if ()</a>&nbsp;
+					<a href="processFunctionParametersAndReturns.shtml">return</a>&nbsp;
+					<br>
+					<br>
+					<a href="processTimeoutAndIntervals.shtml">setInterval()</a>&nbsp;
+					<a href="processTimeoutAndIntervals.shtml">setTimeout()</a>&nbsp;
+					
+					<br>
+					<br>
+					
+					<a href="processStringAddition.shtml">parseFloat()</a>&nbsp;
+					<a href="processBasicMath.shtml">parseInt()</a>&nbsp;
+					<a href="processBasicMath.shtml">+</a>&nbsp;
+					<a href="processBasicMath.shtml">-</a>&nbsp;
+					<a href="processBasicMath.shtml">*</a>&nbsp;
+					<a href="processBasicMath.shtml">/</a>&nbsp;
+					<a href="processRandomnessAndRounding.shtml">Math.ceil()</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.cos()</a>&nbsp;
+					<a href="processRandomnessAndRounding.shtml">Math.floor()</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.PI</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.pow()</a>&nbsp;
+					<a href="processRandomnessAndRounding.shtml">Math.random()</a>&nbsp;
+					<a href="processRandomnessAndRounding.shtml">Math.round()</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.sin()</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.sqrt()</a>&nbsp;
+					<a href="processBasicMath.shtml">Math.tan()</a>&nbsp;
+					
+					<br>
+					<br>
+					<a href="processJSON.shtml">JSON.parse()</a>&nbsp;
+					<a href="processJSON.shtml">JSON.stringify()</a>&nbsp;					
+				</ul>
+				
+				<ul class="floaty">			
+					<li>
+						//PROCESS: 
+						<a href="processBasicMath.shtml">Basic math</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processIfElseConditionals.shtml">
+							<code>if...else</code> conditionals
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processRandomnessAndRounding.shtml">
+							Randomness and rounding
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processFunctionParametersAndReturns.shtml">
+							Using function parameters and returns
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processFunctionDefinitionsCallsReferences.shtml">
+							Functions: Definition, trigger, or reference?
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processStringAddition.shtml">String addition</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processJSON.shtml">JSON — Bundling data into a transferable form</a>
+					<li>
+					</li>					
+						//PROCESS: 
+						<a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processUsingArrays.shtml">Using arrays</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processForLoops.shtml"><code>for</code> loops</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processUsingTwoDimensionalArrays.shtml">
+							Using two dimensional arrays and nested loops
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processUsingArraysOfObjectsToCreateATable.shtml">
+							Using arrays of objects to create a table
+						</a>
+					</li>
+					<li>
+						//PROCESS: 
+						<a href="processUsingArraysOfObjectsToCreateAMap.shtml">
+							Using arrays of objects to create a map
+						</a>
+					</li>
+				</ul>	
+				<ul class="floaty">			
+					<!--
+					<li>
+						<a href="CreatingCharts.html">Creating charts</a> - learning how to draw using <a href="http://draw.io">draw.io</a>
+					</li>
+					<li>
+						<a href="OrganizingProblems.html">Organizing problems</a> - IPO, flowcharts, algorithms, ...
+					</li>
+					<li>
+						<span style="text-decoration: line-through;"><a href="VolumeOfASphere.html">Volume of a sphere</a> - chunking problems and inputting numbers</span>
+					</li>
+					<li>
+						<a href="MsPacMan.html">Ms. Pacman</a> - an introduction to counting loops<br />
+					</li>
+					-->
+					<li>
+						<a href="RecursiveFunctions.html">Recursive functions</a>
+						- Functions that loop back on themselves
+					</li>
+					<li>
+						<a href="ColorGrid.html">Color grid</a>
+						-  using javascript with CSS, and nesting loops
+					</li>
+					<li>
+						<a href="examples/SieveExample.html">Sieve of Eratosthenes</a>
+						- use arrays and loops to calculate prime numbers
+					</li>
+					<li>
+						<a href="CharacterGenerator.html">Character generator</a>
+						- use objects and function pipelines to generate a character
+					</li>
+					<!--
+					<li>
+						<a href="DrawAMaze.html">Draw a maze</a> - extract information from a two dimensional array to <a href="examples/DrawAMazeExample.html">draw a map</a>				
+					</li>
+					-->
+					<li>
+						<a href="DrawMsPacmanMaze.html">Draw the Ms Pacman maze</a> 
+						- use complex data and function pipelines to draw a maze
+					</li>
+				</ul>
+			</div> <!-- #floatbox -->
+			
+			<h2 id="outputID">//OUTPUT: How do you display things?</h2>
+			<div class="floatbox">
+				<ul class="floaty reference">
+					<a href="outputAnimatingMotion.shtml">.animate({top:, left:,</a><a href="outputAnimatingCSSProperties.shtml"> width:, opacity:</a><a href="outputAnimatingMotion.shtml"> }, {duration:, easing:, </a><a href="outputAnimationCallbacks.shtml">start:, complete: })</a>&nbsp;
+					<br>
+					<br>
+					
+					<a href="outputAnimatingCSSProperties.shtml">.clearQueue()</a>&nbsp;
+					<a href="outputAnimatingCSSProperties.shtml">.stop()</a>&nbsp;
+					
+					<br>
+					<br>
+					
+					<a href="outputAlertInnerHtmlAndConsoleLog.shtml">alert()</a>&nbsp;
+					<a href="outputAddingImagesToAnOutputElement.shtml">.appendChild()</a>&nbsp;
+					<a href="outputAlertInnerHtmlAndConsoleLog.shtml">console.log()</a>&nbsp;
+					<a href="outputAddingImagesToAnOutputElement.shtml">.createElement()</a>&nbsp;
+					<a href="outputAlertInnerHtmlAndConsoleLog.shtml">.innerHTML</a>&nbsp;
+					<a href="outputAddingAndPlayingAudio.shtml">.play()</a>&nbsp;
+
+					<a href="outputChangeAnImage.shtml">.src</a>
+					
+					<br>
+					<br>
+					
+					<a href="outputChangeTextStyles.shtml">.style.backgroundColor</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.color</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.fontSize</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.fontStyle</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.fontWeight</a>&nbsp;
+					<a href="outputChangePosition.shtml">.style.left</a>&nbsp;
+					<a href="outputAddingImagesToAnOutputElement.shtml">.style.position</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.textAlign</a>&nbsp;
+					<a href="outputChangePosition.shtml">.style.top</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.verticalAlign</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.visibility</a>&nbsp;
+					<a href="outputChangeTextStyles.shtml">.style.width</a>&nbsp;
+					<a href=""></a>
+
+				</ul>
+			
+				<ul class="floaty">
+					<li>
+						//OUTPUT: 
+						<a href="outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>, 
+						<code>.innerHTML</code>, 
+						and <code>console.log()</code></a>
+					</li>
+					<li>
+						//OUTPUT: 
+						<a href="outputChangeTextStyles.shtml">Changing text styles</a>
+					</li>
+					<li>
+						//OUTPUT: 
+						<a href="outputChangePosition.shtml">Changing an element's position</a>
+					</li>
+					<li>
+						//OUTPUT: 
+						<a href="outputChangeAnImage.shtml">Changing an image</a>
+					</li>
+					<li>
+						//HTML and OUTPUT: 
+						<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+					</li>
+					<li>
+						//OUTPUT: 
+						<a href="outputAddingImagesToAnOutputElement.shtml">Adding new images to an output element</a>
+					</li>
+					<li>
+						//HTML and OUTPUT: 
+						<a href="outputAddingAndPlayingAudio.shtml">Adding and playing audio</a>
+					</li>
+					<li>
+						//OUTPUT: Animation
+					</li>
+					<ol>
+						<li>
+							<a href="outputAnimatingMotion.shtml">Animating motion</a>
+						</li>
+						<li>
+							<a href="outputAnimatingCSSProperties.shtml">Animating other CSS properties</a>
+						</li>
+						<li>
+							<a href="outputAnimationCallbacks.shtml">Animation callbacks</a>
+						</li>
+					</ol>
+					
+				</ul>
+			</div> <!-- #floatbox -->			
+
+			<h2 id="styleID">//STYLE: Develop professional programming habits</h2>
+
+			<div class="floatbox">
+				<ul class="showBullets">
+					<li>
+						//STYLE: 
+						<a href="styleTags.shtml">Capitalizing HTML tags</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleChoosingAnEditor.shtml">Choosing an editor</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleTabs.shtml">Formatting code with tab indents</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleComments.shtml">Use comments to communicate</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleAvoidLongLines.shtml">Avoid long lines of code</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleXAndVWherePossible.shtml">Use cut and paste where possible</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleMath.shtml">Space out mathematical expressions</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleDebuggingWithAlert.shtml">Debug using <code>alert()</code></a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleKeepCSSInTheHead.shtml">Keep your CSS inside your <code>&lt;head></code></a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleUseDescriptiveVariables.shtml">Use descriptive variable names</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleFunctionPipelines.shtml">Use function pipelines</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleSeparateAndCommentYourFunctions.shtml">Separate and comment your functions</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleUseDescriptiveFunctions.shtml">Use descriptive function names</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleWorkGeneralToSpecific.shtml">Work from general to specific</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleUsingTheConsoleLog.shtml">Debug using the console log</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleRunYourCodeMoreQuickly.shtml">Run your code more quickly</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleAvoidGlobalVariables.shtml">Avoid global variables</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleAvoidLongBlocksOfCode.shtml">Avoid long blocks of code</a>
+					</li>
+				</ul>
+			</div> <!-- #floatbox -->	
+			
+			<h2 id="solveID">//SOLVE: Demonstrations about how to solve certain kinds of problems</h2>
+
+			<ul class="showBullets">
+				<li>
+					//SOLVE: 
+					<a href="solveCharacterGenerator.shtml">Character generator</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveCostCalculator.shtml">Project cost calculator</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveChooseYourOwnAdventure.shtml">Choose your own adventure</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveClock.shtml">Visual clock</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveJSON.shtml">Saving and opening data files</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveNonGridAnimation.shtml">Frame-based animation that continues while you press the key</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveSideScrolling.shtml">Animating a side-scroller</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveSpriteLoops.shtml">Loop a sprite through an array of images</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solvePhysicsFlappyTree.shtml">Basic physics in games: Flappy Tree!</a>
+				</li>
+				<li>
+					//SOLVE: 
+					<a href="solveDeltaTime.shtml">Calculating a change in time</a>
+				</li>
+			</ul>
+			
+			
+			<h2>The Pacman Project</h2>
+			<div class="floatbox">
+				<ul class="floaty">			
+					<li>
+						Part One: 
+						<a href="ThePacmanProject.html">The user interface</a>
+					</li>
+					<li>
+						Part Two: 
+						<a href="ThePacmanProjectII.html">Motion control</a>
+					</li>
+					<li>
+						Part Three: 
+						<a href="ThePacmanProjectIII.html">Game play</a>
+					</li>
+				</ul>
+				<ul class="floaty">			
+					<li>
+						Understanding grids I: 
+						<a href="PositioningAnImageOnAnImageGrid-II.html">Positioning an image on a grid</a>
+					</li>
+					<li>
+						Understanding grids II: 
+						<a href="MsPacmanMappingProblemSolving.html">Positioning images precisely based on data structures</a>
+					</li>
+					<li>
+						Understanding grids III: 
+						<a href="PositioningImagesInAGridUsingOffsetsAndWidths.html">Positioning images in a grid using widths and offset values</a>
+					</li>
+					<li>
+						Fine-tuning Ms Pacman's position: 
+						<a href="UsingOffsetsToFineTunePlacement.html">Using offsets to fine-tune placement</a>
+					</li>
+					<li>
+						How to keep Ms. Pacman from going through walls: 
+						<a href="NavigationWithArrays.html">Blocking and allowing movement with arrays</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=xMEjovSlyqs"><em>How 
+						Pac-Man’s Ghosts Think & Hunt</em></a> [youtube]
+					</li>
+				</ul>
+			</div>
+
+			<h2>Problem solving challenges</h2>
+			<p>
+				<a href="CustomizingCellsWithData.html">Customizing table cells with data</a><br />
+			</p>
+
+				<!--
+			<h2>Tools</h2>
+			<p>
+				<a href="ReferenceSheet.html">The HTML, 
+				CSS, and JavaScript reference page</a><br /><br />
+				<a href="sketches.html">in-progress: 
+				sketches of the whole cpg program</a><br />
+				
+			</p>
+				-->
+
+			<h2><a href="videos.shtml">Interesting videos</a></h2>
+
+			<h2>Evaluation</h2>
+			<div>
+				<p>
+					This class is project-based. 
+					You will be evaluated on the work you create: 
+					don't expect tests and quizzes.
+				</p>
+				<p>
+					<strong>80%</strong> 
+					of your final mark will be from your semester work, 
+					and <strong>20%</strong> of it will be from a project-based exam.
+				<p>
+				<p>
+					Your assignments are divided into two categories: 
+					<strong>skill builders</strong>, which are formative, 
+					not graded, and meant to help students figure things out, 
+					and <strong>hand-in</strong> assignments, which are summative, 
+					graded assignments in which you show off your skills.
+				</p>
+				<p>
+					Hand-in assignments have names like 
+					"<strong>1.01H</strong>" and skill-builders have names like "1.03S".
+				</p>
+			</div>
+
+		</article>
+
+		<script>
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			INIT - Using objects
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use objects in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				18. October 2015	-created									- Drapak
+				4. April 2017		- reworked for improved style				- Drapak
+				27. Oct 2018		- reworked for clarity and style			- Drapak
+				14. Nov 2018		- reworked Obj style						- Drapak
+		-->
+
+		<style>
+			input, button {
+				position: 		absolute;
+				left:			20em;
+			}
+			#outputId {
+				font-weight: 	bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Using objects</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>objectName</var> = {};</code><br>
+				<span class="indent">&mdash; define an empty object</span><br>
+				<br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code><var>objectName.propertyName</var> = propertyInfo;</code><br>
+				<span class="indent">
+					&mdash; set the propertyName of objectName to propertyInfo
+				</span><br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code><var>objectName[ 'propertyName' ]</var> = propertyInfo;</code><br>
+				<span class="indent">
+					&mdash; set the propertyName of objectName to propertyInfo
+				</span><br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code><var>objectName{ propertyName: propertyInfo }</var>;</code><br>
+				<span class="indent">
+					&mdash; set the propertyName of objectName to propertyInfo
+				</span><br>
+			</p>
+			
+			<h2>Objects and Properties</h2>
+			
+			<p>Let's say I have pet chicken.</p>
+			<p>
+				It's name is Prince Rupert the Second, it is dark brown, 
+				it has long feathers and is 2 years old. 
+			</p>
+			<p>I can store this information in the following (slightly awkward) ways:</p>
+			
+			<h3>1. Using a different variable for each property (time consuming)</h3>
+			
+			<pre><code>var <var>chickenName</var> = "Prince Rupert the Second";
+var <var>chickenColour</var> 	= "dark brown";
+var <var>chickenFeathers</var> 	= "long";
+var <var>chickenAge</var> 		= 2;
+
+console.log(	<var>// output the chicken information</var>
+	"My chicken's name is " 
+	+ <var>chickenName</var> 
+	+ ". It is " 
+	+ <var>chickenColour</var> 
+	+ " with " 
+	+ <var>chickenFeathers</var> 
+	+ " feathers. It is " 
+	+ <var>chickenAge</var> 
+	+ " years old."
+);</code></pre>
+			
+
+			<h3>
+				2. Create an <strong>object</strong> with a series of 
+				<strong>properties</strong> (elegant &amp; fast)
+			</h3>
+			<pre><code>var <var>chickenObj</var> = {}; <var>// define as an empty object</var>
+			
+<var>chickenObj.name</var> 		= "Prince Rupert the Second";
+<var>chickenObj.colour</var> 	= "dark brown";
+<var>chickenObj.feathers</var>	= "long";
+<var>chickenObj.age</var> 	= 2;
+
+console.log(
+	"My chicken's name is " 
+	+ <var>chickenObj.name</var>
+	+ ". It is " 
+	+ <var>chickenObj.colour</var>
+	+ " with " 
+	+ <var>chickenObj.feathers</var>
+	+ " feathers. It is " 
+	+ <var>chickenObj.age</var>
+	+ " years old."
+);</code></pre>
+			
+			<h2>Assigning properties to an object</h2>
+			<p>
+				There are several ways to assign properties to an object.
+				<strong>First, define your variable as an empty object:</strong> 
+			</p>
+			
+			<p>
+				<code>
+					var <var>chickenObj</var> = {};	<var>// define as an empty object</var>
+				</code>
+			</p>
+			
+			<p>
+				Then you can assign values to each property. 
+				Each of the following methods is <strong>exactly the same</strong>:
+			</p>
+			
+			<pre><code><var>chickenObj</var>.<var>name</var> 	= "Wilbur";
+<var>chickenObj</var>.<var>feathers</var> 	= "long";</code></pre><br>
+			<pre><code><var>chickenObj</var>[ '<var>name</var>' ] 		= "Wilbur";
+<var>chickenObj</var>[ '<var>feathers</var>' ] 	= "long";</code></pre><br>
+			<pre><code><var>chickenObj</var> = { <var>name</var>: "Wilbur", <var>feathers</var>: "long" };</code></pre><br>
+			<pre><code><var>chickenObj</var> = {
+	<var>name</var>: 		"Wilbur",
+	<var>feathers</var>: 	"long"
+};</code></pre>
+
+							
+			<h2>Reading properties of an object</h2>
+			<p>
+				Once the property values are stored, then you can get the information out again.
+				Each of the following methods is <strong>exactly the same</strong>:
+			</p>
+			
+			<pre><code>console.log( <var>chickenObj</var>.<var>name</var> );</code></pre>
+			
+			<pre><code>console.log( <var>chickenObj</var>['<var>name</var>'] );</code></pre>
+
+						
+			<h2>Objects and function pipelines</h2>
+			
+			<p>
+				One of the reasons why programmers love objects is because they organize a lot of information under one variable.
+				This means that you can pass them easily between functions in a function pipeline.
+			</p>
+			
+			<pre><code>var <var>mainProcedure</var> = function () {
+	<var>//the <code>getInfoObject</code> function <code>return</code>s an object</var>
+	var <var>inputObj</var> 	= getInfoObject();	
+	
+	<var>//the <var>processTheObject</var> function accepts the object as an argument</var>
+	var <var>outputString</var>	= processTheObject( <var>inputObj</var> );	
+
+	<var>//the <var>outputInfo</var> function accepts the string variable as an argument</var>	
+	outputInfo( <var>outputString</var> );
+}</code></pre>
+			<!--
+			<p>
+				Take a look at the following code:<br>
+				<img src="img/QualitiesOfAProgrammerExample.png">
+			</p>
+			
+						
+			<p>Notice that <code>mainProcedure()</code>, makes the following function pipeline:</p>
+			
+			<table>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<th class="withborder">initCharacterObject()</th>
+				</tr>
+				<tr>
+					<td class="withborder centered">returns: <strong>charObject</strong></td>
+				</tr>
+				<tr>
+					<th>&#8659;</th>
+				</tr>
+				<tr>
+					<th class="withborder">createCharacterInfo(<strong>charObject</strong>)</th>
+				</tr>
+				<tr>
+					<td class="withborder centered">returns: <strong>thisInfoString</strong></td>
+				</tr>
+				<tr>
+					<th>&#8659;</th>
+				</tr>
+				<tr>
+					<th class="withborder">outputCharacterInfo(<strong>thisInfoString</strong>)</th>
+				</tr>
+			</table>				
+			-->
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/objects/p/intro-to-objects">
+						Intro to Objects
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_objects.asp">
+						JavaScript Objects
+					</a> and
+					<a href="http://www.w3schools.com/js/js_object_definition.asp">
+						JavaScript Object definitions
+					</a>
+				</li>
+			</ul>
+			
+			<h2>Code example</h2>
+			<hr>
+			<h3>Address maker</h3>
+			<p>
+				Please enter the address information into the blanks below:<br>
+				Name: 
+				<input id="nameId" type="text" value="Citadel High School"><br>
+				Street address: 
+				<input id="streetId" type="text" value="1855 Trollope Street"><br>
+				City: 
+				<input id="cityId" type="text" value="Halifax"><br>
+				Province: 
+				<input id="provinceId" type="text" value="Nova Scotia"><br>
+				Postal code: 
+				<input id="postalCodeId" type="text" value="B3H 0A4"><br>
+				<br>
+				<button id="buttonId">Click me!</button>
+			</p>
+			<p>
+				The address you entered was:<br><br>
+				<span id="outputId"></span>
+			</p>
+
+			<hr>
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Computer Programming: INIT - Using objects</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how use objects in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                18. October 2015    - created                                   - Drapak
+                4. April 2017       - reworked to move script to tail           - Drapak
+                27. October 2018    - reworked style and clarified code         - Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            input, button {
+                position:       absolute;
+                left:           20em;
+            }
+            #outputId {
+                font-weight:    bold;
+            }
+
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Address maker</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Please enter the address information into the blanks below:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            Name: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"nameId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Citadel High School"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            Street address: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"streetId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"1855 Trollope Street"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            City: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"cityId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Halifax"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            Province: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"provinceId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"Nova Scotia"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            Postal code: 
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"postalCodeId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"B3H 0A4"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Click me!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            The address you entered was:</span><span class="sc1">&lt;br&gt;&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: display the HTML string inside #outputId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputAddress</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in outputAddress, outputString='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: accept an object, and then combine properties to make an HTML address</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createAddressString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in createAddressString, inputObj:'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">inputObj.name</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;br&gt;"</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">inputObj.street</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;br&gt;"</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">inputObj.city</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;br&gt;"</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">inputObj.province</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;br&gt;"</span><span class="sc41">
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">inputObj.postalCode</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: read the value of each input line and return an object the information</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getInput</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getInput...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{};</span><span class="sc41">
+                
+                </span><span class="sc46">inputObj.name</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#nameId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">inputObj.street</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#streetId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">inputObj.city</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#cityId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">inputObj.province</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#provinceId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">inputObj.postalCode</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#postalCodeId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//MAIN: make the functions connect the data together</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getInput</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createAddressString</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">inputObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">outputAddress</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger main procedure when #buttonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"#buttonId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Another example: <a href="objectsDemoElectionGraph.html">Creating an election graph</a></h2>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+			//OUTPUT: display the HTML string inside #outputId
+			var outputAddress = function ( outputString ) {
+				console.log( 'in outputAddress, outputString=' + outputString );
+				
+				document.querySelector( '#outputId' ).innerHTML	= outputString;
+			}
+			
+			//PROCESS: accept an object, and then combine properties to make an HTML address
+			var createAddressString = function ( inputObj ) {
+				console.log( 'in createAddressString, inputObj:', inputObj );
+				
+				var outputString	= inputObj.name
+									+ "<br>"
+									+ inputObj.street
+									+ "<br>"
+									+ inputObj.city
+									+ "<br>"
+									+ inputObj.province
+									+ "<br>"
+									+ inputObj.postalCode;
+				return outputString;
+			}
+			
+			//INPUT: read the value of each input line and return an object the information
+			var getInput = function () {
+				console.log( 'in getInput...' );
+				
+				var inputObj	= {};
+				
+				inputObj.name			= document.querySelector( '#nameId' ).value;
+				inputObj.street			= document.querySelector( '#streetId' ).value;
+				inputObj.city			= document.querySelector( '#cityId' ).value;
+				inputObj.province		= document.querySelector( '#provinceId' ).value;
+				inputObj.postalCode		= document.querySelector( '#postalCodeId' ).value;
+				
+				return inputObj;
+			}
+			
+			//MAIN: make the functions connect the data together
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				var inputObj		= getInput();
+				var outputString	= createAddressString( inputObj );
+				outputAddress( outputString );
+			}
+			
+			//INPUT: trigger main procedure when #buttonId is clicked
+			document.querySelector( "#buttonId" ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+Input methods:
+
+ The user can make things happen by clicking a button
+ The user can make things happen by clicking an image
+ The user can enter information into an input line
+ The user uses keyboard control
+ The program reads the time
+* The user uploads a file or a link
+* Uses drop-down menus
+* Your suggestion:
+
+HTML:
+
+ Contains one or more linked images
+ Contains a header 
+ Contains a paragraph
+ Contains strong text
+ Contains a span
+ Contains a list of items
+ Contains a table 
+* Contains an HTML canvas
+* Contains Scalable Vector Graphics
+* Your suggestion:
+ 
+Output:
+
+ Outputs using innerHTML
+ Adds or removes an image
+ Changes an image
+ Changes the position of an element
+ Changes the style of an element
+ Uses animation
+* Your suggestion:
+ 
+
+Style/CSS:
+
+ Sets the family of text
+ Sets the color of text
+ Sets the size of text
+ Sets the weight of text
+ Sets the style of text
+ Sets the width of an element
+ Positions an element using measurements
+* Sets opacity
+* Sets CSS animation
+* Your suggestion:
+ 
+Variables:
+
+ Uses numerical variables
+ Uses string variables
+ Uses an array
+ Uses a two dimensional array
+ Uses an object
+ Uses a complex data structure (eg: an array of objects
+ Initializes a numerical variable as 0
+ Initializes a string variable as ""
+ Initializes an array as []
+ Initializes an object as {}
+* Uses three dimensional arrays
+* Uses pointers (an ugly hack, but it is kind of possible)
+* Your suggestion:
+
+Processing:
+
+ Uses a singular if statement
+ Uses an if/else if/else chain
+ Uses a for loop
+ Uses a nested loop
+ Uses time functions
+ Uses string addition
+ Uses a split function
+ Uses a join function 
+ Uses regular math functions (+-*/)
+ Uses rounding functions (round, floor, ceil)
+ Generates random numbers
+ Uses additional math (powers, trig, etc.)
+* Uses other string functions
+* Uses regular expressions
+* Uses other array functions
+* Uses other object functions
+* Your suggestion:
+
+Programming structure:
+
+ Uses a function
+ avoids of global variables whenever possible (ask for permission)
+ Uses an object constructor with a property
+ Uses an object constructor with a method
+ Uses object constructors and object-oriented programming whenever possible
+ Uses separate functions/methods for initializing data 
+ Uses separate functions/methods for reading input
+ Uses separate functions/methods for processing
+ Uses separate functions/methods for outputting information
+ Uses a function pipeline
+ Uses setInterval/setTimeout
+* Uses recursion 
+* Your suggestion:
+ 
+Programming style:
+ Comment for the date started
+ Comment for other dates modified, including what was modified
+ Comment for describing an initialization function or method //INIT:
+ Comment for describing an input function or method //INPUT:
+ Comment for describing a processing function or method //PROCESS:
+ Comment for describing an output function or method //OUTPUT:
+ Descriptive comments for each function or method
+ Descriptive comments for each loop
+ Descriptive comments for each if statement
+
+ Uses descriptive, full language variable names
+ Uses descriptive, full language function and method names
+ Uses camelCase for variable and function names
+ Uses UpperFirst for object constructor names
+
+ Avoids lines longer than 100 characters longer
+ Creates sub-functions/methods if a function/method is over 20 lines
+
+ Accurately indents code
+
+ Orders program by: main -> init -> input -> process -> output
+ Orders object constructors by: init -> input -> process -> output
+ Separates HTML clearly into head (meta/script/style) and body
+ 
+ 
+ 
+
+ 
+
+
+
+ 
+

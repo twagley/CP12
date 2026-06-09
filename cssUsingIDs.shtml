@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			CSS applying styles using IDs
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to format HTML text with CSS">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				15. Sept 2015	- created!
+				26. Sept 2015	- added learn more
+				16. September 2018 - migrating to less condfusing Id style
+		-->
+
+		<script>
+		</script>
+
+		<style>
+			#redThingId {
+                color: Red;
+            }  
+            .withBorder {
+                border: 1px solid Black;
+                padding: 3px;
+            }
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Applying styles using Ids</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">HTML</span> 
+				<code>id="exampleId"</code> - assigns an Id to an HTML element<br />
+				<br />
+				<span class="langstyle">CSS</span> 
+				<code>#exampleId {}</code> - assigns styles to a particular Id
+			</p>
+			
+			<h2>Sometimes you want to style elements individually</h2>
+			<p>
+				Right now, you know how to apply CSS 
+				styles by applying them to tags, like this:
+			</p>
+			
+			<pre><code><span class="sc1">&lt;style&gt;</span><span class="sc0">
+    p {
+        color:          Red;
+        font-size:      24px;
+        font-weight:    bold;
+    }
+</span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+</span></code></pre>
+			
+			<p>
+				This works well if you want all of the paragraphs, 
+				or images, or tables, or list items 
+				to have the same style.
+			</p>
+			
+			<p>
+				But what if you want one of the list items to have a different style?
+			</p>
+			
+			<h3>Assigning an <code>id</code> to an element</h3>
+			
+			<p>
+				In that case, you give that element an identity.
+				For example, let's say you want to make one list item red:
+			</p>
+			<pre><code><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Top Selling Mobile Phones of All Time</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;ol&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Nokia 1100</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Nokia 1110</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"redThingId"</span><span class="sc1">&gt;</span><span class="sc0">Nokia 1200</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Nokia 5230</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Nokia 3210</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/ol&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+		
+			<h3>
+				Assigning a style to an 
+				<code>id</code> with <code>#</code>
+			</h3>
+			
+			<p>
+				Now if you add the following code to the 
+				<code>&lt;head></code> of your document:
+			</p>
+		
+			<pre><code><span class="sc1">&lt;style&gt;</span><span class="sc0">
+    #redThingId {
+        color: Red;
+    }           
+</span><span class="sc1">&lt;/style&gt;</span></code></pre>
+			
+			<p>
+				Note that the Id, <code>redThingId</code>
+				has a hash tag in front of it. 
+				This is used in CSS to apply a style to a single Id 
+				instead of every tag with that name. 
+			</p>
+			
+			<p>The list will now display as:</p>
+			
+			<div class="withBorder">
+				<h2>Top Selling Mobile Phones of All Time</h2>
+				<ol>
+					<li>Nokia 1100</li>
+					<li>Nokia 1110</li>
+					<li id="redThingId">Nokia 1200</li>
+					<li>Nokia 5230</li>
+					<li>Nokia 3210</li>
+				</ol>
+			</div>
+			
+			<h2>Potential troubles using Ids</h2>
+			
+			<ul>
+				<li>
+					<strong>
+						BIGGEST STYLE CHALLENGE:
+						use <code>id</code> in the HTML tag and <code>Id</code>
+						inside the quotes and CSS 
+					</strong> &mdash;
+					For example:
+					<code>
+						&lt;p id="exampleId">
+					</code>
+					
+				</li>
+				<li>
+					<strong>Spelling and capitalization count</strong> &mdash;
+					<code>myAwesomeId</code> and <code>MyAwesomeId</code>
+					are not the same.
+				</li>
+				<li>
+					<strong>Use <em>camelCase</em> to name Ids</strong> &mdash;
+					As you will see, 
+					variables, functions, and Ids should use camelCase.
+					This means that the first word is lowercase, 
+					and any additional words have the first letter 
+					capitalized.
+				</li>
+				<li>
+					<strong>You can't use spaces</strong> &mdash;
+					So <code>id="my AwesomeId"</code> will not work.
+				</li>
+				<li>
+					<strong>You can only have one element with a 
+					single Id in each HTML page</strong> &mdash;
+					On some browsers this will break your page, on others, it will work. 
+					You probably don't want this kind of unpredictability.
+				</li>
+				<li>
+					<strong>What if you want the same style 
+					affect more than one element</strong> &mdash;
+					Funny you should ask. 
+					That is what CSS classes are for...
+				</li>
+			</ul>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-selecting-by-id">
+						selecting by Id
+					</a>
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/css/css_selectors.asp">
+						CSS selectors
+					</a>
+				</li>
+			</ul>
+		</article>		
+				
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Complex Data Structures</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows how to create complex data structures
+		
+			Created:	16. April 2015
+			Updated:	
+		-->
+
+		<script>
+			var myCarObject = {
+				make:	"Toyota",
+				model:	"Yaris", 
+				year:	2007,
+				colour:	"blue"
+				};
+				
+			var jeremysCarObject = {
+				make:	"Ariel",
+				model:	"Atom", 
+				year:	2008,
+				colour:	"deathly silver"
+				};
+
+			var maysCarObject = {
+				make:	"Rolls-Royce",
+				model:	"Phantom", 
+				year:	1956,
+				colour:	"sterling silver"
+				};	
+				
+			var parkingLot = [
+				myCarObject,
+				jeremysCarObject, 
+				maysCarObject
+			];
+			
+			var piersonsClassArray =[
+				"Visual Arts 11",
+				"Production Technology 11", 
+				"Computer Programming 12"
+			];
+			
+			var piersonObject ={
+				name: "Pierson",
+				grade: 12, 
+				classes: piersonsClassArray
+			};
+
+			var piersonObject ={
+				name: "Pierson",
+				grade: 12, 
+				classes: piersonsClassArray
+			};
+					
+			var zahraObject ={
+				name: "Zahra",
+				grade: 12, 
+				classes: ["Calculus 12", "Computer Programming 12", "Visual Arts 12"]
+			};
+
+			var toriObject ={
+				name: "Tori",
+				grade: 12, 
+				classes: ["Biology 12", "Computer Programming 12", "Theatre Arts 12"]
+			};
+					
+			var programmingStudentsArray =[
+				piersonObject, 
+				zahraObject,
+				toriObject
+			];
+			
+			function insertAnswer (id, answer) {//OUTPUT:  this function outputs an answer into the tag with the given id
+				document.getElementById(id).innerHTML	=answer;
+			}
+			
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>Special Topic 2: Complex Data Structures</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>No new code today!</p>
+			<p>
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h3>Variables inside variables</h3>
+			<p>We have learned a number of ways of storing information:</p>
+			<ol>
+				<li>
+					Numbers, such as: <br />
+					<code>var <var>numberVariable</var> = 42;</code>
+				</li>
+				<li>
+					Strings, such as: <br />
+					<code>var <var>stringVariable</var> = "Hello world!";</code>
+				</li>
+				<li>
+					Arrays, such as: <br />
+					<code>var <var>marxArray</var> = ["Harpo", "Groucho", "Chico"];</code>
+				</li>
+				<li>
+					And objects, such as: <br />
+					<code>var <var>chickenObject</var> = {name: "Plucky", taste: "quite good!"};</code>
+				</li>
+			</ol>
+			
+			<p>However, most real data worth processing is complex, and combines many of these together.</p>
+			
+			<p>These can be combined in many ways: arrays of objects, objects with array properties, arrays of arrays, and so on.</p>
+			
+			<p>Let me give you a simple example using cars in a parking lot. Let's say that I have an object that I use to describe a car:</p>
+			<pre><code>
+	var <var>myCarObject</var> = {
+		<var>make</var>:	"Toyota",
+		<var>model</var>:	"Yaris", 
+		<var>year</var>:	2007,
+		<var>colour</var>:	"blue"
+		};
+			</code></pre>
+			
+			<p>
+				Great, there's one car. 
+				But there is more than one car in the lot. 
+				There are three! So let's add the others...
+			</p>
+			
+			<pre><code>
+	var <var>jeremysCarObject</var> = {
+		<var>make</var>:	"Ariel",
+		<var>model</var>:	"Atom", 
+		<var>year</var>:	2008,
+		<var>colour</var>:	"deathly silver"
+		};	
+
+	var <var>maysCarObject</var> = {
+		<var>make</var>:	"Rolls-Royce",
+		<var>model</var>:	"Phantom", 
+		<var>year</var>:	1956,
+		<var>colour</var>:	"sterling silver"
+		};	
+			</code></pre>
+			
+			<p>So let's check that you understand this:</p>
+			<table>
+				<tr>
+					<th>myCarObject.colour</th>
+					<td onmouseover="insertAnswer('ans1', 'blue');" id="ans1" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>jeremysCarObject.year</th>
+					<td onmouseover="insertAnswer('ans2', '2008');" id="ans2" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>maysCarObject.colour</th>
+					<td onmouseover="insertAnswer('ans3', 'sterling silver');" id="ans3" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>jeremysCarObject.make</th>
+					<td onmouseover="insertAnswer('ans4', 'Ariel');" id="ans4" class="withborder">roll over for answer...</td>
+				</tr>
+			</table>
+			
+			<h3>An array of objects</h3>
+			<p>
+				Since we have three cars in the parking lot, it would make sense that we would link them together.
+				In fact, we can join them into an array!
+			</p>
+			<code><pre>
+	var <var>parkingLot</var> = [
+		<var>myCarObject</var>,
+		<var>jeremysCarObject</var>, 
+		<var>maysCarObject</var>
+	];
+			</pre></code>
+			
+			<p>Now we have an array with three cars inside it, each with their own properties. <var>parkingLot</var> now has a structure like this:</p>
+			
+			<table>
+				<tr>
+					<th>parkingLot</th>
+					<th>[0]</th>
+					<th>[1]</th>
+					<th>[2]</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<var>make</var>:	"Toyota",&nbsp;&nbsp;&nbsp;<br />
+						<var>model</var>:	"Yaris", <br />
+						<var>year</var>:	2007,<br />
+						<var>colour</var>:	"blue"
+					</td>
+					<td>
+						<var>make</var>:	"Ariel",<br />
+						<var>model</var>:	"Atom", <br />
+						<var>year</var>:	2008,<br />
+						<var>colour</var>:	"deathly silver"&nbsp;&nbsp;&nbsp;
+					</td>
+					<td>
+						<var>make</var>:	"Rolls-Royce",<br />
+						<var>model</var>:	"Phantom", <br />
+						<var>year</var>:	1956,<br />
+						<var>colour</var>:	"sterling silver"&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+			</table>
+			
+			<p>
+				We now have an array of objects! 
+				Let's check to see if you understand this...
+			</p>
+
+			<table>
+				<tr>
+					<th>What is <var>parkingLot[2].make</var>?</th>
+					<td onmouseover="insertAnswer('ans11', parkingLot[2].make);" id="ans11" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[0].year</var>?</th>
+					<td onmouseover="insertAnswer('ans12', parkingLot[0].year);" id="ans12" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[1].model</var>?</th>
+					<td onmouseover="insertAnswer('ans13', parkingLot[1].model);" id="ans13" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>parkingLot[2].year</var>?</th>
+					<td onmouseover="insertAnswer('ans14', parkingLot[2].year);" id="ans14" class="withborder">roll over for answer...</td>
+				</tr>
+			</table>
+			
+			<h3>An object with an array</h3>
+			
+			<p>
+				Here is another example. 
+				Let's say that I have a student named Pierson.
+				Pierson is in three classes:
+			</p>
+			
+			<pre><code>
+	var <var>piersonsClassArray</var> =[
+		"Visual Arts 11",
+		"Production Technology 11", 
+		"Computer Programming 12"
+	];
+			</code></pre>
+			
+			<p>
+				Let's say that I turn Pierson into an object in a rather dehumanizing way.
+				One of his properties can be the array of classes...
+			</p>
+			<pre><code>
+	var <var>piersonObject</var> ={
+		<var>name</var>: "Pierson",
+		<var>grade</var>: 12, 
+		<var>classes</var>: <var>piersonsClassArray</var>
+	};
+			</code></pre>
+			
+			<p>So let's check to see if you get this...</p>
+			<table>
+				<tr>
+					<th>What is <var>piersonObject.name</var>?</th>
+					<td onmouseover="insertAnswer('ans21', piersonObject.name);" id="ans21" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>piersonObject.grade</var>?</th>
+					<td onmouseover="insertAnswer('ans22', piersonObject.grade);" id="ans22" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>piersonObject.classes[2]</var>?</th>
+					<td onmouseover="insertAnswer('ans23', piersonObject.classes[2]);" id="ans23" class="withborder">roll over for answer...</td>
+				</tr>
+			</table>
+			
+			<h3>An array of objects with an array</h3>
+			
+			<p>Let's say there are two more students...</p>
+			<pre><code>
+	var <var>zahraObject</var> ={
+		<var>name</var>: "Zahra",
+		<var>grade</var>: 12, 
+		<var>classes</var>: ["Calculus 12", "Computer Programming 12", "Visual Arts 12"]
+	};
+
+	var <var>toriObject</var> ={
+		<var>name</var>: "Tori",
+		<var>grade</var>: 12, 
+		<var>classes</var>: ["Biology 12", "Computer Programming 12", "Theatre Arts 12"]
+	};
+			</code></pre>
+			
+			<p>And lets say that I join them into an array because they are all in the same class:</p>
+			<pre><code>
+	var <var>programmingStudentsArray</var> =[
+		<var>piersonObject</var>, 
+		<var>zahraObject</var>,
+		<var>toriObject</var>
+	];
+			</code></pre>
+			
+			<p>
+				Now this is an interesting structure!
+				Take a look at this:
+			</p>
+			
+			<table>
+				<tr>
+					<th>programmingStudentsArray</th>
+					<th>[0]</th>
+					<th>[1]</th>
+					<th>[2]</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<var>name</var>:	"Pierson",<br />
+						<var>grade</var>:	11, <br />
+						<var>classes</var>:	
+						<table>
+							<tr>
+								<th>[0]</th><td>Visual Arts 11</td>
+								<th>[1]</th><td>Production Technology 11</td>
+								<th>[2]</th><td>Computer Programming 12</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<var>name</var>:	"Zahra",&nbsp;&nbsp;&nbsp;<br />
+						<var>grade</var>:	12, <br />
+						<var>classes</var>:	
+						<table>
+							<tr>
+								<th>[0]</th><td>Calculus 12</td>
+								<th>[1]</th><td>Computer Programming 12</td>
+								<th>[2]</th><td>Visual Arts 12</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<var>name</var>:	"Tori",&nbsp;&nbsp;&nbsp;<br />
+						<var>grade</var>:	12, <br />
+						<var>classes</var>:	
+						<table>
+							<tr>
+								<th>[0]</th><td>Visual Arts 11</td>
+								<th>[1]</th><td>Computer Programming 12</td>
+								<th>[2]</th><td>Theatre Arts 12</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+			<p>So let's see if this makes sense!</p>
+			<table>
+				<tr>
+					<th>What is <var>programmingStudentsArray[2].grade</var>?</th>
+					<td onmouseover="insertAnswer('ans41', programmingStudentsArray[2].grade);" id="ans41" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>programmingStudentsArray[2].classes[2]</var>?</th>
+					<td onmouseover="insertAnswer('ans42', programmingStudentsArray[2].classes[2]);" id="ans42" class="withborder">roll over for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>programmingStudentsArray[0].classes[1]</var>?</th>
+					<td onmouseover="insertAnswer('ans43', programmingStudentsArray[0].classes[1]);" id="ans43" class="withborder">roll over for answer...</td>
+				</tr>
+			</table>
+			
+			<h3>Complex data everywhere...</h3>
+			
+			<p>Complex data is everywhere. Here are some real-world examples:</p>
+			<ul>
+				<li><var>driversLicense.expiry.year</var><code> = 2017;</code></li>
+				<li><var>street['Willow St.'].address[6015].householdCircuit[12].voltage</var><code> = 110;</code></li>
+				<li><var>drapaksClasses['Computer Programming 12'].students[0].firstName</var><code> = "Marlo";</code></li>
+				<li><var>albumArtist['Daft Punk'].albumTitles['Random Access Memories'].tracks[7].featuring</var><code> = "Pharrell Williams";</code><br />&nbsp;</li>
+				<li>
+					And, holy smokes!<br /><br />
+					<var>document.getElementById('outputID').style.fontSize</var><code>= "24px";</code><br /><br />
+					It turns out that we have been using complex data structures without knowing it for weeks...
+				</li>
+				
+			</ul>
+			
+			<h3>Coming up? An array of arrays!</h3>
+		
+			
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

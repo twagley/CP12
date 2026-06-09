@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Color changer
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to read text input and apply style changes">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				22. Sept 2015	- created!											- Drapak
+				23. Sept 		- added more to extend								- Drapak
+				26. February 2017	- reworked to separate HTML and js				- Drapak
+				23. September 2018	- reworked to updated style						- Drapak
+		-->
+
+
+		<style>
+
+		</style>
+	</head>
+
+	<body id="bodyID">
+		<!--#include virtual="/masthead.html" -->
+		
+		<header>
+			//MAKE: 2.02 Skill-builder: <em>Color changer</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//OUTPUT: 
+						<a href="outputChangeTextStyles.shtml">Changing text styles</a>
+					</li>
+					<li>
+						//INPUT: <a href="inputText.shtml">Text</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleXAndVWherePossible.shtml">Use cut and 
+						paste where possible</a>
+					</li>
+
+				</ul>
+			</p>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.02S-ColorChanger-LastName.html">empty template</a> as 
+				"<code>2.02S-ColorChanger-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+			<h2>The assignment</h2>
+
+			<p>
+				Create a page that will change the font and background 
+				color according to what the user enters.
+			</p>
+			
+			<ol>
+				<li>Use HTML to create an input line and a textarea box</li>
+				<li>Add a button for each one</li>
+				<li>Give each text input an ID</li>
+				<li>
+					Add <code>onclick</code> and <code>onchange</code> 
+					functions where appropriate
+				</li>
+				<li>
+					Create two functions:
+					<ol>
+						<li>
+							One that will read a text value and apply 
+							that to the type's color on the page
+						</li>
+						<li>
+							One that will read a text value and 
+							apply it page's background color
+						</li>
+					</ol>
+				</li>
+			</ol>
+
+			<h2>
+				It should look something like this:
+			</h2>
+			
+			<!-- this is intentionally ugly - try to figure this out yourself - ask for help if needed - Drapak -->
+			<h4>Displaying and reading text input</h4><p>Text color:<input id="inputLineID" type="text" value="black"><br /><button id="changeColorButtonID">Change text color</button><br /><br />Background color:<br /><textarea id="inputBoxID" rows="5" cols="40">white</textarea><br /><button id="changeBackgroundButtonID">Change background</button></p>
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Use CSS to style your page.
+				For example, you can use <code>input {width: 30px;}</code> 
+				to change the width of a text input line using CSS.
+			</p>
+			<p>
+				Use input boxes to change other styles, such as 
+				font sizes, styles, weights, widths, and borders.
+			</p>
+			<p>
+				<em>Javascript secret:</em>
+				<code>onchange</code> also works on other input types besides text inputs. 
+				Remember this: it may come in handy...
+			</p>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+			// ask for help if you can't figure this out - Drapak
+			var _0x7d47=["\x63\x6F\x6C\x6F\x72","\x73\x74\x79\x6C\x65","\x62\x6F\x64\x79\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x76\x61\x6C\x75\x65","\x69\x6E\x70\x75\x74\x4C\x69\x6E\x65\x49\x44","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x69\x6E\x70\x75\x74\x42\x6F\x78\x49\x44","\x6F\x6E\x63\x68\x61\x6E\x67\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x63\x68\x61\x6E\x67\x65\x43\x6F\x6C\x6F\x72\x42\x75\x74\x74\x6F\x6E\x49\x44","\x63\x68\x61\x6E\x67\x65\x42\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x42\x75\x74\x74\x6F\x6E\x49\x44"];var changeColor=function(){document[_0x7d47[3]](_0x7d47[2])[_0x7d47[1]][_0x7d47[0]]= document[_0x7d47[3]](_0x7d47[5])[_0x7d47[4]]};var changeBackground=function(){document[_0x7d47[3]](_0x7d47[2])[_0x7d47[1]][_0x7d47[6]]= document[_0x7d47[3]](_0x7d47[7])[_0x7d47[4]]};document[_0x7d47[3]](_0x7d47[5])[_0x7d47[8]]= changeColor;document[_0x7d47[3]](_0x7d47[10])[_0x7d47[9]]= changeColor;document[_0x7d47[3]](_0x7d47[7])[_0x7d47[8]]= changeBackground;document[_0x7d47[3]](_0x7d47[11])[_0x7d47[9]]= changeBackground
+		</script>
+	</body>
+</html>

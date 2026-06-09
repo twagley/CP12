@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Datatypes and tables
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: organize datatypes into a table">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="tables, datatypes, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015		- created!
+				9. Sept				- split into datatypes, tables, and tabs
+				3. February 2017	- reduced the amount of stupid
+				22. September 2018	- updated the style, and fixed the template link
+				
+		-->
+
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			<em>1.03 Skill-builder:</em> Datatypes and Tables
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//INIT: <a href="initDatatypes.shtml">Datatypes</a><br />
+				//HTML: <a href="htmlTables.shtml">Tables</a><br />
+				//HTML: <a href="htmlTablesTwoKinds.shtml">Two kinds of tables</a><br />
+				//STYLE: <a href="styleTabs.shtml">Formatting code with tab indents</a>
+			</p>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="1.03S-DataTypes-LastName.html">empty code template</a> 
+				as "<code>1.03S-DataTypes-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Create a table</li>
+				<li>Organize the data into the table by correct datatype</li>
+				<li>Extend: create a unordered list of your own quotes</li>
+			</ol>
+			<p>Create a table that looks like this:</p>
+			
+			<p><strong>A table organized by type of data</strong></p>
+			<table>
+				<tr>
+					<th>Boolean</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Binary</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Hexidecimal</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Integer</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Floating point</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Character</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>String</th>
+					<td>...
+					</td>
+				</tr>
+				<tr>
+					<th>Date</th>
+					<td>...
+					</td>
+				</tr>
+			</table>
+
+			<p>
+				Then organize the following data into the 
+				correct categories in the table you made. 
+				Separate the entries in the same cell with the <code>&lt;br /&gt;</code> tag.
+			</p>
+			<p>
+				<strong>You only need to use three examples for each datatype.</strong> 
+				However, show all of them if you have time.
+			</p>
+			<p>
+				You may also wish to use a 
+				<a href="examples/DatatypeCards.pdf">paper version</a> 
+				of this cut up into little cards.
+			</p>
+			
+			<p><strong>A table of random types of data</strong></p>
+			<table style="text-align: center;">
+				<tr>
+					<td>October 13, 2014 11:13:00</td>
+					<td>85</td>
+					<td>1.618</td>
+					<td>#ff0000</td>
+					<td>
+						"Don't undertake a project unless it is manifestly 
+						important and nearly impossible" -Edwin Land
+					</td>
+					<td>April 12, 1961 12:00:00</td>
+				</tr>
+				<tr>
+					<td>00100100</td>
+					<td>July 29, 1997 15:45:23</td>
+					<td>#000000</td>
+					<td>1</td>
+					<td>67</td>
+					<td>i</td>
+				</tr>
+				<tr>
+					<td>11001001</td>
+					<td>
+						"A late game is only late until it ships. 
+						A bad game is bad until the end of time" -Shigeru Miyamoto
+					</td>
+					<td>
+						"Hardware eventually fails. Software eventually works" 
+						-Michael Hartung
+					</td>
+					<td>September 22, 1997 04:05:06</td>
+					<td>1.414</td>
+					<td>11111111</td>
+				</tr>
+				<tr>
+					<td>January 30, 1997 20:14:35</td>
+					<td>January 1, 1970 00:00:00</td>
+					<td>00000000</td>
+					<td>)</td>
+					<td>c</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>#0000ff</td>
+					<td>e</td>
+					<td>65</td>
+					<td>#0a0a0a</td>
+					<td>7</td>
+					<td>"Perfect is the enemy of good" -Voltaire</td>
+				</tr>
+				<tr>
+					<td>3.1416</td>
+					<td>2.718</td>
+					<td>
+						"All labor that uplifts humanity has dignity and importance 
+						and should be undertaken with painstaking excellence" 
+						-Martin Luther King, Jr.
+					</td>
+					<td>
+						"I'm an engineer. I see myself as a toolmaker 
+						and the musicians are my customers... They use my tools" 
+						-Robert Moog
+					</td>
+					<td>false</td>
+					<td>01000010</td>
+				</tr>
+				<tr>
+					<td>#ffffff</td>
+					<td>;</td>
+				</tr>
+			</table>
+
+			<h2>Extend and expand</h2>
+			<p>
+				I am curious which people you find inspirational. 
+				Please create an unordered list 
+				<code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code> 
+				of quotes from people whom you admire.
+			</p>
+			
+			<p><strong>Quotes from awesome people:</strong></p>
+			<ul>
+				<li>
+					"If I have seen further it is by standing on ye sholders of Giants." 
+					-Issac Newton
+				</li>
+				<li>...</li>
+			</ul>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+		<script>
+		</script>
+	</body>
+</html>

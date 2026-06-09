@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Controlling motion</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros motion animation via keyboard control 
+		
+			Created:	11. March 2015 
+			Updated:	
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+				
+			/*	INPUT: This next command tells the browser to trigger when a key is pressed anywhere */
+			window.onkeydown	=function (keyEvent) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				characterPressed	=keyEvent.which || keyEvent.keyCode;
+				chooseKeypressResult();
+			}
+
+			function chooseKeypressResult () {	//	PROCESS: decide how to react with different key presses
+				//	and now the real star: a bunch of IF statements to decide what to do
+				//	note that the comparisons use a "==" and NOT a "="!
+				
+				if (characterPressed == 38) {	// if they pressed an UP arrow
+				} else if (characterPressed == 40) {	// if they pressed an DOWN arrow
+				} else if (characterPressed == 39) {	// if they pressed an RIGHT arrow
+				} else if (characterPressed == 37) {	// if they pressed an LEFT arrow
+				}
+			}
+			
+			function animateHeader () {  // OUTPUT: change the element position
+				$("#animateID").animate({top: "100px"});
+				$("#animateID").animate({left: "100px"});
+				$("#animateID").animate({top: "0px"});
+				$("#animateID").animate({left: "0px"});
+			}
+			
+			function animateHeader2 () {  // OUTPUT: change the element font size
+				$("#animateID2").animate({fontSize: "50px"});
+				$("#animateID2").animate({fontSize: "30px"});
+				$("#animateID2").animate({fontSize: "100px"});
+				$("#animateID2").animate({fontSize: "16px"});
+			}
+			
+			function animateImage () {  // OUTPUT: change the element width
+				$("#animateImageID").animate({width: "100px"});
+				$("#animateImageID").animate({width: "34px"});
+			}
+			
+			function animateHeaderDown () {  // OUTPUT: move the element Down
+			$("#animateID3").animate({top: "+=50px"});
+			}
+			
+			function animateHeaderUp () {  // OUTPUT: move the element Up
+				$("#animateID3").animate({top: "-=50px"});
+			}
+			
+			function animateHeaderRight () {  // OUTPUT: move the element Right
+				$("#animateID3").animate({left: "+=50px"});
+			}
+			
+			function animateHeaderLeft () {  // OUTPUT: move the element Left
+				$("#animateID3").animate({left: "-=50px"});
+			}
+			
+		</script>
+		<style>
+			#animateID, #animateID2, #animateID3, #animateImageID  {
+				position: relative;
+			}		
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.16 Hand-in: Controlling motion</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">library jQuery</span> <code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</code> - loads jQuery library<br />
+				<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>fontSize: "50px"</strong>});</code> - animates an increase in text size<br />
+				<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>left: "50px"</strong>});</code> - animates movement 50px from right of normal<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>});</code> - animates movement 50px from top of normal<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>left: "+=50px"</strong>});</code> - animates 50px to right of current position<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "+=50px"</strong>});</code> - animates 50px down from current position<br />
+				<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>width: "100px"</strong>});</code> - animates a change in width to 100px<br />
+				<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>}, {duration: "fast"} );</code> - animates quickly<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>}, {duration: "slow"} );</code> - animates slowly<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>}, {duration: 400} );</code> - animation for 400ms (default)<br />
+				<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>}, {easing: "linear"} );</code> - linear movement<br />
+				<span class="langstyle">animate jQuery</span> <code>$("#<var>animateID</var>").animate({<strong>top: "50px"</strong>}, {easing: "swing"} );</code> - 'swing' movement (default)<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a> or the <a href="http://api.jquery.com/animate/">.animate()</a> reference at jQuery.com
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Controlling motion with a keyboard</h2>
+			<p>
+				In this lesson we are going to learn how to make a program so that you can move something around with a keyboard.
+				Obviously this is fundamental to certain kinds of games. 
+				And no, I am not going to teach you how to <a href="https://www.youtube.com/watch?v=WWQXzGTzM1g">crouch or toggle maps</a>. [youtube]</p>
+				
+			<p>
+				In order to make this work, you will have to combine several strategies:
+				<ul>
+					<li>using <code>window.onkeydown</code> for detecting keystrokes, like in <a href="KeyboardControl.html">Keyboard control</a></li>
+					<li>using <code>if()</code> for doing different things for different keys, like in <a href="DefuseTheBomb.html">Defuse the bomb</a></li>
+					<li>change the style of something, like in <a href="TextFormatting.html">Hello color!</a></li>
+					<li>and new in this lesson, you will use an code library, <strong>jQuery</strong>, to animate things</li>
+				</ul>
+			</p>
+			
+			
+			<h2>jQuery and using libraries</h2>
+
+			<p>
+				Javascript is a full and capable language with pretty good (although not perfect) fundamentals.
+				It compares well with other languages. 
+				However, while it is possible to do a great many things with Javascript, it is often a lot of work to do it.
+				Programmers will often create sets of functions and procedures that will automate repetitive, programming intensive tasks. 
+				For example, if you are constantly programming maps into your programs, 
+				you will want to make one great set of code that you can then borrow and use in many of your other programs.
+			</p>
+
+			<p>	
+				This set of code is called a <strong>library</strong>.
+				Code libraries can share a set of useful programming functions to more than one program.
+				I have made dozens of code libraries in the past to support large or repetitive projects. 
+				For example, if I am constantly validating user security among a couple hundred web pages, 
+				I will write one shared library that will help apply security consistently and with less effort.
+				Writing one library to use with many programs means less work and less repetition.
+			</p>
+			
+			<h3>Introducing jQuery</h3>
+			<p>
+				<strong>jQuery</strong> is a set of libraries developed by Google to help make and run Google web apps.
+				The home of the jQuery community is at: <a href="jquery.com">jquery.com</a>.
+			</p>
+			<p>jQuery's libraries allow you to do things like:</p>
+				<ul>
+					<li>animate things easily and simply</li>
+					<li>handle input events a little more gracefully</li>
+					<li>handle reading data from outside sources</li>
+					<li>handle making webpages work well on different devices</li>
+					<li>and more</li>
+				</ul>
+			<p>In this lesson, we will be using jQuery to simplify <strong>animation</strong>.</p>
+
+			<h3>Linking the jQuery library to your code</h3>
+			<p>In the head of your document, you can add the jQuery library by adding this before your <code>&lt;script&gt;</code>:</p>
+			<p><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</code></p>
+			<p>
+				Every time your page is loaded, it will now contact a google webserver, and download the library so that your browser can use it.
+				This slows down the load speed of your page a little.
+				Some people download their own copy of the library and point the <code>&lt;script src="..."&gt;</code> to their downloaded copy. 
+				Sometimes this actually slows things down more &mdash; it all depends on internet traffic and server power.
+			</p>
+			
+			<h3 id="animateID">OK - let's animate something...</h3>
+			<p><button type="button" onclick="animateHeader();">Sure, click here...</button></p>
+			
+			<h3>How'd you do that?</h3>
+			<p>
+				Pretty easily!<br />
+				<br />
+				<img class="withborder" src="img/ControllingMotionExample1.png">
+			</p>
+			<h4>Animating things in jQuery works in a few steps:</h4>
+			
+			<ol>
+				<li>
+					link to the jQuery library:<br />
+					<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</code>
+				</li>
+				<li>give the thing that you want to animate an id: <code>&lt;p id="animateID"&gt;Animate this!&lt;/p&gt;</code></li>
+				<li>make sure that the thing to animate has CSS <code>&lt;style&gt;</code> settings to:
+					<ul>
+						<li>
+							<code>position: relative;</code><br />
+							(which keeps the element in it's normal place, but movable) <strong>or</strong>
+						</li>
+						<li>
+							<code>position: fixed;</code><br />
+							(which fixes the element, overlapping, moveable, but not scrollable)  <strong>or</strong>
+						</li>
+						<li>
+							<code>position: absolute;</code><br />
+							(which fixes the element, overlapping, moveable, scrollable)
+						</li>
+					</ul>
+				</li>
+				<li>
+					You need to choose the CSS-style code to use, such as moving the element 100px from the top:<br />
+					<code>top: "100px"</code>
+				</li>
+				<li>
+					trigger the animation as Javascript code:<br />
+					<code>$("#<var>animateID</var>").animate({<var>top: "100px"</var>});</code><br />
+				</li>
+			</ol>
+			
+			<h3>Caution about selecting IDs with jQuery!</h3>
+			<p>
+				jQuery uses <code>$("#<var>animateID</var>")</code> instead of <code>document.getElementById("animateID")</code>.<br />
+				<br />
+				<strong>You have to use</strong> <code>$("#<var>animateID</var>")animate({});</code>.<br />
+				<code>document.getElementById("animateID").animate({});</code><strong> will not work.</strong> 
+			</p>
+			
+			
+			
+			<h2>Other animations with jQuery</h2>
+			<h4>Font size changes</h4>
+			<p id="animateID2">
+				<code>$("#<var>animateID</var>").animate({<strong>fontSize: "50px"</strong>});<br />
+				$("#<var>animateID</var>").animate({<strong>fontSize: "30px"</strong>});<br />
+				$("#<var>animateID</var>").animate({<strong>fontSize: "100px"</strong>});<br />
+				$("#<var>animateID</var>").animate({<strong>fontSize: "16px"</strong>});
+				</code><br />
+				<button type="button" onclick="animateHeader2();">click here...</button>
+			</p>
+
+			<h4>Image size changes</h4>
+			<p>
+				<image id="animateImageID" src="MsPacMan.png"><br />
+				<code>$("#<var>animateImageID</var>").animate({<strong>width: "100px"</strong>});</code> // goes <strong>BIG</strong><br />
+				<code>$("#<var>animateImageID</var>").animate({<strong>width: "34px"</strong>});</code> // and <strong>back to normal</strong><br />
+				<button type="button" onclick="animateImage();">click here...</button>
+			</p>
+
+			<h4>Relative movement</h4>
+			<p id="animateID3">
+				<code>$("#<var>animateID</var>").animate({<strong>top: "+=50px"</strong>});</code>	// moves "animateID" <strong>DOWN</strong><br />
+				<br />
+				<code>$("#<var>animateID</var>").animate({<strong>top: "-=50px"</strong>});</code>	// moves "animateID"  <strong>UP</strong><br />
+				<br />
+				<code>$("#<var>animateID</var>").animate({<strong>left: "+=50px"</strong>});</code> // moves "animateID"  <strong>RIGHT</strong><br />
+				<br />
+				<code>$("#<var>animateID</var>").animate({<strong>left: "-=50px"</strong>});</code> // moves "animateID"  <strong>LEFT</strong>
+			</p>
+			<p>
+				<button type="button" onclick="animateHeaderDown();">&darr;</button>
+				<button type="button" onclick="animateHeaderUp();">&uarr;</button>
+				<button type="button" onclick="animateHeaderLeft();">&larr;</button>
+				<button type="button" onclick="animateHeaderRight();">&rarr;</button>
+			</p>
+						
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.16H-ControllingMotion-LastName.html">template</a> and rename it to your last name, such as "<code>1.16H-ControllingMotion-LastName.html</code>".</p>
+
+			<h2>The assignment</h2>
+			<h4>In this assignment you will use arrow keys on the keyboard to move an element around the screen.</h4>
+			
+
+			
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/1 &mdash; Quality html code</li>
+				<li>___/3 &mdash; Well-modularized (chunked) code into separate functions following input/processing/output</li>
+				<li>___/3 &mdash; Successful Javascript solution: keyboard, ifs, and animation</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting, and style</li>
+			</ul>
+
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

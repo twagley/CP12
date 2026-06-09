@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Function pipelines</title>
+		<meta name="author" content="your name">
+		<meta charset="UTF-8">
+		
+		<!--	Created:	
+		-->
+
+		<script>
+			// Javascript goes in here
+		</script>
+		
+		<style>
+			/* CSS goes in here */
+		</style>
+	</head>
+
+	<body>
+
+	</body>
+</html>
+
+
+
+
+
+
+INPUT function
+name:			() {
+local vars:
+
+
+
+return
+}
+
+
+
+PROCESS function
+name:			
+(				) { // <-- input parameters
+local vars:
+
+
+
+return
+}
+
+
+
+
+
+OUTPUT function
+name:			
+(				) { // <-- input parameters
+local vars:
+
+
+
+}
+
+
+diagram of a function pipeline?
+

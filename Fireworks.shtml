@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Fireworks
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript obejcts and timers to animate fireworks">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. October 2015	- created!									- Drapak
+				27. October 2018	- reworked for clarity and style			- Drapak
+
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+		<style>
+			
+			.fireworkClass {
+				position:			fixed;
+				width:				5px;
+				top:				60%;
+				z-index:			2;
+			}
+			#firework1Id {
+				left:				30%;
+			}
+			#firework2Id {
+				left:				50%;
+			}
+			#firework3Id {
+				left:				80%;
+			}
+			#backgroundId {
+				position:			absolute;
+				width:				100%;
+				z-index:			1;
+			}
+			article img {
+				width: 				100px;
+			}
+		</style>
+	</head>
+
+	<body id="bodyId">
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.04 Skill-builder: <em>Fireworks</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//PROCESS: <a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+				</li>
+				<li>
+					//OUTPUT: <a href="outputAnimatingCSSProperties.shtml">Animating other CSS properties</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="3.04S-Fireworks-LastName.html">empty template</a> as 
+				"<code>3.04S-Fireworks-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use the Javascript <code>setTimeout()</code> command to trigger a series of animations to create a firework display.<br>
+				<button id="buttonId">Click for an example</button>
+			</p>
+			 
+
+			<h4>Suggested steps</h4>
+			<ol>
+				<li>
+					link your page to the jQuery library
+				</li>
+				<li>
+					create a function called <var>mainProcedure</var> inside your script
+				</li>
+				<li>
+					inside <var>mainProcedure</var>, add a <code>setTimeout()</code> that will trigger a function called <var>fireFirework1</var> after 1 second
+				</li>
+				<li>
+					create a function called <var>fireFirework1</var> after the mainProcedure function
+				</li>
+				<li>
+					inside <var>fireFirework1</var>, create a three part animation:
+				</li>
+				<ol>
+					<li>
+						create the appearance of a rocket going up by animating <var>firework1Id</var> upwards.
+					</li>
+					<li>
+						Then explode the firework, by animating <var>firework1Id</var> at the same time to make it look like it is exploding from the middle:
+					</li>
+					<ul>
+						<li>a change in width</li>
+						<li>a change in the top position</li>
+						<li>a change in the left position</li>
+					</ul>
+					<li>
+						After the firework explodes, animate <var>firework1Id</var> so that it drifts and fades into the night:
+					</li>
+					<ul>
+						<li>a slight increase in width</li>
+						<li>a change in the top position</li>
+						<li>a change in the left position</li>
+						<li>fade opacity to zero</li>
+					</ul>
+				</ol>
+				<li>
+					Then add at least one more firework, launching it at a different time!
+				</li>
+			</ol>
+			
+			<h2>A gallery of useful fireworks images</h2>
+			
+			<p>
+				<img src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg" /> http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg from 
+				<a href="https://www.flickr.com/photos/bencnh/508415582/in/album-72157618455740654/">bencnh's Flickr page</a><br>
+				<img src="http://drapak.ca/cpg/img/fireworks-blue.png" /> http://drapak.ca/cpg/img/fireworks-blue.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-blue_and_red.png" /> http://drapak.ca/cpg/img/fireworks-blue_and_red.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-orange.png" /> http://drapak.ca/cpg/img/fireworks-orange.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-orange_and_blue.png" /> http://drapak.ca/cpg/img/fireworks-orange_and_blue.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-orange_and_grey.png" /> http://drapak.ca/cpg/img/fireworks-orange_and_grey.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-purple.png" /> http://drapak.ca/cpg/img/fireworks-purple.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-purple_with_stars.png" /> http://drapak.ca/cpg/img/fireworks-purple_with_stars.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-red.png" /> http://drapak.ca/cpg/img/fireworks-red.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-red-orange.png" /> http://drapak.ca/cpg/img/fireworks-red-orange.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-yellow_and_magenta.png" /> http://drapak.ca/cpg/img/fireworks-yellow_and_magenta.png<br>
+				<img src="http://drapak.ca/cpg/img/fireworks-yellow-orange.png" /> http://drapak.ca/cpg/img/fireworks-yellow-orange.png<br>
+			</p>
+		</article>
+		<script>
+			//OUTPUT: replace the body of the page with the fireworks images
+			var insertImages = function () {
+				console.log( 'in insertImages... ' );
+				
+				document.body.innerHTML 
+					= '<img ' 
+					+ 'id="backgroundId" '
+					+ 'src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg"> '
+					+ ""
+					+ '<img '
+					+ 'id="firework1Id" '
+					+ 'class="fireworkClass" '
+					+ 'src="http://drapak.ca/cpg/img/fireworks-blue.png"> '
+					+ ''
+					+ '<img '
+					+ 'id="firework2Id" '
+					+ 'class="fireworkClass" '
+					+ 'src="http://drapak.ca/cpg/img/fireworks-red.png"> '
+					+ ''
+					+ '<img '
+					+ 'id="firework3Id" '
+					+ 'class="fireworkClass" '
+					+ 'src="http://drapak.ca/cpg/img/fireworks-purple.png"> ';
+			}
+			
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework1 = function () {
+				console.log( 'in fireFirework1...' );
+				
+				// go up like a rocket
+				$( '#firework1Id' ).animate( 
+					{
+						top:	"30%"
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework1Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework1Id' ).animate(
+					{ 	top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework2 = function () {
+				console.log( 'in fireFirework2...' );
+				
+				// go up like a rocket
+				$( '#firework2Id' ).animate( 
+					{
+						top:		"30%"
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework2Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework2Id' ).animate(
+					{ 	
+						top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework3 = function () {
+				console.log( 'in fireFirework3...' );
+				
+				// go up like a rocket
+				$( '#firework3Id' ).animate( 
+					{ 	
+						top:		"30%" 
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework3Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework3Id' ).animate(
+					{ 	
+						top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//MAIN: animate the firework up, wait one second, and then animate an explosion
+			var mainProcedure = function () {	
+				console.log( 'in mainProcedure...' );
+				
+				insertImages();
+				setTimeout( fireFirework1, 1000 );
+				setTimeout( fireFirework2, 2000 );
+				setTimeout( fireFirework3, 3000 );
+			}
+			
+			//INPUT: start mainProcedure when #buttonId is pressed
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

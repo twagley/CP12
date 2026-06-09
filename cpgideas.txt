@@ -1,0 +1,34 @@
+programming ideas
+
+teach hitting outcomes better 
+
+start with drawing
+	rect - ellipse - line - arc: coords  	pixels	stacking
+	
+	coloring - rgb - stroke - fill
+	
+	using documentation
+	
+variables
+	- means assignment left is var, right is value = is 'gets'
+	- use var before use
+	- what happens when re-defined
+	- what is going on with x=x+1
+	- variable states are not backwards compatible
+	- case sensitivity - camel case - english descriptive
+	
+functions
+	- inside and outside functions
+		- executed once, v mainproc and loop
+	- tasty tomato example is pretty cool
+	
+assignment shortcuts
+	+= 	-= 	*= 	/= ++ -- 
+
+loops
+	
+
+have a way to have on the go changes to the code show up
+
+have a floatable programming reference...
+all info contained in JS - breadcrumbs with typical example usage and resizes to minimum height for content

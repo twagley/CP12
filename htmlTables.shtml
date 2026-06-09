@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: HTML Lists
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to make tables in HTML">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015	- created!
+				26. Sept		- added learn more link
+				1. January 2019	- reworked style and fixed <br>
+				8. September 2021 - changed <caption> to <tbody> - Thanks to M. Bowdridge
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; <em>HTML tables</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">block HTML</span>
+				<code>&lt;table&gt;</code> - contains table data<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;caption&gt;</code> - contains the caption for table<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;thead&gt;</code> - contains the headings for the table<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;tbody&gt;</code> - contains the body of the table data<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;tr&gt;</code> - begin a table row<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;th&gt;</code> - contains a table heading cell<br>
+				<span class="langstyle">block HTML</span> 
+				<code>&lt;td&gt;</code> - contains a cell of table data<br>
+				<br>
+				<span class="langstyle">inline HTML</span> 
+				<code>&lt;br&gt;</code> - creates a new line
+			</p>
+
+			<h1>Creating tables of information</h1>
+			
+			<p>
+				You are also going to learn how to create <strong>tables</strong> in HTML. 
+				Tables are constructed as a series of nested containers. 
+				Think of tables like this:
+			</p>
+			
+			<ul>
+				<li>
+					A table <code>&lt;table&gt;</code>contains a caption 
+					<code>&lt;caption&gt;</code> and several rows <code>&lt;tr&gt;</code>
+				</li>
+				<li>
+					Each row <code>&lt;tr&gt;</code>contains several cells
+				</li>
+				<li>
+					Each cell can be either a table heading cell 
+					<code>&lt;th&gt;</code>, or it can be 
+					a table data cell <code>&lt;td&gt;</code>
+				</li>
+			</ul>
+
+			<pre><code><span class="sc1">&lt;table&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;caption&gt;</span><span class="sc0">All I know about pickles</span><span class="sc1">&lt;/caption&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;thead&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;th&gt;</span><span class="sc0">Pickle names</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;th&gt;</span><span class="sc0">Average pickle rating</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/thead&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;tbody&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">Polski ogorki</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">9/10</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">Bread and butter</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">6/10</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">Banana peppers</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+			</span><span class="sc1">&lt;td&gt;</span><span class="sc0">3/10</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/tbody&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/table&gt;</span></code></pre>
+
+			<p><strong>Makes this...</strong><br>
+			<iframe src="./supporting/htmlTables.shtml"></iframe></p>
+
+			<!--<p>You will notice that in the <code>Polski Ogorki...</code> cell the information is divided by a <code>&lt;br /&gt;</code> tag. Use this if you want to start a new line without having a big gap between the lines.</p>-->
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/html-tags-continued/p/html-tables">
+						tables
+					</a>
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/html/html_tables.asp">
+						tables
+					</a>
+				</li>
+			</ul>
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-tables/5316313024167936">Live example: tables</a></h2>
+			<p><script src="https://www.khanacademy.org/computer-programming/live-example-tables/5316313024167936/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script></p>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

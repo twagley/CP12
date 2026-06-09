@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Character Generator
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript objects to randomly generate a character">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. April 2017		- created!									- Drapak
+				27. November 2018	- updated style and content					- Drapak
+
+				-->
+
+		<style>
+			span {
+				border:				1px solid red;
+			}
+			button {
+				border:				1px solid grey;
+				color:				black;
+				background-color:	white;
+			}
+			article img {
+				position:			fixed;
+				width:				10px;
+				/* start off in the middle of the screen */
+				top:				50%; 
+				left:				50%;
+			}
+			.graphClass {
+				background-color: 	red;
+				opacity:			0;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.05 Hand-in: <em>Character Generator</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initObjects.shtml">Using objects</a>
+				</li>
+				<br />
+				<li>
+					//PROCESS: 
+					<a href="processStringAddition.shtml">String addition</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionDefinitionsCallsReferences.shtml">
+						Functions: Definition, trigger, or reference?
+					</a>
+				</li>
+				<br />
+				<li>
+					//OUTPUT: 
+					<a href="outputAnimatingCSSProperties.shtml">
+						Animating other CSS properties
+					</a>
+				</li>
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty 
+				<a href="3.05H-CharacterGenerator-LastName.html">template</a> as 
+				"<code>
+					3.05H-CharacterGenerator-LastName.html
+				</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>The assignment: Computer Programmer - the RPG</h2>
+			
+			<p>
+				Let's say that I have created a role-playing game in which people
+				play computer programmers with different skills and abilities.
+				I know!
+				Brilliant idea! 
+				I am going to make a mint!
+			</p>
+			
+			<p>Let's say that each character could have the following characteristics:</p>
+			
+			<table>
+				<tr>
+					<th>Name</th>
+					<td>Dragos the Security Guru</td>
+					<td class=""></td>
+				</tr>
+				<tr>
+					<th>Typing</th>
+					<td>5</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+				<tr>
+					<th>Spelling and Grammar</th>
+					<td>3</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+				<tr>
+					<th>Modularizes Code</th>
+					<td>6</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+				<tr>
+					<th>Problem Solving</th>
+					<td>2</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+				<tr>
+					<th>Awesome with CSS</th>
+					<td>2</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+				<tr>
+					<th>Coding Style</th>
+					<td>6</td>
+					<td class="withborder">Random die roll from 1-100</td>
+				</tr>
+			</table>
+			
+			<h3>Program planning</h3>
+			<p>I could make a program to roll random characters up quickly!</p>
+			
+			<h4>User interface</h4>
+			<ul>
+				<li>instructions for the user</li>
+				<li>a button to trigger the program, using <code>.onclick</code></li>
+				<li>
+					a table for the information with a ScoreId to hold the score
+					and a ChartId to hold a bar graph for each characteristic
+				</li>
+			</ul>
+			
+			<h4>Variable structure</h4>
+			
+			<p>
+				I can do this without any global variables. 
+				I will need an object variable to handle the character information, 
+			</p>
+				
+			<p>I will structure my character information object like this:</p>
+			
+			<table>
+				<tr>
+					<td><strong>characterObject</strong></td>
+				</tr>
+				<tr>
+					<td><var>characterObject.typing</var></td>
+					<td>stores the Typing skill of the character</td>
+				</tr>
+				<tr>
+					<td><var>characterObject.spellingAndGrammar</var></td>
+					<td>stores the Spelling and Grammar skill of the character</td>
+				</tr>
+				<tr>
+					<td><var>characterObject.modular</var></td>
+					<td>stores the Modularizes Code skill of the character</td>
+				</tr>
+				<tr>
+					<td><var>characterObject.problemSolving</var></td>
+					<td>stores the CSS skill of the character</td>
+				</tr>
+				<tr>
+					<td><var>characterObject.CSS</var></td>
+					<td>stores the CSS skill of the character</td>
+				</tr>
+				<tr>
+					<td><var>characterObject.style</var></td>
+					<td>stores the Coding Style skill of the character</td>
+				</tr>
+			</table>
+						
+			
+			
+			<h2>An example</h2>
+			<h3>Let's generate a random programmer!</h3>
+	
+			<table>
+				<thead>
+				</thead>
+				<tbody>
+					<tr>
+						<th id="patienceScoreID">--</th>
+						<td>
+							<span id="patienceGraphID" class="graphClass">&nbsp;</span>
+							Patience
+						</td>
+					</tr>
+					<tr>
+						<th id="curiosityScoreID">--</th>
+						<td>
+							<span id="curiosityGraphID" class="graphClass">&nbsp;</span>
+							Curiosity
+						</td>
+					</tr>
+					<tr>
+						<th id="troubleshootingScoreID">--</th>
+						<td>
+							<span id="troubleshootingGraphID" class="graphClass">&nbsp;</span>
+							Troubleshooting
+						</td>
+					</tr>
+					<tr>
+						<th id="precisionScoreID">--</th>
+						<td>
+							<span id="precisionGraphID" class="graphClass">&nbsp;</span>
+							Precision
+						</td>
+					</tr>
+					<tr>
+						<th id="resourcefulnessScoreID">--</th>
+						<td>
+							<span id="resourcefulnessGraphID" class="graphClass">&nbsp;</span>
+							Resourcefulness
+						</td>
+					</tr>
+					<tr>
+						<th id="teamworkScoreID">--</th>
+						<td>
+							<span id="teamworkGraphID" class="graphClass">&nbsp;</span>
+							Teamwork
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<button id="buttonID">Generate a new programming superhero!</button>
+			</p>
+
+			
+			<h2>
+				Evaluation
+				<!--&mdash; [<a href="TheSkyAtNight.pdf">pdf</a>] [<a href="TheSkyAtNight.pub">pub</a>]-->
+			</h2>
+			<ul>
+				<li>
+					<strong>___/10 INIT:</strong> including
+					<ol>
+						<li>create an empty object</li>
+						<li>
+							use the value of an object's property to make a custom  
+							animation (width)
+						</li>
+						<li>pass an object to a function as a parameter/argument</li>
+						<li>use the value of an object's property to make a custom
+							animation duration</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including
+					<ol>
+						<li>
+							create a function that accepts an object as an argument/parameter
+						</li>
+						<li>
+							set a delay using <code>setTimeout()</code> 
+							or <code>setInterval</code>
+						</li>
+						<li>
+							use an anonymous function inside <code>setTimeout()</code>
+							or <code>setInterval</code>
+						</li>
+						<li>use string addition</li>
+						<li>processes at least 5 characteristics</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including ANY FIVE of
+					<ol>
+						<li>change the src of an element</li>
+						<li>display information using .innerHTML</li>
+						<li>animate using a custom duration</li>
+						<li>
+							position an object using <code>%</code> 
+							instead of <code>px</code>
+						</li>
+						<li>animate a change in the width of an element</li>
+						<li>animate a fade in or fade out of an element</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> including
+					<ol>
+						<li>honour all previous //STYLE sections</li>
+						<li>use descriptive variable names</li>
+						<li>
+							break up functions into separate ones 
+							for input, processing, and output
+						</li>
+						<li>
+							uses descriptive comments to identify 
+							and describe each function, <br>
+							for example: 
+							<code>//PROCESS: this function accepts distanceUp and 
+							animates the image up that number of pixels</code>
+						</li>
+						<li>
+							add spaces between mathematical operators, <br/>
+							for example: <code>var exampleVar = 3 + 4</code>, 
+							not <code>var exampleVar=3+4</code>.
+						</li>
+					</ol>
+				</li>
+			</ul>
+			
+			
+		</article>
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+			var _0xb2eb=["\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x69\x6E\x20\x67\x65\x6E\x65\x72\x61\x74\x65\x43\x68\x61\x72\x61\x63\x74\x65\x72\x53\x74\x61\x74\x73\x2E\x2E\x2E","\x70\x61\x74\x69\x65\x6E\x63\x65","\x72\x61\x6E\x64\x6F\x6D","\x63\x65\x69\x6C","\x63\x75\x72\x69\x6F\x73\x69\x74\x79","\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67","\x70\x72\x65\x63\x69\x73\x69\x6F\x6E","\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73","\x74\x65\x61\x6D\x77\x6F\x72\x6B","\x69\x6E\x20\x66\x61\x64\x65\x47\x72\x61\x70\x68\x41\x77\x61\x79\x2E\x2E\x2E","\x30\x70\x78","\x61\x6E\x69\x6D\x61\x74\x65","\x23\x70\x61\x74\x69\x65\x6E\x63\x65\x47\x72\x61\x70\x68\x49\x44","\x23\x63\x75\x72\x69\x6F\x73\x69\x74\x79\x47\x72\x61\x70\x68\x49\x44","\x23\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67\x47\x72\x61\x70\x68\x49\x44","\x23\x70\x72\x65\x63\x69\x73\x69\x6F\x6E\x47\x72\x61\x70\x68\x49\x44","\x23\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73\x47\x72\x61\x70\x68\x49\x44","\x23\x74\x65\x61\x6D\x77\x6F\x72\x6B\x47\x72\x61\x70\x68\x49\x44","\x69\x6E\x20\x64\x69\x73\x70\x6C\x61\x79\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x70\x61\x74\x69\x65\x6E\x63\x65\x53\x63\x6F\x72\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x75\x72\x69\x6F\x73\x69\x74\x79\x53\x63\x6F\x72\x65\x49\x44","\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67\x53\x63\x6F\x72\x65\x49\x44","\x70\x72\x65\x63\x69\x73\x69\x6F\x6E\x53\x63\x6F\x72\x65\x49\x44","\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73\x53\x63\x6F\x72\x65\x49\x44","\x74\x65\x61\x6D\x77\x6F\x72\x6B\x53\x63\x6F\x72\x65\x49\x44","\x69\x6E\x20\x61\x6E\x69\x6D\x61\x74\x65\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x2E","\x70\x78","\x6F\x6E\x63\x6C\x69\x63\x6B","\x62\x75\x74\x74\x6F\x6E\x49\x44"];var mainProcedure=function(){console[_0xb2eb[1]](_0xb2eb[0]);fadeGraphAway();var _0x561ax2=generateCharacterStats();displayStatistics(_0x561ax2);animateStatistics(_0x561ax2)};var generateCharacterStats=function(){console[_0xb2eb[1]](_0xb2eb[2]);var _0x561ax4={};_0x561ax4[_0xb2eb[3]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[6]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[7]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[8]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[9]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[10]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);return _0x561ax4};var fadeGraphAway=function(){console[_0xb2eb[1]](_0xb2eb[11]);var _0x561ax6=200;$(_0xb2eb[14])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[15])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[16])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[17])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[18])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[19])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6})};var displayStatistics=function(_0x561ax4){console[_0xb2eb[1]](_0xb2eb[20]+ _0x561ax4);document[_0xb2eb[23]](_0xb2eb[22])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[3]];document[_0xb2eb[23]](_0xb2eb[24])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[6]];document[_0xb2eb[23]](_0xb2eb[25])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[7]];document[_0xb2eb[23]](_0xb2eb[26])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[8]];document[_0xb2eb[23]](_0xb2eb[27])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[9]];document[_0xb2eb[23]](_0xb2eb[28])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[10]]};var animateStatistics=function(_0x561ax4){console[_0xb2eb[1]](_0xb2eb[29]+ _0x561ax4);var _0x561ax9=30;setTimeout(function(){$(_0xb2eb[14])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[3]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[3]]* _0x561ax9})},200);setTimeout(function(){$(_0xb2eb[15])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[6]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[6]]* _0x561ax9})},400);setTimeout(function(){$(_0xb2eb[16])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[7]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[7]]* _0x561ax9})},600);setTimeout(function(){$(_0xb2eb[17])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[8]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[8]]* _0x561ax9})},800);setTimeout(function(){$(_0xb2eb[18])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[9]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[9]]* _0x561ax9})},1000);setTimeout(function(){$(_0xb2eb[19])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[10]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[10]]* _0x561ax9})},1200)};document[_0xb2eb[23]](_0xb2eb[32])[_0xb2eb[31]]= mainProcedure
+		</script>
+	</body>
+</html>

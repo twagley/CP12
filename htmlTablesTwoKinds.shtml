@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Two kinds of HTML tables</title>
+		<meta name="description" content="Learn how to make tables in HTML">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				10. September 2015	- created!
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; <em>Two kinds of HTML tables</em>
+		</header>
+
+		<article>
+			<h1>Two general ways of displaying information in tables</h1>
+
+			<p>
+				When creating tables, you have a choice of where to put the table headings.
+				Both kinds communicate the same information.
+				Choosing one or another is usually a matter of which one is most legible.
+			</p>
+			
+			<h2>Horizontal tables</h2>
+			<p>You can either use <strong>horizontal headings</strong> across the top of the table:</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Heading #1</th>
+						<th>Heading #2</th>
+						<th>Heading #3</th>
+						<th>Heading #4</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+					<tr>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+					<tr>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<br />
+			<p>The code for a horizontal table looks like this:</p>
+			
+			<pre><code><span class="sc1">&lt;table&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;thead&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #1</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #2</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #3</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #4</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/thead&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;tbody&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/tbody&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/table&gt;</span></code></pre>
+			
+			<h2>Vertical tables</h2>
+			<p>Or you can use <strong>vertical headings</strong> along the side:</p>
+			
+			<table>
+				<thead>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Heading #1</th>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+					<tr>
+						<th>Heading #2</th>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+					<tr>
+						<th>Heading #3</th>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+					<tr>
+						<th>Heading #4</th>
+						<td>table data</td>
+						<td>table data</td>
+						<td>table data</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br />
+			
+			<p>Here is code to create a vertical table:</p>
+			
+			<pre><code><span class="sc1">&lt;table&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;thead&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/thead&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;tbody&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #1</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #2</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #3</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Heading #4</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;td&gt;</span><span class="sc0">table data</span><span class="sc1">&lt;/td&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/tbody&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/table&gt;</span><span class="sc0">
+</span></code></pre>
+		</article>		
+				
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

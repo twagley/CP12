@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Further education in Nova Scotia</title>
+		<meta name="description" content="Information about computer-related education in Nova Scotia">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--this page describes the places and programs that you can continue your education with in NS
+		
+			Created:	13. December 2015
+			Updated:	
+		-->
+
+		<script>
+			var institutions = [
+				{	name:		"Academy of Learning",
+					site:		"http://www.academyoflearning.com/ns/",
+					location:	"Halifax",
+					programs:	[
+						{	name:			"Network Support Specialist",
+							site:			"http://www.academyoflearning.com/ns/network-support-specialist",
+							description:	"This program provides extensive exposure to designing; implementing and administering various network environments.",
+							requirements:	"Grade 12 or equivalent or Mature Student Status. Courses are open to any applicant who possesses a good command of the English language and is able to follow instructions.",
+							fullOrPart:		"full and part time",
+							programLength:	""
+						},
+						{	name:			"PC Support Specialist",
+							site:			"http://www.academyoflearning.com/ns/pc-support-specialist1",
+							description:	"This program prepares students to deal with the problems they may encounter when supporting Personal Computers in an office environment.",
+							requirements:	"Grade 12 or equivalent or Mature Student Status. ",
+							fullOrPart:		"full and part time",
+							programLength:	""
+						},
+						
+					]
+				},
+				{	name:		"Nova Scotia Community College: Information Technology Programs",
+					site:		"http://www.nscc.ca/learning_programs/programs/ProgramListing.aspx?camp=&cat=D15&grp=&k=",
+					location:	"Institute of Technology campus (Leed St in north end Halifax) and throughout Nova Scotia",
+					programs:	[
+						{	name:			"Computer Electronics Technician",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=CETN&pln=COMELECTCN",
+							description:	"Build your knowledge of computer hardware, software, networks, and electronics to maintain and repair computer electronics of all types and sizes.",
+							requirements:	"High School Graduation Diploma or equivalent, including Academic Grade 12 English, and Academic Grade 12 Math.",
+							fullOrPart:		"full time in class",
+							programLength:	"2 years"
+						},
+						{	name:			"Health Information Management",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=HIMP&pln=HEINFOMAN",
+							description:	"Use technology to capture health data, perform data analysis, present information to support healthcare delivery, and provide leadership in all aspects of clinical information management.",
+							requirements:	"High School Graduation Diploma or equivalent, including: one Academic Grade 12 Science (Biology, Chemistry or Physics); Academic Grade 12 English; and Academic Grade 12 Mathematics.",
+							fullOrPart:		"full time in class",
+							programLength:	"2 years"
+						},
+						{	name:			"Information Technology - Year 1",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-NOCONC",
+							description:	"Develop your knowledge of computer technology and skills – database management, programming, systems management, networks, and web programming.",
+							requirements:	"High School Graduation Diploma or equivalent.",
+							fullOrPart:		"full time in class",
+							programLength:	"First year of 2 years"
+						},
+						{	name:			"Information Technology - Database Administration Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-DATAMAN",
+							description:	"The Database Administration concentration is a second year option of the Information Technology diploma program. You start this concentration in the second term of your first year, and continue throughout the second year of the program. As the information needs of an organization grow in size and complexity, database administrators take on the critical role of helping to manage data that supports business operations and decisions. In their roles, they know how to install, maintain, and manage the database management systems that protect and organize key information.",
+							requirements:	"Successful completion of Information Technology - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Information Technology - Database Application Programming Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-DATPROG",
+							description:	"The Database Application Programming concentration is a second year option of the Information Technology diploma program. You start this concentration in the second term of your first year, and continue throughout the second year of the program. This concentration provides a background in object-oriented programming and scripting languages, with applied focus in transactional SQL programming, full exploration of the usage of data layer objects within an object-oriented platform, and SQL and database application tuning.",
+							requirements:	"Successful completion of Information Technology – Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Information Technology - Programming Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-PROGRAM",
+							description:	"The Programming concentration is a second year option of the Information Technology diploma program. You start this concentration in the second term of your first year, and continue throughout the second year of the program. Programming requires a detail-oriented, logical mindset mixed with a sense of creativity in both its design and programming aspects. It appeals to individuals who like puzzles, problem-solving, and innovation, and would like to improve information systems to deliver a better user experience, enhance program and network security using software design, or help organizations operate more efficiently. There is growing recognition from all sectors of industry of the vital contribution that computer software has on an operation's success. Well-designed applications and well-written code improve operational efficiency, commercial performance, and end-user experience.",
+							requirements:	"Successful completion of Information Technology - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Information Technology - Systems Management/Networking Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-SYSMAN",
+							description:	"The Systems Management/Networking concentration is a second year option of the Information Technology diploma program. You start this concentration in the second term of your first year and continue throughout the second year of the program. In this concentration, you take courses relating to the design, implementation, and management of the core technologies that support Information Communication Technology (ICT). These include: UNIX/Linux and Windows network operating systems; Local Area Network (LAN) and Wide Area Network (WAN); security implementations to protect data and users, and Systems Analysis and Design (SAD).",
+							requirements:	"Successful completion of Information Technology - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Information Technology - Web Programming Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=IFTG&pln=IT-INTERNT",
+							description:	"The Web Programming concentration is a second year option of the Information Technology diploma program. You start this concentration in the second term of your first year, and continue throughout the second year of the program. Organizations of all sizes need experts who can create, develop, and maintain websites and web applications which support business services and operations. In addition, with the growing use of cloud computing, more and more business applications are finding a home on the web.",
+							requirements:	"Successful completion of Information Technology - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						
+					]
+				},
+				{	name:		"Nova Scotia Community College: Geomatics Programs",
+					site:		"http://www.nscc.ca/learning_programs/programs/ProgramListing.aspx?camp=&cat=C25&grp=&k=",
+					location:	"Centre of Geographic Sciences, Lawrencetown",
+					programs:	[
+						{	name:			"Geographic Sciences - Year 1",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GEOS&pln=GEOSCIYR1",
+							description:	"Obtain a solid grounding in the basics of geographic sciences and the geomatics tools and technology you need to build a successful career.",
+							requirements:	"High School Graduation Diploma or equivalent.",
+							fullOrPart:		"full time in class",
+							programLength:	"First year of 2 years"
+						},
+						{	name:			"Geographic Sciences - Cartography Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GEOS&pln=CARTOGRAPH",
+							description:	"The Cartography concentration is a second year option of the Geographic Sciences diploma program. Combining science, esthetics, and technique, cartography is the study and practice of making maps. As a cartographer, you are a visual communicator, building and illustrating maps that are attractive yet functional, so they can be quickly and easily used and understood. Your work may go on to stand as a valuable cartographic information source for many years.",
+							requirements:	"Successful completion of Geographic Sciences - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Geographic Sciences - Community & Environmental Planning Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GEOS&pln=COMMENVPLN",
+							description:	"The Community & Environmental Planning concentration is a second year option of the Geographic Sciences diploma program. If you're interested in learning how you can make a difference by helping to apply environmentally sustainable approaches to community and regional planning, then the Community and Environmental Planning Concentration will appeal to you.",
+							requirements:	"Successful completion of Geographic Sciences - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Geographic Sciences - Geographic Information Systems (GIS) Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GEOS&pln=GISTECHNO",
+							description:	"The Geographic Information Systems concentration is a second year option of the Geographic Sciences diploma program. Geographic Information Systems (GIS) is one of the fastest growing technology sectors in the world. With GIS, technical users link and analyze spatial data sets to model the real world in support of the decision-making process. This concentration prepares you by giving you indispensable GIS skills, and how they apply to environmental, municipal, and resource management projects.",
+							requirements:	"Successful completion of Geographic Sciences - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Geographic Sciences - Remote Sensing Technology Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GEOS&pln=REMSENTECH",
+							description:	"The Remote Sensing Technology concentration is a second year option of the Geographic Sciences diploma program. Remote Sensing is the study of earth observation systems and applications. Remote Sensing is a rapidly expanding discipline with multiple applications in: forestry, geology, defence/intelligence, disaster management, conservation, oceanography, meteorology, urban analysis, and agriculture.",
+							requirements:	"Successful completion of Geographic Sciences - Year 1 or Advanced Standing.",
+							fullOrPart:		"full time in class",
+							programLength:	"Second year of 2 years"
+						},
+						{	name:			"Geographic Sciences – Advanced Diploma - Semester 1",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=AGEO&pln=AGEOSEM1",
+							description:	"A post-graduate program that develops your career-ready skills and opportunities in the geospatial sector.",
+							requirements:	"Undergraduate degree in a related field of study such as geography, forestry, geology, resource management, science, engineering, computer science, marketing, commerce, economics, business administration, or tourism management is required.",
+							fullOrPart:		"full time in class",
+							programLength:	"First semester of 1 year"
+						},
+						{	name:			"Geographic Sciences – Advanced Diploma - Geographic Information Systems (GIS) Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=AGEO&pln=AGEOGISY",
+							description:	"The Geographic Information Systems concentration is a second term option of the Geographic Sciences – Advanced Diploma program. The program starts in September, with your selected concentration starting in January. In this concentration, you study the programming and application of geographic information systems (GIS) or geospatial technology. In addressing geographically-based problems, analytical and technological tools (including hardware and software) are applied to create solutions. Geospatial information links locational data (where things are) with descriptive data (information that is associated with each location). You use points (utility poles, mine sites), lines (river centrelines), and polygons (land parcels, counties) to model reality and provide geographic information. GIS technology provides storage, analysis, and presentation of that information.",
+							requirements:	"Geographic Sciences – Advanced Diploma - Semester 1",
+							fullOrPart:		"full time in class",
+							programLength:	"Second semester of 1 year"
+						},
+						{	name:			"Geographic Sciences – Advanced Diploma - Geographic Information Systems (GIS) for Business Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=AGEO&pln=AGEOGISB",
+							description:	"The Geographic Information Systems for Business concentration is a second term option of the Geographic Sciences – Advanced Diploma program. How do you find an optimal location for a new shopping centre, hospital, school, or restaurant? How do you determine a service area for a grocery supermarket? Where are potential customers for a new banking service? With the skills you develop in this concentration, you're able to address many business, socio-economic, and demographic challenges – from a spatial context – and present solutions, visually, on a map. You hone your GIS skills with a focus on enterprise solutions. You develop other geographic and business information management skills too, such as location analysis, network analysis, data mining, computer programming, and database management. You graduate with a powerful combination of marketable skills that are in demand by businesses of all sizes and by public services.",
+							requirements:	"Geographic Sciences – Advanced Diploma - Semester 1",
+							fullOrPart:		"full time in class",
+							programLength:	"Second semester of 1 year"
+						},
+						{	name:			"Geographic Sciences – Advanced Diploma - Remote Sensing Concentration",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=AGEO&pln=AGEOREMS",
+							description:	"The Remote Sensing concentration is a second term option of the Geographic Sciences – Advanced Diploma program. Remote Sensing is the study of earth observation systems and applications. In practice, it is usually associated with applied computer analysis of digital geospatial imagery. Remote Sensing is a rapidly expanding discipline with multiple applications in: forestry, geology, defence/intelligence, disaster management, conservation, oceanography, meteorology, urban analysis, and agriculture. With hands-on experience using industry standard software, learn how to interpret satellite images, process digital images, and understand the theoretical basis for remote sensing and aerial imaging platforms.",
+							requirements:	"Geographic Sciences – Advanced Diploma - Semester 1",
+							fullOrPart:		"full time in class",
+							programLength:	"Second semester of 1 year"
+						},
+						{	name:			"Survey Technician",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=SUTN&pln=SURVTECH",
+							description:	"Develop skills in the surveying profession. Embark on a challenging, high-tech career that gets you outdoors and provides a wide range of opportunities in geomatics.",
+							requirements:	"High School Graduation Diploma or equivalent, including Academic Grade 12 Math.",
+							fullOrPart:		"full time in class",
+							programLength:	"1 year"
+						},
+						{	name:			"Geomatics Engineering Technology",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=GETG&pln=GEOMENTECH",
+							description:	"Enhance your surveying skills and experience by developing a broader understanding of the theoretical concepts used in geomatics.",
+							requirements:	"Completion of the Survey Technician certificate program, or equivalent training or experience.",
+							fullOrPart:		"full time in class",
+							programLength:	"1 year"
+						},
+						{	name:			"Marine Geomatics",
+							site:			"http://www.nscc.ca/learning_programs/programs/PlanDescr.aspx?prg=MGEO&pln=MARGEOM",
+							description:	"Expand your geomatics knowledge with the skills you need to explore, manage, and monitor marine and coastal environments.",
+							requirements:	"Undergraduate degree in Science or Engineering, or a two-year diploma in the field of Geomatics.",
+							fullOrPart:		"full time in class",
+							programLength:	"1 year"
+						},
+						
+					]
+				},
+				{	name:		"",
+					site:		"",
+					location:	"",
+					programs:	[
+						{	name:			"",
+							site:			"",
+							description:	"",
+							requirements:	"",
+							fullOrPart:		"",
+							programLength:	""
+						},
+						
+					]
+				},
+				{	name:		"",
+					site:		"",
+					location:	"",
+					programs:	[
+						{	name:			"",
+							site:			"",
+							description:	"",
+							requirements:	"",
+							fullOrPart:		"",
+							programLength:	""
+						},
+						
+					]
+				},
+			];
+			
+			var mainProcedure = function () {
+				// create a variable to hold the code for the course information
+				var courseHTML	= '';
+				
+				// loop through each institution
+				for (thisInstitution in institutions) {
+					courseHTML = courseHTML
+						+ "<h3><a href='"
+						+ institutions[ thisInstitution ].site
+						+ "'>"
+						+ institutions[ thisInstitution ].name
+						+ "</a></h3>"
+						+ "<p><strong>Location: </strong>"
+						+ institutions[ thisInstitution ].location
+						+ "</p>"
+						+ ""
+					
+					var programs = institutions[ thisInstitution ].programs;
+					
+					// loop through each program 
+					for (thisProgram in programs) {
+						courseHTML = courseHTML
+							+ "<div>"
+							+ "<h4><a href='"
+							+ programs[ thisProgram ].site
+							+ "'>"
+							+ programs[ thisProgram ].name
+							+ "</a></h4><p class='indent'>"
+							+ programs[ thisProgram ].description
+							+ "<br /><br /><strong>Requirements: </strong>"
+							+ programs[ thisProgram ].requirements
+							+ "<br /><strong>Length of program: </strong>"
+							+ programs[ thisProgram ].fullOrPart
+							+ " &ndash; "
+							+ programs[ thisProgram ].programLength
+							+ "</p></div>"
+					
+					} 
+					
+					courseHTML = courseHTML
+						+ ""
+				}
+				document.getElementById('outputID').innerHTML = courseHTML;
+			}
+		</script>	
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CAREERS: <em>Post-secondary programs in Nova Scotia</em>
+		</header>
+
+		<article>
+			<h2>Post-secondary programs connected to Computer Programming in the HRM area</h2>
+			<div id="outputID"></div>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3school.com's
+					<a href="http://www.w3schools.com/js/js_object_definition.asp">
+						JavaScript Objects
+					</a>
+				</li>
+				<li>
+					w3school.com's
+					<a href="http://www.w3schools.com/js/js_object_prototypes.asp">
+						JavaScript Object Prototypes
+					</a>
+				</li>
+			</ul>
+			<!--
+			<h2>Code example</h2>
+			<hr />
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code></code></pre>
+			-->
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

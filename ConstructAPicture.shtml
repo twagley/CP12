@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Construct a Picture
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: organize datatypes into a table">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="tables, datatypes, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				15. Sept 2015		- created!
+				16. Sept			- organized the building block pictures for easier use
+				11. February 2018	- cleaned up long lines
+									- moved script
+									- added hidden agenda
+				16. September 2018	- fixed closing slash on img
+		-->
+
+		<style>
+			img {
+				max-width:	60px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			1.06 Skill-builder: <em>Construct a picture</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//CSS: <a href="cssUsingIDs.shtml">Applying styles using IDs</a><br />
+				//CSS: <a href="cssPositioning.shtml">Positioning</a><br />
+			</p>
+
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Get more comfortable with using multiple image elements together
+				</li>
+				<li>
+					Use ids to manipulate specific HTML elements
+				</li>
+				<li>
+					Position things around the screen
+				</li>		
+				<li>
+					Hint: don't spend too long on this one!
+					Save your best skills for the hand-in assignment.
+				</li>		
+			</ul>
+			
+			<h2>Saving your work</h2>
+			<p>Use <code>Save as...</code> to save this empty template as "<code><a href="1.06S-ConstructAPicture-LastName.html">1.06S-ConstructAPicture-LastName.html</a></code>" in your Computer Programming 12 directory.</p>
+
+			<h2>The assignment</h2>
+			<p>
+				Create a scene by positioning the following Khan Academy images in an HTML page using CSS.
+				Use IDs and CSS Positioning to arrange things in an interesting way.
+			</p>
+					
+			<h3>All images begin with: <strong> https://www.kasandbox.org/programming-images/cute/</strong></h3>
+			<h4>For example: <code>&lt;img src="https://www.kasandbox.org/programming-images/cute/BrownBlock.png"></code></h4>
+			
+			<div class="floatbox">
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/BrownBlock.png">
+					<caption>BrownBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/ChestClosed.png">
+					<caption>ChestClosed.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/ChestLid.png">
+					<caption>ChestLid.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/ChestOpen.png">
+					<caption>ChestOpen.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/DirtBlock.png">
+					<caption>DirtBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/DoorTallClosed.png">
+					<caption>DoorTallClosed.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/DoorTallOpen.png">
+					<caption>DoorTallOpen.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/GrassBlock.png">
+					<caption>GrassBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/PlainBlock.png">
+					<caption>PlainBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RampEast.png">
+					<caption>RampEast.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RampNorth.png">
+					<caption>RampNorth.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RampSouth.png">
+					<caption>RampSouth.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RampWest.png">
+					<caption>RampWest.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/Rock.png">
+					<caption>Rock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofEast.png">
+					<caption>RoofEast.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofNorth.png">
+					<caption>RoofNorth.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofNorthEast.png">
+					<caption>RoofNorthEast.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofNorthWest.png">
+					<caption>RoofNorthWest.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofSouth.png">
+					<caption>RoofSouth.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofSouthEast.png">
+					<caption>RoofSouthEast.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofSouthWest.png">
+					<caption>RoofSouthWest.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/RoofWest.png">
+					<caption>RoofWest.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/Star.png">
+					<caption>Star.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/StoneBlock.png">
+					<caption>StoneBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/StoneBlockTall.png">
+					<caption>StoneBlockTall.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/TreeShort.png">
+					<caption>TreeShort.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/TreeTall.png">
+					<caption>TreeTall.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/TreeUgly.png">
+					<caption>TreeUgly.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/WallBlock.png">
+					<caption>WallBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/WallBlockTall.png">
+					<caption>WallBlockTall.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/WaterBlock.png">
+					<caption>WaterBlock.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/WindowTall.png">
+					<caption>WindowTall.png</caption>
+				</figure>
+				<figure>
+					<img src="https://www.kasandbox.org/programming-images/cute/WoodBlock.png">
+					<caption>WoodBlock.png</caption>
+				</figure>
+			</div>
+			
+			<h2>Extend and expand</h2>
+			
+			<p>There are plenty of other images out there on the internet.</p>
+			<p>Link to them and add them to your palette of building blocks!</p>
+			<p>
+				You can find other linkable images 
+				<a href="http://drapak.ca/cpg/htmlImageResources.shtml">here</a>
+			</p>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+		<script>
+		</script>
+	</body>
+</html>

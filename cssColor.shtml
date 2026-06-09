@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: CSS color</title>
+		<meta name="description" content="Learn how to use color in CSS">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				20. Sept 2015	- created!
+				26. Sept		- added learn more link
+		-->
+
+
+		<style>
+			iframe {
+				margin-left: 40px;
+				height:	300px;
+				width: 500px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Color</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">CSS</span> 
+					<code>border: 1px solid red;</code> 
+					&mdash; applies a thin red border<br />
+					
+				<span class="langstyle">CSS</span> 
+					<code>background-color: red;</code> 
+					&mdash; makes something's background red<br />
+				<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>color: red;</code> 
+					&mdash; uses a named color to turn something red<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>color: rgb(255, 0, 0);</code> 
+					&mdash; specifies amounts of <strong>r</strong>ed, 
+					<strong>g</strong>reen and <strong>b</strong>lue to turn something red<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>color: #F00;</code> 
+					&mdash; uses a hexidecimal color to turn something red<br />
+
+				<span class="langstyle">CSS</span> 
+					<code>color: #FF0000;</code> 
+					&mdash; uses a hexidecimal color to turn something red<br />
+				<br />
+				
+				<span class="langstyle">CSS</span> 
+					<code>opacity: 0.3;</code> 
+					&mdash; makes something 70% transparent					
+			</p>
+			
+			<h2>Resource</h2>
+			
+			<p>
+				I like Quackit.com's 
+				<a href="http://www.quackit.com/css/css_color_codes.cfm">CSS Color Codes</a>
+			</p>
+			
+			
+			<h2>There are many ways to assign color to your pages</h2>
+			
+			<h3>Code example</h3>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #borderID {border: 1px solid red;}
+            #backgroundID {background-color: red;}
+
+            #namedID {color: red;}
+            #rgbID {color: rgb(0, 255, 0);}
+            #shortHexID {color: #00F;}
+            #normalHexID {color: #0000FF;}
+
+            #opacityID {opacity: 0.3;}
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">CSS Color Example</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">There are many ways to indicate color in CSS. You can...</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"borderID"</span><span class="sc1">&gt;</span><span class="sc0">give something a colored border</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundID"</span><span class="sc1">&gt;</span><span class="sc0">give something a colored background</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"namedID"</span><span class="sc1">&gt;</span><span class="sc0">use color names</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"rgbID"</span><span class="sc1">&gt;</span><span class="sc0">use </span><span class="sc1">&lt;code&gt;</span><span class="sc0">rgb()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> values from 0-255</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"shortHexID"</span><span class="sc1">&gt;</span><span class="sc0">use short hexidecimal colors</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"normalHexID"</span><span class="sc1">&gt;</span><span class="sc0">use normal hexidecimal colors</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"opacityID"</span><span class="sc1">&gt;</span><span class="sc0">use opacity</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/ul&gt;</span><span class="sc0">           
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span><span class="sc0">
+</span></code></pre>
+
+			<p>Makes this:</p>
+			
+			<iframe src="supporting/cssColor.shtml"></iframe>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-basics">
+						CSS basics
+					</a>
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/css/css3_colors.asp">
+						CSS3 colors
+					</a>
+				</li>
+			</ul>
+
+
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

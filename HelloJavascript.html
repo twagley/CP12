@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<title>Hello Javascript!</title>
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+	</head>
+
+	<body>
+		<header>
+			<h1>1.05 Skill-builder: Hello Javascript!</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">page HTML</span> <code>&lt;script&gt;</code> - contains javascript code<br />
+				<span class="langstyle">form HTML</span> <code>&lt;button&gt;</code> - creates a button with text enclosed<br />
+				<br />
+				<span class="langstyle">function JS</span> <code>function () {<var>code</var>}</code> - contains a block of javascript that can be called when needed<br />
+				<span class="langstyle">event JS</span> <code>onclick="<var>someFunction();</var>"</code> - triggers a JS function when an HTML element is clicked<br />
+				<span class="langstyle">DOM JS</span> <code>document.getElementById("<var>someID</var>")</code> - gets a reference to the HTML element with <code>id="<var>someID</var>"</code><br />
+				<span class="langstyle">DOM JS</span> <code><var>elementReference</var>.innerhtml</code> - refers to the code inside an html element<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Let's make things change</h2>
+			<h3>Adding javascript code to your HTML document</h3>
+			<p><strong>Javascript</strong> is special programming language that is used to change and manipulate HTML code.<p>
+			<p>You probably noticed that HTML does not change much by itself. 
+				You use javascript code to make things <em>happen</em> inside the HTML document.</p>
+				
+			<p>Technically, you can put javascript code pretty much anywhere in your HTML pages, 
+				but keeping all of your code in the <code>&lt;head&gt;</code> of your document keeps your code legible and organized. 
+				You separate your javascript code from the HTML by enclosing your javascript inside <code>&lt;script&gt;&lt;/script&gt;</code> tags.</p>
+				
+			<p>Some small bits of javascript are included inside the HTML tags themselves. 
+				In the example you are making today, the <code>onclick=""</code> event attribute calls a javascript function when something is clicked. 
+				Although you can technically put miles of code inside these event attributes, please don't.
+				Instead, have them call a function that is defined in the code inside <code>&lt;head&gt;&lt;script&gt;&lt;/script&gt;&lt;/head&gt;</code>.</p>
+				
+			<h3>Changing your HTML</h3>
+			<p>Javascript can change the code inside a tag by changing the <code>.innerhtml</code> attribute of an HTML object.</p>
+			
+			<p>When a web browser displays a page, it organises all the blocks of HTML code into objects nested inside each other. 
+				It can refer to these objects in a couple of ways:</p>
+			<ul>
+				<li><code>document.body.h1[0]</code> refers to the first <code>h1</code> tag inside the <code>body</code> of a document</li>
+				<li><code>document.getElementById("<var>someID</var>")</code> refers to the HTML element with <code>id="<var>someID</var>"</code></li>
+			</ul>
+			
+			<p>Once you get a reference to a specific element, you can change the HTML inside it. 
+				For example, </p>
+				<pre>
+	<code>document.getElementById("<var>elementID</var>").innerhtml = "<var>Here piggy, piggy!</var>";</code>
+				</pre>
+			<p>replaces <strong>everything</strong> inside the tag with <var>elementID</var> with <var>Here piggy, piggy!</var>
+				
+
+			<h2>Saving your work</h2>
+			<p>Open your editor and save the empty document as "<code>1.05S-HelloJavascript-LastName.html</code>"</p>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Enter the example code below</li>
+				<li>Customize it to match your style, but don't lose the click function</li>
+				<li>You do not need to keep all of the comments, but add ones that explain the basics</li>
+			</ol>
+			
+			<p><img class="withborder" src="img/HelloJavascriptExample.png"></p>
+
+			<h2>Extend and expand</h2>
+			<p>Add a whole bunch of writing and other HTML tags in your document that have <code>id=""</code> attributes. 
+				Then add more buttons.</p>
+			<p>Can you figure out how to make text clickable?<br />
+				Can you figure out how to make an image disappear when you click on it?<br />
+				How about making an image appear when you click a paragraph?</p>
+		</article>
+			
+		<footer>
+			<div class="legal">Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> &mdash; This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.</div>
+		</footer>
+	</body>
+</html>

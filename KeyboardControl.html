@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Keyboard control</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros keyboard control 
+		
+			Created:	9. March 2015 
+			Updated:	10. March 2015
+		-->
+		
+		<script>
+			/*	This creates a function that is triggered each time that a key is pressed down. 
+				This is better than onkeypress, because onkeydown can detect arrow keys.
+				However, onkeydown cannot detect shifted letters: it detects the shift key as its own code. */
+				
+			var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+			var amountRed			=150;		// the amount of red in the style.color (0-255)
+			var sizeOfFont			=24;	// the initial size of the font in outputBlock
+				
+			/*	INPUT: This next command tells the browser to trigger when a key is pressed anywhere
+				note that it's format is different than creating a usual function */
+			window.onkeydown	=function (keyEvent) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				characterPressed	=keyEvent.which || keyEvent.keyCode;
+
+				showMeWhatIPressed();
+				chooseKeypressResult();
+			}
+
+			function chooseKeypressResult () {	//	PROCESS: decide how to react with different key presses
+				//	and now the real star: a bunch of IF statements to decide what to do
+				//	note that the comparisons use a "==" and NOT a "="!
+				
+				if (characterPressed == 38) {	// if they pressed an UP arrow
+					increaseRed();
+				} else if (characterPressed == 40) {	// if they pressed an DOWN arrow
+					decreaseRed();
+				} else if (characterPressed == 39) {	// if they pressed an RIGHT arrow
+					increaseSize();
+				} else if (characterPressed == 37) {	// if they pressed an LEFT arrow
+					decreaseSize();
+				}
+			}
+			
+			function increaseRed () {	// OUTPUT: this increases the amount of red in the outputBlock
+				amountRed			=amountRed+40;
+				var newColorString	="rgb(" + amountRed.toString() + ", 0, 0)";
+				document.getElementById("outputBlock").style.color	=newColorString; // apply the new color
+			}
+			
+			function decreaseRed () {	// OUTPUT: this decreases the amount of red in the outputBlock
+				amountRed			=amountRed-40;
+				var newColorString	="rgb(" + amountRed.toString() + ", 0, 0)";
+				document.getElementById("outputBlock").style.color	=newColorString; // apply the new color
+			}
+			
+			function increaseSize () {	// OUTPUT: this increases the font size in the outputBlock
+				// note that the CSS code is "font-size: 12px", so the Javascript is ".style.fontSize ='12px'"
+				sizeOfFont			=sizeOfFont+5;
+				var newSizeOfFont	=sizeOfFont.toString() + "px";
+				document.getElementById("outputBlock").style.fontSize	=newSizeOfFont; // apply the new size
+			}
+			
+			function decreaseSize () {	// OUTPUT: this decreases the font size in the outputBlock
+				// note that the CSS code is "font-size: 12px", so the Javascript is ".style.fontSize ='12px'"
+				sizeOfFont			=sizeOfFont-5;
+				var newSizeOfFont	=sizeOfFont.toString() + "px";
+				document.getElementById("outputBlock").style.fontSize	=newSizeOfFont; // apply the new size
+			}
+						
+			function showMeWhatIPressed () { // OUTPUT: output the code I pressed - really for debugging more than anything else...
+				var messageToOutput		= "The Unicode value is: " 
+										+ characterPressed;
+
+				document.getElementById("outputBlock").innerHTML	=messageToOutput;			
+			}
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.15 Skill-builder: Keyboard control</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">input JS</span> <code>window.onkeydown	=function (<var>keyEvent</var>) {<br />
+				<span style="margin-left: 100px;">characterPressed	=<var>keyEvent</var>.which || <var>keyEvent</var>.keyCode;</span><br/>
+				<span style="margin-left: 100px;">}</span></code> - detects a keystroke<br />
+				<br />
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.color="Red";</code> - changes the text color of an element to red<br />
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.color="rgb(255,0,0)";</code> - changes the text color of an element to red<br />
+				<br />
+				<span class="langstyle">font JS</span> <code>document.getElementById("elementID").style.fontSize="12px";</code> - changes the font size of an element to 12px<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Sniffing keystrokes</h2>
+
+			<p>
+				In the <a href="JavascriptEvents.html">Javascript events</a> lesson, you were able to read the keystrokes as they were entered into a text box.
+				This worked by using code like: <code>&lt;input type="text" id="inputLine" onkeypress="doSomeFunction(event);"&gt;</code></p>
+			<p>	But that only worked when you had the cursor in the text box.
+				For many things, like controlling games, you want to have the keyboard react no matter where the cursor is.
+			</p>
+			
+			<h2>Ok - show me how to read the keyboard at all times</h2>
+			<p>
+				<img class="withborder" src="img/KeyboardControlExample1.png">
+			</p>
+			<p>Read through the code carefully... Then <a href="examples/KeyboardControlExample1.html">click here</a> to run the example.</p>
+			
+			<h2>Different keys for different results</h2>
+			<p>
+				Great - now you have the browser reacting to the keyboard no matter what else is going on.
+				But wouldn't it be nice if different keys did different things?
+				To make that happen we need to run different code in different situations.
+				In other words, we need to use <strong>if</strong> statements.
+			</p>
+
+			<h4>Let's apply IF statements to our previous example:</h4>
+			<p>
+				<img class="withborder" src="img/KeyboardControlExample2.png">
+			</p>
+			
+			<h2>Adjusting styles with javascript</h2>
+			<p>Let's create a paragraph with an id="testParagraph":</p>
+			
+			<p><code>&lt;p id="testParagraph"&gt;Adjustable text&lt;/p&gt;</code> makes:</p>
+			<p>Adjustable text</p>
+			
+			<h4>Changing color with Javascript</h4>
+			<p>We can now use javascript to adjust the color of this paragraph</p>
+			
+			<p><code>document.getElementById("testParagraph").style.color="Red";</code> makes:</p>
+			<p style="color: Red">Adjustable text</p>
+			
+			<p>We can also be more specific about the color by specifying it not as a color name, but by the amount of red, green, and blue in the color we want:</p>
+
+			<p><code>document.getElementById("testParagraph").style.color="rgb(0,0,255)";</code> makes:</p>
+			<p style="color: rgb(0,0,255)">Adjustable text</p>
+			
+			<h4>Changing font size with Javascript</h4>
+			<p>You can use javascript to change the font size of an element:</p>
+			
+			<p><code>document.getElementById("elementID").style.fontSize	="30px";</code></p>
+			<p style="font-size: 30px">Adjustable text</p>
+			
+			<h4>Now lets add style change functions to our example:</h4>
+			<p>
+				<img class="withborder" src="img/KeyboardControlExample3.png">
+			</p>
+			<p>Read through the code carefully... Then experiment with the example below:</p>
+			
+			<h2 id="outputBlock">Press a key! Go ahead!</h2>
+			<p>Use the following keys to make things happen:</p>
+			<ol>
+				<li><strong>&uarr;</strong> makes things more red</li>
+				<li><strong>&darr;</strong> makes things less red</li>
+				<li><strong>&larr;</strong> makes the font size smaller</li>
+				<li><strong>&rarr;</strong> makes the font size bigger</li>
+			</ol>
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.15S-KeyboardControl-LastName.html">template</a> and rename it to your last name, such as "<code>1.15S-KeyboardControl-LastName.html</code>".</p>
+
+			<h2>The assignment</h2>
+			<p>	
+				Look at the template, and fill in the differences between the template and the code in the examples above. 
+				There are many places that say <code>someThingToChange</code>. Change these to the real code to get the template to work.
+				Get it running, and then feel free to modify it. I would attack your code in stages:
+			</p>
+			<ol>
+				<li>Get the program reading keystrokes and using <code>showMeWhatIPressed()</code> to display the key code</li>
+				<li>Get the <code>if (</code> statements working correctly</li> 
+				<li>Get the program increasing and decreasing the font size using <code>increaseSize()</code> and <code>decreaseSize</code></li>
+				<li>Get the program increasing and decreasing the amount of red using <code>increaseRed()</code> and <code>decreaseRed</code></li>
+			</ol>
+			
+			<h2>Extend and expand</h2>
+			<p>Can you modify the code to speed up and slow down amount of colour & font size change with each keystroke?</p>
+			<p>Can you figure out how to use keyboard control to toggle the boldness of the font using <code>document.getElementById("outputBlock").fontWeight="bold"</code>?</p>
+			<p>How about using keyboard control to toggle the italic of the font using <code>document.getElementById("outputBlock").fontStyle="italic"</code>?</p>
+			<p>Can you figure out how to use keyboard control to change the size of an image using <code>document.getElementById("imageID").width="200px"</code>?</p>
+
+		</article>
+
+		<!--
+		<aside>	
+			<h2>Do it with style</h2>
+			<p>Filenames are easy to mess up. It is very easy to make a mistake - particularly with spaces and capitalization.</p>
+			<p>
+				In order to save time and increase accuracy, I tend to go to the file in the file manager, 
+				pull up the context menu to get <code>Rename...</code> 
+				and then hit<code>Control-C</code> to copy the first part of the filename. 
+				It does not include the file extension, like <code>.png</code>, but I can at least paste in the
+				beginning of the filename accurately.
+			</p>
+		</aside>
+		-->
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

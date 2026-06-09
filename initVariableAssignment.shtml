@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			INIT - Using variables
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use variables in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				26. Sept 2015	-created											- Drapak
+				23. September 2018	- updated the code style and examples			- Drapak
+				9. October 2018	- fixed sample code									- Drapak
+				12. November 2019 - fixed text and math errors						- Tyson Wagley
+		-->
+
+		<style>
+			iframe {
+				width: 700px;
+				height: 300px;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Using variables</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>exampleStringVariable</var> = "red";</code><br>
+				<span class="indent">
+					&mdash; assigns the string "red" to <var>exampleStringVariable</var>
+				</span><br>
+
+				<span class="langstyle">`</span> 
+				<code>
+					document.getElementById( '<var>exampleId</var>' ).style.backgroundColor 
+					= <var>exampleStringVariable</var>;
+				</code><br>
+				<span class="indent">
+					&mdash; makes the element called 
+					<var>exampleId</var> have a red background
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>exampleNumericVariable</var> = 5;</code><br>
+				<span class="indent">
+					&mdash; assigns 5 to <var>exampleNumericVariable</var>
+				</span><br>
+
+				<span class="langstyle">//INIT:</span> 
+				<code>
+					var <var>exampleStringVariable</var> 
+					= <var>exampleStringVariable</var> + 10;
+				</code><br>
+				<span class="indent">
+					&mdash; adds 10 to <var>exampleStringVariable</var>, making it 15
+				</span><br>
+			</p>
+			
+			<h2>Creating a variable in Javascript</h2>
+			<p>
+				When you use a variable for the first time in a 
+				program, you should <strong>declare</strong> it first.
+				For example:
+			</p>
+			<p>
+				<code>var <var>exampleVar</var> = <var>"Hello variables!"</var>;</code>
+			</p>
+			<p>
+				In the example above, the word <code>var</code> indicates to the program 
+				that <var>exampleVar</var> is the name of a variable and that it can behind
+				used to store data.
+			</p>
+			<p>
+				Technically, you don't have to declare variables in Javascript, 
+				but it will help you avoid problems later on with 
+				something called variable scope, 
+				and most other languages require variable declarations. 
+			</p>
+			<p>
+				<strong>So start using <code>var</code> now!</strong>
+				You only have to declare a variable the first time you use it. 
+				Declaring a variable twice will erase it.
+			</p>
+			
+			<h2>Equals (<code>=</code>) works very differently in math and programming</h2>
+			
+			<p>Math is so beautiful!</p>
+			
+			<p>
+				In math, one side of an equation is always exactly equal to the other side, 
+				and you can use this information to solve problems:
+			</p>
+			<ol>
+				<li>4x + 24 = 2x - 12</li>
+				<li>2x + 24 = -12</li>
+				<li>2x = -36</li>
+				<li>x = -18</li>
+			</ol>
+			
+			<p>
+				But in programming, the equals symbol is used to 
+				assign things instead of for equality.
+			</p>
+			
+			<p>
+				This leads to mathematically obscene lines of code, like this: 
+				<code><var>playerScore</var> = <var>playerScore</var> + 1;</code>
+			</p>
+			
+			<p>
+				In math, this reduces to 0 = 1, which is just plain wrong!
+			</p>
+			<p>
+				In programming, that line of code means: 
+				"Take the value of <var>playerScore</var>, add one to it, 
+				and then store the result back into <var>playerScore</var>."
+			</p>
+		
+			<h2>Common problems</h2>
+			<ul>
+				<li>Declare variables when you first use them or odd things may happen</li>
+				<li>Declaring a variable a second time will erase it's first value</li>
+				<li>
+					Remember that the variable on the left of the equals 
+					is stuffed with the code on the right
+				</li>
+			</ul>
+			
+			<h2>Test your knowledge</h2>
+			<p>Answer the following questions:</p>
+			
+			<ul>
+				<li><code>var <var>characterLevel</var> = 10;</code></li>
+				<li>
+					<code>
+						<var>characterLevel</var> = <var>characterLevel</var> + 1;
+					</code>
+				</li>
+				<li>
+					What is <var>characterLevel</var> now? 
+					<span class="question" data-answer="11"></span>
+				</li>
+			</ul>
+			
+			<ul>
+				<li><code>var <var>popUpMessage</var> = "Nothing to see here!";</code></li>
+				<li><code>alert( <var>popUpMessage</var> );</code></li>
+				<li>
+					What will appear in the pop up alert? 
+					<span class="question" data-answer="Nothing to see here!"></span>
+				</li>
+			</ul>
+
+			<ul>
+				<li><code>var <var>numberAlisonsKittens</var> = 3;</code></li>
+				<li>
+					<code>
+						var <var>numberOfDavesKittens</var> 
+						= <var>numberOfAlisonsKittens</var> + 2;
+					</code>
+				</li>
+				<li>
+					What is the value of <var>numberOfAlisonsKittens</var>? 
+					<span class="question" data-answer="3"></span>
+				</li>
+				<li>
+					What is the value of <var>numberOfDavesKittens</var>? 
+					<span class="question" data-answer="5"></span>
+				</li>
+			</ul>
+
+			<ul>
+				<li>
+					<code>
+						var <var>myCollegeNickname</var> 
+						= <var>"The God of Awesome Hair"</var>;
+					</code>
+				</li>
+				<li>
+					<code><var>myCollegeNickname</var> = <var>"Twerp"</var>;</code>
+				</li>
+				<li>
+					What is the value of <var>myCollegeNickname</var>? 
+					<span class="question" data-answer="Twerp"></span>
+				</li>
+			</ul>
+
+			<ul>
+				<li><code>var <var>numberOfTraps</var> = 10;</code></li>
+				<li><code><var>numberOfTraps</var> + 1 = <var>numberOfTraps</var>;</code>
+				</li>
+				<li>
+					What is <var>numberOfTraps</var> now? 
+					<span 
+						class="question" 
+						data-answer="The is an error on the second line because the '+1' is on the wrong side"></span>
+				</li>
+			</ul>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/variables/p/intro-to-variables">
+						Intro to variables
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_variables.asp">
+						JavaScript Variables
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/outputChangePosition.shtml"></iframe>
+
+			<p>...is made with the following code:</p>
+			<pre><code></code></pre>
+			-->
+		</article>		
+		<script>
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

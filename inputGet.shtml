@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			INPUT: Get information from websites
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how get information from websites">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. November 	- created											- Drapak
+			
+		-->
+
+		<style>
+			iframe {
+				
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INPUT: Getting information from websites
+		</header>
+
+		<article>
+
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				
+			<code><pre><span class="sc2">//PROCESS: this function takes the results of the request and processes them
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">processWebsiteData</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">data</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc19">status</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in processWebsiteData...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'   data='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">data</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'   status='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc19">status</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//IF: this was successful, display the results
+</span><span class="sc0">    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc19">status</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc7">'success'</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">                                        
+        </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">data</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">//IF: the transfer was not successful, show an error message
+</span><span class="sc0">    </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'WARNING: data downloaded unsuccessfully'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+
+</span><span class="sc2">//INPUT: get the message from the web server using jQuery
+</span><span class="sc11">$</span><span class="sc10">.</span><span class="sc11">get</span><span class="sc10">(</span><span class="sc0"> 
+    </span><span class="sc7">'https://drapak.ca/cpg/getSunnyMessage.php'</span><span class="sc10">,</span><span class="sc0">    </span><span class="sc2">// URL to contact
+</span><span class="sc0">    </span><span class="sc10">{</span><span class="sc0"> </span><span class="sc11">message</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">42</span><span class="sc0"> </span><span class="sc10">},</span><span class="sc0">                                </span><span class="sc2">// information about the request
+</span><span class="sc0">    </span><span class="sc11">processWebsiteData</span><span class="sc0">                              </span><span class="sc2">// function to process the results
+</span><span class="sc10">);</span></pre></code>
+
+				<span class="indent">
+					&mdash; sends a request for data to a webserver
+				</span>
+			</p>
+
+			<h2>Computers talk to each other</h2>
+			<p>
+				The master list: of open JSON apis:
+				<a href="https://github.com/toddmotto/public-apis">
+					https://github.com/toddmotto/public-apis
+				</a>
+			<p>
+				Specific examples:
+			</p>
+			
+			<ul>
+				<li>
+					Pictures of foxes: 
+					<a href="https://randomfox.ca/floof/">https://randomfox.ca/floof/</a>
+				</li>
+				<li>
+					Studio Ghibli API
+					<a href="https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49">https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49</a>
+				</li>
+				<li>
+					Holidays in different countries
+					<a href="http://date.nager.at/api/v1/get/CA/2019">http://date.nager.at/api/v1/get/CA/2019</a>
+				</li>
+				<li>
+					Cryptocurrency exchange rates
+					<a href="https://api.cryptonator.com/api/ticker/btc-usd">https://api.cryptonator.com/api/ticker/btc-usd</a>
+				</li>
+				<li>
+					Euro exchange rates
+					<a href="https://api.exchangeratesapi.io/latest">https://api.exchangeratesapi.io/latest</a>
+				</li>
+				<li>
+					Stock prices
+					<a href="https://api.iextrading.com/1.0/stock/aapl/book">https://api.iextrading.com/1.0/stock/aapl/book</a>
+				</li>
+				<li>
+					Pok�API
+					<a href="https://pokeapi.co/api/v2/pokemon/1/">https://pokeapi.co/api/v2/pokemon/1/</a>
+				</li>
+				<li>
+					IP to location
+					<a href="https://ipapi.co/8.8.8.8/json/">https://ipapi.co/8.8.8.8/json/</a>
+				</li>
+
+				
+				
+			</ul>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="https://www.w3schools.com/js/js_json_intro.asp">
+						JSON - Introduction
+					</a> 
+				</li>
+				<li>
+					Mozilla Developer's Network's 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">
+						JSON.parse()
+					</a> and 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">
+						JSON.stringify()
+					</a>
+				</li>
+			</ul>
+
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/inputGet.html"></iframe>
+
+			<p>...is made with the following code:</p>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Online demographic data</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Get a sunny message!"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!--
+            20. November 2018   - Created                                       - Drapak
+            
+            Finished:   
+        --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span><span class="sc1">&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">
+            🌞 </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;</span><span class="sc0">Hello you!</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">  🌞
+        </span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Get a sunny message from drapak.ca!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: display the results of the transfer</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayResults</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displayResults. outputString = '</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: this function takes the results of the request and processes them</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">processWebsiteData</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in processWebsiteData...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'   data='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'   status='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//IF: this was successful, display the results</span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">status</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'success'</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                                        
+                    </span><span class="sc46">displayResults</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">data</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc43">//IF: the transfer was not successful, show an error message</span><span class="sc41">
+                </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'WARNING: demographics downloaded unsuccessfully'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//PROCESS: generate a random message number </span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getRandomMessageNumber</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getRandomMessageNumber...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">messageNumber</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.ceil</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">Math.random</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc45">100</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">messageNumber</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: get the message from the web server</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getSunnyMessage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getSunnyMessage...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc43">//set up the URL to use to get the sunny message</span><span class="sc41">
+                </span><span class="sc47">const</span><span class="sc41"> </span><span class="sc46">URL</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://drapak.ca/cpg/getSunnyMessage.php'</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// generate a random number from 1 to 100 to get a new message each time</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">messageNumber</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getRandomMessageNumber</span><span class="sc50">();</span><span class="sc41">
+                
+                </span><span class="sc43">// create an object that contains the information needed to make the request</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">informationRequestObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       
+                    </span><span class="sc49">'message'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">messageNumber</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+                
+                </span><span class="sc43">//Use jQuery to get the request from the website</span><span class="sc41">
+                </span><span class="sc43">//The request has three parts:</span><span class="sc41">
+                </span><span class="sc43">//  1) the URL of the program to request information from</span><span class="sc41">
+                </span><span class="sc43">//  2) the information to send to that program for the request</span><span class="sc41">
+                </span><span class="sc43">//  3) the function to run when the transfer is complete</span><span class="sc41">
+
+                $</span><span class="sc50">.</span><span class="sc46">get</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">URL</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">informationRequestObj</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">processWebsiteData</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">    
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT/EVENT: get a sunny message when the button is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getSunnyMessage</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+		</article>		
+
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+			//INIT: set up the teacher object with sample data
+			var teacherObj = {
+				lastName:	"Drapak",
+				firstName:	"Dave",
+				school:		"Citadel High School",
+				startYear:	1996,
+				retireYear:	2027,
+				weakness:	"Stupid jokes"
+			};
+			
+			//PROCESS: convert the variable to a JSON string
+			var JSONString = JSON.stringify( teacherObj );
+
+			//EVENT: when the button is clicked
+			document.querySelector( '#buttonId' ).onclick = function () {
+				//OUTPUT: display the JSON string inside the button
+				document.querySelector( '#buttonId' ).innerHTML = JSONString;
+			}
+			
+			//EVENT: when the button is clicked
+			document.querySelector( '#button2Id' ).onclick = function () {
+				//PROCESS:
+				var newTeacherObj = JSON.parse( JSONString );
+				
+				//OUTPUT: display the JSON string inside the button
+				document.querySelector( '#button2Id' ).innerHTML = newTeacherObj.weakness;
+			}
+
+		</script>
+	</body>
+</html>

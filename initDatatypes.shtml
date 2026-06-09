@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Datatypes and tables</title>
+		<meta name="description" content="Assignment: organize datatypes into a table">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="datatypes, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015	- created!
+				8. Sept			- split into datatypes, tables, and tabs
+								- fixed spelling of hexadecimal
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; //INIT: <em>Datatypes</em>
+		</header>
+				
+		<article>
+			<h2>Different kinds of data for every purpose...</h2>
+
+			<p>
+				Almost every programming language stores information differently according to what kind of information it is. 
+				The different kinds of information are called <strong>datatypes.</strong>
+			</p>
+			<p>
+				By learning HTML/CSS/Javascript, you will need to know the difference between <strong>boolean</strong>, 
+				<strong>hexidecimal</strong>, <strong>integer</strong>, <strong>floating point</strong>, 
+				<strong>character</strong>, <strong>string</strong>, and <strong>date</strong> datatypes. 
+				You will also have to learn about <strong>binary</strong> datatypes, 
+				because that is essentially how everything is broken down by computers at a fundamental level.
+			</p>
+			
+			<p>
+				These are not all the kinds of datatypes out there, 
+				but these are shared among the most programming languages.
+			</p>
+
+			<h2>Datatype definitions</h2>
+			<ul>
+				<li>
+					<strong>Boolean</strong> = 
+					A boolean is either true or false and is used for logic.<br />
+					Example: <em>true</em>
+				</li>
+				<li>
+					<strong>Binary</strong> = A number expressed in base 2 as ones and zeroes.<br />
+					Example: <em>00001111</em>
+				</li>
+				<li>
+					<strong>Hexadecimal</strong> = A number expressed in base 16 as 0-9 & a-f.<br />
+					Example: <em>#ff55ff</em>
+				</li>
+				<li>
+					<strong>Integer</strong> = A whole number without a decimal.<br />
+					Example: <em>42</em>
+				</li>
+				<li>
+					<strong>Floating point</strong> = A decimal number.
+					<br />
+					Example: <em>3.16</em>
+				</li>
+				<li>
+					<strong>Character</strong> = A single letter, digit, space, or symbol.
+					<br />
+					Example: <em>%</em>
+				</li>
+				<li>
+					<strong>String</strong> = A sequence of characters in a row.
+					<br />
+					Example: <em>"Don't press the red button!"</em>
+				</li>
+				<li>
+					<strong>Date</strong> = Specifies a particular day of a year.
+					<br />
+					Example: <em>9/8/2015</em>
+				</li>
+			</ul>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

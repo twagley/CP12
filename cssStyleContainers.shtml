@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			CSS Style Containers - divs and spans
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to use divs, and spans in HTML and CSS">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				20. Sept 2015		- created!
+				26. Sept			- added learn more link
+				19. February 2018	- fixed an error that was embarrassingly 
+										pointed out to me in class
+				16. September 2018	- fixed long lines and Id styles
+		-->
+
+
+		<style>
+			iframe {
+				margin-left: 40px;
+				height:	300px;
+				width: 700px;
+			}
+			#orangeId {
+				background-color: #FED9A1;
+				color: darkorange;
+			}
+			#floatingId {
+				width:				350px;
+				background-color:	lightGray;
+				color:				darkBlue;
+				border:				2px solid darkBlue;
+				position:			relative;
+				left:				250px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Style containers &mdash; <code>&lt;div></code> and <code>&lt;span></code></em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">HTML</span> 
+					<code>&lt;span id="spanExampleId">&lt;/span></code> 
+					&mdash; creates an inline style container element with 
+					<code>id="spanExampleId"</code><br>
+
+				<span class="langstyle">HTML</span></span> 
+					<code>&lt;div id="divExampleId">&lt;/div></code> 
+					&mdash; creates a block style container element with 
+					<code>id="spanExampleId"</code><br>
+			</p>
+			
+			<h2>If a built-in HTML tag does not fit, you can make your own</h2>
+			
+			<h3>Use a <code>&lt;span></code> tag in the middle of a sentence</h3>
+			<p>
+				Let's say that you want to change the color of the middle of a sentence 
+				without using <code>&lt;strong></code> or <code>&lt;em></code>.
+			</p>
+			<p>
+				Maybe I want to make one word in a sentence turn 
+				<span id="orangeId">orange</span>.
+			</p>
+			<p>
+				I can make this happen by using a <code>&lt;span></code> 
+				tag with an ID, like in the following example:
+			</p>
+			
+			<pre><code><span class="sc1">&lt;p&gt;</span><span class="sc0">
+    Maybe I want to make one word in a sentence turn </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"specialColorId"</span><span class="sc1">&gt;</span><span class="sc0">orange</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">.</span><span class="sc0">
+</span><span class="sc1">&lt;/p&gt;</span></code></pre>
+			
+			<p>
+				<code>&lt;span></code> is an <strong>inline</strong> HTML element.
+			</p>
+			<p>
+				This means that it lies inside another element without interrupting the flow.
+				It behaves like a <code>&lt;strong></code>, 
+				<code>&lt;em></code>, <code>&lt;code></code>,
+				or <code>&lt;img></code> tag.
+			</p>
+			
+			<h3>Use a <code>&lt;div></code> tag to build a new block</h3>
+			
+			<p>
+				<code>&lt;p></code>, <code>&lt;li></code>, 
+				<code>&lt;h1></code>, and <code>&lt;td></code> 
+				elements are all examples of <strong>block</strong> elements.
+				They all start a new line of text.
+			</p>
+			
+			<p>
+				You can use <code>&lt;div></code> to group elements together into a container.
+				For example:
+			</p>
+
+			<div id="floatingId">
+				<h3>This is a floating box</h3>
+				<p>
+					It is a very narrow container with its own background color,
+					border, and a different position.
+				</p>
+				<p><code>&lt;div></code> can be a very handy tag!</p>
+			</div>
+			
+			<p>...is produced by this code:</p>
+			
+			<pre><code><span class="sc1">&lt;head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        #floatingId {
+            width:              350px;
+            background-color:   lightGray;
+            color:              darkBlue;
+            border:             2px solid darkBlue;
+            position:           relative;
+            left:               250px;
+        }
+    </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"floatingId"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">This is a floating box</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            It is a very narrow container with its own background color,
+            border, and a different position.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">div&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> can be a very handy tag!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/p/css-grouping-elements">
+						CSS grouping elements
+					</a>
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/tags/tag_div.asp">
+						divs
+					</a> and
+					<a href="http://www.w3schools.com/tags/tag_span.asp">
+						spans
+					</a> and
+				</li>
+			</ul>
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-span-and-div/5153661708795904">Live example: span and div</a></h2> 
+			<script src="https://www.khanacademy.org/computer-programming/live-example-span-and-div/5153661708795904/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

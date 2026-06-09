@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			INIT - Creating objects with methods
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to create objects with methods">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				17. November 2015	- Created:										- Drapak
+				3. May 2017			- Reworked style and example					- Drapak
+				11. December 2018	- Reworked yet again							- Drapak
+				18. December 2018	- Fixed errors in code sample					- Drapak
+				
+				
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//INIT: <em>Creating objects with methods</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="indent langstyle">//INIT:</span>  
+					<span class="indent">&mdash; define an object with a method</span><br>
+				
+				<pre><code>// exampleObj
+// 		properties:
+//			exampleObj.exampleProperty1
+//			exampleObj.exampleProperty2
+// 		methods:
+//			exampleObj.exampleMethod()
+//
+var exampleObj = {
+	exampleProperty1:	exampleValue1,
+	exampleProperty2:	exampleValue2,
+}	
+// a method is an object property that contains a function definition
+	
+exampleObj.exampleMethod = function () {
+	// function instructions go here
+	return <span class="withborder">this</span>.exampleProperty1 + <span class="withborder">this</span>.exampleProperty2;
+};</code></pre>
+			</p>
+
+			<h2>
+				Object oriented programming with methods: 
+				making objects that DO things!
+			</h2>
+			
+			<p>
+				Just for review, remember that you can define an object as follows, 
+				using the traditional example of a car:
+			</p>
+			<pre><code>var <var>myCarObj</var> = {
+	<var>make</var>:	"Toyota",
+	<var>model</var>:	"Yaris", 
+	<var>year</var>:	2007,
+	<var>colour</var>:	"blue"
+};</code></pre>
+			
+			<p>So let's check that you understand this:</p>
+			<table>
+				<tr>
+					<td>What does <var>myCarObj.colour</var> contain?</td>
+					<td class="question" data-answer="blue"></td>
+				</tr>
+				<tr>
+					<td>What does <var>myCarObj.make</var> contain?</td>
+					<td class="question" data-answer="Toyota"></td>
+				</tr>
+			</table>
+			
+			<p>Great!</p>
+			
+			<p>
+				Now in real life, you can do more than look at your car 
+				and gather information about it.
+				You can turn it left, turn it right, accelerate it, 
+				and brake, among other things. 
+			</p>
+			
+			<p>
+				So, in computer language, just as you can interact with 
+				object information with:
+			</p>
+			
+			<pre><code><var>myCarObj</var>.<var>model</var> ="Yaris";</code></pre>
+			
+			<p>Imagine that you could perform actions upon your car object:</p>
+			
+			<pre><code><var>myCarObj</var>.<strong>turnLeft()</strong>;
+<var>myCarObj</var>.<strong>turnRight()</strong>;
+<var>myCarObj</var>.<strong>accelerate()</strong>;
+<var>myCarObj</var>.<strong>brake()</strong>;</code></pre>
+			
+			<p>
+				This kind of grammar makes a lot of sense, 
+				and is a key aspect of <strong>object-oriented programming</strong> (OOP).
+			</p>
+			
+			<p>
+				<strong>OOP</strong> is programming in which objects have 
+				<strong>properties</strong>, 
+				but they also ways of acting on them with functions, 
+				called <strong>methods</strong>.
+				So our example above can be broken into properties and methods:
+			</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">property</th>
+					<th style="width: 15em">method</th>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>make</strong></td>
+					<td><var>myCarObject</var>.<strong>turnLeft()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>model</strong></td>
+					<td><var>myCarObject</var>.<strong>turnRight()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>year</strong></td>
+					<td><var>myCarObject</var>.<strong>accelerate()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>colour</strong></td>
+					<td><var>myCarObject</var>.<strong>brake()</strong></td>
+				</tr>
+			</table>
+
+			<h4>One's a verb, and one's a noun...</h4>
+			<p>
+				So let's check that you understand this - are these 
+				<strong>properties or methods</strong>?
+			</p>
+			
+			<table>
+				<tr>
+					<th><var>myCarObj</var>.<strong>colour</strong></th>
+					<td class="question" data-answer="property"></td></td>
+				</tr>
+				<tr>
+					<th><var>myCarObj</var>.<strong>accelerate()</strong></th>
+					<td  class="question" data-answer="method"></td>
+				</tr>
+				<tr>
+					<th><var>novaScotia</var>.<strong>capitol</strong></th>
+					<td class="question" data-answer="property"></td>
+				</tr>
+				<tr>
+					<th><var>homemadeFireworks</var>.<strong>explode()</strong></th>
+					<td  class="question" data-answer="A&nbsp;hugely&nbsp;dangerous&nbsp;<strong>method</strong>.<br>Really folks,<br>Do not make your own fireworks..."></td>
+				</tr>
+			</table>
+
+			<h2>Revisiting old code: keyboard control</h2>
+			
+			<p>
+				Remember <a href="KeyboardControl.html">Keyboard Control</a> 
+				and <a href="ControllingMotion.html">Controlling Motion</a>?
+			</p>
+			
+			<p>
+				Let's imagine an object to control, 
+				with a whole bunch of <strong>properties</strong>:
+			</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">animateObj properties</th>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>id</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>width</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>src</strong></td>
+
+				</tr>
+			</table>
+			
+			<p>Let's also imagine some <strong>methods</strong>:</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">animateObj methods</th>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>outputImage()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>animateUp()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>animateDown()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>animateLeft()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObj</var>.<strong>animateRight()</strong></td>
+
+				</tr>
+			</table>
+			
+			<h4>Defining an object with both properties and objects</h4>
+			
+			<p>
+				Defining an object with <strong>properties</strong> works as normal.
+				Defining <strong>methods</strong> requires an anonymous function 
+				definition, like <code>function () {...}</code>. 
+				They also often depends on the special object 
+				<code><strong>this.</strong> </code> 
+				What do you think <code><strong>this.</strong></code> does?
+			</p>
+			<pre><code><span class="sc2">// animationObj - displays and animates an image
+//
+// properties:  
+//      .id
+//      .src
+//      .width
+//
+// methods:
+//      .outputImage()
+//      .animateUp()
+</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">animationObj</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">id</span><span class="sc10">:</span><span class="sc0">         </span><span class="sc6">"animateId"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">src</span><span class="sc10">:</span><span class="sc0">        </span><span class="sc6">"MsPacMan.png"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0">      </span><span class="sc6">"100px"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">DISTANCE</span><span class="sc10">:</span><span class="sc0">   </span><span class="sc4">24</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">DURATION</span><span class="sc10">:</span><span class="sc0">   </span><span class="sc4">100</span><span class="sc0">
+</span><span class="sc10">};</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: method to display the image and prepare for animation
+</span><span class="sc11">animationObj</span><span class="sc10">.</span><span class="sc11">outputImage</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in animationObj.outputImage...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"#"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">src</span><span class="sc0">             </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">src</span><span class="sc10">;</span><span class="sc0">
+        
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"#"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">style</span><span class="sc10">.</span><span class="sc11">width</span><span class="sc0">     </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">width</span><span class="sc10">;</span><span class="sc0">
+        
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"#"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">style</span><span class="sc10">.</span><span class="sc11">position</span><span class="sc0">  </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"relative"</span><span class="sc10">;</span><span class="sc0"> 
+</span><span class="sc10">};</span><span class="sc0">
+    
+</span><span class="sc2">//OUTPUT: method to animate up
+</span><span class="sc11">animationObj</span><span class="sc10">.</span><span class="sc11">animateUp</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in animationObj.animateUp...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"#"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">animate</span><span class="sc10">(</span><span class="sc0">
+        </span><span class="sc10">{</span><span class="sc0"> </span><span class="sc19">top</span><span class="sc10">:</span><span class="sc0">      </span><span class="sc7">'-='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">DISTANCE</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">'px'</span><span class="sc0"> </span><span class="sc10">},</span><span class="sc0"> 
+        </span><span class="sc10">{</span><span class="sc0"> </span><span class="sc11">duration</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">DURATION</span><span class="sc0"> </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">};</span></code></pre>
+						
+			<p>
+				At the end of this sentence I have put the following code: 
+				<code>&lt;img id="animateId"></code>:<img id="animateId">
+			</p>
+			<p>
+				<button 
+					onclick="this.innerHTML = animationObj.id;" >
+					What is <code>animationObject.id</code>?
+				</button><br>
+				<button 
+					onclick="this.innerHTML = animationObj.src;" >
+					What is <code>animationObject.src</code>?
+				</button><br>
+				<button 
+					onclick="this.innerHTML = animationObj.width;" >
+					What is <code>animationObject.width</code>?
+				</button>
+			</p>
+			<p>
+				<button id='displayButtonId' >
+					trigger <code>animationObj.outputImage()</code>
+				</button><br>
+				<button id='animateButtonId' >
+					trigger <code>animationObj.animateUp()</code>
+				</button><br>
+			</p>
+
+			<h2>Adding keyboard control</h2>
+
+			<p>
+				You can now add the following code to use the 
+				keyboard to control your <var>animationObject</var>.
+				Notice that now the commands for each key are now 
+				<strong>object-oriented</strong>, like <var>this.animateUp()</var>;
+			</p>
+			<pre><code>//You can add additional properties to your object like this:
+			
+//PROCESS: decide which direction to move
+<span class="withborder">animationObj.decideDirection</span> = function ( <var>unicodeNumber</var> ) {
+	console.log( 'in animationObject.decideDirection. unicodeNumber = ' + <var>unicodeNumber</var> );
+	
+	<var>//IF: UP key is pressed</var>
+	if (<var>unicodeNumber</var> == 38) { 
+		<var class="withborder">this.animateUp()</var>;
+		
+	<var>//ELSE IF: DOWN key is pressed</var>
+	} else if (<var>unicodeNumber</var> == 40) { 
+		<var class="withborder">this.animateDown()</var>;
+		
+	<var>//ELSE IF: RIGHT key is pressed</var>
+	} else if (<var>unicodeNumber</var> == 39) {
+		<var class="withborder">this.animateRight()</var>;
+		
+	<var>//ELSE IF: LEFT key is pressed</var>
+	} else if (<var>unicodeNumber</var> == 37) { 
+		<var class="withborder">this.animateLeft()</var>;	
+	} 
+} 
+			
+			
+//INPUT EVENT: This next command tells the browser to trigger when a key is pressed anywhere</var>
+window.onkeydown	= function (<var>keyEvent</var>) {	
+
+	<var>//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...</var>
+	var <var>unicodeNumber</var>	=<var>keyEvent.which</var> || <var>keyEvent.keyCode</var>;
+	
+	animationObj.decideDirection( <var>unicodeNumber</var> ); 
+	
+}</code></pre>
+			
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3school.com's
+					<a href="http://www.w3schools.com/js/js_object_methods.asp">
+						JavaScript Object Methods
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+			<h2>Code example</h2>
+			<hr />
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code></code></pre>
+			-->
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			// animationObj - displays and animates an image
+			//
+			// properties:	
+			//		.id
+			//		.src
+			//		.width
+			//
+			// methods:
+			//		.outputImage()
+			//		.animateUp()
+
+			var animationObj = {
+				id:			"animateId",
+				src:		"MsPacMan.png",
+				width:		"100px",
+				DISTANCE:	24,
+				DURATION:	100
+			};
+
+			//OUTPUT: method to display the image and prepare for animation
+			animationObj.outputImage = function() {
+				console.log( 'in animationObj.outputImage...' );
+				
+				document.querySelector( "#" + this.id ).src				= this.src;
+					
+				document.querySelector( "#" + this.id ).style.width	= this.width;
+					
+				document.querySelector( "#" + this.id ).style.position	= "relative"; 
+			};
+				
+			//OUTPUT: method to animate up
+			animationObj.animateUp = function() {
+				console.log( 'in animationObj.animateUp...' );
+				
+				$( "#" + this.id ).animate(
+					{ top: 		'-=' + this.DISTANCE + 'px' }, 
+					{ duration:	this.DURATION }
+				);
+			};
+			
+			//INPUT: trigger outputImage when #displayButtonId is pressed
+			document.querySelector( '#displayButtonId' ).onclick	= function () { 
+				animationObj.outputImage(); 
+			};
+			//INPUT: trigger animateUp when #animateButtonId is pressed
+			document.querySelector( '#animateButtonId' ).onclick	= function () { 
+				animationObj.animateUp(); 
+			};
+		</script>
+	</body>
+</html>

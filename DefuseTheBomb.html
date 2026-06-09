@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Defuse the bomb</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros if statements
+			
+			Created:	10. March 2015 -->
+		
+		<script>
+			var wireNum	=0;	// global variable for storing the wire number
+			
+			function mainProcedure () {
+				getWireNum();
+				chooseOutcome();
+			}
+			
+			function getWireNum () {	// INPUT: grab the wire number from the input line
+				wireNum	=document.getElementById("inputLine").value;
+			}
+			
+			function chooseOutcome () { // PROCESS: act differently according to which wire
+				//	Remember to use the double equals for comparisons: "=="
+				if (wireNum == 1) {			// defusing wire
+					showDefusedBomb();
+				} else if (wireNum == 2) {	// exploding wire
+					showExplodedBomb();
+				} else if ((wireNum == 3) || (wireNum == 4)) {	// do nothing wire (NOTE: "||" means "or")
+					showStillActiveBomb();
+				} else {	// no wire chosen: clarify instructions
+					showMoreInstructions();
+				}
+			}
+			
+			function showDefusedBomb () {	// OUTPUT: replace image with defused bomb
+				document.getElementById("bombImageID").src	="img/defusedBomb.png";
+			}
+			
+			function showExplodedBomb () {	// OUTPUT: replace image with exploded bomb
+				document.getElementById("bombImageID").src	="img/explodedBomb.png";
+			}
+			
+			function showStillActiveBomb () {	// OUTPUT: replace image with still active bomb
+				document.getElementById("bombImageID").src	="img/stillActiveBomb.png";
+			}
+			
+			function showMoreInstructions () {	// OUTPUT: show additional instructions in the instructions area
+				var outputInstructions	="Enter the <strong>number</strong> of the wire that you will cut. <br />\
+										One wire will defuse the bomb, two of them will do nothing, and one will trigger it. <br />\
+										Good luck!";
+				document.getElementById("instructionsID").innerHTML	=outputInstructions;
+			}
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.14 Skill-builder: Defuse the bomb!</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">flow JS</span> <code>if (<var>thisThing == true</var>) {<var>/*do this*/</var>} else {<var>/*do that*/</var>}</code> - controls program flow<br />
+				<br />
+				<span class="langstyle">image JS</span> <code>document.getElementById(<var>"imageID"</var>).src = "<var>newImage.png</var>";</code> - replaces an image with a new one<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>A critical matter of choices</h2>
+
+			<p>Let's say that you want to create a bomb defuser simulator, modelled after what happens in cheesy TV shows.</p>
+			
+			<p>So there are four wires, but:
+				<ul>
+					<li>Only one wire will defuse the bomb</li>
+					<li>Two of the four wires will do nothing and just delay things</li>
+					<li>One wire is trapped!</li>
+				</ul>
+			</p>
+
+			<h2>Like this:</h2>
+			<p>
+				<img id="bombImageID" src="img/nicePictureOfABomb.png">
+			</p>
+			<p id="instructionsID"><strong>Oh my gosh! You have to defuse the bomb!</strong></p>
+			<p>
+				Which wire do you cut? Enter 1, 2, 3, or 4:
+				<input type="text" id="inputLine" name="inputLine" size="2">
+				<button type="button" onclick="mainProcedure();">Cut carefully!</button>
+			</p>
+			
+			<h2>Organizing the problem</h2>
+			<p>In order to make this work, you need to split it into several parts</p>
+			<ol>
+				<li><strong>Input:</strong> Create the interface, and get the wire number</li>
+				<li><strong>Process:</strong> Decide the results depending on which wire is cut</li>
+				<li>
+					<strong>Output:</strong> Show the results, again depending on which wire is cut, for example:
+					<ul>
+						<li>defusing wire: replace the bomb picture with a defused bomb</li>
+						<li>trigger wire: replace the picture with an explosion</li>
+						<li>dud wires: replace the picture with one with more ticking</li>
+					</ul>
+				</li>
+			</ol>
+
+			<h2>Different results for different things</h2>
+			<p>
+				The key to making this program work is in the processing: 
+				you need to change the code that runs under different circumstances.
+				In other words, we need to use <strong>IF</strong> statements.
+			</p>
+			
+			<p>If statements look like this:</p>
+<pre><code>if (<var>something == true</var>) {
+	<var>/* do something */</var>
+} else {
+	<var>/* do something else */</var>
+}</code></pre>
+			
+			<h4>IF statement example</h4>
+			<p>	
+				Let's use the example of calculating overtime hours.
+				If the number of hours worked in week is more than 48, the calculation is different:
+			</p>
+			
+			<pre><code>
+if (<var>numberHoursWorked > 48</var>) { // if there are overtime hours
+	<var>totalGrossPay	=(48 * hourlyWage) + (numberHoursWorked-48) * hourlyWage * 1.5</var>;
+} else { // if there is no overtime
+	<var>totalGrossPay	=numberHoursWorked * hourlyWage</var>;
+}</code></pre>
+			
+			<h4>Let's apply IF statements to our bomb defuser:</h4>
+			<p>
+				<img class="withborder" src="img/DefuseTheBombExample.png">
+			</p>
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.14S-DefuseTheBomb-LastName.html">template</a> and rename it to your last name, such as "<code>1.14S-DefuseTheBomb-LastName.html</code>".</p>
+			<p>You will also need to grab the following images and save them to the same directory as your HTML document:</p>
+			<ol>
+				<li><a href="img/nicePictureOfABomb.png">nicePictureOfABomb.png</a></li>
+				<li><a href="img/defusedBomb.png">defusedBomb.png</a></li>
+				<li><a href="img/explodedBomb.png">explodedBomb.png</a></li>
+				<li><a href="img/stillActiveBomb.png">stillActiveBomb.png</a></li>
+			</ol>
+			
+			<h2>The assignment</h2>
+			<p>	
+				
+				Get it running, and then feel free to modify it. I would attack your code in stages:
+			</p>
+			<ol>
+				<li>Get the <code>if (</code> statements working correctly</li> 
+				<li>Get the image changes working in the <code>show...</code> functions</li>
+				<li>Get the instructions to display if you type in something besides 1-4.</li>
+				<li>Use <code>alert(<var>"In here!"</var>);</code> to help you debug</li>
+			</ol>
+			
+			<h2>Extend and expand</h2>
+			<p>Can you use <code>Math.random</code> to randomly change the nature of each wire?</p>
+
+		</article>
+
+
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

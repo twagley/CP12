@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Keyboard listener</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros loops and positioning 
+			
+			Created:	2. March 2015 -->
+		
+		<script>
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.14 Skill-builder: Keyboard control</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.color="Red";</code> - changes the text color of an element to red<br />
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.color="rgb(255,0,0)";</code> - changes the text color of an element to red<br />
+				<br />
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.backgroundColor="Blue";</code> - changes the background color of an element to blue<br />
+				<span class="langstyle">color JS</span> <code>document.getElementById("elementID").style.backgroundColor="rgb(0,0,255)";</code> - changes the background color of an element to blue<br />
+				<br />
+				<span class="langstyle">flow JS</span> <code>if (<var>thisThing == true</var>) {<var>/*do this*/</var>} else {<var>/*do that*/</var>}</code> - controls program flow<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Sniffing keystrokes</h2>
+
+			<p>
+				In the <a href="JavascriptEvents.html">Javascript events</a> lesson, you were able to read the keystrokes as they were entered into a text box.
+				This worked by using code like: <code>&lt;input type="text" id="inputLine" onkeypress="doSomeFunction(event);"&gt;</code></p>
+			<p>	But that only worked when you had the cursor in the text box: 
+				for many things, like controlling games, you want to have the keyboard react no matter where the cursor is.
+			</p>
+			
+			<h2>For example</h2>
+			<pre>
+			<code>
+for (i=1; i<4; i++) {
+
+	/*	this sets up a loop with a variable "i" with a starting value of 1
+		anything inside the loop will trigger as long as "i<4" is true
+		and it will automatically add one to i at the end of each loop
+		
+		So for the first loop
+		...i=1,
+		then i=2,
+		then i=3
+
+		...and then it stops when i=4, because "i<4" is no longer true
+	*/	
+	
+	}
+			
+			</code>
+			</pre>
+			
+			<p>So knowing that, what will be the variable values for the following loops?</p>
+			<pre>
+			<code>
+for (j=0; j<10; j++) {
+	
+	}
+	
+	
+for (k=10; k>0; k--) {
+	
+	}
+	
+	
+for (m=1; m<100; m=m*2) {
+	
+	}
+	
+	
+			</code>
+			</pre>
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.11S-MsPacman-LastName.html">template</a> and rename it to your last name, such as "<code>1.11S-MsPacman-LastName.html</code>".</p>
+			<p>You will also need to download a copy of the <a href="MsPacManScreen.png">maze</a> and <a href="MsPacMan.png">Ms. Pacman</a> as well to make it work. 
+
+			<h2>The assignment</h2>
+			<p>Look at the source code in the template of Ms. Pacman. 
+				Look at the loop structures in the function called <code>mainProcedure</code>.
+				Each of these loops simply counts the number of times that Ms. Pacman is moved one pixel.</p>
+			
+			<p>	Modify these loop structures so that you can move Ms. Pacman step by step from point A to point B. 
+				Although the walls cannot block your movement (it is simply an image moving on top of another image), 
+				do not run into walls, Inky, Pinky, Blinky, or Clyde (yes, the ghosts have names).
+			</p>
+			
+			<h2>Extend and expand</h2>
+			<p>Can you modify the code to speed up and slow down the animation speed?</p>
+			<p>How would you change the direction that Ms. Pacman is facing in the animation?</p>
+		</article>
+
+		<!--
+		<aside>	
+			<h2>Do it with style</h2>
+			<p>Filenames are easy to mess up. It is very easy to make a mistake - particularly with spaces and capitalization.</p>
+			<p>
+				In order to save time and increase accuracy, I tend to go to the file in the file manager, 
+				pull up the context menu to get <code>Rename...</code> 
+				and then hit<code>Control-C</code> to copy the first part of the filename. 
+				It does not include the file extension, like <code>.png</code>, but I can at least paste in the
+				beginning of the filename accurately.
+			</p>
+		</aside>
+		-->
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

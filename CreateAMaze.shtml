@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: Create a maze
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use two-dimensional arrays to create a maze">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				11. November 2015	- created!									- Drapak
+				14. November 		- added make it your own!					- Drapak
+				28. April 	2017	- added HTML image resources				- Drapak
+				9. December 2018	- updated style 							- Drapak
+				1. January 2019		- fixed medium maze trigger					- Drapak
+		-->
+
+		<style>
+			img {
+				position: 	absolute;
+				width: 		30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.10 Skill-builder: <em>Create a maze</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: 
+					<a href="initTwoDimensionalArrays.shtml">Creating 
+						two-dimensional arrays</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: 
+					<a href="processUsingTwoDimensionalArrays.shtml">Using 
+						two-dimensional arrays and nested loops</a>
+				</li>
+				<br>
+				<li>
+					<a href="htmlImageResources.shtml">HTML Image Resources</a> 
+					<strong>for projects</strong>
+				</li>
+				<li>
+					<a href="supporting/TileDesigner-obs.html">A simple tile designer app</a> 
+					to save you time
+				</li>				
+				
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="3.10S-CreateAMaze-LastName.html">empty template</a> as 
+				"<code>3.10S-CreateAMaze-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use two-dimensional arrays, nested loops, and inline styles to 
+				carefully position images into a grid-based map.
+			</p>
+			
+			<h2>For example</h2>
+
+			<div id="outputId"></div>
+			<p>
+				<button id="smallMazeButtonId">
+					Click to make a small maze!
+				</button><br>		
+				<button id="mediumMazeButtonId">
+					Click to make a bigger maze!
+				</button><br>		
+				<button id="largeMazeButtonId">
+					Click to make an even bigger maze!
+				</button><br>		
+			</p>
+			
+			<h2>Make it your own!</h2>
+			<p>
+				Create a small maze or bitmap image of your own design. 
+				Use what tile (and other) images you wish from this site's 
+				bank of resources, and from the internet at large.
+			</p>
+			
+			<h2>Hints</h2>
+
+			<p>
+				Reread //PROCESS: <a href="processUsingTwoDimensionalArrays.shtml">Using two-dimensional arrays and nested loops</a>, 
+				but create <code>&lt;img&gt;</code> codes instead of <code>&lt;div&gt;</code> codes.
+			</p>
+			
+		</article>
+		<!--#include virtual="/footer.html" -->
+
+ 		<script>
+			var _0x34b6=["\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x20\x6D\x61\x7A\x65\x43\x6F\x64\x65\x3D","\x6C\x6F\x67","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x23\x6F\x75\x74\x70\x75\x74\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x69\x6E\x20\x63\x72\x65\x61\x74\x65\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x20\x6D\x61\x7A\x65\x41\x72\x72\x20\x3D\x20","","\x72\x6F\x77\x3D","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x53\x74\x6F\x6E\x65\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x47\x72\x61\x73\x73\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x3C\x69\x6D\x67\x20","\x20\x73\x72\x63\x3D\x27","\x27","\x20\x73\x74\x79\x6C\x65\x3D\x27\x74\x6F\x70\x3A\x20","\x70\x78\x3B\x20\x6C\x65\x66\x74\x3A\x20","\x70\x78\x3B\x27\x20","\x3E","\x69\x6E\x20\x69\x6E\x69\x74\x53\x6D\x61\x6C\x6C\x4D\x61\x7A\x65\x2E\x2E\x2E","\x69\x6E\x20\x69\x6E\x69\x74\x4D\x65\x64\x69\x75\x6D\x4D\x61\x7A\x65\x2E\x2E\x2E","\x69\x6E\x20\x69\x6E\x69\x74\x4C\x61\x72\x67\x65\x4D\x61\x7A\x65\x2E\x2E\x2E","\x6F\x6E\x63\x6C\x69\x63\x6B","\x23\x73\x6D\x61\x6C\x6C\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64","\x63\x6C\x69\x63\x6B\x65\x64\x20\x6F\x6E\x20\x23\x73\x6D\x61\x6C\x6C\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64\x2E\x2E\x2E","\x23\x6D\x65\x64\x69\x75\x6D\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64","\x63\x6C\x69\x63\x6B\x65\x64\x20\x6F\x6E\x20\x23\x6D\x65\x64\x69\x75\x6D\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64\x2E\x2E\x2E","\x23\x6C\x61\x72\x67\x65\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64","\x63\x6C\x69\x63\x6B\x65\x64\x20\x6F\x6E\x20\x23\x6C\x61\x72\x67\x65\x4D\x61\x7A\x65\x42\x75\x74\x74\x6F\x6E\x49\x64\x2E\x2E\x2E"];function outputMazeCode(_0x5590x2){console[_0x34b6[1]](_0x34b6[0]+ _0x5590x2);document[_0x34b6[4]](_0x34b6[3])[_0x34b6[2]]= _0x5590x2}function createMazeCode(_0x5590x4){console[_0x34b6[1]](_0x34b6[5],_0x5590x4);var _0x5590x5=_0x34b6[6];for(row in _0x5590x4){console[_0x34b6[1]](_0x34b6[7]+ row);var _0x5590x6=_0x5590x4[row];for(column in _0x5590x4[row]){var _0x5590x7=_0x34b6[6];if(_0x5590x4[row][column]== 0){_0x5590x7= _0x34b6[8]}else {_0x5590x7= _0x34b6[9]};_0x5590x5= _0x5590x5+ _0x34b6[10]+ _0x34b6[11]+ _0x5590x7+ _0x34b6[12]+ _0x34b6[13]+ row* 25+ _0x34b6[14]+ column* 30+ _0x34b6[15]+ _0x34b6[16]}};return _0x5590x5}var initSmallMaze=function(){console[_0x34b6[1]](_0x34b6[17]);var _0x5590x4=[[0,1,0,0],[0,1,1,0],[0,0,1,0],[0,0,1,0]];return _0x5590x4};var initMediumMaze=function(){console[_0x34b6[1]](_0x34b6[18]);var _0x5590x4=[[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0],[0,1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0],[0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0],[0,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,0],[0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0],[0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0],[0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0],[0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0],[0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0],[0,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0],[0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0],[0,1,0,1,0,1,0,0,0,1,0,1,1,1,0,1,0,1,1,1,0],[0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,0],[0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];return _0x5590x4};var initLargeMaze=function(){console[_0x34b6[1]](_0x34b6[19]);var _0x5590x4=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0],[0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],[0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0],[0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0],[0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];return _0x5590x4};document[_0x34b6[4]](_0x34b6[21])[_0x34b6[20]]= function(){console[_0x34b6[1]](_0x34b6[22]);var _0x5590x4=initSmallMaze();var _0x5590x5=createMazeCode(_0x5590x4);outputMazeCode(_0x5590x5)};document[_0x34b6[4]](_0x34b6[23])[_0x34b6[20]]= function(){console[_0x34b6[1]](_0x34b6[24]);var _0x5590x4=initMediumMaze();var _0x5590x5=createMazeCode(_0x5590x4);outputMazeCode(_0x5590x5)};document[_0x34b6[4]](_0x34b6[25])[_0x34b6[20]]= function(){console[_0x34b6[1]](_0x34b6[26]);var _0x5590x4=initLargeMaze();var _0x5590x5=createMazeCode(_0x5590x4);outputMazeCode(_0x5590x5)}
+		</script>
+	</body>
+</html>

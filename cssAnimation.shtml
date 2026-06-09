@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			CSS animation
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to format HTML text with CSS">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				18. Sept 2015		- created!
+				26. Sept			- added learn more link
+				11. February 2018	- cleaned up style and script location
+				16. September 2018	- cleaned up long lines and moved to better Id style
+				
+		-->
+
+		<style>
+			@keyframes helloAnimation {
+				0% {
+					color: blue;
+					top: 0px;
+					left: 0px;
+					opacity: 0;
+				}
+				25% {
+					color: red;
+					top: 200px;
+					left: 0px;
+					opacity: 0.5;
+				}
+				50% {
+					color: green;
+					top: 200px;
+					left: 200px;
+					opacity: 1;
+				}
+				75% {
+					color: orange;
+					top: 0px;
+					left: 200px;
+					opacity: 0.5;
+				}
+				100% {
+					color: blue;
+					top: 0px;
+					left: 0px;
+					opacity: 0;
+				}
+			}
+			
+			#animateId {
+				font-size:					40px;
+				position: 					fixed;
+                animation-name: 			helloAnimation;
+                animation-duration: 		6s;
+                animation-iteration-count: 	infinite;
+                animation-timing-function: 	ease;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//CSS: <em>Animation</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">CSS</span> 
+				<code>opacity: 0.5</code> - sets the element to 50% transparent<br>
+				<br>
+				<span class="langstyle">CSS</span> 
+				<code>@keyframes exampleAnimation {0% {} 50% {} 100%{}}</code>
+				- defines animation<br>
+				<br>
+				<span class="langstyle">CSS</span> 
+				<code>animation-name: exampleAnimation;</code> - applies an animation<br>
+				<span class="langstyle">CSS</span> 
+				<code>animation-duration: 3s;</code> - sets the animation length in seconds<br>
+				<span class="langstyle">CSS</span> 
+				<code>animation-iteration-count: 1|2|infinite;</code>
+				- repeat this many times<br>
+				<span class="langstyle">CSS</span> 
+				<code>animation-timing-function: ease|linear;</code> - movement style<br>
+			</p>
+			
+			<h2>Let's make things move</h2>
+			<p>
+				If I have an element that I want to move,
+				I can:
+			</p>
+			<ol>
+				<li>
+					Give that element an <code>id</code>
+				</li>
+				<li>
+					Use CSS to change the <code>id</code> from the default <code>position: static;</code>
+					to something else, like <code>position: absolute;</code>
+				</li>
+				<li>
+					Define some animation <strong>keyframes</strong>.
+					Keyframes are like the transition or midway points of an animation.
+				</li>
+				<li>
+					And then apply the animation keyframes to the <code>id</code> 
+				</li>
+			</ol>	
+			
+			<p>All together, it can look like this:</p>
+			
+			<h3 id="animateId">Hello CSS Animation!</h3>
+			
+			<pre><code><span class="sc1">&lt;head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        @keyframes helloAnimation {
+            0% {
+                color: blue;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+            }
+            25% {
+                color: red;
+                top: 200px;
+                left: 0px;
+                opacity: 0.5;
+            }
+            50% {
+                color: green;
+                top: 200px;
+                left: 200px;
+                opacity: 1;
+            }
+            75% {
+                color: orange;
+                top: 0px;
+                left: 200px;
+                opacity: 0.5;
+            }
+            100% {
+                color: blue;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+            }
+        }
+    
+        #animateId {
+            font-size:                  40px;
+            position:                   fixed;
+            animation-name:             helloAnimation;
+            animation-duration:         6s;
+            animation-iteration-count:  infinite;
+            animation-timing-function:  ease;
+        }
+    </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;h3</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"animateId"</span><span class="sc1">&gt;</span><span class="sc0">Hello CSS Animation!</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+			
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-css-animation/5257224980135936">Live example: CSS Animation</a></h2> <script src="https://www.khanacademy.org/computer-programming/live-example-css-animation/5257224980135936/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+
+			<h2>Learn more</h2>
+			<ul><!--
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/p/html-lists">
+						lists
+					</a>
+				</li>-->
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/css/css3_animations.asp">
+						CSS3 animations
+					</a>
+				</li>
+			</ul>
+			
+		</article>		
+			
+
+			
+		<!--#include virtual="/footer.html" -->
+		<script>
+		</script>
+	</body>
+</html>
