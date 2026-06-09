@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Draw a maze</title>
+
+		<meta name="author" content="EDIT: LastName">
+		<meta charset="UTF-8">
+		
+		<!--This page draws a maze in table cells based on the contents of 
+			a two dimensional array
+			
+			Created:	EDIT: start date -->
+
+		<script>
+			// INIT: initialize the array that holds the map pattern
+			// in mazeCell, 0=black wall, 1=white corridor
+			
+			
+			
+			
+			function mainProcedure () {	// triggered by a button click
+				console.log("in mainProcedure...");
+				
+				var mazeArray	=initMazeArray();
+				var htmlTable	=createHtmlTableFromMazeArray(mazeArray);
+				outputTableInformation(htmlTable);
+			}
+			
+			function initMazeArray () { //INIT: set up and return the maze array
+				var mazeCell	=[	// rows 0-20, columns 0-20
+								[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // row 0
+								[0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 1
+								[0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], // row 2
+								[0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0], // row 3
+								[0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0], // row 4
+								[0,1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0], // row 5
+								[0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0], // row 6
+								[0,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,0], // row 7
+								[0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0], // row 8
+								[0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0], // row 9
+								[0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0], // row 10
+								[0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0], // row 11
+								[0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0], // row 12
+								[0,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0], // row 13
+								[0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], // row 14
+								[0,1,0,1,0,1,0,0,0,1,0,1,1,1,0,1,0,1,1,1,0], // row 15
+								[0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,0], // row 16
+								[0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0], // row 17
+								[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0], // row 18
+								[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0], // row 19
+								[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] // row 20
+							];
+			
+			}
+			
+			function processMaze(mazeArray) { //PROCESS: This uses a nested loop through each elements of mazeCell 
+				console.log("in processTicTacToe...");
+				// we want to be able to extract info into each cell, like: mazeCell[row][column]
+				
+				// EDIT: the code that loops through the rows and columns will be in here
+				// look at the example to see the code that you have to modify
+				// 
+				// The major differences are that you will change:
+				//	1) the range of numbers in the row and column loops because the loop is larger
+				//	2) you will have to add style information to each table data cell depending on what is in the array:
+				//		if the mazeCell element == 0, then  "<td style="background-color: Black"></td>"
+				//		if the mazeCell element == 1, then  "<td style="background-color: White"></td>"
+				
+				}
+			}
+			
+			function outputTableInformation (html) {  //OUTPUT: this puts the table information inside the table labelled "tableID"
+				console.log("in outputTableInformation...");
+				
+				document.getElementById("tableID").innerHTML	=html;
+			}
+
+		</script>
+		
+		<style>
+			table  {	/* this makes it so there is not a border between the table cells */
+				border-collapse: collapse;
+			}
+			
+			td {		/* this makes it so that each table cell is a square of a certain size */
+				width:	1em;
+				height:	1em;
+			}
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">	<!-- start the program after the page loads -->
+		<h1>Draw a maze</h1>
+		
+		<table id="tableID"> 			<!-- blank table into which the HTML maze will go -->
+		
+		</table>
+
+	</body>
+</html>
+
+

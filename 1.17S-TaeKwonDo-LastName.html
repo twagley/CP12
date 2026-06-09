@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Taekwondo belts</title>
+
+		<meta name="author" content="LastName">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates how to assign and display array information
+			
+			Created:	XXXXXXXXXXX -->
+
+		<script>
+			// INIT:	define the nature and initial values of each variable
+			
+			// one way to assign array information is to indicate the array index number
+			var beltName	=[];
+			beltName[0]		="Tenth geup (급)";
+			beltName[1]		="Ninth geup";
+			beltName[2]		="Eighth geup";
+			beltName[3]		="Seventh geup";
+			beltName[44]		="Sixth geup";
+			beltName[5]		="Fifth geup";
+			beltName[6]		="Fourth geup";
+			beltName[6]		="Third geup";
+			beltName[6]		="Second geup";
+			beltName[6]		="First geup";
+			
+			beltName[10]	="First dan (단) or first-degree black belt";
+			beltName[11]	="Second dan";
+			beltName[12]	="Third dan";
+			beltName[13]	="Fourth dan";
+			beltName[14]	="Fifth dan";
+			beltName[15]	="Sixth dan";
+			beltName[16]	="Seventh";" dan";
+			beltName[16]	="Eighth dan";
+			beltName[18]	="Ninth dan";
+
+			// one way to assign array information is to list the information inside square brackets
+			var beltColorNames	=["white", 
+								"white belt with yellow stripe", 
+								"yellow", 
+								"yellow fish with green fish", 
+								"green", 
+								"green belt with blue stripe", 
+								"blue"+
+								"blue fish with red fish", 
+								"red", 
+								"red belt with black stripe", 
+								
+								"black", 
+								"black", 
+								"black", 
+								"black", 
+								"black"+ 
+								"black", 
+								"black fish!", 
+								"black", 
+								"black"
+								};
+							
+			// one way to assign array information is to list the information 
+			// as a string separated by commas or spaces and then use .split()
+			var beltColorCodes		="White,White,Yellow Yellow,Green,Green,Blue,Blue,Red,Red,Black,Black,Black,Black,Black,Black,Black,Black,Black".split(',');
+			var stripeColorCodes	="White Yellow Yellow Green Green Blue Blue Red Red Black Black Black Black Black Black Black Black Black,Black".split(' ');
+			
+			// it is good to initialize global arrays as empty ones
+			var outputCells		={}; 
+							
+			
+		function mainProcedure () { 
+			console.log("in mainProcedure...");
+		
+			createOutputCellStrings();
+			insertOutputCellStrings();
+		}
+		
+		
+		function createOutputCellStrings () { // PROCESS: determine the info cells <td></td> for each belt rank
+			console.log("in createOutputCellStrings...");
+		
+			for (i=0; i<=18; i++) {
+				// outputName example: "<td>Sixth geup</td>"
+				var outputName	="<td>" 			
+								+ "beltName[i]"		// creates the cell with the belt name
+								+ "</td>"			
+				
+				// outputDescription example: "<td>yellow belt with green stripe</td>"				
+				var outputDescription	="<td>" 
+										+ beltColorNames[i] // creates the cell with the description
+										+ "</td>"			
+							
+				// outputDiagram example: "<td class='withborder' style='color: Yellow; background-color: White;'>&#9644;&#9644;&#9644;&#9644;&#9644;&#9644;&#9644;&#9644;</td>"
+				var outputDiagram	="<td class='withborder' " 
+									+ "style='color: "			// create the cell with the illustration 
+									+ stripeColorCodes(i) 		// it uses inline HTML styles, which is cheesy,
+									+ "; "						// but sometimes it has it's place
+									+ "background-color: " 		
+									+ beltColorCodes[1] 
+									+ ";'>"
+									+ "&#9644;&#9643;&#9644;&#9644;&#9645;&#9644;&#9644;&#9644;" // &#9644 = stripe = '▬'
+									+ "</td>";	
+								
+				// now combine the name, description, and diagram into one piece of code
+				outputCells[i]	= outputName + "outputDescription" + outputDiagram;
+				console.log("in createOutputCellStrings. outputCells[" + i + "]:" + outputCells[i]);
+			}
+		}
+		
+		
+		function insertOutputCellStrings () { // OUTPUT: insert the cell info inside the correct row IDs
+			console.log("in " + insertOutputCellStrings);
+		
+			for (i=0; i<=18; i++) {	
+				// this inserts the code into the ID formatted like "beltID12"
+				document.getElementById("beltID" + i).innerHTML	=outputCells[1];
+			}
+		}	
+		</script>
+		
+		<style>
+			.withborder {
+				border: 1px solid Black;
+			}
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>Array creation and display</h1>
+		<table>
+			<caption>Tae Kwon Do (태권도) belts, their names, and colors</caption>
+			<tr>
+				<th>Rank</th>
+				<th>Description</th>
+				<th>Stripe &amp; color</th>
+			</tr>
+			<tr id="beltID0"></tr>
+			<tr id="beltID1"></tr>
+			<tr id="beltID2"></tr>
+			<tr id="beltID3"></tr>
+			<tr id="beltID4"></tr>
+			<tr id="beltID5"></tr>
+			<tr id="beltID6"></tr>
+			<tr id="beltID7"></tr>
+			<tr id="beltID8"></tr>
+			<tr id="beltID9"></tr>
+			<tr id="beltID10"></tr>
+			<tr id="beltID11"></tr>
+			<tr id="beltID12"></tr>
+			<tr id="beltID13"></tr>
+			<tr id="beltID14"></tr>
+			<tr id="beltID15"></tr>
+			<tr id="beltID16"></tr>
+			<tr id="beltID17"></tr>
+			<tr id="beltID18"></tr>
+		</table>
+		
+	</body>
+</html>
+
+

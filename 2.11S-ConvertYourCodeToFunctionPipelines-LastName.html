@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Convert your code to function pipelines</title>
+		<meta 
+			name="description" 
+			content="Assignment: Convert your code to function pipelines">
+		<meta name="author" content="--yourName--">
+		<!--
+			Change log:
+				Created:	12. October 2015										- Drapak
+				Modified:	25. March 2017		- improved programming style		- Drapak
+							30. April 2017		- fixed long lines					- Drapak
+							
+				Finished:	
+		-->
+		<!-- load jQuery for the animations -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+		</script>
+		<style>
+			img {
+				width:	80px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>You are my biggest star!</h1>
+		<p>Press the &uarr; and &darr; keys to make the star bigger and littler.</p>
+		<img id="imageID" src="https://www.kasandbox.org/programming-images/cute/Star.png">
+		<!--
+			Convert this sample program from a sequential program 
+			into one that uses function pipelines.
+
+			1. Create an //INPUT function called readKeypress( keyEvent ) 
+				that returns the character that was pressed.
+			2. Give the function a descriptive comment and 
+				add console.log('in readKeypress...');
+			3. Create an //OUTPUT function called makeStarSmaller()
+			4. Create an //OUTPUT function called makeStarBigger()
+			5. Give each //OUTPUT function a descriptive comment and add console.log()s
+			6. Create a //PROCESS function called getBiggerOrSmaller( characterPressed )
+			7. Give the function a descriptive comment and 
+				add console.log('in getBiggerOrSmaller...');
+			8. Add the if statements that call either makeStarBigger() or makeStarBigger();
+			9. Now alter the code as you wish to make it interesting, 
+				but respect the seperation of input, processing, and output!
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+ 
+		<script>
+			//MAIN
+			var mainProcedure 	= function ( keyEvent ) {
+				console.log('in mainProcedure...');
+				
+				//INPUT: read which key was pressed
+				var keyCode	= keyEvent.which || keyEvent.keyCode; 
+				
+				//PROCESS: fork the code if they pressed the up button
+				if ( keyCode == 85 ) { 			// U button
+					//OUTPUT: make the star bigger
+					$('#imageID').animate({width: "+=40px"});
+				} else if ( keyCode == 68 ) { 	// D button
+					//OUTPUT: make the star smaller
+					$('#imageID').animate({width: "-=40px"});
+				}
+			}
+			
+			//INPUT: run mainProcedure when someone presses a key
+			window.onkeydown	= mainProcedure;
+		</script>
+	</body>
+</html>

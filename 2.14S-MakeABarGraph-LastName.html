@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Bar graph of popular programming languages</title>
+		<meta name="description" content="Make a bar graph">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				21. October 2015	- created!
+		-->
+ 		<script>
+			var mainProcedure = function () {
+				console.log('in mainProcedure');
+
+				// 1. something about getProgrammingStats
+				// 2. then maybe something about calculateGraphWidths
+				// 3. mumble mumble .. displayGraph .. mumble mumble
+				
+				// Look at the example code at: http://drapak.ca/cpg/MakeAChart.shtml
+			}
+			
+			//INPUT: read in the programming stats and store inside an object
+			var getProgrammingStats = function ( ) {
+				console.log( 'in getProgrammingStats' );
+				return;
+			}
+			
+			//PROCESS: calculate the width of the graph to display, and store in graphWidth
+			var calculateGraphWidths = function (  ) {
+				console.log( 'in calculateGraphWidths' );
+				var GRAPH_MULTIPLIER = .001;  	// or some similar number
+				var graphWidth = {}; 			//declare as an empty object
+				
+				// some mysterious calculations
+				
+				return graphWidth;
+			}
+			
+			//OUTPUT: change the graph divs to the calculated width
+			var displayGraph = function ( graphWidth ) {
+				console.log( 'in displayGraph' );
+				
+				// display the calculated widths.....
+			}
+		</script>
+		<style>
+			input, button {
+				position: 			absolute;
+				left: 				10em;
+			}
+			div {
+				color:				white;
+				min-height:			1.2em;
+				max-height:			1.2em;
+				width:				0em;
+				padding-left:		0.3em;
+				overflow: 			hidden;
+			}
+			#javascriptGraphID {
+				background-color: 	red;
+			}
+			#javaGraphID {
+				background-color: 	blue;
+			}
+			#pythonGraphID {
+				background-color: 	orange;
+			}
+			#cssGraphID {
+				background-color: 	cyan;
+			}
+			#phpGraphID {
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>The top 5 most used programming languages on <a href="https://github.com/">Github!</a></h4>
+		<p>
+			Please enter the number of projects on Github that use each language:<br />
+			Javascript:
+			<input id="javascriptInputID" 	value="323938" /><br />
+			Java:
+			<input id="javaInputID"			value="222852" /><br />
+			Python:
+			<input id="pythonInputID"		value="164852" /><br />
+			CSS:
+			<input id="cssInputID"			value="164585" /><br />
+			PHP:
+			<input id="phpInputID"			value="138771" /><br />
+			<br />
+			<button onclick="mainProcedure();">Click to graphinate!</button>
+		</p>
+		<hr />
+		<div id="javascriptGraphID"> Javascript</div>
+		<div id="javaGraphID"> Java</div>
+		<div id="pythonGraphID"> Python</div>
+		<div id="cssGraphID"> CSS</div>
+		<div id="phpGraphID"> PHP</div>
+	</body>
+</html>

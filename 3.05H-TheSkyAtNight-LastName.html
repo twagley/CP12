@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The sky at night</title>
+		<meta name="description" content="The sky at night">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	21. October 2015
+				Modified: 	29. October			- reworked to add animation delay, fade, 
+												and further instructions
+							11. April 2017		- reworked for better style
+							26. Nov 2018		- reworked for better style again - Drapak
+				Finished: 
+		-->
+		
+		<!-- remember to load jQuery! -->
+
+		
+		<!-- EVALUATION CRITERIA CHECKLIST
+				INIT: including
+					[  ]	create an empty object
+					[  ]	use the value of an object's property to create different 
+							animation behaviours
+					[  ]	pass an object to a function as a parameter/argument
+					[  ]	use an object with multiple properties insIde an animation
+							(for example, animating top & left of the same image)
+
+				PROCESS: including
+					[  ]	create a function that accepts an object 
+							as an argument/parameter
+					[  ]	set a delay using setTimeout() or setInterval
+					[  ]	use an anonymous function insIde setTimeout() or setInterval
+					[  ]	use string addition
+					[  ]	processes all eight planets
+					
+				OUTPUT: including ANY FIVE of 
+					[  ]	change the src of an element
+					[  ]	position an object using % instead of px
+					[  ]	animate a change in the width of an element
+					[  ]	animate a fade in or fade out of an element
+					[  ]	display information using .innerHTML
+					[  ]	animate using a custom duration
+
+				STYLE: including
+					[  ]	honour all previous //STYLE sections
+					[  ]	use descriptive variable names
+					[  ]	break up functions into separate ones for input, processing, 
+							and output
+					[  ]	uses descriptive comments to Identify and describe each function, 
+							for example: //PROCESS: this function accepts distanceUp and 
+							animates the image up that number of pixels
+					[  ]	add spaces between mathematical operators, 
+							for example: var exampleVar = 3 + 4, not var exampleVar=3+4.
+
+------------STYLE GUIdE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+
+		<style>
+			span {
+				border:				1px solid red;
+			}
+			button {
+				border:				1px solid grey;
+				color:				black;
+				background-color:	white;
+			}
+			img {
+				position:			fixed;
+				width:				10px;
+				/* start off in the middle of the screen */
+				top:				50%; 
+				left:				50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>The sky at night</h2>
+		<button id="dimButtonId">Click to<br>dim the lights!</button>
+		<button id="startButtonId">
+			Click to behold<br />the majesty of the heavens!
+		</button><br>		
+		<img id="mercuryId">
+		<img id="venusId">
+		<img id="earthId">
+		<img id="marsId">
+		<img id="jupiterId">
+		<img id="saturnId">
+		<img id="neptuneId">
+		<img id="uranusId">
+		<br>
+
+ 		<script>
+			//INIT set up all the planet objects
+			//define mercury using one method
+			var mercuryObj = {}; //define mercury as an empty object
+			
+			mercuryObj.id				= "mercuryId";
+			mercuryObj.src				= "http://drapak.ca/cpg/img/Mercury.png";
+			mercuryObj.startDelay		= 300;
+			mercuryObj.diameter			= 4879;
+			mercuryObj.top				= 55;
+			mercuryObj.left				= 55;
+			mercuryObj.animationSpeed	= 1000;
+			mercuryObj.timeToFade		= 2000;
+			
+			//define venus using another method
+			var venusObj = {};	//define venus as an empty object
+			
+			venusObj['id']				= "venusId";
+			venusObj['src']				= "http://drapak.ca/cpg/img/Venus.png";
+			venusObj['startDelay']		= 600;
+			venusObj['diameter']		= 12104;
+			venusObj['top']				= 40;
+			venusObj['left']			= 65;
+			venusObj['animationSpeed']	= 2000;
+			venusObj['timeToFade']		= 1900;
+			
+			//define earth using the all-in-one-line method
+			//this can be BAD style if the line gets too long, like this one
+			//you are permitted to have a long line if you use this method
+			var earthObj = { id: "earthId", src: "http://drapak.ca/cpg/img/Earth.png", startDelay: 900, diameter: 12756, top: 20, left: 70, animationSpeed: 3000, timeToFade: 1800 };
+			
+			//define mars and the others using a more legible method
+			var marsObj = {
+				id:				"marsId",
+				src:			"http://drapak.ca/cpg/img/Mars.png",
+				startDelay:		1200,
+				diameter:		6792,
+				top:			90,
+				left:			10,
+				animationSpeed:	4000,
+				timeToFade:		1700
+			};
+			
+			var jupiterObj = {
+				id:				"jupiterId",
+				src:			"http://drapak.ca/cpg/img/Jupiter.png",
+				startDelay:		1500,
+				diameter:		142984,
+				top:			50,
+				left:			70,
+				animationSpeed:	5000, 
+				timeToFade:		1600
+			};
+			
+			var saturnObj = {
+				id:				"saturnId",
+				src:			"http://drapak.ca/cpg/img/Saturn.png",
+				startDelay:		2000,
+				diameter:		120536,
+				top:			5,
+				left:			20,
+				animationSpeed:	6000,
+				timeToFade:		1500
+			};
+
+			// NOW ADD THE OTHER PLANETS!
+			// Use -TWO- of the four different object assignment methods from above
+			// One of those methods must include defining the variable first as {},
+			// like in Mercury and Venus
+			
+			// Uranus is:
+			// uranusId, Uranus.png, 
+			//		delay: 2500, 51118 km dia, top, left: 80, 20, fade: 1400
+			//
+			// Neptune is:
+			// neptuneId, Neptune.png, 
+			//		delay: 3000, 49528 km dia, ends at top, left: 50, 5, fade: 1300
+
+			//MAIN: set delays before animating each planet 
+			var mainProcedure = function () {
+				// Set a delay for each planet equal to startDelay before 
+				// displaying an animating each planet.
+				// Use the -anonymous function- style of setting timeouts and intervals, 
+				// so you can easily pass the planet objects to the displayAndAnimate function
+			
+				//REMEMBER TO ADD URANUS AND NEPTUNE
+			}
+			
+			//Create a function that will display and animate cool things for 
+			//the planet object that is given as a parameter
+				// 1. Link the image id to the src
+					
+				// 2. Use .animate to move the planets towards their new top & left positions
+				// Note that the top and left positions are given in '%' instead of 'px'
+				// So, {left: '40%'} will place something at 40% of the way across the screen
+				// from the left edge. This can be good if you want to make your programs
+				//  resize to different screens.
+
+				// 3. Add to the animation to make the animation increase the wIdth of the
+				// image as it moves.
+				
+				// 4. Make the final wIdth equal to the results of calculateImageWidth
+				
+				// 5. Make the animation length equal to animationSpeed
+				
+				// 6. Add a second animation that fades the planet away for a duration equal
+				// to timeToFade.
+			
+			
+			//PROCESS: calculate the image wIdth as a fraction of the planets actual wIdth
+			var calculateImageWidth = function ( planetDiameter ) {
+				return Math.round( planetDiameter / 500 )
+			}
+			
+			//OUTPUT: reverse the text colors
+			var dimTheLights = function () {
+				document.body.style.color 				= 'gray';
+				document.body.style.backgroundColor 	= 'black';
+			}
+			
+			//INPUT EVENT: attach the click events to the buttons
+			document.querySelector( "#dimButtonId" ).onclick	= dimTheLights;
+			document.querySelector( "#startButtonId" ).onclick	= mainProcedure;
+			
+			/*
+------------STYLE GUIdE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|			
+			*/
+		</script>
+	</body>
+</html>

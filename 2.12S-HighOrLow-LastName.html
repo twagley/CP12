@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Convert the high or low guesser to function pipelines
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Convert guess high or low to functional programming">
+		<meta name="author" content="--yourName--">
+		<!--
+			Change log:
+				30. October 2018												- Drapak
+					
+		-->
+		<!-- load jQuery for the animations -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+		</script>
+		<style>
+			body {
+				background-color:	lightYellow;
+				font-family:		Arial;
+				color:				darkOrange;
+			}
+			h1, h2, h3 {
+				color:				brown;
+			}
+			h1 {
+				font-size:			40px;
+			}
+			#emojiId {
+				position:			relative;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Guess High or Low!</h2>
+		<p>
+			It is the online game where you win <strong>nothing</strong>!
+			Even if you guess correctly!
+		</p>
+		<h3>
+			I am thinking of a number from 1 to 20. What is it?
+		</h3>
+		<p>
+			Your guess: 
+			<input type='text' id='inputId'>
+			<button id='buttonId'>Guess!</button>
+		</p>
+		
+		<h1 id='emojiId'>?</h1>
+		
+		<h3 id='outputId'>Type in a number to start!</h3>
+
+		<script>
+			//INIT: generate a random number when the page loads.
+			const computerGuess = Math.ceil( Math.random() * 20 );
+			
+			//INIT: set up a distance to animate things
+			const ANIMATION_DISTANCE = 20;
+			
+			//MAIN: this does everything in one big blobby function
+			const mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				//INPUT: read in the number string from the input line
+				var inputString	= document.querySelector( '#inputId' ).value;
+				
+				//PROCESS: transform the string into an integer
+				var inputNumber = parseInt( inputString );
+				
+				console.log( 'inputNumber=' + inputNumber + '...' ); 
+				
+				//IF: the number entered is greater than the computer's number
+				if ( inputNumber > computerGuess ) {
+					console.log( "player's guess is higher" );
+					
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Nope. Try something smaller!';
+						
+					//OUTPUT: display a down arrow
+					document.querySelector( '#emojiId' ).innerHTML	= '⬇️';	
+
+					//OUTPUT: animate the emoji up
+					$( '#emojiId' ).animate( 
+						{ top: 			'+=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ top: 			'-=20px' },
+						{ duration: 	50 }
+					);				
+					
+				//IF: the number entered is less than the computer's number
+				} else if ( inputNumber < computerGuess ) {
+					console.log( "player's guess is lower" );
+				
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Nuh uh. Try something bigger!';
+						
+					//OUTPUT: display an up arrow
+					document.querySelector( '#emojiId' ).innerHTML	= '⬆️';
+					
+					//OUTPUT: animate the emoji down
+					$( '#emojiId' ).animate( 
+						{ top: 			'-=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ top: 			'+=20px' },
+						{ duration: 	50 }
+					);				
+													
+				//IF: the number entered is equal to the computer's number
+				} else if ( inputNumber == computerGuess ) {
+					console.log( "player's guess is equal" );
+
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= 'Yay! Got it!';
+						
+					//OUTPUT: display a heart
+					document.querySelector( '#emojiId' ).innerHTML	= '💖';
+					
+					//OUTPUT: animate the emoji to a large font size
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'+=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'-=20px' },
+						{ duration: 	50 }
+					);				
+																		
+				//ELSE: some other condition: not <, >, or =. Probably not a number
+				} else {
+					console.log( 'Oh noes! No number was entered!' );
+
+					//OUTPUT: display a message about which way to guess
+					document.querySelector( '#outputId' ).innerHTML
+						= "That's not a number! Try again!";
+						
+					//OUTPUT: display an up arrow
+					document.querySelector( '#emojiId' ).innerHTML	= 'ðŸ˜ž';	
+					
+					//OUTPUT: animate the emoji to a smaller font size
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'-=20px' },
+						{ duration: 	500 } 
+					);
+					//OUTPUT: and return back real fast
+					$( '#emojiId' ).animate( 
+						{ fontSize: 	'+=20px' },
+						{ duration: 	50 }
+					);
+				}
+			}
+			
+
+			//INPUT: run mainProcedure when the button is clicked 
+			//		or the input line changes
+			document.querySelector( '#buttonId' ).onclick = mainProcedure;
+			document.querySelector( '#inputId' ).onchange = mainProcedure;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Function pipelines</title>
+
+		<meta name="author" content="EDIT: LastName">
+		<meta charset="UTF-8">
+		
+		<!--EDIT: Describe the program here
+			
+			Created:	EDIT: add the date
+			Updated:	
+		-->
+
+		<script>
+			// Notice that each function keeps its own variables.
+			// There are no shared variables between the functions.
+	
+			function mainProcedure () { 
+				// add your main code here, like in Example Two
+				
+			}
+			
+			
+			// INPUT: 	EDIT: Describe this function, including what is RETURNed
+			function EDITfunctionName () {
+				console.log('in EDITfunctionName...');
+				
+				// add your input code here, as per the example, and including a return statement
+			}
+			
+			
+			// PROCESS: EDIT: Describe this function, including what variables go in, and what it RETURNed
+			function EDITfunctionName (EDITvariableName) {
+				console.log('in EDITfunctionName: ' + EDITvariableName);
+
+				// add your process code here, following the example, and including a return statement
+			}
+			
+			
+			// OUTPUT: EDIT: Describe this function, including what variables go in
+			function EDITfunctionName (EDITvariableName) {
+				console.log('in EDITfunctionName: ' + EDITvariableName);
+				
+				document.getElementById('outputID').innerHTML	=EDITvariableName;
+			}
+		</script>
+		
+		<style>
+			/* nothing to see! */
+		</style>
+	</head>
+
+	<body>	<!-- start the program after the page loads -->
+		<h1>Function pipelines demonstration</h1>
+		
+		<p>
+			EDIT: give instructions about what will happen to the number that will be entered: 
+			<input type="input" id="inputID" name="inputID" size="3" value="42"> 
+			<button type="button" onclick="mainProcedure();">Calculate!</button>
+		</p>
+		
+		<p>The answer is: <span id="outputID"></span></p>
+	</body>
+</html>
+
+

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Defuse the bomb!</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript conditionals to change an image">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	1. Oct 2015											- Drapak
+				Modified:	5. March 2017	- reworked for better style			- Drapak
+							30. April 2017	- fixed long lines					- Drapak
+				
+				Finished:	
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+	</head>
+
+	<body>
+		<img id="bombImageID" src="http://drapak.ca/cpg/img/nicePictureOfABomb.png">
+		
+		<p id="instructionsID"><strong>Oh my gosh! You have to defuse the bomb!</strong></p>
+		
+		<p>
+			Which wire do you cut? Enter 1, 2, 3, or 4:
+			<input id="inputLineID" type="text">
+			<button id="buttonID">Cut carefully!</button>
+		</p>
+
+		<script>
+			var mainProcedure = function() {
+				console.log('in mainProcedure...');
+				//INPUT: read the wire number that the user si going to cut
+				???????? wireNum    = document.getElementById("inputLineID").value;
+				
+				//PROCESS: choose what to do depending on which wire number was chosen
+				if (wireNum == 1) {         // defusing wire
+					//OUTPUT: replace #bombImageID with image of defused bomb
+					document.getElementById("bombImageID").src  
+						= "http://drapak.ca/cpg/img/defusedBomb.png";
+
+				} else if (????????) {  // exploding wire
+					//OUTPUT: replace #bombImageID with image of exploded bomb
+					document.getElementById("bombImageID").src  
+						= "http://drapak.ca/cpg/img/explodedBomb.png";
+
+				} else if ((????????) || (wireNum == 4)) {  // do nothing (NOTE: "||" = or)
+					//OUTPUT: replace #bombImageID with image of still ticking bomb
+					document.getElementById("bombImageID").src  
+						= "http://drapak.ca/cpg/img/stillActiveBomb.png";
+					
+				} ???????? {                    // no valid wire chosen
+					//OUTPUT: display additional instructions
+					var outputInstructions  
+						= "Enter the <strong>number</strong>"
+						+ " of the wire that you will cut. <br />"
+						+ "One wire will defuse the bomb, "
+						+ "two of them will do nothing, and one will trigger it. <br />" 
+						+ "Good luck!";                         
+					document.getElementById("instructionsID").innerHTML = ????????;
+				}
+			}
+			
+			//INPUT: trigger mainProcedure when #buttonID is clicked 
+			//	or when #inputLineID is changed
+			document.getElementById('inputLineID').onchange	= mainProcedure;
+			document.getElementById('buttonID').onclick		= ????????;
+		</script>
+	</body>
+</html>

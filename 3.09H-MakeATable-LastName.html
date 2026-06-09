@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Make a table</title>
+		<meta name="description" content="Make a table assignment">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	4. November 2015										- Drapak
+				Modified:	23. April 2017		- improved style and instructions 	- Drapak
+							28. April 2017		- changed typo in instructions		- Drapak
+							18. April 2017		- changed criteria					- Drapak
+							
+				Finished:
+
+		-->
+		<style>
+		</style>
+	</head>
+
+	<!--
+		You need to jQuery if you want animations!
+
+		Hints
+
+			[  ] Reread //PROCESS: for loops (http://drapak.ca/cpg/processForLoops.shtml)
+
+			[  ] Create a <div> with id="outputID" in the body of your code
+			[  ] Create a button that will trigger mainProcedure()
+			[  ] Create an output function that will insert a result into outputID
+			[  ] Create a process function to create a table
+				[  ] Add the <table> and <thead> and <tbody>first
+				[  ] Use for...in loops to create the rows:
+				[  ] Add the <tr>, <th>s and the information
+				[  ] Add the </tbody> and </table>
+			[  ] Create a mainProcedure function that will pass multiple arrays to 
+				 your process function, and then pass the results to your output function
+	
+		Evaluation:
+		
+			INIT: including
+				[  ] add to an array inside the square brackets
+				[  ] add to an array using bracket notation: ( exampleArr [ 7 ] )
+				[  ] add to an array using .length
+				[  ] add to an array using .push()
+			HTML-CSS: inside the CSS <style> block, include:
+				[  ] create a table with headings <th> inside <thead>
+				[  ] create a table with data cells <td> inside <tbody>
+				[  ] create a different font style or weight for the headings and cells
+				[  ] create a different background for the headings and cells
+				[  ] add a border to at least one part of the table
+			PROCESS: including
+				[  ] create a function that accepts an array/arrays as arguments/parameters
+				[  ] use string addition (or createElement) to create HTML code
+				[  ] use for loops to create table rows
+				[  ] join together information from more than one array at a time
+				[  ] return information from a function
+			STYLE: including
+				[  ] honour all previous //STYLE sections
+				[  ] use descriptive variable names
+				[  ] break up functions into separate ones for input, processing, and output
+				[  ] use descriptive comments to identify and describe each function, 
+					 and each loop:
+					//loop through each element of the loop to create the rows
+				[  ] add spaces between mathematical and string operators, 
+					 for example: var exampleVar = "hello " + "kitty", 
+					 not var exampleVar="hello "+"kitty".
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+	-->
+	
+	<body>
+	
+
+ 		<script>
+			//INIT: create the arrays of site statistics
+			// 		info generated from: http://www.alexa.com/topsites/countries/CA
+			var siteNameArr =[
+				"Google.ca",
+				"Google.com",
+				"Facebook.com",
+				"Youtube.com",
+				"Yahoo.com",
+				
+				"Amazon.ca",
+				"Wikipedia.org",
+				"Live.com",
+				"Twitter.com",
+				"Amazon.com",
+				
+				"Kijiji.ca",
+				"Linkedin.com",
+				"Reddit.com",
+				"Cbc.ca",
+				"Imgur.com",
+				
+				"Msn.com",
+				"Netflix.com",
+				"Bing.com"
+			];
+
+			var siteDescriptionArr = [
+				"Canada's local version of the google search engine",
+				"Enables users to search the world's information, including webpages, "
+					+ "images,  and videos.",
+				"A social utility that connects people, to keep up with friends, upload " 
+					+ "photos, share links and...",
+				"YouTube is a way to get your videos to the people who matter to you. " 
+					+ "Upload, tag and share your...",
+				"A major internet portal and service provider offering search results, " 
+					+ "customizable content,...",
+
+				"The online shopping superstore, now in Canada!",
+				"A free encyclopedia built collaboratively using wiki software.",
+				"Search engine from Microsoft.",
+				"Social networking and microblogging service utilising instant " 
+					+ "messaging, SMS or a web interface.",
+				"Amazon.com seeks to be Earth's most customer-centric company, where" 
+					+ " customers can find and...",
+
+				"Free classified and 'wanted' advertising, also offering the ability to" 
+					+ " make contacts, seek...",
+				"A networking tool to find connections to recommended job candidates, " 
+					+ "industry experts and ...",
+				"User-generated news links. Votes promote stories to the front page.",
+				"Canadian radio and TV network. Includes news, air schedules, corporate " 
+					+ "profile, and message for...",
+				"Imgur is the Internet's visual storytelling community.",
+
+				"Portal for shopping, news and money, e-mail, search, and chat.",
+				"Flat monthly fee streaming TV and movies service.",
+				"Search engine developed by Microsoft. Features web, image, video, local, " 
+					+ "news, and product search."
+			];
+
+			var siteGlobalRankArr = [
+				62, 1, 2, 3, 5, 
+				309, 7, 12, 9, 6, 
+				520, 14, 33, 797, 46,
+				26, 52, 22
+			];
+
+			var sitesLinkingArr = [
+				54312, 3555997, 7674958, 3182092, 788386,
+				38869, 1805704, 59323, 5677576, 1033302,
+				6381, 1954406, 536597, 57595, 187843, 
+				189036, 22940, 118340
+			];
+
+			/*
+				REMEMBER: you do not have to use the arrays provided!
+						If you use your own information your arrays of information can be 
+						*much* smaller to save time. Have fun and do something interesting!
+				
+				add the following information to the arrays above: 
+				(see http://drapak.ca/cpg/processUsingArrays.shtml)
+					1) add one item inside the square brackets
+					2) add one item using square bracket notation: ( exampleArr [ 7 ] )
+					3) add one item using .length
+					4) add one item using .push()
+					5) add the rest as you like
+				
+				site: 			"Pinterest.com",
+				description: 	"Pinterest is an online pinboard: a place where you can "
+								+ "post collections of things you love, and...",
+				global rank: 	31,
+				sites linking: 	2580223
+				
+				site:			"Instagram.com", 
+				description: 	"Image sharing portal"
+				global rank: 	25,
+				sites linking: 	1645769 
+				
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+			*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The sky at night</title>
+		<meta name="description" content="Fireworks">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	27. October 2015
+				Modified:	10. April 2017	- moved script to end of body and 
+											- shortened long lines
+											
+				Finished:	
+				
+		-->
+		<!-- load jQuery here -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+		</script>
+		
+		<style>
+			.fireworkClass {
+				position:			fixed;
+				width:				8px;	/* fireworks start off tiny! */
+				top:				60%;
+				z-index:			2;
+			}
+			#firework1ID {
+				left:				30%;
+			}
+			#backgroundID {
+				position:			absolute;
+				width:				100%;
+				z-index:			1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img 
+			id="backgroundID" 
+			src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg"> 
+			
+		<p>
+			Halifax waterfront image is from: 
+			<a href="https://www.flickr.com/photos/bencnh/508415582/in/album-72157618455740654/">
+				bencnh's Flickr page
+			</a>
+		</p>
+		
+		<img 
+			id="firework1ID"
+			class="fireworkClass"
+			src="http://drapak.ca/cpg/img/fireworks-blue.png">
+		
+ 		<script>
+			/*
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|			
+			*/
+
+			//MAIN: animate each of the fireworks
+			var mainProcedure = function () {
+			
+			}
+		
+			//INPUT: start the fireworks when the page is first loaded
+			document.body.onload	= mainProcedure;
+			
+			/*
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|			
+			*/
+		</script>
+	</body>
+</html>

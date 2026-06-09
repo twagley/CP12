@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Create a table</title>
+		<meta name="description" content="Create a table">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	15. November 2015									- Drapak
+				Modified:	3. May 2017			- reworked for better style		- Drapak
+							
+				Finished:	
+		-->
+
+		<style>
+		
+		</style>
+	</head>
+
+	<body>
+	
+		<table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Speed (km/h)</th> 
+                    <th>Vehicle</th>
+                    <th>Operator</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="outputID">
+            </tbody>
+        </table>
+        <script>
+            //INIT: declare the array of objects data taken from 
+            //https://en.wikipedia.org/wiki/List_of_vehicle_speed_records
+            var speedRecordArr = [
+                {   category: 'Land speed record', 
+                    speed: 1228, 
+                    vehicle: 'ThrustSSC',
+                    operator: 'Andy Green', 
+                    date: '15 October, 1997' },
+                {   category: 'Wheel-driven', 
+                    speed: 775.106, 
+                    vehicle: 'Vesco Turbinator', 
+                    operator: 'Don Vesco', 
+                    date: '18 October, 2001' },
+                {   category: 'Motorcycle', 
+                    speed: 605.697, 
+                    vehicle: 'Ack Attack', 
+                    operator: 'Rocky Robinson', 
+                    date: '25 September, 2010' },
+                {   category: 'Diesel-powered', 
+                    speed: 563.995, 
+                    vehicle: 'JCB DieselMax', 
+                    operator: 'Andy Green', 
+                    date: '23 August, 2006' },
+                {   category: 'Electric-powered', 
+                    speed: 495.14, 
+                    vehicle: 'Buckeye Bullet 2.5', 
+                    operator: 'Roger Schroer', 
+                    date: '24 August, 2010' },
+                {   category: 'Steam-powered', 
+                    speed: 225.06, 
+                    vehicle: 'Inspiration', 
+                    operator: 'Charles Burnett III', 
+                    date: '25 August, 2009' },
+                {   category: 'Wind-powered', 
+                    speed: 203.09, 
+                    vehicle: 'Ecotricity Greenbird', 
+                    operator: 'Richard Jenkins', 
+                    date: '26 March, 2009' },
+                {   category: 'Human-powered bicycle', 
+                    speed: 133.78, 
+                    vehicle: 'VeloX3', 
+                    operator: 'Sebastiaan Bowier', 
+                    date: '14 September, 2013' },
+                {   category: 'Paced bicycle', 
+                    speed: 268.831, 
+                    vehicle: 'custom made', 
+                    operator: 'Fred Rompelberg', 
+                    date: '15 October, 1995' },
+                {   category: 'Solar-powered', 
+                    speed: 88.8, 
+                    vehicle: 'Sunswift IV "IVy"', 
+                    operator: 'Barton Mawer', 
+                    date: '7 January, 2011' },
+                {   category: 'Radio-controlled car', 
+                    speed: 325.12, 
+                    vehicle: 'RC Bullet', 
+                    operator: 'Nic Case', 
+                    date: '25 October, 2014' },
+                {   category: 'Tracked vehicle', 
+                    speed: 82.23, 
+                    vehicle: 'FV101 Scorpion reconnaissance vehicle',
+                    operator: '', 
+                    date: '26 March, 2002' },
+                {   category: 'On ice', 
+                    speed: 331.61, 
+                    vehicle: 'Audi RS6', 
+                    operator: 'Janne Laitinen', 
+                    date: '6 March, 2011' },
+                {   category: 'Lunar rover', 
+                    speed: 17, 
+                    vehicle: 'Apollo 17 Lunar Roving Vehicle (LRV-003)', 
+                    operator: 'Eugene Cernan', 
+                    date: '31 July, 1972' }
+            ];
+
+            //MAIN:
+            var mainProcedure = function () {
+                console.log('in mainProcedure...');
+                var tableCode = createTable( speedRecordArr );
+                outputTable( tableCode );
+            }
+
+            //PROCESS:  create a table of speed record information
+            //          based on the information stored 
+            //          inside an array of records
+            var createTable = function ( speedRecordArr ) {
+                // create a variable to hold the table's code, 
+                // and add the beginning of the table
+                var tableHTML = "";
+                
+                // loop through each element of speedRecordArr and 
+                // create a table row for object contained inside
+                // use for (i in speedRecordArr)
+                
+                
+                // finish by returning the table code
+                return tableHTML;
+            }
+
+            //OUTPUT: display the screen information in an alert
+            var outputTable = function ( tableCode ) {
+                console.log('in outputTable...');
+                document.getElementById('outputID').innerHTML = tableCode;
+            }
+			
+			/*
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|			
+			*/
+        </script>
+    </body>
+</html>
+	</body>
+</html>

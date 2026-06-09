@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Defuse the bomb</title>
+
+		<meta name="author" content="[YourLastNameHere]">
+		<meta charset="UTF-8">
+		
+		<!--This example is used to show to how IF statements work
+			And it saves lives!
+			
+			Created:	[Today's date] -->
+		
+		<script>
+			var wireNum	=0;	// global variable for storing the wire number
+			
+			function mainProcedure () {
+				// [Put the two main procedures in here]
+			}
+			
+			function getWireNum () {	// INPUT: grab the wire number from the input line
+				wireNum	=document.getElementById("inputLine").value;
+			}
+			
+			function chooseOutcome () { // PROCESS: act differently according to which wire
+				//	Remember to use the double equals for comparisons: "=="
+				// 	[Type the IF ... ELSE chain in here...]
+			}
+			
+			function showDefusedBomb () {	// OUTPUT: replace image with defused bomb
+				document.getElementById("bombImageID").src	="defusedBomb.png";
+			}
+			
+			function showExplodedBomb () {	// OUTPUT: replace image with exploded bomb
+				//	[same thing as showDefusedBomb, but with] "explodedBomb.png";
+			}
+			
+			function showStillActiveBomb () {	// OUTPUT: replace image with still active bomb
+				//	[same thing as showDefusedBomb, but with] "stillActiveBomb.png";
+			}
+			
+			function showMoreInstructions () {	// OUTPUT: show additional instructions in the instructions area
+				var outputInstructions	="[Type in your own additional instructions here]";
+				document.getElementById("instructionsID").innerHTML	=outputInstructions;
+			}
+		</script>
+		
+		<style>
+			// Nothing to see here! Move along!
+		</style>
+	</head>
+
+	<body>
+		<p>
+			<img id="bombImageID" src="nicePictureOfABomb.png">
+		</p>
+		<p id="instructionsID">Oh my gosh! You have to defuse the bomb!</p>
+		<p>
+			Which wire do you cut? Enter 1, 2, 3, or 4:
+			<input type="text" id="inputLine" name="inputLine" size="2">
+			<button type="button" onclick="mainProcedure();">Cut carefully!</button>
+		</p>
+	</body>
+</html>
+
+

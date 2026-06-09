@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Character generator</title>
+		<meta name="description" content="Assignment: Character generator">
+		<meta name="author" content="--yourName--">
+		<!--
+			Change log:
+				Created:	25. March 2017										- Drapak
+				Modified:	11. April 2017	- changed style, added timer		- Drapak
+							
+				Finished:	
+		-->
+		<!-- load jQuery for the animations -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+		</script>
+		<style>
+			body {
+				font-family: 		Arial;
+			}
+			.graphClass {
+				background-color: 	red;
+				opacity:			0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Let's generate a random programmer!</h1>
+	
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<th id="patienceScoreID">--</th>
+					<td>
+						<span id="patienceGraphID" class="graphClass">&nbsp;</span>
+						Patience
+					</td>
+				</tr>
+				<tr>
+					<th id="curiosityScoreID">--</th>
+					<td>
+						<span id="curiosityGraphID" class="graphClass">&nbsp;</span>
+						Curiosity
+					</td>
+				</tr>
+				<tr>
+					<th id="troubleshootingScoreID">--</th>
+					<td>
+						<span id="troubleshootingGraphID" class="graphClass">&nbsp;</span>
+						Troubleshooting
+					</td>
+				</tr>
+				<tr>
+					<th id="precisionScoreID">--</th>
+					<td>
+						<span id="precisionGraphID" class="graphClass">&nbsp;</span>
+						Precision
+					</td>
+				</tr>
+				<tr>
+					<th id="resourcefulnessScoreID">--</th>
+					<td>
+						<span id="resourcefulnessGraphID" class="graphClass">&nbsp;</span>
+						Resourcefulness
+					</td>
+				</tr>
+				<tr>
+					<th id="teamworkScoreID">--</th>
+					<td>
+						<span id="teamworkGraphID" class="graphClass">&nbsp;</span>
+						Teamwork
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			<button id="buttonID">Generate a new programming superhero!</button>
+		</p>
+		
+		<!-- EVALUATION CRITERIA CHECKLIST
+				INIT: including
+					[  ]	create an empty object
+					[  ]	use the value of an object's property to make a custom  
+							animation (width)
+					[  ]	use the value of an object's property to make a custom
+							animation duration
+					[  ]	pass an object to a function as a parameter/argument
+
+				PROCESS: including
+					[  ]	create a function that accepts an object 
+							as an argument/parameter
+					[  ]	set a delay using setTimeout() or setInterval
+					[  ]	use an anonymous function inside setTimeout() or setInterval
+					[  ]	use string addition (for example: width + "px")
+					[  ]	processes at least 5 characteristics
+				OUTPUT: including
+					[  ]	display information using .innerHTML
+					[  ]	animate a change in the width of an element
+					[  ]	animate using a custom duration
+					[  ]	animate a fade in of an element
+					[  ]	animate a fade out of an element
+				STYLE: including
+					[  ]	honour all previous //STYLE sections
+					[  ]	use descriptive variable names
+					[  ]	break up functions into separate ones for input, processing, 
+							and output
+					[  ]	uses descriptive comments to identify and describe each function, 
+							for example: 
+							//PROCESS: 	this function accepts distanceUp and 
+										animates the image up that number of pixels
+					[  ]	add spaces between mathematical operators, 
+							for example: var exampleVar = 3 + 4, not var exampleVar=3+4.
+
+
+			STEP BY STEP:
+				0. 	As you create each function, add a descriptive comment, and add a 
+					console.log to help you troubleshoot.
+					
+				1.	Create a PROCESS function ( generateCharacterStats ??) that will create 
+					an empty object and randomly assign numbers to at least five 
+					characteristics. This function should return this object at the end of 
+					the function. Add it to the start of your mainProcedure.
+					
+				2. 	Create an OUTPUT function ( displayStatistics ??) that will accept the 
+					character object as a parameter and display its properties inside the 
+					appropriate ScoreIDs. Add this next to your mainProcedure.
+					
+				3. 	Create an OUTPUT function ( animateStatistics ??) that will accept the
+					character object as a parameter/argument and then use that information
+					to animate the graph. 
+					
+					a)	First get the graph animating in to opacity: 1.
+					b)	Then get it animating the width of the right GraphID
+					c) 	Then make the duration of the animation depend on the ability score
+					d)	Lastly, use setTimeout to make the animations trigger in a sequence
+						Use an anonymous function in the timer to make it work, like this: 
+						
+							setTimeout( function () {
+									//animation commands go here
+								}, 200
+							);
+					
+				4. 	Create an OUTPUT function ( fadeGraphAway ??) that will animate 
+					shrinking the graphs backward
+					a) 	First get it so each GraphID animates back to zero width
+					b)	Then get it so that it also fades out to opacity: 0
+
+					Then add this to mainProcedure, putting it in before 
+					generateCharacterStats
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<script>
+			//MAIN
+			var mainProcedure = function () {
+				console.log("in mainProcedure...");
+				
+			}
+			
+			//PROCESS: this generates random stats
+			var generateCharacterStats = function () {
+				console.log("in generateCharacterStats...");
+								
+				return stats;
+			}
+			
+			//OUTPUT: shink the graph to zero and fade it away to opacity 0
+			var fadeGraphAway = function () {
+				console.log( "in fadeGraphAway..." );
+				var FADE_LENGTH	= 200;
+				
+			}
+			
+			var displayStatistics = function ( stats ) {
+				
+				document.getElementById('patienceScoreID').innerHTML	
+					= stats.patience; 
+
+			}
+			
+			
+			var animateStatistics = function (  ) {
+				
+				var TIME_FACTOR	= 30;
+				
+				setTimeout( function () {
+						//animation commands go here
+					}, 200
+				);
+
+			}
+			
+			//INPUT: trigger mainProcedure when #buttonID is clicked
+			document.getElementById('buttonID').onclick	= mainProcedure;
+			/*
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+			*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Random Monster Swarm</title>
+        <meta name="description" content="Monster Chasers">
+        <meta name="author" content="-LastName-">
+        <!--
+            Change log:
+                5. May 2017     - Created                                       - Drapak
+                20. May 2017    - simplified code                               - Drapak
+                18. Dec 2018    - updated style and clarified                   - Drapak
+                            
+                Finished:   
+        -->
+        
+        <style>
+            img {
+                position: absolute;
+                width: 30px;
+            }
+        </style>
+        <script 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+        </script>
+    </head>
+    <body>
+        <h2>Oh no! A swarm is coming! Run away using the mouse!</h2>
+        <p>
+            Current mouse position:<br>
+            Top: 
+            <span id="topId"></span> 
+            Left: 
+            <span id="leftId"></span>.
+        </p>
+        
+        <div id="outputId"></div>
+        
+        <script>
+            //INIT: create the array to hold all the Monster objects
+            var monsterArr = [];
+            
+            //INIT: this is the width of each square in the screen grid         
+            var GRID_SIZE = 30;
+
+            //INIT: these global variables hold the current cursor position
+            var cursorX = 0;
+            var cursorY = 0;
+            
+            //INIT Object constructor: MonsterObj
+            //
+            // var aMonster = new MonsterObj( monsterNumber, screenObj );
+            //
+            // Properties:  
+            //      .top
+            //      .left
+            //      .row
+            //      .column
+            //      .id
+            //      .DISTANCE
+            //      .SOURCE_ARR
+            //
+            // Methods:
+            //      .chooseDirection();
+            //      .changeImageDirection( 0-3 );
+            //      .goDown();
+            //      .goUp();
+            //      .goLeft();
+            //      .goRight();
+            //      .placeImage();
+            //
+            var MonsterObj = function ( myMonsterNumber, screenObj ) {
+                console.log("ITS ALIVE! MonsterObj# =" + myMonsterNumber );
+                
+                //INIT: set up the initial variables for this MonsterObj
+                //
+                // This MonsterObj is going to travel within an invisible grid
+                // 
+                // We to calculate which row and column the MonsterObj starts in by 
+                // using a random number
+                //
+                this.row        = Math.floor( Math.random() * screenObj.gridHeight );
+                this.column     = Math.floor( Math.random() * screenObj.gridWidth );
+                
+                // We then use the GRID_SIZE to calculate a beginning
+                // top and left position for the MonsterObj, measured in px
+                // 
+                this.top        = this.row      * GRID_SIZE;                
+                this.left       = this.column   * GRID_SIZE;
+                                
+                // set the id of this MonsterObj
+                this.id         = 'image' + myMonsterNumber + 'ID';
+                
+                // set the distance to move each turn
+                this.DISTANCE   = GRID_SIZE + "px";
+                
+                // array with the list of possible star images in it
+                this.SOURCE_ARR = [
+                    "http://drapak.ca/cpg/img/pacman/pacmanInkyDown0.png",
+                    "http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png",
+                    "http://drapak.ca/cpg/img/pacman/pacmanInkyLeft0.png",
+                    "http://drapak.ca/cpg/img/pacman/pacmanInkyRight0.png"
+                ];
+            }
+            
+            //INPUT: this updates the current position of the MonsterObj
+            MonsterObj.prototype.updateCurrentPosition = function () { 
+                this.top    = document.getElementById(this.id).offsetTop;
+                this.left   = document.getElementById(this.id).offsetLeft;
+            };
+
+            //PROCESS: move the MonsterObj in the direction that will bring the 
+            //      MonsterObj closer to mouse pointer
+            MonsterObj.prototype.chooseDirection = function () {
+                //console.log( 'in MonsterObj.chooseDirection...' );
+
+                //update the monster's location
+                this.??????();
+
+                // figure out the difference between the horizontal
+                // and vertical positions of the Monster to the cursor
+                var horizontalDistance  = this.left - cursorX;
+                var verticalDistance    = this.top - cursorY;
+                
+                // decide which direction to go
+                if ( Math.abs( horizontalDistance ) > Math.?????? ( ?????? ) ) {
+                    // if the horizontal distance is greater than the vertical
+                    
+                    if ( ?????? > 0 ) {
+                        // if the Monster is to the right of the cursor
+                        this.goLeft();
+                    } else {
+                        // if the Monster is to the left of the cursor
+                        this.??????();
+                    }
+                } else {
+                    // if the vertical distance is greater than the horizontal
+                    if ( verticalDistance > 0 ) {
+                        // if the Monster is below the cursor
+                        this.??????();
+                    } else {
+                        // if the Monster is above the cursor
+                        this.goDown();
+                    }
+                }
+            };
+            
+            //OUTPUT: changes the current image depending on the index of SOURCE_ARR
+            MonsterObj.prototype.changeImageDirection = function ( imageIndex ) {
+                //console.log('in MonsterObj.changeImageDirection:imageIndex=' + imageIndex);
+                document.getElementById(this.id).src    = this.SOURCE_ARR[ imageIndex ];
+            };
+
+            //OUTPUT:   1) change the monster's image
+            //          2) move this monster DOWN
+            //          3) choose a new direction when done
+            MonsterObj.prototype.goDown = function () {
+                //console.log("in MonsterObj.goDown...");
+                
+                //ugly hack so that 'this' can work inside start & complete
+                var self    = this;
+                
+                $("#" + this.id).animate(
+                    {top: "+=" + this.DISTANCE}, 
+                    {   start:  function () { 
+                                    self.changeImageDirection( 0 ); 
+                                },
+                        complete:   function () {
+                                    self.chooseDirection();
+                                },
+                        easing:     "linear"
+                    }
+                );
+                
+                this.row    = this.row + 1;
+            };
+            
+            //OUTPUT:   1) change the monster's image
+            //          2) move this monster UP
+            //          3) choose a new direction when done
+            MonsterObj.prototype.goUp = function () {
+                //console.log("in MonsterObj.goUp...");
+                
+                //ugly hack so that 'this' can work inside start & complete
+                var self    = this;
+
+                $("#" + this.id).animate(
+                    {top: "-=" + this.DISTANCE}, 
+                    {   start:  function () { 
+                                    self.changeImageDirection( 1 ); 
+                                },
+                        complete:   function () {
+                                    self.chooseDirection();
+                                },
+                        easing:     "linear"
+                    }
+                );
+
+                this.row    = this.row - 1;
+            };
+            
+            //OUTPUT:   1) change the monster's image
+            //          2) move this monster LEFT
+            //          3) choose a new direction when done
+            MonsterObj.prototype.goLeft = function () {
+                //console.log("in MonsterObj.goLeft...");
+                
+                //ugly hack so that 'this' can work inside start & complete
+                var self    = this;
+
+                $("#" + this.id).animate(
+                    {left: "-=" + this.DISTANCE}, 
+                    {   start:  function () { 
+                                    self.changeImageDirection( 2 ); 
+                                },
+                        complete:   function () {
+                                    self.chooseDirection();
+                                },
+                        easing:     "linear" 
+                    }
+                );
+                
+                this.column = this.column - 1;
+            };
+            
+            //OUTPUT:   1) change the monster's image
+            //          2) move this monster RIGHT
+            //          3) choose a new direction when done
+            MonsterObj.prototype.goRight = function () {
+                //console.log("in MonsterObj.goRight...");
+                
+                //ugly hack so that 'this' can work inside start & complete
+                var self    = this;
+
+                $("#" + this.id).animate(
+                    {left: "+=" + this.DISTANCE}, 
+                    {   start:  function () { 
+                                self.changeImageDirection( 3 ); 
+                                },
+                        complete:   function () {
+                                    self.chooseDirection();
+                                },
+                        easing:     "linear"
+                    }
+                );
+
+                this.column = this.column + 1;
+            }
+
+            //OUTPUT: add a new image to the outputId
+            MonsterObj.prototype.placeImage = function () {
+                //console.log( 'in MonsterObj.placeImage...' );
+
+                var newImage        = document.createElement("img");
+                newImage.src        = this.SOURCE_ARR[ 0 ];
+                newImage.id         = this.id;
+                newImage.style.top  = this.top + 'px';
+                newImage.style.left = this.left + 'px';
+                
+                document.querySelector( '#outputId' ).appendChild( newImage );
+            };
+
+            //END of MonsterObj constructor
+            
+
+            //OUTPUT: display the current mouse position
+            var displayPosition = function () {
+                //console.log( 'in displayPosition...' );
+
+                document.querySelector( '#topId' ).innerHTML    = cursorX;
+                document.querySelector( '#leftId' ).innerHTML   = cursorY;
+            };
+
+            //INPUT: Gets the current screen dimensions in px & cells and stores them globally
+            var getScreenInformation = function () {
+                console.log("in getScreenInformation...");
+                
+                var windowWidth     = window.innerWidth;
+                var ??????    = window.innerHeight;
+
+                //INIT: set up the object to hold the screen information
+                var screenObj = {};
+                
+                screenObj.gridHeight    = Math.floor( windowHeight / GRID_SIZE );
+                screenObj.gridWidth     = Math.floor( ?????? / GRID_SIZE );
+                
+                return screenObj
+            }
+            
+            //EVENTS
+            //
+            //INPUT EVENT: this constantly updates and stores the current mouse position
+            document.onmousemove = function( event ){
+                cursorX = event.clientX;
+                cursorY = event.clientY;
+                
+                displayPosition();
+            }
+            
+            //INPUT EVENT: run this when the document first loads...
+            document.body.onload = function () {
+                //console.log('generating a screen full of random beasties');
+                
+                var screenObj   = getScreenInformation();
+                
+                // loop through 20 times to create 20 monsters and place them
+                for ( i = 0; i <= ??????; i++ ) {
+                    monsterArr[ i ] = new ??????( i, screenObj );
+                    monsterArr[ i ].placeImage();
+                    monsterArr[ ?????? ].chooseDirection();
+                }
+            }
+        </script>
+    </body>
+</html>

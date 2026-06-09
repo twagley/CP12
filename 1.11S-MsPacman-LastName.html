@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Ms. Pacman</title>
+
+		<meta name="author" content="[LastName]">
+		<meta charset="UTF-8">
+		
+		<!--This program moves Ms. Pacman from point A to point B
+			
+			Created:	[add date here]
+		-->
+		
+		<script>
+			var leftCoord			=23;	/* define the leftCoordinate to the starting point */
+			var	topCoord			=577;	/* define the topCoordinate to the starting point */
+			var delayInMillisecs	=10;	/* set the time it takes to move one pixel */
+
+			var animationFrame		=new Array();	/* this is timer array for each frame of the animation */
+			var animationStep		=0;		/* set the number of the first animation frame */
+			
+			/*	This function calls each of the sub modules
+				animUp, animRight, animDown, and animLeft all move Ms Pacman one pixel
+				Please change mainProcedure to make Ms Pacman move from point A to B
+			*/
+			function mainProcedure () {
+				for (i = 0; i < 107; i++) {	
+					animUp();
+				}
+				for (i = 0; i < 35; i++) {
+					animRight();
+				}
+				for (i = 0; i < 55; i++) {
+					animUp();
+				}
+				for (i = 0; i < 107; i++) {
+					animRight();
+				}
+				for (i = 0; i < 55; i++) {
+					animDown();
+				}
+				for (i = 0; i < 55; i++) {
+					animLeft();
+				}
+				for (i = 0; i < 107; i++) {
+					animDown();
+				}
+				for (i = 0; i < 90; i++) {
+					animLeft();
+				}
+				
+			}
+			
+			function animUp () {	/* animates Ms. Pacman up*/
+				animationStep	=animationStep+1;
+				animationFrame[i] = setTimeout(function(){goUp();}, delayInMillisecs*animationStep);
+			}
+
+			function animDown () {	/* animates Ms. Pacman down*/
+				animationStep	=animationStep+1;
+				animationFrame[i] = setTimeout(function(){goDown();}, delayInMillisecs*animationStep);
+			}
+
+			function animLeft () {	/* animates Ms. Pacman left*/
+				animationStep	=animationStep+1;
+				animationFrame[i] = setTimeout(function(){goLeft();}, delayInMillisecs*animationStep);
+			}
+
+			function animRight () {	/* animates Ms. Pacman right*/
+				animationStep	=animationStep+1;
+				animationFrame[i] = setTimeout(function(){goRight();}, delayInMillisecs*animationStep);
+			}
+			
+			function goUp () {	/* makes Ms. Pacman move up relative to the maze*/
+				topCoord	=topCoord-1;
+				document.getElementById("msPacman").style.top	=topCoord.toString()+"px";
+			}
+
+			function goDown () {	/* makes Ms. Pacman move down relative to the maze*/
+				topCoord	=topCoord+1;
+				document.getElementById("msPacman").style.top	=topCoord.toString()+"px";
+			}
+			
+			function goRight () {	/* makes Ms. Pacman move right relative to the maze*/
+				leftCoord	=leftCoord+1;
+				document.getElementById("msPacman").style.left	=leftCoord.toString()+"px";
+			}
+			
+			function goLeft () {	/* makes Ms. Pacman move left relative to the maze*/
+				leftCoord	=leftCoord-1;
+				document.getElementById("msPacman").style.left	=leftCoord.toString()+"px";
+			}
+		</script>
+		
+		<style>
+			#msPacman {	/* this is the initial position of Ms Pacman in the maze */
+				position: absolute;
+				left: 23px;
+				top: 577px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img id="maze" src="MsPacManScreen.png">
+		<img id="msPacman" src="MsPacMan.png">
+		<br />
+		<button type="button" id="startButton" onclick="mainProcedure();">Start!</button>	
+		
+	</body>
+</html>
+
+

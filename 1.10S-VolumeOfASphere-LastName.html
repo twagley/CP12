@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Volume of a sphere</title>
+
+		<meta name="author" content="[LastName]">
+		<meta charset="UTF-8">
+		
+		<!--[describe what your program does in here]
+			
+			Created:	[add date here]
+		-->
+		
+		<script>
+			/*	This function calls each of the sub modules */
+			function mainProcedure () {
+				var radius	=0;	/* define the radius var so it can be seen by everything */
+				var	volume	=0;	/* define the area var so it can be seen as well */
+				getRadius();
+				calculateVolume();
+				displayVolume();
+			}
+			
+			/* 	getRadius looks inside ... [describe]	*/
+			function getRadius() {
+				radius	=document.getElementById("inputLine").value;
+			}
+
+			/* 	calculateVolume calculates ... [describe] */
+			function calculateVolume() {
+				volume	=Math.PI; /* change this formula so that it works*/
+			}
+			
+			/* 	displayVolume displays ... [describe] */
+			function displayVolume() {
+				document.getElementById("outputBlock").innerHTML	=volume;
+			}
+		</script>
+		
+		<style>/* no style today! */</style>
+	</head>
+
+	<body>
+		<h1>V=<sup>4</sup>/<sub>3</sub>*&pi;r<sup>3</sup></h1>
+
+		
+		<h3>IPO [<strong>I</strong>nput/<strong>P</strong>rocessing/<strong>O</strong>utput] chart</h3>
+		<table>
+			<caption>[restate problem here]</caption>
+			<tr>
+				<th>Input</th>
+				<th>Processing</th>
+				<th>Module references</th>
+				<th>Output</th>
+			</tr>
+			<tr>
+				<td class="withborder">
+					[Input info in here]<br />
+					...
+				</td>
+				<td class="withborder">
+					[Processing info in here]...<br />
+					...
+				</td>
+				<td class="withborder"> <!-- Module references -->
+					1000<br />
+					2000
+				</td>
+				<td class="withborder">
+					[Output info in here]
+				</td>
+			</tr>
+		</table>
+		
+		<hr /> <!-- now the actual program -->
+		
+		<p>
+			Please enter the radius of the sphere: 
+			
+			<!-- put some kind of numerical input in here -->
+			
+			<button type="button" onclick="mainProcedure();">Calculate!</button>
+		</p>
+		<p>The volume is: <output id="outputBlock" name="outputBlock"></output></p>
+
+	</body>
+</html>
+
+

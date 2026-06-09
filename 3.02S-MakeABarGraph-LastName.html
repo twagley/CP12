@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Bar graph of popular programming languages</title>
+		<meta name="description" content="Make a bar graph">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				21. October 2015	- Created									- Drapak
+				4. April 2017		- moved script and onclick to tail			- Drapak
+				12. April 2017		- added line length guide					- Drapak
+				25. November 2018	- moved to new id style						- Drapak
+				1. December 2018	- fixed spelling/cap mistakes				- Drapak
+		-->
+		<style>
+			input, button {
+				position: 			absolute;
+				left: 				10em;
+			}
+			div {
+				color:				white;
+				min-height:			1.2em;
+				max-height:			1.2em;
+				wIdth:				0em;
+				padding-left:		0.3em;
+				overflow: 			hIdden;
+			}
+			#javascriptGraphId {
+				background-color: 	red;
+			}
+			#javaGraphId {
+				background-color: 	blue;
+			}
+			#pythonGraphId {
+				background-color: 	orange;
+			}
+			#cssGraphId {
+				background-color: 	cyan;
+			}
+			#phpGraphId {
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>
+			The top 5 most used programming languages on 
+			<a href="https://github.com/">Github!</a>
+		</h4>
+		<p>
+			Please enter the number of projects on Github that use each language:<br>
+			Javascript:	<input id="javascriptInputId" 	value="323938"><br>
+			Java:		<input id="javaInputId"			value="222852"><br>
+			Python:		<input id="pythonInputId"		value="164852"><br>
+			CSS:		<input id="cssInputId"			value="164585"><br>
+			PHP:		<input id="phpInputId"			value="138771"><br>
+			<br>
+			<button id="buttonId">Click to graphinate!</button><br>
+		</p>
+		<hr>
+		<div id="javascriptGraphId"> Javascript</div>
+		<div id="javaGraphId"> Java</div>
+		<div id="pythonGraphId"> Python</div>
+		<div id="cssGraphId"> CSS</div>
+		<div id="phpGraphId"> PHP</div>
+
+ 		<script>
+			//OUTPUT: change the graph divs to the calculated wIdth
+			var displayGraph = function ( graphWidthObj ) {
+				console.log( 'in displayGraph' );			// debugging helper
+				
+				// display the calculated wIdths.....
+			}
+			
+			//PROCESS: calculate the wIdth of the graph to display, and store in graphWidthObj
+			var calculateGraphWidths = function (  ) {
+				console.log( 'in calculateGraphWidths' );	// debugging helper
+				const GRAPH_MULTIPLIER = .001;  			// or some similar number
+				var graphWidthObj = {}; 					// declare as an empty object
+				
+				// some mysterious calculations (cue spooky music!)
+				
+				return graphWidthObj;
+			}
+			
+			//INPUT: read in the programming stats and store insIde an object
+			var getProgrammingStats = function ( ) {
+				console.log( 'in getProgrammingStats' );	// debugging helper
+				return;
+			}
+			
+			//MAIN
+			var mainProcedure = function () {
+				console.log('in mainProcedure');
+				/*
+					1. something about getProgrammingStats
+					2. then maybe something about calculateGraphWidths
+					3. mumble mumble .. displayGraph .. mumble mumble
+				
+					Look at the example code at: http://drapak.ca/cpg/MakeABarGraph.shtml
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+				*/
+			}
+			
+			//INPUT EVENT: trigger mainProcedure when #buttonId is clicked
+			document.getElementById('buttonId').onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

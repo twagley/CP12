@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Keyboard listener</title>
+
+		<meta name="author" content="[someThingToChange]">
+		<meta charset="UTF-8">
+		
+		<!--This example is used to show to create a keyboard listener while also 
+			demonstrating how if statements work
+			
+			Created:	[someThingToChange] -->
+		
+		<script>
+			/*	This creates a function that is triggered each time that a key is pressed down. 
+				This is better than onkeypress, because onkeydown can detect arrow keys.
+				However, onkeydown cannot detect shifted letters: it detects the shift key as its own code. */
+				
+			var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+			var amountRed			=0;		// the amount of red in the style.color (0-255)
+			var sizeOfFont			=30;	// the initial size of the font in outputBlock
+				
+			/*	INPUT: This next command tells the browser to trigger when a key is pressed anywhere
+				note that it's format is different than creating a usual function */
+			someThingToChange	=function (someThingToChange) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				characterPressed	=keyEvent.which || keyEvent.keyCode;
+				
+				showMeWhatIPressed();
+				chooseKeypressResult();
+			}
+
+			function chooseKeypressResult () {	//	PROCESS: decide how to react with different key presses
+				//	and now the real star: a bunch of IF statements to decide what to do
+				//	note that the comparisons use a "==" and NOT a "="!
+				
+				if (characterPressed == 00) {	// if they pressed an UP arrow
+					someThingToChange();
+				} else if (characterPressed == 00) {	// if they pressed an DOWN arrow
+					someThingToChange();
+				} else if (someThingToChange == 00) {	// if they pressed an RIGHT arrow
+					someThingToChange();
+				} else if (characterPressed == 00) {	// if they pressed an LEFT arrow
+					someThingToChange();
+				}
+			}
+			
+			function increaseRed () {	// OUTPUT: this increases the amount of red in the outputBlock
+				amountRed			=someThingToChange+40;
+				var newColorString	="rgb(" + someThingToChange + ", 0, 0)";
+				document.getElementById("outputBlock").someThingToChange	=newColorString; // apply the new color
+			}
+			
+			function decreaseRed () {	// OUTPUT: this decreases the amount of red in the outputBlock
+				amountRed			=amountRed-40;
+				var newColorString	="someThingToChange(" + amountRed.toString() + ", 0, 0)";
+				document.getElementById("outputBlock").someThingToChange	=newColorString; // apply the new color
+			}
+			
+			function increaseSize () {	// OUTPUT: this increases the font size in the outputBlock
+				// note that the CSS code is "font-size: 12px", so the Javascript is ".style.fontSize ='12px'"
+				sizeOfFont			=sizeOfFont+5;
+				var newSizeOfFont	=someThingToChange + "px";
+				document.getElementById("outputBlock").someThingToChange	=someThingToChange; // apply the new size
+			}
+			
+			function decreaseSize () {	// OUTPUT: this decreases the font size in the outputBlock
+				// note that the CSS code is "font-size: 12px", so the Javascript is ".style.fontSize ='12px'"
+				sizeOfFont			=sizeOfFont-5;
+				var newSizeOfFont	=sizeOfFont.toString() + "someThingToChange";
+				document.getElementById("outputBlock").someThingToChange	=newSizeOfFont; // apply the new size
+			}
+						
+			function showMeWhatIPressed () { // OUTPUT: this displays the onkeydown code in the outputBlock
+				//	output the code I pressed - really for debugging more than anything else...
+				var messageToOutput		= "The Unicode value is: " 
+										+ characterPressed;
+				document.getElementById("outputBlock").someThingToChange	=messageToOutput;			
+			}
+		</script>
+		
+		<style>
+			// Nothing to see here! Move along!
+		</style>
+	</head>
+
+	<body>
+		<h1 id="outputBlock">Press a key! Go ahead!</h1>
+		<p>Use the following keys to make things happen:</p>
+		<ol>
+			<li><strong>&uarr;</strong> makes things more red</li>
+			<li><strong>&darr;</strong> makes things less red</li>
+			<li><strong>&larr;</strong> makes the font size smaller</li>
+			<li><strong>&rarr;</strong> makes the font size bigger</li>
+		</ol>
+	</body>
+</html>
+
+

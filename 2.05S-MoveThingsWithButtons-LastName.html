@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Move things with buttons</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to read current positions and move to a new one.">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	29. Sept 2015											- Drapak
+				Modified:	5. March 2017	- reworked for clearer style			- Drapak
+							30. April 2017	- fixed long lines						- Drapak
+				
+				Finished:	
+		-->
+
+		<style>
+			#imageID {
+				position: 	absolute;
+				top:		50px;	
+				left:		300px;
+			}
+			input {
+				width: 		50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img 
+			id="imageID" 
+			alt="image of a star"
+			src="https://www.kasandbox.org/programming-images/cute/Star.png">
+	
+		<p>
+			Distance to move for each button press:
+			<input id="distanceID" type="text" value="15">px
+			<button id="downButtonID">&darr;</button>
+			<!-- 
+				A reference for arrow symbols:
+				up = &uarr;		down =&darr;	left = &larr;	right = &rarr;
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+			-->
+		</p>
+
+ 		<script>
+			// This reads the distance per click and moves the star down by that amount
+			var moveDown = function () {
+				console.log('in moveDown...');
+				
+				// INPUT: get the distance to move with each click
+				// .value returns a string - you convert it to a number with parseInt()
+				var distancePerClick	
+					= parseInt( document.getElementById('distanceID').value );
+				
+				// INPUT: get the image's current distance from the top of the page
+				var currentTop			= document.getElementById('imageID').offsetTop;
+				
+				// PROCESS: increase the distance from the top by the distance per click
+				var newTop				= currentTop + distancePerClick;
+				
+				console.log('currentTop, newTop:' + currentTop + ', ' + newTop);
+				// OUTPUT: update the image with a new top value
+				// note that you have to add px to the end of the number 
+				document.getElementById('imageID').style.top	= newTop + 'px';
+			}
+			
+			//INPUT: trigger moveDown when #downButtonID is clicked
+			document.getElementById('downButtonID').onclick	= moveDown;
+		</script>
+	</body>
+</html>

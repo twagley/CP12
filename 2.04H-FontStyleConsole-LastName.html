@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Font style console</title>
+
+		<meta 
+			name="author" 
+			content="YourName">
+		<meta 
+			name="description" 
+			content="This page uses buttons and text input to style some fonts">
+		<meta charset="UTF-8">
+		
+		<!--
+			Created:	27. Sept 2015											- Drapak
+			Modified:	5. March 2017	- reworked for better programming style	- Drapak
+						30. April 2017	- fixed long lines						- Drapak
+						25. Feb 2018	- changed criteria to make less boring	- Drapak
+						
+			Finished:	
+		-->
+		
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!-- The assignment: Create a page that uses Javascript to adjust font characteristics
+
+			1.	create the HTML of your page, including:
+				a.	a header
+				b.	buttons
+				c.	text inputs
+				d.	a table to contain it all
+				e.	a div to use for output
+			2.	give things IDs so they can be accessed
+			3.	use Javascript to add onclick and onchange triggers to IDs
+			4.	add functions to change the styles of your text example
+			
+			Evaluation
+			
+			___/10 HTML-CSS: including ANY TEN of the following:
+				[ ]	a <span>
+				[ ]	a heading
+				[ ]	a table
+				[ ]	a div for output
+				[ ]	a descriptive paragraph
+				[ ] a list
+				
+				The following MUST be applied inside <style>:
+				
+				[ ]	applying a style to a tag
+				[ ]	applying a style to an #ID or .class
+				[ ]	applying a color, opacity, or background color
+				[ ]	applying a border
+				[ ]	applying a font size
+				[ ]	applying the font family, style, or weight
+				[ ]	applying the width
+				[ ]	applying text-align or vertical-align
+				[ ]	applying a position
+				[ ]	applying a top measurement
+				[ ]	applying a left measurement
+				[ ] applying a display style
+				[ ] applying margin-left or margin-right
+				
+			___/10 INPUT: including ANY FOUR of the following:
+				[ ]	a text area box
+				[ ]	an input line
+				[ ]	buttons
+				[ ]	things that work with document.getElementById().onclick
+				[ ]	things that work with document.getElementById().onchange
+				
+			___/10 PROCESS: including:
+				[ ]	successfully reading a text input
+				[ ]	assigning a variable
+				[ ]	using basic math
+				[ ]	using parseInt()
+				
+			___/10 OUTPUT: including ANY FOUR of the following:
+				[ ]	changing the color or background using Javascript
+				[ ]	changing the weight or style of a font using Javascript
+				[ ]	changing the size of a font using Javascript
+				[ ]	changing the top or left position of something using Javascript
+				[ ]	changing the border or width of something using Javascript
+				[ ]	output using .innerHTML
+				
+			___/10 STYLE: honouring all //STYLE sections to date
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		
+		<h1>2.04: Hand-in: Font style console</h1>
+		
+		<textarea id="inputTextID">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Ut consequat feugiat ante quis tempor. 
+			Proin malesuada augue eget metus lacinia, id accumsan risus rutrum. 
+			Donec sodales velit et est fringilla venenatis. 
+			Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus. 
+			Nulla quis egestas nunc. Donec volutpat enim in elementum scelerisque. 
+			Pellentesque et sem quis nulla imperdiet ornare. 
+			Integer id iaculis mi. 
+			Quisque tincidunt porttitor dui, sit amet rutrum ligula placerat vitae. 
+			Morbi laoreet risus quam, a gravida est rutrum vitae.
+		</textarea><br />
+		
+		<hr />		
+		<div id="outputID"></div>
+
+ 		<script>
+			//INPUT-OUTPUT: updateText reads #inputTextID and places that inside #outputID
+			var updateText = function () {
+				// INPUT: read the example text
+				var exampleText	= document.getElementById('inputTextID').value;
+				
+				// OUTPUT: output the example text
+				document.getElementById('outputID').innerHTML	= exampleText;
+			}
+			
+			//INPUT: trigger updateText when the page is finished loading
+			document.body.onload	= updateText;
+		</script>
+	</body>
+</html>
+
+

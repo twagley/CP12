@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mad libs</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript strings and objects to create mad libs">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	18. Oct 2015										- Drapak
+				Modified:	4. April 2017	- reworked for better style			- Drapak
+							12. April 2017	- added line length guide			- Drapak
+				Completed:	27. Oct 2018	- 
+		-->
+		<style>
+			/* line up the input lines and buttons */
+            input, button {
+                position:   absolute;
+                left:       20em;
+            }
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Use Javascript strings and objects to create mad libs
+			
+			Use the //INIT: Objects code example at:
+			http://drapak.ca/cpg/initObjects.shtml 
+			as the framework for your code.
+			
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<h4>Mad libs!</h4>
+
+		<p>
+			Enter a name:
+			<input id="nameId" type="text" value="Grace Hopper"><br>
+			
+			Enter a job:
+			<input id="jobId" type="text" 
+				value="computer scientist and United States Navy Rear Admiral"><br>
+				
+			Enter an adjective:
+			<input id="adjectiveId" type="text" value="first"><br>
+			
+			Enter an object:
+			<input id="objectId" type="text" value="programming language compiler"><br><br>
+			
+			<button id="buttonId" >Generate the mad libs!</button>
+		</p>
+		
+		<br>
+		
+		<p id="outputId"></p>
+
+		<script>
+		
+		
+			//INPUT: trigger mainProcedure when #buttonId is clicked
+			document.querySelector( "#buttonId" ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

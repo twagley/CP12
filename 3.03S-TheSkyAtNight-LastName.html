@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The sky at night</title>
+		<meta name="description" content="The sky at night">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				21. October 2015	- created!									- Drapak
+				27. November 2018	- moved to modern style rules				- Drapak
+		-->
+		<!-- load jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<style>
+			span {
+				border:				1px solid red;
+			}
+			button {
+				border:				1px solid grey;
+				color:				black;
+				background-color:	white;
+			}
+			img {
+				position:			fixed;
+				width:				10px;
+				/* start off in the middle of the screen */
+				top:				50%; 
+				left:				50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>The sky at night</h2>
+		<button id="dimButton">Click to<br>dim the lights!</button>
+		<button id="startButton">
+			Click to behold<br>the majesty of the heavens!
+		</button><br>		
+		<img id="mercuryId">
+		<img id="venusId">
+		<img id="earthId">
+		<img id="marsId">
+		<img id="jupiterId">
+		<img id="saturnId">
+		<img id="neptuneId">
+		<img id="uranusId">
+		<br>
+ 		<script>
+			//INIT: set up all the planet objects
+			//define mercuryObj using one method
+			var mercuryObj = {}; //define mercuryObj as an empty object
+			
+			mercuryObj.id				= "mercuryId";
+			mercuryObj.src				= "http://drapak.ca/cpg/img/Mercury.png";
+			mercuryObj.diameter			= 4879;
+			mercuryObj.top				= 55;
+			mercuryObj.left				= 55;
+			mercuryObj.animationSpeed	= 1000;
+			
+			//define venusObj using another method
+			var venusObj = {};	//define venusObj as an empty object
+			
+			venusObj['id']				= "venusId";
+			venusObj['src']				= "http://drapak.ca/cpg/img/Venus.png";
+			venusObj['diameter']		= 12104;
+			venusObj['top']				= 40;
+			venusObj['left']			= 65;
+			venusObj['animationSpeed']	= 2000;
+			
+			//define earth using the all-in-one-line method
+			//this can be BAD style if the line gets too long, like this one
+			var earthObj = { id: "earthId", src: "http://drapak.ca/cpg/img/Earth.png", diameter: 12756, top: 20, left: 70, animationSpeed: 3000 };
+			
+			//define mars and the others using a more legible method
+			var marsObj = {
+				id:				"marsId",
+				src:			"http://drapak.ca/cpg/img/Mars.png",
+				diameter:		6792,
+				top:			90,
+				left:			10,
+				animationSpeed:	4000 
+			};
+			
+			var jupiterObj = {
+				id:				"jupiterId",
+				src:			"http://drapak.ca/cpg/img/Jupiter.png",
+				diameter:		142984,
+				top:			50,
+				left:			70,
+				animationSpeed:	5000 
+			};
+			
+			var saturnObj = {
+				id:				"saturnId",
+				src:			"http://drapak.ca/cpg/img/Saturn.png",
+				diameter:		120536,
+				top:			5,
+				left:			20,
+				animationSpeed:	6000 
+			};
+
+			// NOW ADD THE OTHER PLANETS!
+			// Uranus is uranusId, Uranus.png, 51118 km dia, top, left: 80, 20
+			// Neptune is neptuneId, Neptune.png, 49528 km dia, ends at top, left: 50, 5
+			
+			
+			//OUTPUT: reverse the text colors
+			var dimTheLights = function () {
+				document.body.style.color 				= 'gray';
+				document.body.style.backgroundColor 	= 'black';
+			}
+			
+			//OUTPUT: display and animate cool things for a planet
+			var displayAndAnimate = function ( planetObj ) {
+				// 1. link the image id to the src
+									
+				// 2. use .animate to move the planets towards their new top and left positions
+				// Note that the top and left positions are given in '%' instead of 'px'
+				// So, {left: '40%'} will place something at 40% of the way across the screen from the left edge
+				// this can be good if you want to make your programs resize to different screens
+
+				// 3. add to the animation to make the animation increase the width of the image as it moves
+				}
+			
+			//PROCESS: calculate the image width as a fraction of the planets actual width
+			var calculateImageWidth = function ( planetDiameter ) {
+				return Math.round( planetDiameter / 500 )
+			}
+			
+			//MAIN
+			var mainProcedure = function () {
+				//display each planet, and animate them
+				displayAndAnimate( mercuryObj );
+				displayAndAnimate( venusObj );
+				displayAndAnimate( earthObj );
+				displayAndAnimate( marsObj );
+				displayAndAnimate( jupiterObj );
+				displayAndAnimate( saturnObj );
+				//REMEMBER TO ADD URANUS AND NEPTUNE
+			}
+			
+			//INPUT EVENTS
+			document.querySelector( '#dimButton' ).onclick		= dimTheLights;
+			document.querySelector( '#startButton' ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

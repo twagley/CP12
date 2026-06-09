@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+	<head>
+		<title>One dimensional arrays</title>
+
+		<meta name="author" content="EDIT: LastName">
+		<meta charset="UTF-8">
+		
+		<!--This page shows how to use basic array functions
+			
+			Created:	EDIT: InsertDateHere -->
+
+		<script>
+			// INIT:	define the nature of each variable
+			var monthNames, daysOfWeek, ordinalNumbers	=[];
+			
+			function mainProcedure () {
+				console.log("in mainProcedure...");
+				
+				initializeMonthNames();
+				initializeDaysOfWeek();
+				initializeOrdinalNumbers();
+				
+				outputMonthNames();
+				outputDaysOfWeek();
+				outputOrdinalNumbers();
+			}
+			
+			function initializeMonthNames () {	// INIT: put month names in array
+				console.log("in initializeMonthNames...");
+				
+				monthNames	=["January",
+							"February",
+							"March",
+							"April",
+							"May",
+							"June",
+							"July",
+							"August",
+							"September",
+							"October",
+							]; // Do not touch this line
+				
+				// EDIT: Add your own code here to add November and December
+				
+				//	
+			}
+		
+			function initializeDaysOfWeek () { // INIT: put weekday names in array
+				console.log("in initializeDaysOfWeek...");
+				
+				daysOfWeek	=["Monday", 
+							"Tuesday",
+							"Wednesday",
+							"Thursday",
+							"Friday",
+							"Saturday"
+							]; // Do not touch this line
+							
+				// EDIT: Add your own code to put Sunday at the beginning of the week
+				
+				//				
+			}
+
+			function initializeOrdinalNumbers () { // INIT: put ordinal number in array
+				console.log("in initializeOrdinalNumbers...");
+				
+				ordinalNumbers	=["2nd",
+							"3rd",
+							"4th",
+							"5th",
+							"6th",
+							"7th",
+							"8th",
+							"9th"
+							]; // Do not touch this line
+							
+				// EDIT: use .unshift() to add "1st" to the front of the array
+
+				//
+				
+				// you can use a loop to calculated information to an array
+				for (i=10; i<=20; i++) {		// cycle from 10-20, adding "th" to make an ordinal number
+					// EDIT: Use .push() to add the next ordinal numbers 
+					
+					//
+				}
+				
+				// you can even use earlier parts of an array to calculate 
+				for (i=1; i<=9; i++) {			// cycle from 1-9, adding "2" to the existing ordinal numbers from 1-9
+					ordinalNumbers.push("2" + ordinalNumbers[i-1]);
+				}
+				
+				ordinalNumbers.push("30th");
+				
+				// EDIT: use ordinalNumbers with an index to add "31st" to the end. Remember that arrays start with element [0]
+
+				//
+			}
+			
+			function outputMonthNames () {	// OUTPUT: month name information
+				console.log("in outputMonthNames...");
+				
+				document.getElementById("numMonthsID").innerHTML	=monthNames.length; // output number of months in a year
+			
+				// you can directly address array elements by typing in the number
+				document.getElementById("monthNameID0").innerHTML	=monthNames[0];
+				document.getElementById("monthNameID1").innerHTML	=monthNames[1];
+				document.getElementById("monthNameID2").innerHTML	=monthNames[2];
+				document.getElementById("monthNameID3").innerHTML	=monthNames[3];
+				document.getElementById("monthNameID4").innerHTML	=monthNames[4];
+				document.getElementById("monthNameID5").innerHTML	=monthNames[5];
+				document.getElementById("monthNameID6").innerHTML	=monthNames[6];
+				document.getElementById("monthNameID7").innerHTML	=monthNames[7];
+				document.getElementById("monthNameID8").innerHTML	=monthNames[8];
+				document.getElementById("monthNameID9").innerHTML	=monthNames[9];
+				document.getElementById("monthNameID10").innerHTML	=monthNames[10];
+				document.getElementById("monthNameID11").innerHTML	=monthNames[11];
+			}
+		
+			function outputDaysOfWeek () { // OUTPUT: weekday information
+				console.log("in outputDaysOfWeek...");
+
+				// EDIT: output the length of the daysOfWeek array into element id="daysInAWeekID" using .length
+				
+				//
+				
+				// you can use a loop to output the information as well
+				for (i=0; i<=6; i++) {
+					document.getElementById("weekDayID" + i).innerHTML	=daysOfWeek[i];				
+				}
+			}
+
+			function outputOrdinalNumbers () { // OUTPUT: ordinal number info
+				console.log("in outputOrdinalNumbers...");
+				
+				document.getElementById("numOrdinalsID").innerHTML	=ordinalNumbers.length; // output number of ordinal numbers
+			
+				// EDIT: you can join the array elements into a string with .join() and put it into id="listOfOrdinalsID"
+				
+				//
+			}
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>One dimensional arrays</h1>
+		
+		<h3>There are <span id="numMonthsID"></span> months in a year.</h3>
+		<p>
+			The names of the months are: 
+			<strong>
+				<span id="monthNameID0"></span>,
+				<span id="monthNameID1"></span>,
+				<span id="monthNameID2"></span>,
+				<span id="monthNameID3"></span>,
+				<span id="monthNameID4"></span>,
+				<span id="monthNameID5"></span>,
+				<span id="monthNameID6"></span>,
+				
+				<!-- EDIT: I broke this for you. You can fix it! -->
+				
+				<span id="monthNameID11"></span>
+			</strong>
+		</p>
+
+		<h3>There are <span id="daysInAWeekID"></span> days in a week.</h3>
+		<p>
+			The days of the week are: 
+			<strong>
+				<span id="weekDayID0"></span>, 
+				<span id="weekDayID1"></span>,
+				<span id="weekDayID2"></span>,
+				<span id="weekDayID3"></span>,
+				<span id="weekDayID4"></span>,
+				<span id="weekDayID5"></span>,
+				<span id="weekDayID6"></span>
+			</strong>
+		</p>
+		
+		<h3>Ordinal numbers are used to show order (for example: first, second, third, ...)</h3>
+		<h4>The first <span id="numOrdinalsID"></span> ordinal numbers are:</h4>
+		<p id="listOfOrdinalsID"></p>
+	</body>
+</html>
+
+

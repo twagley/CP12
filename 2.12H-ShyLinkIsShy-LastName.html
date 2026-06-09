@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Shy Link is Shy</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript mouse events, animation, and function pipelines">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	12. Oct 2015
+				Modified:	3. April 2017	- moved script to bottom of page
+							12. April 2017	- added long line ruler
+		-->
+
+		<style>
+			/* sets the image size and places it in the middle of the screen */
+			#imageID {
+				width:		80px;
+				top:		50%;
+				left:		50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Use function pipelines to create a program that moves animates 
+			something smoothly in response to clicks and the movement of the mouse.
+			
+			Evaluation checklist:
+			
+			___/10 HTML/CSS:
+				[  ] link to the jQuery library
+				[  ] create an element to move with an ID
+				[  ] change the position of that element in CSS so it can move
+				[  ] trigger a function using onmouseover or onmouseout
+				[  ] trigger a function using onclick or onkeydown
+				
+			___/10 PROCESS: including:
+				[  ] create a function that accepts an argument
+				[  ] create a function that returns a value
+				[  ] generate a random number using Math.random()
+				[  ] round numbers using a Javascript rounding function
+				[  ] uses if...else if...else to respond to different circumstances
+				
+			___/10 OUTPUT: including:
+				[  ] create a function that will animate something up using jQuery
+				[  ] create a function that will animate something down using jQuery
+				[  ] create a function that will animate something left using jQuery
+				[  ] create a function that will animate something right using jQuery
+				[  ] change the src, width, or style of an element
+				
+			___/10 STYLE: including:
+				[  ] honours all previous //STYLE sections
+				[  ] uses descriptive variable names
+				[  ] breaks up functions into separate ones for input, processing, & output
+				[  ] uses descriptive comments to identify and describe each function, 
+				[  ] for example: 
+					//PROCESS: 	this function accepts distanceUp 
+								& animates #imageID up that # px	
+					
+			HINTS: Not sure where to start?
+			Note that this does not include an onclick event
+			
+				[  ] create an element to move, assign it an id, 
+					 and change its position mode using CSS
+				[  ] create a process function called getRandomDistance that 
+					 will randomly generate and return a distance between 101 and 200
+				[  ] create a process function called getRandomDirection that 
+					 will randomly generate and return a number between 1 and 4
+				[  ] create output functions called goUp, goDown, goLeft, and goRight 
+						that will each accept randomDistance as an argument
+						change the image to suit the direction headed
+						and animate it in the correct direction 
+						a distance equal to randomDistance 
+				[  ] create a process function called mainProcedure that will be 
+					 triggered when the element is moused over:
+						it will assign randomDistance the value returned 
+							from getRandomDistance()
+						it will assign randomDirection the value returned 
+							from getRandomDirection()
+						it will use if...else if...else statements to trigger
+							goUp( randomDistance ); when randomDirection is 1
+							goDown( randomDistance ); when randomDirection is 2
+							goLeft( randomDistance ); when randomDirection is 3
+							goRight( randomDistance ); when randomDirection is anything else
+				[  ] If you haven't already, check that you have 
+					 added descriptive comments to each function
+				[  ] Although it is not required, use console logs at the beginning 
+					 of each function to tell you where you are
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|					 
+					 -->
+		<img src="http://drapak.ca/cpg/img/link-down.png" />
+		<script>
+		
+		</script>
+	</body>
+</html>
