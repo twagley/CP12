@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Special topic: Object oriented programming with methods</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to place image elements on a grid, using complex data as an input
+		
+			Created:	23. April 2015
+			Updated:	
+		-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+		
+				
+			//	INPUT: This next command tells the browser to trigger when a key is pressed anywhere
+			window.onkeydown	=function (keyEvent) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				var characterPressed	=keyEvent.which || keyEvent.keyCode;
+				
+				if (characterPressed == 38) { // UP key is pressed
+					animationObject.animateUp();
+				} else if (characterPressed == 40) { // DOWN key is pressed
+					animationObject.animateDown();				
+				} else if (characterPressed == 39) { // RIGHT key is pressed
+					animationObject.animateRight();				
+				} else if (characterPressed == 37) { // LEFT key is pressed
+					animationObject.animateLeft();				
+				} 
+			}
+			
+			var myCarObject = {
+				make:	"Toyota",
+				model:	"Yaris", 
+				year:	2007,
+				colour:	"blue", 
+				animateUp: function() {
+					$("#animateID").animate({top: "-10px"});
+					},
+				animateDown: function() {
+					$("#animateID").animate({top: "+10px"});
+					},
+				animateLeft: function() {
+					$("#animateID").animate({left: "-10px"});
+					},
+				animateRight: function() {
+					$("#animateID").animate({left: "+10px"});
+					}
+				};
+			
+			var animationObject = {
+				id:			"animateID",
+				src:		"MsPacMan.png",
+				width:		"100px",
+				
+				outputImage: 	function() {
+					document.getElementById(this.id).src			=this.src;	// image src file
+					document.getElementById(this.id).style.width		=this.width;// image width in px
+					document.getElementById(this.id).style.position	="relative"; // CSS to allow animation movement
+					},
+										
+				animateUp: 		function() {	// PROCESS: method to animate up
+					$("#"+this.id).animate({ top: '-=24px'}, {duration: 100});
+					},
+				animateDown: 	function() {	// PROCESS: method to animate down
+					$("#"+this.id).animate({ top: '+=24px'}, {duration: 100});
+					},
+				animateLeft: 	function() {	// PROCESS: method to animate left
+					$("#"+this.id).animate({ left: '-=24px'}, {duration: 100});
+					},
+				animateRight: 	function() {	// PROCESS: method to animate right
+					$("#"+this.id).animate({ left: '+=24px'}, {duration: 100});
+					}	
+				};
+			
+		
+			function insertAnswer (id, answer) {//OUTPUT:  this function outputs an answer into the tag with the given id
+				document.getElementById(id).innerHTML	=answer;
+			}
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+						
+		</style>
+	</head>
+
+	<body>
+		<article>
+			<h2>Special topic: Object oriented programming with methods</h2>
+			
+			<h3>Objects that ACT on themselves</h3>
+			<p>Just for review, remember that you can define an object as follows, using the traditional example of a car:</p>
+			<pre><code>
+	var <var>myCarObject</var> = {
+		<var>make</var>:	"Toyota",
+		<var>model</var>:	"Yaris", 
+		<var>year</var>:	2007,
+		<var>colour</var>:	"blue"
+		};
+			</code></pre>
+			
+			<p>So let's check that you understand this:</p>
+			<table>
+				<tr>
+					<th>myCarObject.colour</th>
+					<td onclick="insertAnswer('ans3', 'blue');" id="ans3" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>myCarObject.make</th>
+					<td onclick="insertAnswer('ans4', 'Toyota');" id="ans4" class="withborder">click for answer...</td>
+				</tr>
+			</table>
+			
+			<p>Great!</p>
+			
+			<p>
+				Now in real life, you can do more than look at your car and gather information about it.
+				You can turn it left, turn it right, accelerate it, and brake, among other things. 
+			</p>
+			
+			<p>So, in computer language, just as you can interact with object information with:</p>
+			
+			<pre><code>
+	<var>myCarObject</var>.<var>model</var> ="Yaris";
+			</code></pre>
+			
+			<p>Imagine that you could perform actions upon your car object:</p>
+			
+			<pre><code>
+	<var>myCarObject</var>.<strong>turnLeft()</strong>;
+	<var>myCarObject</var>.<strong>turnRight()</strong>;
+	<var>myCarObject</var>.<strong>accelerate()</strong>;
+	<var>myCarObject</var>.<strong>brake()</strong>;
+			</code></pre>
+			
+			<p>This kind of grammar makes a lot of sense, and is a key aspect of <strong>object-oriented programming</strong> (OOP).</p>
+			
+			<p>
+				<strong>OOP</strong> is programming in which objects have <strong>properties</strong>, 
+				but they also ways of acting on them with functions, called <strong>methods</strong>.
+				So our example above can be broken into properties and methods:
+			</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">property</th>
+					<th style="width: 15em">method</th>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>make</strong></td>
+					<td><var>myCarObject</var>.<strong>turnLeft()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>model</strong></td>
+					<td><var>myCarObject</var>.<strong>turnRight()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>year</strong></td>
+					<td><var>myCarObject</var>.<strong>accelerate()</strong></td>
+				</tr>
+				<tr>
+					<td><var>myCarObject</var>.<strong>colour</strong></td>
+					<td><var>myCarObject</var>.<strong>brake()</strong></td>
+				</tr>
+			</table>
+
+			<h4>One's a verb, and one's a noun...</h4>
+			<p>So let's check that you understand this - are these properties or methods:</p>
+			
+			<table>
+				<tr>
+					<th><var>myCarObject</var>.<strong>colour</strong></th>
+					<td onclick="insertAnswer('ans11', 'property');" id="ans11" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th><var>myCarObject</var>.<strong>accelerate()</strong></th>
+					<td onclick="insertAnswer('ans12', 'method');" id="ans12" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th><var>novaScotia</var>.<strong>capitol</strong></th>
+					<td onclick="insertAnswer('ans14', 'property');" id="ans14" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th><var>homemadeFireworks</var>.<strong>explode()</strong></th>
+					<td onclick="insertAnswer('ans13', 'A&nbsp;hugely&nbsp;dangerous&nbsp;<strong>method</strong>.<br />Really folks,<br />Do not make your own fireworks...');" id="ans13" class="withborder">click for answer...</td>
+				</tr>
+			</table>
+			
+			<h3>Revisiting old code: keyboard control</h3>
+			
+			<p>
+				Remember <a href="KeyboardControl.html">Keyboard Control</a> and <a href="ControllingMotion.html">Controlling Motion</a>?
+			</p>
+			
+			<p>Let's imagine an object to control, with a whole bunch of <strong>properties</strong>:</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">animateObject properties</th>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>id</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>width</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>src</strong></td>
+
+				</tr>
+			</table>
+			
+			<p>Let's also imagine a whole bunch of <strong>methods</strong>:</p>
+			
+			<table>
+				<tr>
+					<th style="width: 15em">animateObject methods</th>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>outputImage()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>animateUp()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>animateDown()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>animateLeft()</strong></td>
+
+				</tr>
+				<tr>
+					<td><var>animateObject</var>.<strong>animateRight()</strong></td>
+
+				</tr>
+			</table>
+			
+			<h4>Defining an object with both properties and objects</h4>
+			
+			<p>
+				Defining an object with <strong>properties</strong> works as normal.
+				Defining <strong>methods</strong> requires an anonymous function definition, like <code>function () {...}</code>. They also often depends on the special object <code><strong>this.</strong> </code> 
+				What do you think <code><strong>this.</strong></code> does?
+			</p>
+			<pre><code>
+	var <var>animationObject</var> = {
+		<var>id</var>:		"animateID",
+		<var>src</var>:		"MsPacMan.png",
+		<var>width</var>:		"100px",
+
+		<var>outputImage</var>: function() {
+			document.getElementById(<strong>this</strong>.<var>id</var>).src			=<strong>this</strong>.<var>src</var>;	<var>// image src file</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.width		=<strong>this</strong>.<var>width</var>;	<var>// image width in px</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.position		="relative"; 	<var>// CSS to allow animation movement</var>
+			},
+			
+		<var>animateUp</var>: function() {		<var>// PROCESS: method to animate up</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '-=24px'}, {duration: 100});
+			},
+			
+		<var>animateDown</var>: function() {		<var>// PROCESS: method to animate down</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '+=24px'}, {duration: 100});
+			},
+			
+		<var>animateLeft</var>: function() {		<var>// PROCESS: method to animate left</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '-=24px'}, {duration: 100});
+			},
+			
+		<var>animateRight</var>: function() {	<var>// PROCESS: method to animate right</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '+=24px'}, {duration: 100});
+			}
+	};
+			</code></pre>
+						
+			<p>
+				At the end of this sentence I have put the following code: <code>&lt;img id="animateID"></code>:<img id="animateID"><br />
+				{top: <strong><span id="top"></span></strong>, left: <strong><span id="left"></span></strong>}
+			<p>
+				<button type='button' onclick="insertAnswer('ans21', animationObject.id);" >display <code>animationObject.id == </code> <span id="ans21"></span></button><br />
+				<button type='button' onclick="insertAnswer('ans22', animationObject.src);" >display <code>animationObject.src == </code> <span id="ans22"></span></button><br />
+				<button type='button' onclick="insertAnswer('ans23', animationObject.width);" >display <code>animationObject.width == </code> <span id="ans23"></span></button>
+			</p>
+			<p>
+				<button type='button' onclick="animationObject.outputImage();">trigger <code>animationObject.outputImage();</code></button><br />
+				<button type='button' onclick="animationObject.animateUp();">trigger <code>animationObject.animateUp();</code></button><br />
+				<button type='button' onclick="animationObject.animateDown();">trigger <code>animationObject.animateDown();</code></button><br />
+				<button type='button' onclick="animationObject.animateLeft();">trigger <code>animationObject.animateLeft();</code></button><br />
+				<button type='button' onclick="animationObject.animateRight();">trigger <code>animationObject.animateRight();</code></button>
+			</p>
+			
+			<h4>Adding keyboard control</h4>
+
+			<p>
+				You can now add the following code to use the keyboard to control your <var>animationObject</var>.
+				Notice that now the commands for each key are now <strong>object-oriented</strong>, like <var>animationObject.animateUp()</var>;
+			</p>
+			<pre><code>
+	<var>//	INPUT: This next command tells the browser to trigger when a key is pressed anywhere</var>
+	window.onkeydown	=function (<var>keyEvent</var>) {	
+		<var>//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...</var>
+		var <var>characterPressed</var>	=<var>keyEvent.which</var> || <var>keyEvent.keyCode</var>;
+		
+		if (<var>characterPressed</var> == 38) { <var>// UP key is pressed</var>
+			<var>animationObject.animateUp()</var>;
+			
+		} else if (<var>characterPressed</var> == 40) { <var>// DOWN key is pressed</var>
+			<var>animationObject.animateDown()</var>;
+			
+		} else if (<var>characterPressed</var> == 39) { <var>// RIGHT key is pressed</var>
+			<var>animationObject.animateRight()</var>;
+			
+		} else if (characterPressed</var> == 37) { <var>// LEFT key is pressed</var>
+			<var>animationObject.animateLeft()</var>;	
+			
+		} 
+	}
+			</code></pre>
+			
+			<h4>Challenge for your future code:</h4>
+			<p>How can you use complex data to look ahead to see if you can move into the next grid cell in a maze?</p>
+		</article>
+
+	</body>
+</html>
+
+

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Keyboard motion control</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to move an image around using the keyboard">
+		<meta name="author" content="-Drapak-">
+		<!--
+			Change log:
+				Created:	6. Oct 2015												- Drapak	
+				Modified:	21. March 2017	- moved script to bottom 				- Drapak
+							23. March 2017	- added more instructions				- Drapak
+							30. April 2017	- fixed long lines						- Drapak
+							12. Oct 2018	- added additional criteria for options	- Drapak
+							25. Oct 2018	- started vehicle counter				- Drapak 
+				
+				Finished:	
+		-->
+
+		<style>
+			body {
+				background-color: 	lightBlue;
+				font-family:		Arial;
+				color:				brown;
+			}
+			h1 {
+				font-size:			2.5em;
+			}
+			img {
+				position: 			relative;
+				height:				80px;
+				margin-left:		40px;
+			}
+			th {
+				text-align:			right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Evaluation checklist:
+		
+			___/10 	INPUT: including ANY FOUR of the following:
+				[]	make things happen when you click on them
+				[]	make things happen an input changes
+				[]	listen for keypresses
+				[]	read which key is pressed
+				[]	read current top position
+				[]	read current left position
+		
+			___/10	PROCESS: including ANY FOUR of the following:
+				[]	declaring a variable
+				[]	finding the integer or floating decimal of a string
+				[]	use math to determine positions
+				[]	use if...else statements to control flow of code
+				[]	have up and down movement working correctly
+				[]	have left and right movement working correctly
+		
+			___/10 	OUTPUT: including ANY FOUR of the following:
+				[]	set the position mode so things can move
+				[]	change the left position of something
+				[]	change the top position of something
+				[]	change a image
+				[]	output information with innerHTML
+		
+			___/10 	STYLE: 
+				[]	add your name to the filename
+				[]	write your name as the author
+				[]	update the change log
+				[]	correctly indent everything
+				[]	use lowercase for all your HTML tags
+				[]	use camelCase for all your ids and classes
+				[]	avoid lines greater than 96 characters in length
+				[]	restrict your style code to the head of your HTML file
+				[]	space out your mathematical operators
+				[]	write comments for your if statements
+				[]	use descriptive variable names
+
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<h1>
+			Counting vehicles:<br>
+			Tally from the Citadel Roundabout
+		</h1>
+
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>key: <strong>1</strong></td>
+					<th>Cars total:</th>
+					<td id='carsId'>0</td>
+					<td>
+						<img 
+							id="carImageId" 
+							src="http://www.stickpng.com/assets/thumbs/584c58301fc21103bb375baf.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>2</strong></td>
+					<th>Cyclists total:</th>
+					<td id='cyclistsId'>0</td>
+					<td>
+						<img 
+							id="cyclistImageId" 
+							src="http://drapak.ca/cpg/img/cyclist.svg">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>3</strong></td>
+					<th>Pedestrians total:</th>
+					<td id='pedestriansId'>0</td>
+					<td>
+						<img 
+							id="pedestrianImageId" 
+							src="https://static.thenounproject.com/png/13079-200.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>4</strong></td>
+					<th>Zeppelins total:</th>
+					<td id='zeppelinsId'>0</td>
+					<td>
+						<img 
+							id="zeppelinImageId" 
+							src="http://pluspng.com/img-png/zeppelin-png-zeppelin-using-png-684.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>5</strong></td>
+					<th>Tanks total:</th>
+					<td id='tanksId'>0</td>
+					<td>
+						<img 
+							id="tankImageId" 
+							src="http://drapak.ca/cpg/img/cyclist.svg">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>
+			Last vehicle:<br>
+			<span id="lastVehicleId"></span>
+		</h3>
+		
+		<script>
+			//MAIN: move the cars depending on which key was pressed
+			var readKeypress = function ( keyEvent ) {
+				console.log( 'in readKeypress...' );
+				
+				var unicodeNumber = keyEvent.keyCode || keyEvent.which;
+				
+				//IF: the key pressed is a 1 = CAR
+				if ( unicodeNumber == 49 ) {
+					//OUTPUT: the current vehicle
+					document.querySelector( '#lastVehicleId' ).innerHTML
+						= "<img src='" + document.querySelector( '#carImageId' ).src + "'>";
+						
+					//INPUT: find out the current number of vehicles
+					var numberVehicles 
+						= parseInt( document.querySelector( '#carsId' ).innerHTML );
+					
+					//PROCESS: add to the number of vehicles
+					var newNumberVehicles = numberVehicles + 1;
+					
+					//OUTPUT: update the number of vehicles
+					document.querySelector( '#carsId' ).innerHTML = newNumberVehicles;
+					
+					//PROCESS: calculate a new left position
+					var newLeft = newNumberVehicles * 30;
+					
+					//OUTPUT: move the vehicle forward
+					document.querySelector( '#carImageId' ).style.left	= newLeft + 'px';
+					
+				//IF: the key pressed is a 2 = CYCLIST			
+				} else if ( unicodeNumber == 50 ) {
+					//OUTPUT: the current vehicle
+					document.querySelector( '#lastVehicleId' ).innerHTML
+						= "<img src='" 
+						+ document.querySelector( '#cyclistImageId' ).src 
+						+ "'>";
+						
+					//INPUT: find out the current number of vehicles
+					var numberVehicles 
+						= parseInt( document.querySelector( '#cyclistsId' ).innerHTML );
+					
+					//PROCESS: add to the number of vehicles
+					var newNumberVehicles = numberVehicles + 1;
+					
+					//OUTPUT: update the number of vehicles
+					document.querySelector( '#cyclistsId' ).innerHTML = newNumberVehicles;
+					
+					//PROCESS: calculate a new left position
+					var newLeft = newNumberVehicles * 30;
+					
+					//OUTPUT: move the vehicle forward
+					document.querySelector( '#cyclistImageId' ).style.left	= newLeft + 'px';
+					
+				//IF: the key pressed is a 3 = PEDESTRIAN						
+				} else if ( unicodeNumber == 51 ) {
+					//OUTPUT: the current vehicle
+					document.querySelector( '#lastVehicleId' ).innerHTML
+						= "<img src='" 
+						+ document.querySelector( '#pedestrianImageId' ).src 
+						+ "'>";
+						
+					//INPUT: find out the current number of vehicles
+					var numberVehicles 
+						= parseInt( document.querySelector( '#pedestriansId' ).innerHTML );
+					
+					//PROCESS: add to the number of vehicles
+					var newNumberVehicles = numberVehicles + 1;
+					
+					//OUTPUT: update the number of vehicles
+					document.querySelector( '#pedestriansId' ).innerHTML = newNumberVehicles;
+					
+					//PROCESS: calculate a new left position
+					var newLeft = newNumberVehicles * 30;
+					
+					//OUTPUT: move the vehicle forward
+					document.querySelector( '#pedestrianImageId' ).style.left	
+						= newLeft + 'px';
+					
+				//IF: the key pressed is a 4 = ZEPPELIN						
+				} else if ( unicodeNumber == 52 ) {
+					//OUTPUT: the current vehicle
+					document.querySelector( '#lastVehicleId' ).innerHTML
+						= "<img src='" 
+						+ document.querySelector( '#zeppelinImageId' ).src 
+						+ "'>";
+						
+					//INPUT: find out the current number of vehicles
+					var numberVehicles 
+						= parseInt( document.querySelector( '#zeppelinsId' ).innerHTML );
+					
+					//PROCESS: add to the number of vehicles
+					var newNumberVehicles = numberVehicles + 1;
+					
+					//OUTPUT: update the number of vehicles
+					document.querySelector( '#zeppelinsId' ).innerHTML = newNumberVehicles;
+					
+					//PROCESS: calculate a new left position
+					var newLeft = newNumberVehicles * 30;
+					
+					//OUTPUT: move the vehicle forward
+					document.querySelector( '#zeppelinImageId' ).style.left	= newLeft + 'px';
+					
+				//IF: the key pressed is a 5 = TANK
+				} else if ( unicodeNumber == 53 ) {
+					//OUTPUT: the current vehicle
+					document.querySelector( '#lastVehicleId' ).innerHTML
+						= "<img src='" 
+						+ document.querySelector( '#tankImageId' ).src 
+						+ "'>";
+						
+					//INPUT: find out the current number of vehicles
+					var numberVehicles 
+						= parseInt( document.querySelector( '#tanksId' ).innerHTML );
+					
+					//PROCESS: add to the number of vehicles
+					var newNumberVehicles = numberVehicles + 1;
+					
+					//OUTPUT: update the number of vehicles
+					document.querySelector( '#tanksId' ).innerHTML = newNumberVehicles;
+					
+					//PROCESS: calculate a new left position
+					var newLeft = newNumberVehicles * 30;
+					
+					//OUTPUT: move the vehicle forward
+					document.querySelector( '#tankImageId' ).style.left	= newLeft + 'px';
+					
+				//ELSE: do nothing
+				} else {
+				}
+			} 
+		
+			//INPUT: listen to the window for keypresses
+			window.onkeydown = readKeypress;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming 12: 
+			PROCESS - Functional Programming
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use function parameters and returns">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				12. Oct		- created!
+				18. October	- corrected an embarrassing math error
+				25. March 2017	- reworked for improved style
+				21. Oct 2018	- reworked for improved style and clarity		- Drapak
+				4. Nov 2018	- changed name to functional programming			- Drapak
+				
+		-->
+
+
+		<style>
+			iframe {
+				width: 		40em;
+				height:		12em;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Functional Programming</em>
+		</header>
+		
+		<article>
+
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>someFunction</var> 
+					= function ( <var>parameterVariableIn</var> ) { return <var>answerVariableOut</var> }
+				</code><br>
+				<span class="indent">
+					&mdash; creates a function that takes in information, 
+					processes it, and spits out the result
+				</span><br>
+			</p>
+
+			<h2>Functions that give and take</h2>			
+			<p>
+				Every function has the ability to take information in, 
+				and then return information out:
+			</p>
+			
+			<pre><code><span class="sc2">//PROCESS: accept a number, and return the square of it
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getSquare</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">inputNumber</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in getSquare. inputNumber='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">inputNumber</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//PROCESS: calculate the square of the number used as the parameter
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">inputNumber</span><span class="sc0"> </span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">inputNumber</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">//PROCESS: send out the answer back to the ORIGINAL function call
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span></code></pre>
+
+			<p>
+				In this example, <var>inputNumber</var> 
+				is called getSquare's <strong>argument</strong>.
+				An <strong>argument</strong> is the information sent into a function.
+				Another word for argument <strong>argument</strong> 
+				is <strong>parameter</strong>.
+			</p>
+			<p>
+				In this example, <var>answer</var> is <strong>returned</strong>.
+				This means that the function will finish and give 
+				back whatever information was inside <var>answer</var>.
+			</p>
+			
+			<p>So now you can make code like this:</p>
+			
+			<pre><code>var <var>square</var> =getSquare(<var>16</var>); <var>// makes square equal to 256</var></code></pre>
+
+			<h2>Check your understanding</h2>
+			
+			<p>
+				What is inside <var>square</var> in the following example:<br>
+				<code>var square = getSquare( 2 );</code><br>
+				<span class="question" data-answer="square is 4"></span>
+				
+			</p>
+			<p>
+				What is inside <var>square</var> in the following example:<br>
+				<code>var square = getSquare( 4 );</code><br>
+				<span class="question" data-answer="square is 16"></span>
+			</p>
+			<p>
+				What is inside <var>square</var> in the following example:<br>
+				<code>var square = getSquare( 2 * 4 );</code><br>
+				<span class="question" data-answer="square is 64"></span>
+			</p>
+
+			<h2>Creating functions with more than one parameter</h2>
+			<p>
+				Let's say that I want to create function that calculates the volume of a cylinder. 
+			</p>
+			<p>
+				We know that when calculating the volume of a cylinder the equation is:
+			</p>
+			<p>
+				V = &pi; r<sup>2</sup> h
+			</p>
+			<p>
+				In this case, we could pass two arguments, radius and height, to a function like this:
+			</p>
+			
+			<pre><code><span class="sc43">//PROCESS: accept radius and height and return the volume</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">calculateVolume</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">radius</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46 withborder">height</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">height</span><span class="sc50">;</span><span class="sc41">   </span><span class="sc43">// calculate the volume</span><span class="sc41">
+                </span><span class="sc47 withborder">return</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc50">;</span><span class="sc41">                      </span><span class="sc43">// spit the answer out</span><span class="sc41">
+            </span><span class="sc50">}</span></code></pre>	
+
+			<h2>Check your understanding</h2>
+			
+			<p>
+				What does the following code do?<br>
+				<span class="question" data-answer="<code>mysteryFunction</code> accepts <var>edge</var>, and returns <var>answer</var>. The calculation happens to find the volume of a tetrahedron given the length of a side."></span>
+			</p>
+
+			<pre><code><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mysteryFunction</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">edge</span> <span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41">Math.pow( edge, 3 ) / ( 6 *  Math.sqrt( 2 ) )</span><span class="sc50">;</span><span class="sc41">   </span>
+	<span class="sc47">return</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span></code></pre>	
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/js/js_function_definition.asp">
+						JavaScript Function Definitions
+					</a> 
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/js/js_functions.asp">
+						JavaScript functions
+					</a> 
+				</li>
+			</ul>
+
+			<h2>For example</h2>
+			<hr>
+			<iframe class="indent" src="supporting/processFunctionParametersAndReturns.shtml"></iframe>
+			<hr>
+			
+			<p>...is created with the following code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Calculate the volume of a cylinder</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"This program calculates the volume of a cylinder"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                12. Oct         - created!                                      - Drapak
+                25. March 2017  - reworked for improved programming style       - Drapak
+                21. Oct 2018    - reworked for clarity and improved style       - Drapak
+            --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #outputId {
+                color:          darkRed;
+                font-weight:    bold;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Volume of a sphere</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Enter the radius of the sphere:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc1">&gt;&lt;br&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Calculate!</span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+            The volume is </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;</span><span class="sc0">Waiting for input...</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getRadius</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">calculateVolume</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">outputVolume</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: read in text input from #radiusId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getRadius</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getRadius...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId '</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            
+            </span><span class="sc43">//PROCESS: calculate and return the volume of a sphere given a radius</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">calculateVolume</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in calculateVolume, radius='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: convert the radius from a string to a number</span><span class="sc41">
+                </span><span class="sc46">radius</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseFloat</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">     
+
+                </span><span class="sc43">//PROCESS: calculate the volume = 4/3 x pi x r ^ 3</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">3</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.pow</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">3</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: send the answer out out of the function</span><span class="sc41">
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc50">;</span><span class="sc41">                      
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: display the answer inside #outputId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputVolume</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in outputVolume, volume='</span><span class="sc41">  </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">volume</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: make clicking the button or changing the numbers trigger mainProcedure</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+		</article>
+		<!--#include virtual="/footer.html" -->		
+		<script>
+
+		</script>
+	</body>
+</html>

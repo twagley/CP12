@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<title>Organizing problems</title>
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+	</head>
+
+	<body>
+		<header>
+			<h1>1.08 Hand-in: Organizing problems</h1>
+		</header>
+		
+		<!--
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				No new code today!
+				<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+		-->
+				
+		<article>
+			<h2>Tools for organizing problems</h2>
+			<ol>
+				<li>Problem analysis chart</li>
+				<li>Interactivity or structure chart</li>
+				<li>IPO chart</li>
+				<li>Algorithms</li>
+				<li>Flowcharts</li>
+				<li>Internal and External Documentation</li>
+			</ol>
+			
+			<h3>1. Problem analysis chart</h3>
+			<p>Contains four parts: given data, required results, processing, and list of solution alternatives. It comes in the form of a chart:</p>
+
+			<table style="border-collapse: collapse;">
+				<caption>Problem analysis chart</caption>
+				<tr>
+					<th>Given data</th>
+					<th>Required Results</th>
+				</tr>
+				<tr>
+					<td class="withborder">...</td>
+					<td class="withborder">...</td>
+				</tr>
+				<tr>
+					<th>Processing</th>
+					<th>List of solution alternatives</th>
+				</tr>
+				<tr>
+					<td class="withborder">...</td>
+					<td class="withborder">
+						<ul>
+							<li style="margin-left: 0em;">...</li>
+							<li style="margin-left: 0em;">...</li>
+							<li style="margin-left: 0em;">...</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+
+			<h4>For example</h4>
+
+			<table style="border-collapse: collapse;">
+				<caption>Calculate the area of a circle for any given radius</caption>
+				<tr>
+					<th>Given data</th>
+					<th>Required Results</th>
+				</tr>
+				<tr>
+					<td class="withborder">
+						pi<br />
+						radius
+					</td>
+					<td class="withborder">
+						Area of the circle
+					</td>
+				</tr>
+				<tr>
+					<th>Processing</th>
+					<th>List of solution alternatives</th>
+				</tr>
+				<tr>
+					<td class="withborder">
+						Area = pi * radius * radius
+					</td>
+					<td class="withborder">
+						<ul>
+							<li style="margin-left: 0em;">Set both radius and pi in program</li>
+							<li style="margin-left: 0em;">Get both radius and pi from user</li>
+							<li style="margin-left: 0em;">Set pi and get radius</li>
+							<li style="margin-left: 0em;">Set radius and get pi</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+
+			<h3>2. Interactivity or structure chart</h3>
+			<p>
+				This organizes the problem into sub-tasks. It often looks like an organizational chart or web diagram.<br />
+				<img src="img/Interactivity or Structure Chart-Generic.png">
+			</p>
+	
+			<h4>For example</h4>
+			<p>
+				<img src="img/Interactivity or Structure Chart-Area of Circle.png">
+			</p>
+	
+			<h3>3. IPO chart</h3>
+			<p><strong>IPO</strong> stands for <strong>I</strong>nput/<strong>P</strong>rocessing/<strong>O</strong>utput. It contains 4 columns: input, processing, module reference, and output. It looks like a chart.</p>
+
+			<table style="border-collapse: collapse;" width="60%">
+				<caption>IPO chart</caption>
+				<tr>
+					<th>Input</th>
+					<th>Processing</th>
+					<th>Module references</th>
+					<th>Output</th>
+				</tr>
+				<tr>
+					<td class="withborder" >
+						All known data from PAC (problem analysis chart)
+					</td>
+					<td class="withborder">
+						All processes that are required
+					</td>
+					<td class="withborder">
+						Module number where it takes place
+					</td>
+					<td class="withborder">
+						Result
+					</td>
+				</tr>
+			</table>
+			
+			<h4>For example</h4>
+
+			<table style="border-collapse: collapse;" width="60%">
+				<caption>IPO chart</caption>
+				<tr>
+					<th>Input</th>
+					<th>Processing</th>
+					<th>Module references</th>
+					<th>Output</th>
+				</tr>
+				<tr>
+					<td class="withborder flushmargin">
+						radius<br />
+						pi
+					</td>
+					<td class="withborder flushmargin">
+						Enter Radius<br />
+						Get pi value & calculate area<br />
+						Display Area
+
+						<!--
+						<ol>
+							<li style="margin-left: 0em;">Enter Radius</li>
+							<li style="margin-left: 0em;">Get pi value</li>
+							<li style="margin-left: 0em;">Calculate area</li>
+							<li style="margin-left: 0em;">Display Area</li>
+						</ol>
+						-->
+					</td>
+					<td class="withborder flushmargin">
+						1000<br />
+						2000<br />
+						3000
+					</td>
+					<td class="withborder flushmargin">
+						area
+					</td>
+				</tr>
+			</table>
+			
+			<h3>4. Algorithms</h3>
+			<p>An <strong>algorithm</strong> is a set of step-by-step instructions. 
+				It is sometimes called <strong>Pseudocode</strong>. 
+				It is the key component to solving any problem. 
+				You cannot assume anything, cannot skip steps, it must be executable one step at a time, and it must be complete.</p>
+
+			<h4>Typical algorithm structure</h4>
+			<p>Control module (name of module)</p>
+			<ol>
+				<li>instruction</li>
+				<li>instruction</li>
+				<li>instruction</li>
+				<li>...</li>
+				<li>...</li>
+				<li>exit</li>
+			</ol>
+	
+			<h4>Example algorithm</h4>
+			<p>Area of circle control module (0000)</p>
+			<ol>
+				<li>Process read</li>
+				<li>Process calculate</li>
+				<li>Process display</li>
+				<li>exit</li>
+			</ol>
+			<p>Read module (1000)</p>
+			<ol>
+				<li>Read radius</li>
+				<li>exit</li>
+			</ol>
+			<p>Calculate module (2000)</p>
+			<ol>
+				<li>area = pi * radius * radius</li>
+				<li>exit</li>
+			</ol>
+			<p>Display module (3000)</p>
+			<ol>
+				<li>Print area</li>
+				<li>exit</li>
+			</ol>
+	
+			<h3>5. Flowchart</h3>
+			<p>Programmers use algorithms to create <strong>flowcharts</strong>.  
+				Flowcharts are graphic representations of the algorithms.
+				Flowcharts have symbols to represent parts of the program.
+				Often flowcharts will show errors that may not been seen easily in other organizing charts.</p>
+			<p><img src="img/Flowchart symbols.png"></p>
+									
+			f<h4>Example Flowcharts</h4>
+			<p><img src="img/Flowchart sample.png"></p>
+						
+			<h3>6. Internal and external documentation</h3>
+			<p><strong>Internal documentation</strong> &mdash;
+				are notes written inside the program for other programmers to read. 
+				It lets them know what parts of the program are doing.</p>
+			<p><strong>External documentation</strong> &mdash;
+				usually consists of the user manuals for your program so the end user can fully understand how to install and use your program.</p>
+
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.08H-OrganizingProblems-LastName.html">assignment template</a> for you to fill in. 
+			Rename the document using your last name in your Computer Programming 12 directory.</p>
+
+			<h2>The assignment</h2>
+			<p><em>The problem:</em> Use the 5 problem solving organizational tools to outline a solution to the following problem:</p>
+			<p><strong>Calculate the weekly gross pay for an employee based on their hourly pay rate, hours worked, and number of overtime hours.</strong></p>
+			
+			<p>
+				From the Government of Nova Scotia <a href="http://novascotia.ca/lae/employmentrights/overtime.asp">Employment Rights website</a>: <br />
+				<br />
+				<em>The general rule for overtime is that employees are entitled to receive 1 1/2 times their regular wage for each hour worked after 48 in a week. A week is defined as a consistent seven day period, e.g., Monday to Sunday, Wednesday to Tuesday. For example, if an employee makes $14.00 per hour, that employee would make $21.00 per hour for every hour worked over 48 hours.</em>
+			</p>
+			
+			<h3>Suggestions</h3>
+			<p>Use <a href="https://www.draw.io/">draw.io</a> and create your charts</p>
+			<ul>
+				<li>You should create the organizational chart as <code>1.08H-OrganizingProblems-OrgChart-LastName</code>, and then export it as a <code>.png</code></li>
+				<li>You should create the flowchart as <code>1.08H-OrganizingProblems-FlowChart-LastName</code>, and then export it as a <code>.png</code></li>
+				<li>You will have to change the image filenames in the assignment template to match your images.</li>
+				<li>Follow the examples to help you.</li>
+				<li>
+					You will need to use a decision symbol in your flowchart:<br />
+					<img src="img/FlowchartDecisionExample.png">
+				</li>
+			</ul>
+			<p>When you are done, hand in all three files (html and both chart images) into the <code>I:/ PassIn</code> folder.</p>
+			
+			<h3>Evaluation</h3>
+			<ul>
+				<li>___/2 &mdash; Outcome 1.2 - apply mathematical concepts, including boolean logic, operators</li>
+				<li>___/2 &mdash; Outcome 1.3 - define a problem in explicit terms using object-oriented analysis</li>
+				<li>___/2 &mdash; Outcome 1.4 - identify and outline strategies to solve a problem</li>
+				<li>___/2 &mdash; Outcome 1.5 - apply a range of problem solving skills</li>
+				<li>___/2 &mdash; Quality of HTML code</li>
+			</ul>
+		</article>
+			
+		<footer>
+			<div class="legal">Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> &mdash; This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.</div>
+		</footer>
+	</body>
+</html>
+
+

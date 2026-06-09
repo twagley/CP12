@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming: 
+			PROCESS - For loops</title>
+		<meta 
+			name="description" 
+			content="Learn how use for loops">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				1. November		- created!
+				11. November 	- changed order of example code
+				28. November 2018	- updated creaky style 						- Drapak
+			-->
+
+
+		<style>
+		
+			,bottomLineClass {
+				border-bottom: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em><code>for</code> loops</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>				
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					for (<var>i</var> in <var>exampleArr</var>) { }
+				</code><br>
+				<span class="indent">
+					&mdash; loop through each value of <var>exampleArr</var>
+				</span><br>
+				<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					for (<var>i</var> 
+					= <var>0</var>; <var>i < 5</var>; <var>i++</var>) { }
+				</code><br>
+				<span class="indent">
+					&mdash; loops variable i from from zero until four
+				</span><br>
+				<br>
+			</p>
+
+			<h2>Creating a list the easy way using <code>for...in</code> loops</h2>
+			
+			<p>
+				Instead of using <code>.join()</code>, programmers usually use 
+				a <code>for</code> loop to repeat things over and over. 
+				The simplest way to do this is by looping through each of the 
+				members in an array:
+			</p>
+			
+			<p>	
+				<code class='indent'>for ( <var>i</var> in <var>exampleArr</var> ) { ... }</code>
+			</p>
+			
+			<p>
+				Here is an example of an easy way to make a 
+				<code>&lt;ol>&lt;li>&lt;/li>&lt;/ol></code> list from an array of passwords:
+			</p>
+			
+			<pre><code><span class="sc2">//PROCESS: create the HTML code for a list from an array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in createPasswordList, wordArr: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// initialize the output string and start the list code
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"&lt;ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">// loop through each index of the word array ( 0 -&gt; length - 1 )
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in wordArr loop, i, outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">","</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc2">//add this array value to the outputString 
+</span><span class="sc0">        </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// end the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'final value of outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// remember to return the result
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span></code></pre>
+			
+			<p>
+				<code>for ( i in exampleVar ) {} </code> 
+				will automatically cycle through all the possible elements of 
+				<var>exampleVar</var>.
+				It is also cleaner to code.
+			</p>
+			
+			<h3>Code example: Top 13 IT jobs by salary</h3>
+			
+			<div id="outputJobsListId"></div>
+			
+			<p>
+				<button id="jobsListButtonId">Click to trigger <code>mainJobsListProcedure()</code></button>
+				<br>
+				...comes from the following code:
+			</p>
+			
+			<pre><code><span class="sc2">//OUTPUT: display the results inside the output div
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in outputList. outputCode = '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">getElementById</span><span class="sc10">(</span><span class="sc7">'outputJobsListId'</span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: create the HTML code for a list from an array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createJobsList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in createJobsList, jobsArr: '</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// initialize the output string and start the list code
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"&lt;ul&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">// loop through each index of the word array ( 0 -&gt; length - 1 )
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in jobsArr loop, i, outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">","</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc2">//add this array value to the outputString 
+</span><span class="sc0">        </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// end the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/ul&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'final value of outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// remember to return the result
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INIT: set up the information inside the jobs array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">initJobsArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in initJobsArr...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc2">//INIT: create an array of IT job most in demand in 2019
+</span><span class="sc0">    </span><span class="sc2">//  from https://www.cio.com/article/3235944/hiring-and-staffing/hiring-the-most-in-demand-tech-jobs-for-2018.html
+</span><span class="sc0">    </span><span class="sc2">//  Sorry about the long line - didn't want to break the link)
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc0">
+        </span><span class="sc6">"Data scientist $121,500"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Security professionals (information, data, network, systems) $120,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Database developer $118,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"DevOps engineer $110,500"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Business intelligence analyst $106,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Cloud systems engineer $103,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Developer (web, software, mobile) $100,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Cloud architect $94,500"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Network administrators $89,000"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Systems administrators $81,750"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Full-stack developers $79,250"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"IoT specialists $71,500"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"Help desk and desktop support specialists $45,740"</span><span class="sc10">,</span><span class="sc0">
+
+    </span><span class="sc10">];</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainJobsListProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainJobsListProcedure'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0">     </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">initJobsArr</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">jobsList</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createJobsList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">jobsArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">jobsList</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT: trigger mainJobsListProcedure when #jobsListButtonId is clicked
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#jobsListButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainJobsListProcedure</span><span class="sc10">;</span></code></pre>
+						
+			<h2>Over and over again: creating loops with full control</h2>
+			
+			<p>Let's say that I want to repeat things a number of times in my program.</p>
+			
+			<p>
+				For example, let's say that I want to add together 
+				all the numbers from 1 to 10.
+			</p>
+			
+			<p>I can do this with the following line:</p>
+			
+			<pre><code>var sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;</code></pre>
+			
+			<p>Or I can do this with a <code>for</code> loop:</p>
+			
+			<pre><code><span class="sc2">//OUTPUT: display the result in #buttonId
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputAnswer</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in outputAnswer. answer='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#forLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: loop from 1 to 10, and add to sum each time...
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getSumFromOneToTen</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in getSumFromOneToTen...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//INIT: start sum as zero           
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc4">11</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">;</span><span class="sc0">
+        
+        </span><span class="sc2">// show what is happening inside the loop...
+</span><span class="sc0">        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in loop! i='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' sum='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0"> 
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// show the final results
+</span><span class="sc0">    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'finished loop! i='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' sum='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc2">// don't forget to return the answer!
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainForLoopProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainForLoopProcedure...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getSumFromOneToTen</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">outputAnswer</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT:
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#forLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainForLoopProcedure</span><span class="sc10">;</span></code></pre>
+
+			<p>
+				<button id="forLoopButtonId">
+					Click to trigger <code>mainForLoopProcedure()</code>
+				</button>
+			</p>
+			
+			<p>
+				Check out the developer's console to trace the flow of the program.
+				Let's look at what is happening here step by step:
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>&nbsp;value of <var>sum</var>&nbsp;</th>
+						<th>&nbsp;value of <var>i</var>&nbsp;</th>
+						<th>comment</th>					
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bottomLineClass">
+						<td>0</td>
+						<td></td>
+						<td>start off in INIT</td>
+					</tr>
+					
+					<tr  class="bottomLineClass">
+						<td>0</td>
+						<td>1</td>
+						<td>
+							start the loop, initializing <var>i</var> as 1
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>0</td>
+						<td>1</td>
+						<td>1 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+
+					<tr class="bottomLineClass">
+						<td>1</td>
+						<td>2</td>
+						<td>2 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>2</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>3</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>3</td>
+						<td>3</td>
+						<td>3 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>3</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>4</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>6</td>
+						<td>4</td>
+						<td>4 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>4</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>5</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>10</td>
+						<td>5</td>
+						<td>5 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>5</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>6</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>15</td>
+						<td>6</td>
+						<td>6 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>21</td>
+						<td>6</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>21</td>
+						<td>7</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>21</td>
+						<td>7</td>
+						<td>7 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>28</td>
+						<td>7</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>28</td>
+						<td>8</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>28</td>
+						<td>8</td>
+						<td>8 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>36</td>
+						<td>8</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>36</td>
+						<td>9</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>36</td>
+						<td>9</td>
+						<td>9 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>45</td>
+						<td>9</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>45</td>
+						<td>10</td>
+						<td>	
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr class="bottomLineClass">
+						<td>45</td>
+						<td>10</td>
+						<td>10 < 11, so enter the loop code</td>
+					</tr>
+					<tr>
+						<td>55</td>
+						<td>10</td>
+						<td><code>sum = sum + i;</code></td>
+					</tr>
+					<tr>
+						<td>55</td>
+						<td>11</td>
+						<td>
+							<code>i = i + 1;</code> 
+							//automatically add one at end of loop code block
+						</td>
+					</tr>
+					
+					<tr>
+						<td>55</td>
+						<td>11</td>
+						<td>11 is not < 11, so stop the loop</td>
+					</tr>
+
+				</tbody>
+			</table>
+			
+			<h2><code>for</code> loop syntax</h2>
+			
+			<p><strong>for</strong> loops work like this:</p>
+			<pre><code>for (<var>loopVariable = 0</var>; <var>loopVariable < 10</var>; <var>loopVariable = loopVariable + 1</var>) {
+	//repeated code goes in here
+}</code></pre>
+			
+			<p>More generally, a <strong>for</strong> loop is:</p>
+			<pre><code>for (<strong>initial variable condition</strong>; <strong>cycle while true</strong>; <strong>variable change at end of cycle</strong>) {
+	/*	repeated thing goes in here */
+}</code></pre>
+			
+			<p>Traditionally, programmers will use <var>i</var> as their loop variable.</p>
+			
+			<pre><code>for ( i = 1; i < 11; i = i + 1 ) {
+			
+}</code></pre>
+
+			<h2>Creating a list using a <code>for</code> loop the traditional way</h2>
+			
+			<p>
+				You can use <code>for</code> loops to create HTML code.
+				For example, you can use them to create lists: 
+			</p>
+			
+			<h4>A list of the most common passwords used in 2017</h4>
+			
+			<div id="outputTraditionalLoopId"></div>
+			
+			<p>
+				<button id="traditionalLoopButtonId">Click to trigger 
+					<code>mainTraditionalLoopProcedure()</code>
+				</button>
+			</p>
+			
+			<p>The above uses the following code:</p>
+			
+			<pre><code><span class="sc2">//OUTPUT: display the results inside #outputTraditionalLoopId
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in outputPasswordList. outputCode='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">getElementById</span><span class="sc10">(</span><span class="sc7">'outputTraditionalLoopId'</span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: create the HTML code for a list from an array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in createPasswordList, wordArr: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// initialize the output string and start the list code
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"&lt;ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">// loop through each index of the word array ( 0 -&gt; length - 1 )
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in wordArr loop, i, outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">","</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc2">//add this array value to the outputString 
+</span><span class="sc0">        </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// end the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'final value of outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// remember to return the result
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INIT: create the array of passwords
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">initPasswordArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in initPasswordArr...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//INIT: create an array of the top 25 most used passwords in 2017
+</span><span class="sc0">    </span><span class="sc2">//  from https://en.wikipedia.org/wiki/List_of_the_most_common_passwords
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc0">
+        </span><span class="sc6">"123456"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"password"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"12345678"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"qwerty"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"12345"</span><span class="sc10">,</span><span class="sc0">
+
+        </span><span class="sc6">"123456789"</span><span class="sc10">,</span><span class="sc0">        
+        </span><span class="sc6">"letmein"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"1234567"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"football"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"dragon"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"admin"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"welcome"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"monkey"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"login"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"abc123"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"starwars"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"123123"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"dragon"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"passw0rd"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"master"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"hello"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"freedom"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"whatever"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"qazwsx"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"trustno1"</span><span class="sc0">
+    </span><span class="sc10">];</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainTraditionalLoopProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainTraditionalLoopProcedure'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0">     </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">initPasswordArr</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createPasswordList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputPasswordList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT: trigger the main procedure when the button is pressed
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#traditionalLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainTraditionalLoopProcedure</span><span class="sc10">;</span></code></pre>
+
+
+			<h2>Common error: infinite loops</h2>
+			
+			<p>
+				A <code>for</code> loop will always run as long as the middle expression is true.
+			</p>
+			<p>
+				The following code will run forever because <code>0 &lt; 1</code> will always be true.
+				It will use the computer's processor power to the maximum until the program is halted.
+				Usually it will also lock up or crash the browser as well.
+			</p>
+			
+			<p>
+				<button id="infiniteLoopButtonId">Click to trigger <code>mainInfiniteLoopProcedure()</code></button>
+			</p>
+			
+			<pre><code><span class="sc2">//PROCESS: create the HTML code for a list from an array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createBadPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in createPasswordList, wordArr: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// initialize the output string and start the list code
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"&lt;ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">// loop through each index of the word array ( 0 -&gt; length - 1 )
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in wordArr loop, i, outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">","</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc2">//add this array value to the outputString 
+</span><span class="sc0">        </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// end the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'final value of outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// remember to return the result
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainInfiniteLoopProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainInfiniteLoopProcedure...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">initPasswordArr</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createBadPasswordList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT: trigger mainInfiniteLoopProcedure when #infiniteLoopButtonId is clicked
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#infiniteLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainInfiniteLoopProcedure</span><span class="sc10">;</span></code></pre>
+
+			<p>
+				The most common cause of an infinite loop is forgetting to use a 
+				comparision inside the second part of the <code>for</code> loop definition:
+			</p>
+			
+			<p>
+				For example, some people recognize that they want to loop until the index 
+				of the last index is equal to the length of the array minus one.
+			</p>
+			
+			<p>
+				This works if you write: 
+			</p>
+			<pre><code>for ( i = 0; i <= (exampleArr.length - 1); i = i + 1 ) {
+
+}</code></pre>
+
+			<p>
+				But some people will use <em>equals</em>, <code>=</code>, 
+				instead of <em>less than or equal to</em>, <code>&lt;=</code>:<br>
+				<code>i = (exampleArr.length - 1)</code>
+			</p>
+				
+			<p>
+				This does something deceptively cruel:
+				Instead of comparing <var>i</var> and <code>(exampleArr.length - 1)</code>,
+				it will perform <strong>assignment</strong> so that <code><code>i = (exampleArr.length - 1)</code></code>.
+				And then it will return <strong>true</strong> to the loop.
+			</p>
+			
+			<p>
+				This has the effect of both messing with the value of <var>i</var> as well as locking up the browser with an infinite loop.
+			</p>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/looping/p/for-loops-a-new-kind-of-loop">
+						For loops
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_loop_for.asp">
+						for loops
+					</a> 
+				</li>
+			</ul>
+			
+			<!--
+
+			<h2>For example</h2>
+			
+			<p>...is created with the following code:</p>
+			
+			<pre><code></code></pre>
+			-->
+		</article>
+		<script src="supporting/processForLoops.js"></script>
+		<script src="supporting/processForLoops2.js"></script>
+		<script src="supporting/processForLoops3.js"></script>
+		<script src="supporting/processForLoops5.js"></script>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

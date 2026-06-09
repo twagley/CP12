@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<head>
+		<title id="windowtitle">Is it handed in?</title>
+		<meta name="author" content="Dave Drapak">
+		<link rel="stylesheet" type="text/css" href="https://ourcloud.nspes.ca:8443/~ddrapak.hrsb.ca/cpg/css/general.css">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script>
+			/* The script on this page offers a list of assignments, and then once clicked, offers links to each students assignment.
+				Created:	3. Feb 2015
+				Updated: 	17. Feb 2015	-updated class lists and assignment list
+			
+			/* there are a couple of global variables that are used to store the two main arrays */
+			
+			var LastNames	=[	/* These are the last names of the students in the class*/
+							"Anderson", 
+							"Atiwoto", 
+							"Bartel", 
+							"Boudreau", 
+							"Brown", 
+							"Cain", 
+							"Clark", 
+							"Clarke", 
+							"Cotaras", 
+							"Dellapinna", 
+							"Deveci", 
+							"Hardy", 
+							"LeBlanc", 
+							"Li", 
+							"MacIntosh", 
+							"MacNeil", 
+							"Maitzen", 
+							"Mombourquette", 
+							"Murphy", 
+							"Myer", 
+							"Solomon", 
+							"Sparks", 
+							"Wranik-Lohrenz"
+							];
+			
+			var ProjectNames	=[
+								"1.01H-HelloWorld",
+								"1.02S-SurveyLists",
+								"1.03S-DataTypes",
+								"1.04H-OttoTheRobot",
+								"1.05H-HelloJavascript",
+								"1.06S-JavascriptEvents",
+								"1.07S-CreatingCharts",
+								"1.08H-OrganizingProblems"
+								];
+			
+			/* create a bulleted button list of assignments that will trigger a link lister when clicked */
+			
+			function outputProjectNames () {
+				var outputCode	='<form><fieldset><legend>Please choose an assignment</legend><p>';
+				for (i = 0; i < ProjectNames.length; i++) { 
+					outputCode	= 
+								outputCode 
+								+ '<input type="radio" name="assignment" value="' 
+								+ ProjectNames[i] 
+								+ '" id="' 
+								+ ProjectNames[i] 
+								+ '" onclick="linkLister(\'' 
+								+ ProjectNames[i] 
+								+ '\');"><label for="' 
+								+ ProjectNames[i] 
+								+ '">' 
+								+ ProjectNames[i] 
+								+ '</label><br />';
+				}
+				outputCode	= outputCode + '</p></fieldset></form>'; 
+				
+				document.getElementById("assignmentList").innerHTML	=outputCode;
+			}
+			
+			/* given the assignment passed from the onclick event, create a list of links to student assignments */
+			
+			function linkLister (thisAssignment) {
+				var outputCode	='<h2>'+ thisAssignment +'</h2><p>';
+				
+				/* loop through each student name and form a link for each one */
+				for (i = 0; i < LastNames.length; i++) {
+				
+					/* concatenate the info to create a filename string */
+					
+					var thisLink	=thisAssignment
+									+ '-'
+									+ LastNames[i]
+									+'.html';
+					
+					/* create the whole link code */
+					
+					outputCode	=outputCode 
+								+ '<span id="'
+								+ thisLink
+								+ '"></span> <a target="iframePortal" href="' 
+								+ thisLink 
+								+ '">' 
+								+ thisLink 
+								+ '</a><br />';
+				}
+			
+				document.getElementById("assignmentList").innerHTML	=outputCode;
+			}
+			
+			/*	Given an element id, replace the inside with a positive flag*/
+			function filePresentIndicator (thisID) {
+				document.getElementById(thisID).innerHTML	='+';
+				document.getElementById(thisID).className	='goodcode';
+			}
+
+			/*	Given an element id, replace the inside with a negative flag*/
+			function fileMissingIndicator (thisID) {
+				document.getElementById(thisID).innerHTML	='-';
+				document.getElementById(thisID).className	='badcode';
+			}
+		</script>
+		
+		<style>
+			article {
+				float: left;
+				width: 400px;
+				}
+			
+			aside {
+				float: left;
+				}
+		</style>
+		
+	</head>
+	
+	<body onload="outputProjectNames();">
+		<header>
+			<h1>Is that assignment handed in?</h1>
+		</header>
+		
+		<article id="assignmentList">
+		</article>
+		
+		<aside id="viewPortal">
+			<iframe name="iframePortal" width="100%" height="600"></iframe>
+		</aside>
+	</body>
+</html>

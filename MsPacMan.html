@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Ms. Pacman and loops</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros loops and positioning 
+			
+			Created:	2. March 2015 -->
+		
+		<script>
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.11 Skill-builder: Ms. Pacman and loops</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">positioning CSS</span> <code>position: absolute;</code> - positions according to the top left of the page<br />
+				<br />
+				<span class="langstyle">positioning JS</span> <code>document.getElementById(<var>"element"</var>).style.left = <var>"23px"</var>;</code><br />
+				<span class="langstyle">positioning CSS</span> <code>left: 23px;</code> - positions 23 pixels from the left edge<br />
+				<br />
+				<span class="langstyle">positioning JS</span> <code>document.getElementById(<var>"element"</var>).style.top = <var>"577px"</var>;</code><br />
+				<span class="langstyle">positioning CSS</span> <code>top: 577px;</code> - positions 577 pixels from the top edge<br />
+				<br />
+				<span class="langstyle">loop JS</span> <code>for (<var>i</var> = <var>0</var>; <var>i < 5</var>; <var>i++</var>)</code> - loops variable i from from zero until four<br />
+				<span class="langstyle">loop JS</span> <code><var>i</var>++;</code> - automatically adds one to variable i<br />
+				<span class="langstyle">loop JS</span> <code><var>i</var>--;</code> - automatically subtracts one from variable i<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Over and over again</h2>
+
+			<p>There are many times when you want to have a program do things many times in a row.</p>
+			<p>Remember when you had Otto the Robot repeat the same thing several times?</p>
+			<p>The programming structure that you use for this is called a <strong>loop</strong>.</p>
+			
+			<h2>For example</h2>
+			<pre>
+			<code>
+for (i=1; i<4; i++) {
+
+	/*	this sets up a loop with a variable "i" with a starting value of 1
+		anything inside the loop will trigger as long as "i<4" is true
+		and it will automatically add one to i at the end of each loop
+		
+		So for the first loop
+		...i=1,
+		then i=2,
+		then i=3
+
+		...and then it stops when i=4, because "i<4" is no longer true
+	*/	
+	
+	}
+			
+			</code>
+			</pre>
+			
+			<p>So knowing that, what will be the variable values for the following loops?</p>
+			<pre>
+			<code>
+for (j=0; j<10; j++) {
+	
+	}
+	
+	
+for (k=10; k>0; k--) {
+	
+	}
+	
+	
+for (m=1; m<100; m=m*2) {
+	
+	}
+	
+	
+			</code>
+			</pre>
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.11S-MsPacman-LastName.html">template</a> and rename it to your last name, such as "<code>1.11S-MsPacman-LastName.html</code>".</p>
+			<p>You will also need to download a copy of the <a href="MsPacManScreen.png">maze</a> and <a href="MsPacMan.png">Ms. Pacman</a> as well to make it work. 
+
+			<h2>The assignment</h2>
+			<p>Look at the source code in the template of Ms. Pacman. 
+				Look at the loop structures in the function called <code>mainProcedure</code>.
+				Each of these loops simply counts the number of times that Ms. Pacman is moved one pixel.</p>
+			
+			<p>	Modify these loop structures so that you can move Ms. Pacman step by step from point A to point B. 
+				Although the walls cannot block your movement (it is simply an image moving on top of another image), 
+				do not run into walls, Inky, Pinky, Blinky, or Clyde (yes, the ghosts have names).
+			</p>
+			
+			<h2>Extend and expand</h2>
+			<p>Can you modify the code to speed up and slow down the animation speed?</p>
+			<p>How would you change the direction that Ms. Pacman is facing in the animation?</p>
+		</article>
+
+		<!--
+		<aside>	
+			<h2>Do it with style</h2>
+			<p>Filenames are easy to mess up. It is very easy to make a mistake - particularly with spaces and capitalization.</p>
+			<p>
+				In order to save time and increase accuracy, I tend to go to the file in the file manager, 
+				pull up the context menu to get <code>Rename...</code> 
+				and then hit<code>Control-C</code> to copy the first part of the filename. 
+				It does not include the file extension, like <code>.png</code>, but I can at least paste in the
+				beginning of the filename accurately.
+			</p>
+		</aside>
+		-->
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

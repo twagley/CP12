@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Mice and images
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use mice to place images on the screen">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				22. November 2015	- created!									- Drapak
+				24. November 2015	- reworked examples and assignment file		- Drapak
+				18. December 2018	- reworked for better style and clarity		- Drapak
+		-->
+
+		<style>
+            article img {
+                position: fixed;
+				width: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 4.03S Skill-builder: <em>Mice and images</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INPUT: 
+					<a href="inputMouseMovementAndPosition.shtml">
+						Reading mouse movements and position
+					</a>
+				</li>
+				<br>
+				<li>
+					//OUTPUT: 
+					<a href="outputAddingImagesToAnOutputElement.shtml">
+						Adding new images to an output element
+					</a>
+				</li>
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="4.03S-MiceAndImages-LastName.html">empty template</a> as 
+				"<code>4.03S-MiceAndImages-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use object oriented programming to place new images 
+				on the screen by reading mouse positions.
+			</p>
+			
+			<h2>Examples:</h2>
+			
+			<ul>
+				<li><a href="supporting/StarryNight-obs.html">Starry night</a></li>
+				<li><a href="supporting/FlowerGarden-obs.html">Flower garden</a></li>
+				<li><a href="supporting/TileDesigner-obs.html">Tile designer</a></li>
+			</ul>
+			
+			<h2>Code example</h2>
+			
+			<p>
+				top: <span id="topId"></span><br>
+				left: <span id="leftId"></span><br>
+				<button id="buttonId">Click to <strong>&star;</strong>t</button>			
+			</p>
+			<div id="outputId"></div>
+			<img id="imageId" src="https://www.kasandbox.org/programming-images/cute/Star.png" />
+
+			<p>
+				...is made with the following code:
+				(Although I took out some important code bits for you to look up...)
+			</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Reading the mouse position</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            img {
+                position: absolute;
+            }
+            img, td { 
+                width: 50px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            top: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topId"</span><span class="sc1">&gt;&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+            left: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftId"</span><span class="sc1">&gt;&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Click to </span><span class="sc1">&lt;strong&gt;</span><span class="sc10">&amp;star;</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">t</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">            
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/Star.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INIT: set up the mouseObj's properties</span><span class="sc41">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mouseObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// current top and left position of the mouse, in px</span><span class="sc41">
+                </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41"> 
+                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41"> 
+                
+                </span><span class="sc43">// make the current image be a star</span><span class="sc41">
+                </span><span class="sc46">currentSrc</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"https://www.kasandbox.org/programming-images/cute/Star.png"</span><span class="sc50">,</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">// mouseObj methods:</span><span class="sc41">
+            </span><span class="sc43">//      .getCurrentPosition()</span><span class="sc41">
+            </span><span class="sc43">//      .displayPosition()</span><span class="sc41">
+            </span><span class="sc43">//      .moveImage()</span><span class="sc41">
+            </span><span class="sc43">//      .placeImage()</span><span class="sc41">
+            </span><span class="sc43">//      .cleanUpTheScreen()</span><span class="sc41">
+            </span><span class="sc43">//      .outputInstructions()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//INPUT: get the current position returned by the mouse event</span><span class="sc41">
+            </span><span class="sc46">mouseObj.getCurrentPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.getCurrentPosition...' );</span><span class="sc41">
+                </span><span class="sc46">this.top</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.??????</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.left</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">event.??????</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: display the current mouse position</span><span class="sc41">
+            </span><span class="sc46">mouseObj.displayPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.displayPosition...' );</span><span class="sc41">
+
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'topId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'leftId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: move the star to the current mouse position</span><span class="sc41">
+            </span><span class="sc46">mouseObj.moveImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.moveImage...' );</span><span class="sc41">
+            
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">imageStyle</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'imageId'</span><span class="sc50">).</span><span class="sc46">style</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">imageStyle.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">imageStyle.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: add a new image to the outputID</span><span class="sc41">
+            </span><span class="sc46">mouseObj.placeImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.placeImage...' );</span><span class="sc41">
+
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newImage</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">document.??????</span><span class="sc50">(</span><span class="sc48">"img"</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">newImage.src</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSrc</span><span class="sc41"> </span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">newImage.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">newImage.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46 withborder">??????</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">newImage</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: empty out the contents of #outputID</span><span class="sc41">
+            </span><span class="sc46">mouseObj.cleanUpTheScreen</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.cleanUpTheScreen...' );</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+                        
+            </span><span class="sc43">//OUTPUT: output instructions</span><span class="sc41">
+            </span><span class="sc46">mouseObj.outputInstructions</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in mouseObj.outputInstructions...' );</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Click anywhere to stop..."</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            
+            </span><span class="sc43">//INPUT EVENTS</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//INPUT EVENT: whenever the mouse is clicked</span><span class="sc41">
+            </span><span class="sc46">document.onmousedown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'onmousedown...' );</span><span class="sc41">
+                
+                </span><span class="sc46">mouseObj.cleanUpTheScreen</span><span class="sc50">();</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT EVENT: turn off the effects of moving the mouse</span><span class="sc41">
+                </span><span class="sc46 withborder">document.??????</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">''</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT EVENT: when #buttonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"#buttonId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( '#buttonId.onclick...' );</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT EVENT: whenever the mouse moves, draw a star        </span><span class="sc41">
+                </span><span class="sc46 withborder">document.??????</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">event</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">mouseObj.getCurrentPosition</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">event</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">mouseObj.displayPosition</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">mouseObj.moveImage</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">mouseObj.placeImage</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc46">mouseObj.outputInstructions</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<h2>Make it your own!</h2>
+			<p>
+				Decide how much or how little you want to take on in this assignment. 
+				For example, you could simply add the missing code to the example on the assignment webpage.
+				Or, you could do something else...
+			</p>
+			<p>
+				To succeed you have to:
+			</p>
+			<ol>
+				<li>Listen for mouse events with <code>document.onmousemove</code></li>
+				<li>Read the mouse position with <code>.clientX</code> and <code>.clientY</code></li>
+				<li>Create images using <code>document.createElement("img")</code></li>
+				<li>Add images inside an ID using <code>document.getElementById( ).appendChild( )</code></li>
+			</ol>
+		</article>
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+			var _0xf275=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x53\x74\x61\x72\x2E\x70\x6E\x67","\x67\x65\x74\x43\x75\x72\x72\x65\x6E\x74\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x74\x6F\x70","\x63\x6C\x69\x65\x6E\x74\x59","\x6C\x65\x66\x74","\x63\x6C\x69\x65\x6E\x74\x58","\x64\x69\x73\x70\x6C\x61\x79\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x74\x6F\x70\x49\x64","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6C\x65\x66\x74\x49\x64","\x6D\x6F\x76\x65\x49\x6D\x61\x67\x65","\x73\x74\x79\x6C\x65","\x69\x6D\x61\x67\x65\x49\x64","\x70\x78","\x70\x6C\x61\x63\x65\x49\x6D\x61\x67\x65","\x69\x6D\x67","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x73\x72\x63","\x63\x75\x72\x72\x65\x6E\x74\x53\x72\x63","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x6F\x75\x74\x70\x75\x74\x49\x64","\x63\x6C\x65\x61\x6E\x55\x70\x54\x68\x65\x53\x63\x72\x65\x65\x6E","","\x6F\x75\x74\x70\x75\x74\x49\x6E\x73\x74\x72\x75\x63\x74\x69\x6F\x6E\x73","\x43\x6C\x69\x63\x6B\x20\x61\x6E\x79\x77\x68\x65\x72\x65\x20\x74\x6F\x20\x73\x74\x6F\x70\x2E\x2E\x2E","\x6F\x6E\x6D\x6F\x75\x73\x65\x64\x6F\x77\x6E","\x6F\x6E\x6D\x6F\x75\x73\x65\x6D\x6F\x76\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x23\x62\x75\x74\x74\x6F\x6E\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72"];var mouseObj={top:0,left:0,currentSrc:_0xf275[0]};mouseObj[_0xf275[1]]= function(_0x11c6x2){this[_0xf275[2]]= _0x11c6x2[_0xf275[3]];this[_0xf275[4]]= _0x11c6x2[_0xf275[5]]};mouseObj[_0xf275[6]]= function(){document[_0xf275[9]](_0xf275[8])[_0xf275[7]]= this[_0xf275[2]];document[_0xf275[9]](_0xf275[10])[_0xf275[7]]= this[_0xf275[4]]};mouseObj[_0xf275[11]]= function(){var _0x11c6x3=document[_0xf275[9]](_0xf275[13])[_0xf275[12]];_0x11c6x3[_0xf275[2]]= this[_0xf275[2]]+ _0xf275[14];_0x11c6x3[_0xf275[4]]= this[_0xf275[4]]+ _0xf275[14]};mouseObj[_0xf275[15]]= function(){var _0x11c6x4=document[_0xf275[17]](_0xf275[16]);_0x11c6x4[_0xf275[18]]= this[_0xf275[19]];_0x11c6x4[_0xf275[12]][_0xf275[2]]= this[_0xf275[2]]+ _0xf275[14];_0x11c6x4[_0xf275[12]][_0xf275[4]]= this[_0xf275[4]]+ _0xf275[14];document[_0xf275[9]](_0xf275[21])[_0xf275[20]](_0x11c6x4)};mouseObj[_0xf275[22]]= function(){document[_0xf275[9]](_0xf275[21])[_0xf275[7]]= _0xf275[23]};mouseObj[_0xf275[24]]= function(){document[_0xf275[9]](_0xf275[21])[_0xf275[7]]= _0xf275[25]};document[_0xf275[26]]= function(){mouseObj[_0xf275[22]]();document[_0xf275[27]]= _0xf275[23]};document[_0xf275[30]](_0xf275[29])[_0xf275[28]]= function(){document[_0xf275[27]]= function(_0x11c6x2){mouseObj[_0xf275[1]](_0x11c6x2);mouseObj[_0xf275[6]]();mouseObj[_0xf275[11]]();mouseObj[_0xf275[15]]()};mouseObj[_0xf275[24]]()}
+		</script>
+	</body>
+</html>

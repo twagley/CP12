@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			OUTPUT - alert(), innerHTML, and console.log()
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to output things simply in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				20. Sept 2015		- created!										- Drapak
+				21. Sept			- changed new code style and examples			- Drapak
+				26. February 2017 	- reworked to seperate js from html				- Drapak
+				23. September 2018	- updated code and example style				- Drapak
+				9. October 2018		- home sick. blah. changed to id style			- Drapak
+				13. October 2018	- clarified code example						- Drapak
+		-->
+
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em><code>alert()</code>, 
+			<code>.innerHTML</code>, and <code>console.log()</code></em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INPUT: </span> 
+					<code>document.body.onload = <var>mainProcedure</var>;</code><br>
+					<span class="indent">&mdash; starts <code>mainProcedure();</code> 
+					after the page has finished loading</span><br>
+				<span class="langstyle">//INPUT: </span> 
+					<code>
+						&nbsp;&lt;img id="imageId" src="<var>image.jpg</var>"&gt;<br>
+						&ltscript><br>
+						<span class="indent">
+							document.getElementById('<var>imageId</var>').onload = mainProcedure;
+						</span><br>
+						&lt/script>
+					</code><br>
+					<span class="indent">
+						&mdash; starts <code>mainProcedure();</code> 
+						after the image has finished loading
+					</span><br>
+					<br>
+					
+				<span class="langstyle">//OUTPUT: </span> 
+					<code>alert("example message");</code><br>
+					<span class="indent">&mdash; displays a pop up message</span><br>
+				<span class="langstyle">//OUTPUT: </span> 
+					<code>console.log("example message");</code><br> 
+					<span class="indent">
+						&mdash; outputs a message to the browser console log
+					</span><br>
+				<span class="langstyle">//OUTPUT: </span> 
+					<code>
+						document.getElementById('exampleId').innerHTML = "example message";
+					</code> <br>
+					<span class="indent">
+						&mdash; inserts/replaces a message inside an HTML element
+					</span><br>
+			</p>
+			
+			<h2>Setting up a basic script</h2>
+			
+			<p>All Javascript code is placed inside the <code>&lt;script></code> block of a document.</p>
+			
+			<p>
+				Usually you want to define a main function to run,
+				often called <code>mainProcedure()</code>, 
+				and then you want it to run when the window has finished loading.
+			</p>
+			
+			<p>
+				Using <code>document.body.onload = mainProcedure;</code> will do the trick!
+			</p>
+			
+			<p>The following code is of an empty script, ready to go:</p>
+
+			<pre><code><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- your HTML goes in here --&gt;</span><span class="sc0">
+    
+    
+    </span><span class="sc9">&lt;!-- &lt;script&gt; is the last thing in the &lt;body&gt; --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc43">// this is the main function    </span><span class="sc41">
+        </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// your code goes inside here</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+        
+        </span><span class="sc43">//INPUT: start mainProcedure() when the body of the page is finished loading </span><span class="sc41">
+        </span><span class="sc46">document.body.onload</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+			
+			<h2>Three basic ways to output text information to a user</h2>
+			
+			<h3>Pop up messages with <code>alert()</code></h3>
+			<p>
+				Want to annoy your users?
+				Of course you don't!
+			</p>
+			<p>
+				But there are still plenty of times when you want to pop up a window,
+				such as for notifications, or to help you troubleshoot your programs.
+			</p>
+			<p>
+				To do this, add the line <code>alert("example message");</code>
+				inside <code>mainProcedure</code>.
+			</p>
+			
+			<h3>
+				Secretly send messages to the developer console with 
+				<code>console.log()</code>
+			</h3>
+			<p>
+				Sometimes you want to send messages secretly to yourself.
+				In most browsers there is a developer console that show errors
+				and other information.
+				It can usually be opened by hitting 
+				<kbd>ctrl</kbd><kbd>shift</kbd><kbd>J</kbd>
+				on the keyboard.
+			</p>
+			<p>
+				If you add <code>console.log("secret message");</code> to 
+				<code>mainProcedure</code>, the message will appear in the console.
+			</p>
+			<p>
+				You will find that the developer console is essential for hunting down bugs.
+			</p>
+			
+			<h3>
+				AND MOST IMPORTANTLY: Insert text into HTML elements with 
+				<code>document.getElementById().innerHTML</code>
+			</h3>
+			<p>
+				Most of the time that you are sending text to a user, 
+				you will be inserting a message inside an element on your webpage.
+			</p>
+			<p>
+				Let's say that you have an empty paragraph in the 
+				<code>&lt;body></code> of your code like:<br>
+				<code>&lt;p id="emptyId">&lt;/p></code>
+			</p>
+			<p>
+				If you add 
+				<code>document.getElementById('emptyId').innerHTML = "Hello world!"</code> to 
+				<code>mainProcedure</code>, that message will appear inside that paragraph.
+			</p>
+			<p>
+				This is an essential piece of code that you will use over and over again.
+			</p>
+			
+			<h3>Code example:</h3>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">A basic Javascript Program</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Basic text output  methods</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">The following paragraph is empty at the beginning of the program:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"emptyId"</span><span class="sc1">&gt;&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc41">         
+            </span><span class="sc43">// OUTPUT: show an alert, a log, and in insertion    </span><span class="sc41">
+            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// make an alert message pop up        </span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"Hello - this is an alert()"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// send a hidden message to the developer console</span><span class="sc41">
+                </span><span class="sc43">// check the console out with cntl-shift-J</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"Hey! I'm in the console.log()!"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"I'm now inside the empty paragraph"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// insert text inside an HTML element</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"emptyId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: start mainProcedure when the page finishes loading</span><span class="sc41">
+            </span><span class="sc46">document.body.onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-basic-text-output/5237060335173632">Live example: Basic Text Output</a></h2>
+			<script src="https://www.khanacademy.org/computer-programming/live-example-basic-text-output/5237060335173632/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

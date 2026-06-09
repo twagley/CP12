@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: PROCESS - Use function pipelines to divide your code</title>
+		<meta name="description" content="Learn how use function pipelines in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				12. Oct		- created!
+			-->
+
+		<script>
+			// Notice that each function keeps its own variables.
+			// There are no shared variables between the functions.
+	
+			var mainProcedure = function () {
+				console.log('in mainProcedure...');
+				
+				//INPUT: read the number of degrees entered
+				var degrees	= document.getElementById('inputID').value;
+				
+				//PROCESS: convert degrees from a string to a number if needed
+				degrees		= parseFloat(degrees);
+				
+				//PROCESS: calculate the radians
+				var radians	= degrees * Math.PI / 180;
+				
+				//OUTPUT: display the radians
+				document.getElementById('outputID').innerHTML	=radians;
+			}
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Using function pipelines</em>
+		</header>
+		
+		<article>
+
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>var <var>someFunction</var> = (<var>somethingIn</var>) { return <var>somethingOut</var> }</code><br />
+				<span class="indent">&mdash; creates a function that takes in information, processes it, and spits out the result<br />
+			</p>
+
+			<h2>Taking in the input, pushing out the output</h2>
+			
+			<p>
+				We've been making a lot of programs. 
+				You will notice that in the examples, there will often be
+				comments that will start with:
+			</p>
+			<ol>
+				<li>//INIT:</li>
+				<li>//INPUT:</li>
+				<li>//PROCESS:</li>
+				<li>//OUTPUT:</li>
+			</ol>
+
+			<p>
+				So what is the difference between these?
+			</p>
+			<ol>
+				<li><strong>Initialization</strong>: set up things, initialize and declare the variables</li>
+				<li><strong>Input</strong>: read or detect something</li>
+				<li><strong>Process</strong>: do something to the thing you read</li>
+				<li><strong>Output</strong>: communicate some kind of result</li>
+			</ol>
+			
+			<h4>
+				Which one is which?
+			</h4>
+			
+			<p>
+				Look at the examples below, and determine whether they are 
+				initialization, input, process, or output:
+			</p>
+			
+			<ol>
+				<li>
+					Reading a click with<br />
+					<code>onclick=""</code>:<br />
+					<span class="question" data-answer="Input"></span>
+				</li>
+				<br />
+				<li>
+					Moving things with <br />
+					<code>$('#animateID').animate();</code>:<br />
+					<span class="question" data-answer="Output"></span>
+				</li>
+				<br />
+				<li>
+					Defining acceleration due to gravity: <br />
+					<code>var ACCEL_DUE_TO_GRAVITY = -9.8;</code>:<br />
+					<span class="question" data-answer="Initialization"></span>
+				</li>
+				<br />
+				<li>
+					Changing a color: <br />
+					<code>document.getElementById('outputID').style.color = 'red';</code>:<br />
+					<span class="question" data-answer="Output"></span>
+				</li>
+				<br />
+				<li>
+					Adding 30 to the current position: <br />
+					<code>var newTopPos = currentTopPos + 30;</code>:<br />
+					<span class="question" data-answer="Process"></span>
+				</li>
+				<br />
+				<li>
+					Reading a text area: <br />
+					<code>var newText = document.getElementById('textareaID').value;</code>:<br />
+					<span class="question" data-answer="Input"></span>
+				</li>
+				<br />
+				<li>
+					Deciding if someone if old enough to vote: <br />
+					<code>if ( age > 17 ) { youCanVote() }</code>:<br />
+					<span class="question" data-answer="Process"></span>
+				</li>
+				<br />
+				<li>
+					Setting a the jump distance: <br />
+					<code>var JUMP_DISTANCE = 20;</code>:<br />
+					<span class="question" data-answer="Initialization"></span>
+				</li>
+				<br />
+				<li>
+					Calculating radians, given the degree: <br />
+					<code>var radians = degrees * Math.PI / 180;</code>:<br />
+					<span class="question" data-answer="Process"></span>
+				</li>
+			</ol>
+
+			<h2>The old way to do things: sequential programming</h2>
+			
+			<p>
+				So far we have been creating our programs as a bunch of commands in a line.
+				We have been using init, input, process, and output commands, 
+				but we have been using them all in a row, one following another.
+				This is a good way to start for beginners.
+			</p>
+			<p>
+				Take a look a the following code that converts degrees to radians:
+			</p>
+			<hr />
+			<p>
+				Enter the degrees:
+				<input id="inputID" type="text" onchange="mainProcedure();"></input>
+				<button onclick="mainProcedure();">Click to convert!</button>
+			</p>
+			<p>
+				The answer in radians is:
+				<span id="outputID"></span>
+			</p>			
+			<hr />
+	
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Convert degrees to radians</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Convert degrees to radians in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in mainProcedure...'</span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: read the number of degrees entered</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">degrees</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'inputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: convert degrees from a string to a number if needed</span><span class="sc41">
+                </span><span class="sc46">degrees</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseFloat</span><span class="sc50">(</span><span class="sc46">degrees</span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: calculate the radians</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">radians</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">degrees</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">180</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display the radians</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'outputID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc46">radians</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Enter the degrees:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputID"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc1">&gt;&lt;/input&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">Click to convert!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            The answer in radians is:
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			<p>
+				This is a good structure, and it works for small programs. 
+				But our programs are about to get bigger.
+				Big programs can be hard to understand unless you develop great style.				
+			</p>
+			
+			
+			<h2>Using <code>var functionName = function (<var>somethingIn</var>) {return <var>somethingOut</var>}</code></h2>
+			
+			<p>
+				Every function has the ability to take information in, and then return information out:
+			</p>
+			
+			<pre><code>
+//PROCESS: accept a number, and return the square of it
+var getSquare = function(<var>inputNumber</var>) {
+	var <var>answer</var> =Math.pow(<var>inputNumber</var>, 2)
+	return <var>answer</var>;
+	}
+		</code></pre>
+
+			<p>
+				In this example, <var>inputNumber</var> is called getSquare's <strong>argument</strong>.
+				An <strong>argument</strong> is the information given to a function.
+			</p>
+			<p>
+				In this example, <var>answer</var> is <strong>returned</strong>.
+				This means that the function will finish and give back whatever information was inside <var>answer</var>.
+			</p>
+			<p>So now you can make code like this:</p>
+			
+			<pre><code>
+	var <var>square</var> =getSquare(<var>16</var>); <var>// makes square equal to 256</var>
+			</code></pre>
+
+			<h4>Check your understanding</h4>
+			
+			<p>
+				What is inside <var>square</var> in the following example:<br />
+				<code>var square = getSquare( 2 );</code><br />
+				<span class="answer" data-answer="square is 4"></span>
+			</p>
+			<p>
+				What is inside <var>square</var> in the following example:<br />
+				<code>var square = getSquare( 4 );</code><br />
+				<span class="answer" data-answer="square is 64"></span>
+			</p>
+			<p>
+				What is inside <var>square</var> in the following example:<br />
+				<code>var square = getSquare( 2 * 4 );</code><br />
+				<span class="answer" data-answer="square is 256"></span>
+			</p>
+			
+			<h2>Creating function pipelines</h2>
+			
+			<p>
+				When programs get big, it is best to break them into smaller chunks.
+				This often means dividing them into separate initialization, input, process, and output functions.
+			</p>
+			<p>
+				There are certain advantages to doing this. 
+				One is that it is easier to write and adapt code for different computing platforms.
+				Often transporting your code to a different environment means changing how input and output works, 
+				but it usually leaves the initialization and process parts alone.
+				It also helps you break down you code into manageable, doable chunks.
+			</p>
+			<p>
+				In the degrees to radians converter, the problem is broken down as follows.
+				Notice that the data flows in a <strong>pipeline</strong>: 
+				<strong>INPUT &rarr; PROCESS &rarr; OUTPUT</strong>.
+			</p>
+		
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Convert degrees to radians</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Convert degrees to radians in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in mainProcedure...'</span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46 withborder">degrees</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">readDegrees</span><span class="sc50">();</span><span class="sc41">                </span><span class="sc43">//INPUT</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46 withborder">radians</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">convertToRadians</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">degrees</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">  </span><span class="sc43">//PROCESS</span><span class="sc41">
+                </span><span class="sc46">outputRadians</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">radians</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">                   </span><span class="sc43">//OUTPUT</span><span class="sc41">
+                </span><span class="sc43">// the following code is the same as the lines above:</span><span class="sc41">
+                </span><span class="sc43">// outputRadians( convertToRadians ( readDegrees ) );</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//INPUT: read the number of degrees entered and returns it</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">readDegrees</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in readDegrees...'</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47 withborder">return</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'inputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: accepts degrees and returns the equivalent in radians</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">convertToRadians</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">degrees</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in convertToRadians...'</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">degrees</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseFloat</span><span class="sc50">(</span><span class="sc46">degrees</span><span class="sc50">);</span><span class="sc41">      </span><span class="sc43">// first convert string to number</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">radians</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">degrees</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">180</span><span class="sc50">;</span><span class="sc41">  </span><span class="sc43">// then do the trigonometry</span><span class="sc41">
+                </span><span class="sc47 withborder">return</span><span class="sc41"> </span><span class="sc46">radians</span><span class="sc50">;</span><span class="sc41">                         </span><span class="sc43">// and return the answer    </span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: accepts the radians and outputs it inside #outputID</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputRadians</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46 withborder">radians</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in outputRadians...'</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'outputID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc46">radians</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Enter the degrees:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputID"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">onchange</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;&lt;/input&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">Click to convert!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            The answer in radians is:
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></code></pre>
+			
+			<h2>Using function pipelines is good style</h2>
+			<p>
+				Notice the following about different kinds of functions:
+			</p>
+			
+			<dl>
+				<dt>//INPUT functions</dt>
+				<dd>never have an argument, but always return something</dd>
+				<dt>//PROCESS functions</dt>
+				<dd>always have one or more arguments, and always return something</dd>
+				<dt>//OUTPUT functions</dt>
+				<dd>always have one or more arguments, never return anything</dd>
+			</dl>
+
+			<p>
+				From now on, you will be using function pipelines to create your programs. 
+			</p>
+			<p>
+				This means that you will divide your code into //INIT, //INPUT, //PROCESS, and //OUTPUT functions.
+			</p>
+			<p>
+				All of these functions will pipe to each other inside other master functions, for example, <var>mainProcedure()</var>.
+			</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/js/js_function_definition.asp">
+						JavaScript Function Definitions
+					</a> 
+				</li>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/js/js_functions.asp">
+						JavaScript functions
+					</a> 
+				</li>
+			</ul>
+		</article>
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

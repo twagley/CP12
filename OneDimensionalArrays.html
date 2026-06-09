@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>One dimensional arrays</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows different ways of manipulating and displaying arrays 
+		
+			Created:	26. March 2015 
+			Updated:	
+		-->
+		<script>
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.18 Skill builder: One dimensional arrays</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">array JS</span> <code><var>arrayVariable</var>.length;</code> &mdash; returns the length of the array<br />
+				<br />
+				<span class="langstyle">array JS</span> <code><var>arrayVariable</var>.push("<var>violet</var>");</code> &mdash; adds "violet" to the <strong>end</strong> of the array<br />
+				<span class="langstyle">array JS</span> <code><var>arrayVariable</var>[<var>arrayVariable</var>.length]="<var>violet</var>";</code> &mdash; same as above<br />
+				<br />
+				<span class="langstyle">array JS</span> <code><var>arrayVariable</var>.unshift("<var>violet</var>");</code> &mdash; adds "violet" to the <strong>front</strong> of the array<br />
+				<br />
+				<span class="langstyle">array JS</span> <code>var <var>arrayList</var> = <var>arrayVariable</var>.join("<var>,</var>");</code> &mdash; joins together the elements of the array into a string, separated by a comma<br />
+				<br />
+				<span class="langstyle">block HTML</span> <code>&lt;span id="<var>elementID:</var>&gt;&lt;/span&gt;</code> &mdash; creates an invisible HTML container with an ID<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Some array functions</h2>
+
+			<p>Let's say your program has an array called <var>colourArray</var> with several elements, like this:</p>
+			<table>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+				</tr>
+			<table>
+			
+			
+			<h3>Find the length of an array</h3>
+			<p>
+				Say you need to find out how many colours are stored in <var>colourArray</var>.
+				The easiest way to do this is by using the <code>.length</code> command:
+			</p>
+			<p><code>var lengthOfColourArray = colourArray.length</code></p>
+			
+			<p>This will set <var>lengthOfColourArray</var> to 5.</p>
+
+			
+			<h3>Add a new element to the END of an array</h3>
+			<p>
+				Perhaps you want to add "<var>violet</var>" to the <strong>end</strong> of <var>colourArray</var>. 
+				There are a couple of easy ways to do this:
+			</p>
+			
+			<ol>
+				<li>
+					You can <code>.push()</code> "<var>Violet</var>" onto the end of <var>colourArray</var>, like this:<br />
+					<br />
+					<code>colourArray.push("<var>Violet</var>");</code><br />&nbsp;
+				</li>
+				<li>
+					Or, you can do the exact thing, using <code>.length</code>:<br />
+					<br />
+					<code>colourArray[colourArray.length] = "<var>Violet</var>";</code>			
+				</li>
+			</ol>
+			
+			<p>After either of these two commands, <var>colourArray</var> now looks like this:</p>
+			
+			<table>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+					<td class="withborder">5</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+					<td class="withborder">Violet</td>
+				</tr>
+			<table>
+			
+			<h4>For example:</h4>
+			<p><img class="withborder" src="img/OneDimensionalArrayInitMonths.png"></p>
+			
+			
+			<h3>Add a new element to the START of an array</h3>
+			<p>
+				Say you want to add the word "<var>Red</var>" to the <strong>front</strong> of <var>colourArray</var>.
+				You can do this using <code>.unshift()</code>:
+			</p>
+			<p><code>colourArray.unshift("<var>Red</var>");</code></p>
+
+			<p>Now <var>colourArray</var> looks like this:</p>
+			
+			<table>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+					<td class="withborder">5</td>
+					<td class="withborder">6</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Red</td>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+					<td class="withborder">Violet</td>
+				</tr>
+			</table>
+			<h4>For example:</h4>
+			<p><img class="withborder" src="img/OneDimensionalArrayInitDays.png"></p>
+
+			
+			<h3>Mystery code:</h3>
+			<p>What do you think the following code does?</p>
+			<p><img class="withborder" src="img/OneDimensionalArrayInitOrdinals.png"></p>
+			
+
+			<h2>Changing things in the middle of a line with <code>&lt;span&gt;</code></h2>
+			<p>
+				Often we want to insert answers into our HTML document.
+				We create an element with an id, say, <code>id="<var>outputArea</var>"</code>, and write inside it using <code>document.getElementById("<var>outputArea</var>").innerHTML</code>.
+			</p>
+			
+			<p>If we wanted an answer inside it's own block, we used:</p>
+			<ul>
+				<li><code>&lt;output id="<var>outputArea</var>"&gt;&lt;/output&gt;</code></li>
+			</ul>
+			
+			
+			<p>If we wanted an answer inside a sentence, we put it inside a formatting tag, like:</p>
+			<ul>
+				<li><code>&lt;p&gt;The answer is: &lt;strong id="<var>outputArea</var>"&gt;&lt;/strong&gt;&lt;/p&gt;</code></li>
+				<li>or ... <code>&lt;p&gt;The answer is: &lt;em id="<var>outputArea</var>"&gt;&lt;/em&gt;&lt;/p&gt;</code></li>
+			</ul>
+			<p>
+				But what if you want to insert information <strong>without</strong> changing the formatting?
+				Then you use <code>&lt;span&gt;</code>:
+			</p>
+			<p>
+				<ul>
+					<li><code>&lt;p&gt;The answer is: &lt;span id="<var>outputArea</var>"&gt;&lt;/span&gt;&lt;/p&gt;</code></li>
+				</ul>
+			</p>
+
+			<p>Let's say I want to insert a list of the days of the week into my HTML document. I could use <code>span</code> in the middle of the elements like this:</p>
+			<p><img class="withborder" src="img/OneDimensionalArrayOutputWeeks.png"></p>
+			<p>That code will create this:</p>
+			<div class="withborder">
+				<h3>There are days in a week.</h3>
+				<p>The days of the week are: <strong>, , , , , , </strong></p>
+			</div>
+			
+			<p>And now if we now use Javascript to fill in the <code>&lt;span&gt;</code>s with array data:</p>
+			<p><img class="withborder" src="img/OneDimensionalArrayOutputWeeks2.png"></p>
+			<p>We will get this:</p>
+			<div class="withborder">
+				<h3>There are 7 days in a week.</h3>
+				<p>
+					The days of the week are: 
+					<strong>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</strong>
+				</p>
+			</div>
+			
+			<h2>Joining arrays into strings with <code>.join()</code></h2>
+			<p>Let's say that you have the colours of the rainbow still in <var>colourArray</var>.</p>
+			<p>You can make a comma separated list of colours with the following code:</p>
+			<ul>
+				<li><code>var <var>colourListString</var> = <var>colourArray</var>.join(", ");</code></li>
+			</ul>
+			<p>Now <var>colourListString</var> = "<var>Red, Orange, Yellow, Green, Blue, Indigo, Violet</var>".</p>
+			<p>Similarly:</p>
+			<ul>
+				<li><code>var <var>dayListString</var> = <var>daysOfWeek</var>.join("Kitten");</code></li>
+			</ul>
+			<p>Makes <var>dayListString</var> have a bizarre string like:<br />"<var>SundayKittenMondayKittenTuesdayKittenWednesdayKittenThursdayKittenFridayKittenSaturday</var>"</p>
+		
+
+			
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.18S-OneDimensionalArrays-LastName.html">template</a> and rename it to your last name, such as "<code>1.18S-OneDimensionalArrays-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>In this assignment you will add snippets of code to the template to correctly display lists of months, days of the week, and ordinal numbers.</h4>
+			<p>	
+				Throughout the code there are comments that say "<code>EDIT: </code>". 
+				Follow the instructions in the comments using the examples from this page to make the code operate properly.
+			</p>
+			
+			<p>Here is what your <a href="examples/OneDimensionalArraysExample.html" target="_blank">results should look like</a>.</p>
+
+			<!--
+			<h2>Do it with style</h2>
+			<h4>The console log can send you information silently</h4>
+			<p>By now, you have noticed all of the <code>console.log()</code> commands in the code examples.</p>
+			<p>
+				The <strong>console log</strong> is where most browsers will record error messages in Javascript code.
+				It is also a place where you can have your code send you messages.
+			</p>
+			<p>
+				Usually there is a menu item that will display the console log. 
+			</p>
+			<ul>
+				<li>In Chrome, it is in the <code>tools</code> menu under <code>more tools</code>&rarr;<code>JavaScript console</code>.</li>
+				<li>In Firefox, it is in the <code></code> menu under <code></code>.</li>
+				<li>In older versions of Internet Explorer it is often, well, unreliable.</li>
+			</ul>
+				
+				
+				
+			</p>
+			<p>
+				Run some code with the console open to see how it can help you debug things. It is like using alerts that you can keep buried in your code that nobody but you (and other developers) will see.
+			</p>
+			<p>
+				I recommend adding <code>console.log()</code> commands:
+			</p>
+			
+			<ul>
+				<li>at the beginning of each function</li>
+				<li>inside of each loop</li>
+				<li>any time that you have to confirm a critical calculation</li>
+			</ul>
+			<p>You can also type variable names and commands directly into the console, and it will report their values back to you.</p>
+			<p>I am not making console logging mandatory, but you might be crazy not to use it. It makes debugging much more pleasant!</p>
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/1 &mdash; Quality html code</li>
+				<li>___/3 &mdash; Well-modularized (chunked) code into separate functions following input/processing/output</li>
+				<li>___/3 &mdash; Successful Javascript solution: keyboard, ifs, and animation</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting, and style</li>
+			</ul>
+			
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

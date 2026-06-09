@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Problem Solving: Navigation with Arrays</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to use arrays to decide whether or not you can move into a particular area
+		
+			Created:	27. April 2015
+			Updated:	
+		-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			function insertAnswer (id, answer) {//OUTPUT:  this function outputs an answer into the tag with the given id
+				document.getElementById(id).innerHTML	=answer;
+			}
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:	1em;
+				height:	1em;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<article>
+			<h2>Problem Solving: Navigation with Arrays</h2>
+			
+			<h3>Allow movement some places, and prevent it in others</h3>
+			<p>
+				In the problem solving topic around <a href="MsPacmanMappingProblemSolving.html">mapping objects on a Ms. Pacman grid</a>, 
+				we learned how to convert two dimensional array information into coordinates for accurately placing dot images in the right places.
+			</p>
+			
+			<p>
+				The core concept-using a data structure to make decisions-is also useful in solving one of the classic problems in video gaming:
+				How do you allow movement in some places, but restrict in in others, for example, moving a person through a maze?
+			</p>
+			
+			<p>
+				People have tried all sorts of other strategies to make this happen. 
+				Beginners often want to make no-go areas a certain color on the screen, and then read the screen.
+				But this is slow (reading pixels off the screen is goes through many layers of the operating system) and ends up restricting realistic colors.
+			</p>
+			
+			<p>Imagine you have the following situation:</p>
+			<h4>Which&nbsp;way,&nbsp;Blinky?</h4>
+			<table>
+				
+				<tr>
+					<td class="class0" width="18px"></td>
+					<td class="class1" width="18px"></td>
+					<td class="class0" width="18px"></td>
+					<td class="class0" width="18px"></td>
+				</tr>
+				<tr>
+					<td class="class0"></td>
+					<td class="class1"></td>
+					<td class="class0"></td>
+					<td class="class0"></td>
+				</tr>
+				<tr>
+					<td class="class0"></td>
+					<td class="class"><img src="img/Blinky.png" width="18px"></td>
+					<td class="class1"></td>
+					<td class="class1"></td>
+				</tr>
+				<tr>
+					<td class="class0"></td>
+					<td class="class0"></td>
+					<td class="class0"></td>
+					<td class="class0"></td>
+				</tr>
+			</table>
+			<h4>A data structure to match</h4>
+			<code><pre>
+var <var>mazeArray</var> = [	[0,1,0,0],	<var>// use as: mazeArray[row][col]</var>
+			[0,1,0,0],
+			[0,1,1,1],
+			[0,0,0,0]	];
+			</pre></code>
+			<h4>And a way to visualize coordinates</h4>
+			<table>
+				
+				<tr>
+					<td></td>
+					<th>col-1</th>
+					<th>col</th>
+					<th>col+1</th>
+					<th>col+2</th>
+				</tr>
+				<tr>
+					<th>row-2</th>
+					<td class="class0 withborder" width="50">col-1<br />row-2</td>
+					<td class="class1 withborder">col<br />row-2</td>
+					<td class="class0 withborder">col+1<br />row-2</td>
+					<td class="class0 withborder">col+2<br />row-2</td>
+				</tr>
+				<tr>
+					<th>row-1</th>
+					<td class="class0 withborder">col-1<br />row-1</td>
+					<td class="class1 withborder">col <br />row-1</td>
+					<td class="class0 withborder">col+1<br />row-1</td>
+					<td class="class0 withborder">col+2<br />row-1</td>
+				</tr>
+				<tr>
+					<th>row</th>
+					<td class="class0 withborder">col-1<br />row</td>
+					<td class="withborder"><img src="img/Blinky.png" width="18px"></td>
+					<td class="class1 withborder">col+1<br />row</td>
+					<td class="class1 withborder">col+2<br />row</td>
+				</tr>
+				<tr>
+					<th>row+1</th>
+					<td class="class0 withborder">col-1<br />row+1</td>
+					<td class="class0 withborder">col <br />row+1</td>
+					<td class="class0 withborder">col+1<br />row+1</td>
+					<td class="class0 withborder">col+2<br />row+1</td>
+				</tr>
+			</table>
+			
+			<table>
+				<tr>
+					<th>1. What is <var>mazeArray[0][1]</var>?</th>
+					<td onclick="insertAnswer('ans2', '1');" id="ans2" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>2. What is the current position of Blinky in <var>mazeArray</var>?</th>
+					<td onclick="insertAnswer('ans3', '[2][1]');" id="ans3" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>3. What are the <var>mazeArray</var> coordinates of the cell above Blinky?</th>
+					<td onclick="insertAnswer('ans1', '[1][1]');" id="ans1" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>4. Looking at the coordinate chart, how can you express MOVING UP as rows and columns?</th>
+					<td onclick="insertAnswer('ans4', 'row=row-1, col=col');" id="ans4" class="withborder">click for answer...</td>
+				</tr>
+			</table>
+			
+			<p>
+				From our class conversation, it is obvious that if we take walls into consideration, our problem has to be broken down into two parts:
+			</p>
+			<ol>
+				<li>Check ahead into mazeArray to see if it is OK to move into there</li>
+				<li>If it is OK, then trigger the output function that animates in that direction</li>
+			</ol>
+			<p>
+				Blinky is in a maze. Blinky can clearly go up or right, but cannot go down or left.
+				It is obvious if you can just look at it. 
+				But how would you create a function to determine whether or not you can move into the new any square?
+			</p>
+			<pre><code>	function <var>itCanMoveThatWay</var> (<var>row</var>, <var>column</var>, <var>direction</var>, <var>mazeArray</var>) {	<var>// PROCESS: check if you can move that direction...</var>
+		<var>// direction can be: "up", "down", "right", or "left"</var>
+		var <var>result</var> =false;	<var>// this function will return false by default</var>
+		
+		<var>// So what do you think goes in here?</var>
+		
+		
+		
+		
+		
+		return <var>result</var>; 	<var>// return if it can move that way as either true || false</var>
+	}<code></pre>
+		</article>
+
+	</body>
+</html>
+
+

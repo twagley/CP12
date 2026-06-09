@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			OUTPUT - Changing an element's position
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to change positions of elements in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				26. Sept 2015	- created										- Drapak
+				2. Oct 			- simplified example code						- Drapak
+				5. March 2017	- make code example programming style clearer	- Drapak
+				3. October 2018	- updated Id style								- Drapak
+				9. October 2018	- fixing brs and long lines						- Drapak
+				12. October		- added quotes to the code examples				- Drapak
+				24. October 	- fixed style and clarified						- Drapak
+		-->
+
+		<style>
+			iframe {
+				wIdth: 700px;
+				height: 300px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Changing an element's position</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.querySelector( "<var>#exampleId</var>" ).style.top 
+					= 100 + '<var>px</var>';
+				</code><br>
+				<span class="indent">
+					&mdash; positions <var>#exampleId</var> 100 pixels from the top
+				</span><br>
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.querySelector( "<var>#exampleId</var>" ).style.left 
+					= 200 + '<var>px</var>';
+				</code><br>
+				<span class="indent">
+					&mdash; positions <var>#exampleId</var> 200 pixels from the top
+				</span><br>
+			</p>
+			
+			<h2>You can move things around easily</h2>
+			
+			<p>
+				You can make Javascript programs move things from their initial positions.
+				It is a three part process:
+			</p>
+			
+			<ul>
+				<li>
+					Give the element an <code>id</code> in the <code>&lt;body></code> of your code using:<br>
+					<code>id="exampleId"</code>
+				</li>
+				<li>
+					Change the position mode in the <code>&lt;style></code> block:<br>
+					<code>position: absolute;</code>
+				</li>
+				<li>
+					Use Javascript to assign new top and left positions in the 
+					<code>&lt;script&gt;</code> block:<br>
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.top 
+						= 100 + <var>"px"</var>;
+					</code><br>
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.left 
+						= 50 + <var>"px"</var>;
+					</code>
+				</li>
+			</ul>
+			
+			<h2>Common problems</h2>
+
+			<ul>
+				<li>Nothing will move until you change the positioning mode</li>
+				<li>
+					The spelling and capitalization of the <code>id</code>s must be 
+					<strong>exactly</strong> the same.
+					For example, <var>exampleId</var> is not the same as <var>exampleID</var>.
+				</li>
+				<li>
+					The top and left positions must be a string that includes <code>"px"</code>.<br>
+					<strong>Works:</strong> 
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.left 
+						= 50 + <var>"px"</var>;
+					</code><br>
+					<strong>Broken:</strong> 
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.left 
+						= <var>50</var>;
+					</code><br>				
+					<strong>Broken:</strong> 
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.left 
+						= <var>50px</var>;
+					</code>
+				</li>
+			</ul>
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com on
+					<a href="http://www.w3schools.com/jsref/prop_style_top.asp">
+						top style
+					</a> and 
+					<a href="http://www.w3schools.com/jsref/prop_style_left.asp">
+						left style
+					</a>
+				</li>
+			</ul>
+			
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/outputChangePosition.shtml"></iframe>
+			<p>...is made with the following code:</p>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">
+            OUTPUT - Changing an element's position
+        </span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to change positions of elements in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                26. Sept 2015   - created                                       - Drapak
+                2. Oct          - simplified code and added console logs        - Drapak
+                5. March 2017   - reworked for clearer programming style        - Drapak
+                9. October 2018 - updated id style and clarified                - Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            /* NOTHING will happen unless you change the position mode */
+            #imgId {
+                position:   absolute;
+                width:      100px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Changing the position of an element</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">First, make sure that you change the </span><span class="sc1">&lt;code&gt;</span><span class="sc0">position</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> mode.</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Move to 50 pixels from the top
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Move to 200 pixels from the left
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imgId"</span><span class="sc8"> 
+            </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"Yum! Sushi!"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/food/sushi.png"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: move image to 100 pixels from the TOP:</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeTopPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in changeTopPosition...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imgId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">50 + "px"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: move image to 200 pixels from the LEFT:</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeLeftPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in changeLeftPosition...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imgId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">200 + "px"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger changeTopPosition when #topButtonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#topButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeTopPosition</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger changeLeftPosition when #leftButtonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#leftButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeLeftPosition</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

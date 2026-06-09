@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			My Biggest Start
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to convert your code to function pipelines">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. October 2015	- created!
+				21. October 2018	- updated style and clarified examples		- Drapak
+				4. November 2018	- moved to 2.13								- Drapak
+				4. November 2019	- clarified instructions			- Tyson Wagley
+
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+		<style>
+			img {
+				width:	80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.12 Skill-builder: 
+			<em>My Biggest Star</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionParametersAndReturns.shtml">Functional Programming</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionDefinitionsCallsReferences.shtml">Functions: 
+					Definition, trigger, or reference?</a>
+				</li>
+				<li>
+					//STYLE: 
+					<a href="styleFunctionPipelines.shtml">Use function pipelines</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.12S-MyBiggestStar-LastName.html">empty template</a> as 
+				"<code>2.12S-MyBiggestStar-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Here is what the initial program does:
+			</p>
+			
+			<hr>
+			<h4>You are my biggest star!</h4>
+			<p>Press the U and D keys to make the star bigger and littler.</p>
+			<img 
+				id="imageId"
+				src="https://www.kasandbox.org/programming-images/cute/Star.png" />
+			<hr>
+			
+			<p>
+				Now convert the sample program from a sequential program 
+				into one that uses function pipelines.
+			</p>
+			<ol>
+				<li>
+					Create an //INPUT function called <var>readKeypress( keyEvent )</var> 
+					that returns the character that was pressed.
+				</li>
+				<li>
+					Give the function a descriptive comment and add 
+					<code>console.log( 'in readKeypress...' );</code>
+				</li>
+				<li>
+					Create an //OUTPUT function called <var>makeStarSmaller()</var>
+				</li>
+				<li>
+					Create an //OUTPUT function called <var>makeStarBigger()</var>
+				</li>
+				<li>
+					Give each //OUTPUT function a descriptive comment and add 
+					<code>console.log()</code>s
+				</li>
+				<li>
+					Create a //PROCESS function called 
+					<var>getBiggerOrSmaller( characterPressed )</var> 
+				</li>
+				<li>
+					Give the function a descriptive comment and add 
+					<code>console.log( 'in getBiggerOrSmaller...' );</code>
+				</li>
+				<li>
+					Add the <code>if</code> statements that call either 
+					<code>makeStarBigger()</code> or <code>makeStarSmaller()</code>;
+				</li>
+				<li>
+					Now alter the code as you wish to make it interesting, 
+					but respect the seperation of input, processing, and output!
+				</li>
+			</ol>
+			
+			<h2>The beginning code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Convert your code to function pipelines</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Assignment: Convert your code to function pipelines"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"--yourName--"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                Created:    12. October 2015                                        - Drapak
+                Modified:   25. March 2017      - improved programming style        - Drapak
+                            30. April 2017      - fixed long lines                  - Drapak
+                            21. October 2018    - updated style and clarity         - Drapak
+                            
+                Finished:   
+        --&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- load jQuery for the animations --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span><span class="sc1">&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            img {
+                width:  80px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">You are my biggest star!</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Press the U and D keys to make the star bigger and littler.</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> 
+            </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"picture of a star"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/Star.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Convert this sample program from a sequential program 
+            into one that uses function pipelines.
+
+            1. Create an //INPUT function called readKeypress( keyEvent ) 
+                that returns the character that was pressed.
+            2. Give the function a descriptive comment and 
+                add console.log( 'in readKeypress...' );
+            3. Create an //OUTPUT function called makeStarSmaller()
+            4. Create an //OUTPUT function called makeStarBigger()
+            5. Give each //OUTPUT function a descriptive comment and add console.log()s
+            6. Create a //PROCESS function called getBiggerOrSmaller( characterPressed )
+            7. Give the function a descriptive comment and 
+                add console.log( 'in getBiggerOrSmaller...' );
+            8. Add the if statements that call either makeStarBigger() or makeStarSmaller();
+            9. Now alter the code as you wish to make it interesting, 
+                but respect the seperation of input, processing, and output!
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+        --&gt;</span><span class="sc0">
+ 
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//MAIN</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: read which key was pressed</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41"> 
+                
+                </span><span class="sc43">//IF: the U key has been pressed</span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">85</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                    </span><span class="sc43">//OUTPUT: make the star bigger</span><span class="sc41">
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+=40px"</span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                </span><span class="sc43">//IF: the D key has been pressed</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">68</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//OUTPUT: make the star smaller</span><span class="sc41">
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=40px"</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: run mainProcedure when someone presses a key</span><span class="sc41">
+            </span><span class="sc46">window.onkeydown</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+
+ 		<script>
+			var mainProcedure 	= function ( keyEvent ) {
+				console.log( 'in mainProcedure...' );
+				
+				//INPUT: read which key was pressed
+				var keyCode	= keyEvent.which || keyEvent.keyCode; 
+				
+				//PROCESS: fork the code if they pressed the up button
+				if ( keyCode == 85 ) { 			// U button
+					//OUTPUT: make the star bigger
+					$( '#imageId' ).animate( {width: "+=40px"} );
+				} else if ( keyCode == 68 ) { 	// D button
+					//OUTPUT: make the star smaller
+					$( '#imageId' ).animate( {width: "-=40px"} );
+				}
+			}
+			
+			//INPUT: run mainProcedure when someone presses a key
+			window.onkeydown	= mainProcedure;
+		</script>
+	</body>
+</html>

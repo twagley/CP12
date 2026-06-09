@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			SOLVE: Choose your own adventure
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to create a choose your own adventure game in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				23. December 2015	-created									- Drapak
+				13. January 2019	- updated code style						- Drapak
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body id="bodyId">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Choose your own adventure</em>
+		</header>
+
+		<article>
+		
+			<h2>What kind of data structure is good for decision trees?</h2>
+			
+			<p>
+				A <a href="https://en.wikipedia.org/wiki/Decision_tree">decision tree</a> is 
+				a branching structure in which decisions 
+				lead to other decisions or consequences.
+			</p>
+			
+			<p>
+				A classic example of a decision tree are the old 
+				<a href="http://www.cyoa.com/"><em>Choose your Own Adventure</em></a> books
+				in which you moved through a story on the basis of your choices.
+				Naturally, most of your choices resulted in your own death.
+			</p>
+			
+			<p>
+				There are some 
+				<a href="http://samizdat.cc/cyoa/">really awesome visualizations</a> 
+				of <em>Choose your Own Adventure</em> stories out there.
+			</p>
+			
+			<p>
+				In computerized versions of decision trees, 
+				there is a data structure that works well.
+				It breaks the decisions down into individual <strong>nodes</strong>.
+				These nodes will be things like using a key or picking up a book.
+				Each node will have certain possible actions attached to it. 
+				Each of these actions will link to a new node, with it's own actions and links.
+			</p>
+			
+			<p>
+				As the adventure starts, it begins with <code>nodeObj.start</code>:
+			</p>
+			
+			<pre><code>start: {
+	description: "You see a door.",
+	choices: {
+		'Open the door': 'openDoor',
+		'Stay here and do nothing': 'stayHere'
+	}
+},</code></pre>
+			
+			<p>
+				Opening the door will trigger 
+				<code>nodeObj.displayNode( nodeObj.openDoor );</code>.
+				Staying and doing nothing will trigger 
+				<code>nodeObj.displayNode( nodeObj.stayHere );</code>
+			</p>
+			
+			<hr>
+			
+			<h1>The scary door!</h1>
+			<h2>A choose your own adventure</h2>
+			<hr>
+			<div id="descriptionId"></div>
+			<hr>
+			<div id="choicesId"></div>
+
+			<hr>
+			
+			<h2>Source code</h2>
+			<pre><code><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// Inspired by: </span><span class="sc41">
+            </span><span class="sc43">// https://en.wikibooks.org/wiki/Choose_Your_Own_Pyventure</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// nodeObj OBJECT</span><span class="sc41">
+            </span><span class="sc43">// properties:</span><span class="sc41">
+            </span><span class="sc43">//      the node data object for a choose your own adventure</span><span class="sc41">
+            </span><span class="sc43">//      looks like this:</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      nodeName: {</span><span class="sc41">
+            </span><span class="sc43">//           description: "Description to display",</span><span class="sc41">
+            </span><span class="sc43">//              choices: {</span><span class="sc41">
+            </span><span class="sc43">//                  'Choice description 1': 'resultNode1'  </span><span class="sc41">
+            </span><span class="sc43">//                  'Choice description 2': 'resultNode2'  </span><span class="sc41">
+            </span><span class="sc43">//                  'Choice description 3': 'resultNode3'  </span><span class="sc41">
+            </span><span class="sc43">//              }</span><span class="sc41">
+            </span><span class="sc43">//          }</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.start</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.openDoor</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.walkDownCorridor</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.leanAgainstDoor</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.stayHere</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// methods:</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.displayNode( nodeName );</span><span class="sc41">
+            </span><span class="sc43">//      nodeObj.generateButtons( nodeName );</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">nodeObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">description</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"You see a door."</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">choices</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc49">'Open the door'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'openDoor'</span><span class="sc50">,</span><span class="sc41">
+                        </span><span class="sc49">'Stay here and do nothing'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'stayHere'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc46">openDoor</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">description</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"You see a corridor ahead"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">choices</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc49">'Walk down the corridor'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'walkDownCorridor'</span><span class="sc50">,</span><span class="sc41">
+                        </span><span class="sc49">'Lean against door'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'leanAgainstDoor'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc46">walkDownCorridor</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">description</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"You walk down the corridor, "</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"find $20 and go for lunch"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">choices</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc49">'Start again'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'start'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc46">leanAgainstDoor</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">description</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"You lean against the door. "</span><span class="sc41"> 
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"You get a tiny sliver that you do not "</span><span class="sc41"> 
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"take care of and you die."</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">choices</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc49">'Start again'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'start'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc46">stayHere</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">description</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"You eventually run out of food and pass out."</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">choices</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc49">'Start again'</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'start'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: the description and choices for this node of the adventure</span><span class="sc41">
+                </span><span class="sc46">displayNode</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displaynodeObj...node='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"descriptionId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">description</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">buttonHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.generateButtons</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"choicesId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">buttonHTML</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: create the buttons for each possible choice for this node</span><span class="sc41">
+                </span><span class="sc46">generateButtons</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in generateButtons...node='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">// create a variable to hold the button code</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">buttonHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">//LOOP: through each choice for this node</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">choices</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// and create a button for this choice </span><span class="sc41">
+                        </span><span class="sc46">buttonHTML</span><span class="sc41"> 
+                            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">buttonHTML</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;button onclick='nodeObj.displayNode(\""</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">node</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">choices</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"\");'&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/button&gt; "</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                    
+                    </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">buttonHTML</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">// triggered when the page has finished loading</span><span class="sc41">
+            </span><span class="sc46">document.body.onload</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">nodeObj.displayNode</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'start'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">       
+        </span><span class="sc1">&lt;/script&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+        <script>
+            //
+            // Inspired by: 
+            // https://en.wikibooks.org/wiki/Choose_Your_Own_Pyventure
+            //
+			// nodeObj OBJECT
+			// properties:
+            // 		the node data object for a choose your own adventure
+            // 		looks like this:
+            //
+            // 		nodeName: {
+            // 		     description: "Description to display",
+            //      		choices: {
+            //          		'Choice description 1': 'resultNode1'  
+            //          		'Choice description 2': 'resultNode2'  
+            //          		'Choice description 3': 'resultNode3'  
+            //      		}
+            // 			}
+			//
+			//		nodeObj.start
+			//		nodeObj.openDoor
+			//		nodeObj.walkDownCorridor
+			//		nodeObj.leanAgainstDoor
+			//		nodeObj.stayHere
+			//
+			// methods:
+			//		nodeObj.displayNode( nodeName );
+			//		nodeObj.generateButtons( nodeName );
+			//
+            var nodeObj = {
+				start: {
+					description: "You see a door.",
+					choices: {
+						'Open the door': 'openDoor',
+						'Stay here and do nothing': 'stayHere'
+					}
+				},
+				openDoor: {
+					description: "You see a corridor ahead",
+					choices: {
+						'Walk down the corridor': 'walkDownCorridor',
+						'Lean against door': 'leanAgainstDoor'
+					}
+				},
+				walkDownCorridor: {
+					description: "You walk down the corridor, "
+								+ "find $20 and go for lunch",
+					choices: {
+						'Start again': 'start'
+					}
+				},
+				leanAgainstDoor: {
+					description: "You lean against the door. " 
+								+ "You get a tiny sliver that you do not " 
+								+ "take care of and you die.",
+					choices: {
+						'Start again': 'start'
+					}
+				},
+				stayHere: {
+					description: "You eventually run out of food and pass out.",
+					choices: {
+						'Start again': 'start'
+					}
+				},
+				
+				//OUTPUT: the description and choices for this node of the adventure
+				displayNode: function ( node ) {
+					console.log( 'in displaynodeObj...node=' + node );
+					
+					document.getElementById( "descriptionId" ).innerHTML 
+						= this[ node ].description;
+					
+					var buttonHTML = this.generateButtons( node );
+					
+					document.getElementById( "choicesId" ).innerHTML = buttonHTML;
+				},
+				
+				// PROCESS: create the buttons for each possible choice for this node
+				generateButtons: function ( node ) {
+					console.log( 'in generateButtons...node=' + node );
+					
+					// create a variable to hold the button code
+					var buttonHTML = "";
+					
+					//LOOP: through each choice for this node
+					for ( i in this[ node ].choices ) {
+						// and create a button for this choice 
+						buttonHTML 
+							= buttonHTML
+							+ "<button onclick='nodeObj.displayNode(\""
+							+ this[ node ].choices[ i ]
+							+ "\");'>"
+							+ i
+							+ "</button> "
+					}
+					
+					return buttonHTML;
+				}
+			};
+            
+			// triggered when the page has finished loading
+            document.body.onload = function () {
+                nodeObj.displayNode( 'start' );
+            }       
+        </script>		
+	</body>
+</html>

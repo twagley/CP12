@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			OUTPUT - Animating motion
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to animate motion in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. October 2015		-created
+				25. March 2017		- updated to new jQuery and moved script to bottom
+				4. April 2017		- added stopping motion
+				25. March 2018		- updated jqUery 
+				21. October 2018	- reworked for better style				- Drapak
+				4. November 2019	- missing period corrected in example	- Tyson Wagley
+				6. January 2023		- fixing Gertie the Dinosaur			- Tyson Wagley
+				
+		-->
+
+		<style>
+			pre {
+				tab-size: 4;
+				-moz-tab-size: 4;
+			}
+			#animateId {
+				position:	absolute;
+				top: 		500px;
+				left:		750px;
+			}
+			#msPacmanId {
+				position:	relative;
+			}
+			iframe {
+				width: 700px;
+				height: 300px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Animating motion</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">jQuery //INIT:</span> 
+					<code>
+						&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+					</code><br>
+					<span class="indent">&mdash; loads jQuery library</span><br>
+					<br>
+
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate( 
+							{ <strong>left: 50 + "px"</strong> } 
+						);
+					</code><br>
+					<span class="indent">&mdash; animates to 'left: 50px' position</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate( 
+							{ <strong>top: 50 + "px"</strong> } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; animates to 'top: 50px' position</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate( 
+							{ <strong>left: "+=50px"</strong> } 
+						);
+					</code> <br>
+					<span class="indent">
+						&mdash; animates 50px to right of current position
+					</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate( 
+							{ <strong>top: "+=50px"</strong> } 
+						);
+					</code><br>
+					<span class="indent">
+						&mdash; animates 50px down from current position
+					</span><br>
+				<br>
+
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate(
+							{ <strong>top: 50 + "px"</strong> }, { duration: "fast" } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; animates quickly</span><br>
+				
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate(
+							{ <strong>top: 50 + "px"</strong> }, { duration: "slow" } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; animates slowly</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate(
+							{ <strong>top: 50 + "px"</strong> }, { duration: 400 } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; animation for 400ms (default)</span><br>
+				<br>
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate(
+							{ <strong>top: 50 + "px"</strong> }, { easing: "linear" } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; linear movement</span><br>
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>
+						$( "#<var>animateId</var>" ).animate(
+							{ <strong>top: 50 + "px"</strong> }, { easing: "swing" } 
+						);
+					</code> <br>
+					<span class="indent">&mdash; 'swing' movement (default)</span><br>
+				<br>
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+					<code>$( "#<var>animateId</var>" ).stop();</code> <br>
+					<span class="indent">&mdash; stops the animation immediately</span><br>
+					
+			</p>
+			
+			<h2>Let's animate something...</h2>
+			<p>
+				Animation is amazing. 
+				One of my animation heroes is Winsor MacKay, who was a cartoonist who made the first really 
+				successful animated film, <a href="https://www.youtube.com/watch?v=sZ9mIoH-7c0">Gertie the Dinosaur</a> [youtube].<br>
+			</p>
+			<p>
+				<img id="animateId" src="https://drapak.ca/cpg/img/Gertie.jpg" />
+				<button type="button" onclick="animateImage();">Click me to animate!</button>			
+			</p>
+			<hr />
+
+			<p>This was done with the following code:</p>
+<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Computer Programming 12: OUTPUT - Animating motion</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to animate motion in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+
+		</span><span class="sc9">&lt;!-- the next line loads the jQuery library to simplify animation --&gt;</span><span class="sc0">
+		</span><span class="sc9">&lt;!-- it will load faster if it is at the top of your HTML page --&gt;</span><span class="sc0">
+		</span><span class="withborder"><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span></span><span class="sc0">
+
+		</span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+			#animateId {
+				/* set the position mode and starting coordinates */
+				<span class="withborder">position:   absolute;</span>
+				top:        500px;
+				left:       650px;
+			}
+		</span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6 withborder">"animateId"</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://drapak.ca/cpg/img/Gertie.jpg"</span><span class="sc1">&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Click me to animate!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+
+		</span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+			</span><span class="sc43">// OUTPUT: animate the image's position</span><span class="sc41">
+			</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">animateImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">  
+				</span><span class="sc46">console.log</span><span class="sc50">( </span><span class="sc49">'in animateImage...'</span><span class="sc50"> );</span><span class="sc41">
+				</span><span class="sc43">// jQuery uses $() to select element using CSS-style selectors</span>
+				
+				<span class="sc43">// move down 200px from current pos</span>
+				<span class="withborder"><span class="sc41">$</span><span class="sc50">( </span><span class="sc48">"#animateId"</span><span class="sc50"> ).</span><span class="sc46">animate</span><span class="sc50">( { </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+=200px"</span><span class="sc50"> } );</span></span><span class="sc41">  </span>
+				<span class="sc43">// move up 200px from current pos</span><span class="sc41">
+				$</span><span class="sc50">( </span><span class="sc48">"#animateId"</span><span class="sc50"> ).</span><span class="sc46">animate</span><span class="sc50">( { </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=200px"</span><span class="sc50"> } );</span><span class="sc41"></span>
+				<span class="sc43">// move left 200px from current pos</span>
+				<span class="sc41">$</span><span class="sc50">( </span><span class="sc48">"#animateId"</span><span class="sc50"> ).</span><span class="sc46">animate</span><span class="sc50">( { </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=200px"</span><span class="sc50"> } );</span><span class="sc41"> </span>
+				<span class="sc43">// move right 200px from current pos</span><span class="sc41">
+				$</span><span class="sc50">( </span><span class="sc48">"#animateId"</span><span class="sc50" > ).</span><span class="sc46">animate</span><span class="sc50">( { </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+=200px"</span><span class="sc50"> } );</span><span class="sc41"> </span>
+				<span class="sc43">// move diagonally</span><span class="sc41">
+				$</span><span class="sc50">( </span><span class="sc48">"#animateId"</span><span class="sc50"> ).</span><span class="sc46">animate</span><span class="sc50">( { </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=200px"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=200px"</span><span class="sc50"> } );</span><span class="sc41"> </span>
+			</span><span class="sc50">}</span><span class="sc41">
+
+			</span><span class="sc43">//INPUT: trigger animateImage when #buttonId is clicked</span><span class="sc41">
+			</span><span class="sc46">document.querySelector</span><span class="sc50">( </span><span class="sc48">"#buttonId"</span><span class="sc50"> ).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">animateImage</span><span class="sc50">;</span><span class="sc41">
+		</span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Four steps to animating things</h2>
+			
+			<ol>
+				<li>
+					Link to the jQuery library in the <code>&lt;head></code> of your page:<br>
+					<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;</code>
+				</li>
+				<li>
+					Give the element an Id:<br>
+					<code>&lt;p id="animateId">Animate this!&lt;/p></code>
+				</li>
+				<li>	
+					Change the positioning mode of the animated element using CSS:<br>
+					<code>position: absolute;</code>
+				</li>
+				<li>
+					Trigger the animation as Javascript code:<br>
+					<code>// move #animateId down 100 pixels</code><br>
+					<code>$( "#<var>animateId</var>" ).animate( { <var>top: "+=100px"</var> } );</code><br>
+				</li>
+			</ol>
+			
+			<h3>Caution about selecting Ids with jQuery!</h3>
+			
+			<p>
+				jQuery uses <code>document.querySelector()</code> internally. 
+				This means that it uses also uses CSS selectors such as <code>#imageId</code>
+				in the code. Compare how jQuery uses <code>$( "#<var>animateId</var>" )</code> 
+				instead of <code>document.getElementById( "<var>animateId</var>" )</code>.<br>
+				<br>
+				<strong>You must use</strong> 
+				<code>$( "#<var>animateId</var>" ).animate( {} );</code>!!!<br>
+				<code>document.getElementById( "animateId" ).animate( {} );</code>
+				<strong> will NOT work.</strong> 
+			</p>
+			
+
+			<h4>Relative movement</h4>
+			<p id="animateId3">
+				<code>$( "#<var>animateId</var>" ).animate( { <strong>top: "+=50px"</strong> } );</code>
+				// moves #animateId <strong>DOWN</strong><br>
+				<br>
+				<code>$( "#<var>animateId</var>" ).animate( { <strong>top: "-=50px"</strong> } );</code>
+				// moves #animateId  <strong>UP</strong><br>
+				<br>
+				<code>$( "#<var>animateId</var>" ).animate( { <strong>left: "+=50px"</strong> } );</code>
+				// moves #animateId  <strong>RIGHT</strong><br>
+				<br>
+				<code>$( "#<var>animateId</var>" ).animate( { <strong>left: "-=50px"</strong> } );</code>
+				// moves #animateId  <strong>LEFT</strong>
+			</p>
+			<p>
+				<button type="button" onclick="animateImageDown();">&darr;</button>
+				<button type="button" onclick="animateImageUp();">&uarr;</button>
+				<button type="button" onclick="animateImageLeft();">&larr;</button>
+				<button type="button" onclick="animateImageRight();">&rarr;</button>
+				<img id="msPacmanId" src="img/MsPacMan.png">
+			</p>
+						
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					jQuery's 
+					<a href="http://api.jquery.com/animate/">
+						.animate() api page
+					</a>
+				</li>
+				<li>
+					w3school's 
+					<a href="http://www.w3schools.com/jquery/jquery_animate.asp">
+						jQuery Effects - Animation
+					</a>
+				</li>
+				<li>
+					w3school's 
+					<a href="http://www.w3schools.com/jquery/eff_animate.asp">
+						jQuery animate() Method
+					</a>
+				</li>
+			</ul>
+
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-reading-the-position-of-an-element/5614790404341760">Live example: Basic jQuery animation</a></h2> 
+			<script src="https://www.khanacademy.org/computer-programming/live-example-reading-the-position-of-an-element/5614790404341760/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			// OUTPUT: animate the image's position
+			var animateImage = function () {  
+				console.log('in animateHeader...');
+				
+				$("#animateId").animate({top: "+=200px"});	// move down 20px from current pos
+				$("#animateId").animate({top: "-=200px"});	// move up 20px from current pos
+				$("#animateId").animate({left: "-=200px"});	// move left 20px from current pos
+				$("#animateId").animate({left: "+=200px"});	// move right 20px from current pos
+				$("#animateId").animate({left: "-=200px", top: "-=200px"});	// move diagonally
+			}
+			function animateImageDown () {  // OUTPUT: move the element Down
+				$("#msPacmanId").animate({top: "+=50px"});
+			}
+			
+			function animateImageUp () {  // OUTPUT: move the element Up
+				$("#msPacmanId").animate({top: "-=50px"});
+			}
+			
+			function animateImageRight () {  // OUTPUT: move the element Right
+				$("#msPacmanId").animate({left: "+=50px"});
+			}
+			
+			function animateImageLeft () {  // OUTPUT: move the element Left
+				$("#msPacmanId").animate({left: "-=50px"});
+			}
+		</script>
+	</body>
+</html>

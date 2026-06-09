@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Modals!</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta name="author" content="Dave Drapak">
+		<meta 
+			name="description" 
+			content="This page uses buttons to open and close a modal">
+		<meta charset="UTF-8">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+		
+		
+		<!--
+			Created:	21. Sept 2015												- Drapak
+			Modified:	26. February 2017	- moved script to tail of document		- Drapak
+											- reworked to seperate js from html		- Drapak
+						30. April 2017		- fixed long lines						- Drapak
+						21. February 2018	- played with modals!					- Drapak
+						23. February 2018	- continued to work to break down prob	- Drapak
+						
+			Finished:
+		-->
+		
+				
+		<style>
+			#modalId { 
+				visibility:			hidden;		/* start hidden */
+				border:				1px solid black;
+				background-color:	pink;		
+				width:				20%;
+				
+				position:			absolute;	/* set placement */
+				top:				40%;
+				left: 				40%;
+			}	
+			#catImgId {
+				width: 				80%;
+				text-align:			center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.03 EXTRA: <em>Modals</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//INPUT: <a href="inputButtons.shtml">Buttons</a>
+					</li>
+					<li>
+						//OUTPUT: 
+						<a href="outputChangeTextStyles.shtml">Changing text styles</a>
+					</li>
+					<li>
+						//INPUT: <a href="inputText.shtml">Text</a>
+					</li>
+				</ul>
+			</p>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Use HTML to create a modals with buttons</li>
+				<li>Use CSS to style and position the modal</li>
+				<li>Include functions to display and hide the modal</li>
+				<li>
+					Use <code>onclick</code> javascript to make the 
+					buttons able to trigger functions
+				</li>
+			</ol>
+						
+			<h2>Saving your work</h2>
+			<p>
+				<strong>This is an optional assignment!</strong>
+			</p>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.03X-Modals-LastName.html">empty template</a> as 
+				"<code>2.03X-Modals-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+
+			<h2>What is a modal?</h2>
+			<p>
+				A modal is like a pop-up box in your webpage that displays or
+				gathers information.
+			</p>
+			
+			<p>It works like this:</p>
+
+			<!-- AND HERE IS THE ACTUAL MODAL HTML -->
+			
+			<button type="button" id="openId">Show a modal!</button>
+			
+			<div id="modalId">
+				<h1>Buy me stuff!</h1>
+				
+				<img 
+					id="catImgId"
+					src="https://www.kasandbox.org/programming-images/animals/cheetah.png">
+				
+				<p>Give me yr moneys for teh catfood!</p>
+				
+				<h3>
+					$<input id="inputId" type="text" value="13265">
+				</h3>
+				
+				<p>
+					Click <strong>OK</strong> to pay using BitCoin!
+				</p>
+				
+				<button type="button" id="closeID">OK</button>
+			</div>
+			
+			<!-- END OF MODAL HTML -->
+			
+			<h2>Break it down!</h2>
+			<p>To make a modal, you need the following things:</p>
+			
+			<ul>
+				<li>
+					Make a modal <strong>container</strong>
+				</li>
+				<li>
+					Put stuff <strong>inside</strong> it
+				</li>
+				<li>
+					<strong>Hide</strong> the container
+				</li>
+				<li>
+					Make a button that can <strong>trigger</strong> the modal
+				</li>
+				<li>
+					Create a <strong>display function</strong>
+				</li>
+				<li>
+					<strong>Link</strong> the display function to the button
+				</li>
+				<li>
+					Create a <strong>hide function</strong>
+				</li>
+				<li>
+					<strong>Link</strong> the hide function to the button
+				</li>
+			</ul>
+			
+			<h2>Now in more detail:</h2>
+			
+			<ul>
+				<li>
+					<strong>Make a modal container - </strong><br>
+					Let's use a <code>&lt;div></code> with an id so we can mess with it.<br>
+					In this example, we are going to use:<br>
+					<br>
+					<pre><code><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"modalId"</span><span class="sc1">&gt;</span><span class="sc1">&lt;/div&gt;</span></code></pre>
+				</li>
+				<li>
+					<strong>Put stuff inside it -</strong><br>
+					Put stuff inside <code>#modalId</code> that you want to display.<br>
+					I am going to have things like a heading, some text, and a close button.<br>
+					The close button will be like this:<br>
+					<br>
+					<pre><code><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc1">&gt;</span></code></pre>
+				</li>
+				<li>
+					<strong>Hide the container - </strong><br>
+					Use some CSS code inside your <code>&lt;style></code> 
+					that will <strong>start</strong> the page with <code>#modalId</code>
+					<strong>hidden</strong>. We are also going to position 
+					<code>#modalId</code> on top of the rest of the page.<br>
+				We are going to use this:<br>
+				<pre><code>#modalId { 
+	visibility:		hidden;		/* start hidden */
+	border:			1px solid black;
+	background-color:	pink;		
+	width:			20%;
+	position:		absolute;	/* set placement */
+	top:			40%;
+	left: 			40%;
+}	</code></pre>
+			</li>
+			<li>
+				<strong>Make a button that can trigger the modal - </strong><br>
+				A button that you can press to display the modal:<br>
+				<br>
+				<pre><code><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"button"</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"openId"</span><span class="sc1">&gt;</span><span class="sc0">Show a modal!</span><span class="sc1">&lt;/button&gt;</span></code></pre>
+			</li>
+			<li>
+				<strong>Create a display function -</strong><br>
+				Write some Javascript code inside your <code>&lt;script></code>
+				that will change the <code>visibility</code> of the modal.<br>
+				<pre><code><span class="sc43">//OUTPUT: this changes #modalId to make it appear and styled</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayModal</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"modalId"</span><span class="sc50">).</span><span class="sc46">style.visibility</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"visible"</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span></code></pre>
+			</li>
+			<li>
+				<strong>Link the display function to the button -</strong><br>
+				Write some JavaScript to trigger your display function when
+				the button is clicked. Put it at the end of your <code>&lt;script></code><br>
+				<pre><code><span class="sc43">//INPUT: trigger displayModal when #openId is clicked</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"openId"</span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">displayModal</span><span class="sc50">;</span></code></pre>
+			</li>
+			<li>
+				<strong>Create a hide function -</strong><br>
+				Write some Javascript code inside your <code>&lt;script></code>
+				that will make the modal disappear.<br>
+				<pre><code><span class="sc43">//OUTPUT: this changes #modalId to make it disappear</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">hideModal</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"modalId"</span><span class="sc50">).</span><span class="sc46">style.visibility</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"hidden"</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span></code></pre>
+			</li>
+			<li>
+				<strong>Link the hide function to the button -</strong><br>
+				Write some JavaScript to trigger your display function when
+				the button is clicked. Put it at the end of your <code>&lt;script></code><br>
+				<pre><code><span class="sc43">//INPUT: trigger hideModal when #closeID is clicked</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"closeID"</span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">hideModal</span><span class="sc50">;</span></code></pre>
+				</li>
+			</ul>
+			
+			<script>
+				//OUTPUT: this changes #modalId to make it disappear
+				var hideModal = function () {
+					document.getElementById("modalId").style.visibility = "hidden";
+				}
+
+				//OUTPUT: this changes #modalId to make it appear and styled
+				var displayModal = function () {
+					document.getElementById("modalId").style.visibility	= "visible";
+				}
+
+				//INPUT: trigger displayModal when #openId is clicked
+				document.getElementById("openId").onclick = displayModal;
+				
+				//INPUT: trigger hideModal when #closeID is clicked
+				document.getElementById("closeID").onclick = hideModal;
+			</script>
+					
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>
+
+

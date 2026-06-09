@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Looping sprite images</title>
+		<meta name="description" content="Learn how to loop sprite images in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. December 2015	-created
+		-->
+        <script>
+        </script>
+        <style>
+			iframe {
+				width:	500px;
+				height:	500px;
+			}
+        </style>
+    </head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Looping sprite images</em>
+		</header>
+
+		<article>
+		
+			<h2>Loop a sprite through an array of images to show walking, flying, etc.</h2>
+			
+			<p>
+				It is nice to be able to change the images of the sprites as they move. 
+				This can be good for things like flapping wings, moving legs and arms, etc.
+				It helps create a more convincing sense of animation.
+			</p>
+			
+			<p>
+				In order to do this you can either:
+			</p>
+			<ul>
+				<li>Use animated GIFs or PNGs</li>
+				<li>Step through an array of images periodically</li>
+			</ul>
+			
+			<p>
+				You can take advantage of <code>.animate()</code>'s <code>start:</code> feature that allows you to call a function before the animation begins:
+			</p>
+			
+			<pre><code>$( '#animateID' ).animate(
+	{ left:         '-=50px' },
+	{ <span class="withborder">start:</span>        <span class="withborder">function () {</span>      // set the current sprites to looking up before the animation starts
+				self.currentSpritesArr = self.lookLeftArr; 
+			},
+	  duration:     this.duration, 
+	  easing:       'linear' }
+);</code></pre>
+
+			<p>
+				Then you can use <code>window.setInterval</code> to periodically change 
+				the image source to the next one in the array of sprite images.
+				(In this case, every 80 milliseconds...)
+			</p>
+			
+			<pre><code>var imageLoop = <span class="withborder">setInterval</span>( 
+	function () {
+		ghost.changeSpriteImage();
+	}, <span class="withborder">80</span>
+);</code></pre>
+			<hr />
+
+			<p>
+				<iframe src="supporting/solveSpriteLoops.html"></iframe>
+			</p>
+		
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Image loops</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!-- load jQuery --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// ghost OBJECT</span><span class="sc41">
+            </span><span class="sc43">// ghost properties:</span><span class="sc41">
+            </span><span class="sc43">//      ghost.element</span><span class="sc41">
+            </span><span class="sc43">//      ghost.speed</span><span class="sc41">
+            </span><span class="sc43">//      ghost.duration</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      ghost.lookDownArr</span><span class="sc41">
+            </span><span class="sc43">//      ghost.lookUpArr</span><span class="sc41">
+            </span><span class="sc43">//      ghost.lookLeftArr</span><span class="sc41">
+            </span><span class="sc43">//      ghost.lookRightArr</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      ghost.currentSpritesArr</span><span class="sc41">
+            </span><span class="sc43">//      ghost.currentSpriteIndex</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// ghost methods</span><span class="sc41">
+            </span><span class="sc43">//      ghost.setID()</span><span class="sc41">
+            </span><span class="sc43">//      ghost.changeSpriteImage()</span><span class="sc41">
+            </span><span class="sc43">//      ghost.goUp()</span><span class="sc41">
+            </span><span class="sc43">//      ghost.goDown()</span><span class="sc41">
+            </span><span class="sc43">//      ghost.goLeft()</span><span class="sc41">
+            </span><span class="sc43">//      ghost.goRight()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">ghost</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">element</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">           </span><span class="sc43">// the element to animate</span><span class="sc41">
+                </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41">          </span><span class="sc45">300</span><span class="sc50">,</span><span class="sc41">            </span><span class="sc43">// the distance to move with each animation</span><span class="sc41">
+                </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">1000</span><span class="sc50">,</span><span class="sc41">           </span><span class="sc43">// the amount of time to move with each animation</span><span class="sc41">
+                
+                </span><span class="sc46 withborder">lookDownArr</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc50">[</span><span class="sc41">               </span><span class="sc43">// sprite links for looking down</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash1.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash3.png"</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc46 withborder">lookUpArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                    </span><span class="sc43">// sprite links looking up</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp1.png"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc46 withborder">lookLeftArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                  </span><span class="sc43">// sprite links looking left</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft1.png"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc46 withborder">lookRightArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                 </span><span class="sc43">// sprite links looking right</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight2.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc46">currentSpritesArr</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current sprite array being used</span><span class="sc41">
+                </span><span class="sc46">currentSpriteIndex</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">          </span><span class="sc43">// stores the index of the current sprite...</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: get the element containing the ghost</span><span class="sc41">
+                </span><span class="sc46">setID</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.elementID</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS+OUTPUT: loop to the next sprite...</span><span class="sc41">
+                </span><span class="sc46 withborder">changeSpriteImage</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">spriteArr</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSpritesArr</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">maxIndex</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">spriteArr.length</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc50">;</span><span class="sc41"> </span><span class="sc43">		// record the maximum length of the current array of sprites</span><span class="sc41">
+
+                    </span><span class="sc46">this.currentSpriteIndex</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSpriteIndex</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc50">;</span><span class="sc41">      </span><span class="sc43">// move on to the next sprite image</span><span class="sc41">
+                    
+                    </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">maxIndex</span><span class="sc41"> </span><span class="sc50">&lt;</span><span class="sc41"> </span><span class="sc46">this.currentSpriteIndex</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                 </span><span class="sc43">// if the current sprite number is greater than the number in the array,</span><span class="sc41">
+                        </span><span class="sc46">this.currentSpriteIndex</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">;</span><span class="sc41">                            </span><span class="sc43">// then start again at zero</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                    
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">               </span><span class="sc43">// change the element to the next image...</span><span class="sc41">
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">spriteArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.currentSpriteIndex</span><span class="sc41"> </span><span class="sc50">];</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate upwards</span><span class="sc41">
+                </span><span class="sc46">goUp</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">                        </span><span class="sc43">// copy 'this' so it does not get lost when 'start:' is triggered</span><span class="sc41">
+                    
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">          </span><span class="sc49">'-='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46 withborder">start</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       </span><span class="sc43">// set the current sprites to looking up before the animation starts</span><span class="sc41">
+                                            </span><span class="sc46">self.currentSpritesArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">self.lookUpArr</span><span class="sc50">;</span><span class="sc41"> 
+                                        </span><span class="sc50">},</span><span class="sc41">
+                          </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">this.duration</span><span class="sc50">,</span><span class="sc41"> 
+                          </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc49">'linear'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate downwards</span><span class="sc41">
+                </span><span class="sc46">goDown</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">                        </span><span class="sc43">// copy 'this' so it does not get lost when 'start:' is triggered</span><span class="sc41">
+                    
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">          </span><span class="sc49">'+='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46 withborder">start</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       </span><span class="sc43">// set the current sprites to looking up before the animation starts</span><span class="sc41">
+                                            </span><span class="sc46">self.currentSpritesArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">self.lookDownArr</span><span class="sc50">;</span><span class="sc41"> 
+                                        </span><span class="sc50">},</span><span class="sc41">
+                          </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">this.duration</span><span class="sc50">,</span><span class="sc41"> 
+                          </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc49">'linear'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate leftwards</span><span class="sc41">
+                </span><span class="sc46">goLeft</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">                        </span><span class="sc43">// copy 'this' so it does not get lost when 'start:' is triggered</span><span class="sc41">
+                    
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">         </span><span class="sc49">'-='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46 withborder">start</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       </span><span class="sc43">// set the current sprites to looking up before the animation starts</span><span class="sc41">
+                                            </span><span class="sc46">self.currentSpritesArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">self.lookLeftArr</span><span class="sc50">;</span><span class="sc41"> 
+                                        </span><span class="sc50">},</span><span class="sc41">
+                          </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">this.duration</span><span class="sc50">,</span><span class="sc41"> 
+                          </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc49">'linear'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate rightwards</span><span class="sc41">
+                </span><span class="sc46">goRight</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">                        </span><span class="sc43">// copy 'this' so it does not get lost when 'start:' is triggered</span><span class="sc41">
+                    
+                    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">         </span><span class="sc49">'+='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46 withborder">start</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">       </span><span class="sc43">// set the current sprites to looking up before the animation starts</span><span class="sc41">
+                                            </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in goright begin'</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41">
+                                            </span><span class="sc46">self.currentSpritesArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">self.lookRightArr</span><span class="sc50">;</span><span class="sc41"> 
+                                        </span><span class="sc50">},</span><span class="sc41">
+                          </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">this.duration</span><span class="sc50">,</span><span class="sc41"> 
+                          </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc49">'linear'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">           
+            
+            </span><span class="sc43">// this sets up the animation sprite looper</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">imageLoop</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">setInterval</span><span class="sc50">(</span><span class="sc41"> 
+                </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">ghost.changeSpriteImage</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc45">80</span><span class="sc41">
+            </span><span class="sc50">);</span><span class="sc41">
+
+            </span><span class="sc43">// set up a series of animations</span><span class="sc41">
+            </span><span class="sc43">// this is triggered when the page is finished loading and when the button is pressed</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">ghost.setID</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'animateID'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">     </span><span class="sc43">// register the ID of the ghost object</span><span class="sc41">
+                
+                </span><span class="sc46">ghost.goUp</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">ghost.goLeft</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">ghost.goDown</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">ghost.goRight</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            body {
+                background-color:   darkBlue;
+            }
+            #animateID {
+                position:           absolute;
+                opacity:            1;
+                width:              50px;
+                top:                400px;
+                left:               400px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"animateID"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">One more time!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

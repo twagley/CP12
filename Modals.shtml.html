@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc2 {
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc10 {
+	font-style: italic;
+	background: #FEFDE0;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Hello Javascript!</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"This page uses buttons to open and close a modal"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--#include virtual="/stylesandscripts.html" --&gt;</span><span class="sc0">
+        
+        
+        </span><span class="sc9">&lt;!--
+            Created:    21. Sept 2015                                               - Drapak
+            Modified:   26. February 2017   - moved script to tail of document      - Drapak
+                                            - reworked to seperate js from html     - Drapak
+                        30. April 2017      - fixed long lines                      - Drapak
+                        21. February 2018   - played with modals!                   - Drapak
+                        23. February 2018   - continued to work to break down prob  - Drapak
+                        
+            Finished:
+        --&gt;</span><span class="sc0">
+        
+                
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #modalID { 
+                visibility:         hidden;     /* start hidden */
+                border:             1px solid black;
+                background-color:   pink;       
+                width:              20%;
+                position:           absolute;   /* set placement */
+                top:                40%;
+                left:               40%;
+            }   
+            li {
+                margin-top:         12px;
+            }
+            #catImgID {
+                width:              80%;
+                text-align:         center;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/masthead.html" --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;header&gt;</span><span class="sc0">
+            //MAKE: 2.02 Advanced: </span><span class="sc1">&lt;em&gt;</span><span class="sc0">Modals</span><span class="sc1">&lt;/em&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/header&gt;</span><span class="sc0">
+                
+        </span><span class="sc1">&lt;article&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Resources</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                        //OUTPUT: </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"outputAlertInnerHtmlAndConsoleLog.shtml"</span><span class="sc1">&gt;&lt;code&gt;</span><span class="sc0">alert()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">, </span><span class="sc1">&lt;code&gt;</span><span class="sc0">.innerHTML</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">, and </span><span class="sc1">&lt;code&gt;</span><span class="sc0">console.log()</span><span class="sc1">&lt;/code&gt;&lt;/a&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                        //INPUT: </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"inputButtons.shtml"</span><span class="sc1">&gt;</span><span class="sc0">Buttons</span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/ul&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">The assignment</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;ol&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Use HTML to create a modals with buttons</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Use CSS to style and position the modal</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Include functions to display and hide the modal</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Use </span><span class="sc1">&lt;code&gt;</span><span class="sc0">onclick</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> javascript to make the buttons able to trigger functions</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/ol&gt;</span><span class="sc0">
+                        
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Saving your work</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">This is an optional assignment!</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Use </span><span class="sc1">&lt;code&gt;</span><span class="sc0">Save as...</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> to save the empty template as 
+                "</span><span class="sc1">&lt;code&gt;&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"2.02ADV-Modals-LastName.html"</span><span class="sc1">&gt;</span><span class="sc0">2.02ADV-Modals-LastName.html</span><span class="sc1">&lt;/a&gt;&lt;/code&gt;</span><span class="sc0">" 
+                in your Computer Programming 12 directory.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What is a modal?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                A modal is like a pop-up box in your webpage that displays or
+                gathers information.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">It works like this:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc9">&lt;!-- AND HERE IS THE ACTUAL MODAL HTML --&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"button"</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"openID"</span><span class="sc1">&gt;</span><span class="sc0">Show a modal!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"modalID"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Buy my stuff!</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;img</span><span class="sc8"> 
+                    </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"catImgID"</span><span class="sc8">
+                    </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/animals/cheetah.png"</span><span class="sc1">&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Give me yr moneys for teh catfood!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">
+                    $</span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputID"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                    Click </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">OK</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> to pay using BitCoin!
+                </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"button"</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"closeID"</span><span class="sc1">&gt;</span><span class="sc0">OK</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+            
+            </span><span class="sc9">&lt;!-- END OF MODAL HTML --&gt;</span><span class="sc0">
+            
+            </sp

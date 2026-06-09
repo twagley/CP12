@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta 
+			http-equiv="Content-Type" 
+			content="text/html;	charset=UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			OUTPUT - Adding elements to an output HTML element
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to add elements to an output HTML element in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+				
+		<!--#include virtual="/stylesandscripts.html" -->
+
+
+		<!--
+			Change log:
+				16. April 2018		- created!											-Drapak
+				17. April 2018		- adding tables - may have to break into two pages	-Drapak
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//OUTPUT: <em>Adding elements directly to an output HTML element</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+					<code>
+						var <var>newImageElement</var> 
+						= <span class="withborder">document.createElement( "img" )</span>;
+					</code><br>
+					<span class="indent">— 
+						creates a new image element with no source link
+					</span><br>
+				<br>
+				
+				<span class="langstyle">//PROCESS:</span> 
+					<code>
+						newImageElement.src = 
+						<var>"http://drapak.ca/cpg/img/link-up.png";</var>
+					</code> <br>
+					<span class="indent">— 
+						adds a source link to the image element
+					</span><br>
+					
+				<span class="langstyle">//PROCESS:</span> 
+					<code>
+						newImageElement.style.position = <var>"absolute";</var>
+					</code> <br>
+					<span class="indent">— 
+						sets the position style of the image element to absolute
+					</span><br>
+					
+				<span class="langstyle">//PROCESS:</span> 
+					<code>
+						newImageElement.style.top = <var>"10px";</var>
+					</code> <br>
+					<span class="indent">— 
+						sets the top position of the image element to 10px
+					</span><br>
+
+				<span class="langstyle">//PROCESS:</span> 
+					<code>
+						newImageElement.style.left = 
+						<var>"20px";</var>
+					</code> <br>
+					<span class="indent">— 
+						sets the left position of the image element to 20px
+					</span><br>
+				<br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+					<code>
+						document.getElementById( <var>'outputID'</var> 
+						)<span class="withborder">.appendChild( newImageElement )</span>;
+					</code><br>
+					<span class="indent">— 
+						adds the new image element to the inside of #outputID
+					</span><br>
+				<br>					
+			</p>
+			
+			<h2>Sometimes <code>.innerHTML</code> is slow and confusing</h2>
+			
+			<p>
+				In many of your programs, you will be adding elements to the inside of an HTML element. 
+				So far, you code has tended to look a little like this:
+			</p>
+			
+			<pre><code>document.getElementById( "outputID" ).innerHTML
+	= "&lt;p>I'm using Javascript to generate HTML!&lt;/p>";</code></pre>
+
+			<p>
+				As you can see, there is plenty of opportunities for things to get messed up.
+				If you have:
+			</p>
+			<ul>
+				<li>A quote missing it's twin</li>
+				<li>The wrong kind of quotes</li>
+				<li>A missing <code>+</code></li>
+				<li>Variables stuck inside strings</li>
+				<li>Missing units, such as "px"</li>
+				<li>etc...</li>
+			</ul>
+			
+			<p>
+				...then your code will die. 
+				As well, using <code>.innerHTML</code> can take a long time to run if you are inserting a lot of images.
+				Each time code is added to a page, the page has to be reflowed to calculate the new positions of the elements.
+				Using <code>.innerHTML</code> can make that take a long time because it has to convert and interpret the
+				HTML code into the internal data structures of the web browser.
+			</p>
+			
+			<h2>The Document Object Model - DOM</h2>
+			<pre><code>&lt;html>
+	&lt;head>
+		&lt;meta name="author" description="Ford Prefect">
+		&lt;style>
+			H1 {
+				color: red;
+			}
+		&lt;/style>
+	&lt;/head>
+	&lt;body>
+		&lt;h1>Hello DOM!&lt;/h1>
+		&lt;p>
+			DOM stands for Document Object Model.
+			It represents the way data is stored inside a document
+		&lt;/p>
+
+		&lt;img id="imageID" src="http://link.to/my.jpg">
+			
+		&lt;h3>A list of reasons to use DOM programming&lt;/h3>
+		&lt;ol>
+			&lt;li>It sharpens your javascript object skills&lt;/li>
+			&lt;li>It is considered more elegant, programming-wise&lt;/li>
+			&lt;li>It displays much faster than .innerHTML&lt;/li>
+		&lt;/ol> 
+	&lt;/body>
+&lt;/html></code></pre>
+<pre><code><strong>html</strong>
+|---<strong>head</strong>
+|    |--<strong>meta</strong>
+|    |   |--name		= author
+|    |   |--description	= Ford Prefect
+|    |
+|    |--<strong>style</strong>
+|        |--<strong>h1</strong>
+|            |--color:	Red
+|
+|---<strong>body</strong>
+     |--<strong>h1</strong>
+     |   |--Hello DOM!
+     |
+     |--<strong>p</strong>
+     |   |--DOM stands for Document Object Model.
+     |   |--It represents the way data is stored inside a document
+     |  
+     |--<strong>h3</strong>
+     |   |--A list of reasons to use DOM programming
+     |   
+     |--<strong>img</strong>
+     |   |--id	 	= imageID
+     |   |--src		= http://link.to/my.jpg
+     |
+     |--<strong>ol</strong>
+         |--<strong>li</strong>
+         |   |--It sharpens your javascript object skills
+         |
+         |--<strong>li</strong>
+         |   |--It is considered more elegant, programming-wise
+         |
+         |--<strong>li</strong>
+             |--It displays much faster than .innerHTML
+</code></pre>			
+			<h2>Creating and inserting elements</h2>
+			
+			<p>
+				What if we insert the data directly inside the web browser's
+				Document Object Model?
+			</p>
+			
+			<p>
+				It turns out that this makes your code run much faster.
+			</p>
+			
+			<p>
+				And it also turns out that this <strong>it also easier and cleaner to code!</strong>
+				Take a look at the code examples below.
+				Notice how it is easier to read and there are less places to make mistakes?
+				That is why many programmers prefer to output elements this way.
+			</p>
+			
+			<button id="headingButtonID" onclick="createMainHeading();"> 
+				Add a heading to the page
+			</button>
+			<button id="paragraphButtonID" onclick="createParagraph();">
+				Add a paragraph to the page
+			</button>
+			<button id="imageButtonID" onclick="createImage();">
+				Add an image to the page
+			</button>
+			<button id="listButtonID" onclick="createList();">
+				Add a list to the page
+			</button>
+			<button id="tableButtonID" onclick="createTable();">
+				Add a table to the page
+			</button>
+			
+			<div id="outputID"></div>
+			
+			<h2>Example code</h2>
+
+			<pre><code><span class="sc41"></span><span class="sc43">//OUTPUT: creating the HEADING!</span><span class="sc41">
+</span><span class="sc43">//example: &lt;h1&gt;'Hello DOM!'&lt;/h1&gt;</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createMainHeading</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in createMainHeading..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc43">// make the empty heading element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">headingElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'h1'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the lonely text </span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">headingText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'Hello DOM!'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// join the text to the heading</span><span class="sc41">
+	</span><span class="sc46">headingElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">headingText</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the heading purple and computery</span><span class="sc41">
+	</span><span class="sc46">headingElement.style.color</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"purple"</span><span class="sc50">;</span><span class="sc41">
+	</span><span class="sc46">headingElement.style.fontFamily</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Consolas, Courier New "</span><span class="sc50">;</span><span class="sc41">
+	
+	
+	</span><span class="sc43">// join the heading to #outputID</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"outputID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">headingElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//OUTPUT: making the PARAGRAPH</span><span class="sc41">
+</span><span class="sc43">//example: &lt;p&gt;hello there!&lt;/p&gt;</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createParagraph</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in createParagraph..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty paragraph element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">paragraphElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'p'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the lonely text </span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">paragraphText</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41">
+			</span><span class="sc48">"DOM stands for Document Object Model."</span><span class="sc41">
+			</span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"It represents the way data is stored inside a document."</span><span class="sc41">
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc43">// join the text to the paragraph</span><span class="sc41">
+	</span><span class="sc46">paragraphElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">paragraphText</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the paragraph be centred</span><span class="sc41">
+	</span><span class="sc46">paragraphElement.style.textAlign</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"center"</span><span class="sc50">;</span><span class="sc41">
+
+	</span><span class="sc43">// join the paragraph to #outputID</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"outputID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">paragraphElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//OUTPUT: making the IMAGE</span><span class="sc41">
+</span><span class="sc43">//example: &lt;img id="imageID" src="http://link.to/my.jpg"&gt;</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in createImage..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty image element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">imageElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'img'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// link the image source</span><span class="sc41">
+	</span><span class="sc46">imageElement.src</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png'</span><span class="sc50">;</span><span class="sc41">
+	
+	</span><span class="sc43">// add the id</span><span class="sc41">
+	</span><span class="sc46">imageElement.id</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'imageID'</span><span class="sc50">;</span><span class="sc41">
+	
+	</span><span class="sc43">// some positioning</span><span class="sc41">
+	</span><span class="sc46">imageElement.style.position</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"relative"</span><span class="sc50">;</span><span class="sc41">
+	</span><span class="sc46">imageElement.style.left</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"90%"</span><span class="sc50">;</span><span class="sc41">
+	</span><span class="sc46">imageElement.style.width</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"60px"</span><span class="sc50">;</span><span class="sc41">
+	
+	</span><span class="sc43">// join the image element to #outputID</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"outputID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">imageElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//OUTPUT: making the LIST</span><span class="sc41">
+</span><span class="sc43">//example:  &lt;ol&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;li&gt;item number one&lt;/li&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;li&gt;item number two&lt;/li&gt;</span><span class="sc41">
+</span><span class="sc43">//          &lt;/ol&gt;</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in createList..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty list element - &lt;ol&gt;</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">orderedListElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'ol'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make an array to store the list items - &lt;li&gt;</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">listItemElementArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the empty list item elements</span><span class="sc41">
+	</span><span class="sc46">listItemElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'li'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">listItemElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'li'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">listItemElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'li'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+
+	</span><span class="sc43">// make an array to store the text nodes</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">textNodeArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the lonely text nodes</span><span class="sc41">
+	</span><span class="sc46">textNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"It sharpens your javascript object skills"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">textNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"It is considered more elegant, programming-wise"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">textNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"It displays much faster than .innerHTML"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc43">// attach the text nodes to the elements</span><span class="sc41">
+	</span><span class="sc43">// loop through each element, using i as the index variable</span><span class="sc41">
+	</span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">listItemElementArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+		</span><span class="sc43">// add the text node to this element at index i</span><span class="sc41">
+		</span><span class="sc43">// for example:</span><span class="sc41">
+		</span><span class="sc43">//      listItemElementArr[ 2 ].appendChild( textNodeArr[ 2 ] );</span><span class="sc41">
+		</span><span class="sc46">listItemElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">textNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+		
+		</span><span class="sc43">// add this list item to the main ordered list &lt;ol&gt; element</span><span class="sc41">
+		</span><span class="sc46">orderedListElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">listItemElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41">
+	</span><span class="sc50">}</span><span class="sc41">
+
+	</span><span class="sc43">// join the completed ordered list element to #outputID</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"outputID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">orderedListElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+
+</span><span class="sc43">//OUTPUT: making the TABLE</span><span class="sc41">
+</span><span class="sc43">//example:  &lt;table&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;thead&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;tr&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;th&gt;heading #0&lt;/th&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;th&gt;heading #1&lt;/th&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;th&gt;heading #2&lt;/th&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;/tr&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;/thead&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;tbody&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;tr&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #0&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #1&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #2&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;/tr&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;tr&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #0&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #1&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                      &lt;td&gt;info #2&lt;/td&gt;</span><span class="sc41">
+</span><span class="sc43">//                  &lt;/tr&gt;</span><span class="sc41">
+</span><span class="sc43">//              &lt;/tbody&gt;</span><span class="sc41">
+</span><span class="sc43">//          &lt;/table&gt;</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createTable</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in createTable..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty table element - &lt;table&gt;</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">tableElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'table'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// START with the THEAD</span><span class="sc41">
+	</span><span class="sc43">//</span><span class="sc41">
+	</span><span class="sc43">// make the empty &lt;thead&gt; element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">theadElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'thead'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty &lt;tr&gt; element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">theadRowElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'tr'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc43">// make an array to store the heading elements - &lt;th&gt;</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">headingElementArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the empty heading elements</span><span class="sc41">
+	</span><span class="sc46">headingElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'th'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">headingElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'th'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">headingElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'th'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+
+	</span><span class="sc43">// make an array to store the text nodes</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">headingTextNodeArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the lonely text nodes</span><span class="sc41">
+	</span><span class="sc46">headingTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"This is some heading text!"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">headingTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"So is this!"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">headingTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"And ditto!"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc43">// attach the text nodes to the heading elements</span><span class="sc41">
+	</span><span class="sc43">// loop through each element, using i as the index variable</span><span class="sc41">
+	</span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">headingElementArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+		</span><span class="sc43">// add the text node to this element at index i</span><span class="sc41">
+		</span><span class="sc43">// for example:</span><span class="sc41">
+		</span><span class="sc43">//      headingElementArr[ 2 ].appendChild( headingTextNodeArr[ 2 ] );</span><span class="sc41">
+		</span><span class="sc46">headingElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">headingTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+		
+		</span><span class="sc43">// then add this heading element to the table row</span><span class="sc41">
+		</span><span class="sc46">theadRowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">headingElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41">
+	</span><span class="sc50">}</span><span class="sc41">
+
+	</span><span class="sc43">// join the completed table row element to the thead</span><span class="sc41">
+	</span><span class="sc46">theadElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">theadRowElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc43">// join the completed tbody element to the table</span><span class="sc41">
+	</span><span class="sc46">tableElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">theadElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// Now with the TBODY</span><span class="sc41">
+	</span><span class="sc43">//</span><span class="sc41">
+	</span><span class="sc43">// make the empty &lt;tbody&gt; element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">tbodyElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'tbody'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the empty &lt;tr&gt; element</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">tbodyRowElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'tr'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc43">// make an array to store the table data elements - &lt;td&gt;</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataElementArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the empty table data elements</span><span class="sc41">
+	</span><span class="sc46">dataElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'td'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">dataElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'td'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+	</span><span class="sc46">dataElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'td'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+
+	</span><span class="sc43">// make an array to store the text nodes</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataTextNodeArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+	</span><span class="sc43">// make the lonely text nodes</span><span class="sc41">
+	</span><span class="sc46">dataTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"Look - data number one"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">dataTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"And it`s cousin, 2!"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc46">dataTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+			</span><span class="sc48">"And its best friend, 3?"</span><span class="sc41"> 
+		</span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc43">// attach the text nodes to the table data elements</span><span class="sc41">
+	</span><span class="sc43">// loop through each element, using i as the index variable</span><span class="sc41">
+	</span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">dataElementArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+		</span><span class="sc43">// add the text node to this element at index i</span><span class="sc41">
+		</span><span class="sc43">// for example:</span><span class="sc41">
+		</span><span class="sc43">//      dataElementArr[ 2 ].appendChild( dataTextNodeArr[ 2 ] );</span><span class="sc41">
+		</span><span class="sc46">dataElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">dataTextNodeArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+		
+		</span><span class="sc43">// then add this table data element to the table row</span><span class="sc41">
+		</span><span class="sc46">tbodyRowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">dataElementArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41">
+	</span><span class="sc50">}</span><span class="sc41">
+
+	</span><span class="sc43">// join the completed table row element to the tbody</span><span class="sc41">
+	</span><span class="sc46">tbodyElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">tbodyRowElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	</span><span class="sc43">// join the completed tbody element to the table</span><span class="sc41">
+	</span><span class="sc46">tableElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">tbodyElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// make the table element prettier</span><span class="sc41">
+	</span><span class="sc46">tableElement.style.color</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"darkRed"</span><span class="sc50">;</span><span class="sc41">
+	</span><span class="sc46">tableElement.style.backgroundColor</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"lightGrey"</span><span class="sc50">;</span><span class="sc41">
+	</span><span class="sc46">tableElement.style.border</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"1px solid black"</span><span class="sc50">;</span><span class="sc41">
+	
+	</span><span class="sc43">// join the complete table element to #outputID</span><span class="sc41">
+	</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"outputID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">tableElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//INPUT: connect the correct functions to the buttons</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"headingButtonID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createMainHeading</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"paragraphButtonID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createParagraph</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"imageButtonID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createImage</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"listButtonID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"tableButtonID"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createTable</span><span class="sc50">;</span></code></pre>
+
+
+					
+			<h2 id="learnMoreID">Learn more</h2>
+			<ul>
+				<li>
+				
+					MDN's 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">
+						Document.createElement()
+					</a> and 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">
+						Node.appendChild()
+					</a>
+				</li>
+				<li>
+					w3school's 
+					<a href="http://www.w3schools.com/jsref/met_document_createelement.asp">
+						HTML DOM createElement() Method
+					</a> and  
+					<a href="http://www.w3schools.com/jsref/met_node_appendchild.asp">
+						HTML DOM appendChild() Method
+					</a>
+				</li>
+			</ul>
+		</article>
+		<script>
+			//OUTPUT: creating the HEADING!
+			//example: <h1>'Hello DOM!'</h1>
+			var createMainHeading = function () {
+				console.log( "in createMainHeading..." );
+				// make the empty heading element
+				var headingElement = document.createElement( 'h1' );
+				
+				// make the lonely text 
+				var headingText = document.createTextNode( 'Hello DOM!' );
+				
+				// join the text to the heading
+				headingElement.appendChild( headingText );
+				
+				// make the heading purple and computery
+				headingElement.style.color 		= "purple";
+				headingElement.style.fontFamily	= "Consolas, Courier New ";
+				
+				
+				// join the heading to #outputID
+				document.getElementById( "outputID" ).appendChild( headingElement );
+			}
+			
+			//OUTPUT: making the PARAGRAPH
+			//example: <p>hello there!</p>
+			var createParagraph = function () {
+				console.log( "in createParagraph..." );
+				
+				// make the empty paragraph element
+				var paragraphElement = document.createElement( 'p' );
+				
+				// make the lonely text 
+				var paragraphText 
+					= document.createTextNode(
+						"DOM stands for Document Object Model."
+						+ "It represents the way data is stored inside a document."
+					);
+				// join the text to the paragraph
+				paragraphElement.appendChild( paragraphText );
+				
+				// make the paragraph be centred
+				paragraphElement.style.textAlign = "center";
+
+				// join the paragraph to #outputID
+				document.getElementById( "outputID" ).appendChild( paragraphElement );
+			}
+			
+			//OUTPUT: making the IMAGE
+			//example: <img id="imageID" src="http://link.to/my.jpg">
+			var createImage = function () {
+				console.log( "in createImage..." );
+				
+				// make the empty image element
+				var imageElement = document.createElement( 'img' );
+				
+				// link the image source
+				imageElement.src 
+					= 'http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png';
+				
+				// add the id
+				imageElement.id = 'imageID';
+				
+				// some positioning
+				imageElement.style.position 	= "relative";
+				imageElement.style.left 		= "90%";
+				imageElement.style.width 		= "60px";
+				
+				// join the image element to #outputID
+				document.getElementById( "outputID" ).appendChild( imageElement );
+			}
+			
+			//OUTPUT: making the LIST
+			//example:	<ol>
+			//				<li>item number one</li>
+			//				<li>item number two</li>
+			//			</ol>
+			var createList = function () {
+				console.log( "in createList..." );
+				
+				// make the empty list element - <ol>
+				var orderedListElement = document.createElement( 'ol' );
+				
+				// make an array to store the list items - <li>
+				var listItemElementArr = [];
+				// make the empty list item elements
+				listItemElementArr[ 0 ] = document.createElement( 'li' ); 
+				listItemElementArr[ 1 ] = document.createElement( 'li' ); 
+				listItemElementArr[ 2 ] = document.createElement( 'li' ); 
+
+				// make an array to store the text nodes
+				var textNodeArr = [];
+				// make the lonely text nodes
+				textNodeArr[ 0 ] 
+					= document.createTextNode( 
+						"It sharpens your javascript object skills" 
+					);
+				textNodeArr[ 1 ] 
+					= document.createTextNode( 
+						"It is considered more elegant, programming-wise" 
+					);
+				textNodeArr[ 2 ] 
+					= document.createTextNode( 
+						"It displays much faster than .innerHTML" 
+					);
+
+				// attach the text nodes to the elements
+				// loop through each element, using i as the index variable
+				for ( i in listItemElementArr ) {
+					// add the text node to this element at index i
+					// for example:
+					//		listItemElementArr[ 2 ].appendChild( textNodeArr[ 2 ] );
+					listItemElementArr[ i ].appendChild( textNodeArr[ i ] );
+					
+					// add this list item to the main ordered list <ol> element
+					orderedListElement.appendChild( listItemElementArr[ i ] )
+				}
+
+				// join the completed ordered list element to #outputID
+				document.getElementById( "outputID" ).appendChild( orderedListElement );
+			}
+			
+			
+			//OUTPUT: making the TABLE
+			//example:	<table>
+			//				<thead>
+			//					<tr>
+			//						<th>heading #0</th>
+			//						<th>heading #1</th>
+			//						<th>heading #2</th>
+			//					</tr>
+			//				</thead>
+			//				<tbody>
+			//					<tr>
+			//						<td>info #0</td>
+			//						<td>info #1</td>
+			//						<td>info #2</td>
+			//					</tr>
+			//					<tr>
+			//						<td>info #0</td>
+			//						<td>info #1</td>
+			//						<td>info #2</td>
+			//					</tr>
+			//				</tbody>
+			//			</table>
+			var createTable = function () {
+				console.log( "in createTable..." );
+				
+				// make the empty table element - <table>
+				var tableElement = document.createElement( 'table' );
+				
+				// START with the THEAD
+				//
+				// make the empty <thead> element
+				var theadElement = document.createElement( 'thead' );
+				
+				// make the empty <tr> element
+				var theadRowElement = document.createElement( 'tr' );
+			
+				// make an array to store the heading elements - <th>
+				var headingElementArr = [];
+				// make the empty heading elements
+				headingElementArr[ 0 ] = document.createElement( 'th' ); 
+				headingElementArr[ 1 ] = document.createElement( 'th' ); 
+				headingElementArr[ 2 ] = document.createElement( 'th' ); 
+
+				// make an array to store the text nodes
+				var headingTextNodeArr = [];
+				// make the lonely text nodes
+				headingTextNodeArr[ 0 ] 
+					= document.createTextNode( 
+						"This is some heading text!" 
+					);
+				headingTextNodeArr[ 1 ] 
+					= document.createTextNode( 
+						"So is this!" 
+					);
+				headingTextNodeArr[ 2 ] 
+					= document.createTextNode( 
+						"And ditto!" 
+					);
+
+				// attach the text nodes to the heading elements
+				// loop through each element, using i as the index variable
+				for ( i in headingElementArr ) {
+					// add the text node to this element at index i
+					// for example:
+					//		headingElementArr[ 2 ].appendChild( headingTextNodeArr[ 2 ] );
+					headingElementArr[ i ].appendChild( headingTextNodeArr[ i ] );
+					
+					// then add this heading element to the table row
+					theadRowElement.appendChild( headingElementArr[ i ] )
+				}
+
+				// join the completed table row element to the thead
+				theadElement.appendChild( theadRowElement );
+				// join the completed tbody element to the table
+				tableElement.appendChild( theadElement );
+				
+				// Now with the TBODY
+				//
+				// make the empty <tbody> element
+				var tbodyElement = document.createElement( 'tbody' );
+				
+				// make the empty <tr> element
+				var tbodyRowElement = document.createElement( 'tr' );
+			
+				// make an array to store the table data elements - <td>
+				var dataElementArr = [];
+				// make the empty table data elements
+				dataElementArr[ 0 ] = document.createElement( 'td' ); 
+				dataElementArr[ 1 ] = document.createElement( 'td' ); 
+				dataElementArr[ 2 ] = document.createElement( 'td' ); 
+
+				// make an array to store the text nodes
+				var dataTextNodeArr = [];
+				// make the lonely text nodes
+				dataTextNodeArr[ 0 ] 
+					= document.createTextNode( 
+						"Look - data number one" 
+					);
+				dataTextNodeArr[ 1 ] 
+					= document.createTextNode( 
+						"And it`s cousin, 2!" 
+					);
+				dataTextNodeArr[ 2 ] 
+					= document.createTextNode( 
+						"And its best friend, 3?" 
+					);
+
+				// attach the text nodes to the table data elements
+				// loop through each element, using i as the index variable
+				for ( i in dataElementArr ) {
+					// add the text node to this element at index i
+					// for example:
+					//		dataElementArr[ 2 ].appendChild( dataTextNodeArr[ 2 ] );
+					dataElementArr[ i ].appendChild( dataTextNodeArr[ i ] );
+					
+					// then add this table data element to the table row
+					tbodyRowElement.appendChild( dataElementArr[ i ] )
+				}
+
+				// join the completed table row element to the tbody
+				tbodyElement.appendChild( tbodyRowElement );
+				// join the completed tbody element to the table
+				tableElement.appendChild( tbodyElement );
+				
+				// make the table element prettier
+				tableElement.style.color			= "darkRed";
+				tableElement.style.backgroundColor	= "lightGrey";
+				tableElement.style.border			= "1px solid black";
+				
+				// join the complete table element to #outputID
+				document.getElementById( "outputID" ).appendChild( tableElement );
+			}
+			
+			//INPUT: connect the correct functions to the buttons
+			/*
+			document.getElementById( "headingButtonID" ).onclick 	= createMainHeading;
+			document.getElementById( "paragraphButtonID" ).onclick 	= createParagraph;
+			document.getElementById( "imageButtonID" ).onclick 		= createImage;
+			document.getElementById( "listButtonID" ).onclick 		= createList;
+			document.getElementById( "tableButtonID" ).onclick 		= createTable;
+			*/
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

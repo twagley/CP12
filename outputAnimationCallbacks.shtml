@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			OUTPUT - Animation callbacks
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to use jQuery animation callbacks in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				29. November 2015	-created
+				1. Decemeber		- continued after my poor laptop died
+				3. December 		- added motion example and example code 
+									- illustrating the queue/non-queue
+				17. May 2017		- reworked for clarity and style
+				18. Decemeber 2018	- reworked for clarity and style			- Drapak
+		-->
+
+		<style>
+			#imageId {
+				position: 	fixed;
+				width: 		50px;
+				top:		50%;
+				left:		50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Animation callbacks</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//OUTPUT:</span> 
+					<pre><code><span class="sc43">//sample animation code with function callbacks</span><span class="sc41">
+$</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'-=50px'</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc49">'+=50px'</span><span class="sc41">    
+    </span><span class="sc50">},</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1000</span><span class="sc50">,</span><span class="sc41"> 
+        </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens BEFORE the animation</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">},</span><span class="sc41">
+        </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens AFTER the animation</span><span class="sc41">
+            </span><span class="sc46">alert</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc48">"Animation finished!"</span><span class="sc50">);</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">}</span><span class="sc41"> 
+</span><span class="sc50">);</span></code></pre>					
+			
+			<h2>Code that happens before and after an animation is complete</h2>
+			
+			<p>
+				You have noticed that jQuery animations "stack up" outside 
+				of the normal flow of code.
+				For example, you have noticed that your Javascript program 
+				may actually finish running, 
+				and that the jQuery animations will keep running. 
+				That is because jQuery animations are stacked in an 
+				<strong>animation queue</strong>.
+			</p>
+			
+			<p>
+				This means that whenever an animation is called on an object,
+				jQuery will automatically stack that animation on top of any 
+				others that were assigned to that object.
+				It will complete each of the animations in order until the queue is empty.
+			</p>
+			
+			<p>
+				This is good because you do not have to manually time things as much.
+				And your Javascript can keep working, doing things in the background 
+				while waiting for animations to finish.
+				This is handy if you want to say, move more than one thing at the 
+				same time using code, 
+				like a monster and a hero.
+			</p>
+			
+			<p>
+				But it does cause a problem if you want to synchronize your Javascript 
+				with your animations.
+			</p>
+			
+			<h2>Common case: sprite directions</h2>
+			
+			<p>
+				One common irritation you have likely discovered 
+				is that sometimes your characters will 
+				change their image's direction before they actually move in that direction.
+			</p>
+			
+			<p>
+				Let's look at what is going on. 
+				For the heck of it, let's do all the image 
+				source changes before moving anything.
+				The result looks like this:
+			</p>
+			
+			<img id="imageId" src='http://drapak.ca/cpg/img/link-up.png' />	
+
+<pre><code><span class="sc43">//OUTPUT: do all the source changes together, then all the animations together</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">doAllSourceChangesThenAnimations</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// make all the image source changes</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+
+    </span><span class="sc43">// animate all the movement</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">       
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span></code></pre>
+               
+			<p>
+				<button onclick='doAllSourceChangesThenAnimations();'>
+					Do all the source changes together, then all the animations together
+				</button><br>
+			</p>
+			<p>
+				Then, let's alternate the code so that for each direction, 
+				it changes the source image, and then animates.
+			</p>
+
+<pre><code><span class="sc43">//OUTPUT: Do the sources change and animation for each step, one at a time</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeSourceThenAnimateOneByOne</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// change image to face down and then animate down</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">     
+    
+    </span><span class="sc43">// change image to face right and then animate right</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face up and then animate up</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face left and then animate left</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">//NOTE: because of animation queues, this will change the image sources four</span><span class="sc41">
+    </span><span class="sc43">//      times and THEN animate #imageId</span><span class="sc41">
+</span><span class="sc50">};</span></code></pre>
+            
+			<p>
+				<button onclick='changeSourceThenAnimateOneByOne();'>
+					Change the source image, and then animate, one after another
+				</button><br>
+			</p>
+			<p>
+				Notice that it appears to do the exact same thing!
+				This is because once Javascript processes an animation command, 
+				it sends the movement to the jQuery animation queue 
+				and then processes the next line of code.
+			</p>
+			<p>
+				By the end of the function, Javascript has changed 
+				all the image source links so fast you can't see it, 
+				but it has hardly begun the first movement of the animation queue.
+			</p>
+			<p>
+				If we could somehow squeeze the source image change 
+				into the animation queue everything will sync up.
+				Luckily, jQuery allows you to assign a function that 
+				will be triggered at the beginning and end of an animation.
+			</p>			
+
+<pre><code><span class="sc43">//OUTPUT:   Animate the movement, adding the image source change to the</span><span class="sc41">
+</span><span class="sc43">//          start: property as an anonymous function.</span><span class="sc41">
+</span><span class="sc43">//          Anything put inside start: will happen before the animation begins</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">animateSourceChangesBeforeEachAnimation</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// change image to face down and then animate down</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc49">'+=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41"> 
+    </span><span class="sc50">);</span><span class="sc41">      
+    
+    </span><span class="sc43">// change image to face right and then animate right</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'+=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face up and then animate up</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc49">'-=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> 
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face left and then animate left</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'-=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">},</span><span class="sc41">
+            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"All done!"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41"> 
+    </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">};</span></code></pre>
+
+			<p>
+				<button onclick='animateSourceChangesBeforeEachAnimation();'>
+					Animate source changes before each animation
+				</button><br>
+			</p>
+
+			<h4>Code template for animating source image changes</h4>
+			<pre><code><span class="sc43">//sample animation code with function callbacks</span><span class="sc41">
+$</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'-=50px'</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc49">'+=50px'</span><span class="sc41">    
+    </span><span class="sc50">},</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1000</span><span class="sc50">,</span><span class="sc41"> 
+        </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens BEFORE the animation</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">},</span><span class="sc41">
+        </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens AFTER the animation</span><span class="sc41">
+            </span><span class="sc46">alert</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc48">"Animation finished!"</span><span class="sc50">);</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">}</span><span class="sc41"> 
+</span><span class="sc50">);</span></code></pre>
+
+			<h2>Common case: triggering a function to decide where to animate next</h2>
+			<p>
+				Let's say that you are creating something that is supposed to 
+				wander around and seek something out, animating it's movement as it goes.
+				Like a monster going after a hero.
+			</p>
+			<p>
+				That means that you will have to trigger your
+				Javascript seeking code at the end of each animation cycle.
+				You could make the animation duration equal to 
+				duration of a <code>setInterval</code> command,
+				and trigger the seeking at equal time intervals, like a heartbeat.
+			</p>
+			<p>
+				But in my experience, the processing time of the 
+				animation and the <code>setInterval</code>
+				command always get slightly off, causing strange shudders or delays.
+				However, you can trigger your Javascript seeking 
+				code right as soon as an animation is complete.
+			</p>
+			<p>
+				This causes a kind of loop called an <strong>animation callback</strong>:
+				some code creates an animation that 
+				finishes by calling that same code again.
+				It is used quite often for smoother animation.
+			</p>
+			<pre><code><span class="sc2">//common use: a sprite looks for new place to move after animation ends
+//solves problem of setTimeout getting out of sync
+</span><span class="sc0">
+</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#animateId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">animate</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc11">margin</span><span class="sc10">:</span><span class="sc0">     </span><span class="sc7">'0px'</span><span class="sc0"> </span><span class="sc10">},</span><span class="sc0">    </span><span class="sc2">//animate some unimportant style, like margin width
+</span><span class="sc0">    </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc11">duration</span><span class="sc10">:</span><span class="sc0">   </span><span class="sc4">2000</span><span class="sc10">,</span><span class="sc0"> 
+        </span><span class="sc11">easing</span><span class="sc10">:</span><span class="sc0">     </span><span class="sc7">'linear'</span><span class="sc10">,</span><span class="sc0">
+        </span><span class='withborder'><span class="sc11">complete</span><span class="sc10">:</span><span class="sc0">   </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+                        </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">chooseDirectionToMove</span><span class="sc10">();</span><span class="sc0">
+                    </span><span class="sc10">}</span><span class="sc0"> 
+    </span><span class="sc10">}</span><span class="sc0"> 
+</span><span class="sc10">);</span></code></pre>
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			//OUTPUT: do all the source changes together, then all the animations together
+			var doAllSourceChangesThenAnimations = function () {
+				// make all the image source changes
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-down.png';
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-right.png';
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-up.png';
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-left.png';
+
+				// animate all the movement
+				$( '#imageId' ).animate( { top: '+=50px' } );		
+				$( '#imageId' ).animate( { left: '+=50px' } );
+				$( '#imageId' ).animate( { top: '-=50px' } );
+				$( '#imageId' ).animate( { left: '-=50px' } );
+			}
+				
+
+			//OUTPUT: Do the sources change and animation for each step, one at a time
+			var changeSourceThenAnimateOneByOne = function () {
+				// change image to face down and then animate down
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-down.png';
+					
+				$('#imageId').animate( { top: '+=50px' } );		
+				
+				// change image to face right and then animate right
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-right.png';
+					
+				$('#imageId').animate( { left: '+=50px' } );
+				
+				// change image to face up and then animate up
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-up.png';
+					
+				$( '#imageId' ).animate( { top: '-=50px' } );
+				
+				// change image to face left and then animate left
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-left.png';
+					
+				$( '#imageId' ).animate( { left: '-=50px' } );
+				
+				//NOTE: because of animation queues, this will change the image sources four
+				//		times and THEN animate #imageId
+			};
+			
+			
+			//OUTPUT: 	Animate the movement, adding the image source change to the
+			//			start: property as an anonymous function.
+			//			Anything put inside start: will happen before the animation begins
+			var animateSourceChangesBeforeEachAnimation = function () {
+				// change image to face down and then animate down
+				$( '#imageId' ).animate( 
+					{ 
+						top: 		'+=50px' 
+					}, 
+					{ 
+						start:	function () {
+									document.querySelector( '#imageId' ).src 
+										= 'http://drapak.ca/cpg/img/link-down.png';
+								}
+					} 
+				);		
+				
+				// change image to face right and then animate right
+				$( '#imageId' ).animate( 
+					{ 
+						left: 	'+=50px' 
+					}, 
+					{ 
+						start: 	function () {
+									document.querySelector( '#imageId' ).src 
+										= 'http://drapak.ca/cpg/img/link-right.png';
+								}
+					}
+				);
+				
+				// change image to face up and then animate up
+				$( '#imageId' ).animate( 
+					{ 
+						top: 		'-=50px' 
+					}, { 
+						start:	function () {
+										document.querySelector( '#imageId' ).src 
+											= 'http://drapak.ca/cpg/img/link-up.png';
+								} 
+					}
+				);
+				
+				// change image to face left and then animate left
+				$( '#imageId' ).animate( 
+					{ 
+						left: 	'-=50px' 
+					}, 
+					{ 
+						start:	function () {
+									document.querySelector( '#imageId' ).src 
+										= 'http://drapak.ca/cpg/img/link-left.png';
+								},
+						complete: function () {
+									alert( "All done!" );
+								}
+					} 
+				);
+			};			
+			
+			//sample animation code
+			var sampleFunction = function () {
+
+				$( '#imageId' ).animate( 
+					{ 	
+						left: 	'-=50px',
+						top: 	'+=50px'	
+					}, 
+					{ 	
+						duration: 	1000, 
+						easing:		"linear",
+						start:	function () {
+									// this happens BEFORE the animation
+									document.querySelector( '#imageId' ).src 
+										= 'http://drapak.ca/cpg/img/link-left.png';
+								},
+						complete: function () {
+									// this happens AFTER the animation
+									alert ("Animation finished!");
+								}
+					} 
+				);
+			};		
+		</script>
+	</body>
+</html>

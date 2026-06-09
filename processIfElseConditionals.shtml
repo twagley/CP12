@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			PROCESS: If-Else Conditionals
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use basic conditionals in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				1. Oct 2015		- created
+				5. March 2017	- reworked for clearer programming style
+				27. Oct 2018	- reworked style and clarified					- Drapak
+		-->
+
+		<style>
+			iframe {
+				width: 		700px;
+				height: 	170px;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//PROCESS: <em><code>if...else</code> conditionals</em>
+		</header>
+
+		<article>
+		
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					if ( something1 == something2 ) { ..do something .. }
+				</code><br>
+				<span class="indent">
+					&mdash; does something if two things are equal<br>
+				</span>
+			</p>
+			
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					if ( something1 == something2 ) { 
+						..do something .. 
+					} else { 
+						..do something else..
+					}
+				</code><br>
+				<span class="indent">
+					&mdash; as above, but does something else if two things are not equal<br>
+				</span>
+			</p>
+			
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					if ( something1 == something2 ) { 
+						..do something .. 
+					} else if ( something1 == something3 ) { 
+						..do something else.. 
+					} else { 
+						..do something else.. 
+					}
+				</code><br>
+				<span class="indent">&mdash; as above, but allows additional choices<br>
+			</p>
+			
+			<h2>A fork in the road</h2>
+
+			<p>
+				Sometimes you need a program to do different things for different circumstances.
+			</p>
+			<p>
+				These are called <strong>conditionals</strong> 
+				&mdash; code runs differently depending on the conditions.
+			</p>
+			<p>
+				In almost every language, this can be done with <code>if</code> statements.
+			</p>
+			
+			<p>If statements look like this:</p>
+<pre><code>if (<var>something == true</var>) {
+	<var>/* do something */</var>
+} else {
+	<var>/* do something else */</var>
+}</code></pre>
+			
+			<h2>Basic example: Cereal makes me happy!</h2>
+			<p>Let's say I want to make a program to celebrate the magic of eating cereal:</p>
+			
+			<h4>What will you feed me? Hint: I really love cereal!</h4>
+			<p>
+				<input id="inputId" onchange="amIHappy();" type="text" />
+				<button onclick="amIHappy();">Feed me!</button>
+			</p>
+
+			<p>...is made from:</p>
+			<pre><code><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">What will you feed me? Hint: I really love cereal!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Feed me!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc43">// This checks to see if I am happy based on what was entered</span><span class="sc41">
+        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">amIHappy</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">//INPUT: read what was typed in</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">inputFood</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//IF: they typed in the string "cereal"</span><span class="sc41">
+            </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">inputFood</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'cereal'</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                </span><span class="sc43">//OUTPUT: pop up a joyful message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'This is the best thing EVER!'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+            </span><span class="sc43">//ELSE: anything else was typed in</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                </span><span class="sc43">//OUTPUT: pop up a woeful message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'This is the WORST thing ever!'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+        
+        </span><span class="sc43">//INPUT: trigger amIHappy when #buttonId is clicked </span><span class="sc41">
+        </span><span class="sc43">//  or when #inputId is changed</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">amIHappy</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">amIHappy</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+
+			<!--
+			<h2>IF statement example: calculating weekly pay with overtime</h4>
+			<p>	
+				In Nova Scotia, people make more money each hour if they have been working more than 48 hours in a week, 
+				depending on the industry they work in. 
+				This means that the normal formula for calculating weekly pay is:
+			</p>
+			<p>
+				<code><var>weeklyPay</var> = <var>numberHoursWorked</var> * <var>hourlyWage</var>;</code>
+			</p>
+			<p>
+				But if the number of hours worked in week is more than 48, 
+				you make time and a half for the additional hours, so the calculation is different:
+			</p>
+			<p>
+				<code><var>weeklyPay</var> = ( 48 * <var>hourlyWage</var> ) + ( <var>numberHoursWorked</var> - 48) * <var>hourlyWage</var> * 1.5;</code>
+			</p>
+			<pre><code>
+	<span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">numberHoursWorked</span><span class="sc41"> </span><span class="sc50">&lt;=</span><span class="sc41"> </span><span class="sc45">48</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc43">// '&lt;=' means 'less than or equals'</span><span class="sc41">
+            </span><span class="sc46">weeklyPay</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">numberHoursWorked</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">hourlyWage</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                         </span><span class="sc43">// if worked more than 48 hours...</span><span class="sc41">
+            </span><span class="sc46">weeklyPay</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">48</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">hourlyWage</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">numberHoursWorked</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc45">48</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">hourlyWage</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc45">1.5</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">}</span></code></pre>
+			-->
+			
+			<h2>More than two options? Use <code>if... else if</code> chains</h2>
+			<p>If there are more than two options, then you use <code>if... else if</code>, like this:</p>
+			
+			<h4>Welcome to the world's worst clothing store!</h4>
+			<p id="instructionsId">
+				What size do you take: small, medium, or large? 
+			</p>
+			<p>
+				<input id="inputSizeId" onchange="checkInventory();" type="text" />
+				<button onclick="checkInventory();">Check inventory</button>
+			</p>
+
+			<p>...is made from the following code:</p>
+			
+			<pre><code><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Welcome to the world's worst clothing store!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"instructionsId"</span><span class="sc1">&gt;</span><span class="sc0">
+        What size do you take: small, medium, or large? 
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Check inventory</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc43">// Read what was typed and pop up an alert according to the size</span><span class="sc41">
+        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">checkInventory</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">//INPUT: read what was typed in</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">size</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//IF: they typed in the string "small"</span><span class="sc41">
+            </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">size</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'small'</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: pop up the grapey news</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc49">'Oh - we only have that in purple!'</span><span class="sc50">);</span><span class="sc41">
+                
+            </span><span class="sc43">//IF: they typed in the string "medium"</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">size</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'medium'</span><span class="sc50">){</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: pop up an expensive message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc49">'We have it for just $400!'</span><span class="sc50">);</span><span class="sc41">
+                
+            </span><span class="sc43">//IF: they typed in the string "large"              </span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">size</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc49">'large'</span><span class="sc50">){</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: pop up a awkward message</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc49">'We only have that size in a leopard print onesy.'</span><span class="sc50">);</span><span class="sc41">
+                        
+            </span><span class="sc43">//ELSE: they haven't typed in a valid size</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: show more instructions</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#instructionsId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Hmmm. I don't know what "</span><span class="sc41">
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">size</span><span class="sc41">
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" is. Try again! 'small', 'medium', or 'large'?"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+        
+        </span><span class="sc43">//INPUT: trigger checkInventory whenever #buttonId is pressed</span><span class="sc41">
+        </span><span class="sc43">//  or when #inputId is changed</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">checkInventory</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">checkInventory</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+			
+			
+			
+			<h2>Common mistakes</h2>
+			<ul>
+				<li>
+					<strong>using one equals, = instead of two equals, ==</strong> <br>
+					= is for assignment, == is for comparision
+				</li>
+				<li>
+					<strong>losing track of curly brackets</strong><br>
+					All those <code>{}</code> start to get confusing. 
+					Click on one of the brackets to see the it's partner is.
+				</li>
+			</ul>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_if_else.asp">
+						JavaScript conditions
+					</a> and 
+					<a href="http://www.w3schools.com/js/js_comparisons.asp">
+						Javascript comparisons
+					</a>
+				</li>
+			</ul>
+
+		</article>		
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+			var amIHappy = function () {
+				console.log( 'in amIHappy...' );
+				//INPUT: read what was typed in
+				var inputFood	= document.getElementById('inputId').value;
+				
+				//PROCESS: see if they typed in cereal!
+				if ( inputFood == 'cereal' ) { 
+					//OUTPUT: pop up a joyful message
+					alert('This is the best thing EVER!');
+
+				} else { // if anything else was typed in
+					//OUTPUT: pop up a woeful message
+					alert('This is the WORST thing ever!');
+				}
+			}
+			
+			var checkInventory = function () {
+				console.log('in checkInventory...');
+				//INPUT: read what was typed in
+				var size	= document.getElementById('inputSizeId').value;
+				
+				//PROCESS: see what they typed in...
+				if ( size == 'small' ) { // if size small
+					//OUTPUT: pop up the grapey news
+					alert('Oh - we only have that in purple!');
+
+				} else if ( size == 'medium'){ // if size medium
+					//OUTPUT: pop up an expensive message
+					alert('We have it for just $400!');
+					
+				} else if ( size == 'large'){ // if size large
+					//OUTPUT: pop up a awkward message
+					alert('We only have that size in a leopard print onesy.');
+							
+				} else { // if not a size...
+					//OUTPUT: show more instructions
+					document.getElementById('instructionsId').innerHTML
+						= "Hmmm. I don't know what "
+						+ size
+						+ " is. Try again! 'small', 'medium', or 'large'?";
+				}
+			}
+
+		</script>
+	</body>
+</html>

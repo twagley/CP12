@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Special topic: Object constructors</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to use object constructors
+		
+			Created:	26. April 2015
+			Updated:	29. April 2015 - minor changes to text
+		-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+		
+				
+			
+			//	Global variables (just so that they can be seen by the buttons...
+			//	Create three objects quickly that can be animated
+			var msPacMan	=new AnimatedObject("msPacID", "img/MsPacMan.png", "40px"); 	// create the msPacMan object
+			var blinky 		=new AnimatedObject("blinkyID", "img/Blinky.png", "40px"); 	// create the blinky (red ghost) object
+			var pinky 		=new AnimatedObject("pinkyID", "img/Pinky.png", "40px"); 	// create the blinky (red ghost) object
+			
+
+										// Note that object constructors start with UPPER CASE by the rules of good style
+			function AnimatedObject (idInfo, srcInfo, widthInfo) { 	// object constructors pass variables into the function definition as usual
+				this.id		=idInfo;
+				this.src		=srcInfo;
+				this.width	=widthInfo;		// Notice also that it is "width=" instead of "width:"
+				
+				this.outputImage	=function() {
+					console.log('in AnimatedObject.outputImage this.id'+this.id);
+					document.getElementById(this.id).src			=this.src;	// image src file
+					document.getElementById(this.id).style.width		=this.width;	// image width
+					document.getElementById(this.id).style.position		="relative"; 	// CSS to allow animation movement
+					};
+					
+				this.animateUp	=function() {		// PROCESS: method to animate up
+					$("#"+this.id).animate({ top: '-=24px'}, {duration: 100});
+					};
+					
+				this.animateDown	=function() {		// PROCESS: method to animate down
+					$("#"+this.id).animate({ top: '+=24px'}, {duration: 100});
+					};
+					
+				this.animateLeft	=function() {		// PROCESS: method to animate left
+					$("#"+this.id).animate({ left: '-=24px'}, {duration: 100});
+					};
+					
+				this.animateRight	=function() {	// PROCESS: method to animate right
+					$("#"+this.id).animate({ left: '+=24px'}, {duration: 100});
+					}
+			}; 					// even though object constructors use function(), they do NOT need return
+	
+			function insertAnswer (id, answer) {//OUTPUT:  this function outputs an answer into the tag with the given id
+				document.getElementById(id).innerHTML	=answer;
+			}
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+						
+		</style>
+	</head>
+
+	<body>
+		<article>
+			<h2>Special topic: Object constructors</h2>
+			
+			<h3>Multiple objects built quickly</h3>
+			<p>
+				In <a href="ObjectOrientedProgramming.html">Object-oriented programming</a> 
+				we learned how to create objects with both <strong>properties</strong> (variable-like data) 
+				and <strong>methods</strong> (function-like actions). 
+				We used these to animate Ms. Pacman again. 
+			</p>
+			
+			<p>The code for that looked like this:</p>
+			
+			<pre><code>
+	var <var>animationObject</var> = {	<var>// this approach is great for SINGLE objects, but not multiple objects</var>
+		<var>id</var>:		"animateID",
+		<var>src</var>:		"MsPacMan.png",
+		<var>width</var>:		"100px",
+
+		<var>outputImage</var>: function() {
+			document.getElementById(<strong>this</strong>.<var>id</var>).src			=<strong>this</strong>.<var>src</var>;	<var>// image src file</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.width		=<strong>this</strong>.<var>width</var>;	<var>// image width in px</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.position		="relative"; 	<var>// CSS to allow animation movement</var>
+			},
+			
+		<var>animateUp</var>: function() {		<var>// PROCESS: method to animate up</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '-=24px'}, {duration: 100});
+			},
+			
+		<var>animateDown</var>: function() {		<var>// PROCESS: method to animate down</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '+=24px'}, {duration: 100});
+			},
+			
+		<var>animateLeft</var>: function() {		<var>// PROCESS: method to animate left</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '-=24px'}, {duration: 100});
+			},
+			
+		<var>animateRight</var>: function() {	<var>// PROCESS: method to animate right</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '+=24px'}, {duration: 100});
+			}
+	};
+			</code></pre>
+			
+			<p>Just to review quickly:</p>
+			<table>
+				<tr>
+					<th>What is <var>animationObject.id</var>?</th>
+					<td onclick="insertAnswer('ans2', 'animateID');" id="ans2" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>What is <var>animationObject.src</var>?</th>
+					<td onclick="insertAnswer('ans3', 'MsPacMan.png');" id="ans3" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>What does <var>animationObject.animateLeft()</var> do?</th>
+					<td onclick="insertAnswer('ans1', 'It animates Ms. Pacman to the left 24 pixels');" id="ans1" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>What does the special object <code>this.</code> do?</th>
+					<td onclick="insertAnswer('ans4', 'It allows an object definition to refer to itself and it\'s own properties.');" id="ans4" class="withborder">click for answer...</td>
+				</tr>
+			</table>
+						
+			<p>
+				Now say we want to make a game where multiple things can be moving at the same time.
+			</p>
+			
+			<p>
+				It would be handy to just <strong>reuse</strong> the same object definition because:
+			</p>
+			
+			<ul>
+				<li>It saves typing and drugery</li>
+				<li>When you want to change the object code, you don't have to change it in your code for each separate object.</li>
+				<li>It allows you to abstract your code more easily so that it can be used in several different places to do similar things.</li>
+				<li>It allows you to code more elegantly...</li>
+			</ul>
+			
+			
+			<h3>Object constructors</h3>
+			
+			<p>Remember in the <a href="BuildAClock.html">Build a clock</a> assignment when you did this?</p>
+			
+			<pre><code>
+	var <var>dateObject</var> =new Date();
+			</code></pre>
+			
+			<p>You created a <code>new</code> object called <var>date</var> that you could then call methods on, like:</p>
+			
+			<pre><code>
+	var <var>currentYear</var> =<var>dateObject</var>.getFullYear();
+			</code></pre>
+			
+			<p>
+				<code>Date()</code> is an <strong>object constructor</strong>: a function that creates new objects when built-in properties and methods. 
+				You called <code>new Date();</code> once every second in your program to help you read the time.
+				You can make your own <strong>object constructor</strong>.
+			</p>
+			
+			<p>Instead of the code above, imagine it was changed so that we could create as many objects as we liked:</p>
+			
+			<pre><code>
+&lt;script>
+	<var>//	Global variables (So that they can be seen by the whole page, including the buttons)</var>
+	<var>//	Create three objects quickly that can be animated</var>
+	var <var>msPacMan</var>	=new AnimatedObject(<var>"msPacID"</var>, <var>"MsPacMan.png"</var>, <var>"40px"</var>); 	<var>// create the msPacMan object</var>
+	var <var>blinky</var> 	=new AnimatedObject(<var>"blinkyID"</var>, <var>"Blinky.png"</var>, <var>"40px"</var>); 	<var>// create the blinky (red ghost) object</var>
+	var <var>pinky</var> 	=new AnimatedObject(<var>"pinkyID"</var>, <var>"Pinky.png"</var>, <var>"40px"</var>); 	<var>// create the pinky (pink ghost) object</var>
+	
+								
+	function AnimatedObject (<var>idInfo</var>, <var>srcInfo</var>, <var>widthInfo</var>) { 	<var>// Note that object constructors start with <strong>UPPER CASE</strong> by the rules of good style</var>
+		<var>this.id</var>		=<var>idInfo</var>;				<var>// Object constructors pass variables into the function definition as usual</var>
+		<var>this.src</var>		=<var>srcInfo</var>;			<var>// Notice also that it is "width=" instead of "width:"</var>
+		<var>this.width</var>	=<var>widthInfo</var>;			<var>// the special object <code>this.</code> is needed, and each definition ends with ";"</var>
+		
+		<var>this.outputImage</var> =function() {
+			document.getElementById(<strong>this</strong>.<var>id</var>).src			=<strong>this</strong>.<var>src</var>;	<var>// image src file</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.width		=<strong>this</strong>.<var>width</var>;	<var>// image width</var>
+			document.getElementById(<strong>this</strong>.<var>id</var>).style.position		="relative"; 	<var>// CSS to allow animation movement</var>
+			};
+			
+		<var>this.animateUp</var> 	=function() {		<var>// PROCESS: method to animate up</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '-=24px'}, {duration: 100});
+			};
+			
+		<var>this.animateDown</var> =function() {		<var>// PROCESS: method to animate down</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ top: '+=24px'}, {duration: 100});
+			};
+			
+		<var>this.animateLeft</var> =function() {		<var>// PROCESS: method to animate left</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '-=24px'}, {duration: 100});
+			};
+			
+		<var>this.animateRight</var> =function() {		<var>// PROCESS: method to animate right</var>
+			$("#"+<strong>this</strong>.<var>id</var>).animate({ left: '+=24px'}, {duration: 100});
+			}
+	}; 					<var>// even though object constructors use <code>function()</code>, they do NOT need <code>return</code></var>
+&lt;/script>
+
+&lt;body>
+	&lt;img id="<var>msPacID</var>">
+	&lt;img id="<var>blinkyID</var>">
+	&lt;img id="<var>pinkyID</var>">
+&lt;/body>
+			</code></pre>
+			
+			<p><strong>Object constructors</strong> make a lot of sense, and the elegance with which you can create new similar objects is a key part of <strong>object-oriented programming</strong>.</p>
+			
+			<h4>Show the example!</h4>
+			<p>
+				<img id="msPacID"><img id="blinkyID"><img id="pinkyID"><br />
+				<button type="button" onclick="msPacMan.outputImage();">trigger <code>msPacMan.outputImage();</code></button>
+				<button type="button" onclick="msPacMan.animateUp();">trigger <code>msPacMan.animateUp();</code></button><br />
+				
+				<button type="button" onclick="blinky.outputImage();">trigger <code>blinky.outputImage();</code></button>
+				<button type="button" onclick="blinky.animateUp();">trigger <code>blinky.animateUp();</code></button><br />
+				
+				<button type="button" onclick="pinky.outputImage();">trigger <code>pinky.outputImage();</code></button>
+				<button type="button" onclick="pinky.animateUp();">trigger <code>pinky.animateUp();</code></button>
+			</p>
+			
+			<h4>Let's see what you have observed</h4>
+			<p>
+				So let's check your understanding about <strong>object constructors</strong>. 
+				<strong>TRUE or FALSE?</strong>
+			</p>
+			
+			<table>
+				<tr>
+					<th>1. Object constructors are a way to create multiple objects easily<br />&nbsp;</th>
+					<td onclick="insertAnswer('ans11', 'True');" id="ans11" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>
+						2. Object constructors always use lower case in their names,<br />
+						eg: <code>var <var>Yuri</var> =new <strong>student()</strong>;</code><br />&nbsp;
+					</th>
+					<td onclick="insertAnswer('ans12', 'False: Object constructors always start with upper case: <code>var <var>Yuri</var> =new <strong>Student()</strong>;');" id="ans12" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>3. Object constructors use "<strong>=</strong>" like a function instead of "<strong>:</strong>" like an object definition<br />&nbsp;</th>
+					<td onclick="insertAnswer('ans14', 'True, for example:<br /><code>this.name =&quot;Turing&quot;;</code>');" id="ans14" class="withborder">click for answer...</td>
+				</tr>
+				<tr>
+					<th>4. Object constructors can only create a maximum of three objects</th>
+					<td onclick="insertAnswer('ans13', 'False: the only limit is the amount of memory available');" id="ans13" class="withborder">click for answer...</td>
+				</tr>
+			</table>
+		</article>
+
+	</body>
+</html>
+
+

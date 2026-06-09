@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Make a maze and something to move on it
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript arrays and object oriented programming to make a maze and something to move on it">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				18. November 2015	- created!
+				20. November 2015 	- added live example and obsfucated code example
+				1. December			- editted the extend
+				17. January 2016	- added the evaluation pdfs
+				18. December 2018	- changed the style and updated things
+		-->
+
+		
+		<style>
+			img {
+				position: 		fixed;
+			}
+			#linkId {
+				top: 			50%;
+				left: 			50%;
+			}
+			#coordinatesId {
+				position:		fixed;
+				top:			20px;
+				left:			300px;
+				font-family: 	sans-serif;
+				font-weight:	bold;
+				color:			#999999;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 4.02 Hand-in: 
+			<em>Make a maze and something to move on it</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: 
+					<a href="initTwoDimensionalArrays.shtml">
+						Creating two-dimensional arrays
+					</a>
+				</li>
+				<li>
+					//INIT: 
+					<a href="initObjectsWithMethods.shtml">
+						Creating objects with methods
+					</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: 
+					<a href="processUsingTwoDimensionalArrays.shtml">
+						Using two-dimensional arrays and nested loops
+					</a>
+				</li>
+				<br>
+				<li>
+					<a href="htmlImageResources.shtml">HTML image resources</a> 
+				</li>
+			</ul>
+		
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="4.02H-MazeAndMovement-LastName.html">empty template</a> as 
+				"<code>4.02H-MazeAndMovement-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>We're going to make a basic maze runner game!</p>
+			
+			<ul>
+				<li>Design your own maze</li>
+				<li>Make it display on the screen using object properties and methods</li>
+				<li>Display a character on the screen on top of the maze</li>
+				<li>
+					Make it move around the screen in response to the 
+					keyboard using object properties and methods
+				</li>
+			</ul>
+			
+			<h2>For example</h2>
+
+			<div id="outputId"></div>
+			<img id="linkId"></img>
+			<div id="coordinatesId">
+				Row: <span id="rowId"></span>
+				Column: <span id="columnId"></span>
+			</div>
+			<p>
+				<button id="buttonId">
+					Click to create the playing field!
+				</button><br>		
+			</p>
+
+			<h2>Make it your own!</h2>
+			
+			<p>
+				Create your own maze design!
+				Choose your own character to animate!
+				Choose your own shapes and sizes!
+				Choose your own images to use as map image tiles...
+			</p>
+			
+			
+			
+			<h2>
+				Evaluation &mdash; check your project on the 
+				<a href="http://citadelcreates.drapak.ca/cpg/markerator.html">Markerator</a>
+			</h2>
+			<ul>
+				<li>
+					<strong>___/10 INIT:</strong> including
+					<ol>
+						<li>create an array of arrays</li>
+						<li>create an object for the maze with properties and methods</li>
+						<li>
+							create an object for the animated character 
+							with properties and methods
+						</li>
+						<li>
+							access properties within an object using <code>this.</code>
+						</li>
+						<li>link to jQuery</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including
+					<ol>
+						<li>use nested loops to generate a maze</li>
+						<li>
+							use if statements to determine which image to show in the maze
+						</li>
+						<li>
+							use if statements to do something different for each direction key
+						</li>
+						<li>
+							use math to determine a top and left position for each maze image
+						</li>
+						<li>
+							use math to determine a top and left position 
+							for the animated character
+						</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including
+					<ol>
+						<li>use .innerHTML to add code to your page</li>
+						<li>use .src to change an image</li>
+						<li>fade something in from invisible to visible</li>
+						<li>animate movement using jQuery</li>
+						<li>
+							change the movement easing in jQuery to <code>"linear"</code>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> including
+					<ol>
+						<li>honour all previous //STYLE sections</li>
+						<li>use descriptive variable names</li>
+						<li>
+							break up methods and function into separate ones 
+							for input, processing, and output
+						</li>
+						<li>
+							use descriptive comments to identify and 
+							describe each method or function, and each loop:
+							<br>
+							<code>//loop through each element of the loop to create the rows
+							</code>
+						</li>
+						<li>
+							add spaces between mathematical and string operators, <br/>
+							for example: <code>var exampleVar = "hello " + "kitty"</code>, 
+							not <code>var exampleVar="hello "+"kitty"</code>.
+						</li>
+					</ol>
+				</li>
+			</ul>
+			
+			<h2>
+				<a href="https://www.khanacademy.org/computer-programming/live-example-draw-a-maze-using-object-properties-and-methods/5942928901537792">
+					Live example: Draw a maze using object properties and methods
+				</a>
+			</h2> 
+			<p>
+				Not sure how to convert the creation of the maze into 
+				object properties and methods? Take a look at this live example!
+			</p>
+			
+			<script src="https://www.khanacademy.org/computer-programming/live-example-draw-a-maze-using-object-properties-and-methods/5942928901537792/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+
+		</article>
+ 		<script>
+			var _0x38f9=["\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x42\x72\x6F\x77\x6E\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x44\x69\x72\x74\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x47\x72\x61\x73\x73\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x50\x6C\x61\x69\x6E\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x52\x6F\x6F\x66\x53\x6F\x75\x74\x68\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x53\x74\x6F\x6E\x65\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x61\x74\x65\x72\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x6F\x6F\x64\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x61\x6C\x6C\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x54\x72\x65\x65\x55\x67\x6C\x79\x2E\x70\x6E\x67","\x69\x6E\x20\x6D\x61\x7A\x65\x2E\x64\x69\x73\x70\x6C\x61\x79\x2E\x2E\x2E","\x6C\x6F\x67","\x63\x72\x65\x61\x74\x65\x4D\x61\x7A\x65\x43\x6F\x64\x65","\x6F\x75\x74\x70\x75\x74\x4D\x61\x7A\x65\x43\x6F\x64\x65","\x69\x6E\x20\x6D\x61\x7A\x65\x2E\x63\x72\x65\x61\x74\x65\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x2E\x2E","\x3C\x21\x2D\x2D\x77\x6F\x6F\x74\x2D\x2D\x3E","\x63\x6F\x6E\x74\x65\x6E\x74\x73","\x72\x6F\x77\x3D","\x3C\x69\x6D\x67\x20","\x20\x73\x72\x63\x3D\x27","\x69\x6D\x61\x67\x65\x53\x6F\x75\x72\x63\x65\x41\x72\x72","\x27","\x20\x73\x74\x79\x6C\x65\x3D\x27\x74\x6F\x70\x3A\x20","\x70\x78\x3B\x20\x6C\x65\x66\x74\x3A\x20","\x70\x78\x3B\x20\x77\x69\x64\x74\x68\x3A\x20","\x70\x78\x3B\x27\x20","\x2F\x3E","\x69\x6E\x20\x6D\x61\x7A\x65\x2E\x6F\x75\x74\x70\x75\x74\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x64","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6C\x69\x6E\x6B\x49\x64","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x64\x6F\x77\x6E\x2E\x70\x6E\x67","\x70\x78","\x64\x69\x73\x70\x6C\x61\x79","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x64\x69\x73\x70\x6C\x61\x79\x2E\x2E\x2E","\x6F\x70\x61\x63\x69\x74\x79","\x73\x74\x79\x6C\x65","\x69\x64","\x77\x69\x64\x74\x68","\x73\x72\x63","\x64\x75\x72\x61\x74\x69\x6F\x6E","\x61\x6E\x69\x6D\x61\x74\x65","\x23","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x61\x6E\x69\x6D\x61\x74\x65\x2E\x2E\x2E","\x72\x6F\x77\x49\x64","\x72\x6F\x77","\x63\x6F\x6C\x75\x6D\x6E\x49\x64","\x63\x6F\x6C\x75\x6D\x6E","\x74\x6F\x70\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x6C\x65\x66\x74\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x6C\x69\x6E\x65\x61\x72","\x62\x65\x65\x70","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x62\x65\x65\x70\x2E\x2E\x2E","\x70\x6C\x61\x79","\x61\x75\x64\x69\x6F\x42\x65\x65\x70\x49\x44","\x63\x61\x6C\x63\x75\x6C\x61\x74\x65\x4E\x65\x77\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x63\x61\x6C\x63\x75\x6C\x61\x74\x65\x4E\x65\x77\x50\x6F\x73\x69\x74\x69\x6F\x6E\x2E\x2E\x2E","\x67\x6F\x55\x70","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x67\x6F\x55\x70\x2E\x2E\x2E","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x75\x70\x2E\x70\x6E\x67","\x67\x6F\x44\x6F\x77\x6E","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x67\x6F\x44\x6F\x77\x6E\x2E\x2E\x2E","\x67\x6F\x4C\x65\x66\x74","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x67\x6F\x4C\x65\x66\x74\x2E\x2E\x2E","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x6C\x65\x66\x74\x2E\x70\x6E\x67","\x67\x6F\x52\x69\x67\x68\x74","\x69\x6E\x20\x6C\x69\x6E\x6B\x2E\x67\x6F\x52\x69\x67\x68\x74\x2E\x2E\x2E","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x72\x69\x67\x68\x74\x2E\x70\x6E\x67","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E","\x77\x68\x69\x63\x68","\x6B\x65\x79\x43\x6F\x64\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x23\x62\x75\x74\x74\x6F\x6E\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x62\x75\x74\x74\x6F\x6E\x20\x68\x61\x73\x20\x62\x65\x65\x6E\x20\x70\x72\x65\x73\x73\x65\x64\x2E\x2E\x2E"];var ROW_HEIGHT=40;var COLUMN_WIDTH=50;var maze={imageSourceArr:[_0x38f9[0],_0x38f9[1],_0x38f9[2],_0x38f9[3],_0x38f9[4],_0x38f9[5],_0x38f9[6],_0x38f9[7],_0x38f9[8],_0x38f9[9]],contents:[[6,6,6,6,6,6,6,6,null,null,null,null,null,null,null,null],[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],[6,0,0,0,0,0,0,6,null,null,null,null,null,null,null,null],[6,0,0,0,0,6,6,6,null,null,null,null,null,null,null,null],[6,6,6,0,6,6,6,6,null,null,null,null,null,null,null,null],[6,6,6,0,6,6,6,6,null,null,null,null,null,null,null,null],[6,0,0,0,6,6,6,6,null,null,null,null,null,null,null,null],[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],[6,6,6,6,6,6,6,6,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],display:function(){console[_0x38f9[11]](_0x38f9[10]);var _0x1beex4=this[_0x38f9[12]]();this[_0x38f9[13]](_0x1beex4)},createMazeCode:function(){console[_0x38f9[11]](_0x38f9[14]);var _0x1beex4=_0x38f9[15];for(row in this[_0x38f9[16]]){console[_0x38f9[11]](_0x38f9[17]+ row);var _0x1beex5=this[_0x38f9[16]][row];for(column in this[_0x38f9[16]][row]){if(this[_0x38f9[16]][row][column]== null){}else {_0x1beex4= _0x1beex4+ _0x38f9[18]+ _0x38f9[19]+ this[_0x38f9[20]][this[_0x38f9[16]][row][column]]+ _0x38f9[21]+ _0x38f9[22]+ row* ROW_HEIGHT+ _0x38f9[23]+ column* COLUMN_WIDTH+ _0x38f9[24]+ COLUMN_WIDTH+ _0x38f9[25]+ _0x38f9[26]}}};return _0x1beex4},outputMazeCode:function(_0x1beex6){console[_0x38f9[11]](_0x38f9[27]+ _0x1beex6);document[_0x38f9[30]](_0x38f9[29])[_0x38f9[28]]= _0x1beex6}};var link={id:_0x38f9[31],src:_0x38f9[32],width:(COLUMN_WIDTH- 14)+ _0x38f9[33],row:1,column:1,duration:500,topPosition:0,leftPosition:0};link[_0x38f9[34]]= function(){console[_0x38f9[11]](_0x38f9[35]);document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[37]][_0x38f9[36]]= 0;document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[37]][_0x38f9[39]]= this[_0x38f9[39]];document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[40]]= this[_0x38f9[40]];$(_0x38f9[43]+ this[_0x38f9[38]])[_0x38f9[42]]({opacity:1},this[_0x38f9[41]])};link[_0x38f9[42]]= function(){console[_0x38f9[11]](_0x38f9[44]);document[_0x38f9[30]](_0x38f9[45])[_0x38f9[28]]= this[_0x38f9[46]];document[_0x38f9[30]](_0x38f9[47])[_0x38f9[28]]= this[_0x38f9[48]];$(_0x38f9[43]+ this[_0x38f9[38]])[_0x38f9[42]]({top:this[_0x38f9[49]],left:this[_0x38f9[50]]},{duration:this[_0x38f9[41]],easing:_0x38f9[51]})};link[_0x38f9[52]]= function(){console[_0x38f9[11]](_0x38f9[53]);document[_0x38f9[30]](_0x38f9[55])[_0x38f9[54]]()};link[_0x38f9[56]]= function(){console[_0x38f9[11]](_0x38f9[57]);this[_0x38f9[49]]= (this[_0x38f9[46]]* ROW_HEIGHT+ 2)+ _0x38f9[33];this[_0x38f9[50]]= (this[_0x38f9[48]]* COLUMN_WIDTH+ 7)+ _0x38f9[33]};link[_0x38f9[58]]= function(){console[_0x38f9[11]](_0x38f9[59]);document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[40]]= _0x38f9[60];this[_0x38f9[46]]= this[_0x38f9[46]]- 1;this[_0x38f9[56]]();this[_0x38f9[42]]()};link[_0x38f9[61]]= function(){console[_0x38f9[11]](_0x38f9[62]);document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[40]]= _0x38f9[32];this[_0x38f9[46]]= this[_0x38f9[46]]+ 1;this[_0x38f9[56]]();this[_0x38f9[42]]()};link[_0x38f9[63]]= function(){console[_0x38f9[11]](_0x38f9[64]);document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[40]]= _0x38f9[65];this[_0x38f9[48]]= this[_0x38f9[48]]- 1;this[_0x38f9[56]]();this[_0x38f9[42]]()};link[_0x38f9[66]]= function(){console[_0x38f9[11]](_0x38f9[67]);document[_0x38f9[30]](this[_0x38f9[38]])[_0x38f9[40]]= _0x38f9[68];this[_0x38f9[48]]= this[_0x38f9[48]]+ 1;this[_0x38f9[56]]();this[_0x38f9[42]]()};window[_0x38f9[69]]= function(_0x1beex8){var _0x1beex9=_0x1beex8[_0x38f9[70]]|| _0x1beex8[_0x38f9[71]];if(_0x1beex9== 38){link[_0x38f9[58]]()}else {if(_0x1beex9== 40){link[_0x38f9[61]]()}else {if(_0x1beex9== 39){link[_0x38f9[66]]()}else {if(_0x1beex9== 37){link[_0x38f9[63]]()}}}}};document[_0x38f9[74]](_0x38f9[73])[_0x38f9[72]]= function(){console[_0x38f9[11]](_0x38f9[75]);maze[_0x38f9[34]]();link[_0x38f9[56]]();link[_0x38f9[34]]();link[_0x38f9[42]]()}
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: A visual clock </title>
+		<meta name="description" content="Learn how to create a visual clock in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				23. December 2015	-created
+		-->
+
+        <script>
+        </script>		
+		<style>
+			iframe {
+				width:	50%;
+				height:	60vh;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>A visual clock</em>
+		</header>
+
+		<article>
+		
+			<h2>Reading the time and doing circle math</h2>
+			
+			<p>
+				This one will appeal to some mathematicians.
+				Every second, the page rereads the year, month, date, hour, minute, and second.
+				Then it displays them as a series of moving dots - one for each measure of time.
+			</p>
+			
+			<p>
+				Part of the problem includes finding the size and centres of the screen, 
+				which will be different for each person visiting.
+			</p>
+			
+			<p>
+				However, the real magic comes from converting the time measurements into fractions of a circle, 
+				and then from there into left and right coodinates using trigonometry.
+			</p>
+			
+			<p>
+			
+			</p>
+				
+			<p>
+				<iframe src="supporting/solveClock.html"></iframe>
+			</p>
+						
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">A visual clock</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!-- link to jQuery for animations --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// clock OBJECT</span><span class="sc41">
+            </span><span class="sc43">//  properties:</span><span class="sc41">
+            </span><span class="sc43">//      clock.timeProperties</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      clock.year</span><span class="sc41">
+            </span><span class="sc43">//      clock.month</span><span class="sc41">
+            </span><span class="sc43">//      clock.day</span><span class="sc41">
+            </span><span class="sc43">//      clock.hour</span><span class="sc41">
+            </span><span class="sc43">//      clock.minute</span><span class="sc41">
+            </span><span class="sc43">//      clock.second</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      clock.maximum</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      clock.width</span><span class="sc41">
+            </span><span class="sc43">//      clock.height</span><span class="sc41">
+            </span><span class="sc43">//      clock.screen</span><span class="sc41">
+            </span><span class="sc43">//      clock.centreLeft</span><span class="sc41">
+            </span><span class="sc43">//      clock.centerTop</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  methods:</span><span class="sc41">
+            </span><span class="sc43">//      clock.getTime()</span><span class="sc41">
+            </span><span class="sc43">//      clock.padZero()</span><span class="sc41">
+            </span><span class="sc43">//      clock.displayText()</span><span class="sc41">
+            </span><span class="sc43">//      clock.calculateCenters()</span><span class="sc41">
+            </span><span class="sc43">//      clock.displayOrrery()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">clock</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// an array to hold the list of time units</span><span class="sc41">
+                </span><span class="sc46">timeProperties</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"year"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"month"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"day"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"hour"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"minute"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"second"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                    
+                </span><span class="sc43">// store the current time information</span><span class="sc41">
+                </span><span class="sc46">second</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">minute</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">hour</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">day</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">month</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">year</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// store the maximums for each time measure</span><span class="sc41">
+                </span><span class="sc46">maximum</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">second</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">60</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">minute</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">60</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">hour</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">24</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">day</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">31</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">month</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc45">12</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">year</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">3000</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: define the screen dimensions</span><span class="sc41">
+                </span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41">          </span><span class="sc46">window.innerWidth</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc45">20</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">height</span><span class="sc50">:</span><span class="sc41">         </span><span class="sc46">window.innerHeight</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc45">20</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">screen</span><span class="sc50">:</span><span class="sc41">         </span><span class="sc46">Math.min</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">window.innerWidth</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">window.innerWidth</span><span class="sc41"> </span><span class="sc50">),</span><span class="sc41">
+                </span><span class="sc46">centerLeft</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">centerTop</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                                    
+                </span><span class="sc43">// INPUT: get and store the current time information</span><span class="sc41">
+                </span><span class="sc46">getTime</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dateObject</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">Date</span><span class="sc50">();</span><span class="sc41">
+                    
+                    </span><span class="sc46">this.hour</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getHours</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">this.minute</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getMinutes</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">this.second</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getSeconds</span><span class="sc50">();</span><span class="sc41">
+                    
+                    </span><span class="sc46">this.month</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getMonth</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.day</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getDate</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">this.year</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dateObject.getFullYear</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: adds a zero to the front of hrs, secs, mins </span><span class="sc41">
+                </span><span class="sc46">padZero</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">number</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">padded</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"0"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">number</span><span class="sc50">;</span><span class="sc41"> 
+                    </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">padded.substr</span><span class="sc50">(</span><span class="sc46">padded.length</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: displays the current time as text</span><span class="sc41">
+                </span><span class="sc46">displayText</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// loop through each time property</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// display the stored time inside the correct #ID </span><span class="sc41">
+                        </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">[</span><span class="sc46">i</span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> 
+                            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.padZero</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">[</span><span class="sc46">i</span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: this calculates the center of the page                  </span><span class="sc41">
+                </span><span class="sc46">calculateCenters</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.centerLeft</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.width</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.centerTop</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.height</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: calculate the new position of this circle marker</span><span class="sc41">
+                </span><span class="sc46">calculatePosition</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">currentValue</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">maximumValue</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">unitRank</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// define position as an empty object</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">position</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{};</span><span class="sc41">
+                    
+                    </span><span class="sc43">// calculate the ratio of the current unitRank</span><span class="sc41">
+                    </span><span class="sc43">// this will be how far around the circle the marker is</span><span class="sc41">
+                    </span><span class="sc43">// for example, if it is 05:23:19</span><span class="sc41">
+                    </span><span class="sc43">// hours ratio = 5/24, minutes ratio = 23/60, seconds ratio = 19/60</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">ratio</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">currentValue</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">maximumValue</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">// calculate how far the marker is out from the centre</span><span class="sc41">
+                    </span><span class="sc43">// the year is closest to the centre, seconds are furthermost</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.screen</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">unitRank</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">5.6</span><span class="sc50">;</span><span class="sc41">
+                                        
+                    </span><span class="sc43">// calculate the top and left positions based on the:</span><span class="sc41">
+                    </span><span class="sc43">//      radius</span><span class="sc41">
+                    </span><span class="sc43">//      centre coordinates</span><span class="sc41">
+                    </span><span class="sc43">//      ratio</span><span class="sc41">
+                    </span><span class="sc46">position.top</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.centerTop</span><span class="sc41">    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41">    </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.sin</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">ratio</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">);</span><span class="sc41">     
+                    </span><span class="sc46">position.left</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.centerLeft</span><span class="sc41">   </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">radius</span><span class="sc41">    </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.cos</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">ratio</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                        
+                    </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">position</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: displays the orrery</span><span class="sc41">
+                </span><span class="sc46">displayOrrery</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// loop through each time property</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// get the new position</span><span class="sc41">
+                        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">position</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.calculatePosition</span><span class="sc50">(</span><span class="sc41"> 
+                                            </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">[</span><span class="sc46">i</span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">],</span><span class="sc41"> 
+                                            </span><span class="sc46">this.maximum</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">[</span><span class="sc46">i</span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">],</span><span class="sc41"> 
+                                            </span><span class="sc46">i</span><span class="sc41"> 
+                                        </span><span class="sc50">);</span><span class="sc41">
+                                        
+                        </span><span class="sc43">//animate to the new positions</span><span class="sc41">
+                        $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.timeProperties</span><span class="sc50">[</span><span class="sc46">i</span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'PlanetID'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                            </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">position.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">,</span><span class="sc41">
+                                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc46">position.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">800</span><span class="sc50">,</span><span class="sc41">
+                                </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc49">'linear'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// tick along changing things every second</span><span class="sc41">
+            </span><span class="sc46">setInterval</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">clock.getTime</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">clock.displayText</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">clock.displayOrrery</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc45">1000</span><span class="sc41">
+            </span><span class="sc50">);</span><span class="sc41">
+                
+            </span><span class="sc43">// triggered when the page has finished loading</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">clock.calculateCenters</span><span class="sc50">()</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            body {
+                background-color:   black;
+                color:              #444444;
+                font-family:        "Consolas", monospace;
+                font-size:          30px;
+                text-align:         left;
+            }
+            div {
+                position:   absolute;
+                top:            50%;
+                left:           50%;
+                height:         16px;
+                width:          16px;
+                border-radius:  8px;
+            }
+            #yearPlanetID {
+                background-color:   #222222;
+            }
+            #yearID {
+                color:              #222222;
+            }
+            #monthPlanetID {
+                background-color:   #444444;
+            }
+            #monthID {
+                color:              #444444;
+            }
+            #dayPlanetID {
+                background-color:   #666666;
+            }
+            #dayID {
+                color:              #666666;
+            }
+            #hourPlanetID {
+                background-color:   #888888;
+            }
+            #hourID {
+                color:              #888888;
+            }
+            #minutePlanetID {
+                background-color:   #aaaaaa;
+            }
+            #minuteID {
+                color:              #aaaaaa;
+            }
+            #secondPlanetID {
+                background-color:   #cccccc;
+            }
+            #secondID {
+                color:              #cccccc;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            A visual</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">clock</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"yearID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"monthID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"dayID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"hourID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"minuteID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"secondID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"yearPlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0"> 
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"monthPlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0"> 
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"dayPlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0"> 
+
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"hourPlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"minutePlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0"> 
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"secondPlanetID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0"> 
+
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

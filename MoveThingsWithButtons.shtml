@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Move Things with Buttons
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to read current positions and move to a new one.">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				29. Sept 2015	- created!										- Drapak
+				30. Sept 2015 	- removed code obsfucation						- Drapak
+				5. March 2017	- reworked to improve style						- Drapak
+				21. March 		- removed <img  />								- Drapak
+				3. October 2018	- moved to 2.06S								- Drapak
+				9. October 2018	- fixed template link							- Drapak
+		-->
+
+		<style>
+			#imageId {
+				position: 	absolute;
+				top:		50px;	
+				left:		250px;
+			}
+			input {
+				width: 		50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.06 Skill-builder: <em>Move things with buttons</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INPUT: <a href="inputElementPositions.shtml">Read element positions</a>
+				</li>
+				<li>
+					//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.06S-MoveThingsWithButtons-LastName.html">empty template</a> as 
+				"<code>2.06S-MoveThingsWithButtons-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Reuse, copy, and modify the code below to create a page that uses Javascript to move an image up, down, left, and right.
+			</p>
+
+			<h2>For example</h2>
+			<p>The following is used to move an image of a star down 15px with each press of the button:</p>
+			
+			<img 
+				id="imageId" 
+				alt="image of a star"
+				src="https://www.kasandbox.org/programming-images/cute/Star.png">
+		
+			<p>
+				Distance to move for each button press:
+				<input id="distanceId" type="text" value="15">px
+				<button id="buttonId">&darr;</button>
+				<!-- 
+					A reference for arrow symbols:
+					up = &uarr;		down =&darr;	left = &larr;	right = &rarr;
+				-->
+			</p>
+
+
+			<h2>Show me the code!</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">
+            Move things with buttons
+        </span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Assignment: Read current positions and move to a new one."</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                29. Sept 2015   - created!                                      - Drapak
+                5. March 2017   - reworked for clearer style                    - Drapak
+                3. October 2018 - moved to 2.06                                 - Drapak
+                27. Oct 2018    - updated style and moved to querySelector      - Drapak
+        --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #imageId {
+                position:   absolute;
+                top:        50px;   
+                left:       300px;
+            }
+            input {
+                width:      50px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> 
+            </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"image of a star"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/Star.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Distance to move for each button press:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"15"</span><span class="sc1">&gt;</span><span class="sc0">px
+            
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc10">&amp;darr;</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- 
+                A reference for arrow symbols:
+                up = &amp;uarr;     down =&amp;darr;    left = &amp;larr;   right = &amp;rarr;
+            --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// This reads the distance per click and moves the star down by that amount</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">moveDown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in moveDown...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: get the distance to move with each click</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">distancePerClickString</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc43">// .value returns a string - you convert it to a number with parseInt()</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">distancePerClick</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseInt</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">distancePerClickString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: get the image's current distance from the top of the page</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">currentTop</span><span class="sc41">          </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">offsetTop</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: increase the distance from the top by the parsed distance/click</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newTop</span><span class="sc41">              </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">currentTop</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">distancePerClick</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: send the variable contents to the developer's console</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'currentTop, newTop='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">currentTop</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">', '</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">newTop</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: update the image with a new top value</span><span class="sc41">
+                </span><span class="sc43">// note that you have to add px to the end of the number </span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newTop</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: trigger moveDown when #buttonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">moveDown</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+
+ 		<script>
+			// This reads the distance per click and moves the star down by that amount
+			var moveDown = function () {
+				console.log('in moveDown...');
+				
+				// INPUT: get the distance to move with each click
+				// .value returns a string - you convert it to a number with parseInt()
+				var distancePerClick	= parseInt( document.getElementById('distanceId').value );
+				
+				// INPUT: get the image's current distance from the top of the page
+				var currentTop			= document.getElementById('imageId').offsetTop;
+				
+				// PROCESS: increase the distance from the top by the distance per click
+				var newTop				= currentTop + distancePerClick;
+				
+				console.log('currentTop, newTop:' + currentTop + ', ' + newTop);
+				// OUTPUT: update the image with a new top value
+				// note that you have to add px to the end of the number 
+				document.getElementById('imageId').style.top	= newTop + 'px';
+			}
+			
+			//INPUT: trigger moveDown when #buttonId is clicked
+			document.getElementById('buttonId').onclick	= moveDown;
+		</script>
+
+	</body>
+</html>

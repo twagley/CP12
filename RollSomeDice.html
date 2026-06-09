@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Roll Some Dice</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows how to use Javascript and arrays to output the time
+		
+			Created:	30. March 2015 
+			Updated:	
+		-->
+
+		<script>
+			
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<header>
+			<h1>1.22 Hand-in: Roll Some Dice</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">math JS</span> <code>Math.round() </code> &mdash; rounds a number to the nearest integer<br />
+				<span class="langstyle">math JS</span> <code>Math.floor() </code> &mdash; rounds a number <strong>downward</strong> to the nearest integer<br />
+				<span class="langstyle">math JS</span> <code>Math.ceil() </code> &mdash; rounds a number <strong>upward</strong> to the nearest integer<br />
+				<br />
+				<span class="langstyle">math JS</span> <code>Math.random() </code> &mdash; creates a random decimal from 0 &rarr; 0.99999...<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Generating random numbers</h2>
+			
+			<p>Generating a random number between 1 &rarr; 6 requires you to do the following:</p>
+			<ol>
+				<li>generate a random decimal using <code>Math.random()</code></li>
+				<li>multiplying the random integer by 6</li>
+				<li>rounding the result up to the nearest integer</li>
+			</ol>
+			
+			<h3>Generating a random integer using <code>Math.random()</code></h3>
+			
+			<p>
+				There is a function, <code>Math.random()</code>, that returns a random number between 0 &rarr; 0.999999... 
+				It is not truly random (you need to use something like reading radioactive decay for that), but it is close enough for our purposes at this point.
+			</p>
+			<p>
+				Here is what <code>Math.random()</code> returns:<br />
+				<button type="button" id="buttonID" onclick="document.getElementById('buttonID').innerHTML=Math.random();">Click to <code>Math.random()</code></button>
+			</p>
+			
+			<h3>Rounding, Floors, and ceilings</h3>
+			
+			<p>
+				There are often times when you want to <strong>normally round</strong> a number, and <code>Math.round()</code> will do this for you in the usual way: <br />
+				2.3 <code>round()</code>s normally to: <button type="button" id="buttonID2" onclick="document.getElementById('buttonID2').innerHTML=Math.round(2.3);">Click to <code>Math.round( 2.3 )</code></button><br />
+				5.6 <code>round()</code>s normally to: <button type="button" id="buttonID3" onclick="document.getElementById('buttonID3').innerHTML=Math.round(5.6);">Click to <code>Math.round( 5.6 )</code></button>
+			</p>
+			
+			<p>
+				Sometimes you want to <strong>round down</strong> to the nearest integer. <code>Math.floor()</code> will do this for you: <br />
+				2.3 <code>floor()</code>s down to: <button type="button" id="buttonID4" onclick="document.getElementById('buttonID4').innerHTML=Math.floor(2.3);">Click to <code>Math.floor( 2.3 )</code></button> <br />
+				5.6 <code>floor()</code>s down to: <button type="button" id="buttonID5" onclick="document.getElementById('buttonID5').innerHTML=Math.floor(5.6);">Click to <code>Math.floor( 5.6 )</code></button>
+			</p>
+			
+			<p>
+				Sometimes you want to <strong>round up</strong> to the nearest integer. <code>Math.ceil()</code> will do this for you: <br />
+				2.3 <code>ceil()</code>s up to: <button type="button" id="buttonID6" onclick="document.getElementById('buttonID6').innerHTML=Math.ceil(2.3);">Click to <code>Math.ceil( 2.3 )</code></button> <br />
+				5.6 <code>ceil()</code>s up to: <button type="button" id="buttonID7" onclick="document.getElementById('buttonID7').innerHTML=Math.ceil(5.6);">Click to <code>Math.ceil( 5.6 )</code></button>
+			</p>
+			
+			<h3>Rolling a die</h3>
+			
+			<p>Let's say for this example that we are using a six-sided die.</p>
+			
+			<p>We will start off by generating a random decimal:</p>
+			<ul>
+				<li>var <var>randomDecimal</var> =Math.random();</li>
+				<li><button type="button" id="buttonID8" onclick="document.getElementById('buttonID8').innerHTML=Math.random();">Click to <code>Math.random()</code></button></li>
+			</ul>
+			
+			<p>Then we need to multiply this number by six in order to simulate a range from 1 &rarr; 6.</p>
+			<ul>
+				<li>var <var>unroundedDecimal</var> =<var>randomDecimal</var> * 6;</li>
+				<li><button type="button" id="buttonID9" onclick="document.getElementById('buttonID9').innerHTML=document.getElementById('buttonID8').innerHTML * 6;">Click to multiply the above by 6</button></li>
+			</ul>
+			
+			<p>
+				It still does not look like a die roll from 1 &rarr 6 yet. 
+				Sometimes we get numbers less one, and we never get a number equal to 6. 
+				The function that we need to shape the results into the proper integers is <code>Math.ceil()</code>.
+			</p>
+			<ul>
+				<li><code>var <var>dieRoll</var> =Math.ceil(<var>unroundedDecimal</var>);</code></li>
+				<li><button type="button" id="buttonID10" onclick="document.getElementById('buttonID10').innerHTML=Math.ceil(document.getElementById('buttonID9').innerHTML);">Click to <code>Math.ceil()</code> the results from the button above</button></li>
+			</ul>
+			
+			<p>So if you combine everything into one line, the resulting code is:</p>
+			<ul>
+				<li><code>var <var>dieRoll</var> =Math.ceil(Math.random() * 6);</code></li>
+				<li><button type="button" id="buttonID11" onclick="document.getElementById('buttonID11').innerHTML=Math.ceil(Math.random() * 6);">Click to <code>Math.ceil(Math.random() * 6)</code></button></li>
+			</ul>
+			
+			<h2>Program Planning Charts</h2>
+			
+			<p>
+				You will be using function pipelines as much as possible in the future. 
+				In order to help you organize and structure your code effectively, you will need to use <strong>programming planning charts</strong> before you begin.
+				Here is an example:
+			</p>
+			
+			<h3>Example Program Planning Chart for finding the area of a circle:</h3>
+			
+			
+			
+			<h4>Program description</h4>
+			<p class="withborder">This program asks the user to input the radius so that the program can calculate the area of a circle and then output it.</p>
+			
+			<h4>Variables</h4>
+			<ul class="withborder">
+				<li>var radius = the radius of the circle entered by the user </li>
+				<li>var area = area of the circle as calculated by the program, to be output</li>
+				<li>pi is a constant built into Javascript through Math.pi</li>
+			</ul>
+			
+			<h4>User interface</h4>
+			<ul class="withborder">
+				<li>instructions to tell what to do</li>
+				<li>an input line ("inputID") for people to enter the radius</li>
+				<li>a button to trigger the program</li>
+				<li>a line with a &lt;span> ("outputID") for the answer to appear</li>
+			</ul>
+						
+			<h4>Main program flow - mainProcedure()</h4>
+			<ul class="withborder">
+				<li>var radius =getRadius();</li>
+				<li>var area =calculate Area( radius );</li>
+				<li>outputArea( area );</li>
+			</ul>
+			
+			<h4>INPUT function - getRadius()</h4>
+			<p>
+				Function task: 
+				<span class="withborder"> set radius equal to "inputID"'s value </span>
+			</p>
+			<p>
+				Function returns: 
+				<span class="withborder"> the radius </span>
+			</p>
+			
+			
+			<h4>PROCESS function - calculateArea()</h4>
+			<p>
+				Function input parameters: 
+				<span class="withborder"> the radius </span>
+			</p>
+			<p>
+				Function task: 
+				<span class="withborder"> set area equal to radius * radius * Math.pi </span>
+			</p>
+			<p>
+				Function returns: 
+				<span class="withborder"> the area </span>
+			</p>
+			
+			<h4>OUTPUT function - outputArea()</h4>
+			<p>
+				Function input parameters: 
+				<span class="withborder"> the area </span>
+			</p>
+			<p>
+				Function task: 
+				<span class="withborder"> set the innerHTML of "outputID" equal to the area </span>
+			</p>
+			
+			
+
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.22H-RollSomeDice-LastName.html" target="_blank">template</a> and rename it to your last name, such as "<code>1.22H-RollSomeDice-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>In this assignment you will use function pipelines and a planning chart to create a page that asks the user how many dice to roll, and then displays the sum of that result, like this:</h4>
+			<p>
+				Please enter the number of six-sided dice to roll and add together:
+				<input type="text" id="inputID" onclick="" size="2">
+				<button type="button" onclick="/*don't use this code - it has intentionall bad style*/ var total=0; for (i=1; i<=document.getElementById('inputID').value; i++) {total =total + Math.ceil(Math.random() * 6)}; document.getElementById('outputID').innerHTML=total;">Roll the dice!</button><br />
+				<br />
+				The total of the dice added together is: 
+				<strong><span id="outputID"></span></strong>
+			</p>
+			
+			<p>&nbsp;</p>
+						
+			<h4>Please keep in mind the following</h4>
+			<ol>
+				<li>Complete your program planning chart first</li>
+				<li>Consider using <code>&lt;input type="text" id="inputID"></code> to create the input line</li>
+				<li>You will need a loop to count the number of dice that are added together</li>
+				<li>Use <strong>function pipelines</strong> for this assignment. Do not use variables outside of the functions.</li>
+				<li>Split your functions into separate parts: INIT, INPUT, PROCESS, and OUTPUT.</li>
+				<li>In your descriptive comments for each function, indicate whether the function is for INIT, INPUT, PROCESS, or OUTPUT.</li>
+				<li>Use <code>onclick="mainProcedure();"</code> to start the process rolling</li>
+			</ol>
+
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/3 &mdash; Well-modularized code into separate input/processing/output <strong>function pipelines</strong></li>
+				<li>___/3 &mdash; Successful completion of the program planning chart</li>
+				<li>___/2 &mdash; Successful program execution: loops, Math.random, and rounding</li>
+				<li>___/2 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			<!--
+			<h2>Do it with style</h2>
+			<h4>Discover what your variables are</h4>
+			<p>Inside modern browsers is a Javascript console with a line that allows you to type in commands.</p>
+			<p>One of the things that it allows you to do is type in variable names so that you can see what is inside.</p>
+			<p>Try running the console on this page and type in: <code>monthNames</code>.</p>
+			-->
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Using basic physics to make Flappy Tree</title>
+		<meta name="description" content="Learn how to use basic physics in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. December 2015	-created
+		-->
+        <script>
+        </script>
+        <style>
+			iframe {
+				width:	90%;
+				height:	500px;
+			}
+        </style>
+    </head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Using basic physics</em>
+		</header>
+
+		<article>
+		
+			<h2>Apply basic kinematics to make your games feel more natural</h2>
+			
+			<p>
+				Kinematics is the study of motion, and is a branch of physics. 
+				We can use some of the equations from physics to make movement seem more natural,
+				as if gravity were affecting it.
+			</p>
+			
+			<p>
+				In our example below we are going to use two equations:
+			</p>
+			
+			<ul>
+				<li>
+					<em class="indent">v = at + v<sub>i</sub></em><br />
+					This describes how velocity is affected by acceleration, in this case, due to gravity.				
+				</li>
+				<li>
+					<em class="indent">d = vt + d<sub>i</sub></em><br />
+					This describes how distance is affected by speed.				
+				</li>
+			</ul>
+			
+			<p>
+				In the examples above:
+			</p>
+			<ul>
+				<li>
+					<em>a</em> = acceleration
+				</li>
+				<li>
+					<em>v</em> = velocity
+				</li>
+				<li>
+					<em>v<sub>i</sub></em> = initial velocity
+				</li>
+				<li>
+					<em>d</em> = distance
+				</li>
+				<li>
+					<em>d<sub>i</sub></em> = initial distance
+				</li>
+				<li>
+					<em>t</em> = time
+				</li>
+			</ul>
+			
+			<p>
+				One things that we have to remember in that the Y axis (top)
+				increases as it goes down, so we have to switch the math around.
+			</p>
+			
+			<p>
+				We have to abandon jQuery-based animation for physics-based animation.
+				We will set up a frame rate of about 30 frames per second.
+				This means that we will have to create a repeating function with an
+				interval of <sup>1000</sup>/<sub>30</sub> = 33.33 millseconds. 
+			</p>
+			
+			<p>
+				Inside this repeating function we will recalculate the current speed and position, 
+				and then shift the coordinates to the new place.
+			</p>
+
+			<p>
+				Look at the code to see where these calculations take place inside 
+				<code>flappy.calculatePosition()</code>.
+			</p>
+			
+			<hr />
+
+			<p>
+				<iframe src="supporting/solvePhysicsFlappyTree.shtml"></iframe>
+			</p>
+		
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Basic game physics: flappy tree</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// flappy OBJECT</span><span class="sc41">
+            </span><span class="sc43">// flappy properties:</span><span class="sc41">
+            </span><span class="sc43">//      flappy.element</span><span class="sc41">
+            </span><span class="sc43">//      flappy.fps</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      flappy.currentSpeedTop</span><span class="sc41">
+            </span><span class="sc43">//      flappy.currentSpeedLeft</span><span class="sc41">
+            </span><span class="sc43">//      flappy.gravity</span><span class="sc41">
+            </span><span class="sc43">//      flappy.speedBoostPerJump</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      flappy.top</span><span class="sc41">
+            </span><span class="sc43">//      flappy.left</span><span class="sc41">
+            </span><span class="sc43">//      flappy.scrollOffset</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// flappy methods</span><span class="sc41">
+            </span><span class="sc43">//      flappy.initialize()</span><span class="sc41">
+            </span><span class="sc43">//      flappy.jumpUp()</span><span class="sc41">
+            </span><span class="sc43">//      flappy.calculatePosition()</span><span class="sc41">
+            </span><span class="sc43">//      flappy.move()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">flappy</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">element</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the element to animate</span><span class="sc41">
+                </span><span class="sc46">fps</span><span class="sc50">:</span><span class="sc41">                </span><span class="sc45">30</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// the frames per second to animate</span><span class="sc41">
+                
+                </span><span class="sc46">currentSpeedTop</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current vertical speed </span><span class="sc41">
+                </span><span class="sc46">currentSpeedLeft</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">120</span><span class="sc50">,</span><span class="sc41">            </span><span class="sc43">// the current horizontal speed</span><span class="sc41">
+                </span><span class="sc46">gravity</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc45">60</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// the downward acceleration due to gravity per second</span><span class="sc41">
+                </span><span class="sc46">speedBoostPerJump</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc45">80</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// the amount of speed added per jump</span><span class="sc41">
+                
+                </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">                </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// current top coordinate</span><span class="sc41">
+                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">               </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// current left coordinate</span><span class="sc41">
+                </span><span class="sc46">scrollOffset</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc50">-</span><span class="sc45">200</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the position of the flappy from the side of the screen while scrolling</span><span class="sc41">
+                                
+                </span><span class="sc43">// INPUT: get the element containing the flappy image and get the current top and left coordinates</span><span class="sc41">
+                </span><span class="sc43">// This is triggered when the page finishes loading</span><span class="sc41">
+                </span><span class="sc46">initialize</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'initializing...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc46">this.element</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">  
+                    </span><span class="sc46">this.top</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetTop</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetLeft</span><span class="sc50">;</span><span class="sc41">
+
+                    </span><span class="sc43">// OUTPUT: scroll to flappy's initial position</span><span class="sc41">
+                    </span><span class="sc46">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: give a boost to the vertical speed</span><span class="sc41">
+                </span><span class="sc46">jumpUp</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.currentSpeedTop</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSpeedTop</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.speedBoostPerJump</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: use physics math to calculate the current position...</span><span class="sc41">
+                </span><span class="sc46">calculatePosition</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// calculate the new vertical speed using: v = at + vi</span><span class="sc41">
+                    </span><span class="withborder"><span class="sc46">this.currentSpeedTop</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.gravity</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">this.fps</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.currentSpeedTop</span><span class="sc50">;</span></span><span class="sc41">
+                    
+                    </span><span class="sc43">// calculate the new positions using: d = vt + di</span><span class="sc41">
+                    </span><span class="withborder"><span class="sc46">this.top</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSpeedTop</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">this.fps</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc50">;</span></span><span class="sc41">
+                    </span><span class="withborder"><span class="sc46">this.left</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.currentSpeedLeft</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">this.fps</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc50">;</span></span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display flappy in his current position</span><span class="sc41">
+                </span><span class="sc46">move</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px"</span><span class="sc50">;</span><span class="sc41">
+
+                    </span><span class="sc43">// follow by scrolling</span><span class="sc41">
+                    </span><span class="sc46">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// triggered by start button</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// turn off the button</span><span class="sc41">
+                </span><span class="sc43">// otherwise each space bar hit will trigger the button again...</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'buttonID'</span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc50">;</span><span class="sc41">
+                                
+                </span><span class="sc43">// set up the animation loop</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">interval</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">window.setInterval</span><span class="sc50">(</span><span class="sc41"> 
+                    </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc46">flappy.calculatePosition</span><span class="sc50">();</span><span class="sc41">     </span><span class="sc43">// calculate the new position</span><span class="sc41">
+                        </span><span class="sc46">flappy.move</span><span class="sc50">();</span><span class="sc41">                  </span><span class="sc43">// move there</span><span class="sc41">
+                    </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc45">1000</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">flappy.fps</span><span class="sc41">                   </span><span class="sc43">// every 33 milliseconds</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">          
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// if a key is pressed down...</span><span class="sc41">
+            </span><span class="sc46">window.onkeydown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// INPUT: read the key that was pressed...</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41">
+
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">32</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">  </span><span class="sc43">// if space bar is pressed </span><span class="sc41">
+                    </span><span class="sc46">flappy.jumpUp</span><span class="sc50">();</span><span class="sc41">    </span><span class="sc43">// add a boost up</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            h2, p {
+                position:   absolute;
+            }
+            #flappyID {
+                position:   absolute;
+                width:      50px;
+                top:        50%;
+            }
+            #backgroundID {
+                position:   absolute;
+                height:     93vh;   /* set height to part of the viewport height to deal with scroll bars */
+            }      
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"flappy.initialize('flappyID');"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundID"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/SuperMarioWorld.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonID"</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">
+                Press to start playing flappy tree!
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Press the space bar to move up.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"flappyID"</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/TreeTall.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Otto the Robot</title>
+		<meta 
+			name="description" 
+			content="Assignment: plot the path of a human robot">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="otto the robot, pseudocode, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				9. Sept				- adapted to drapak.ca
+				11. Sept 			- changed evaluation criteria and added examples
+				5. February 2017	- reworked example template
+				8. February 2018	- added hidden agenda
+				11. February 2018	- clarified templates
+				12. September 2018	- added clarity to evaluation criteria
+				13. September 2018	- added resources to the page
+				23. September 2018	- moved saving your work
+		-->
+
+
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; <em>1.04 Hand-in: Otto the Robot</em>
+		</header>
+
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//HTML: <a href="htmlBasic.shtml">Basics</a><br>
+				//HTML: <a href="htmlLists.shtml">Lists</a><br>
+				//HTML: <a href="htmlTables.shtml">Tables</a><br>
+				//HTML: <a href="htmlTablesTwoKinds.shtml">Two kinds of tables</a><br >
+				<br>
+				//INIT: <a href="initDatatypes.shtml">Datatypes</a><br>
+				<br>
+				//STYLE: <a href="styleTags.shtml">Capitalizing tags</a><br>
+				//STYLE: <a href="styleChoosingAnEditor.shtml">Choosing an editor</a><br>
+				//STYLE: <a href="styleTabs.shtml">Formatting code with tab indents</a>
+			</p>
+
+			<h2>The role of Otto the Robot will now be played by...</h2>
+			<p>
+				<strong>
+					Let's watch an introductory video about 
+					organizing your thoughts around a problem:
+				</strong><br>
+				<iframe 
+					width="560" height="315" 
+					src="https://www.youtube.com/embed/_vS_b7cJn2A" 
+					frameborder="0" allowfullscreen>
+				</iframe>
+			</p>
+
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Show your brand new HTML skills
+				</li>		
+				<li>
+					Play nicely with other humans
+				</li>			
+				<li>
+					See how dang picky computers are in one big overworked metaphor
+				</li>		
+				<li>
+					Program with great style
+				</li>
+				<li>
+					Transform all students into mindless robots! 
+					MWAAAAAH HAAAA HAAAAAA!
+				</li>
+			</ul>
+			
+			<h2>Saving your work</h2>
+			<p>
+				You will discuss your solution through an HTML report 
+				that each of you will create <strong>individually</strong>.
+			</p>
+			<p>
+				Save the empty 
+				<a href="1.04H-OttoTheRobot-LastName.html">template</a> 
+				as "<code>1.04H-OttoTheRobot-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+			<h2>Evaluation</h2>
+			<ul>
+				<li>
+					___/10 &mdash; HTML: Creates the following correctly using HTML tags:
+					<ul>
+						<li>a heading</li>
+						<li>a paragraph</li>
+						<li>some strong text</li>
+						<li>an image</li>
+						<li>an ordered or unordered list</li>
+						<li>list items correctly</li>
+						<li>
+							a <strong>table</strong> 
+							<em>(Hmmm... I wonder where I should put it?)</em>
+						</li>
+						<li>table rows</li>
+						<li>table category headers cells</li>
+						<li>table data cells</li>
+					</ul>
+				</li>
+				<li>___/10 &mdash; PROCESS: Completion and quality of answers to questions</li>
+				<li>
+					___/10 &mdash; STYLE: Indentation, filenames, lower-case HTML tags
+					<ul>
+						<li>change log</li>
+						<li>author's name</li>
+						<li>correct filename</li>
+						<li>lowercase html tags</li>
+						<li>correct indentation</li>
+					</ul>
+				</li>
+			</ul>
+
+			<p>
+				Working in groups of 2-4 students, complete the problem solving process to
+				solve the following problem: getting a student from our classroom 
+				(sitting in a chair) to the library in the most efficient way. 
+				The student must be sitting in a chair in the library (or alternately, 
+				standing in front of the library doors) for the solution to be complete.
+			</p>
+
+			<h3>Hints</h3>
+			<ul>
+				<li>
+					You will be required to gather other information such as hall 
+					distances, number of steps, and location of rooms
+				</li>
+				<li>
+					You may want to break down the entire solution into 
+					smaller parts (object oriented analysis)
+				</li>
+			</ul>
+
+			<h3>Problem solving process</h3>
+			<ol>
+				<li>Understand the problem (collect info to gather a knowledge base)</li>
+				<li>Identify alternative solutions</li>
+				<li>Select the best solution</li>
+				<li>List the instructions to get to the cafeteria</li>
+				<li>Evaluate your solution (test your steps)</li>
+			</ol>
+
+
+			<h3>OttoCode&reg; &mdash; instructing Otto the Robot</h3>
+			<p>
+				The person in your group playing Otto the Robot 
+				can only understand these instructions:
+			</p>
+			<ul>
+				<li><code>STD</code> &mdash; Stand</li>
+				<li><code>SIT</code> &mdash; Sit</li>
+				<li><code>FWD</code> &mdash; Take a step forward (must be standing)</li>
+				<li><code>DWN</code> &mdash; Take step down a stair (must be standing)</li>
+				<li><code>UP</code> &mdash; Take a step up a stair (must be standing)</li>
+				<li><code>RT</code> &mdash; Turn right</li>
+				<li>
+					<code>RPT(X)</code> &mdash; 
+					Repeat instructions x times (x can be any number) &mdash; 
+					example: <code>RPT(3) FWD</code>
+				</li>
+				<li>Otto always begins in a seated position</li>
+			</ul>
+			
+			<p>
+				For example: 
+				if you wanted Otto to stand up, turn right, walk four steps forward, 
+				then sit down, the OttoCode&reg; would be:
+			</p>
+			
+			<ol>
+				<li><code>STD</code></li>
+				<li><code>RT</code></li>
+				<li><code>RPT(4) FWD</code></li>
+				<li><code>SIT</code></li>
+			</ol>
+
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Create the empty framework of your HTML report</li>
+				<li>Gather together a team of 2-4 students and start answering questions</li>
+				<li>
+					Break your solution down into 5-9 chunks, 
+					and then write out the OttoCode&reg; for each chunk
+				</li>
+				<li>Do a trial run of your solution with a student volunteering to be Otto</li>
+				<li>
+					Complete your HTML report <strong>individually</strong> and then hand it in
+				</li>
+			</ol>
+			
+			<h3>Code an HTML document that looks more or less like this:</h3>
+			
+			<p>
+				<!--<a href="https://docs.google.com/document/d/11k3Iwk87OfTDrjYhOV8OjkYWczcR_h_rDE0-UQzOHWM/edit?usp=sharing" target="_blank">
+					Link to Google Docs template<br>-->
+					<img src="img/OttoTheRobot-template-screenshot.png" class="withborder">
+				</a>
+			</p>
+			
+						
+			<h2>Extend &amp; expand</h2>
+			<ul>
+				<li>Can you organize your list of commands into an HTML table?</li>
+				<li>Please find a gorgeous picture of Otto to add to your report</li>
+			</ul>
+			
+		</article>
+
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1201 @@
+/* 4 unit - 48px wide sprites */
+.pmPacmanBig0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -72px;
+	width: 48px;
+	height: 48px;
+}
+.pmPacmanBig1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -72px;
+	width: 48px;
+	height: 48px;
+}
+.pmPacmanBig2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -72px;
+	width: 48px;
+	height: 48px;
+}
+
+/* 2 unit - 24px wide sprites */
+.pmPacmanUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmSlug0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmSlug1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -72px;
+	width: 24px;
+	height: 24px;
+}
+.pmGhostLight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -96px;
+	width: 24px;
+	height: 24px;
+}
+.pmGhostLight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -96px;
+	width: 24px;
+	height: 24px;
+}
+.pmGhostDark0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -96px;
+	width: 24px;
+	height: 24px;
+}
+.pmGhostDark1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -96px;
+	width: 24px;
+	height: 24px;
+}
+.pmStrawberry {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmOrange {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmLemon {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmApple {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmGrape {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmFlower {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmKey {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyShiny0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyShiny0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmRedSlug0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmRedSlug1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmCherry1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -120px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmPoints200 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmPoints400 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmPoints800 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmPoints1600 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyStart {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -144px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanFull0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmExplosion {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyLipsUp {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmBlinkyLipsDown {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie5 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie6 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie7 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie8 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie9 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie10 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanDie11 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPacmanFull1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -168px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmInkyUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmPinkyStart {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -192px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesRight0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesRight1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesDown0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesDown1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesLeft0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesLeft1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesUp0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmEyesUp1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -216px;
+	width: 24px;
+	height: 24px;
+}
+.pmClydeStart {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -216px;
+	width: 24px;
+	height: 24px;
+}
+
+/* 1 unit - 12px wide sprites */
+
+.pmLetterSpace1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterPeriod {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterQuote0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterQuote1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter5 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter6 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter7 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter8 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter9 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterSlash {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterDash {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCornerNE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCornerSE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCornerNW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCornerSW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -12px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterA {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterB {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterC {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterD {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterF {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterG {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterH {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterI {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterJ {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterK {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterL {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterM {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -156px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterN {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterO {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -180px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterP {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterQ {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterR {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterS {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterT {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterU {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterV {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterX {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterY {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterZ {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterExclamation {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCopyright {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterPoints0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterPoints1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -24px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterPoint {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterApostrophe {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSE3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSW3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNE3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNW3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal11 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal12 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNE4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNW4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical8 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical9 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSE4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSW4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerNE1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerNW1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerSE1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerSW1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -36px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter1xx {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter3xx {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter5xx {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter7xx {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterX00 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetter10 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterTwenty0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterTwenty1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterThirty0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterThirty1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterFifty0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterFifty1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterZeroZero0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -156px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterZeroZero1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerNE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerNW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleVertical0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleVertical1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerSE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleCornerSW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleNSingleWAndS {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleNSingleEAndS {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleSSingleWAndN {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleSSingleEandN {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontal0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontal1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontal2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontal3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -48px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontalClosedW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleHorizontalClosedE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerShortNE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerShortNW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerShortSE {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerShortSW {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleESingleWAndS {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmDoubleWSingleEAndS {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -60px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSW1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSE1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNW1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal5 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNE1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal6 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -96px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal7 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal8 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical5 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSW2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal9 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleHorizontal10 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerSE2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical6 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNW2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleCornerNE2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmSingleVertical7 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -108px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot0 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot1 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot2 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot3 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot4 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmDot5 {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmBlank {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterBlank {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterSpace {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -240px;
+	width: 12px;
+	height: 12px;
+}
+.pmLetterCircle {
+	background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -240px;
+	width: 12px;
+	height: 12px;
+}

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Animating a side-scroller</title>
+		<meta name="description" content="Learn how to animate a side-scroller in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. December 2015	-created
+		-->
+        <script>
+        </script>
+        <style>
+			iframe {
+				width:	80vw;
+				height:	80vh;
+			}
+        </style>
+    </head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Animating a side-scroller</em>
+		</header>
+
+		<article>
+		
+			<h2>Scrolling to the current position</h2>
+			
+			<p>
+				There are lots of times when you want to control what is in view of the browser window in a large page.
+				This is useful for things like side-scroller games, large maps, big data tables, and so on...
+			</p>
+			
+			<p>
+				You can use the <code>window.scrollTo()</code> method in order to scroll an element into view.
+				However, this will try to locate the element in the top right corner of the screen: you may have to 
+				add an offset to get the positioning the way you want it. 
+				You should use <code>position: absolute;</code> CSS code when using this.
+			</p>
+			
+			<p>
+				Look at the code below to see how <code>window.scrollTo()</code> is used.
+			</p>
+			
+			<h2>
+				Creating a side-scroll effect
+			</h2>
+			
+			<p>
+				Animating side-scroll movement can be done with a few changes to regular animation:
+			</p>
+			
+			<ul>
+				<li>
+					Add <code>position: absolute;</code> to your CSS elements
+				</li>
+				<li>
+					Program your own position-based animations instead of using jQuery.
+					See the code example for more information.
+				</li>
+				<li>
+					Set up a variable for the current speed (<code>this.currentSpeed</code>), 
+					and preset values for slow, medium, and fast speeds 
+					(<code>this.slowSpeed</code>, <code>this.mediumSpeed</code>, and <code>this.fastSpeed</code>).
+				</li>
+				<li>
+					Change the animation behaviour slightly:
+				</li>
+				<ul>
+					<li>
+						When going right, increase to fast speed and then animate right
+					</li>
+					<li>
+						When going up or down, switch to medium speed, 
+						and then animate <strong>both</strong> up and left/right
+					</li>
+					<li>
+						When going left, switch to slow speed, and then keep animating right.
+					</li>
+				</ul>
+				<li>
+					In this example, we are flying against a background image, 
+					but you can also generate a grid with obstacles to fly over.
+				</li>
+			</ul>
+			<hr />
+			<p>
+				<strong>Click inside the window</strong> and use the keys to start flying! 
+				Or <a href="supporting/solveSideScrolling.html">open in it's own browser window</a>
+			</p>
+			<p>
+				<iframe src="supporting/solveSideScrolling.html"></iframe>
+			</p>
+		
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/met_win_scrollto.asp">
+						Window scrollTo() Method
+					</a>
+				</li>
+			</ul>
+
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Automatically scrolling to maintain focus on an element</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// rocket OBJECT</span><span class="sc41">
+            </span><span class="sc43">// rocket properties:</span><span class="sc41">
+            </span><span class="sc43">//      rocket.element</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      rocket.currentSpeed</span><span class="sc41">
+            </span><span class="sc43">//      rocket.slowSpeed</span><span class="sc41">
+            </span><span class="sc43">//      rocket.mediumSpeed</span><span class="sc41">
+            </span><span class="sc43">//      rocket.fastSpeed</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      rocket.top</span><span class="sc41">
+            </span><span class="sc43">//      rocket.left</span><span class="sc41">
+            </span><span class="sc43">//      rocket.scrollOffset</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//      rocket.interval</span><span class="sc41">
+            </span><span class="sc43">//      rocket.fps</span><span class="sc41">
+            </span><span class="sc43">//      rocket.lastKeyCode</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// rocket methods</span><span class="sc41">
+            </span><span class="sc43">//      rocket.initialize()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goUp()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goDown()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goLeft()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goRight()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.animate()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">rocket</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">element</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the element to animate</span><span class="sc41">
+                
+                </span><span class="sc46">currentSpeed</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current speed</span><span class="sc41">
+                </span><span class="sc46">slowSpeed</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">4</span><span class="sc50">,</span><span class="sc41">          </span><span class="sc43">// move the element over by this many pixels at slow speed</span><span class="sc41">
+                </span><span class="sc46">fastSpeed</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">12</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// move the element over by this many pixels at fast speed</span><span class="sc41">
+                </span><span class="sc46">mediumSpeed</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc45">8</span><span class="sc50">,</span><span class="sc41">          </span><span class="sc43">// move the element over by this many pixels at medium speed</span><span class="sc41">
+                
+                </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// current top coordinate</span><span class="sc41">
+                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">           </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// current left coordinate</span><span class="sc41">
+                </span><span class="sc46">scrollOffset</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc50">-</span><span class="sc45">200</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the position of the rocket from the side of the screen while scrolling</span><span class="sc41">
+                
+                </span><span class="sc46">interval</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// holds the animation repeater</span><span class="sc41">
+                </span><span class="sc46">fps</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc45">30</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// the frame rate to aim for </span><span class="sc41">
+                </span><span class="sc46">lastKeyCode</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the last key code that was pressed</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: get the element containing the rocket</span><span class="sc41">
+                </span><span class="sc43">// and get the current top and left coordinates</span><span class="sc41">
+                </span><span class="sc46">initialize</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'initializing...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc46">this.element</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">  
+                    </span><span class="sc46">this.top</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetTop</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetLeft</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.currentSpeed</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.mediumSpeed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.leftOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// OUTPUT: animate upwards</span><span class="sc41">
+                </span><span class="sc46">goUp</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.top</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.currentSpeed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc43">// follow by scrolling</span><span class="sc41">
+                    </span><span class="sc46 withborder">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// OUTPUT: animate downwards</span><span class="sc41">
+                </span><span class="sc46">goDown</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.top</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.currentSpeed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc43">// follow by scrolling</span><span class="sc41">
+                    </span><span class="sc46 withborder">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// OUTPUT: animate leftwards</span><span class="sc41">
+                </span><span class="sc46">goLeft</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.currentSpeed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc43">// follow by scrolling</span><span class="sc41">
+                    </span><span class="sc46 withborder">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// OUTPUT: animate rightwards</span><span class="sc41">
+                </span><span class="sc46">goRight</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.currentSpeed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc43">// follow by scrolling</span><span class="sc41">
+                    </span><span class="sc46 withborder">window.scrollTo</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.scrollOffset</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// PROCESS: repeat an animation in an interval</span><span class="sc41">
+                </span><span class="sc46">animate</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">animationFunction</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// clear the previous animation repetition</span><span class="sc41">
+                    </span><span class="sc46">window.clearTimeout</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.interval</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">// move up once every animation frame</span><span class="sc41">
+                    </span><span class="sc46">this.interval</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">window.setInterval</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">animationFunction</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">1000</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">rocket.fps</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">// while a key is pressed down...</span><span class="sc41">
+            </span><span class="sc46">window.onkeydown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// INPUT: read the key that was pressed...</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'a key has been pressed...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">// PROCESS: only act if the key pressed is different that the last one, </span><span class="sc41">
+                </span><span class="sc43">// or if the key has been released before repressing </span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rocket.lastKeyCode</span><span class="sc41"> </span><span class="sc50">!=</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">rocket.lastKeyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">87</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                          </span><span class="sc43">// W = up</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.currentSpeed</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">rocket.mediumSpeed</span><span class="sc50">;</span><span class="sc41">   </span><span class="sc43">// use medium speed for side-scroll effect</span><span class="sc41">
+                                </span><span class="sc46">rocket.goUp</span><span class="sc50">();</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goRight</span><span class="sc50">();</span><span class="sc41">                           </span><span class="sc43">// add right movement only for side-scroll effect</span><span class="sc41">
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">65</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   </span><span class="sc43">// A = left</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                </span><span class="sc46">rocket.currentSpeed</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">rocket.slowSpeed</span><span class="sc50">;</span><span class="sc41">     </span><span class="sc43">// use slow speed for side-scroll effect</span><span class="sc41">
+                                </span><span class="sc46">rocket.goRight</span><span class="sc50">();</span><span class="sc41">                           </span><span class="sc43">// normally goLeft(), but changed for side-scroll effect</span><span class="sc41">
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">83</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   </span><span class="sc43">// S = down</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.currentSpeed</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">rocket.mediumSpeed</span><span class="sc50">;</span><span class="sc41">   </span><span class="sc43">// use medium speed for side-scroll effect</span><span class="sc41">
+                                </span><span class="sc46">rocket.goDown</span><span class="sc50">();</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goRight</span><span class="sc50">();</span><span class="sc41">                           </span><span class="sc43">// add right movement only for side-scroll effect </span><span class="sc41">
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">68</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   </span><span class="sc43">// D = right</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.currentSpeed</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">rocket.fastSpeed</span><span class="sc50">;</span><span class="sc41">     </span><span class="sc43">// use fast speed for side-scroll effect</span><span class="sc41">
+                                </span><span class="sc46">rocket.goRight</span><span class="sc50">();</span><span class="sc41"> 
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc42">/*
+            // stop moving when a key is released
+            // delete this function if you want your image to drift forever
+            window.onkeyup = function () {
+                // clear the previous animation repetition
+                window.clearTimeout( rocket.interval );
+
+                // clear the current key being pressed
+                rocket.lastKeyCode = null;
+            }
+            */</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #information {
+                position:   absolute;
+                top:        20px;
+                left:       20px;
+            }
+            #backgroundID {
+                height:     93vh;   /* set height to part of the viewport height to deal with scroll bars */
+            }            
+            #animateID {
+                position:   absolute;
+                height:     20vh;   /* set height to 20% of viewport height */
+                top:        50%;    
+                left:       5%;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"rocket.initialize( 'animateID' );"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundID"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/SuperMarioWorld.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"information"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">
+                Scroll automatically to maintain focus on an element
+            </span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Movement keys:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+                </span><span class="sc10">&amp;uarr;</span><span class="sc0">W </span><span class="sc10">&amp;larr;</span><span class="sc0">A </span><span class="sc10">&amp;darr;</span><span class="sc0">S </span><span class="sc10">&amp;rarr;</span><span class="sc0">D </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">        
+        </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"animateID"</span><span class="sc8"> 
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/space/octopus.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">         
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

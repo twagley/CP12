@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Calculating a change in time</title>
+		<meta name="description" content="Learn how to calculate a change in time in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. December 2015	-created
+		-->
+        <script>
+            // clock
+            // clock properties:
+            //      clock.startTime
+            //      clock.endTime
+            //      clock.elapsedTime
+            //      clock.interval
+            //
+            // clock methods:
+            //      clock.start()
+            //      clock.stop()
+            //      clock.getCurrentTime()
+			//		clock.calculateElapsedTime()
+            //      clock.display()
+            //
+            var clock = {
+                // startTime and endTime are measured in milliseconds since 1 Jan 1970
+                
+                startTime:      null, // time when timer started
+                endTime:        null, // time when timer stopped
+                elapsedTime:    null, // difference between start and stop
+                interval:       null, // variable to hold interval timer
+                
+                // MAIN: clock.start() starts the clock ticking...
+                start: function () {
+					// get the start time
+                    this.startTime  = this.getCurrentTime();
+					
+                    // set up a repeating interval that updates the time and displays it regularly
+					// copy the 'this' object so that the interval will work properly
+                    var self        = this;
+                    // this.interval is a variable that contains the interval so that later on we can turn it off when clock.stop() is called
+                    this.interval   = window.setInterval(function () {
+										self.endTime	= self.getCurrentTime();
+                                        self.calculateElapsedTime();
+                                        self.display();
+                                    }, 100);    
+                },
+
+                // MAIN: clock.stop() cancels the ticker and displays the current time
+                stop: function () {
+                    window.clearInterval( this.interval );
+					this.endTime	= this.getCurrentTime();
+                    this.calculateElapsedTime();
+                    this.display();
+                },
+                
+				// INPUT: gets the current time
+				getCurrentTime: function () {
+                    // get the current number of milliseconds since 1 Jan 1970 and return it
+                    return new Date().getTime();
+				},
+				
+                // PROCESS: clock.update() calculates the time since the button was pressed
+                calculateElapsedTime: function () {
+                    // the elasped time is the different between the end and start times
+                    this.elapsedTime    = this.endTime - this.startTime;
+                },
+                
+                // OUTPUT: clock.display() displays the time elapsed since the clock was started 
+                display:  function () {
+                    document.getElementById("outputID").innerHTML = this.elapsedTime;
+                }
+            }
+        </script>
+        <style>
+        </style>
+	</head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Calculating a change in time</em>
+		</header>
+
+		<article>
+		
+			<h2>How much time has passed from one event to another?</h2>
+			
+			<p>
+				There are lots of times when you want to know how much time has passed.
+				One is in some kinds of animation, another is for programs that directly
+				measure the elapsed time, like a stopwatch.
+			</p>
+			
+			<p>
+				Javascript is able to measure time to within milliseconds (thousandths of a second).
+				The usual process to measure a change in time is to:
+			</p>
+			
+			<ul>
+				<li>
+					Find a method to measure the current time.
+					The usual method is to trigger <code>new Date.getTime()</code>.<br />
+					This returns the number of milliseconds since 12:00am 1. January 1970.
+				</li>
+				<li>
+					Start the timer by reading and storing the current time
+				</li>
+				<li>
+					Stop the timer by reading and storing the current time
+				</li>
+				<li>
+					Calculate the difference by substracting the start time from the stop time.
+				</li>
+			</ul>
+			
+			<hr />
+			
+			<h2>
+				Start and stop a timer using object-oriented Javascript.
+			</h2>
+			
+			<p>
+				<button onclick="clock.start();">
+					Press to trigger <code>clock.start()</code>
+				</button><br />
+				
+				<button onclick="clock.stop();">
+					Press to trigger <code>clock.stop()</code>
+				</button><br />
+				<br />
+				Number of milliseconds elapsed:
+				<span id="outputID"></span>
+			</p>
+			
+			<hr />
+		
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Start and stop timers in object oriented code</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// clock</span><span class="sc41">
+            </span><span class="sc43">// clock properties:</span><span class="sc41">
+            </span><span class="sc43">//      clock.startTime</span><span class="sc41">
+            </span><span class="sc43">//      clock.endTime</span><span class="sc41">
+            </span><span class="sc43">//      clock.elapsedTime</span><span class="sc41">
+            </span><span class="sc43">//      clock.interval</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// clock methods:</span><span class="sc41">
+            </span><span class="sc43">//      clock.start()</span><span class="sc41">
+            </span><span class="sc43">//      clock.stop()</span><span class="sc41">
+            </span><span class="sc43">//      clock.getCurrentTime()</span><span class="sc41">
+            </span><span class="sc43">//      clock.calculateElapsedTime()</span><span class="sc41">
+            </span><span class="sc43">//      clock.display()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">clock</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// startTime and endTime are measured in milliseconds since 1 Jan 1970</span><span class="sc41">
+                
+                </span><span class="sc46">startTime</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc43">// time when timer started</span><span class="sc41">
+                </span><span class="sc46">endTime</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc43">// time when timer stopped</span><span class="sc41">
+                </span><span class="sc46">elapsedTime</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc43">// difference between start and stop</span><span class="sc41">
+                </span><span class="sc46">interval</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc43">// variable to hold interval timer</span><span class="sc41">
+                
+                </span><span class="sc43">// MAIN: clock.start() starts the clock ticking...</span><span class="sc41">
+                </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// get the start time</span><span class="sc41">
+                    </span><span class="sc46">this.startTime</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.getCurrentTime</span><span class="sc50">();</span><span class="sc41">
+                    
+                    </span><span class="sc43">// set up a repeating interval that updates the time and displays it regularly</span><span class="sc41">
+                    </span><span class="sc43">// copy the 'this' object so that the interval will work properly</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc43">// this.interval is a variable that contains the interval so that later on we can turn it off when clock.stop() is called</span><span class="sc41">
+                    </span><span class="sc46">this.interval</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">window.setInterval</span><span class="sc50">(</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                        </span><span class="sc46">self.endTime</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">self.getCurrentTime</span><span class="sc50">();</span><span class="sc41">
+                                        </span><span class="sc46">self.calculateElapsedTime</span><span class="sc50">();</span><span class="sc41">
+                                        </span><span class="sc46">self.display</span><span class="sc50">();</span><span class="sc41">
+                                    </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc45">100</span><span class="sc50">);</span><span class="sc41">    
+                </span><span class="sc50">},</span><span class="sc41">
+
+                </span><span class="sc43">// MAIN: clock.stop() cancels the ticker and displays the current time</span><span class="sc41">
+                </span><span class="sc46">stop</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">window.clearInterval</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.interval</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">this.endTime</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.getCurrentTime</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">this.calculateElapsedTime</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc46">this.display</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: gets the current time</span><span class="sc41">
+                </span><span class="sc46">getCurrentTime</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// get the current number of milliseconds since 1 Jan 1970 and return it</span><span class="sc41">
+                    </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">Date</span><span class="sc50">().</span><span class="sc46">getTime</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: clock.update() calculates the time since the button was pressed</span><span class="sc41">
+                </span><span class="sc46">calculateElapsedTime</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// the elasped time is the different between the end and start times</span><span class="sc41">
+                    </span><span class="sc46">this.elapsedTime</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.endTime</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.startTime</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: clock.display() displays the time elapsed since the clock was started </span><span class="sc41">
+                </span><span class="sc46">display</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"outputID"</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.elapsedTime</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">
+            Start and stop a timer using object-oriented Javascript.
+        </span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"clock.start();"</span><span class="sc1">&gt;</span><span class="sc0">
+                Press to trigger </span><span class="sc1">&lt;code&gt;</span><span class="sc0">clock.start()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"clock.stop();"</span><span class="sc1">&gt;</span><span class="sc0">
+                Press to trigger </span><span class="sc1">&lt;code&gt;</span><span class="sc0">clock.stop()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Number of milliseconds elapsed:
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

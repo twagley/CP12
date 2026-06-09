@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			PROCESS - Timeout and intervals
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use Javascript's timers and intervals">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				27. Oct			- created!										- Drapak
+				5. March 2018	- style fixes and better .onclick reference		- Drapak
+				27. Oct 2018	- updated style and clarified examples			- Drapak
+			-->
+
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Timeout and intervals</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					setTimeout( <var>functionName</var>, <var>numberOfMilliseconds</var>);
+				</code><br>
+				<span class="indent">
+					&mdash; triggers <var>functionName</var> after 
+					<var>numberOfMilliseconds</var> has elapsed
+				</span><br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					setInterval( <var>functionName</var>, <var>numberOfMilliseconds</var>);
+				</code><br>
+				<span class="indent">
+					&mdash; triggers <var>functionName</var> repeatedly every 
+					<var>numberOfMilliseconds</var>
+				</span>
+				<br>
+			</p>
+
+			<h2>The short version</h2>
+			
+			<pre><code>setTimeout( 
+	function ( parameter ) {
+		delayedFunction( parameter )		
+	}, numberOfMilliseconds 
+);</code></pre>
+			<h2>Delaying actions with <code>setTimeout()</code></h2>			
+			<p>
+				There are plenty of times that you would like your 
+				program to wait before continuing.
+			</p>
+			
+			<p>
+				For example:
+				<button id="buttonId" onclick="delayedMessage();">Click me and wait two seconds</button>
+			</p>
+			
+			<p>
+				...is created with a button having 
+				<code>document.querySelector( "#buttonId" ).onclick = delayedMessage;</code> 
+				and the following javascript:
+			</p>
+			
+			<pre><code><span class="sc43">//PROCESS: delay for 2 seconds</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">delayedMessage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">setTimeout</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">displayNewButton</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">2000</span><span class="sc50"> );</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//OUTPUT: change the button text</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayNewButton</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc49"> '#buttonId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Look! I'm a totally different button!"</span><span class="sc41">             
+</span><span class="sc50">}</span></code></pre>
+
+			<h3>Two things to note</h3>
+			
+			<ol>
+				<li>
+					The function name called in <code>setTimeout()</code> is a 
+					<strong>function reference</strong>.
+					Function references use just the function name 
+					without the brackets <code>()</code>.
+					Function references are basically variables that contain 
+					an entire function definition.
+					At this point all you need to know is that you 
+					should not include the brackets.
+				</li>
+				<li>
+					The delay time is measured in milliseconds. 
+					So if you want a delay of 3 seconds, you would use: 
+					<code>setTimeout( someFunctionToTrigger, 3000 );</code>
+				</li>
+			</ol>
+			
+			<h2>Repeating actions with <code>setInterval()</code></h2>
+			
+			<p>
+				At other times you will want to repeat the same 
+				code every given amount of time.
+			</p>
+			
+			<p>
+				For example, this button has 
+				<code>document.querySelector("buttonId").onclick = countUp;</code> :
+				<button id="button2Id" onclick="countUp();">
+					Click me to start counting up...
+				</button>
+			</p>
+			
+			<p>And it is created with the following code:</p>
+			
+			<pre><code><span class="sc2">//INIT: set the counting variable to zero before the program starts
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">count</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: display the current count inside the button label
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">displayCount</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc7"> '#button2Id'</span><span class="sc10"> ).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">count</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+</span><span class="sc2">//PROCESS: add one and trigger display function
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">addOneAndDisplay</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">count</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">count</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">displayCount</span><span class="sc10">();</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: repeat every second
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">countUp</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">setInterval</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">addOneAndDisplay</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">1000</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0"></code></pre>
+
+			<h2>Stopping a countdown using <code>clearTimeout()</code></h2>
+			
+			<p>
+				<code>setInterval()</code> goes forever. 
+				You often want to stop <code>setInterval()</code> after a while.
+			</p>
+			
+			<p>
+				You can do this by assigning the timer (either 
+				<code>setTimeout()</code> or <code>setInterval()</code>)
+				to a variable so that you can use <code>clearTimeout()</code>. 
+			</p>
+			
+			<p>
+				Here is an example of a button that triggers 
+				<code>startCountdown()</code> and will	stop 
+				<code>setInterval()</code> after it counts down from 10:
+				<button id="button3Id" onclick="startCountdown()">Start the countdown!</button>
+			</p>
+
+			<pre><code><span class="sc2">//INIT: 
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">timer</span><span class="sc10">;</span><span class="sc0">          </span><span class="sc2">//declare an empty variable to hold the timer
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">10</span><span class="sc10">;</span><span class="sc0">    </span><span class="sc2">//start the countdown from 10</span>
+
+<span class="sc2">//OUTPUT: display the message inside the button label
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">displayMessage</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">message</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7"> '#button3Id' </span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">message</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+<span class="sc2">//PROCESS: subtract from countdown until zero
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">countDown</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0"></span>
+	
+    <span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">            </span><span class="sc2">// if the countdown is finished
+</span><span class="sc0">        </span><span class="sc11">clearTimeout</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">timer</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">      </span><span class="sc2">// stop the setInterval timer
+</span><span class="sc0">        </span><span class="sc11">displayMessage</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'Boom!'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">  
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">                        </span><span class="sc2">// otherwise display the countdown
+</span><span class="sc0">        </span><span class="sc11">displayMessage</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' seconds left...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0"></span>
+
+<span class="sc2">//PROCESS: assign timer to an interval that triggers countDown() every 1 second
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">startCountdown</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">timer</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">setInterval</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">countDown</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">1000</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0"></span></code></pre>
+			
+			<h2>
+				Another way of writing <code>setTimeout()</code> and <code>setInterval</code>
+			</h2>
+			
+			<p>
+				The strangest thing about <code>setInterval()</code> and 
+				<code>setTimeout()</code>
+				is that they don't trigger a function directly.
+				They use a function reference, without the brackets, instead.
+				This has two odd side effects:a side effect of not allowing you 
+				to pass parameters into the function you are triggering. 
+			</p>
+			
+			<ol>
+				<li>
+					Function references do not allow you to call a 
+					function with parameters - and sometimes you need that
+				</li>
+				<li>
+					This style of coding forces you to create a new function 
+					just to be triggered by <code>setTimeout()</code> 
+					and <code>setInterval()</code>
+				</li>
+			</ol>
+			<p>
+				There is a way around it, however.
+				Javascript allows you to define an 
+				<strong>anonymous function</strong> inside things like 
+				<code>setTimeout()</code> and <code>setInterval()</code>.
+			</p>
+			<p>
+				Some people like this method better because it is 
+				cleaner and requires fewer functions. 
+				Others find anonymous functions strange and don't like it. 
+				Professional javascript coders tend to use the anonymous function method, 
+				but you should use whichever method <strong>you</strong> like the most. 
+			</p>
+			<p>
+				Here is the countdown example from above, 
+				converted to using an anonymous function:
+			</p>
+			
+			<code><pre><span class="sc2">//INIT: start the countdown from 10
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span>
+
+<span class="sc2">//OUTPUT: display the message inside the button label
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">displayMessage</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">message</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7"> '#button3Id' </span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">message</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+<span class="sc2">//PROCESS: assign timer to an interval that triggers countDown() every 1 second
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">startCountdown</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">timer</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">setInterval</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">  </span><span class="sc2">// declare timer to hold an interval with an anonymous function
+</span><span class="sc0">        </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0">                </span><span class="sc2">// reduce the count
+</span><span class="sc0">        
+        </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">                </span><span class="sc2">// if the countdown is finished
+</span><span class="sc0">            </span><span class="sc11">clearTimeout</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">timer</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">          </span><span class="sc2">// stop the setInterval timer
+</span><span class="sc0">            </span><span class="sc11">displayMessage</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'Boom!'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">  
+        </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">                            </span><span class="sc2">// otherwise display the countdown
+</span><span class="sc0">            </span><span class="sc11">displayMessage</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">count2</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' seconds left...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">},</span><span class="sc0"> </span><span class="sc4">1000</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">                              </span><span class="sc2">// trigger the interval every 1 second
+</span><span class="sc10">}</span>
+</pre></code>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_timing.asp">
+						JavaScript Timing Events
+					</a> 
+				</li>
+			</ul>
+
+			<!--
+
+			<h2>For example</h2>
+			
+			<p>...is created with the following code:</p>
+			
+			<pre><code></code></pre>
+			-->
+		</article>
+		<!--#include virtual="/footer.html" -->		
+				<script>
+			//EXAMPLE ONE:
+			//PROCESS: delay for 2 seconds
+			var delayedMessage = function () {
+				setTimeout( displayNewButton, 2000);
+			}
+			
+			//OUTPUT: change the button text
+			var displayNewButton = function () {
+				document.querySelector( '#buttonId' ).innerHTML 
+					= "Look! I'm a totally different button!"				
+			}
+			
+			//EXAMPLE TWO:
+			//INIT: set the counting variable to zero before the program starts
+			var count = 0;
+			
+			//PROCESS: repeat every second
+			var countUp = function () {
+				setInterval( addOneAndDisplay, 1000 );
+			}
+			
+			//PROCESS: add one and trigger display function
+			var addOneAndDisplay = function () {
+				count = count + 1;
+				displayCount();
+			}
+			
+			//OUTPUT: display the current count inside the button label
+			var displayCount = function () {
+				document.querySelector( '#button2Id' ).innerHTML = count;
+			}
+			
+			//EXAMPLE THREE:
+			//INIT: 
+			var timer;			//declare an empty variable to hold the timer
+			var count2 = 10;	//start the countdown from 10
+			
+			//PROCESS: assign timer to an interval that triggers countDown() every 1 second
+			var startCountdown = function () {
+				timer = setInterval( countDown, 1000 );
+			}
+			
+			//PROCESS: subtract from countdown until zero
+			var countDown = function () {
+				count2 = count2 - 1;
+				
+				if ( count2 == 0 ) {			// if the countdown is finished
+					clearTimeout( timer );		// stop the setInterval timer
+					displayMessage( 'Boom!' );	
+				} else {						// otherwise display the countdown
+					displayMessage( count2 + ' seconds left...' );
+				}
+			}
+			
+			//OUTPUT: display the message inside the button label
+			var displayMessage = function ( message ) {
+				document.querySelector( '#button3Id' ).innerHTML = message;
+			}
+		</script>
+	</body>
+</html>

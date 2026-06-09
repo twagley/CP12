@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Move things around smoothly
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript and jQuery to move things around smoothly ">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, jQuery, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. October 2015	- created!
+				25. March 2017	- moved script down for better style
+				21. October 2018	- updated style!
+		-->
+		<style>
+			#animateID {
+				position: 			absolute;
+				width:				20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initUsingLibraries.shtml">Using libraries</a>
+				</li>
+				<br />
+				
+				<li>
+					//OUTPUT: <a href="outputAnimatingMotion.shtml">Animating motion</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.10S-MoveThingsAroundSmoothly-LastName.html">empty template</a> as 
+				"<code>2.10S-MoveThingsAroundSmoothly-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Create a program that uses Javascript with the jQuery library to move something smoothly around the screen.
+			</p>
+			<ol>
+				<li>
+					Link to the jQuery library in the <code>&lt;head></code> of your page
+				</li>
+				<li>
+					Add a background image
+				</li>
+				<li>
+					Add an image of something you want to move around
+				</li>
+				<li>
+					Give that image an Id
+				</li>
+				<li>
+					Change the positioning mode of the animated element using CSS
+				</li>
+				<li>
+					Trigger the animation as Javascript code
+				</li>
+			</ol>
+			
+			<h2>For example</h2>
+			<p>
+				<button onclick="mainProcedure();">Start the tour!</button><br />
+				
+				<img id="mapID" src="img/Dorsten-map.jpg" /><br />
+				
+				"<a href="https://commons.wikimedia.org/wiki/File:Dorsten_1633-cupper-engraving_by_matthaeus-merian.jpg#/media/File:Dorsten_1633-cupper-engraving_by_matthaeus-merian.jpg">Dorsten 1633-cupper-engraving by matthaeus-merian</a>". 
+				Licensed under Public Domain via 
+				<a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.<br />
+				<img id="animateID" src="http://drapak.ca/cpg/img/link-right.png" />
+			</p>
+			
+		</article>
+		<!--
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+ 		<script>
+			var _0x9e29=["\x69\x6E\x20\x70\x6C\x61\x63\x65\x4C\x69\x6E\x6B\x49\x6E\x69\x74\x69\x61\x6C\x6C\x79\x2E\x2E\x2E","\x6C\x6F\x67","\x6F\x66\x66\x73\x65\x74\x54\x6F\x70","\x6D\x61\x70\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6F\x66\x66\x73\x65\x74\x4C\x65\x66\x74","\x69\x6E\x69\x74\x69\x61\x6C\x20\x6C\x69\x6E\x6B\x20\x74\x6F\x70\x2C\x20\x6C\x65\x66\x74\x3A","\x2C","\x74\x6F\x70","\x73\x74\x79\x6C\x65","\x61\x6E\x69\x6D\x61\x74\x65\x49\x44","\x70\x78","\x6C\x65\x66\x74","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x69\x6E\x65\x61\x72","\x2B\x3D\x32\x35\x70\x78","\x2B\x3D\x31\x35\x30\x70\x78","\x61\x6E\x69\x6D\x61\x74\x65","\x23\x61\x6E\x69\x6D\x61\x74\x65\x49\x44","\x2B\x3D\x31\x30\x70\x78","\x2B\x3D\x31\x33\x30\x70\x78","\x2D\x3D\x31\x36\x30\x70\x78","\x2B\x3D\x36\x35\x70\x78","\x2B\x3D\x35\x70\x78","\x2D\x3D\x37\x30\x70\x78","\x2D\x3D\x33\x30\x70\x78","\x2B\x3D\x32\x30\x70\x78","\x2D\x3D\x38\x30\x70\x78","\x2D\x3D\x36\x30\x70\x78","\x2B\x3D\x37\x30\x70\x78","\x2D\x3D\x31\x37\x30\x70\x78","\x2D\x3D\x39\x30\x70\x78"];var placeLinkInitially=function(){console[_0x9e29[1]](_0x9e29[0]);var _0x90e4x2=document[_0x9e29[4]](_0x9e29[3])[_0x9e29[2]];var _0x90e4x3=document[_0x9e29[4]](_0x9e29[3])[_0x9e29[5]];var _0x90e4x4=_0x90e4x2+618;var _0x90e4x5=_0x90e4x3+180;console[_0x9e29[1]](_0x9e29[6]+_0x90e4x4+_0x9e29[7]+_0x90e4x5);document[_0x9e29[4]](_0x9e29[10])[_0x9e29[9]][_0x9e29[8]]=_0x90e4x4+_0x9e29[11];document[_0x9e29[4]](_0x9e29[10])[_0x9e29[9]][_0x9e29[12]]=_0x90e4x5+_0x9e29[11];};var mainProcedure=function(){console[_0x9e29[1]](_0x9e29[13]);var _0x90e4x7=_0x9e29[14];var _0x90e4x8=1000;$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[15],left:_0x9e29[16]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[19],left:_0x9e29[20]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[21],left:_0x9e29[22]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[21],left:_0x9e29[23]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[24],left:_0x9e29[25]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[26],left:_0x9e29[27]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[28],left:_0x9e29[25]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[25],left:_0x9e29[29]},{duration:_0x90e4x8},{easing:_0x90e4x7});$(_0x9e29[18])[_0x9e29[17]]({top:_0x9e29[30],left:_0x9e29[31]},{duration:_0x90e4x8},{easing:_0x90e4x7});};
+			
+			document.body.onload	=	placeLinkInitially;
+		</script>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

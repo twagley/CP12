@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Keyboard motion control</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to move an image around using the keyboard">
+		<meta name="author" content="-Drapak-">
+		<!--
+			Change log:
+				Created:	6. Oct 2015												- Drapak	
+				Modified:	21. March 2017	- moved script to bottom 				- Drapak
+							23. March 2017	- added more instructions				- Drapak
+							30. April 2017	- fixed long lines						- Drapak
+							12. Oct 2018	- added additional criteria for options	- Drapak
+							25. Oct 2018	- started vehicle counter				- Drapak 
+				
+				Finished:	
+		-->
+
+		<style>
+			body {
+				background-color: 	lightBlue;
+				font-family:		Arial;
+				color:				brown;
+			}
+			h1 {
+				font-size:			2.5em;
+			}
+			img {
+				position: 			relative;
+				height:				80px;
+				margin-left:		40px;
+			}
+			th {
+				text-align:			right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Evaluation checklist:
+		
+			___/10 	INPUT: including ANY FOUR of the following:
+				[]	make things happen when you click on them
+				[]	make things happen an input changes
+				[]	listen for keypresses
+				[]	read which key is pressed
+				[]	read current top position
+				[]	read current left position
+		
+			___/10	PROCESS: including ANY FOUR of the following:
+				[]	declaring a variable
+				[]	finding the integer or floating decimal of a string
+				[]	use math to determine positions
+				[]	use if...else statements to control flow of code
+				[]	have up and down movement working correctly
+				[]	have left and right movement working correctly
+		
+			___/10 	OUTPUT: including ANY FOUR of the following:
+				[]	set the position mode so things can move
+				[]	change the left position of something
+				[]	change the top position of something
+				[]	change a image
+				[]	output information with innerHTML
+		
+			___/10 	STYLE: 
+				[]	add your name to the filename
+				[]	write your name as the author
+				[]	update the change log
+				[]	correctly indent everything
+				[]	use lowercase for all your HTML tags
+				[]	use camelCase for all your ids and classes
+				[]	avoid lines greater than 96 characters in length
+				[]	restrict your style code to the head of your HTML file
+				[]	space out your mathematical operators
+				[]	write comments for your if statements
+				[]	use descriptive variable names
+
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<h1>
+			Counting vehicles:<br>
+			Tally from the Citadel Roundabout
+		</h1>
+
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>key: <strong>1</strong></td>
+					<th>Cars total:</th>
+					<td id='carsId'>0</td>
+					<td>
+						<img 
+							id="carImageId" 
+							src="http://www.stickpng.com/assets/thumbs/584c58301fc21103bb375baf.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>2</strong></td>
+					<th>Cyclists total:</th>
+					<td id='cyclistsId'>0</td>
+					<td>
+						<img 
+							id="cyclistImageId" 
+							src="http://drapak.ca/cpg/img/cyclist.svg">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>3</strong></td>
+					<th>Pedestrians total:</th>
+					<td id='pedestriansId'>0</td>
+					<td>
+						<img 
+							id="pedestrianImageId" 
+							src="https://static.thenounproject.com/png/13079-200.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>4</strong></td>
+					<th>Zeppelins total:</th>
+					<td id='zeppelinsId'>0</td>
+					<td>
+						<img 
+							id="zeppelinImageId" 
+							src="http://pluspng.com/img-png/zeppelin-png-zeppelin-using-png-684.png">
+					</td>
+				</tr>
+				<tr>
+					<td>key: <strong>5</strong></td>
+					<th>Tanks total:</th>
+					<td id='tanksId'>0</td>
+					<td>
+						<img 
+							id="tankImageId" 
+							src="http://drapak.ca/cpg/img/tank.png">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>
+			Last vehicle:<br>
+			<span id="lastVehicleId"></span>
+		</h3>
+		
+		<script>
+			var _0x3d14=["\x69\x6E\x20\x72\x65\x61\x64\x4B\x65\x79\x70\x72\x65\x73\x73\x2E\x2E\x2E","\x6C\x6F\x67","\x6B\x65\x79\x43\x6F\x64\x65","\x77\x68\x69\x63\x68","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x23\x6C\x61\x73\x74\x56\x65\x68\x69\x63\x6C\x65\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x27","\x73\x72\x63","\x23\x63\x61\x72\x49\x6D\x61\x67\x65\x49\x64","\x27\x3E","\x23\x63\x61\x72\x73\x49\x64","\x6C\x65\x66\x74","\x73\x74\x79\x6C\x65","\x70\x78","\x23\x63\x79\x63\x6C\x69\x73\x74\x49\x6D\x61\x67\x65\x49\x64","\x23\x63\x79\x63\x6C\x69\x73\x74\x73\x49\x64","\x23\x70\x65\x64\x65\x73\x74\x72\x69\x61\x6E\x49\x6D\x61\x67\x65\x49\x64","\x23\x70\x65\x64\x65\x73\x74\x72\x69\x61\x6E\x73\x49\x64","\x23\x7A\x65\x70\x70\x65\x6C\x69\x6E\x49\x6D\x61\x67\x65\x49\x64","\x23\x7A\x65\x70\x70\x65\x6C\x69\x6E\x73\x49\x64","\x23\x74\x61\x6E\x6B\x49\x6D\x61\x67\x65\x49\x64","\x23\x74\x61\x6E\x6B\x73\x49\x64","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E"];var readKeypress=function(_0xe1a1x2){console[_0x3d14[1]](_0x3d14[0]);var _0xe1a1x3=_0xe1a1x2[_0x3d14[2]]|| _0xe1a1x2[_0x3d14[3]];if(_0xe1a1x3== 49){document[_0x3d14[6]](_0x3d14[5])[_0x3d14[4]]= _0x3d14[7]+ document[_0x3d14[6]](_0x3d14[9])[_0x3d14[8]]+ _0x3d14[10];var _0xe1a1x4=parseInt(document[_0x3d14[6]](_0x3d14[11])[_0x3d14[4]]);var _0xe1a1x5=_0xe1a1x4+ 1;document[_0x3d14[6]](_0x3d14[11])[_0x3d14[4]]= _0xe1a1x5;var _0xe1a1x6=_0xe1a1x5* 30;document[_0x3d14[6]](_0x3d14[9])[_0x3d14[13]][_0x3d14[12]]= _0xe1a1x6+ _0x3d14[14]}else {if(_0xe1a1x3== 50){document[_0x3d14[6]](_0x3d14[5])[_0x3d14[4]]= _0x3d14[7]+ document[_0x3d14[6]](_0x3d14[15])[_0x3d14[8]]+ _0x3d14[10];var _0xe1a1x4=parseInt(document[_0x3d14[6]](_0x3d14[16])[_0x3d14[4]]);var _0xe1a1x5=_0xe1a1x4+ 1;document[_0x3d14[6]](_0x3d14[16])[_0x3d14[4]]= _0xe1a1x5;var _0xe1a1x6=_0xe1a1x5* 30;document[_0x3d14[6]](_0x3d14[15])[_0x3d14[13]][_0x3d14[12]]= _0xe1a1x6+ _0x3d14[14]}else {if(_0xe1a1x3== 51){document[_0x3d14[6]](_0x3d14[5])[_0x3d14[4]]= _0x3d14[7]+ document[_0x3d14[6]](_0x3d14[17])[_0x3d14[8]]+ _0x3d14[10];var _0xe1a1x4=parseInt(document[_0x3d14[6]](_0x3d14[18])[_0x3d14[4]]);var _0xe1a1x5=_0xe1a1x4+ 1;document[_0x3d14[6]](_0x3d14[18])[_0x3d14[4]]= _0xe1a1x5;var _0xe1a1x6=_0xe1a1x5* 30;document[_0x3d14[6]](_0x3d14[17])[_0x3d14[13]][_0x3d14[12]]= _0xe1a1x6+ _0x3d14[14]}else {if(_0xe1a1x3== 52){document[_0x3d14[6]](_0x3d14[5])[_0x3d14[4]]= _0x3d14[7]+ document[_0x3d14[6]](_0x3d14[19])[_0x3d14[8]]+ _0x3d14[10];var _0xe1a1x4=parseInt(document[_0x3d14[6]](_0x3d14[20])[_0x3d14[4]]);var _0xe1a1x5=_0xe1a1x4+ 1;document[_0x3d14[6]](_0x3d14[20])[_0x3d14[4]]= _0xe1a1x5;var _0xe1a1x6=_0xe1a1x5* 30;document[_0x3d14[6]](_0x3d14[19])[_0x3d14[13]][_0x3d14[12]]= _0xe1a1x6+ _0x3d14[14]}else {if(_0xe1a1x3== 53){document[_0x3d14[6]](_0x3d14[5])[_0x3d14[4]]= _0x3d14[7]+ document[_0x3d14[6]](_0x3d14[21])[_0x3d14[8]]+ _0x3d14[10];var _0xe1a1x4=parseInt(document[_0x3d14[6]](_0x3d14[22])[_0x3d14[4]]);var _0xe1a1x5=_0xe1a1x4+ 1;document[_0x3d14[6]](_0x3d14[22])[_0x3d14[4]]= _0xe1a1x5;var _0xe1a1x6=_0xe1a1x5* 30;document[_0x3d14[6]](_0x3d14[21])[_0x3d14[13]][_0x3d14[12]]= _0xe1a1x6+ _0x3d14[14]}else {}}}}}};window[_0x3d14[23]]= readKeypress
+		</script>
+	</body>
+</html>

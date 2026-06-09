@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			OUTPUT - Animating CSS properties
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to animate other CSS properties in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. October 2015	-created									- Drapak
+				4. April 2017		- added stopping animation and moved script to tail
+				13. April 2017		- added duration to the mix					- Drapak
+				27. Oct 2018		- updated style and clarity					- Drapak
+		-->
+
+		<style>
+			#msPacmanId {
+				position: 	fixed;
+				top:		50%;
+				left:		30%;
+				opacity:	0;
+			}
+			iframe {
+				width: 700px;
+				height: 300px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Animating other CSS properties with jQuery</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">jQuery //INIT:</span> 
+				<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</code><br>
+				<span class="indent">&mdash; loads jQuery library</span><br>
+				<br>
+
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>
+					$( "#<var>animateId</var>" ).animate( { 
+						<strong>width: 300 + "px"</strong> } );
+				</code><br>
+				<span class="indent">
+					&mdash; animates the element until it's width equals 300px
+				</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>
+					$( "#<var>animateId</var>" ).animate( { 
+						<strong>width: "+=50px"</strong> } );
+				</code> <br>
+				<span class="indent">
+					&mdash; animates the element until it's 
+					width is 50px greater than it started
+				</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>
+					$( "#<var>animateId</var>" ).animate( 
+						{ <strong>opacity: 0</strong> } );
+				</code> <br>
+				<span class="indent">
+					&mdash; fades out an element to invisibility
+				</span><br>
+					
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>
+					$( "#<var>animateId</var>" ).animate( 
+						{ <strong>opacity: 1</strong> } );
+				</code><br>
+				<span class="indent">
+					&mdash; fades in an element from invisible to fully visible
+				</span><br>
+				<br>	
+				
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>
+					$( "#<var>animateId</var>" ).animate( 
+					{ width: 0, opacity: 0 }, { duration: 600 } );
+				</code> <br>
+				<span class="indent">
+					&mdash; shrinks and fades an element out over 600 milliseconds (0.6 s)
+				</span><br>
+				<br>		
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>$( "#<var>animateId</var>" ).stop();</code> <br>
+				<span class="indent">&mdash; stops the animation immediately</span><br>
+				<span class="langstyle">jQuery //OUTPUT:</span> 
+				<code>$( "#<var>animateId</var>" ).clearQueue();</code> <br>
+				<span class="indent">
+					&mdash; clears the animation queue for that element
+				</span><br>
+				
+			</p>
+			
+			<h2>Let's animate something...</h2>
+
+			<h2>Remember the four steps to animating things</h2>
+			
+			<ol>
+				<li>
+					Link to the jQuery library in the <code>&lt;head></code> of your page
+				</li>
+				<li>
+					Give the element an <code>id</code>
+				</li>
+				<li>	
+					If it is going to move, change the positioning mode 
+					of the animated element using CSS
+				</li>
+				<li>
+					Trigger the animation as Javascript code
+				</li>
+			</ol>
+			
+			<h2>You can animate ANY CSS property that uses a number</h2>
+			
+			<h4>Animating border-width:</h4>
+			<p>
+				<button id="button1Id" onclick="animateBorder()">
+					Animate border width:
+				</button><br>
+				Notice that the CSS code for <code>border-width</code> 
+				had to convert to camelCase: <code>borderWidth</code>:
+			</p>
+			<pre><code>$( '#button1Id' ).animate( { borderWidth: 40 + "px" } );</code></pre>
+			
+			<h4>Animating font-size:</h4>
+			<p>
+				<button id="button2Id" onclick="animateFontSize()">
+					Animate font-size:
+				</button><br>
+				Notice that the CSS code for <code>font-size</code> 
+				had to convert to camelCase: <code>fontSize</code>:
+			</p>
+			<pre><code>$( '#button2Id' ).animate( { fontSize: 40 + "px" } );</code></pre>
+			
+			<h4>Animating width:</h4>
+			<p>
+				<button id="button3Id" onclick="animateWidth()">Animate width:</button><br>
+				Notice that using <code>+=</code> will add 40px of width with eack click:
+			</p>
+			<pre><code>$( '#button3Id' ).animate( { width: "+=40px" } );</code></pre>
+			
+			<h4>Animating height:</h4>
+			<p>
+				<button id="button4Id" onclick="animateHeight()">
+					Animate height:
+				</button><br>
+				Notice that using <code>+=</code> will add 40px of height with eack click:
+			</p>
+			<pre><code>$( '#button4Id' ).animate( { height: "+=40px" } );</code></pre>
+			
+			<h4>Animating opacity:</h4>
+			<p>
+				<button id="button5Id" onclick="animateOpacity()">
+					Animate opacity:
+				</button><br>
+				Notice that this is a two-part animation: fade out, then fade back in:
+			</p>
+			<pre><code>$( '#button5Id' ).animate( { opacity: 0 } );<br>
+$( '#button5Id' ).animate( { opacity: 1 } );</code></pre>
+			
+			<p>
+				There are more properties that you can animate if you check out the 
+				<a href="#learnMoreId">Learn more</a> section
+			</p>
+			
+			<h2>Combining animations into one step</h2>
+			
+			<p>
+				There are plenty of times when you want to 
+				combine lots of animation steps into one.
+			</p>
+			<p>
+				For example, say I want to:
+			</p>
+			<ul>
+				<li>
+					increase an image's width to 300px: <code>{ width: 300 + "px" }</code>
+				</li>
+				<li>
+					fade the image in from invisibility to full visibility: { opacity: 1 }
+				</li>
+			</ul>
+			
+			<p>
+				...all at the same time. 
+				This is possible because the animation information is held inside an object.
+				So we can combine the object properties together:
+			</p>
+			
+			<pre><code>var animationProperties = {
+	width: 		500 + "px",
+	opacity:	1
+};
+$( '#msPacmanId' ).animate( animationProperties );</code></pre>
+
+			<p>Or, for convenience, we can combine it all into one command:</p>
+
+			<pre><code>$( '#msPacmanId' ).animate( {
+	width: 		500 + "px",
+	opacity:	1
+} );</code></pre>
+			
+			<img id="msPacmanId" src="img/MsPacMan.png" />
+			<p>
+				<button onclick="animateMsPacman();">Click to animate Ms Pacman</button>
+			</p>
+			
+			<h2>A common problem: expanding from the top left corner</h2>
+			<p>
+				You will notice that in the example above, 
+				it appears that Ms. Pacman is growing from her top left corner 
+				instead of expanding from the middle, like we would expect.
+			</p>
+			<p>
+				This is because javascript measures things 
+				from the top left corner of an element. 
+				If it expands in width, that width is measured from there.
+			</p>
+			<p>
+				If we want to make something look like it is expanding from it's middle, 
+				We also have to move it up, and left at the same time.
+			</p>
+			<pre><code>$( '#msPacmanId' ).animate( {
+	top:		"-=250px",	// half the change in height
+	left:		"-=250px",  // half the change in width
+	width: 		500 + "px",
+	opacity:	1
+} );</code></pre>
+			<p>
+				<button onclick="resetMsPacman()">reset Ms Pacman</button>
+				<button onclick="animateMsPacmanFromCenter()">
+					animate Ms Pacman from the center
+				</button>
+			</p>
+			<p>
+				This is a handy effect if you want to make something look 
+				like it is blowing up.
+			</p>
+			
+			
+			<h2 id="learnMoreId">Learn more</h2>
+			<ul>
+				<li>
+					jQuery's 
+					<a href="http://api.jquery.com/animate/">
+						.animate() api page
+					</a>
+				</li>
+				<li>
+					w3school's 
+					<a href="http://www.w3schools.com/jquery/jquery_animate.asp">
+						jQuery Effects - Animation
+					</a>
+				</li>
+				<li>
+					w3school's 
+					<a href="http://www.w3schools.com/jquery/eff_animate.asp">
+						jQuery animate() Method
+					</a>
+				</li>
+			</ul>
+
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			var animateBorder = function () {
+				$('#button1Id').animate( { borderWidth: 40 + "px"} );
+			}
+			var animateFontSize = function () {
+				$('#button2Id').animate( { fontSize: 40 + "px"} );
+			}
+			var animateWidth = function () {
+				$('#button3Id').animate( { width: "+=40px"} );
+			}
+			var animateHeight = function () {
+				$('#button4Id').animate( { height: "+=40px"} );
+			}
+			var animateOpacity = function () {
+				$('#button5Id').animate( { opacity: 0} );
+				$('#button5Id').animate( { opacity: 1} );
+			}
+			var animateMsPacman = function () {
+				$('#msPacmanId').animate( 
+					{
+						width: 		"500px",
+						opacity:	1
+					} 
+				);
+			}
+			var animateMsPacmanFromCenter = function () {
+				$('#msPacmanId').animate( 
+					{
+						top:		"-=250px",	// half the change in height
+						left:		"-=250px",  // half the change in width
+						width: 		"500px",
+						opacity:	1
+					} 
+				);
+			}
+			var resetMsPacman = function () {
+				$( '#msPacmanId' ).animate( 
+					{
+						top:		"+=250px",	// half the change in height
+						left:		"+=250px",  // half the change in width
+						width: 		"35px",
+						opacity:	0
+					} 
+				);
+			}
+		</script>
+	</body>
+</html>

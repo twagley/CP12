@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming: 
+			PROCESS - Using arrays
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use array variables">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				1. November			- created!									- Drapak
+				28. October 2018	- 											- Drapak
+			-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Using arrays</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				
+				<span class="langstyle">//PROCESS:</span> 
+				<code>var <var>arrayLength</var> = <var>exampleArr</var>.length;</code><br>
+				<span class="indent">
+					&mdash; assigns the length of the 
+					<var>exampleArr</var> array to <var>arrayLength</var>
+				</span><br>
+				<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					<var>exampleArr</var>[ <var>exampleArr</var>.length ] 
+					= <var>newArrayElement</var>;
+				</code><br>
+				<span class="indent">
+					&mdash; adds <var>newArrayElement</var> to <var>exampleArr</var>
+				</span><br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code><var>exampleArr</var>.push( <var>newArrayElement</var> );</code><br>
+				<span class="indent">
+					&mdash; adds <var>newArrayElement</var> to <var>exampleArr</var>
+				</span><br>
+				<br>
+
+				<span class="langstyle">//PROCESS:</span> 
+				<code><var>exampleArr</var>.join( 'snakes' );</code><br>
+				<span class="indent">
+					&mdash; creates a string with all the elements of 
+					<var>exampleVar</var> joined together by the word 'snakes'
+				</span><br>
+				<br>
+				
+			</p>
+
+			<h2>Adding new elements to an array using an index</h2>
+			<p>
+				Let's say that we have created the following array:
+			</p>
+			
+			<pre><code>//INIT: set up primeNumbersArr
+var primeNumbersArr = [
+	2, 	//index 0
+	3,	
+	5,
+	7,
+	11,
+	
+	13,	//index 5
+	17,
+	19,
+	23,
+	29,
+	
+	31	//index 10
+];</code></pre>
+
+			<h4>Check your understanding</h4>
+			
+			<p>
+				What is the value of <code>primeNumbersArr[ 0 ]</code>?<br>
+				<span 
+					class="question" 
+					data-answer="<code>primeNumbersArr[ 0 ]</code> contains 2">
+				</span>
+			</p>
+			<p>
+				What is the value of <code>primeNumbersArr[ 7 ]</code>?<br>
+				<span 
+					class="question" 
+					data-answer="<code>primeNumbersArr[ 7 ]</code> contains 19">
+				</span>
+			</p>
+			<p>
+				What is the value of <code>primeNumbersArr[ 10 ]</code>?<br>
+				<span 
+					class="question" 
+					data-answer="<code>primeNumbersArr[ 10 ]</code> contains 31">
+				</span>
+			</p>
+			<p>
+				What will be the next index number of <var>primeNumbersArr</var>?<br>
+				<span 
+					class="question" 
+					data-answer="the next index number of <var>primeNumbersArr</var> is 11">
+				</span>
+			</p>
+			
+			<p>
+				We can add a new element to <var>primeNumbersArr</var> 
+				by adding the next index number. For example:
+			</p>
+			
+			<pre><code>//PROCESS: add the next prime number to the array
+	primeNumbersArr[ 11 ] = 37; // the 11th prime number in the array is 37</code></pre>
+
+			<p>
+				<button onclick="this.innerHTML = primeNumbersArr;">
+					Click to display the current contents of <var>primeNumbersArr</var>
+				</button>
+			</p>
+	
+			<h2>Finding the length of an array</h2>
+			<p>
+				Arrays hold their length as a property.
+			</p>
+			<p>
+				So if you want to find out the length of <var>primeNumbersArr</var>,
+				you would look at <code>primeNumbersArr.length</code>.
+			</p>
+			
+			<p>
+				For example:<br>
+				<button onclick="this.innerHTML = primeNumbersArr.length;">
+					Click to show <code>primeNumbersArr.length</code>
+				</button>
+			</p>
+			
+			<p>
+				Notice again that because arrays count from zero, 
+				the last element of an array will be at index <var>length - 1</var>.
+			</p>
+			
+			<h2>Adding new array elements using <code>.length</code></h2>
+			<p>
+				Did you notice that the current length of an array 
+				is the same as it's next index number?
+			</p>
+			
+			<p>
+				You can use this fact if you don't want to 
+				automatically add a number to the end of an array:
+			</p>
+			
+			<pre><code>//PROCESS: add the next prime number to the array
+primeNumbersArr[ primeNumbersArr.length ] = 41;</code></pre>
+
+			<h2><code>.push()</code>ing an element onto the end of an array</h2>
+			
+			<p>
+				You can also use an array method called 
+				<code>push()</code> to add a new element to an array.
+			</p>
+			
+			<pre><code>//INIT: set up stringArr and primeNumbersArr
+var stringArr = [
+	"Red",
+	"Orange",
+	"Yellow",
+	"Green",
+	"Blue",
+	
+	"Indigo"
+];
+
+//PROCESS: add violet to the end of the array
+stringArr.push( "Violet" );
+</code></pre>
+			
+			<h2>Displaying a whole array</h2>
+			
+			<p>
+				If you use an array reference, <code>exampleArr</code>, 
+				instead of an individual array element, <code>exampleArr[0]</code>, 
+				it will return the entire contents of your array separated by commas:
+			</p>
+			
+			<p>
+				For example:
+			</p>
+			<pre><code>//the following line will show all the elements of stringArr, separated by commas:
+document.querySelector( '#buttonId' ).innerHTML = stringArr;</code><br></pre>
+			<p>
+				<button onclick="this.innerHTML = initStringArr();">
+					Click to trigger 
+					<code>document.querySelector( '#buttonId' ).innerHTML = stringArr;</code>
+				</button>
+			</p>
+
+			<h2><code>.join()</code>ing array elements together</h2>
+			
+			<p>
+				It may bug you that the array elements do not have spaces between the commas.
+				There is a solution to that:
+			</p>
+			
+			<p>
+				<button onclick="this.innerHTML = initStringArr().join( ', ');">
+					Click to show <code>stringArr.join( ', ')</code>
+				</button><br>
+				Notice how there is now a nice relaxing space after the commas?</br>
+			</p>
+			<p>
+				<code>.join()</code> will join the elements of an array together into a long string, 
+				concatenated together with whatever is inside the <code>join()</code> brackets.
+			</p>
+			
+			<p>So <code>stringArr.join( ':' )</code> is the same as:</p>
+			
+			<pre><code>stringArr[ 0 ]
++ ':'			
++ stringArr[ 1 ]
++ ':'			
++ stringArr[ 2 ]
++ ':'			
++ stringArr[ 3 ]
++ ':'			
++ stringArr[ 4 ]
++ ':'			
++ stringArr[ 5 ]
++ ':'			
++ stringArr[ 6 ]
++ ':'			
++ stringArr[ 7 ]</code></pre>
+
+			<p>
+				What do you think will happen if you show 
+				<code>stringArr.join('puppies')</code>?<br>
+				<button 
+					onclick="this.innerHTML = initStringArr().join('puppies');">
+					Click to see <code>stringArr.join('puppies')</code>
+				</button>
+			</p>
+
+			<p>
+				What do you think will happen if you show 
+				<code>primeNumbersArr.join('...')</code>?<br>
+				<button 
+					onclick="this.innerHTML = primeNumbersArr.join('...');">
+					Click to see <code>primeNumbersArr.join('...')</code>
+				</button>
+			</p>
+			
+			<h2>Outputting a list using <code>.join()</code></h2>
+			
+			<p>
+				Let's say that I want to create a list of colours.
+				Remember that a list looks like this:
+			</p>
+			
+			<pre><code>&lt;ol>
+	&lt;li>item one&lt;/li>
+	&lt;li>item two&lt;/li>
+	&lt;li>item three&lt;/li>
+&lt;/ol></code></pre>
+	
+			<p>And it produces:</p>
+			<ol>
+				<li>item one</li>
+				<li>item two</li>
+				<li>item three</li>
+			</ol>		
+			
+			<p>
+				Did you notice how between each element of the list 
+				is joined together with <code>&lt;/li>&lt;li></code>?
+			</p>
+			
+			<h4>To create a list we have to do the following:</h4>
+			
+			<ol>
+				<li>
+					Create a variable to hold the HTML list code, like <var>outputString</var>
+				</li>
+				<li>Add the beginning HTML of the list: <code>&lt;ol>&lt;li></code></li>
+				<li>
+					Add the list information joined together: 
+					<code>exampleArr.join( '&lt;/li>&lt;li>' )</code>
+				</li>
+				<li>Add the end HTML of the list: <code>&lt;/li>&lt;/ol></code> </li>
+				<li>
+					Display the results: 
+					<code>document.querySelector( '#outputId' ).innerHTML = outputString;</code>
+				</li>
+			</ol>
+			
+			<p>
+				<button id='buttonId'>
+					Click to trigger <code>mainProcedure()</code> of the following code:
+				</button>
+			</p>
+			
+			<div id="outputId"></div>
+			
+			<pre><code><span class="sc43">//OUTPUT: display the list inside the div called #outputId</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputList</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in outputList. outputString='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//PROCESS: join together the elements of stringArr into an HTML list</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in createList. stringArr='</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">;</span><span class="sc41"> </span><span class="sc43">// define an empty string to code the HTML code</span><span class="sc41">
+	
+	</span><span class="sc43">// add the beginning of the list code</span><span class="sc41">
+	</span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;ol&gt;&lt;li&gt;"</span><span class="sc50">;</span><span class="sc41">
+	
+	</span><span class="sc43">// join together with more list code</span><span class="sc41">
+	</span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">stringArr.join</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'&lt;/li&gt;&lt;li&gt;'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">// add the end of the list code                 </span><span class="sc41">
+	</span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/li&gt;&lt;/ol&gt;"</span><span class="sc50">;</span><span class="sc41">                     
+	
+	</span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//INIT: set up the array of colour strings</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">initStringArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in initStringArr...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+		</span><span class="sc48">"Red"</span><span class="sc50">,</span><span class="sc41">
+		</span><span class="sc48">"Orange"</span><span class="sc50">,</span><span class="sc41">
+		</span><span class="sc48">"Yellow"</span><span class="sc50">,</span><span class="sc41">
+		</span><span class="sc48">"Green"</span><span class="sc50">,</span><span class="sc41">
+		</span><span class="sc48">"Blue"</span><span class="sc50">,</span><span class="sc41">
+		
+		</span><span class="sc48">"Indigo"</span><span class="sc41">
+	</span><span class="sc50">];</span><span class="sc41">
+
+	</span><span class="sc43">//PROCESS: add violet to the end of the array - just to demonstrate .push()</span><span class="sc41">
+	</span><span class="sc46">stringArr.push</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"Violet"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+	</span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc50">;</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//MAIN: link together the functions to create the list</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+	</span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">//INIT: create the array of colour strings</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">initStringArr</span><span class="sc50">();</span><span class="sc41">
+	
+	</span><span class="sc43">//PROCESS: use the colours to create the HTML code of a list of colours</span><span class="sc41">
+	</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">listHTML</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+	
+	</span><span class="sc43">//OUTPUT: display the list of colours</span><span class="sc41">
+	</span><span class="sc46">outputList</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">listHTML</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+
+</span><span class="sc43">//INPUT: start the main procedure when the button is clicked</span><span class="sc41">
+</span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span></code></pre>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/arrays/p/intro-to-arrays">
+						Intro to arrays
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_arrays.asp">
+						JavaScript Arrays
+					</a> and
+					<a href="http://www.w3schools.com/js/js_array_methods.asp">
+						JavaScript Array methods
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+
+			<h2>For example</h2>
+			
+			<p>...is created with the following code:</p>
+			
+			<pre><code></code></pre>
+			-->
+		</article>
+		<script>
+			//INIT: create the prime number and string arrays
+			var primeNumbersArr = [];
+
+			primeNumbersArr[ 0 ] = 2;
+			primeNumbersArr[ 1 ] = 3;
+			primeNumbersArr[ 2 ] = 5;
+			primeNumbersArr[ 3 ] = 7;
+			primeNumbersArr[ 4 ] = 11;
+
+			primeNumbersArr[ 5 ] = 13;
+			primeNumbersArr[ 6 ] = 17;
+			primeNumbersArr[ 7 ] = 19;
+			primeNumbersArr[ 8 ] = 23;
+			primeNumbersArr[ 9 ] = 29;
+
+			primeNumbersArr[ 10 ] = 31;
+			primeNumbersArr[ 11 ] = 37;
+
+			//OUTPUT: display the list inside the div called #outputId
+			var outputList = function ( outputString ) {
+				console.log( 'in outputList. outputString=' + outputString );
+				
+				document.querySelector( '#outputId' ).innerHTML = outputString;
+			}
+			
+			//PROCESS: join together the elements of stringArr into an HTML list
+			var createList = function ( stringArr ) {
+				console.log( 'in createList. stringArr=', stringArr );
+				
+				var outputString = ""; // define an empty string to code the HTML code
+				
+				// add the beginning of the list code
+				outputString = outputString + "<ol><li>";
+				
+				// join together with more list code
+				outputString = outputString + stringArr.join( '</li><li>' );
+				
+				// add the end of the list code 				
+				outputString = outputString + "</li></ol>";						
+				
+				return outputString;
+			}
+			
+			//INIT: set up the array of colour strings
+			var initStringArr = function () {
+				console.log( 'in initStringArr...' );
+				
+				var stringArr = [
+					"Red",
+					"Orange",
+					"Yellow",
+					"Green",
+					"Blue",
+					
+					"Indigo"
+				];
+
+				//PROCESS: add violet to the end of the array - just to demonstrate .push()
+				stringArr.push( "Violet" );
+			
+				return stringArr;
+			}
+			
+			//MAIN: link together the functions to create the list
+			var mainProcedure = function () {
+			
+				console.log( 'in mainProcedure...' );
+				
+				//INIT: create the array of colour strings
+				var stringArr	= initStringArr();
+				
+				//PROCESS: use the colours to create the HTML code of a list of colours
+				var listHTML 	= createList( stringArr );
+				
+				//OUTPUT: display the list of colours
+				outputList( listHTML );
+			}
+			
+			//INPUT: start the main procedure when the button is clicked
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+			
+			//INPUT: start questionLoader when the page is finished loading
+			document.body.onload							= questionLoader;
+		</script>
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

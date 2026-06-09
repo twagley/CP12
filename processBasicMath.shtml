@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			PROCESS: Basic Math
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use basic math in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. Sept 2015	- created											- Drapak
+				12. Oct 2015	- corrected trig math functions						- Drapak
+				3. March 2017	- added reworked example							- Drapak
+				23. September 2018	- reworked code and example style				- Drapak
+				3. September 2018	- reworked example code to fix input			- Drapak
+				9. October 2018	- updated trig examples 							- Drapak
+								- added parseFloat and corrected example code
+				11. Oct 2018	- fixed style in input line of code example			- Drapak
+				16. Oct 2018	- clarified code examples							- Drapak
+				21. Oct 2018	- changed the button interaction					- Drapak
+				2. Nov 2018		- clarified the parseInt code example				- Drapak
+		-->
+
+		<style>
+			iframe {
+				width: 		700px;
+				height: 	170px;
+			}
+			table {
+				font-size:	1.3em;
+			}
+			th {
+				min-width:	100px;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//PROCESS: <em>Basic math</em>
+		</header>
+
+		<article>
+		<!--
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>exampleStringVariable</var> = "red";</code><br />
+				<span class="indent">&mdash; assigns the string "red" to <var>exampleStringVariable</var></span><br />
+
+				<span class="langstyle">`</span> 
+				<code>document.getElementById(<var>exampleID</var>).style.backgroundColor = <var>exampleStringVariable</var>;</code><br />
+				<span class="indent">&mdash; makes the element called <var>exampleID</var> have a red background</span><br />
+				<br />
+				
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>exampleNumericVariable</var> = 5;</code><br />
+				<span class="indent">&mdash; assigns 5 to <var>exampleNumericVariable</var></span><br />
+
+				<span class="langstyle">//INIT:</span> 
+				<code>var <var>exampleStringVariable</var> = <var>exampleStringVariable</var> + 10;</code><br />
+				<span class="indent">&mdash; adds 10 to <var>exampleStringVariable</var>, making it 15</span><br />
+			</p>
+		-->	
+			<h2><em>True fact:</em> Computers are good at math!</h2>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Regular<br />math</th>
+						<th>Javascript<br />math</th>
+						<th>On the keyboard</th>
+						<th>Try it out in a button!</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>3+2</td>
+						<td><code>3 + 2</code></td>
+						<td>+ is <kbd>shift</kbd><kbd>=</kbd></td>
+						<td>
+							<button onclick="this.innerHTML = 3 + 2;">
+								<code>3 + 2</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>3&minus;2</td>
+						<td><code>3 - 2</code></td>
+						<td><kbd>-</kbd></td>
+						<td>
+							<button onclick="this.innerHTML = 3 - 2;">
+								<code>3 - 2</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>3&times;2</td>
+						<td><code>3 * 2</code></td>
+						<td>* is <kbd>shift</kbd><kbd>8</kbd></td>
+						<td>
+							<button onclick="this.innerHTML = 3 * 2;">
+								<code>3 * 2</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>3&bull;2</td>
+						<td><code>3 * 2</code></td>
+						<td>* is <kbd>shift</kbd><kbd>8</kbd></td>
+					</tr>
+					<tr>
+						<td>3&frasl;2</td>
+						<td><code>3 / 2</code></td>
+						<td><kbd>/</kbd></td>
+						<td>
+							<button onclick="this.innerHTML = 3 / 2;">
+								<code>3 / 2</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>3&divide;2</td>
+						<td><code>3 / 2</code></td>
+						<td><kbd>/</kbd></td>
+					</tr>
+					<tr>
+						<td>3&#178;</td>
+						<td><code>Math.pow( 3, 2 )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.pow( 3, 2 );">
+								<code>Math.pow( 3, 2 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>2&#179;</td>
+						<td><code>Math.pow( 2, 3 )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.pow( 2, 3 );">
+								<code>Math.pow( 2, 3 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>3&radic;2</td>
+						<td><code>3 * Math.sqrt( 2 )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = 3 * Math.sqrt( 2 );">
+								<code>3 * Math.sqrt( 2 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>&#8731;2</td>
+						<td><code>Math.pow( 2, ( 1 / 3 ) )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.pow( 2, ( 1 / 3 ) );">
+								<code>Math.pow( 2, ( 1 / 3 ) )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>sin(3&deg;)</td>
+						<td><code>Math.sin( 3 * Math.PI / 180 )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.sin( 3 * Math.PI / 180 );">
+								<code>Math.sin( 3 * Math.PI / 180 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>cos(3&deg;)</td>
+						<td><code>Math.cos( 3 * Math.PI / 180 )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.cos( 3 * Math.PI / 180 );">
+								<code>Math.cos( 3 * Math.PI / 180 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>tan(3&deg;)</td>
+						<td><code>Math.tan( 3 * Math.PI / 180)</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.tan( 3 * Math.PI / 180 );">
+								<code>Math.tan( 3 * Math.PI / 180 )</code>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>&pi;</td>
+						<td><code>Math.PI</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = Math.PI;">
+								<code>Math.PI</code>
+							</button>
+						</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td><code>parseInt( "35 degrees" )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = parseInt( '35 degrees' );">
+								<code>parseInt( "35 degrees" )</code>
+							</button>
+						</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td><code>parseFloat( "3.14159cm is a pithy measurement" )</code></td>
+						<td></td>
+						<td>
+							<button onclick="this.innerHTML = parseFloat( '3.14159cm is a pithy measurement' );">
+								<code>parseFloat( "3.14159cm is a pithy measurement" )</code>
+							</button>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+			
+			<h2>Cleaning your data with <code>parseInt()</code></h2>
+			<p>
+				Often the data that you read in your program is dirty &mdash;
+				particularly when you are converting between datatypes, like 
+				converting strings to numbers.
+			</p>
+			<p>
+				This is where <code>parseInt()</code> comes in handy.
+				<code>parseInt()</code> looks at a string, and extracts 
+				the first number that it sees.
+			</p>
+			<p> 
+				For example, <code>parseInt( "1855 Trollope Street" )</code> 
+				will return the number <code>1855</code>.
+				It is a real problem-solver!
+			</p>			<p> 
+				If you need to get a floating decimal, use <code>parseFloat()</code>
+				instead. For example, <code>parseFloat( "100.3km/h" )</code> 
+				will return the number <code>100.3</code>.
+			</p>
+			
+			<h2>Common mistakes</h2>
+			<ul>
+				<li>
+					<strong>Forgetting to capitalize <code>Math.</code></strong> 
+					&mdash; <code>math.PI</code> does not work!
+				</li>
+				<li>
+					<strong>Not enough brackets</strong>
+					&mdash; Sometimes order of operations behaves strangely.<br />
+					Add brackets around mathematical subclauses when in doubt:<br />
+					<code>4 + 3 * 12 + 4</code> becomes <code>4 + ( 3 * 12 ) + 4</code>
+				</li>
+			</ul>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/jsref_obj_math.asp">
+						JavaScript Math Reference
+					</a> and 
+					<a href="http://www.w3schools.com/jsref/jsref_parseint.asp">
+						Javascript parseInt() function
+					</a>
+				</li>
+				
+				
+			</ul>
+			
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/processBasicMath.shtml"></iframe>
+
+			<p>...is made with the following code:</p>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Area of a circle</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"This script calculates the area of a circle"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                27. Sept 2015   - created
+                3. March 2017   - reworked to move script to the end
+                9. October 2018 - updated id styles and added parseInt  - Drapak
+                11. Oct 2018    - fixed poor style in input line        - Drapak
+                16. Oct 2018    - clarified example code                - Drapak
+                21. Oct 2018    - clarified example code again          - Drapak
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #outputId {
+                font-weight:    bold;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Calculate the area of a circle</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            What is radius of the circle?
+            
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"5"</span><span class="sc1">&gt;</span><span class="sc0">
+                
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">
+                Calculate the area!
+            </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">The area is: </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;</span><span class="sc0">Waiting for input...</span><span class="sc1">&lt;/span&gt;&lt;/p&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// read the input and output the </span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: get the radius from the input line</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">numberText</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: clean up the input by converting the text to a number</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">parsedNumber</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseInt</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">numberText</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">//PROCESS: calculate the answer</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc41">          </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.PI</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">Math.pow</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">parsedNumber</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display the answer</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">answer</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach the change event to #inputId</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+
+            </span><span class="sc43">//INPUT: attach the click event to #buttonId</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		
+		</article>		
+
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+		</script>
+	</body>
+</html>

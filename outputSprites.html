@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<meta name="description" content="sprite test">
+		<meta name="keywords" content="table project, side table, plant stand, joinery, sequencing, measurement, shop drawing, technical drawing, layout, Citadel, Halifax, Nova Scotia, Production Technology, woodworking, teacher, teaching resources, handout, booklet, project, learning resources">
+		<title>sprite test</title>
+		<link rel="stylesheet" type="text/css" href="http://drapak.ca/cpg/pacmanSprites.css">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			jQuery(document).ready(function() {
+				var existing_classes = []; // includes classes in the current document
+				var defined_classes = []; // includes classes defined in the CSS
+				var unused_classes = []; // classes defined in the CSS, not used in the document
+
+				// go through each node in the DOM
+				// (we ignore things outside the body element)
+				// (those are quite rare)
+				jQuery('body').find('*').each(function(){ 
+					if(jQuery(this)[0].className) {
+						// for each element, grab all classes and push them into 
+						// our existing_classes array
+						jQuery.each(jQuery(this)[0].className.split(" "), function(i,v) {
+							existing_classes.push(v);
+						});
+					}
+				});
+				
+				// go through our document stylesheets
+				// extract the selector text from each rule
+				for(i=0; i<document.styleSheets.length; i++) {
+					rules = document.styleSheets[i].cssRules;
+					for(var j = 0; j < rules.length; j++) {
+						// go through each CSS rule, and split the selector text
+						jQuery.each(rules[j].selectorText.split(" "), function(i,v) {
+							// if the selector defines a class, add it to the defined_classes array
+							// note: this is probably quite crude (and slow for large documents),
+							// but works for 90% of cases
+							if(v.charAt(0) == ".") {
+								defined_classes.push(v.slice(1));
+							}
+						});
+					}
+				}
+				
+				// work some array magic
+				// go through our defined classes and see if they're being used
+				// if not, add them to our unused_classes array
+				jQuery.each(defined_classes, function(i,v) {
+					if(jQuery.inArray(v, existing_classes) != 1) {
+						unused_classes.push(v);
+					}
+				});
+				
+				
+				//defined_classes.sort();
+				
+				var bigSprites = [
+					"pmPacmanBig0",
+					"pmPacmanBig1",
+					"pmPacmanBig2"
+				];
+				bigSprites.sort();
+				
+				var mediumSprites = [
+					"pmPacmanUp0",
+					"pmPacmanLeft1",
+					"pmPacmanUp1",
+					"pmPacmanRight0",
+					"pmPacmanDown0",
+					"pmPacmanRight1",
+					"pmPacmanDown1",
+					"pmSlug0",
+					"pmSlug1",
+					"pmPacmanLeft0",
+					"pmGhostLight0",
+					"pmGhostLight1",
+					"pmGhostDark0",
+					"pmGhostDark1",
+					"pmStrawberry",
+					"pmOrange",
+					"pmLemon",
+					"pmApple",
+					"pmGrape",
+					"pmFlower",
+					"pmKey",
+					"pmBlinkyShiny0",
+					"pmBlinkyShiny0",
+					"pmRedSlug0",
+					"pmRedSlug1",
+					"pmCherry1",
+					"pmBlinkyRight0",
+					"pmBlinkyRight1",
+					"pmBlinkyDown0",
+					"pmBlinkyDown1",
+					"pmBlinkyLeft0",
+					"pmBlinkyLeft1",
+					"pmBlinkyUp0",
+					"pmBlinkyUp1",
+					"pmPoints200",
+					"pmPoints400",
+					"pmPoints800",
+					"pmPoints1600",
+					"pmBlinkyStart",
+					"pmPacmanFull0",
+					"pmExplosion",
+					"pmBlinkyLipsUp",
+					"pmBlinkyLipsDown",
+					"pmPacmanDie0",
+					"pmPacmanDie1",
+					"pmPacmanDie2",
+					"pmPacmanDie3",
+					"pmPacmanDie4",
+					"pmPacmanDie5",
+					"pmPacmanDie6",
+					"pmPacmanDie7",
+					"pmPacmanDie8",
+					"pmPacmanDie9",
+					"pmPacmanDie10",
+					"pmPacmanDie11",
+					"pmPacmanFull1",
+					"pmPinkyRight0",
+					"pmPinkyRight1",
+					"pmPinkyDown0",
+					"pmPinkyDown1",
+					"pmPinkyLeft0",
+					"pmPinkyLeft1",
+					"pmPinkyUp0",
+					"pmPinkyUp1",
+					"pmInkyRight0",
+					"pmInkyRight1",
+					"pmInkyDown0",
+					"pmInkyDown1",
+					"pmInkyLeft0",
+					"pmInkyLeft1",
+					"pmInkyUp0",
+					"pmInkyUp1",
+					"pmPinkyStart",
+					"pmClydeRight0",
+					"pmClydeRight1",
+					"pmClydeDown0",
+					"pmClydeDown1",
+					"pmClydeLeft0",
+					"pmClydeLeft1",
+					"pmClydeUp0",
+					"pmClydeUp1",
+					"pmEyesRight0",
+					"pmEyesRight1",
+					"pmEyesDown0",
+					"pmEyesDown1",
+					"pmEyesLeft0",
+					"pmEyesLeft1",
+					"pmEyesUp0",
+					"pmEyesUp1",
+					"pmClydeStart"				
+				];
+				mediumSprites.sort();
+				
+				var smallSprites = [
+					"pmLetterSpace1",
+					"pmLetterPeriod",
+					"pmLetterQuote0",
+					"pmLetterQuote1",
+					"pmLetter0",
+					"pmLetter1",
+					"pmLetter2",
+					"pmLetter3",
+					"pmLetter4",
+					"pmLetter5",
+					"pmLetter6",
+					"pmLetter7",
+					"pmLetter8",
+					"pmLetter9",
+					"pmLetterSlash",
+					"pmLetterDash",
+					"pmLetterCornerNE",
+					"pmLetterCornerSE",
+					"pmLetterCornerNW",
+					"pmLetterCornerSW",
+					"pmLetterA",
+					"pmLetterB",
+					"pmLetterC",
+					"pmLetterD",
+					"pmLetterE",
+					"pmLetterF",
+					"pmLetterG",
+					"pmLetterH",
+					"pmLetterI",
+					"pmLetterJ",
+					"pmLetterK",
+					"pmLetterL",
+					"pmLetterM",
+					"pmLetterN",
+					"pmLetterO",
+					"pmLetterP",
+					"pmLetterQ",
+					"pmLetterR",
+					"pmLetterS",
+					"pmLetterT",
+					"pmLetterU",
+					"pmLetterV",
+					"pmLetterW",
+					"pmLetterX",
+					"pmLetterY",
+					"pmLetterZ",
+					"pmLetterExclamation",
+					"pmLetterCopyright",
+					"pmLetterPoints0",
+					"pmLetterPoints1",
+					"pmLetterPoint",
+					"pmLetterApostrophe",
+					"pmSingleCornerSE3",
+					"pmSingleCornerSW3",
+					"pmSingleCornerNE3",
+					"pmSingleCornerNW3",
+					"pmSingleHorizontal11",
+					"pmSingleHorizontal12",
+					"pmSingleCornerNE4",
+					"pmSingleCornerNW4",
+					"pmSingleVertical8",
+					"pmSingleVertical9",
+					"pmSingleCornerSE4",
+					"pmSingleCornerSW4",
+					"pmDoubleCornerNE1",
+					"pmDoubleCornerNW1",
+					"pmDoubleCornerSE1",
+					"pmDoubleCornerSW1",
+					"pmDot",
+					"pmLetter1xx",
+					"pmLetter3xx",
+					"pmLetter5xx",
+					"pmLetter7xx",
+					"pmLetterX00",
+					"pmLetter10",
+					"pmLetterTwenty0",
+					"pmLetterTwenty1",
+					"pmLetterThirty0",
+					"pmLetterThirty1",
+					"pmLetterFifty0",
+					"pmLetterFifty1",
+					"pmLetterZeroZero0",
+					"pmLetterZeroZero1",
+					"pmDoubleCornerNE",
+					"pmDoubleCornerNW",
+					"pmDoubleVertical0",
+					"pmDoubleVertical1",
+					"pmDoubleCornerSE",
+					"pmDoubleCornerSW",
+					"pmDoubleNSingleWAndS",
+					"pmDoubleNSingleEAndS",
+					"pmDoubleSSingleWAndN",
+					"pmDoubleSSingleEandN",
+					"pmDoubleHorizontal0",
+					"pmDoubleHorizontal1",
+					"pmDoubleHorizontal2",
+					"pmDoubleHorizontal3",
+					"pmSingleHorizontal0",
+					"pmSingleHorizontal1",
+					"pmDoubleHorizontalClosedW",
+					"pmDoubleHorizontalClosedE",
+					"pmSingleCornerNW",
+					"pmSingleCornerNE",
+					"pmSingleCornerSW",
+					"pmSingleCornerSE",
+					"pmSingleCornerShortNE",
+					"pmSingleCornerShortNW",
+					"pmSingleCornerShortSE",
+					"pmSingleCornerShortSW",
+					"pmDoubleESingleWAndS",
+					"pmDoubleWSingleEAndS",
+					"pmSingleHorizontal2",
+					"pmSingleHorizontal3",
+					"pmSingleVertical0",
+					"pmSingleVertical1",
+					"pmSingleVertical2",
+					"pmSingleCornerSW1",
+					"pmSingleCornerSE1",
+					"pmSingleVertical3",
+					"pmSingleCornerNW1",
+					"pmSingleHorizontal4",
+					"pmSingleHorizontal5",
+					"pmSingleCornerNE1",
+					"pmSingleHorizontal6",
+					"pmSingleHorizontal7",
+					"pmSingleHorizontal8",
+					"pmSingleVertical4",
+					"pmSingleVertical5",
+					"pmSingleCornerSW2",
+					"pmSingleHorizontal9",
+					"pmSingleHorizontal10",
+					"pmSingleCornerSE2",
+					"pmSingleVertical6",
+					"pmSingleCornerNW2",
+					"pmSingleCornerNE2",
+					"pmSingleVertical7",
+					"pmDot0",
+					"pmDot1",
+					"pmDot2",
+					"pmDot3",
+					"pmDot4",
+					"pmDot5",
+					"pmBlank",
+					"pmLetterBlank",
+					"pmLetterSpace",
+					"pmLetterCircle"				
+				];
+				smallSprites.sort();
+				
+				
+				outputDivs( bigSprites, "bigTableID" );
+				outputDivs( mediumSprites, "mediumTableID" );
+				outputDivs( smallSprites, "smallTableID" );
+
+				
+				/*
+				for (i in defined_classes) {
+					var div = document.createElement( "div" );
+                    div.className = defined_classes[ i ];
+                    div.title = defined_classes[ i ];
+                    document.getElementById('outputID').appendChild( div );
+
+					var div = document.createElement( "div" );
+					div.style.display = "inline";
+					div.innerHTML = defined_classes[ i ];
+                    document.getElementById('outputID').appendChild( div );
+ 				}
+				*/
+			});	
+			
+			var outputDivs =  function ( thisArray, outputID ) {
+				for (i in thisArray) {
+					
+				
+					var row = document.createElement( "tr" );
+					
+					row.innerHTML
+						= "<th><div class='" 
+						+ thisArray[ i ] 
+						+ "' title='"
+						+ thisArray[ i ]
+						+ "'></div></th>"
+						+ "<td><code>&lt;div class='"
+						+ thisArray[ i ]
+						+ "'>&lt;/div></code></td>"
+					
+					document.getElementById( outputID ).appendChild( row );
+				}
+			}
+			
+		</script>
+		<style>
+			body {
+				background-color: grey;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h3>Large sprites<br />Each one takes up 4 x 4 = 16 units</h3>
+		<table id="bigTableID"></table>
+		<h3>Medium sprites<br />Each one takes up 2 x 2 = 4 units</h3>
+		<table id="mediumTableID"></table>
+		<h3>Small sprites<br />Each one takes up 1 unit</h3>
+		<table id="smallTableID"></table>
+	</body>
+</html>

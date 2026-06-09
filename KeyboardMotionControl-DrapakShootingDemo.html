@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Keyboard motion control</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to move an image around using the keyboard">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	6. Oct 2015												- Drapak	
+				Modified:	21. March 2017	- moved script to bottom 				- Drapak
+							23. March 2017	- added more instructions				- Drapak
+							30. April 2017	- fixed long lines						- Drapak
+							12. Oct 2018	- added additional criteria for options	- Drapak
+							28. Oct 2018	- finished demo							- Drapak
+				
+				Finished:	
+		-->
+
+		<style>
+			body {
+				background-color:	pink;
+				color:				darkRed;
+				font-family:		Arial;
+			}
+			
+			#imageId {
+				position:		absolute;
+				top:			50%;
+				left:			5%;
+				width:			5%;
+			}
+			
+			#topOutputId {
+				font-weight:		bold;
+			}
+			
+			@keyframes fireAnimation {
+				0% {
+					left: 		5%;
+					opacity: 	0;
+				}
+				10% {
+					opacity: 	1;
+				}
+				90% {
+					opacity:	1;
+				}
+				100% {
+					left: 		95%;
+					opacity: 	0;
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Create a program that allows moves an image around the screen 
+			and that changes the image using the keyboard.
+			
+			To do this, you will:
+
+				1.	steal your moveup(), moveDown(), moveLeft(), and moveRight() functions 
+					from "Move Things with Buttons"
+					
+				2.	steal your function that reads keypresses from the "Keyboard Reader"
+				
+				3.	join them all together with an if .. else if ... else if ... else chain, 
+					like in "Defuse the Bomb!"
+
+			Get the keyboard reader working first, then get your if ... else chain working.
+			After that you can tweak the movement of your character and get it to face the 
+			correct direction.
+			
+			Evaluation checklist:
+		
+			___/10 	INPUT: including ANY FOUR of the following:
+				[]	make things happen when you click on them
+				[]	make things happen an input changes
+				[]	listen for keypresses
+				[]	read which key is pressed
+				[]	read current top position
+				[]	read current left position
+		
+			___/10	PROCESS: including ANY FOUR of the following:
+				[]	declaring a variable
+				[]	finding the integer or floating decimal of a string
+				[]	use math to determine positions
+				[]	use if...else statements to control flow of code
+				[]	have up and down movement working correctly
+				[]	have left and right movement working correctly
+		
+			___/10 	OUTPUT: including ANY FOUR of the following:
+				[]	set the position mode so things can move
+				[]	change the left position of something
+				[]	change the top position of something
+				[]	change a image
+				[]	output information with innerHTML
+		
+			___/10 	STYLE: 
+				[]	add your name to the filename
+				[]	write your name as the author
+				[]	update the change log
+				[]	correctly indent everything
+				[]	use lowercase for all your HTML tags
+				[]	use camelCase for all your ids and classes
+				[]	avoid lines greater than 96 characters in length
+				[]	restrict your style code to the head of your HTML file
+				[]	space out your mathematical operators
+				[]	write comments for your if statements
+				[]	use descriptive variable names
+
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<img id="imageId" src="http://drapak.ca/cpg/img/link-down.png">
+		
+		<p>
+			Link is now at top: <span id='topOutputId'></span>px
+		</p>
+		<div id='outputId'></div>
+		
+		<script>
+			var _0xdbfe=["\x69\x6E\x20\x72\x65\x61\x64\x4B\x65\x79\x70\x72\x65\x73\x73\x2E\x2E\x2E","\x6C\x6F\x67","\x77\x68\x69\x63\x68","\x6B\x65\x79\x43\x6F\x64\x65","\x6F\x66\x66\x73\x65\x74\x54\x6F\x70","\x69\x6D\x61\x67\x65\x49\x64","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x73\x72\x63","\x23\x69\x6D\x61\x67\x65\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x75\x70\x2E\x70\x6E\x67","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x23\x74\x6F\x70\x4F\x75\x74\x70\x75\x74\x49\x64","\x74\x6F\x70","\x73\x74\x79\x6C\x65","\x70\x78","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x64\x6F\x77\x6E\x2E\x70\x6E\x67","\x23\x6F\x75\x74\x70\x75\x74\x49\x64","\x3C\x69\x6D\x67\x20\x69\x64\x3D\x22\x70\x61\x63\x6D\x61\x6E\x49\x64\x22\x20","\x73\x72\x63\x3D\x22\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x70\x61\x63\x6D\x61\x6E\x2F\x70\x61\x63\x6D\x61\x6E\x42\x69\x67\x52\x69\x67\x68\x74\x31\x2E\x70\x6E\x67\x22\x3E","\x70\x6F\x73\x69\x74\x69\x6F\x6E","\x23\x70\x61\x63\x6D\x61\x6E\x49\x64","\x61\x62\x73\x6F\x6C\x75\x74\x65","\x6C\x65\x66\x74","\x35\x25","\x77\x69\x64\x74\x68","\x61\x6E\x69\x6D\x61\x74\x69\x6F\x6E\x44\x75\x72\x61\x74\x69\x6F\x6E","\x32\x73","\x61\x6E\x69\x6D\x61\x74\x69\x6F\x6E\x4E\x61\x6D\x65","\x66\x69\x72\x65\x41\x6E\x69\x6D\x61\x74\x69\x6F\x6E","\x61\x6E\x69\x6D\x61\x74\x69\x6F\x6E\x46\x69\x6C\x6C\x4D\x6F\x64\x65","\x66\x6F\x72\x77\x61\x72\x64\x73","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E"];var readKeypress=function(_0x3b7ex2){console[_0xdbfe[1]](_0xdbfe[0]);const _0x3b7ex3=87;const _0x3b7ex4=83;const _0x3b7ex5=32;const _0x3b7ex6=20;var _0x3b7ex7=_0x3b7ex2[_0xdbfe[2]]|| _0x3b7ex2[_0xdbfe[3]];var _0x3b7ex8=document[_0xdbfe[6]](_0xdbfe[5])[_0xdbfe[4]];if(_0x3b7ex7== _0x3b7ex3){document[_0xdbfe[9]](_0xdbfe[8])[_0xdbfe[7]]= _0xdbfe[10];var _0x3b7ex9=_0x3b7ex8- _0x3b7ex6;document[_0xdbfe[9]](_0xdbfe[12])[_0xdbfe[11]]= _0x3b7ex9;document[_0xdbfe[9]](_0xdbfe[8])[_0xdbfe[14]][_0xdbfe[13]]= _0x3b7ex9+ _0xdbfe[15]}else {if(_0x3b7ex7== _0x3b7ex4){document[_0xdbfe[9]](_0xdbfe[8])[_0xdbfe[7]]= _0xdbfe[16];var _0x3b7ex9=_0x3b7ex8+ _0x3b7ex6;document[_0xdbfe[9]](_0xdbfe[12])[_0xdbfe[11]]= _0x3b7ex9;document[_0xdbfe[9]](_0xdbfe[8])[_0xdbfe[14]][_0xdbfe[13]]= _0x3b7ex9+ _0xdbfe[15]}else {if(_0x3b7ex7== _0x3b7ex5){document[_0xdbfe[9]](_0xdbfe[17])[_0xdbfe[11]]= _0xdbfe[18]+ _0xdbfe[19];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[20]]= _0xdbfe[22];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[23]]= _0xdbfe[24];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[25]]= _0xdbfe[24];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[13]]= _0x3b7ex8+ _0xdbfe[15];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[26]]= _0xdbfe[27];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[28]]= _0xdbfe[29];document[_0xdbfe[9]](_0xdbfe[21])[_0xdbfe[14]][_0xdbfe[30]]= _0xdbfe[31]}}}};window[_0xdbfe[32]]= readKeypress
+		</script>
+	</body>
+</html>

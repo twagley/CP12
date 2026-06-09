@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming 12: 
+			PROCESS - Functions: Definition, call, or reference?
+		</title>
+		
+		<meta 
+			name="description" 
+			content="Learn how to distinguish between function definitions, calls, and references">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				19. Oct		- created!
+				21. October 2018	- updated style and clarified examples 		- Drapak
+				9. Nove		2018	- clarified examples						- Drapak
+				4. November 2019	- fixed function name mismatch 				- Tyson Wagley
+				9. November 2020	- fixed code example						- Tyson Wagley
+			-->
+
+		<style>
+			.callClass { 
+				border: 	1px solid blue; 
+			}
+			
+			.definitionClass { 
+				border: 	1px solid red;
+			}
+			
+			.referenceClass { 
+				border: 	1px solid orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Functions: Definition, call, or reference?</em>
+		</header>
+		
+		<article>
+			<!--
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>var <var>someFunction</var> = (<var>somethingIn</var>) { return <var>somethingOut</var> }</code><br>
+				<span class="indent">&mdash; creates a function that takes in information, processes it, and spits out the result<br>
+			</p>
+			-->
+			
+			<h2>Three ways to use functions - but what is the difference?</h2>
+			<p>
+				For the examples on this page, 
+				we will be using the following colour code: 
+				<span class="definitionClass">definition</span> 
+				<span class="callClass">call</span> 
+				<span class="referenceClass">reference</span>
+			</p>
+			<dl>
+				<dt>Function definition</dt>
+				<dd>
+					This is the code that defines a function.<br>
+					<code class="definitionClass">
+						var exampleFunction = function () {}
+					</code><br>
+					The code inside the function will 
+					not run until the function is <em>called</em>.
+				</dd>
+
+				<dt>Function call</dt>
+				<dd>
+					This tells the program to switch to running the code inside a function.<br>
+					<code class="callClass">
+						exampleFunction();
+					</code><br>
+					This will not work unless the function 
+					has already been <em>defined</em>.
+				</dd>
+
+				<dt>Function reference</dt>
+				<dd>
+					This is like a variable that contains all the code inside a function.<br>
+					Function references are used in detecting events, timers, and intervals.<br>
+					<code>
+						window.onkeydown = <span class="referenceClass">readKeypress</span>;
+					</code><br>
+					<br>
+					<code>
+						document.querySelector( '#inputId' ).onchange = <span class="referenceClass">readInput</span>;
+					</code><br>
+					<br>
+					<code>
+						document.querySelector( '#buttonId' ).onclick = <span class="referenceClass">mainProcedure</span>;
+					</code><br>
+					<br>
+					<code>
+						document.querySelector( '#imageId' ).onmouseover 
+						= <span class="referenceClass">changeImage</span>;
+					</code><br>
+					<br>
+					<code>
+						document.body.onload = <span class="referenceClass">mainProcedure</span>;
+					</code><br>
+					<br>
+					<code>
+						setTimeout( <span class="referenceClass">startAnimation</span>, 1000 );
+					</code><br>
+					<br>
+					The reference will not work unless the 
+					function is <em>defined</em>.
+				</dd>
+			</dl>
+			
+			<h2>
+				Function references: functions that are stored inside variables.
+			</h2>
+			
+			<p>
+				Have you noticed that we have been defining functions as variables?
+			</p>
+			
+			<p>
+				That is because Javascript expects that all of the <strong>events</strong> 
+				such as <code>onclick</code>, <code>onload</code>, <code>onkeypress</code>, 
+				<code>onmouseover</code>, etc., will result in a  
+				<span class="definitionClass">function definition</span>.
+			</p>
+			
+			<p>
+				Separating the <strong>events</strong> from the 
+				<span class="definitionClass">function definition</span> is useful
+				for beginners, and so far we have been simply storing a function in a variable
+				and then using that variable, a 
+				<span class="referenceClass">function reference</span>, 
+				to put the function at the end of the 
+				<strong>event</strong>.
+			</p>
+			
+			<p>
+				Now that you are more experienced, you are allowed to skip the 
+				<span class="referenceClass">function reference</span>, and add the 
+				<span class="definitionClass">function definition</span> right to the
+				<strong>event</strong>. For example, this is now OK:
+			</p>
+			
+			<pre><code><span class="sc2">//  this adds the function definition directly to the onclick event
+</span><span class="sc0">
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#buttonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'Hello!'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">// ...IS EXACTLY THE SAME AS THE OLD WAY...
+</span><span class="sc0">
+</span><span class="sc2">//  create a variable that stores the function definition for mainProcedure
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'Hello!'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//  attaching the function reference onto onclick is the same as adding the function directly
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#buttonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc10">;</span></code></pre>
+			<h2>Functions should almost always be defined seperately from each other</h2>
+			
+			<p>
+				A common mistake of beginners is to accidentally include 
+				the definitions of all the input/process/output functions inside 
+				<code>mainProcedure</code>.
+			</p>
+			<p>For example, this code <strong>WILL NOT</strong> work:</p>
+			<pre><code><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getInput</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">calculateResults</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputResults</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getInput</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc2">//...grab the input
+</span><span class="sc0">        </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">calculateResults</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc2">//...make a calculation
+</span><span class="sc0">        </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputResults</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">( </span><span class="sc7">'#outputId'</span><span class="sc10"> ).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">   
+</span><span class="sc10">}</span></code></pre>
+			
+			<p>
+				Functions work best when defined backwards, one after another.
+				Style-wise, I will typically list my function definitions in this order:<br>
+				<strong>init</strong> 
+				&rarr; <strong>output</strong>
+				&rarr; <strong>process</strong> 
+				&rarr; <strong>input</strong> 
+				&rarr; <strong>main</strong> 
+			</p>
+			<p>
+				This example <strong>WILL</strong> work:
+				<span class="definitionClass">definition</span> <span class="callClass">call</span> <span class="referenceClass">reference</span>
+			</p>
+
+			<pre><code></span><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputResults</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">( </span><span class="sc7">'#outputId'</span><span class="sc10"> ).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11 referenceClass">results</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+<span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">calculateResults</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc2">//...make a calculation
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+<span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getInput</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc2">//...grab the input
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0">
+</span><span class="sc10">}</span>
+
+<span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="callClass"><span class="sc11">getInput</span><span class="sc10">();</span></span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="callClass"><span class="sc11">calculateResults</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">input</span><span class="sc0"> </span><span class="sc10">);</span></span><span class="sc0">
+    </span><span class="callClass"><span class="sc11">outputResults</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">results</span><span class="sc0"> </span><span class="sc10">);</span></span><span class="sc0">
+</span><span class="sc10">}</span></code></pre>
+			
+			<h2>An example: Which kind of function do you put where?</h2>
+			<p>
+				Let's work from the bottom to the top. Colour codes:
+				<span class="definitionClass">definition</span> <span class="callClass">call</span> <span class="referenceClass">reference</span>
+			</p>
+			
+			<pre><code><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in mainProcedure...'</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="callClass"><span class="sc11">readKeypress</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10"> );</span></span><span class="sc0">
+    </span><span class="question" onclick="this.style.border = '1px solid blue';" data-answer='<span class="sc11">getBiggerOrSmaller</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">);</span>'></span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT: read which key was pressed
+</span><span class="question" onclick="this.style.border = '1px solid red';" data-answer='<span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span>'></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in readKeypress... keyEvent:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: fork the code if they pressed the up button
+</span><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getBiggerOrSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in getBiggerOrSmaller... keyCode:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">85</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">          </span><span class="sc2">// U button
+</span><span class="sc0">        </span><span class="question" onclick="this.style.border = '1px solid blue';" data-answer='<span class="sc11">makeStarBigger</span><span class="sc10">();</span>'></span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">68</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc2">// D button
+</span><span class="sc0">        </span><span class="callClass"><span class="sc11">makeStarSmaller</span><span class="sc10">();</span></span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">   
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: make the star bigger
+</span><span class="question"  onclick="this.style.border = '1px solid red';" data-answer='<span class="sc5">var</span><span class="sc0"> </span><span class="sc11">makeStarBigger</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span>'></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in makeStarBigger...'</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc11">$</span><span class="sc10">( </span><span class="sc7">'#imageId'</span><span class="sc10"> ).</span><span class="sc11">animate</span><span class="sc10">( { </span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"+=40px"</span><span class="sc10"> } );</span><span class="sc0">   
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: make the star smaller
+</span><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">makeStarSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in makeStarSmaller...'</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc11">$</span><span class="sc10">( </span><span class="sc7">'#imageId'</span><span class="sc10"> ).</span><span class="sc11">animate</span><span class="sc10">( { </span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"-=40px"</span><span class="sc10"> } );</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT: run mainProcedure when someone presses a key
+</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">;</span></code></pre>
+			
+		</article>
+		<!--#include virtual="/footer.html" -->	
+		<script>
+			 document.body.onload	=	questionLoader;
+		</script>
+	</body>
+</html>

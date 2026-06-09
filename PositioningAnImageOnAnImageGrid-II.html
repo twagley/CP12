@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Problem Solving: Positioning an Image on an Image Grid</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to use data to customize the appearance of a table cell
+		
+			Created:	28. April 2015
+			Updated:	29. April 2015 	- Added results of class discussion
+										- obfuscated code
+						30. April 2015	- forked and changed code to emphasize positioning styles
+		-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			//	Global variables (just so that they can be seen by the buttons...
+			//	Create three objects quickly that can be animated
+			var msPacMan	=new AnimatedObject("msPacID", "img/MsPacMan.png", "35px"); 	// create the msPacMan object
+			var blinky 		=new AnimatedObject("blinkyID", "img/Blinky.png", "35px"); 	// create the blinky (red ghost) object
+			var pinky 		=new AnimatedObject("pinkyID", "img/Pinky.png", "35px"); 	// create the blinky (red ghost) object
+			
+			
+			function mainProcedure () {
+				msPacMan.outputImage();
+				msPacMan.moveToPosition();
+				
+				blinky.outputImage();
+				blinky.moveToPosition();
+				
+				pinky.outputImage();
+				pinky.moveToPosition();
+			}
+			
+										// Note that object constructors start with UPPER CASE by the rules of good style
+			function AnimatedObject (idInfo, srcInfo, widthInfo) { 	// object constructors pass variables into the function definition as usual
+				this.id		=idInfo;
+				this.src	=srcInfo;
+				this.width	="38px";		// Notice also that it is width=" instead of "width:"
+				
+				this.outputImage	=function() {
+					console.log('in AnimatedObject.outputImage this.id='+this.id);
+					var element	=document.getElementById(this.id);
+					element.src				=this.src;	// image src file
+					element.style.height	=this.width;	// image width
+					element.style.width		=this.width;	// image width
+					element.style.position	="absolute"; 	// CSS to allow animation movement
+					};
+					
+				this.moveToPosition	=function() {	// PROCESS: method to animate right
+					var left	=document.getElementById(this.id+'.left').value;	// get the left value input by user
+					var top		=document.getElementById(this.id+'.top').value;		// get the top value input by user
+					console.log('in moveToPosition... left, top='+left+' '+top);
+					
+					document.getElementById(this.id).style.left =left + 'px';		// move the image to this left coordinate
+					document.getElementById(this.id).style.top =top + 'px';			// move the image to the top coordinate
+					this.updatePositionInfo();										// update the deltas
+					}
+
+				this.updatePositionInfo	=function() {	// PROCESS: output the differences in positions between the images
+					console.log('in updatePositionInfo... "#"+this.id='+"#"+this.id);
+					
+					var posMs =$("#msPacID").position();
+					var posBlinky =$("#blinkyID").position();
+					var posPinky =$("#pinkyID").position();
+					document.getElementById("left-delta1").innerHTML	=-(posMs.left - posBlinky.left);
+					document.getElementById("top-delta1").innerHTML		=-(posMs.top - posBlinky.top);
+					document.getElementById("left-delta2").innerHTML	=-(posBlinky.left - posPinky.left);
+					document.getElementById("top-delta2").innerHTML		=-(posBlinky.top - posPinky.top);
+					}
+			}; 
+	
+			function insertAnswer (id, answer) {//OUTPUT:  this function outputs an answer into the tag with the given id
+				document.getElementById(id).innerHTML	=answer;
+			}
+
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:	38px;
+				height:	38px;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+			.bigtext {
+				font-size:			30px;
+			}
+
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<article>
+			<table>
+				<tr>
+					<td class="withborder">Ms</td>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+				</tr>
+				<tr>
+					<td class="withborder"></td>
+					<td class="withborder">Blink</td>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+				</tr>
+				<tr>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+					<td class="withborder">Pinky</td>
+					<td class="withborder"></td>
+				</tr>
+				<tr>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+					<td class="withborder"></td>
+				</tr>
+			</table>
+			
+			<p>
+				<img id="blinkyID"><img id="msPacID"><img id="pinkyID">
+			</p>
+			
+			<h3>Position the following images into their place on the grid!</h3>
+			<p>
+				<img src="img/MsPacMan.png" width="16"> <strong>Ms. Pacman:</strong><br />
+				<code>&lt;img src="MsPacMan.png" style="top: <input type="text" id="msPacID.top" size="3" value="80" onchange="msPacMan.moveToPosition()">px;
+					left: <input type="text" id="msPacID.left" size="3" value="30" onchange="msPacMan.moveToPosition()">px;"></code>
+				<button type="button" onclick="msPacMan.moveToPosition()">Update</button><br />
+				<br />
+				Difference between Ms. Pacman and Blinky: top=<strong id="top-delta1"></strong>px, left=<strong id="left-delta1"></strong>px<br />
+				<br />
+				<img src="img/Blinky.png" width="16"> <strong>Blinky: </strong><br />
+				<code>&lt;img src="Blinky.png" style="top: <input type="text" id="blinkyID.top" size="3" value="30" onchange="blinky.moveToPosition()">px; 
+					left: <input type="text" id="blinkyID.left" size="3" value="250" onchange="blinky.moveToPosition()">px;"></code>
+				<button type="button" onclick="blinky.moveToPosition()">Update</button><br />
+				<br />
+				Difference between Blinky and Pinky: top=<strong id="top-delta2"></strong>px, left=<strong id="left-delta2"></strong>px<br />
+				<br />
+				<img src="img/Pinky.png" width="16"> <strong>Pinky:</strong><br />
+				<code>&lt;img src="Pinky.png" style="top: <input type="text" id="pinkyID.top" size="3" value="2" onchange="pinky.moveToPosition()">px;
+					left: <input type="text" id="pinkyID.left" size="3" value="400" onchange="pinky.moveToPosition()">px;"></code>
+				<button type="button" onclick="pinky.moveToPosition()">Update</button><br />
+				
+			<h2>Problem Solving: Positioning an Image on Top of a Grid</h2>
+						
+			<p>
+				Let's look at what we know:
+			</p>
+
+			
+			<ul>
+				<li>
+					We can position things using <code>style</code> information<br />&nbsp;
+				</li>
+				<li>
+					CSS allows us to move elements out of their normal place if we use the <code>position: absolute</code> style property, like this:<br />
+					<br />
+					<code>&lt;img src="Blinky" style="position: absolute"></code><br />&nbsp;
+				</li>
+				<li>
+					We can position things precisely using the <code>left: </code> and <code>top: </code> style properties, like this:<br />
+					<br />
+					<code>&lt;img src="Blinky" style="position: absolute; top: 46px; left: 12px;"></code><br />&nbsp;
+				</li>
+				<li>
+					We also know that there will be an even space between each cell on the grid.<br/>
+					In the example above, this is equal to the difference measurements between each image.
+					Let's call this the <var>rowWidth</var> and the <var>columnWidth</var>.
+				</li>
+				<li>
+					We also know that the first positions in the grid don't start at zero.<br/>
+					These are called offsets.<br />
+					In the example above, <var>rowOffset</var> = <br />
+					In the example above, <var>columnOffset</var> = <br />
+				</li>
+				
+				<p>We now have enough information to create a function to calculate coordinates from row and column data!</p>
+				<pre><code>
+	function outputPositionStyle (row, column) {
+		var <var>columnOffset</var> = 		<var>// add the offset</var>
+		var <var>rowOffset</var> = 		<var>// add the offset</var>
+		var <var>columnWidth</var> = 		<var>// add the width</var>
+		var <var>rowWidth</var> = 			<var>// add the width</var>
+		
+		var <var>outputStyle</var> =""; 	<var>// this holds the style to be output</var>
+
+		<var>// In our class discussion, we determined that we could calculate the positioning coordinates as follows:</var>
+		<var>// </var>left =columnOffset + (column * columnWidth);
+		<var>// </var>top =rowOffset + (row * rowWidth);
+		<var>// After that, it is a matter of joining that information into outputStyle</var>
+
+		return <var>outputStyle</var>;		<var>// outputs the style, eg: <code>position: relative; top: 46px; left: 12px;</code></var>
+	}
+				</code></pre>
+
+		</article>
+	</body>
+</html>
+
+

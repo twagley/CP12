@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: Make a rainbow
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use an array to create a rainbow">
+		<meta name="author" content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				1. November 2015	- created!
+				28. November 2018 - updated style 								- Drapak
+				
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.07 Skill-builder: <em>Make a rainbow</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: <a href="processForLoops.shtml"><code>for</code> loops</a>
+				</li>
+
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty 
+				<a href="3.07S-MakeARainbow-LastName.html">template</a> as 
+				"<code>3.07S-MakeARainbow-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use arrays and <code>for...in</code> loops to create rainbow.<br>
+			</p>
+			
+			<div id="outputId"></div>
+			
+			<h2>For example</h2>
+
+			<h4>Behold! The magical power of light!</h4>
+			<p>
+				<button id="wideRainbowButtonId">Click to make a wide rainbow!</button><br>		
+			</p>
+			
+			<h2>Or change it up into a series of <code>&lt;span></code>s</h2>
+			<h4>Behold! The other, very similar power of light!</h4>
+			
+			<p>
+				<button id="thinRainbowButtonId">Click to make a rainbow!</button><br>		
+			</p>
+
+			<h2>
+				Or stagger the <code>&lt;span></code>s using 
+				<code>style="position: relative; top: ???px;"</code>
+			</h2>
+			<h4>Behold! An awesome staircase of light!</h4>
+
+			<p>
+				<button id="rainbowStairButtonId">Click to make a rainbow!</button><br>		
+			</p>
+
+			<h2>Hints</h2>
+			<ol>
+				<li>
+					Create a <code>&lt;div></code> with <code>id="outputId"</code> 
+					in the body of your code
+				</li>
+				<li>
+					Create a button that will trigger <code>mainProcedure()</code>
+				</li>
+				<li>
+					Initialize your rainbow array
+				</li>
+				<li>
+					Create an output function that will insert a result into 
+					<code>outputId</code>
+				</li>
+				<li>
+					Create a process function that uses <code>for...in</code> 
+					loops to create a list
+				</li>
+				<li>
+					Use inline styles to add the background colour: 
+					<code>&lt;li style='background-color: red;'>&lt;/li></code><br>
+					<strong>Note:</strong> Using Javascript to create code with inline 
+					styles is being seen as increasingly amateurish. 
+					It is OK to use inline styles in generated code for the meantime.
+					But ask yourself how you can 
+					add a class instead - or even better - how to create an element and then
+					add <code>.style.backgroundColor</code> to it.
+				</li>
+				<li>
+					Create a <code>mainProcedure</code> function that will pass the 
+					rainbow array to your process function, and then pass the results 
+					to your output function
+				</li>
+				<li>
+					Reread //PROCESS: <a href="processForLoops.shtml"><code>for</code> 
+					loops</a> for more info
+				</li>
+			</ol>
+			
+		</article>
+ 		<script src="./supporting/MakeARainbow.js"></script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

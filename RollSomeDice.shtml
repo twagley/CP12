@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: Roll some dice
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript roll some dice">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. October 2015	- created!
+				25. March 2017		- reworked style and added hint about unicode dice
+				21. October 2018	- reworked style and moving toward different images per number
+
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+		<style>
+			#imageId {
+				width:		100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.11 Skill-builder: <em>Roll some dice</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INPUT: 
+					<a href="inputDetectingMouseovers.shtml">Detecting mouseovers</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processRandomnessAndRounding.shtml">Randomness and rounding</a>
+				</li>
+				<li>
+					//HTML and OUTPUT: 
+					<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.11S-RollSomeDice-LastName.html">empty template</a> as 
+				"<code>2.11S-RollSomeDice-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Create a program that uses Javascript makes a random image appear when 
+				someone mouses over something.
+			</p>
+			<ol>
+				<li>
+					Create a page with instructions on what element to roll over
+				</li>
+				<li>
+					Add an id and a <code>onmouseover</code> event to that element
+				</li>
+				<li>
+					Create a function that will randomly roll a die
+				</li>
+				<li>
+					Make a different image or symbol appear 
+					depending on which number is rolled.
+				</li>
+			</ol>
+			
+			<h2>For example</h2>
+			<p>
+				Mouse over the question mark to roll a die...<br>
+				<img 
+					id='imageId' 
+					alt='random images will appear here' 
+					src='https://www.kasandbox.org/programming-images/avatars/questionmark.png'>
+			</p>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+			var _0x36c6=["\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x72\x61\x6E\x64\x6F\x6D","\x63\x65\x69\x6C","\x73\x72\x63","\x23\x69\x6D\x61\x67\x65\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x61\x76\x61\x74\x61\x72\x73\x2F\x6D\x72\x2D\x70\x61\x6E\x74\x73\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x61\x76\x61\x74\x61\x72\x73\x2F\x6F\x6C\x64\x2D\x73\x70\x69\x63\x65\x2D\x6D\x61\x6E\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x61\x76\x61\x74\x61\x72\x73\x2F\x6F\x72\x61\x6E\x67\x65\x2D\x6A\x75\x69\x63\x65\x2D\x73\x71\x75\x69\x64\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x72\x65\x61\x74\x75\x72\x65\x73\x2F\x48\x6F\x70\x70\x65\x72\x2D\x4A\x75\x6D\x70\x69\x6E\x67\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x61\x76\x61\x74\x61\x72\x73\x2F\x6C\x65\x61\x66\x65\x72\x73\x2D\x74\x72\x65\x65\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x73\x70\x61\x63\x65\x2F\x6F\x63\x74\x6F\x70\x75\x73\x2E\x70\x6E\x67","\x6F\x6E\x6D\x6F\x75\x73\x65\x6F\x76\x65\x72"];var mainProcedure=function(){console[_0x36c6[1]](_0x36c6[0]);var _0x39ddx2=Math[_0x36c6[3]](Math[_0x36c6[2]]()* 6);if(_0x39ddx2== 1){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[7]}else {if(_0x39ddx2== 2){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[8]}else {if(_0x39ddx2== 3){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[9]}else {if(_0x39ddx2== 4){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[10]}else {if(_0x39ddx2== 5){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[11]}else {if(_0x39ddx2== 6){document[_0x36c6[6]](_0x36c6[5])[_0x36c6[4]]= _0x36c6[12]}}}}}}};document[_0x36c6[6]](_0x36c6[5])[_0x36c6[13]]= mainProcedure
+		</script>
+	</body>
+</html>

@@ -1,0 +1,2308 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming: PROCESS 
+			- Using arrays of objects to create a map
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use arrays of objects to create a map">
+		<meta name="author" content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				14. November	- created!										- Drapak
+				15. November 	- forked into table and map						- Drapak
+				9. Dec 2018		- reworked style								- Drapak
+			-->
+
+
+		<style>
+			.duration30class {
+				width: 				1px; 
+				height: 			1px; 
+				border-radius: 		0.5px;
+				background-color: 	purple;
+			}
+			.duration60class {
+				width: 				2px; 
+				height: 			2px; 
+				border-radius: 		1px;
+				background-color:	red;
+			}
+			.duration90class {
+				width: 				3px; 
+				height: 			3px; 
+				border-radius: 		1.5px;
+				background-color: 	orange;
+			}
+			.duration120class {
+				width: 				4px; 
+				height: 			4px; 
+				border-radius: 		2px;
+				background-color: 	yellow;
+			}
+			.duration180class {
+				width: 				5px; 
+				height: 			5px; 
+				border-radius: 		2.5px;
+				background-color: 	blue;
+			}
+			.duration300class {
+				width: 				7px; 
+				height: 			7px; 
+				border-radius: 		3.5px;
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Using arrays of objects to create a map</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<pre><code>//PROCESS: loop through each element of an array of objects 
+var loopThroughArrayOfObjects = function ( exampleArr ) {
+	for ( i in exampleArr ) {			// loop through each object of the array
+	
+		// do something with exampleArr[ i ].oneProperty
+		// do something with exampleArr[ i ].anotherProperty
+		// do something with exampleArr[ i ].yetAnotherProperty
+	}
+}</code></pre>
+
+			<h2>
+				Advanced example: 
+				Creating a map from an array of objects with x and y information
+			</h2>
+			<p>
+				Creating programs that make maps is a very cool, but also complicated. 
+			</p>
+			<p>
+				Often programmers will use libraries and map servers to 
+				generate their code for them, 
+				such as the software created by 
+				<a href="http://www.esri.ca/en">ESRI Canada,</a>
+				which, luckily for us, is based in Bedford, Nova Scotia.
+			</p>
+			<p>
+				A collection of software to make maps is called a 
+				<a href="https://en.wikipedia.org/wiki/Geographic_information_system">
+					Geographic Information System</a>, or <strong>GIS</strong>.
+				It would be a understatement to say that there are good careers in this field.
+			</p>
+			
+			<h3>Creating your own maps</h3>
+			<p>
+				Let's say we want to create a map from a whole bunch of x and y point data, 
+				like latitude and longitude coordinates.
+			</p>
+			<p>
+				Map making is tricky because of scaling issues:			
+			</p>
+			<ul>
+				<li>
+					Your users will be using different screen sizes and shapes to 
+					view your map,
+					which means you will have to read the screen dimensions 
+					in order to automatically adjust the size of the map.
+					You can use the <code>getScreenInformation()</code> 
+					function to read the screen sizes.
+					It returns the screen sizes as an object with <code>.screenHeight</code> 
+					and <code>.screenWidth</code> properties.
+				</li>
+				<li>
+					It would be nice to analyse the screen dimensions and 
+					the data's minimums and maximums
+					in order to automatically scale the map to the user at the largest size.
+					This is a math and logic challenge, and I have created 
+					a few functions that can take care of this for you:
+					<code>getMinsAndMaxs()</code>, and 
+					<code>calculatePositionCode()</code>.<br>
+					<br>The mathematics of screen scaling is about using ratios: 
+					if you like, take a look at the functions to see how it is done.
+					Or, ignore the math and just use the code.
+				</li>
+			</ul>
+			
+			<p>
+				Once you have these tools, we can create a map with the following procedure:
+			</p>
+			
+			<ol>
+				<li>
+					Declare and initialize the map data as an array of 
+					objects having x (longitude) and y (latitude) properties.
+				</li>
+				<li>
+					Read the screen dimensions.
+				</li>
+				<li>
+					Discover the minimums and maximums of your 
+					<code>.longitude</code> and <code>.latitude</code> data.
+				</li>
+				<li>
+					Loop through each element of the array.
+				</li>
+				<ol>
+					<li>
+						Each element of the array is an object, 
+						and it has object properties that you can access.
+					</li>
+					<li>
+						Use the <code>.longitude</code> and <code>.latitude</code> 
+						properties combined the data minimums and maximums 
+						and screen dimensions to calculate a 
+						left and top position for a <code>&lt;div&gt;</code>.
+					</li>
+					<li>
+						Change the class or style of that <code>&lt;div&gt;</code> 
+						in order to reflect the other data of the objects, 
+						in this case, the <code>.meterDuration</code> property.
+					</li>
+				</ol>
+				<li>
+					Output the collection of <code>&lt;div&gt;</code>s.
+				</li>
+			</ol>
+					
+			<p>
+				<button id="buttonId">
+					Click to generate a map of parking meters in the Halifax Regional Municipality
+				</button>
+			</p>
+			<hr>
+
+			<p>...is created with the following code:</p>
+			
+			<p>
+				Don't be intimidated by the length of the 
+				<code>parkingMeterArr</code> array of objects.
+				This program works the same whether there are 
+				<strong>3</strong> objects in the array or <strong>30000</strong>.
+			</p>
+			
+			<pre><code>
+	<span class="sc1">&lt;style&gt;</span><span class="sc0">
+            .duration30class {
+                width:              1px; 
+                height:             1px; 
+                border-radius:      0.5px;
+                background-color:   purple;
+            }
+            .duration60class {
+                width:              2px; 
+                height:             2px; 
+                border-radius:      1px;
+                background-color:   red;
+            }
+            .duration90class {
+                width:              3px; 
+                height:             3px; 
+                border-radius:      1.5px;
+                background-color:   orange;
+            }
+            .duration120class {
+                width:              4px; 
+                height:             4px; 
+                border-radius:      2px;
+                background-color:   yellow;
+            }
+            .duration180class {
+                width:              5px; 
+                height:             5px; 
+                border-radius:      2.5px;
+                background-color:   blue;
+            }
+            .duration300class {
+                width:              7px; 
+                height:             7px; 
+                border-radius:      3.5px;
+                background-color:   green;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span>
+	</span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">
+		Click to generate a map of parking meters in the Halifax Regional Municipality
+	</span><span class="sc1">&lt;/button&gt;</span>
+	<span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INIT: declare the array of objects of parking meter data</span><span class="sc41">
+            </span><span class="sc43">//      data taken from http://catalogue.hrm.opendata.arcgis.com/</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">initParkingMeterArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in initParkingMeterArr..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">longitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc45">63.5852</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">latitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">44.6411</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">meterDuration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">120</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">longitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc45">63.5854</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">latitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">44.6412</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">meterDuration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">120</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+					</span><span class="sc43">// and many more objects</span>
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">longitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc45">63.5851</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">latitude</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">44.64102</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">meterDuration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">120</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">];</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: display the map inside the document body</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputMap</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">mapCode</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in outputMap. mapCode='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">mapCode</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.body.style.backgroundColor</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"black"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.body.innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mapCode</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            
+            </span><span class="sc43">//PROCESS:  Calculate the minimum and maximum values of each property </span><span class="sc41">
+            </span><span class="sc43">//          in the array of objects.</span><span class="sc41">
+            </span><span class="sc43">//          This assumes that each object is identical in structure and numeric</span><span class="sc41">
+            </span><span class="sc43">//          This returns the property names with either "Max" or "Max" on the end,</span><span class="sc41">
+            </span><span class="sc43">//          such as minMaxObj.longitudeMin, or minMaxObj.latitudeMax.</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getMinsAndMaxs</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getMinsAndMaxs...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//create an empty object to hold the minimums and maximums</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">minMaxObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{};</span><span class="sc41">
+                
+                </span><span class="sc43">//set up the initial information for comparison using objArr[ 0 ] {</span><span class="sc41">
+                </span><span class="sc46">minMaxObj.longitudeMin</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">minMaxObj.longitudeMax</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">minMaxObj.latitudeMin</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">minMaxObj.latitudeMax</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc50">;</span><span class="sc41"> 
+                
+                </span><span class="sc43">//LOOP: through each object in this array of objects to find the min and max</span><span class="sc41">
+                </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// store the minimum of this property in property + "Min", </span><span class="sc41">
+                    </span><span class="sc43">// for example: minMaxObj.longitudeMin</span><span class="sc41">
+                    </span><span class="sc46">minMaxObj.longitudeMin</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.min</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">minMaxObj.longitudeMin</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">minMaxObj.latitudeMin</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.min</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">minMaxObj.latitudeMin</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">  
+                        
+                    </span><span class="sc43">// store the maximum of this property in property + "Max",</span><span class="sc41">
+                    </span><span class="sc43">// for example: minMaxObj.longitudeMax</span><span class="sc41">
+                    </span><span class="sc46">minMaxObj.longitudeMax</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.max</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">minMaxObj.longitudeMax</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">minMaxObj.latitudeMax</span><span class="sc41">
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.max</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">minMaxObj.latitudeMax</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">objArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'minMaxObj = '</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">minMaxObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">minMaxObj</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS:  </span><span class="sc41">
+            </span><span class="sc43">//  Calculate the positions given x and y coords, min/max, and screen info</span><span class="sc41">
+            </span><span class="sc43">//  Arguments are as an object: {   </span><span class="sc41">
+            </span><span class="sc43">//      xMin:, xMax:, elementX:, yMin:, yMax:, </span><span class="sc41">
+            </span><span class="sc43">//      elementY:, screenWidth:, screenHeight:</span><span class="sc41">
+            </span><span class="sc43">//  }</span><span class="sc41">
+            </span><span class="sc43">//  Returns css style code: "top: 367px; left: 490px;"</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getPositionCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">posObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getPositionCode. posObj = '</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">posObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// calculate the data range for both the top and left measures</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topRange</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.yMax</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">posObj.yMin</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftRange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.xMax</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">posObj.xMin</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// calculate a range &amp; screen dimension so the plotting is as large as possible</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">range</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">screenDimension</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topRangePerPixel</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">topRange</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">posObj.screenHeight</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftRangePerPixel</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">leftRange</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">posObj.screenWidth</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//IF: the range is taller than it is wide,</span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">topRangePerPixel</span><span class="sc41"> </span><span class="sc50">&gt;</span><span class="sc41"> </span><span class="sc46">leftRangePerPixel</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">range</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">topRange</span><span class="sc50">;</span><span class="sc41"> 
+                    </span><span class="sc46">screenDimension</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.screenHeight</span><span class="sc50">;</span><span class="sc41">
+                    
+                </span><span class="sc43">//ELSE: the range is wider than it is tall</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">range</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">leftRange</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">screenDimension</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.screenWidth</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc43">// calculate the ratio of the coodinates across the screen</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topDelta</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.yMax</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">posObj.elementY</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftDelta</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">posObj.xMax</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">posObj.elementX</span><span class="sc50">;</span><span class="sc41"> 
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topRatio</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">topDelta</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">range</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftRatio</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">leftDelta</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">range</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">// calculate the final position on the screen</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">topPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.round</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">topRatio</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">screenDimension</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">leftPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.round</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">leftRatio</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">screenDimension</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//create the style code to set the top and left position</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">positionCode</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"top: "</span><span class="sc41">   </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">topPosition</span><span class="sc41">   </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px; "</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"left: "</span><span class="sc41">  </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">leftPosition</span><span class="sc41">  </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px;"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">positionCode</span><span class="sc41"> 
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: get the screen height and width (as a number of pixels), and return the info as an object</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getScreenInformation</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in getScreenInformation..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc46">window.innerWidth</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">height</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">window.innerHeight</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS:  create a map of parking meters based on the array of objects</span><span class="sc41">
+            </span><span class="sc43">//          called parkingMeterArr</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createMapCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in createMapCode. parkingMeterArr='</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// get the screen properties</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">screenObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getScreenInformation</span><span class="sc50">();</span><span class="sc41">
+                
+                </span><span class="sc43">// get the minimum and maximum values of all the parts of the array of objects</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataBoundariesObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getMinsAndMaxs</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                                
+                </span><span class="sc43">// create a variable to hold the map's code </span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mapHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//LOOP:     through each element of speedRecordArr </span><span class="sc41">
+                </span><span class="sc43">//          and create a table row for object contained inside</span><span class="sc41">
+                </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//get the position style code </span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">positionCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getPositionCode</span><span class="sc50">(</span><span class="sc41"> 
+                        </span><span class="sc50">{</span><span class="sc41">
+                            </span><span class="sc46">elementX</span><span class="sc50">:</span><span class="sc41">           </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">elementY</span><span class="sc50">:</span><span class="sc41">           </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc50">,</span><span class="sc41">
+                            
+                            </span><span class="sc46">xMin</span><span class="sc50">:</span><span class="sc41">               </span><span class="sc46">dataBoundariesObj.longitudeMin</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">xMax</span><span class="sc50">:</span><span class="sc41">               </span><span class="sc46">dataBoundariesObj.longitudeMax</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">yMin</span><span class="sc50">:</span><span class="sc41">               </span><span class="sc46">dataBoundariesObj.latitudeMin</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">yMax</span><span class="sc50">:</span><span class="sc41">               </span><span class="sc46">dataBoundariesObj.latitudeMax</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">screenWidth</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">screenObj.width</span><span class="sc50">,</span><span class="sc41">
+                            </span><span class="sc46">screenHeight</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc46">screenObj.height</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+
+                    </span><span class="sc43">//create the title to display when the div is moused over</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">title</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"latitude: "</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">latitude</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">", longitude: "</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">longitude</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">", duration: "</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">meterDuration</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" min"</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">//construct the div code for this parking meter</span><span class="sc41">
+                    </span><span class="sc43">//example:  </span><span class="sc41">
+                    </span><span class="sc43">//&lt;div class="duration120class" </span><span class="sc41">
+                    </span><span class="sc43">//  style="position: absolute; top: 630px; left: 256px;" </span><span class="sc41">
+                    </span><span class="sc43">//  title="latitude: 44.6411, longitude: -63.5852, duration: 120min"&gt;</span><span class="sc41">
+                    </span><span class="sc43">//&lt;/div&gt;</span><span class="sc41">
+                    </span><span class="sc46">mapHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mapHTML</span><span class="sc41"> 
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;div "</span><span class="sc41"> 
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" class='duration"</span><span class="sc41"> 
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">meterDuration</span><span class="sc41"> 
+                                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"class'"</span><span class="sc41"> 
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" style='position: absolute; "</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">positionCode</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"'"</span><span class="sc41"> 
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" title='"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">title</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"'&gt;"</span><span class="sc41"> 
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/div&gt;"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">mapHTML</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT EVENT: create the map when #buttonId is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'button has been clicked...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">initParkingMeterArr</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mapCode</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createMapCode</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">parkingMeterArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">outputMap</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">mapCode</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+		</article>
+		<!--#include virtual="/footer.html" -->		
+		<script>
+			//INIT: declare the array of objects of parking meter data
+			//		data taken from http://catalogue.hrm.opendata.arcgis.com/
+			var initParkingMeterArr = function () {
+				console.log( "in initParkingMeterArr..." );
+				
+				var parkingMeterArr = [
+					{ longitude: -63.5852, latitude: 44.6411, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.6412, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.64121, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.64151, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64148, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64149, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64167, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63983, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63989, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.64174, meterDuration: 120 },
+					{ longitude: -63.5828, latitude: 44.64005, meterDuration: 120 },
+					{ longitude: -63.5824, latitude: 44.63957, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.63951, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63956, meterDuration: 120 },
+					{ longitude: -63.5836, latitude: 44.63997, meterDuration: 120 },
+					{ longitude: -63.5823, latitude: 44.64032, meterDuration: 120 },
+					{ longitude: -63.5818, latitude: 44.64046, meterDuration: 120 },
+					{ longitude: -63.582, latitude: 44.64042, meterDuration: 120 },
+					{ longitude: -63.57, latitude: 44.64003, meterDuration: 120 },
+					{ longitude: -63.5701, latitude: 44.64001, meterDuration: 120 },
+					{ longitude: -63.5711, latitude: 44.64069, meterDuration: 120 },
+					{ longitude: -63.5713, latitude: 44.64065, meterDuration: 120 },
+					{ longitude: -63.5718, latitude: 44.64279, meterDuration: 120 },
+					{ longitude: -63.5737, latitude: 44.64907, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.64442, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.64444, meterDuration: 120 },
+					{ longitude: -63.5906, latitude: 44.637, meterDuration: 120 },
+					{ longitude: -63.5906, latitude: 44.637, meterDuration: 120 },
+					{ longitude: -63.5904, latitude: 44.63704, meterDuration: 120 },
+					{ longitude: -63.5904, latitude: 44.63704, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64379, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64368, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.6436, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.64351, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.64349, meterDuration: 120 },
+					{ longitude: -63.5743, latitude: 44.64491, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64534, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64423, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64369, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64414, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64411, meterDuration: 90 },
+					{ longitude: -63.5733, latitude: 44.64624, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64909, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64724, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64829, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64572, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.6456, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.6477, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.649, meterDuration: 90 },
+					{ longitude: -63.5712, latitude: 44.64319, meterDuration: 90 },
+					{ longitude: -63.5706, latitude: 44.64291, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.6428, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64804, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64708, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64565, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64255, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64334, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.64401, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.65012, meterDuration: 90 },
+					{ longitude: -63.5776, latitude: 44.64946, meterDuration: 90 },
+					{ longitude: -63.5872, latitude: 44.63991, meterDuration: 120 },
+					{ longitude: -63.5875, latitude: 44.6378, meterDuration: 120 },
+					{ longitude: -63.5903, latitude: 44.63676, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64591, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64462, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.6447, meterDuration: 120 },
+					{ longitude: -63.5758, latitude: 44.64487, meterDuration: 120 },
+					{ longitude: -63.5762, latitude: 44.64525, meterDuration: 120 },
+					{ longitude: -63.5758, latitude: 44.64462, meterDuration: 120 },
+					{ longitude: -63.5775, latitude: 44.64787, meterDuration: 120 },
+					{ longitude: -63.5776, latitude: 44.64795, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64187, meterDuration: 120 },
+					{ longitude: -63.5799, latitude: 44.65177, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.65152, meterDuration: 120 },
+					{ longitude: -63.5775, latitude: 44.64934, meterDuration: 90 },
+					{ longitude: -63.5777, latitude: 44.64981, meterDuration: 90 },
+					{ longitude: -63.5804, latitude: 44.64995, meterDuration: 90 },
+					{ longitude: -63.5804, latitude: 44.64996, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64776, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64715, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64773, meterDuration: 90 },
+					{ longitude: -63.5764, latitude: 44.64754, meterDuration: 90 },
+					{ longitude: -63.5795, latitude: 44.64184, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.64182, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64327, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64325, meterDuration: 120 },
+					{ longitude: -63.5781, latitude: 44.64942, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.64136, meterDuration: 120 },
+					{ longitude: -63.5737, latitude: 44.64505, meterDuration: 90 },
+					{ longitude: -63.5765, latitude: 44.64379, meterDuration: 120 },
+					{ longitude: -63.5664, latitude: 44.66635, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.66641, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.66634, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.6664, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66718, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66709, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66435, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66425, meterDuration: 90 },
+					{ longitude: -63.5663, latitude: 44.66424, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66484, meterDuration: 90 },
+					{ longitude: -63.5659, latitude: 44.6649, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66633, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66641, meterDuration: 90 },
+					{ longitude: -63.5704, latitude: 44.6661, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66703, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.665, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66432, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66429, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66598, meterDuration: 90 },
+					{ longitude: -63.5653, latitude: 44.66583, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66635, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66646, meterDuration: 90 },
+					{ longitude: -63.5649, latitude: 44.66704, meterDuration: 90 },
+					{ longitude: -63.5694, latitude: 44.66616, meterDuration: 90 },
+					{ longitude: -63.5784, latitude: 44.64995, meterDuration: 120 },
+					{ longitude: -63.5798, latitude: 44.65168, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.65086, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.65074, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.65046, meterDuration: 120 },
+					{ longitude: -63.5818, latitude: 44.63926, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.63963, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.63971, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.63867, meterDuration: 120 },
+					{ longitude: -63.5844, latitude: 44.63858, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63709, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63726, meterDuration: 120 },
+					{ longitude: -63.5842, latitude: 44.63834, meterDuration: 120 },
+					{ longitude: -63.5798, latitude: 44.63947, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.63941, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.64154, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64585, meterDuration: 120 },
+					{ longitude: -63.5741, latitude: 44.64405, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.64511, meterDuration: 120 },
+					{ longitude: -63.5753, latitude: 44.6453, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.63999, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.64436, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.6402, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64059, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.64087, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.64681, meterDuration: 90 },
+					{ longitude: -63.5768, latitude: 44.64757, meterDuration: 90 },
+					{ longitude: -63.5681, latitude: 44.66556, meterDuration: 90 },
+					{ longitude: -63.5684, latitude: 44.66532, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64427, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.64162, meterDuration: 120 },
+					{ longitude: -63.5712, latitude: 44.64423, meterDuration: 120 },
+					{ longitude: -63.5769, latitude: 44.64174, meterDuration: 90 },
+					{ longitude: -63.5808, latitude: 44.65015, meterDuration: 90 },
+					{ longitude: -63.5772, latitude: 44.6491, meterDuration: 90 },
+					{ longitude: -63.578, latitude: 44.64145, meterDuration: 90 },
+					{ longitude: -63.5784, latitude: 44.64199, meterDuration: 90 },
+					{ longitude: -63.5775, latitude: 44.64216, meterDuration: 90 },
+					{ longitude: -63.5776, latitude: 44.64154, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64158, meterDuration: 90 },
+					{ longitude: -63.5769, latitude: 44.64175, meterDuration: 90 },
+					{ longitude: -63.5769, latitude: 44.64162, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64158, meterDuration: 90 },
+					{ longitude: -63.5785, latitude: 44.64205, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64155, meterDuration: 90 },
+					{ longitude: -63.5775, latitude: 44.64215, meterDuration: 90 },
+					{ longitude: -63.5777, latitude: 44.64151, meterDuration: 90 },
+					{ longitude: -63.5768, latitude: 44.64166, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64181, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.6417, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64153, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64149, meterDuration: 90 },
+					{ longitude: -63.583, latitude: 44.64085, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.64058, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63967, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63996, meterDuration: 120 },
+					{ longitude: -63.5842, latitude: 44.63981, meterDuration: 120 },
+					{ longitude: -63.5696, latitude: 44.64012, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64119, meterDuration: 120 },
+					{ longitude: -63.5711, latitude: 44.6407, meterDuration: 120 },
+					{ longitude: -63.5716, latitude: 44.64058, meterDuration: 120 },
+					{ longitude: -63.5718, latitude: 44.64277, meterDuration: 120 },
+					{ longitude: -63.5704, latitude: 44.64532, meterDuration: 120 },
+					{ longitude: -63.5774, latitude: 44.644, meterDuration: 120 },
+					{ longitude: -63.5726, latitude: 44.649, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64182, meterDuration: 90 },
+					{ longitude: -63.577, latitude: 44.6417, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66636, meterDuration: 90 },
+					{ longitude: -63.5673, latitude: 44.66618, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.66629, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66691, meterDuration: 90 },
+					{ longitude: -63.5678, latitude: 44.66463, meterDuration: 90 },
+					{ longitude: -63.5663, latitude: 44.66421, meterDuration: 90 },
+					{ longitude: -63.566, latitude: 44.66516, meterDuration: 90 },
+					{ longitude: -63.5648, latitude: 44.66713, meterDuration: 90 },
+					{ longitude: -63.5648, latitude: 44.66711, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.66479, meterDuration: 90 },
+					{ longitude: -63.5663, latitude: 44.66624, meterDuration: 90 },
+					{ longitude: -63.5676, latitude: 44.66617, meterDuration: 90 },
+					{ longitude: -63.5651, latitude: 44.66673, meterDuration: 90 },
+					{ longitude: -63.5652, latitude: 44.66667, meterDuration: 90 },
+					{ longitude: -63.5666, latitude: 44.6668, meterDuration: 90 },
+					{ longitude: -63.5686, latitude: 44.66635, meterDuration: 120 },
+					{ longitude: -63.5675, latitude: 44.66713, meterDuration: 120 },
+					{ longitude: -63.5686, latitude: 44.66639, meterDuration: 120 },
+					{ longitude: -63.5685, latitude: 44.66643, meterDuration: 120 },
+					{ longitude: -63.5675, latitude: 44.66728, meterDuration: 120 },
+					{ longitude: -63.5671, latitude: 44.66765, meterDuration: 120 },
+					{ longitude: -63.5656, latitude: 44.66808, meterDuration: 120 },
+					{ longitude: -63.5671, latitude: 44.66673, meterDuration: 120 },
+					{ longitude: -63.5726, latitude: 44.6458, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64594, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64592, meterDuration: 90 },
+					{ longitude: -63.5767, latitude: 44.64269, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64622, meterDuration: 90 },
+					{ longitude: -63.5713, latitude: 44.64675, meterDuration: 90 },
+					{ longitude: -63.5715, latitude: 44.64669, meterDuration: 90 },
+					{ longitude: -63.5716, latitude: 44.64668, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.65174, meterDuration: 30 },
+					{ longitude: -63.5745, latitude: 44.65149, meterDuration: 30 },
+					{ longitude: -63.5745, latitude: 44.65146, meterDuration: 30 },
+					{ longitude: -63.5746, latitude: 44.65139, meterDuration: 30 },
+					{ longitude: -63.5747, latitude: 44.65137, meterDuration: 30 },
+					{ longitude: -63.5804, latitude: 44.63962, meterDuration: 120 },
+					{ longitude: -63.5844, latitude: 44.63859, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.63923, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.64143, meterDuration: 120 },
+					{ longitude: -63.5867, latitude: 44.638, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.63989, meterDuration: 120 },
+					{ longitude: -63.5892, latitude: 44.63734, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.64632, meterDuration: 120 },
+					{ longitude: -63.5894, latitude: 44.6373, meterDuration: 120 },
+					{ longitude: -63.5825, latitude: 44.63698, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64472, meterDuration: 120 },
+					{ longitude: -63.5741, latitude: 44.644, meterDuration: 120 },
+					{ longitude: -63.5731, latitude: 44.64797, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64749, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64348, meterDuration: 90 },
+					{ longitude: -63.5759, latitude: 44.64375, meterDuration: 90 },
+					{ longitude: -63.5787, latitude: 44.64447, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.65081, meterDuration: 90 },
+					{ longitude: -63.5775, latitude: 44.64932, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64965, meterDuration: 90 },
+					{ longitude: -63.5809, latitude: 44.65021, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64782, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64706, meterDuration: 90 },
+					{ longitude: -63.5759, latitude: 44.64682, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64629, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64608, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64551, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64772, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64544, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64509, meterDuration: 90 },
+					{ longitude: -63.573, latitude: 44.64511, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64527, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64917, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64858, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64889, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64794, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.6477, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.66677, meterDuration: 120 },
+					{ longitude: -63.5675, latitude: 44.66727, meterDuration: 120 },
+					{ longitude: -63.5761, latitude: 44.64381, meterDuration: 30 },
+					{ longitude: -63.5775, latitude: 44.64222, meterDuration: 90 },
+					{ longitude: -63.5776, latitude: 44.64155, meterDuration: 90 },
+					{ longitude: -63.5763, latitude: 44.64375, meterDuration: 30 },
+					{ longitude: -63.5855, latitude: 44.64548, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.6455, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64556, meterDuration: 120 },
+					{ longitude: -63.5857, latitude: 44.64588, meterDuration: 120 },
+					{ longitude: -63.5673, latitude: 44.66702, meterDuration: 120 },
+					{ longitude: -63.5675, latitude: 44.66714, meterDuration: 120 },
+					{ longitude: -63.5678, latitude: 44.6661, meterDuration: 120 },
+					{ longitude: -63.5649, latitude: 44.66766, meterDuration: 120 },
+					{ longitude: -63.5671, latitude: 44.66764, meterDuration: 120 },
+					{ longitude: -63.567, latitude: 44.66684, meterDuration: 120 },
+					{ longitude: -63.5672, latitude: 44.66695, meterDuration: 120 },
+					{ longitude: -63.5771, latitude: 44.64414, meterDuration: 120 },
+					{ longitude: -63.5721, latitude: 44.64157, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.64374, meterDuration: 120 },
+					{ longitude: -63.5808, latitude: 44.644, meterDuration: 120 },
+					{ longitude: -63.5791, latitude: 44.64065, meterDuration: 120 },
+					{ longitude: -63.5781, latitude: 44.64949, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.65193, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.65172, meterDuration: 120 },
+					{ longitude: -63.576, latitude: 44.6449, meterDuration: 120 },
+					{ longitude: -63.5722, latitude: 44.64503, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64515, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.64531, meterDuration: 90 },
+					{ longitude: -63.5725, latitude: 44.64565, meterDuration: 90 },
+					{ longitude: -63.5725, latitude: 44.64567, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64521, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64432, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64459, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64417, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64419, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64385, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64378, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64477, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64497, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64531, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64936, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64859, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64915, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64791, meterDuration: 90 },
+					{ longitude: -63.5721, latitude: 44.64587, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.64694, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.6481, meterDuration: 90 },
+					{ longitude: -63.5717, latitude: 44.64256, meterDuration: 120 },
+					{ longitude: -63.5726, latitude: 44.64692, meterDuration: 120 },
+					{ longitude: -63.5726, latitude: 44.64686, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.64311, meterDuration: 120 },
+					{ longitude: -63.5792, latitude: 44.6409, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.64332, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.6413, meterDuration: 120 },
+					{ longitude: -63.5789, latitude: 44.64059, meterDuration: 120 },
+					{ longitude: -63.5781, latitude: 44.64952, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.64011, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64028, meterDuration: 120 },
+					{ longitude: -63.585, latitude: 44.64033, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.64042, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.64077, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.64075, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.64056, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.64168, meterDuration: 120 },
+					{ longitude: -63.5828, latitude: 44.63997, meterDuration: 120 },
+					{ longitude: -63.5852, latitude: 44.63954, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.63963, meterDuration: 120 },
+					{ longitude: -63.5842, latitude: 44.63982, meterDuration: 120 },
+					{ longitude: -63.5841, latitude: 44.63985, meterDuration: 120 },
+					{ longitude: -63.5818, latitude: 44.64045, meterDuration: 120 },
+					{ longitude: -63.5688, latitude: 44.63987, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.64109, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.64231, meterDuration: 120 },
+					{ longitude: -63.5718, latitude: 44.64284, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64051, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.6405, meterDuration: 120 },
+					{ longitude: -63.572, latitude: 44.64159, meterDuration: 120 },
+					{ longitude: -63.5733, latitude: 44.64125, meterDuration: 120 },
+					{ longitude: -63.5808, latitude: 44.64396, meterDuration: 120 },
+					{ longitude: -63.5794, latitude: 44.64124, meterDuration: 120 },
+					{ longitude: -63.5722, latitude: 44.64791, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64282, meterDuration: 90 },
+					{ longitude: -63.5722, latitude: 44.64332, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64674, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66597, meterDuration: 90 },
+					{ longitude: -63.5714, latitude: 44.64445, meterDuration: 120 },
+					{ longitude: -63.5656, latitude: 44.66704, meterDuration: 90 },
+					{ longitude: -63.5861, latitude: 44.63915, meterDuration: 300 },
+					{ longitude: -63.5808, latitude: 44.64404, meterDuration: 120 },
+					{ longitude: -63.5654, latitude: 44.66465, meterDuration: 90 },
+					{ longitude: -63.584, latitude: 44.64273, meterDuration: 300 },
+					{ longitude: -63.5843, latitude: 44.64283, meterDuration: 300 },
+					{ longitude: -63.5812, latitude: 44.64179, meterDuration: 300 },
+					{ longitude: -63.5823, latitude: 44.64148, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64042, meterDuration: 300 },
+					{ longitude: -63.5813, latitude: 44.64176, meterDuration: 300 },
+					{ longitude: -63.5672, latitude: 44.66591, meterDuration: 90 },
+					{ longitude: -63.5663, latitude: 44.666, meterDuration: 90 },
+					{ longitude: -63.5677, latitude: 44.6659, meterDuration: 90 },
+					{ longitude: -63.5862, latitude: 44.64046, meterDuration: 30 },
+					{ longitude: -63.5858, latitude: 44.64073, meterDuration: 90 },
+					{ longitude: -63.584, latitude: 44.6422, meterDuration: 90 },
+					{ longitude: -63.5841, latitude: 44.64278, meterDuration: 300 },
+					{ longitude: -63.5821, latitude: 44.64171, meterDuration: 300 },
+					{ longitude: -63.5718, latitude: 44.64245, meterDuration: 90 },
+					{ longitude: -63.5697, latitude: 44.64148, meterDuration: 90 },
+					{ longitude: -63.5835, latitude: 44.64175, meterDuration: 300 },
+					{ longitude: -63.5804, latitude: 44.64085, meterDuration: 300 },
+					{ longitude: -63.582, latitude: 44.64174, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64015, meterDuration: 300 },
+					{ longitude: -63.5809, latitude: 44.64185, meterDuration: 300 },
+					{ longitude: -63.5844, latitude: 44.643, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64215, meterDuration: 300 },
+					{ longitude: -63.5821, latitude: 44.6417, meterDuration: 300 },
+					{ longitude: -63.5863, latitude: 44.63778, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.64486, meterDuration: 120 },
+					{ longitude: -63.5771, latitude: 44.64689, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64543, meterDuration: 120 },
+					{ longitude: -63.5695, latitude: 44.66604, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66708, meterDuration: 90 },
+					{ longitude: -63.577, latitude: 44.64412, meterDuration: 120 },
+					{ longitude: -63.5866, latitude: 44.63739, meterDuration: 180 },
+					{ longitude: -63.587, latitude: 44.63802, meterDuration: 180 },
+					{ longitude: -63.588, latitude: 44.6381, meterDuration: 180 },
+					{ longitude: -63.5892, latitude: 44.63806, meterDuration: 180 },
+					{ longitude: -63.5861, latitude: 44.63913, meterDuration: 300 },
+					{ longitude: -63.578, latitude: 44.64309, meterDuration: 90 },
+					{ longitude: -63.5675, latitude: 44.66618, meterDuration: 90 },
+					{ longitude: -63.5876, latitude: 44.63775, meterDuration: 120 },
+					{ longitude: -63.5736, latitude: 44.64752, meterDuration: 90 },
+					{ longitude: -63.5721, latitude: 44.64727, meterDuration: 90 },
+					{ longitude: -63.5725, latitude: 44.64378, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64737, meterDuration: 90 },
+					{ longitude: -63.5777, latitude: 44.64982, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64737, meterDuration: 90 },
+					{ longitude: -63.5794, latitude: 44.64167, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.65181, meterDuration: 120 },
+					{ longitude: -63.5846, latitude: 44.63854, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63713, meterDuration: 120 },
+					{ longitude: -63.5864, latitude: 44.63809, meterDuration: 120 },
+					{ longitude: -63.569, latitude: 44.6398, meterDuration: 120 },
+					{ longitude: -63.5657, latitude: 44.66695, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64674, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.6458, meterDuration: 90 },
+					{ longitude: -63.5785, latitude: 44.64418, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.65019, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.6475, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.6457, meterDuration: 90 },
+					{ longitude: -63.5722, latitude: 44.64153, meterDuration: 120 },
+					{ longitude: -63.5781, latitude: 44.64944, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.63942, meterDuration: 120 },
+					{ longitude: -63.5681, latitude: 44.66557, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66689, meterDuration: 90 },
+					{ longitude: -63.5837, latitude: 44.64112, meterDuration: 120 },
+					{ longitude: -63.5867, latitude: 44.63747, meterDuration: 180 },
+					{ longitude: -63.5855, latitude: 44.63946, meterDuration: 120 },
+					{ longitude: -63.5717, latitude: 44.64054, meterDuration: 120 },
+					{ longitude: -63.5828, latitude: 44.64386, meterDuration: 300 },
+					{ longitude: -63.5825, latitude: 44.64392, meterDuration: 300 },
+					{ longitude: -63.583, latitude: 44.64382, meterDuration: 300 },
+					{ longitude: -63.5783, latitude: 44.63893, meterDuration: 300 },
+					{ longitude: -63.578, latitude: 44.63881, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.63932, meterDuration: 300 },
+					{ longitude: -63.5696, latitude: 44.64132, meterDuration: 90 },
+					{ longitude: -63.5697, latitude: 44.64158, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64058, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.6414, meterDuration: 90 },
+					{ longitude: -63.5703, latitude: 44.63959, meterDuration: 90 },
+					{ longitude: -63.5702, latitude: 44.63927, meterDuration: 90 },
+					{ longitude: -63.5703, latitude: 44.63957, meterDuration: 90 },
+					{ longitude: -63.5706, latitude: 44.64185, meterDuration: 90 },
+					{ longitude: -63.5708, latitude: 44.6405, meterDuration: 90 },
+					{ longitude: -63.5706, latitude: 44.64184, meterDuration: 90 },
+					{ longitude: -63.5846, latitude: 44.63824, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.63864, meterDuration: 120 },
+					{ longitude: -63.5742, latitude: 44.64454, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64805, meterDuration: 90 },
+					{ longitude: -63.5805, latitude: 44.63961, meterDuration: 120 },
+					{ longitude: -63.5712, latitude: 44.64318, meterDuration: 90 },
+					{ longitude: -63.5769, latitude: 44.64405, meterDuration: 120 },
+					{ longitude: -63.5788, latitude: 44.64052, meterDuration: 120 },
+					{ longitude: -63.5732, latitude: 44.64661, meterDuration: 90 },
+					{ longitude: -63.5791, latitude: 44.64057, meterDuration: 120 },
+					{ longitude: -63.5728, latitude: 44.64648, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64907, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64919, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64906, meterDuration: 90 },
+					{ longitude: -63.5711, latitude: 44.64321, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64315, meterDuration: 90 },
+					{ longitude: -63.5805, latitude: 44.65003, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64962, meterDuration: 120 },
+					{ longitude: -63.5816, latitude: 44.63933, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.63848, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63806, meterDuration: 120 },
+					{ longitude: -63.5896, latitude: 44.63725, meterDuration: 120 },
+					{ longitude: -63.576, latitude: 44.64555, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64619, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64586, meterDuration: 90 },
+					{ longitude: -63.5936, latitude: 44.64717, meterDuration: 90 },
+					{ longitude: -63.5937, latitude: 44.64723, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64893, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64624, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64768, meterDuration: 90 },
+					{ longitude: -63.5756, latitude: 44.64395, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64491, meterDuration: 120 },
+					{ longitude: -63.5695, latitude: 44.64087, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.64065, meterDuration: 120 },
+					{ longitude: -63.5814, latitude: 44.64056, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.65082, meterDuration: 120 },
+					{ longitude: -63.597, latitude: 44.64591, meterDuration: 30 },
+					{ longitude: -63.5997, latitude: 44.645, meterDuration: 30 },
+					{ longitude: -63.5846, latitude: 44.65201, meterDuration: 90 },
+					{ longitude: -63.5763, latitude: 44.64659, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.64398, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.65049, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.64836, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64573, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66481, meterDuration: 90 },
+					{ longitude: -63.5841, latitude: 44.63835, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64706, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64593, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64499, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64376, meterDuration: 90 },
+					{ longitude: -63.5717, latitude: 44.64254, meterDuration: 120 },
+					{ longitude: -63.5651, latitude: 44.66776, meterDuration: 120 },
+					{ longitude: -63.5674, latitude: 44.66741, meterDuration: 120 },
+					{ longitude: -63.5652, latitude: 44.66781, meterDuration: 120 },
+					{ longitude: -63.5665, latitude: 44.66817, meterDuration: 120 },
+					{ longitude: -63.5658, latitude: 44.66819, meterDuration: 120 },
+					{ longitude: -63.5679, latitude: 44.66633, meterDuration: 120 },
+					{ longitude: -63.5652, latitude: 44.6678, meterDuration: 120 },
+					{ longitude: -63.5666, latitude: 44.6681, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.64526, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.64527, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.64546, meterDuration: 120 },
+					{ longitude: -63.5751, latitude: 44.64503, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.6452, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.64431, meterDuration: 120 },
+					{ longitude: -63.5776, latitude: 44.64806, meterDuration: 120 },
+					{ longitude: -63.5692, latitude: 44.64233, meterDuration: 120 },
+					{ longitude: -63.5706, latitude: 44.64195, meterDuration: 120 },
+					{ longitude: -63.5833, latitude: 44.64088, meterDuration: 120 },
+					{ longitude: -63.5834, latitude: 44.64102, meterDuration: 120 },
+					{ longitude: -63.5863, latitude: 44.63954, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63988, meterDuration: 120 },
+					{ longitude: -63.585, latitude: 44.6404, meterDuration: 120 },
+					{ longitude: -63.5845, latitude: 44.64092, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.6396, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63994, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.63948, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.6395, meterDuration: 120 },
+					{ longitude: -63.5825, latitude: 44.64027, meterDuration: 120 },
+					{ longitude: -63.5817, latitude: 44.64049, meterDuration: 120 },
+					{ longitude: -63.5692, latitude: 44.64009, meterDuration: 120 },
+					{ longitude: -63.5691, latitude: 44.63989, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64094, meterDuration: 120 },
+					{ longitude: -63.5717, latitude: 44.64261, meterDuration: 120 },
+					{ longitude: -63.57, latitude: 44.64541, meterDuration: 120 },
+					{ longitude: -63.5737, latitude: 44.64798, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64642, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.64696, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.648, meterDuration: 90 },
+					{ longitude: -63.573, latitude: 44.64864, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.64993, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64906, meterDuration: 90 },
+					{ longitude: -63.571, latitude: 44.64323, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.64257, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64343, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64341, meterDuration: 90 },
+					{ longitude: -63.5733, latitude: 44.64746, meterDuration: 90 },
+					{ longitude: -63.5733, latitude: 44.64736, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64662, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64245, meterDuration: 90 },
+					{ longitude: -63.5768, latitude: 44.64283, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64319, meterDuration: 90 },
+					{ longitude: -63.565, latitude: 44.66773, meterDuration: 120 },
+					{ longitude: -63.5657, latitude: 44.66814, meterDuration: 120 },
+					{ longitude: -63.5678, latitude: 44.66707, meterDuration: 120 },
+					{ longitude: -63.5679, latitude: 44.66697, meterDuration: 120 },
+					{ longitude: -63.568, latitude: 44.66684, meterDuration: 120 },
+					{ longitude: -63.5682, latitude: 44.66675, meterDuration: 120 },
+					{ longitude: -63.5682, latitude: 44.66674, meterDuration: 120 },
+					{ longitude: -63.5682, latitude: 44.66668, meterDuration: 120 },
+					{ longitude: -63.5674, latitude: 44.66693, meterDuration: 120 },
+					{ longitude: -63.5883, latitude: 44.63758, meterDuration: 30 },
+					{ longitude: -63.5883, latitude: 44.63758, meterDuration: 30 },
+					{ longitude: -63.5882, latitude: 44.63761, meterDuration: 30 },
+					{ longitude: -63.5903, latitude: 44.63728, meterDuration: 180 },
+					{ longitude: -63.5904, latitude: 44.63757, meterDuration: 180 },
+					{ longitude: -63.5904, latitude: 44.63759, meterDuration: 180 },
+					{ longitude: -63.5903, latitude: 44.63736, meterDuration: 180 },
+					{ longitude: -63.5904, latitude: 44.63747, meterDuration: 180 },
+					{ longitude: -63.5887, latitude: 44.63702, meterDuration: 180 },
+					{ longitude: -63.5886, latitude: 44.63697, meterDuration: 180 },
+					{ longitude: -63.5886, latitude: 44.63692, meterDuration: 180 },
+					{ longitude: -63.5886, latitude: 44.63686, meterDuration: 180 },
+					{ longitude: -63.5706, latitude: 44.64289, meterDuration: 90 },
+					{ longitude: -63.5791, latitude: 44.64062, meterDuration: 120 },
+					{ longitude: -63.5738, latitude: 44.64917, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64788, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.64266, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64892, meterDuration: 120 },
+					{ longitude: -63.5706, latitude: 44.64301, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64101, meterDuration: 120 },
+					{ longitude: -63.5794, latitude: 44.64127, meterDuration: 120 },
+					{ longitude: -63.5832, latitude: 44.63859, meterDuration: 120 },
+					{ longitude: -63.5869, latitude: 44.64066, meterDuration: 120 },
+					{ longitude: -63.5753, latitude: 44.64532, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.64027, meterDuration: 120 },
+					{ longitude: -63.5731, latitude: 44.64654, meterDuration: 90 },
+					{ longitude: -63.5869, latitude: 44.64068, meterDuration: 120 },
+					{ longitude: -63.5785, latitude: 44.64203, meterDuration: 90 },
+					{ longitude: -63.5767, latitude: 44.64167, meterDuration: 90 },
+					{ longitude: -63.5825, latitude: 44.64026, meterDuration: 120 },
+					{ longitude: -63.5698, latitude: 44.64547, meterDuration: 120 },
+					{ longitude: -63.5682, latitude: 44.66544, meterDuration: 90 },
+					{ longitude: -63.5663, latitude: 44.6642, meterDuration: 90 },
+					{ longitude: -63.5662, latitude: 44.66623, meterDuration: 90 },
+					{ longitude: -63.5686, latitude: 44.66638, meterDuration: 120 },
+					{ longitude: -63.5666, latitude: 44.66811, meterDuration: 120 },
+					{ longitude: -63.5768, latitude: 44.64281, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.65167, meterDuration: 30 },
+					{ longitude: -63.5837, latitude: 44.63878, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.6378, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64479, meterDuration: 120 },
+					{ longitude: -63.5788, latitude: 44.64464, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64703, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64564, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.64917, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64799, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64383, meterDuration: 30 },
+					{ longitude: -63.5682, latitude: 44.66634, meterDuration: 120 },
+					{ longitude: -63.5667, latitude: 44.66801, meterDuration: 120 },
+					{ longitude: -63.5809, latitude: 44.64412, meterDuration: 120 },
+					{ longitude: -63.5723, latitude: 44.64529, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64508, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64741, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64832, meterDuration: 90 },
+					{ longitude: -63.5713, latitude: 44.64463, meterDuration: 90 },
+					{ longitude: -63.5725, latitude: 44.64146, meterDuration: 120 },
+					{ longitude: -63.5792, latitude: 44.64136, meterDuration: 120 },
+					{ longitude: -63.5839, latitude: 44.64107, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.63946, meterDuration: 120 },
+					{ longitude: -63.569, latitude: 44.64034, meterDuration: 120 },
+					{ longitude: -63.5727, latitude: 44.64142, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64168, meterDuration: 120 },
+					{ longitude: -63.5664, latitude: 44.667, meterDuration: 90 },
+					{ longitude: -63.5654, latitude: 44.66587, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66696, meterDuration: 90 },
+					{ longitude: -63.5657, latitude: 44.66479, meterDuration: 90 },
+					{ longitude: -63.5797, latitude: 44.65167, meterDuration: 120 },
+					{ longitude: -63.5806, latitude: 44.63958, meterDuration: 120 },
+					{ longitude: -63.5852, latitude: 44.63728, meterDuration: 120 },
+					{ longitude: -63.5871, latitude: 44.63788, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.64449, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64638, meterDuration: 90 },
+					{ longitude: -63.5874, latitude: 44.64164, meterDuration: 120 },
+					{ longitude: -63.5665, latitude: 44.66816, meterDuration: 120 },
+					{ longitude: -63.567, latitude: 44.66682, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64457, meterDuration: 120 },
+					{ longitude: -63.5864, latitude: 44.63962, meterDuration: 120 },
+					{ longitude: -63.5825, latitude: 44.63988, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.64107, meterDuration: 120 },
+					{ longitude: -63.5735, latitude: 44.64764, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.6435, meterDuration: 90 },
+					{ longitude: -63.5722, latitude: 44.64319, meterDuration: 90 },
+					{ longitude: -63.5768, latitude: 44.6429, meterDuration: 90 },
+					{ longitude: -63.568, latitude: 44.66692, meterDuration: 120 },
+					{ longitude: -63.5881, latitude: 44.63762, meterDuration: 30 },
+					{ longitude: -63.5903, latitude: 44.63738, meterDuration: 180 },
+					{ longitude: -63.5721, latitude: 44.64726, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64571, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.64476, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64753, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.64739, meterDuration: 90 },
+					{ longitude: -63.5777, latitude: 44.64969, meterDuration: 90 },
+					{ longitude: -63.5823, latitude: 44.63701, meterDuration: 120 },
+					{ longitude: -63.5762, latitude: 44.6452, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64029, meterDuration: 120 },
+					{ longitude: -63.5833, latitude: 44.64006, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.64223, meterDuration: 120 },
+					{ longitude: -63.5653, latitude: 44.66581, meterDuration: 90 },
+					{ longitude: -63.5824, latitude: 44.63965, meterDuration: 120 },
+					{ longitude: -63.5784, latitude: 44.65001, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.63719, meterDuration: 120 },
+					{ longitude: -63.5879, latitude: 44.63736, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64471, meterDuration: 120 },
+					{ longitude: -63.577, latitude: 44.64678, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.64384, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.65187, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.63832, meterDuration: 120 },
+					{ longitude: -63.5896, latitude: 44.63724, meterDuration: 120 },
+					{ longitude: -63.5694, latitude: 44.64228, meterDuration: 120 },
+					{ longitude: -63.5674, latitude: 44.66628, meterDuration: 90 },
+					{ longitude: -63.5854, latitude: 44.63713, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.64059, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.64101, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.6414, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.64098, meterDuration: 120 },
+					{ longitude: -63.5824, latitude: 44.6403, meterDuration: 120 },
+					{ longitude: -63.5691, latitude: 44.63981, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.64166, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.6437, meterDuration: 120 },
+					{ longitude: -63.5739, latitude: 44.64399, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64722, meterDuration: 90 },
+					{ longitude: -63.5721, latitude: 44.64737, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64352, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64297, meterDuration: 90 },
+					{ longitude: -63.5902, latitude: 44.63677, meterDuration: 120 },
+					{ longitude: -63.5762, latitude: 44.64531, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.65153, meterDuration: 120 },
+					{ longitude: -63.5809, latitude: 44.65016, meterDuration: 90 },
+					{ longitude: -63.565, latitude: 44.66697, meterDuration: 90 },
+					{ longitude: -63.5792, latitude: 44.64088, meterDuration: 120 },
+					{ longitude: -63.5784, latitude: 44.65003, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.6385, meterDuration: 120 },
+					{ longitude: -63.5871, latitude: 44.63995, meterDuration: 120 },
+					{ longitude: -63.5838, latitude: 44.64127, meterDuration: 120 },
+					{ longitude: -63.5824, latitude: 44.63959, meterDuration: 120 },
+					{ longitude: -63.5691, latitude: 44.63999, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.65072, meterDuration: 120 },
+					{ longitude: -63.5871, latitude: 44.6376, meterDuration: 120 },
+					{ longitude: -63.5661, latitude: 44.6652, meterDuration: 90 },
+					{ longitude: -63.5684, latitude: 44.66526, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.6653, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66487, meterDuration: 90 },
+					{ longitude: -63.5774, latitude: 44.64202, meterDuration: 90 },
+					{ longitude: -63.5775, latitude: 44.64203, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.66642, meterDuration: 90 },
+					{ longitude: -63.5675, latitude: 44.66624, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.66635, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66638, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66648, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66647, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.66501, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66529, meterDuration: 90 },
+					{ longitude: -63.5659, latitude: 44.66493, meterDuration: 90 },
+					{ longitude: -63.5655, latitude: 44.6665, meterDuration: 90 },
+					{ longitude: -63.5703, latitude: 44.66618, meterDuration: 90 },
+					{ longitude: -63.5703, latitude: 44.6662, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66701, meterDuration: 90 },
+					{ longitude: -63.5861, latitude: 44.63907, meterDuration: 300 },
+					{ longitude: -63.586, latitude: 44.63896, meterDuration: 300 },
+					{ longitude: -63.586, latitude: 44.63898, meterDuration: 300 },
+					{ longitude: -63.5861, latitude: 44.64047, meterDuration: 30 },
+					{ longitude: -63.5859, latitude: 44.64053, meterDuration: 30 },
+					{ longitude: -63.5861, latitude: 44.64048, meterDuration: 30 },
+					{ longitude: -63.5862, latitude: 44.64045, meterDuration: 30 },
+					{ longitude: -63.5862, latitude: 44.64044, meterDuration: 30 },
+					{ longitude: -63.5859, latitude: 44.64069, meterDuration: 90 },
+					{ longitude: -63.5854, latitude: 44.64083, meterDuration: 90 },
+					{ longitude: -63.5854, latitude: 44.64084, meterDuration: 90 },
+					{ longitude: -63.5837, latitude: 44.64165, meterDuration: 90 },
+					{ longitude: -63.5837, latitude: 44.64163, meterDuration: 90 },
+					{ longitude: -63.5839, latitude: 44.64213, meterDuration: 90 },
+					{ longitude: -63.584, latitude: 44.64218, meterDuration: 90 },
+					{ longitude: -63.5789, latitude: 44.64076, meterDuration: 90 },
+					{ longitude: -63.5798, latitude: 44.64064, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64029, meterDuration: 300 },
+					{ longitude: -63.5842, latitude: 44.64273, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64204, meterDuration: 300 },
+					{ longitude: -63.5835, latitude: 44.6417, meterDuration: 300 },
+					{ longitude: -63.5825, latitude: 44.64144, meterDuration: 300 },
+					{ longitude: -63.5843, latitude: 44.64282, meterDuration: 300 },
+					{ longitude: -63.5821, latitude: 44.64154, meterDuration: 300 },
+					{ longitude: -63.581, latitude: 44.642, meterDuration: 300 },
+					{ longitude: -63.5834, latitude: 44.64371, meterDuration: 300 },
+					{ longitude: -63.5781, latitude: 44.63904, meterDuration: 300 },
+					{ longitude: -63.5784, latitude: 44.6391, meterDuration: 300 },
+					{ longitude: -63.5783, latitude: 44.63942, meterDuration: 300 },
+					{ longitude: -63.5686, latitude: 44.64087, meterDuration: 90 },
+					{ longitude: -63.5684, latitude: 44.64091, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.64192, meterDuration: 90 },
+					{ longitude: -63.5685, latitude: 44.64075, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.6406, meterDuration: 90 },
+					{ longitude: -63.5688, latitude: 44.64081, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.64123, meterDuration: 90 },
+					{ longitude: -63.5708, latitude: 44.64056, meterDuration: 90 },
+					{ longitude: -63.5843, latitude: 44.64274, meterDuration: 300 },
+					{ longitude: -63.5842, latitude: 44.64269, meterDuration: 300 },
+					{ longitude: -63.5835, latitude: 44.64168, meterDuration: 300 },
+					{ longitude: -63.5841, latitude: 44.64294, meterDuration: 300 },
+					{ longitude: -63.584, latitude: 44.64262, meterDuration: 300 },
+					{ longitude: -63.581, latitude: 44.64185, meterDuration: 300 },
+					{ longitude: -63.5815, latitude: 44.64172, meterDuration: 300 },
+					{ longitude: -63.582, latitude: 44.64158, meterDuration: 300 },
+					{ longitude: -63.5802, latitude: 44.64088, meterDuration: 300 },
+					{ longitude: -63.5811, latitude: 44.64182, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64071, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64058, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64036, meterDuration: 300 },
+					{ longitude: -63.5811, latitude: 44.64065, meterDuration: 300 },
+					{ longitude: -63.584, latitude: 44.64271, meterDuration: 300 },
+					{ longitude: -63.5811, latitude: 44.64064, meterDuration: 300 },
+					{ longitude: -63.582, latitude: 44.64406, meterDuration: 300 },
+					{ longitude: -63.583, latitude: 44.6438, meterDuration: 300 },
+					{ longitude: -63.5841, latitude: 44.64246, meterDuration: 300 },
+					{ longitude: -63.5836, latitude: 44.64184, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64209, meterDuration: 300 },
+					{ longitude: -63.584, latitude: 44.64263, meterDuration: 300 },
+					{ longitude: -63.5838, latitude: 44.64222, meterDuration: 300 },
+					{ longitude: -63.5814, latitude: 44.64172, meterDuration: 300 },
+					{ longitude: -63.5824, latitude: 44.64147, meterDuration: 300 },
+					{ longitude: -63.5821, latitude: 44.64154, meterDuration: 300 },
+					{ longitude: -63.582, latitude: 44.64157, meterDuration: 300 },
+					{ longitude: -63.5819, latitude: 44.64178, meterDuration: 300 },
+					{ longitude: -63.5834, latitude: 44.64158, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64203, meterDuration: 300 },
+					{ longitude: -63.5839, latitude: 44.64253, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64056, meterDuration: 300 },
+					{ longitude: -63.5839, latitude: 44.64251, meterDuration: 300 },
+					{ longitude: -63.5809, latitude: 44.64071, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64044, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64034, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.6402, meterDuration: 300 },
+					{ longitude: -63.5809, latitude: 44.64205, meterDuration: 300 },
+					{ longitude: -63.5812, latitude: 44.64196, meterDuration: 300 },
+					{ longitude: -63.582, latitude: 44.64174, meterDuration: 300 },
+					{ longitude: -63.5842, latitude: 44.64267, meterDuration: 300 },
+					{ longitude: -63.5802, latitude: 44.64174, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.64322, meterDuration: 120 },
+					{ longitude: -63.567, latitude: 44.66534, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66648, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.6664, meterDuration: 90 },
+					{ longitude: -63.5702, latitude: 44.66625, meterDuration: 90 },
+					{ longitude: -63.5859, latitude: 44.64052, meterDuration: 30 },
+					{ longitude: -63.5858, latitude: 44.64072, meterDuration: 90 },
+					{ longitude: -63.5839, latitude: 44.64211, meterDuration: 90 },
+					{ longitude: -63.5843, latitude: 44.64291, meterDuration: 300 },
+					{ longitude: -63.5823, latitude: 44.6415, meterDuration: 300 },
+					{ longitude: -63.5865, latitude: 44.63805, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64453, meterDuration: 120 },
+					{ longitude: -63.5769, latitude: 44.64666, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.64503, meterDuration: 120 },
+					{ longitude: -63.5857, latitude: 44.64583, meterDuration: 120 },
+					{ longitude: -63.5684, latitude: 44.6653, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.66587, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.64161, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.64164, meterDuration: 120 },
+					{ longitude: -63.586, latitude: 44.6389, meterDuration: 300 },
+					{ longitude: -63.586, latitude: 44.63889, meterDuration: 300 },
+					{ longitude: -63.5746, latitude: 44.64065, meterDuration: 120 },
+					{ longitude: -63.5725, latitude: 44.64145, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.64326, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.64342, meterDuration: 120 },
+					{ longitude: -63.5792, latitude: 44.64071, meterDuration: 120 },
+					{ longitude: -63.5665, latitude: 44.66579, meterDuration: 90 },
+					{ longitude: -63.568, latitude: 44.66447, meterDuration: 90 },
+					{ longitude: -63.5679, latitude: 44.6646, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66591, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66474, meterDuration: 90 },
+					{ longitude: -63.5841, latitude: 44.64248, meterDuration: 300 },
+					{ longitude: -63.5841, latitude: 44.64284, meterDuration: 300 },
+					{ longitude: -63.5841, latitude: 44.6428, meterDuration: 300 },
+					{ longitude: -63.5803, latitude: 44.64088, meterDuration: 300 },
+					{ longitude: -63.5808, latitude: 44.64074, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64049, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64022, meterDuration: 300 },
+					{ longitude: -63.5812, latitude: 44.64194, meterDuration: 300 },
+					{ longitude: -63.5842, latitude: 44.64256, meterDuration: 300 },
+					{ longitude: -63.5808, latitude: 44.6419, meterDuration: 300 },
+					{ longitude: -63.5808, latitude: 44.64189, meterDuration: 300 },
+					{ longitude: -63.5825, latitude: 44.64145, meterDuration: 300 },
+					{ longitude: -63.5822, latitude: 44.64151, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64069, meterDuration: 300 },
+					{ longitude: -63.5797, latitude: 44.64027, meterDuration: 300 },
+					{ longitude: -63.581, latitude: 44.64201, meterDuration: 300 },
+					{ longitude: -63.5808, latitude: 44.64205, meterDuration: 300 },
+					{ longitude: -63.5822, latitude: 44.64168, meterDuration: 300 },
+					{ longitude: -63.5844, latitude: 44.64302, meterDuration: 300 },
+					{ longitude: -63.5842, latitude: 44.64258, meterDuration: 300 },
+					{ longitude: -63.5841, latitude: 44.64285, meterDuration: 300 },
+					{ longitude: -63.5813, latitude: 44.64177, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64062, meterDuration: 300 },
+					{ longitude: -63.5798, latitude: 44.64051, meterDuration: 300 },
+					{ longitude: -63.5811, latitude: 44.64197, meterDuration: 300 },
+					{ longitude: -63.5843, latitude: 44.6429, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.6421, meterDuration: 300 },
+					{ longitude: -63.5838, latitude: 44.64224, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64216, meterDuration: 300 },
+					{ longitude: -63.5809, latitude: 44.64071, meterDuration: 300 },
+					{ longitude: -63.581, latitude: 44.64068, meterDuration: 300 },
+					{ longitude: -63.5651, latitude: 44.66672, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.63882, meterDuration: 300 },
+					{ longitude: -63.5784, latitude: 44.63921, meterDuration: 300 },
+					{ longitude: -63.5779, latitude: 44.63879, meterDuration: 300 },
+					{ longitude: -63.5698, latitude: 44.64179, meterDuration: 90 },
+					{ longitude: -63.5688, latitude: 44.64081, meterDuration: 90 },
+					{ longitude: -63.5702, latitude: 44.64008, meterDuration: 90 },
+					{ longitude: -63.5701, latitude: 44.64011, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64032, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.64185, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.64104, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.64131, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.64139, meterDuration: 90 },
+					{ longitude: -63.5694, latitude: 44.64028, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.6403, meterDuration: 90 },
+					{ longitude: -63.5702, latitude: 44.63929, meterDuration: 90 },
+					{ longitude: -63.5707, latitude: 44.64182, meterDuration: 90 },
+					{ longitude: -63.5709, latitude: 44.64176, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.64191, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.64111, meterDuration: 90 },
+					{ longitude: -63.5685, latitude: 44.64075, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.64027, meterDuration: 90 },
+					{ longitude: -63.5704, latitude: 44.63973, meterDuration: 90 },
+					{ longitude: -63.5704, latitude: 44.63967, meterDuration: 90 },
+					{ longitude: -63.5704, latitude: 44.63965, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64014, meterDuration: 90 },
+					{ longitude: -63.5707, latitude: 44.64181, meterDuration: 90 },
+					{ longitude: -63.5686, latitude: 44.64072, meterDuration: 90 },
+					{ longitude: -63.5687, latitude: 44.64084, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.64273, meterDuration: 90 },
+					{ longitude: -63.569, latitude: 44.64078, meterDuration: 90 },
+					{ longitude: -63.569, latitude: 44.64078, meterDuration: 90 },
+					{ longitude: -63.5686, latitude: 44.64085, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.64025, meterDuration: 90 },
+					{ longitude: -63.5708, latitude: 44.64058, meterDuration: 90 },
+					{ longitude: -63.5717, latitude: 44.64224, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64046, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.64112, meterDuration: 90 },
+					{ longitude: -63.5687, latitude: 44.64072, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64045, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.64186, meterDuration: 90 },
+					{ longitude: -63.5685, latitude: 44.64087, meterDuration: 90 },
+					{ longitude: -63.5684, latitude: 44.64091, meterDuration: 90 },
+					{ longitude: -63.5701, latitude: 44.64011, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.64026, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64023, meterDuration: 90 },
+					{ longitude: -63.5698, latitude: 44.64218, meterDuration: 120 },
+					{ longitude: -63.5706, latitude: 44.64196, meterDuration: 120 },
+					{ longitude: -63.5698, latitude: 44.64146, meterDuration: 120 },
+					{ longitude: -63.5719, latitude: 44.64272, meterDuration: 90 },
+					{ longitude: -63.5825, latitude: 44.63908, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.65166, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.63969, meterDuration: 120 },
+					{ longitude: -63.5825, latitude: 44.63909, meterDuration: 120 },
+					{ longitude: -63.5845, latitude: 44.63856, meterDuration: 120 },
+					{ longitude: -63.5844, latitude: 44.6383, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.63939, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.63935, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.63929, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.63863, meterDuration: 120 },
+					{ longitude: -63.5816, latitude: 44.63901, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64181, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64526, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64531, meterDuration: 90 },
+					{ longitude: -63.58, latitude: 44.64134, meterDuration: 120 },
+					{ longitude: -63.587, latitude: 44.64087, meterDuration: 120 },
+					{ longitude: -63.587, latitude: 44.63996, meterDuration: 120 },
+					{ longitude: -63.5877, latitude: 44.63775, meterDuration: 120 },
+					{ longitude: -63.588, latitude: 44.63734, meterDuration: 120 },
+					{ longitude: -63.5904, latitude: 44.63672, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.64461, meterDuration: 120 },
+					{ longitude: -63.5753, latitude: 44.64496, meterDuration: 120 },
+					{ longitude: -63.5761, latitude: 44.645, meterDuration: 120 },
+					{ longitude: -63.576, latitude: 44.64495, meterDuration: 120 },
+					{ longitude: -63.5769, latitude: 44.64668, meterDuration: 120 },
+					{ longitude: -63.577, latitude: 44.64677, meterDuration: 120 },
+					{ longitude: -63.5695, latitude: 44.64224, meterDuration: 120 },
+					{ longitude: -63.5709, latitude: 44.64188, meterDuration: 120 },
+					{ longitude: -63.586, latitude: 44.64635, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.64505, meterDuration: 120 },
+					{ longitude: -63.5852, latitude: 44.64498, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.64554, meterDuration: 120 },
+					{ longitude: -63.5857, latitude: 44.6459, meterDuration: 120 },
+					{ longitude: -63.586, latitude: 44.64633, meterDuration: 120 },
+					{ longitude: -63.5742, latitude: 44.64861, meterDuration: 30 },
+					{ longitude: -63.5706, latitude: 44.66592, meterDuration: 90 },
+					{ longitude: -63.5699, latitude: 44.66643, meterDuration: 90 },
+					{ longitude: -63.5677, latitude: 44.66588, meterDuration: 90 },
+					{ longitude: -63.5678, latitude: 44.66578, meterDuration: 90 },
+					{ longitude: -63.5682, latitude: 44.66545, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66688, meterDuration: 90 },
+					{ longitude: -63.5671, latitude: 44.66528, meterDuration: 90 },
+					{ longitude: -63.567, latitude: 44.66466, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.6653, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.65076, meterDuration: 120 },
+					{ longitude: -63.5783, latitude: 44.64131, meterDuration: 120 },
+					{ longitude: -63.5773, latitude: 44.64421, meterDuration: 120 },
+					{ longitude: -63.5779, latitude: 44.6441, meterDuration: 120 },
+					{ longitude: -63.5867, latitude: 44.63749, meterDuration: 180 },
+					{ longitude: -63.5886, latitude: 44.6368, meterDuration: 180 },
+					{ longitude: -63.5885, latitude: 44.63675, meterDuration: 180 },
+					{ longitude: -63.5867, latitude: 44.63757, meterDuration: 180 },
+					{ longitude: -63.5866, latitude: 44.63738, meterDuration: 180 },
+					{ longitude: -63.5877, latitude: 44.63734, meterDuration: 180 },
+					{ longitude: -63.5876, latitude: 44.63724, meterDuration: 180 },
+					{ longitude: -63.5876, latitude: 44.63716, meterDuration: 180 },
+					{ longitude: -63.587, latitude: 44.63804, meterDuration: 180 },
+					{ longitude: -63.5882, latitude: 44.63841, meterDuration: 180 },
+					{ longitude: -63.5882, latitude: 44.6384, meterDuration: 180 },
+					{ longitude: -63.5881, latitude: 44.63829, meterDuration: 180 },
+					{ longitude: -63.5881, latitude: 44.63827, meterDuration: 180 },
+					{ longitude: -63.5881, latitude: 44.63818, meterDuration: 180 },
+					{ longitude: -63.588, latitude: 44.63808, meterDuration: 180 },
+					{ longitude: -63.588, latitude: 44.63793, meterDuration: 180 },
+					{ longitude: -63.588, latitude: 44.63791, meterDuration: 180 },
+					{ longitude: -63.5879, latitude: 44.63779, meterDuration: 180 },
+					{ longitude: -63.5892, latitude: 44.63808, meterDuration: 180 },
+					{ longitude: -63.5891, latitude: 44.63792, meterDuration: 180 },
+					{ longitude: -63.5891, latitude: 44.6379, meterDuration: 180 },
+					{ longitude: -63.5891, latitude: 44.63782, meterDuration: 180 },
+					{ longitude: -63.5859, latitude: 44.63881, meterDuration: 300 },
+					{ longitude: -63.5859, latitude: 44.63879, meterDuration: 300 },
+					{ longitude: -63.5861, latitude: 44.63905, meterDuration: 300 },
+					{ longitude: -63.5765, latitude: 44.64321, meterDuration: 90 },
+					{ longitude: -63.5772, latitude: 44.64359, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64272, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64392, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64367, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.64399, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.65047, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.65065, meterDuration: 90 },
+					{ longitude: -63.5776, latitude: 44.64958, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64956, meterDuration: 90 },
+					{ longitude: -63.5803, latitude: 44.64975, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.64741, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.64731, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64775, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.6486, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64828, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64908, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64765, meterDuration: 90 },
+					{ longitude: -63.5752, latitude: 44.64764, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64684, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64683, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64675, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64667, meterDuration: 90 },
+					{ longitude: -63.5734, latitude: 44.64634, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64564, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64565, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64669, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64302, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64365, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64368, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64371, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64371, meterDuration: 90 },
+					{ longitude: -63.5786, latitude: 44.64431, meterDuration: 90 },
+					{ longitude: -63.5788, latitude: 44.64458, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64355, meterDuration: 90 },
+					{ longitude: -63.5783, latitude: 44.6509, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.65, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64957, meterDuration: 90 },
+					{ longitude: -63.5803, latitude: 44.64987, meterDuration: 90 },
+					{ longitude: -63.5808, latitude: 44.6501, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64768, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64716, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64687, meterDuration: 90 },
+					{ longitude: -63.5764, latitude: 44.64747, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64646, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64377, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64516, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64464, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64498, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64504, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64626, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64684, meterDuration: 120 },
+					{ longitude: -63.5743, latitude: 44.64105, meterDuration: 120 },
+					{ longitude: -63.5734, latitude: 44.64122, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.64162, meterDuration: 120 },
+					{ longitude: -63.5793, latitude: 44.64149, meterDuration: 120 },
+					{ longitude: -63.5794, latitude: 44.6416, meterDuration: 120 },
+					{ longitude: -63.5781, latitude: 44.64947, meterDuration: 120 },
+					{ longitude: -63.5799, latitude: 44.65159, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.65053, meterDuration: 120 },
+					{ longitude: -63.5837, latitude: 44.63877, meterDuration: 120 },
+					{ longitude: -63.5845, latitude: 44.63856, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.63932, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64179, meterDuration: 120 },
+					{ longitude: -63.5655, latitude: 44.66467, meterDuration: 90 },
+					{ longitude: -63.5697, latitude: 44.66632, meterDuration: 90 },
+					{ longitude: -63.5683, latitude: 44.66534, meterDuration: 90 },
+					{ longitude: -63.5679, latitude: 44.6657, meterDuration: 90 },
+					{ longitude: -63.5675, latitude: 44.66592, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.66588, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.66583, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.6659, meterDuration: 90 },
+					{ longitude: -63.5659, latitude: 44.66705, meterDuration: 90 },
+					{ longitude: -63.5834, latitude: 44.64104, meterDuration: 120 },
+					{ longitude: -63.57, latitude: 44.64175, meterDuration: 120 },
+					{ longitude: -63.5832, latitude: 44.64071, meterDuration: 120 },
+					{ longitude: -63.5847, latitude: 44.64009, meterDuration: 120 },
+					{ longitude: -63.5838, latitude: 44.64109, meterDuration: 120 },
+					{ longitude: -63.5839, latitude: 44.64106, meterDuration: 120 },
+					{ longitude: -63.5828, latitude: 44.63995, meterDuration: 120 },
+					{ longitude: -63.5825, latitude: 44.63949, meterDuration: 120 },
+					{ longitude: -63.5823, latitude: 44.63951, meterDuration: 120 },
+					{ longitude: -63.587, latitude: 44.63814, meterDuration: 180 },
+					{ longitude: -63.5881, latitude: 44.6382, meterDuration: 180 },
+					{ longitude: -63.5879, latitude: 44.63781, meterDuration: 180 },
+					{ longitude: -63.5891, latitude: 44.6378, meterDuration: 180 },
+					{ longitude: -63.5856, latitude: 44.63943, meterDuration: 120 },
+					{ longitude: -63.5856, latitude: 44.63944, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.63953, meterDuration: 120 },
+					{ longitude: -63.5833, latitude: 44.64007, meterDuration: 120 },
+					{ longitude: -63.5698, latitude: 44.64007, meterDuration: 120 },
+					{ longitude: -63.569, latitude: 44.63972, meterDuration: 120 },
+					{ longitude: -63.5713, latitude: 44.64065, meterDuration: 120 },
+					{ longitude: -63.5717, latitude: 44.64053, meterDuration: 120 },
+					{ longitude: -63.5703, latitude: 44.64536, meterDuration: 120 },
+					{ longitude: -63.5818, latitude: 44.64412, meterDuration: 300 },
+					{ longitude: -63.5826, latitude: 44.6439, meterDuration: 300 },
+					{ longitude: -63.5832, latitude: 44.64377, meterDuration: 300 },
+					{ longitude: -63.5831, latitude: 44.64378, meterDuration: 300 },
+					{ longitude: -63.5823, latitude: 44.64399, meterDuration: 300 },
+					{ longitude: -63.5819, latitude: 44.64408, meterDuration: 300 },
+					{ longitude: -63.5817, latitude: 44.64414, meterDuration: 300 },
+					{ longitude: -63.5827, latitude: 44.64388, meterDuration: 300 },
+					{ longitude: -63.5822, latitude: 44.64401, meterDuration: 300 },
+					{ longitude: -63.5825, latitude: 44.64395, meterDuration: 300 },
+					{ longitude: -63.5824, latitude: 44.64397, meterDuration: 300 },
+					{ longitude: -63.5821, latitude: 44.64404, meterDuration: 300 },
+					{ longitude: -63.5818, latitude: 44.6441, meterDuration: 300 },
+					{ longitude: -63.5833, latitude: 44.64374, meterDuration: 300 },
+					{ longitude: -63.5829, latitude: 44.64384, meterDuration: 300 },
+					{ longitude: -63.5837, latitude: 44.64363, meterDuration: 300 },
+					{ longitude: -63.5834, latitude: 44.64372, meterDuration: 300 },
+					{ longitude: -63.5835, latitude: 44.64369, meterDuration: 300 },
+					{ longitude: -63.5836, latitude: 44.64367, meterDuration: 300 },
+					{ longitude: -63.5836, latitude: 44.64365, meterDuration: 300 },
+					{ longitude: -63.5784, latitude: 44.63908, meterDuration: 300 },
+					{ longitude: -63.5784, latitude: 44.63923, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.6392, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.6388, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.63864, meterDuration: 300 },
+					{ longitude: -63.5783, latitude: 44.6394, meterDuration: 300 },
+					{ longitude: -63.5785, latitude: 44.63932, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.63866, meterDuration: 300 },
+					{ longitude: -63.5783, latitude: 44.63895, meterDuration: 300 },
+					{ longitude: -63.5781, latitude: 44.63902, meterDuration: 300 },
+					{ longitude: -63.578, latitude: 44.63888, meterDuration: 300 },
+					{ longitude: -63.5782, latitude: 44.63934, meterDuration: 300 },
+					{ longitude: -63.5698, latitude: 44.64218, meterDuration: 120 },
+					{ longitude: -63.5708, latitude: 44.64191, meterDuration: 120 },
+					{ longitude: -63.5832, latitude: 44.64073, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64012, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64019, meterDuration: 120 },
+					{ longitude: -63.585, latitude: 44.64034, meterDuration: 120 },
+					{ longitude: -63.5847, latitude: 44.64026, meterDuration: 120 },
+					{ longitude: -63.5828, latitude: 44.64003, meterDuration: 120 },
+					{ longitude: -63.5823, latitude: 44.6395, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.63962, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.64013, meterDuration: 120 },
+					{ longitude: -63.5824, latitude: 44.6403, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64099, meterDuration: 120 },
+					{ longitude: -63.5817, latitude: 44.6405, meterDuration: 120 },
+					{ longitude: -63.5692, latitude: 44.64001, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.64225, meterDuration: 120 },
+					{ longitude: -63.5718, latitude: 44.64286, meterDuration: 120 },
+					{ longitude: -63.5936, latitude: 44.64705, meterDuration: 90 },
+					{ longitude: -63.5937, latitude: 44.64728, meterDuration: 90 },
+					{ longitude: -63.597, latitude: 44.64602, meterDuration: 30 },
+					{ longitude: -63.597, latitude: 44.64589, meterDuration: 30 },
+					{ longitude: -63.5969, latitude: 44.6458, meterDuration: 30 },
+					{ longitude: -63.5969, latitude: 44.64581, meterDuration: 30 },
+					{ longitude: -63.597, latitude: 44.646, meterDuration: 30 },
+					{ longitude: -63.5997, latitude: 44.64502, meterDuration: 30 },
+					{ longitude: -63.5997, latitude: 44.64518, meterDuration: 30 },
+					{ longitude: -63.5997, latitude: 44.64511, meterDuration: 30 },
+					{ longitude: -63.5996, latitude: 44.64492, meterDuration: 30 },
+					{ longitude: -63.5846, latitude: 44.65204, meterDuration: 90 },
+					{ longitude: -63.5846, latitude: 44.65199, meterDuration: 90 },
+					{ longitude: -63.5835, latitude: 44.65272, meterDuration: 90 },
+					{ longitude: -63.5835, latitude: 44.65276, meterDuration: 90 },
+					{ longitude: -63.5855, latitude: 44.65147, meterDuration: 90 },
+					{ longitude: -63.5845, latitude: 44.65209, meterDuration: 90 },
+					{ longitude: -63.5835, latitude: 44.6527, meterDuration: 90 },
+					{ longitude: -63.5854, latitude: 44.65148, meterDuration: 90 },
+					{ longitude: -63.5851, latitude: 44.65169, meterDuration: 90 },
+					{ longitude: -63.5845, latitude: 44.65208, meterDuration: 90 },
+					{ longitude: -63.5786, latitude: 44.65034, meterDuration: 120 },
+					{ longitude: -63.5786, latitude: 44.65032, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64685, meterDuration: 90 },
+					{ longitude: -63.5767, latitude: 44.64759, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64534, meterDuration: 90 },
+					{ longitude: -63.5785, latitude: 44.64405, meterDuration: 90 },
+					{ longitude: -63.5785, latitude: 44.64412, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64794, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.65072, meterDuration: 90 },
+					{ longitude: -63.5787, latitude: 44.64438, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.65079, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.64991, meterDuration: 90 },
+					{ longitude: -63.5776, latitude: 44.64956, meterDuration: 90 },
+					{ longitude: -63.5803, latitude: 44.64986, meterDuration: 90 },
+					{ longitude: -63.5805, latitude: 44.6501, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64816, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64718, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64703, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64688, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64735, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64685, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64501, meterDuration: 90 },
+					{ longitude: -63.5807, latitude: 44.64391, meterDuration: 120 },
+					{ longitude: -63.5746, latitude: 44.64063, meterDuration: 120 },
+					{ longitude: -63.5739, latitude: 44.64397, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64409, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64369, meterDuration: 90 },
+					{ longitude: -63.5767, latitude: 44.64671, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.645, meterDuration: 90 },
+					{ longitude: -63.5712, latitude: 44.64438, meterDuration: 90 },
+					{ longitude: -63.577, latitude: 44.64732, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64792, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.64369, meterDuration: 90 },
+					{ longitude: -63.5756, latitude: 44.64396, meterDuration: 90 },
+					{ longitude: -63.5809, latitude: 44.6502, meterDuration: 90 },
+					{ longitude: -63.5799, latitude: 44.65158, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63715, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.63935, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.64147, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64521, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64862, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64571, meterDuration: 90 },
+					{ longitude: -63.5805, latitude: 44.65004, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64478, meterDuration: 120 },
+					{ longitude: -63.5769, latitude: 44.64658, meterDuration: 120 },
+					{ longitude: -63.5726, latitude: 44.64694, meterDuration: 120 },
+					{ longitude: -63.5767, latitude: 44.64392, meterDuration: 120 },
+					{ longitude: -63.578, latitude: 44.64416, meterDuration: 120 },
+					{ longitude: -63.5731, latitude: 44.64132, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.64336, meterDuration: 120 },
+					{ longitude: -63.5795, latitude: 44.64132, meterDuration: 120 },
+					{ longitude: -63.5764, latitude: 44.64323, meterDuration: 90 },
+					{ longitude: -63.5786, latitude: 44.64424, meterDuration: 90 },
+					{ longitude: -63.5803, latitude: 44.64977, meterDuration: 90 },
+					{ longitude: -63.5764, latitude: 44.64749, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64753, meterDuration: 90 },
+					{ longitude: -63.5734, latitude: 44.64633, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64389, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.6501, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.64824, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64553, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64553, meterDuration: 90 },
+					{ longitude: -63.5801, latitude: 44.65057, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.64146, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63775, meterDuration: 120 },
+					{ longitude: -63.5824, latitude: 44.63698, meterDuration: 120 },
+					{ longitude: -63.5745, latitude: 44.64604, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64625, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64536, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64434, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64861, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64932, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64792, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64784, meterDuration: 90 },
+					{ longitude: -63.5711, latitude: 44.64423, meterDuration: 90 },
+					{ longitude: -63.5767, latitude: 44.64673, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64529, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64782, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64932, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64936, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64754, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64783, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64638, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.6453, meterDuration: 90 },
+					{ longitude: -63.571, latitude: 44.64519, meterDuration: 90 },
+					{ longitude: -63.5709, latitude: 44.64325, meterDuration: 90 },
+					{ longitude: -63.5711, latitude: 44.64323, meterDuration: 90 },
+					{ longitude: -63.5719, latitude: 44.64264, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.64255, meterDuration: 90 },
+					{ longitude: -63.5722, latitude: 44.64321, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.64796, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64606, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64352, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64309, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.6439, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64349, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.65064, meterDuration: 90 },
+					{ longitude: -63.5783, latitude: 44.65088, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64722, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64788, meterDuration: 90 },
+					{ longitude: -63.5788, latitude: 44.64044, meterDuration: 120 },
+					{ longitude: -63.5793, latitude: 44.64147, meterDuration: 120 },
+					{ longitude: -63.5794, latitude: 44.64165, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.65157, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.65054, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.65046, meterDuration: 120 },
+					{ longitude: -63.5817, latitude: 44.63929, meterDuration: 120 },
+					{ longitude: -63.5817, latitude: 44.63928, meterDuration: 120 },
+					{ longitude: -63.582, latitude: 44.63922, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.63966, meterDuration: 120 },
+					{ longitude: -63.5827, latitude: 44.63903, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.63898, meterDuration: 120 },
+					{ longitude: -63.5829, latitude: 44.63897, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.63818, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.63938, meterDuration: 120 },
+					{ longitude: -63.587, latitude: 44.64095, meterDuration: 120 },
+					{ longitude: -63.5867, latitude: 44.63801, meterDuration: 120 },
+					{ longitude: -63.5866, latitude: 44.63803, meterDuration: 120 },
+					{ longitude: -63.5866, latitude: 44.63773, meterDuration: 120 },
+					{ longitude: -63.5864, latitude: 44.63776, meterDuration: 120 },
+					{ longitude: -63.5871, latitude: 44.63993, meterDuration: 120 },
+					{ longitude: -63.5872, latitude: 44.63786, meterDuration: 120 },
+					{ longitude: -63.5758, latitude: 44.64598, meterDuration: 120 },
+					{ longitude: -63.5897, latitude: 44.63721, meterDuration: 120 },
+					{ longitude: -63.5742, latitude: 44.64413, meterDuration: 120 },
+					{ longitude: -63.5742, latitude: 44.64415, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.64496, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64573, meterDuration: 90 },
+					{ longitude: -63.576, latitude: 44.64556, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64563, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64605, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64594, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64618, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64654, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64649, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64567, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64565, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64579, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64588, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64617, meterDuration: 90 },
+					{ longitude: -63.5728, latitude: 44.64615, meterDuration: 90 },
+					{ longitude: -63.5934, latitude: 44.64681, meterDuration: 90 },
+					{ longitude: -63.5936, latitude: 44.64707, meterDuration: 90 },
+					{ longitude: -63.5936, latitude: 44.64711, meterDuration: 90 },
+					{ longitude: -63.5936, latitude: 44.64718, meterDuration: 90 },
+					{ longitude: -63.5937, latitude: 44.64731, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64687, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64696, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64688, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64699, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64701, meterDuration: 90 },
+					{ longitude: -63.5935, latitude: 44.64694, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64735, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64775, meterDuration: 90 },
+					{ longitude: -63.5748, latitude: 44.64919, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64899, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64914, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64801, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64792, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64804, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.6457, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.64541, meterDuration: 90 },
+					{ longitude: -63.5717, latitude: 44.64522, meterDuration: 90 },
+					{ longitude: -63.5711, latitude: 44.64421, meterDuration: 90 },
+					{ longitude: -63.5714, latitude: 44.64509, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.6486, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.64371, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.64751, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64656, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64605, meterDuration: 90 },
+					{ longitude: -63.5783, latitude: 44.64386, meterDuration: 90 },
+					{ longitude: -63.5759, latitude: 44.64498, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.64508, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.64536, meterDuration: 120 },
+					{ longitude: -63.5755, latitude: 44.64538, meterDuration: 120 },
+					{ longitude: -63.576, latitude: 44.64485, meterDuration: 120 },
+					{ longitude: -63.5771, latitude: 44.64699, meterDuration: 120 },
+					{ longitude: -63.5696, latitude: 44.64221, meterDuration: 120 },
+					{ longitude: -63.5697, latitude: 44.64221, meterDuration: 120 },
+					{ longitude: -63.5753, latitude: 44.64782, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64627, meterDuration: 90 },
+					{ longitude: -63.5756, latitude: 44.64798, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64798, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64492, meterDuration: 90 },
+					{ longitude: -63.5737, latitude: 44.64505, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.64532, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64852, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64491, meterDuration: 90 },
+					{ longitude: -63.5733, latitude: 44.64625, meterDuration: 90 },
+					{ longitude: -63.5736, latitude: 44.64766, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.64532, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64809, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64801, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64324, meterDuration: 90 },
+					{ longitude: -63.5718, latitude: 44.64247, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.64361, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.64739, meterDuration: 90 },
+					{ longitude: -63.5772, latitude: 44.64364, meterDuration: 90 },
+					{ longitude: -63.5759, latitude: 44.64278, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64393, meterDuration: 90 },
+					{ longitude: -63.5781, latitude: 44.64389, meterDuration: 90 },
+					{ longitude: -63.5779, latitude: 44.65021, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.64826, meterDuration: 90 },
+					{ longitude: -63.5749, latitude: 44.64732, meterDuration: 90 },
+					{ longitude: -63.5898, latitude: 44.6372, meterDuration: 120 },
+					{ longitude: -63.5903, latitude: 44.63675, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63695, meterDuration: 120 },
+					{ longitude: -63.5823, latitude: 44.63702, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.64506, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.64517, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.64522, meterDuration: 120 },
+					{ longitude: -63.5761, latitude: 44.64515, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.64444, meterDuration: 120 },
+					{ longitude: -63.5775, latitude: 44.64786, meterDuration: 120 },
+					{ longitude: -63.5714, latitude: 44.64447, meterDuration: 120 },
+					{ longitude: -63.5694, latitude: 44.64228, meterDuration: 120 },
+					{ longitude: -63.5865, latitude: 44.63996, meterDuration: 120 },
+					{ longitude: -63.5847, latitude: 44.6401, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.64002, meterDuration: 120 },
+					{ longitude: -63.5837, latitude: 44.64113, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.64096, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.64067, meterDuration: 120 },
+					{ longitude: -63.5836, latitude: 44.63997, meterDuration: 120 },
+					{ longitude: -63.5696, latitude: 44.64012, meterDuration: 120 },
+					{ longitude: -63.5698, latitude: 44.64006, meterDuration: 120 },
+					{ longitude: -63.5688, latitude: 44.63989, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.64061, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.6423, meterDuration: 120 },
+					{ longitude: -63.5701, latitude: 44.64538, meterDuration: 120 },
+					{ longitude: -63.5656, latitude: 44.66644, meterDuration: 90 },
+					{ longitude: -63.5675, latitude: 44.66623, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66645, meterDuration: 90 },
+					{ longitude: -63.5648, latitude: 44.66657, meterDuration: 90 },
+					{ longitude: -63.571, latitude: 44.64121, meterDuration: 120 },
+					{ longitude: -63.5775, latitude: 44.64421, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.6416, meterDuration: 120 },
+					{ longitude: -63.5841, latitude: 44.64102, meterDuration: 120 },
+					{ longitude: -63.5832, latitude: 44.6401, meterDuration: 120 },
+					{ longitude: -63.5769, latitude: 44.64404, meterDuration: 120 },
+					{ longitude: -63.5649, latitude: 44.66647, meterDuration: 90 },
+					{ longitude: -63.5647, latitude: 44.66719, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66687, meterDuration: 90 },
+					{ longitude: -63.5673, latitude: 44.66624, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66428, meterDuration: 90 },
+					{ longitude: -63.565, latitude: 44.66699, meterDuration: 90 },
+					{ longitude: -63.5819, latitude: 44.63925, meterDuration: 120 },
+					{ longitude: -63.5839, latitude: 44.63872, meterDuration: 120 },
+					{ longitude: -63.576, latitude: 44.64518, meterDuration: 120 },
+					{ longitude: -63.583, latitude: 44.64037, meterDuration: 120 },
+					{ longitude: -63.5779, latitude: 44.64146, meterDuration: 90 },
+					{ longitude: -63.577, latitude: 44.64159, meterDuration: 90 },
+					{ longitude: -63.5782, latitude: 44.64151, meterDuration: 90 },
+					{ longitude: -63.5765, latitude: 44.64172, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64708, meterDuration: 90 },
+					{ longitude: -63.575, latitude: 44.64722, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64726, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64661, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.64661, meterDuration: 90 },
+					{ longitude: -63.5763, latitude: 44.64769, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64542, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64494, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64541, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64496, meterDuration: 90 },
+					{ longitude: -63.5746, latitude: 44.64533, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64421, meterDuration: 90 },
+					{ longitude: -63.5741, latitude: 44.64443, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64375, meterDuration: 90 },
+					{ longitude: -63.577, latitude: 44.6473, meterDuration: 90 },
+					{ longitude: -63.5747, latitude: 44.6448, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64551, meterDuration: 90 },
+					{ longitude: -63.5792, latitude: 44.64084, meterDuration: 120 },
+					{ longitude: -63.5782, latitude: 44.6416, meterDuration: 90 },
+					{ longitude: -63.5831, latitude: 44.64011, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64102, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.65188, meterDuration: 120 },
+					{ longitude: -63.5723, latitude: 44.64517, meterDuration: 90 },
+					{ longitude: -63.5667, latitude: 44.66664, meterDuration: 90 },
+					{ longitude: -63.565, latitude: 44.66653, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.66694, meterDuration: 120 },
+					{ longitude: -63.5664, latitude: 44.66822, meterDuration: 120 },
+					{ longitude: -63.5767, latitude: 44.64259, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.65165, meterDuration: 30 },
+					{ longitude: -63.5828, latitude: 44.63902, meterDuration: 120 },
+					{ longitude: -63.5758, latitude: 44.64593, meterDuration: 120 },
+					{ longitude: -63.5727, latitude: 44.64573, meterDuration: 90 },
+					{ longitude: -63.5751, latitude: 44.64778, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64698, meterDuration: 90 },
+					{ longitude: -63.5758, latitude: 44.64794, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64775, meterDuration: 90 },
+					{ longitude: -63.5762, latitude: 44.6438, meterDuration: 30 },
+					{ longitude: -63.5684, latitude: 44.66525, meterDuration: 90 },
+					{ longitude: -63.5674, latitude: 44.66739, meterDuration: 120 },
+					{ longitude: -63.5671, latitude: 44.66678, meterDuration: 120 },
+					{ longitude: -63.5678, latitude: 44.66608, meterDuration: 120 },
+					{ longitude: -63.5724, latitude: 44.64756, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64767, meterDuration: 90 },
+					{ longitude: -63.5712, latitude: 44.6432, meterDuration: 90 },
+					{ longitude: -63.5706, latitude: 44.64299, meterDuration: 90 },
+					{ longitude: -63.572, latitude: 44.64318, meterDuration: 90 },
+					{ longitude: -63.5724, latitude: 44.6436, meterDuration: 90 },
+					{ longitude: -63.5722, latitude: 44.64333, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64748, meterDuration: 90 },
+					{ longitude: -63.5732, latitude: 44.64668, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.6471, meterDuration: 90 },
+					{ longitude: -63.5727, latitude: 44.64563, meterDuration: 90 },
+					{ longitude: -63.5766, latitude: 44.64243, meterDuration: 90 },
+					{ longitude: -63.5771, latitude: 44.64336, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64347, meterDuration: 90 },
+					{ longitude: -63.5778, latitude: 44.65002, meterDuration: 90 },
+					{ longitude: -63.5777, latitude: 44.64971, meterDuration: 90 },
+					{ longitude: -63.5775, latitude: 44.64944, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64967, meterDuration: 90 },
+					{ longitude: -63.5753, latitude: 44.64783, meterDuration: 90 },
+					{ longitude: -63.5757, latitude: 44.64728, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64636, meterDuration: 90 },
+					{ longitude: -63.574, latitude: 44.64606, meterDuration: 90 },
+					{ longitude: -63.5761, latitude: 44.64773, meterDuration: 90 },
+					{ longitude: -63.5763, latitude: 44.64768, meterDuration: 90 },
+					{ longitude: -63.5739, latitude: 44.64546, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64335, meterDuration: 120 },
+					{ longitude: -63.5783, latitude: 44.64991, meterDuration: 120 },
+					{ longitude: -63.5784, latitude: 44.64997, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.65158, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.65073, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.6518, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.65174, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.6505, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.63968, meterDuration: 120 },
+					{ longitude: -63.5834, latitude: 44.63884, meterDuration: 120 },
+					{ longitude: -63.5837, latitude: 44.63876, meterDuration: 120 },
+					{ longitude: -63.5841, latitude: 44.63867, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63707, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63721, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.63719, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.63817, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.6383, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.64152, meterDuration: 120 },
+					{ longitude: -63.5872, latitude: 44.64132, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.64138, meterDuration: 120 },
+					{ longitude: -63.5864, latitude: 44.63808, meterDuration: 120 },
+					{ longitude: -63.5863, latitude: 44.63779, meterDuration: 120 },
+					{ longitude: -63.5759, latitude: 44.6448, meterDuration: 120 },
+					{ longitude: -63.5837, latitude: 44.64128, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.64062, meterDuration: 120 },
+					{ longitude: -63.5852, latitude: 44.63956, meterDuration: 120 },
+					{ longitude: -63.5678, latitude: 44.66706, meterDuration: 120 },
+					{ longitude: -63.5674, latitude: 44.66692, meterDuration: 120 },
+					{ longitude: -63.5903, latitude: 44.63727, meterDuration: 180 },
+					{ longitude: -63.5904, latitude: 44.63749, meterDuration: 180 },
+					{ longitude: -63.5713, latitude: 44.6451, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66704, meterDuration: 90 },
+					{ longitude: -63.5679, latitude: 44.66458, meterDuration: 90 },
+					{ longitude: -63.5664, latitude: 44.66592, meterDuration: 90 },
+					{ longitude: -63.5666, latitude: 44.66439, meterDuration: 90 },
+					{ longitude: -63.5793, latitude: 44.64138, meterDuration: 120 },
+					{ longitude: -63.5792, latitude: 44.64082, meterDuration: 120 },
+					{ longitude: -63.5788, latitude: 44.64046, meterDuration: 120 },
+					{ longitude: -63.5782, latitude: 44.6496, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.65185, meterDuration: 120 },
+					{ longitude: -63.5799, latitude: 44.65087, meterDuration: 120 },
+					{ longitude: -63.5736, latitude: 44.64877, meterDuration: 120 },
+					{ longitude: -63.5736, latitude: 44.64886, meterDuration: 120 },
+					{ longitude: -63.5737, latitude: 44.649, meterDuration: 120 },
+					{ longitude: -63.5732, latitude: 44.64558, meterDuration: 90 },
+					{ longitude: -63.5734, latitude: 44.64622, meterDuration: 90 },
+					{ longitude: -63.5744, latitude: 44.64781, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64895, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64816, meterDuration: 90 },
+					{ longitude: -63.5726, latitude: 44.64642, meterDuration: 90 },
+					{ longitude: -63.5717, latitude: 44.64521, meterDuration: 90 },
+					{ longitude: -63.5712, latitude: 44.64449, meterDuration: 90 },
+					{ longitude: -63.5731, latitude: 44.64752, meterDuration: 90 },
+					{ longitude: -63.5784, latitude: 44.64395, meterDuration: 90 },
+					{ longitude: -63.5754, latitude: 44.64834, meterDuration: 90 },
+					{ longitude: -63.5742, latitude: 44.64562, meterDuration: 90 },
+					{ longitude: -63.567, latitude: 44.66467, meterDuration: 90 },
+					{ longitude: -63.5802, latitude: 44.64333, meterDuration: 120 },
+					{ longitude: -63.5907, latitude: 44.63697, meterDuration: 120 },
+					{ longitude: -63.571, latitude: 44.64377, meterDuration: 120 },
+					{ longitude: -63.5747, latitude: 44.64523, meterDuration: 90 },
+					{ longitude: -63.5729, latitude: 44.64506, meterDuration: 90 },
+					{ longitude: -63.5743, latitude: 44.64832, meterDuration: 90 },
+					{ longitude: -63.57, latitude: 44.64541, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.6507, meterDuration: 120 },
+					{ longitude: -63.5774, latitude: 44.64398, meterDuration: 120 },
+					{ longitude: -63.5773, latitude: 44.64389, meterDuration: 120 },
+					{ longitude: -63.5722, latitude: 44.64154, meterDuration: 120 },
+					{ longitude: -63.5732, latitude: 44.64129, meterDuration: 120 },
+					{ longitude: -63.5806, latitude: 44.64369, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.64376, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.64382, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.64346, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.64151, meterDuration: 120 },
+					{ longitude: -63.5791, latitude: 44.64055, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.63819, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.63832, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.63932, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64186, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64184, meterDuration: 120 },
+					{ longitude: -63.5802, latitude: 44.64175, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.64145, meterDuration: 120 },
+					{ longitude: -63.588, latitude: 44.63735, meterDuration: 120 },
+					{ longitude: -63.5892, latitude: 44.63734, meterDuration: 120 },
+					{ longitude: -63.5894, latitude: 44.63731, meterDuration: 120 },
+					{ longitude: -63.5936, latitude: 44.64713, meterDuration: 90 },
+					{ longitude: -63.5937, latitude: 44.64724, meterDuration: 90 },
+					{ longitude: -63.5696, latitude: 44.64094, meterDuration: 120 },
+					{ longitude: -63.585, latitude: 44.64041, meterDuration: 120 },
+					{ longitude: -63.5835, latitude: 44.64001, meterDuration: 120 },
+					{ longitude: -63.5719, latitude: 44.6405, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.6517, meterDuration: 90 },
+					{ longitude: -63.5745, latitude: 44.64648, meterDuration: 90 },
+					{ longitude: -63.5835, latitude: 44.64, meterDuration: 120 },
+					{ longitude: -63.5719, latitude: 44.64049, meterDuration: 120 },
+					{ longitude: -63.5751, latitude: 44.64412, meterDuration: 90 },
+					{ longitude: -63.5738, latitude: 44.64733, meterDuration: 90 },
+					{ longitude: -63.5723, latitude: 44.64622, meterDuration: 90 },
+					{ longitude: -63.578, latitude: 44.64311, meterDuration: 90 },
+					{ longitude: -63.575, latitude: 44.64743, meterDuration: 90 },
+					{ longitude: -63.5788, latitude: 44.64053, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.65195, meterDuration: 120 },
+					{ longitude: -63.5847, latitude: 44.63851, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.64063, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.63949, meterDuration: 120 },
+					{ longitude: -63.5699, latitude: 44.64003, meterDuration: 120 },
+					{ longitude: -63.5699, latitude: 44.64544, meterDuration: 120 },
+					{ longitude: -63.5783, latitude: 44.64132, meterDuration: 120 },
+					{ longitude: -63.5782, latitude: 44.64966, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.65165, meterDuration: 120 },
+					{ longitude: -63.582, latitude: 44.64041, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.6396, meterDuration: 120 },
+					{ longitude: -63.5803, latitude: 44.63965, meterDuration: 120 },
+					{ longitude: -63.5801, latitude: 44.63971, meterDuration: 120 },
+					{ longitude: -63.5832, latitude: 44.63858, meterDuration: 120 },
+					{ longitude: -63.5806, latitude: 44.63926, meterDuration: 120 },
+					{ longitude: -63.5806, latitude: 44.63925, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.64137, meterDuration: 120 },
+					{ longitude: -63.5866, latitude: 44.63772, meterDuration: 120 },
+					{ longitude: -63.5873, latitude: 44.63785, meterDuration: 120 },
+					{ longitude: -63.5776, latitude: 44.64796, meterDuration: 120 },
+					{ longitude: -63.5714, latitude: 44.64461, meterDuration: 120 },
+					{ longitude: -63.5692, latitude: 44.64232, meterDuration: 120 },
+					{ longitude: -63.5708, latitude: 44.64192, meterDuration: 120 },
+					{ longitude: -63.5849, latitude: 44.64053, meterDuration: 120 },
+					{ longitude: -63.5848, latitude: 44.64043, meterDuration: 120 },
+					{ longitude: -63.5838, latitude: 44.64109, meterDuration: 120 },
+					{ longitude: -63.5844, latitude: 44.64092, meterDuration: 120 },
+					{ longitude: -63.5846, latitude: 44.64088, meterDuration: 120 },
+					{ longitude: -63.5841, latitude: 44.63986, meterDuration: 120 },
+					{ longitude: -63.5816, latitude: 44.64052, meterDuration: 120 },
+					{ longitude: -63.5695, latitude: 44.64015, meterDuration: 120 },
+					{ longitude: -63.5697, latitude: 44.64009, meterDuration: 120 },
+					{ longitude: -63.5697, latitude: 44.64009, meterDuration: 120 },
+					{ longitude: -63.5691, latitude: 44.6399, meterDuration: 120 },
+					{ longitude: -63.5715, latitude: 44.6406, meterDuration: 120 },
+					{ longitude: -63.5703, latitude: 44.64535, meterDuration: 120 },
+					{ longitude: -63.5702, latitude: 44.64538, meterDuration: 120 },
+					{ longitude: -63.5699, latitude: 44.64543, meterDuration: 120 },
+					{ longitude: -63.5698, latitude: 44.64547, meterDuration: 120 },
+					{ longitude: -63.5754, latitude: 44.65077, meterDuration: 120 },
+					{ longitude: -63.5751, latitude: 44.65065, meterDuration: 120 },
+					{ longitude: -63.5773, latitude: 44.64388, meterDuration: 120 },
+					{ longitude: -63.578, latitude: 44.64417, meterDuration: 120 },
+					{ longitude: -63.5743, latitude: 44.64105, meterDuration: 120 },
+					{ longitude: -63.5807, latitude: 44.64388, meterDuration: 120 },
+					{ longitude: -63.5871, latitude: 44.63759, meterDuration: 120 },
+					{ longitude: -63.5872, latitude: 44.63755, meterDuration: 120 },
+					{ longitude: -63.566, latitude: 44.66513, meterDuration: 90 },
+					{ longitude: -63.5665, latitude: 44.66532, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66476, meterDuration: 90 },
+					{ longitude: -63.5652, latitude: 44.66668, meterDuration: 90 },
+					{ longitude: -63.5647, latitude: 44.66718, meterDuration: 90 },
+					{ longitude: -63.5706, latitude: 44.66597, meterDuration: 90 },
+					{ longitude: -63.5703, latitude: 44.66624, meterDuration: 90 },
+					{ longitude: -63.5695, latitude: 44.66606, meterDuration: 90 },
+					{ longitude: -63.5679, latitude: 44.66569, meterDuration: 90 },
+					{ longitude: -63.5675, latitude: 44.6659, meterDuration: 90 },
+					{ longitude: -63.5673, latitude: 44.66623, meterDuration: 90 },
+					{ longitude: -63.5672, latitude: 44.6663, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66692, meterDuration: 90 },
+					{ longitude: -63.568, latitude: 44.66449, meterDuration: 90 },
+					{ longitude: -63.5666, latitude: 44.66438, meterDuration: 90 },
+					{ longitude: -63.5658, latitude: 44.66597, meterDuration: 90 },
+					{ longitude: -63.5654, latitude: 44.66588, meterDuration: 90 },
+					{ longitude: -63.5655, latitude: 44.66596, meterDuration: 90 },
+					{ longitude: -63.5661, latitude: 44.66521, meterDuration: 90 },
+					{ longitude: -63.5656, latitude: 44.66639, meterDuration: 90 },
+					{ longitude: -63.5773, latitude: 44.64172, meterDuration: 90 },
+					{ longitude: -63.5774, latitude: 44.64193, meterDuration: 90 },
+					{ longitude: -63.5649, latitude: 44.66706, meterDuration: 90 },
+					{ longitude: -63.5839, latitude: 44.63871, meterDuration: 120 },
+					{ longitude: -63.58, latitude: 44.64136, meterDuration: 120 },
+					{ longitude: -63.5753, latitude: 44.64495, meterDuration: 120 },
+					{ longitude: -63.5699, latitude: 44.6416, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.63711, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.6405, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.64114, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.6415, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63958, meterDuration: 120 },
+					{ longitude: -63.5815, latitude: 44.64055, meterDuration: 120 },
+					{ longitude: -63.5905, latitude: 44.63671, meterDuration: 120 },
+					{ longitude: -63.5826, latitude: 44.63695, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64583, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64458, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.64463, meterDuration: 120 },
+					{ longitude: -63.5751, latitude: 44.64501, meterDuration: 120 },
+					{ longitude: -63.5752, latitude: 44.6451, meterDuration: 120 },
+					{ longitude: -63.5792, latitude: 44.64073, meterDuration: 120 },
+					{ longitude: -63.5771, latitude: 44.64701, meterDuration: 120 },
+					{ longitude: -63.5761, latitude: 44.6451, meterDuration: 120 },
+					{ longitude: -63.5757, latitude: 44.64453, meterDuration: 120 },
+					{ longitude: -63.5695, latitude: 44.64225, meterDuration: 120 },
+					{ longitude: -63.57, latitude: 44.64176, meterDuration: 120 },
+					{ longitude: -63.5699, latitude: 44.64152, meterDuration: 120 },
+					{ longitude: -63.573, latitude: 44.64132, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.64317, meterDuration: 120 },
+					{ longitude: -63.5808, latitude: 44.64408, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.6435, meterDuration: 120 },
+					{ longitude: -63.5796, latitude: 44.64153, meterDuration: 120 },
+					{ longitude: -63.5799, latitude: 44.65178, meterDuration: 120 },
+					{ longitude: -63.5804, latitude: 44.6505, meterDuration: 120 },
+					{ longitude: -63.5815, latitude: 44.63934, meterDuration: 120 },
+					{ longitude: -63.5834, latitude: 44.63885, meterDuration: 120 },
+					{ longitude: -63.5847, latitude: 44.63853, meterDuration: 120 },
+					{ longitude: -63.5846, latitude: 44.63824, meterDuration: 120 },
+					{ longitude: -63.5805, latitude: 44.63929, meterDuration: 120 },
+					{ longitude: -63.5816, latitude: 44.63902, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.64156, meterDuration: 120 },
+					{ longitude: -63.587, latitude: 44.64089, meterDuration: 120 },
+					{ longitude: -63.5866, latitude: 44.63803, meterDuration: 120 },
+					{ longitude: -63.5878, latitude: 44.63772, meterDuration: 120 },
+					{ longitude: -63.5744, latitude: 44.64467, meterDuration: 120 },
+					{ longitude: -63.5751, latitude: 44.64492, meterDuration: 120 },
+					{ longitude: -63.5761, latitude: 44.64505, meterDuration: 120 },
+					{ longitude: -63.5756, latitude: 44.6444, meterDuration: 120 },
+					{ longitude: -63.5771, latitude: 44.6469, meterDuration: 120 },
+					{ longitude: -63.5696, latitude: 44.64093, meterDuration: 120 },
+					{ longitude: -63.5863, latitude: 44.63955, meterDuration: 120 },
+					{ longitude: -63.5846, latitude: 44.63996, meterDuration: 120 },
+					{ longitude: -63.5706, latitude: 44.66598, meterDuration: 90 },
+					{ longitude: -63.5704, latitude: 44.66609, meterDuration: 90 },
+					{ longitude: -63.5873, latitude: 44.63755, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.63752, meterDuration: 120 },
+					{ longitude: -63.5874, latitude: 44.63751, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.63701, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.63693, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.6373, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.63732, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.63745, meterDuration: 120 },
+					{ longitude: -63.5855, latitude: 44.63747, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.64048, meterDuration: 120 },
+					{ longitude: -63.5831, latitude: 44.64061, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.64114, meterDuration: 120 },
+					{ longitude: -63.5843, latitude: 44.64115, meterDuration: 120 },
+					{ longitude: -63.5853, latitude: 44.64104, meterDuration: 120 },
+					{ longitude: -63.5854, latitude: 44.64113, meterDuration: 120 },
+					{ longitude: -63.5851, latitude: 44.64102, meterDuration: 120 }
+				];
+				
+				return parkingMeterArr;
+			}
+			
+			//OUTPUT: display the map inside the document body
+			var outputMap = function ( mapCode ) {
+				console.log('in outputMap. mapCode=' + mapCode );
+				
+				document.body.style.backgroundColor = "black";
+				document.body.innerHTML = mapCode;
+			}
+
+			
+			//PROCESS:  Calculate the minimum and maximum values of each property 
+			//			in the array of objects.
+			//			This assumes that each object is identical in structure and numeric
+			//			This returns the property names with either "Max" or "Max" on the end,
+			//			such as minMaxObj.longitudeMin, or minMaxObj.latitudeMax.
+			var getMinsAndMaxs = function ( objArr ) {
+				console.log( 'in getMinsAndMaxs...' );
+				
+				//create an empty object to hold the minimums and maximums
+				var minMaxObj = {};
+				
+				//set up the initial information for comparison using objArr[ 0 ] {
+				minMaxObj.longitudeMin	= objArr[ 0 ].longitude;
+				minMaxObj.longitudeMax	= objArr[ 0 ].longitude;
+				minMaxObj.latitudeMin	= objArr[ 0 ].latitude;
+				minMaxObj.latitudeMax	= objArr[ 0 ].latitude;	
+				
+				//LOOP: through each object in this array of objects to find the min and max
+				for ( i in objArr ) {
+					// store the minimum of this property in property + "Min", 
+					// for example: minMaxObj.longitudeMin
+					minMaxObj.longitudeMin 
+						= Math.min( minMaxObj.longitudeMin, objArr[ i ].longitude );
+					minMaxObj.latitudeMin 
+						= Math.min( minMaxObj.latitudeMin, objArr[ i ].latitude );	
+						
+					// store the maximum of this property in property + "Max",
+					// for example: minMaxObj.longitudeMax
+					minMaxObj.longitudeMax 
+						= Math.max( minMaxObj.longitudeMax, objArr[ i ].longitude );
+					minMaxObj.latitudeMax
+						= Math.max( minMaxObj.latitudeMax, objArr[ i ].latitude );
+				}
+				
+				console.log( 'minMaxObj = ', minMaxObj );
+				
+				return minMaxObj;
+			}
+			
+			//PROCESS: 	
+			//	Calculate the positions given x and y coords, min/max, and screen info
+			//	Arguments are as an object: { 	
+			//		xMin:, xMax:, elementX:, yMin:, yMax:, 
+			//		elementY:, screenWidth:, screenHeight:
+			//	}
+			//	Returns css style code: "top: 367px; left: 490px;"
+			var getPositionCode = function ( posObj ) {
+				console.log( 'in getPositionCode. posObj = ', posObj );
+				
+				// calculate the data range for both the top and left measures
+				var topRange 	= posObj.yMax - posObj.yMin;
+				var leftRange 	= posObj.xMax - posObj.xMin;
+				
+				// calculate a range & screen dimension so the plotting is as large as possible
+				var range, screenDimension;
+				var topRangePerPixel = topRange / posObj.screenHeight;
+				var leftRangePerPixel = leftRange / posObj.screenWidth;
+				
+				//IF: the range is taller than it is wide,
+				if ( topRangePerPixel > leftRangePerPixel ) {
+					range 				= topRange;	
+					screenDimension 	= posObj.screenHeight;
+					
+				//ELSE: the range is wider than it is tall
+				} else {
+					range 				= leftRange;
+					screenDimension 	= posObj.screenWidth;
+				}
+				
+				// calculate the ratio of the coodinates across the screen
+				var topDelta 	= posObj.yMax - posObj.elementY;
+				var leftDelta 	= posObj.xMax - posObj.elementX; 
+				var topRatio 	= ( ( topDelta ) / range );
+				var leftRatio 	= 1 - ( ( leftDelta ) / range );
+
+				// calculate the final position on the screen
+				var topPosition = Math.round( topRatio * screenDimension );
+				var leftPosition = Math.round( leftRatio * screenDimension );
+				
+				//create the style code to set the top and left position
+				var positionCode 
+					= "top: " 	+ topPosition 	+ "px; " 
+					+ "left: " 	+ leftPosition 	+ "px;";
+				
+				return positionCode 
+			}
+			
+			//INPUT: get the screen height and width (as a number of pixels), and return the info as an object
+			var getScreenInformation = function () {
+				console.log( "in getScreenInformation..." );
+				
+				return {
+					width:		window.innerWidth,
+					height:		window.innerHeight
+				};
+			}
+			
+			//PROCESS: 	create a map of parking meters based on the array of objects
+			//			called parkingMeterArr
+			var createMapCode = function ( parkingMeterArr ) {
+				console.log( 'in createMapCode. parkingMeterArr=', parkingMeterArr );
+				
+				// get the screen properties
+				var screenObj = getScreenInformation();
+				
+				// get the minimum and maximum values of all the parts of the array of objects
+				var dataBoundariesObj = getMinsAndMaxs( parkingMeterArr );
+								
+				// create a variable to hold the map's code 
+				var mapHTML = "";
+				
+				//LOOP: 	through each element of speedRecordArr 
+				//			and create a table row for object contained inside
+				for ( i in parkingMeterArr ) {
+					//get the position style code 
+					var positionCode = getPositionCode( 
+						{
+							elementX:	 		parkingMeterArr[ i ].longitude,
+							elementY: 			parkingMeterArr[ i ].latitude,
+							
+							xMin:				dataBoundariesObj.longitudeMin,
+							xMax:				dataBoundariesObj.longitudeMax,
+							yMin:				dataBoundariesObj.latitudeMin,
+							yMax:				dataBoundariesObj.latitudeMax,
+							screenWidth:		screenObj.width,
+							screenHeight:		screenObj.height
+						}
+					);
+
+					//create the title to display when the div is moused over
+					var title = "latitude: "
+						+ parkingMeterArr[ i ].latitude
+						+ ", longitude: "
+						+ parkingMeterArr[ i ].longitude
+						+ ", duration: "
+						+ parkingMeterArr[ i ].meterDuration
+						+ " min";
+					
+					//construct the div code for this parking meter
+					//example:	
+					//<div class="duration120class" 
+					//	style="position: absolute; top: 630px; left: 256px;" 
+					//	title="latitude: 44.6411, longitude: -63.5852, duration: 120min">
+					//</div>
+					mapHTML = mapHTML 
+						+ "<div " 
+							+ " class='duration" 
+									+ parkingMeterArr[ i ].meterDuration 
+									+ "class'" 
+							+ " style='position: absolute; " + positionCode + "'" 
+							+ " title='" + title + "'>" 
+						+ "</div>";
+				}
+				return mapHTML;
+			}
+			
+			//INPUT EVENT: create the map when #buttonId is clicked
+			document.querySelector( '#buttonId' ).onclick = function () {
+				console.log( 'button has been clicked...' );
+				
+				var parkingMeterArr	= initParkingMeterArr();
+				var mapCode			= createMapCode( parkingMeterArr );
+				outputMap( mapCode );
+			}
+    	</script>
+	</body>
+</html>

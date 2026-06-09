@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Keyboard motion control
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript control motion using the keyboard">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				27. Sept 2015		- created!										- Drapak
+				12. Oct 			- added evaluation sheets						- Drapak
+				9. October 2018		- removed the evaluation sheets and updated style- Drapak
+				12. October 2018	- added	flexibility to the projpect criteria	- Drapak
+				2. Nov 2018			- added warning about offsetRight/Bottom		- Drapaj
+				7. November 2018	- added links to image resources				- Drapak
+		-->
+		<style>
+			#imageID {
+				position: 			absolute;
+				width:				75px;
+				top:				1250px;
+				left:				200px;
+			}
+			td {
+				text-align:			center;
+				vertical-align: 	middle;
+				padding:			5px;
+			}
+			li img {
+				width:				25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.09 Hand-in: <em>Keyboard motion control</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//HTML: 
+					<a href="htmlConvertUnicode.shtml">Converting to unicode characters</a>
+				</li>
+				<br>
+				
+				<li>
+					//INPUT: 
+					<a href="inputElementPositions.shtml">Read element positions</a>
+				</li>
+				<li>
+					//INPUT: 
+					<a href="inputReadingKeypresses.shtml">Reading keypresses</a>
+				</li>
+				<br>
+				
+				<li>
+					//PROCESS: 
+					<a href="processIfElseConditionals.shtml"><code>if...else</code> 
+					conditionals</a>
+				</li>
+				<br>
+				
+				<li>
+					//OUTPUT: 
+					<a href="outputChangePosition.shtml">Changing an element's position</a>
+				</li>
+				<li>
+					//OUTPUT: 
+					<a href="outputChangeAnImage.shtml">Changing an image</a>
+				</li>
+				<br>
+				
+				<li>
+					//STYLE: 
+					<strong>
+						<a href="styleUseDescriptiveVariables.shtml">Use 
+						descriptive variable names</a>
+					</strong>
+				</li>
+				<br>
+				
+				<li>
+					More image resources 
+					<a href='http://drapak.ca/cpg/htmlImageResources.shtml'>here</a>.
+				</li>
+				<br>
+				<li>
+					<a href="http://drapak.ca/cpg/img/link-up.png"><img src="http://drapak.ca/cpg/img/link-up.png"></a> 
+					- &nbsp;http://drapak.ca/cpg/img/link-up.png
+				</li>
+				<li>
+					<a href="http://drapak.ca/cpg/img/link-down.png"><img src="http://drapak.ca/cpg/img/link-down.png"></a> 
+					- &nbsp;http://drapak.ca/cpg/img/link-down.png
+				</li>
+				<li>
+					<a href="http://drapak.ca/cpg/img/link-left.png"><img src="http://drapak.ca/cpg/img/link-left.png"></a> 
+					- &nbsp;http://drapak.ca/cpg/img/link-left.png
+				</li>
+				<li>
+					<a href="http://drapak.ca/cpg/img/link-right.png"><img src="http://drapak.ca/cpg/img/link-right.png"></a> 
+					- &nbsp;http://drapak.ca/cpg/img/link-right.png
+				</li>
+				<br>
+				<strong>Hint:</strong> you will start with one image of link,
+				and then <strong>change the <code>.src</code></strong>
+				to make it face a new direction.
+
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.09H-KeyboardMotionControl-LastName.html">empty template</a> as 
+				"<code>2.09H-KeyboardMotionControl-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Create a program that allows moves an image around the screen
+				and changes the image using the keyboard.
+				Check out the example below. 
+				Or check out a 
+				<a href='KeyboardMotionControl-DrapakVehicleDemo.html'>vehicle counter</a>.
+				Or a <a href='KeyboardMotionControl-DrapakShootingDemo.html'>pacman shooter</a>.
+			</p>
+			
+			<p>
+				<strong>
+					Hint:
+					Remember NOT to use <code>.offsetBottom</code> or <code>.offsetRight</code>.
+				</strong>
+			</p>
+			
+			
+			<h2>
+				Evaluation 
+				<!--
+					&mdash; [<a href="KeyboardMotionControl.pdf">pdf</a>] 
+					[<a href="KeyboardMotionControl.pub">pub</a>]-->
+			</h2>
+			<ul>
+				<li>
+					<strong>___/10 INPUT:</strong> including <strong>ANY FOUR</strong> of:
+					<ol>
+						<li>make things happen when you click on them</li>
+						<li>make things happen an input changes</li>
+						<li>listen for keypresses</li>
+						<li>read which key is pressed</li>
+						<li>read current top position</li>
+						<li>read current left position</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including <strong>ANY FOUR</strong> of:
+					<ol>
+						<li>declaring a variable</li>
+						<li>finding the integer or floating decimal of a string</li>
+						<li>use math to determine positions</li>
+						<li>use <code>if...else</code> statements to control flow of code</li>
+						<li>use string addition to combine things</li>
+						<li>have up and down movement working correctly</li>
+						<li>have left and right movement working correctly</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including <strong>ANY FOUR</strong> of:
+					<ol>
+						<li>set the position mode so things can move</li>
+						<li>change the left position of something</li>
+						<li>change the top position of something</li>
+						<li>change a image</li>	
+						<li>output information with innerHTML</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> <br>
+					<ol>
+						<li>add your name to the filename</li>
+						<li>write your name as the author</li>
+						<li>update the change log</li>
+						<li>correctly indent everything</li>
+						<li>use lowercase for all your HTML tags</li>
+						<li>use camelCase for all your ids and classes</li>
+						<li>avoid lines greater than 96 characters in length</li>
+						<li>restrict your style code to the head of your HTML file</li>
+						<li>space out your mathematical operators</li>
+						<li>write comments for your if statements</li>
+						<li>use descriptive variable names</li>
+					</ol>
+				</li>
+			</ul>
+
+			<h2>For example</h2>
+			<hr>
+			<table>
+				<thead>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>&#87; &uarr;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>&larr; &#65;</td>
+						<td>Let's move link around!</td>
+						<td>&#68; &rarr;</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>&#83; &darr;</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<img id="imageID" src="http://drapak.ca/cpg/img/link-down.png" />
+			<hr>
+
+			
+		</article>
+
+		<!--
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.		
+		-->
+ 		<script>
+			var _0x5b1e=["\x69\x6E\x20\x72\x65\x61\x64\x4B\x65\x79\x70\x72\x65\x73\x73\x2E\x2E\x2E","\x6C\x6F\x67","\x77\x68\x69\x63\x68","\x6B\x65\x79\x43\x6F\x64\x65","\x72\x69\x67\x68\x74\x20\x61\x72\x72\x6F\x77","\x73\x72\x63","\x69\x6D\x61\x67\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x72\x69\x67\x68\x74\x2E\x70\x6E\x67","\x6C\x65\x66\x74","\x73\x74\x79\x6C\x65","\x6F\x66\x66\x73\x65\x74\x4C\x65\x66\x74","\x70\x78","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x6C\x65\x66\x74\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x75\x70\x2E\x70\x6E\x67","\x74\x6F\x70","\x6F\x66\x66\x73\x65\x74\x54\x6F\x70","\x64\x6F\x77\x6E","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x64\x6F\x77\x6E\x2E\x70\x6E\x67","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E"];var distance=15;var readKeypress=function(_0xc4bcx3){console[_0x5b1e[1]](_0x5b1e[0]);var _0xc4bcx4=_0xc4bcx3[_0x5b1e[2]]||_0xc4bcx3[_0x5b1e[3]];if(_0xc4bcx4==68){console[_0x5b1e[1]](_0x5b1e[4]);document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[5]]=_0x5b1e[8];document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[10]][_0x5b1e[9]]=(document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[11]]+distance)+_0x5b1e[12];}else {if(_0xc4bcx4==65){console[_0x5b1e[1]](_0x5b1e[4]);document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[5]]=_0x5b1e[13];document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[10]][_0x5b1e[9]]=(document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[11]]-distance)+_0x5b1e[12];}else {if(_0xc4bcx4==87){console[_0x5b1e[1]](_0x5b1e[4]);document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[5]]=_0x5b1e[14];document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[10]][_0x5b1e[15]]=(document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[16]]-distance)+_0x5b1e[12];}else {if(_0xc4bcx4==83){console[_0x5b1e[1]](_0x5b1e[17]);document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[5]]=_0x5b1e[18];document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[10]][_0x5b1e[15]]=(document[_0x5b1e[7]](_0x5b1e[6])[_0x5b1e[16]]+distance)+_0x5b1e[12];}}}};};window[_0x5b1e[19]]=readKeypress;
+		</script>
+
+
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

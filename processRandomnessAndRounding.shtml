@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			PROCESS: Randomness and Rounding
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use randomness and rounding in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. Oct 2015	-created
+				21. Oct 2018	- updated style and clarified examples			- Drapak
+				7. Nov 2018 	- moved important code to the top				- Drapak
+		-->
+
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//PROCESS: <em>Randomness and rounding</em>
+		</header>
+
+		<article>
+		
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>Math.round()</code><br>
+				<span class="indent">
+					&mdash; rounds a number to the nearest integer
+				</span><br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>Math.floor()</code><br>
+				<span class="indent">
+					&mdash; rounds a number <strong>downward</strong> to the nearest integer
+				</span><br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>Math.ceil()</code><br>
+				<span class="indent">
+					&mdash; rounds a number <strong>upward</strong> to the nearest integer
+				</span><br>
+				<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>Math.random()</code><br>
+				<span class="indent">
+					&mdash; creates a random decimal from 0 &rarr; 0.99999...
+				</span><br>
+				<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>var <var>dieRoll</var> =Math.ceil( Math.random() * 6 );</code><br>
+				<span class="indent">
+					&mdash; creates a random integer from 1 &rarr; 6
+				</span><br>
+				<br>
+			</p>
+			
+			
+			<h2>Generating random numbers</h2>
+			
+			<p>
+				Generating a random number between 1 &rarr; 6 
+				requires you to do the following:
+			</p>
+			<ol>
+				<li>generate a random decimal using <code>Math.random()</code></li>
+				<li>multiplying the random integer by 6</li>
+				<li>rounding the result up to the nearest integer</li>
+			</ol>
+			
+			<h3>Generating a random integer using <code>Math.random()</code></h3>
+			
+			<p>
+				There is a function, <code>Math.random()</code>, 
+				that returns a random number between 0 &rarr; 0.999999... 
+				It is not truly random (you need to use something like reading 
+				radioactive decay for that), but it is close enough for 
+				our purposes at this point.
+			</p>
+			<p>
+				Here is what <code>Math.random()</code> returns:<br>
+				<button type="button" onclick="this.innerHTML=Math.random();">
+					Click to <code>Math.random()</code>
+				</button>
+			</p>
+			
+			<h3>Rounding, Floors, and ceilings</h3>
+			
+			<p>
+				There are often times when you want to <strong>normally round</strong> 
+				a number, and <code>Math.round()</code> 
+				will do this for you in the usual way: <br>
+				2.3 <code>round()</code>s normally to: 
+				<button type="button" onclick="this.innerHTML=Math.round(2.3);">
+					Click to <code>Math.round( 2.3 )</code>
+				</button><br>
+				5.6 <code>round()</code>s normally to: 
+				<button type="button" onclick="this.innerHTML=Math.round(5.6);">
+					Click to <code>Math.round( 5.6 )</code>
+				</button>
+			</p>
+			
+			<p>
+				Sometimes you want to <strong>round down</strong> to the nearest integer. 
+				<code>Math.floor()</code> will do this for you: <br>
+				2.3 <code>floor()</code>s down to: 
+				<button type="button" onclick="this.innerHTML=Math.floor(2.3);">
+					Click to <code>Math.floor( 2.3 )</code>
+				</button> <br>
+				5.6 <code>floor()</code>s down to: 
+				<button type="button" onclick="this.innerHTML=Math.floor(5.6);">
+					Click to <code>Math.floor( 5.6 )</code>
+				</button>
+			</p>
+			
+			<p>
+				Sometimes you want to <strong>round up</strong> to the nearest integer. 
+				<code>Math.ceil()</code> will do this for you: <br>
+				2.3 <code>ceil()</code>s up to: 
+				<button type="button" onclick="this.innerHTML=Math.ceil(2.3);">
+					Click to <code>Math.ceil( 2.3 )</code>
+				</button> <br>
+				5.6 <code>ceil()</code>s up to: 
+				<button type="button" onclick="this.innerHTML=Math.ceil(5.6);">
+					Click to <code>Math.ceil( 5.6 )</code>
+				</button>
+			</p>
+			
+			<h3>Rolling a die</h3>
+			
+			<p>Let's say for this example that we are using a six-sided die.</p>
+			
+			<p>We will start off by generating a random decimal:</p>
+			<ul>
+				<li><code>var <var>randomDecimal</var> =Math.random();</code></li>
+				<li>
+					<button 
+						type="button" 
+						id="buttonId8" 
+						onclick="this.innerHTML=Math.random();">
+						Click to <code>Math.random()</code>
+					</button>
+				</li>
+			</ul>
+			
+			<p>
+				Then we need to multiply this number by six in 
+				order to simulate a range from 1 &rarr; 6.
+			</p>
+			<ul>
+				<li>
+					<code>var <var>unroundedDecimal</var> 
+					= <var>randomDecimal</var> * 6;</code>
+				</li>
+				<li>
+					<button 
+						type="button" 
+						id="buttonId9" 
+						onclick="this.innerHTML=document.getElementById('buttonId8').innerHTML * 6;">
+						Click to multiply the above by 6
+					</button>
+				</li>
+			</ul>
+			
+			<p>
+				It still does not look like a die roll from 1 &rarr 6 yet. 
+				Sometimes we get numbers less one, and we never get a number equal to 6. 
+				The function that we need to shape the results into the proper integers is 
+				<code>Math.ceil()</code>.
+			</p>
+			<ul>
+				<li>
+					<code>var <var>dieRoll</var> =Math.ceil(<var>unroundedDecimal</var>);
+					</code>
+				</li>
+				<li>
+					<button 
+						type="button" 
+						id="buttonId10" 
+						onclick="this.innerHTML=Math.ceil(document.getElementById('buttonId9').innerHTML);">
+						Click to <code>Math.ceil()</code> the results from the button above
+					</button>
+				</li>
+			</ul>
+			
+			<h4>Putting it all together in one line</h4>
+			
+			<p>So if you combine everything into one line, the resulting code is:</p>
+			<ul>
+				<li><code>var <var>dieRoll</var> =Math.ceil( Math.random() * 6 );</code></li>
+				<li>
+					<button type="button" id="buttonId11" onclick="this.innerHTML=Math.ceil(Math.random() * 6);">
+						Click to <code>Math.ceil( Math.random() * 6 )</code>
+					</button>
+				</li>
+			</ul>
+			
+			<h4>What about 3 options? 5? 200?</h4>
+			<ul>
+				<li>
+					<code>
+						var <var>dieRoll</var> 
+						= Math.ceil( Math.random() * <span class="withborder">3</span> );
+					</code> // 3 options
+				</li>
+				<li>
+					<code>
+						var <var>dieRoll</var> 
+						= Math.ceil( Math.random() * <span class="withborder">5</span> );
+					</code> // 5 options
+				</li>
+				<li>
+					<code>
+						var <var>dieRoll</var> 
+						= Math.ceil( Math.random() * <span class="withborder">200</span> );
+					</code> // 200 options
+				</li>
+			</ul>
+			
+			<h2>Common mistakes</h2>
+			<ul>
+				<li>
+					<strong>
+						using <code>Math.round()</code> instead of <code>Math.ceil</code>
+					</strong> <br>
+					This will create a badly weighted die that will 
+					generate a number from 0 &rarr; 6, like this:
+				</li>
+				<ul>
+					<li>
+						0: 9%
+					</li>
+					<li>
+						1: 16%
+					</li>
+					<li>
+						2: 16%
+					</li>
+					<li>
+						3: 16%
+					</li>
+					<li>
+						4: 16%
+					</li>
+					<li>
+						5: 16%
+					</li>
+					<li>
+						6: 9%
+					</li>
+				</ul>
+			</ul>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/jsref_round.asp">
+						Math.round()</a>,
+					<a href="http://www.w3schools.com/jsref/jsref_floor.asp">
+						Math.floor()</a>, 
+					<a href="http://www.w3schools.com/jsref/jsref_ceil.asp">
+						Math.ceil()</a>, and 
+					<a href="http://www.w3schools.com/jsref/jsref_random.asp">
+						Math.random()
+					</a>
+				</li>
+			</ul>
+			<script>
+				document.body.onload = questionLoader;
+			</script>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

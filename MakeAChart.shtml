@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Make a chart</title>
+		<meta name="description" content="Assignment: Use Javascript objects to create a graph">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. October 2015	- created!
+		-->
+
+ 		<script>
+			var mainProcedure = function () {
+				console.log('in mainProcedure');
+				
+				var resultsObj		= getElectionResults();
+				var graphWidthObj	= calculateGraphWidths( resultsObj );
+				displayGraph( graphWidthObj );
+			}
+			
+			//INPUT: read in the election results and store inside inputObj
+			var getElectionResults = function () {
+				console.log( 'in getElectionResults' );
+				var electionResults = {};	//declare as an empty object
+				
+				electionResults.liberal			= document.getElementById('liberalInputID').value;
+				electionResults.conservative	= document.getElementById('conservativeInputID').value;
+				electionResults.newDemocrat		= document.getElementById('newDemocratInputID').value;
+				electionResults.bloc			= document.getElementById('blocInputID').value;
+				electionResults.green			= document.getElementById('greenInputID').value;
+				
+				return electionResults;
+			}
+			
+			//PROCESS: calculate the width of the graph to display, and store in graphWidth
+			var calculateGraphWidths = function ( electionResults ) {
+				console.log( 'in calculateGraphWidths' );
+				var GRAPH_MULTIPLIER = 5;
+				var graphWidth = {}; 		//declare as an empty object
+				
+				graphWidth.liberal				= electionResults.liberal 		* GRAPH_MULTIPLIER;
+				graphWidth.conservative			= electionResults.conservative 	* GRAPH_MULTIPLIER;
+				graphWidth.newDemocrat			= electionResults.newDemocrat 	* GRAPH_MULTIPLIER;
+				graphWidth.bloc					= electionResults.bloc 			* GRAPH_MULTIPLIER;
+				graphWidth.green				= electionResults.green 		* GRAPH_MULTIPLIER;
+				
+				return graphWidth;
+			}
+			
+			//OUTPUT: change the graph divs to the calculated width
+			var displayGraph = function ( graphWidth ) {
+				console.log( 'in displayGraph' );
+				document.getElementById('liberalGraphID').style.width			= graphWidth.liberal 		+ 'px';
+				document.getElementById('conservativeGraphID').style.width		= graphWidth.conservative 	+ 'px';
+				document.getElementById('newDemocratGraphID').style.width		= graphWidth.newDemocrat 	+ 'px';
+				document.getElementById('blocGraphID').style.width				= graphWidth.bloc 			+ 'px';
+				document.getElementById('greenGraphID').style.width				= graphWidth.green 			+ 'px';				
+			}
+		</script>
+		<style>
+			input, button {
+				position: 			absolute;
+				left: 				15em;
+			}
+			article div {
+				color:				white;
+				min-height:			1.2em;
+				max-height:			1.2em;
+				width:				0em;
+				padding-left:		0.3em;
+				overflow: 			hidden;
+			}
+			#liberalGraphID {
+				background-color: 	red;
+			}
+			#conservativeGraphID {
+				background-color: 	blue;
+			}
+			#newDemocratGraphID {
+				background-color: 	orange;
+			}
+			#blocGraphID {
+				background-color: 	cyan;
+			}
+			#greenGraphID {
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.14 Skill-builder: <em>Make a chart</em>
+		</header>
+				
+		<article>
+			<!--
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initObjects.shtml">Using objects</a>
+				</li>
+				<li>
+					//PROCESS: <a href="processStringAddition.shtml">String addition</a>
+				</li>
+			</ul>
+			-->
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty template as 
+				"<code><a href="2.14S-MakeAChart-LastName.html">2.14S-MakeAChart-LastName.html</a></code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use Javascript code to create a chart of the most common programming languages on Github, 
+				the most popular place on the web to find open source coding projects.
+			</p>	
+			<h2>An example full of hints:</h2>
+
+			<h4>Graph the 2015 federal election results</h4>
+			<p>
+				Please enter the number of seats won by the respective parties:<br />
+				Liberal:
+				<input id="liberalInputID" 		value="184" /><br />
+				Conservative:
+				<input id="conservativeInputID"	value="99" /><br />
+				New Democrat:
+				<input id="newDemocratInputID"	value="44" /><br />
+				Bloc Quebecois:
+				<input id="blocInputID"			value="10" /><br />
+				Green:
+				<input id="greenInputID"		value="1" /><br />
+				<br />
+				<button onclick="mainProcedure();">Click to graphinate!</button>
+			</p>
+			<hr />
+			<div id="liberalGraphID">Liberal</div>
+			<div id="conservativeGraphID"> Conservative</div>
+			<div id="newDemocratGraphID"> New Democrat</div>
+			<div id="blocGraphID"> Bloc Quebecois</div>
+			<div id="greenGraphID"> Green</div>
+			<hr />		
+
+			<p>...is made from the following code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Election graph</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Make an election graph"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                20. October 2015    - created!
+                21. October         - separated functions like a good little programmer
+        --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in mainProcedure'</span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">resultsObj</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">getElectionResults</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">graphWidthObj</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">calculateGraphWidths</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">resultsObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">displayGraph</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">graphWidthObj</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: read in the election results and store inside inputObj</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">getElectionResults</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in getElectionResults'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">electionResults</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{};</span><span class="sc41">   </span><span class="sc43">//declare as an empty object</span><span class="sc41">
+                
+                </span><span class="sc46">electionResults.liberal</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'liberalInputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">electionResults.conservative</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'conservativeInputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">electionResults.newDemocrat</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'newDemocratInputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">electionResults.bloc</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'blocInputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">electionResults.green</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'greenInputID'</span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">electionResults</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: calculate the width of the graph to display, and store in graphWidth</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">calculateGraphWidths</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">electionResults</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in calculateGraphWidths'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">5</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">graphWidth</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{};</span><span class="sc41">        </span><span class="sc43">//declare as an empty object</span><span class="sc41">
+                
+                </span><span class="sc46">graphWidth.liberal</span><span class="sc41">              </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">electionResults.liberal</span><span class="sc41">       </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">graphWidth.conservative</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">electionResults.conservative</span><span class="sc41">  </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">graphWidth.newDemocrat</span><span class="sc41">          </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">electionResults.newDemocrat</span><span class="sc41">   </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">graphWidth.bloc</span><span class="sc41">                 </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">electionResults.bloc</span><span class="sc41">          </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">graphWidth.green</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">electionResults.green</span><span class="sc41">         </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">GRAPH_MULTIPLIER</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">graphWidth</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: change the graph divs to the calculated width</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayGraph</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">graphWidth</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in displayGraph'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'liberalGraphID'</span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">graphWidth.liberal</span><span class="sc41">        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'conservativeGraphID'</span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">graphWidth.conservative</span><span class="sc41">   </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'newDemocratGraphID'</span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">graphWidth.newDemocrat</span><span class="sc41">    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'blocGraphID'</span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">              </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">graphWidth.bloc</span><span class="sc41">           </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'greenGraphID'</span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">             </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">graphWidth.green</span><span class="sc41">          </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">             
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            input, button {
+                position:           absolute;
+                left:               15em;
+            }
+            div {
+                color:              white;
+                min-height:         1.2em;
+                max-height:         1.2em;
+                width:              0em;
+                padding-left:       0.3em;
+                overflow:           hidden;
+            }
+            #liberalGraphID {
+                background-color:   red;
+            }
+            #conservativeGraphID {
+                background-color:   blue;
+            }
+            #newDemocratGraphID {
+                background-color:   orange;
+            }
+            #blocGraphID {
+                background-color:   cyan;
+            }
+            #greenGraphID {
+                background-color:   green;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Make an election graph!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Please enter the number of seats won by the respective parties:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Liberal:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"liberalInputID"</span><span class="sc8">      </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"184"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Conservative:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"conservativeInputID"</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"99"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            New Democrat:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"newDemocratInputID"</span><span class="sc8">  </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"44"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Bloc Quebecois:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"blocInputID"</span><span class="sc8">         </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            Green:
+            </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"greenInputID"</span><span class="sc8">        </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"1"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">Click to graphinate!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;hr</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"liberalGraphID"</span><span class="sc1">&gt;</span><span class="sc0">Liberal</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"conservativeGraphID"</span><span class="sc1">&gt;</span><span class="sc0"> Conservative</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"newDemocratGraphID"</span><span class="sc1">&gt;</span><span class="sc0"> New Democrat</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"blocGraphID"</span><span class="sc1">&gt;</span><span class="sc0"> Bloc Quebecois</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"greenGraphID"</span><span class="sc1">&gt;</span><span class="sc0"> Green</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

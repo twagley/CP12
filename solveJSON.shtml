@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Saving and opening data files using JSON</title>
+		<meta name="description" content="Learn how to save and open data files using JSON in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. December 2015	-created
+				30. June 2018	- reworked code for better style and clarity	- Drapak
+		-->
+
+ 
+        <style>
+        </style>
+    </head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Saving and opening data files using JSON</em>
+		</header>
+
+		<article>
+		
+			<h2>Transferring data using object-oriented Javascript</h2>
+			
+			<p>
+				Sometimes you want to save and open data.
+				This happens less in web programming, but it still happens a lot.
+			</p>
+			
+			<p>
+				JSON <em>(JavaScript Object Notation)</em>,
+				is a way to print out and read in data 
+				structures easily into Javascript. 
+			</p>
+			<p>
+				The current data structure in this program 
+				looks like this when converted to JSON:<br>
+				<code id="jsonOutputID"></code>
+			</p>
+			
+
+			<h4>JSON file download</h4>
+			<p>
+				The JSON information can be stored inside a data URL. 
+				When the user clicks on the link, 
+				the browser converts the data into a file with the same name that 
+				is given inside the download part of the link.
+				Hover over the link and check out the status bar 
+				to see what this link looks like.
+			</p>
+			<p>
+				<a id="downloadID" download="data.json">
+					Click to download JSON data file
+				</a>
+			</p>
+			
+			<h4>JSON file upload</h4>
+			<p>
+				JSON data files can also be read into Javascript 
+				using the built-in <code>FileReader</code> capabilities.
+			</p>
+			<p>
+				Please select the data file to upload. 
+				This file should be a JSON text file.<br />
+				(Try editting a saved JSON file and upload the 
+				results to see the data structure change above...)
+			</p>
+			<p>
+				<!-- Use the following input line in your code. 
+				It will automatically trigger the upload after the file has been chosen. -->
+				<input id="fileId" type="file" >
+			</p>
+		
+			<hr />
+						
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/json/">
+						JSON tutorial
+					</a>
+				</li>
+				<li>
+					MDN's
+					<a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader">
+						FileReader information
+					</a>
+				</li>
+			</ul>
+
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0"></span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                24. December 2015   -created
+                30. June 2018   - reworked code for better style and clarity    - Drapak
+        --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+		The current data structure in this program 
+		looks like this when converted to JSON:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;code</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"jsonOutputID"</span><span class="sc1">&gt;&lt;/code&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+	
+	</span><span class="sc1">&lt;h4&gt;</span><span class="sc0">JSON file download</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"downloadID"</span><span class="sc8"> </span><span class="sc4">download</span><span class="sc8">=</span><span class="sc6">"data.json"</span><span class="sc1">&gt;</span><span class="sc0">
+			Click to download JSON data file
+		</span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+	
+	</span><span class="sc1">&lt;h4&gt;</span><span class="sc0">JSON file upload</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+		</span><span class="sc9">&lt;!-- Use the following input line in your code. 
+		It will automatically trigger the upload after the file has been chosen. --&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"fileId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"file"</span><span class="sc8"> </span><span class="sc1">&gt;</span><span class="sc0">
+	</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+	</span><span class="sc1">&lt;hr</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">     
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// INIT: initialize a data structure that we can save and open later</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">students</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">givenName</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc48">"Devon"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">familyName</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"Frisk"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">mark</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">78</span><span class="sc41">          </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">givenName</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc48">"Jamie"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">familyName</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"Beals"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">mark</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">67</span><span class="sc41">          </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">givenName</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc48">"Adrien"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">familyName</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"Petrivitch"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">mark</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">92</span><span class="sc41">          </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">givenName</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc48">"MacKenzie"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">familyName</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"Li"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc46">mark</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">63</span><span class="sc41">          </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">];</span><span class="sc41"> 
+            
+            </span><span class="sc43">// fileTransfer OBJECT</span><span class="sc41">
+            </span><span class="sc43">// </span><span class="sc41">
+            </span><span class="sc43">//  properties: </span><span class="sc41">
+            </span><span class="sc43">//      fileTransfer.jsonString</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  methods:</span><span class="sc41">
+            </span><span class="sc43">//      fileTransfer.uploadJSONFileInto( 
+            //		{ 
+            //			dataStructure: ... , 
+            //			uploadEvent: ..., 
+            //			callback: function() {...} 
+            //		} 
+            //      )</span><span class="sc41">
+            </span><span class="sc43">//      fileTransfer.insertDownloadLink( 
+            //		{ 
+            //			dataStructure: ... , 
+            //			elementID: ... 
+            //		} 
+            //      )</span><span class="sc41">
+            </span><span class="sc43">//      fileTransfer.displayJSONInside( elementID )</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">fileTransfer</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">jsonString</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: upload the file and store as this.jsonString</span><span class="sc41">
+                </span><span class="sc46">uploadJSONFileInto</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">argumentObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// extract the information from the parameter object</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataStructure</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">argumentObj.dataStructure</span><span class="sc50">;</span><span class="sc41">    
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">uploadEvent</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">argumentObj.uploadEvent</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">callbackFunction</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">argumentObj.callback</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">// only process the first file that was uploaded</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">firstFile</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">uploadEvent.target.files</span><span class="sc50">[</span><span class="sc45">0</span><span class="sc50">];</span><span class="sc41">
+                    </span><span class="sc43">// create a new file reader object to process the contents              </span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">reader</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">FileReader</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc43">// start reading in the file as text                    </span><span class="sc41">
+                    </span><span class="sc46">reader.readAsText</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">firstFile</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">                         
+                    
+                    </span><span class="sc43">// define what to do when the file is finished being read in...</span><span class="sc41">
+                    </span><span class="sc46">reader.onload</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">uploadEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">   
+                        </span><span class="sc43">// send file info to the console</span><span class="sc41">
+                        </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41">                                             
+                            </span><span class="sc48">"Got the file.\n"</span><span class="sc41"> 
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"name: "</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">firstFile.name</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"\n"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"type: "</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">firstFile.type</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"\n"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"size: "</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">firstFile.size</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">" bytes\n"</span><span class="sc41">
+                        </span><span class="sc50">);</span><span class="sc41">  
+                        
+                        </span><span class="sc43">// store the contents from the file</span><span class="sc41">
+                        </span><span class="sc46">this.jsonString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">uploadEvent.target.result</span><span class="sc50">;</span><span class="sc41">            
+                        
+                        </span><span class="sc43">//PROCESS: read the contents of the file into the data structure</span><span class="sc41">
+                        </span><span class="sc43">// clear out the old dataStructure</span><span class="sc41">
+                        </span><span class="sc46">dataStructure.length</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">;</span><span class="sc41">                            
+                        
+                        </span><span class="sc43">// extract the data and copy over to a temporary variable</span><span class="sc41">
+                        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">tempStructure</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">JSON.parse</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.jsonString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                        
+                        </span><span class="sc43">//LOOP: through each part of the temporary variable</span><span class="sc41">
+                        </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">tempStructure</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                            </span><span class="sc43">// copy the temporary information into the dataStructure</span><span class="sc41">
+                            </span><span class="sc46">dataStructure.push</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">tempStructure</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">               
+                        </span><span class="sc50">}</span><span class="sc41">
+                        
+                        </span><span class="sc43">// trigger the callback function when complete</span><span class="sc41">
+                        </span><span class="sc46">callbackFunction</span><span class="sc50">();</span><span class="sc41">                                     
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS+OUTPUT: this creates a download link in #elementID of the dataStructure in JSON format</span><span class="sc41">
+                </span><span class="sc46">insertDownloadLink</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">argumentObj</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataStructure</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">argumentObj.dataStructure</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">elementID</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">argumentObj.elementID</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">//PROCESS: convert the dataStructure to JSON</span><span class="sc41">
+                    </span><span class="sc46">this.jsonString</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">JSON.stringify</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">dataStructure</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">//PROCESS: create a data URL from the JSON code</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">dataURL</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"data:text/json;charset=utf-8,"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">encodeURIComponent</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.jsonString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">//OUTPUT: insert the data URL into the output link</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">href</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">dataURL</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                                
+                </span><span class="sc43">// OUTPUT: display the data structure inside a given id</span><span class="sc41">
+                </span><span class="sc46">displayJSONInside</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">elementID</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">elementID</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.jsonString</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: create the download link and display the JSON code</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayJSONExample</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"in displayJSONExample..."</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">fileTransfer.insertDownloadLink</span><span class="sc50">({</span><span class="sc41">
+                    </span><span class="sc46">dataStructure</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc46">students</span><span class="sc50">,</span><span class="sc41"> 
+                    </span><span class="sc46">elementID</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc49">'downloadID'</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">fileTransfer.displayJSONInside</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'jsonOutputID'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: upload a file, transfer the data and display</span><span class="sc41">
+            </span><span class="sc43">//      this is triggered whenever a file is selected in the upload box</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"fileId"</span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">uploadEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+                </span><span class="sc46">fileTransfer.uploadJSONFileInto</span><span class="sc50">({</span><span class="sc41">   </span><span class="sc43">// read in the file     </span><span class="sc41">
+                    </span><span class="sc43">// read into this data structure</span><span class="sc41">
+                    </span><span class="sc46">dataStructure</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc46">students</span><span class="sc50">,</span><span class="sc41">                   
+                    </span><span class="sc43">// transfer in the upload data</span><span class="sc41">
+                    </span><span class="sc46">uploadEvent</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc46">uploadEvent</span><span class="sc50">,</span><span class="sc41"> 
+                    
+                    </span><span class="sc43">// function to call after upload is complete</span><span class="sc41">
+                    </span><span class="sc46">callback</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">               
+                        </span><span class="sc43">// after the upload, display the changes to the data structure</span><span class="sc41">
+                        </span><span class="sc46">displayJSONExample</span><span class="sc50">();</span><span class="sc41">       
+                        </span><span class="sc50">}</span><span class="sc41"> 
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: when the page finishes loading, display the JSON example</span><span class="sc41">
+            </span><span class="sc46">document.body.onload</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">displayJSONExample</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span><span class="sc0">
+</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+		<script>
+			// INIT: initialize a data structure that we can save and open later
+            var students = [
+                {   givenName:  "Devon",
+                    familyName: "Frisk",
+                    mark:       78          },
+                {   givenName:  "Jamie",
+                    familyName: "Beals",
+                    mark:       67          },
+                {   givenName:  "Adrien",
+                    familyName: "Petrivitch",
+                    mark:       92          },
+                {   givenName:  "MacKenzie",
+                    familyName: "Li",
+                    mark:       63          }
+            ]; 
+            
+			// fileTransfer OBJECT
+			// 
+			//	properties:	
+			//		fileTransfer.jsonString
+			//
+			//	methods:
+			//		fileTransfer.uploadJSONFileInto( 
+			//			{ 
+			//				dataStructure: ... , 
+			//				uploadEvent: ..., 
+			//				callback: function() {...} 
+			//			} 
+			//		);
+			//		fileTransfer.insertDownloadLink( 
+			//			{ 
+			//				dataStructure: ... , 
+			//				elementID: ... 
+			//			} 
+			//		);
+			//		fileTransfer.displayJSONInside( elementID );
+			//
+            var fileTransfer = {
+                jsonString:     null,
+                
+				// INPUT: upload the file and store as this.jsonString
+                uploadJSONFileInto: function ( argumentObj ) {
+					// extract the information from the parameter object
+					var dataStructure		= argumentObj.dataStructure;	
+					var uploadEvent			= argumentObj.uploadEvent;
+					var callbackFunction	= argumentObj.callback;
+					
+					// only process the first file that was uploaded
+    				var firstFile = uploadEvent.target.files[0];
+					// create a new file reader object to process the contents				
+    				var reader = new FileReader();
+					// start reading in the file as text					
+    				reader.readAsText( firstFile );							
+    				
+					// define what to do when the file is finished being read in...
+    				reader.onload = function( uploadEvent ) { 	
+						// send file info to the console
+    					console.log( 											 
+							"Got the file.\n" 
+							+ "name: " + firstFile.name + "\n"
+							+ "type: " + firstFile.type + "\n"
+							+ "size: " + firstFile.size + " bytes\n"
+    					);  
+    					
+						// store the contents from the file
+						this.jsonString	= uploadEvent.target.result;			
+						
+						//PROCESS: read the contents of the file into the data structure
+						// clear out the old dataStructure
+						dataStructure.length 	= 0;							
+						
+						// extract the data and copy over to a temporary variable
+						var tempStructure		= JSON.parse( this.jsonString );
+						
+						//LOOP: through each part of the temporary variable
+						for (i in tempStructure) {
+							// copy the temporary information into the dataStructure
+							dataStructure.push( tempStructure[ i ] );				
+						}
+						
+						// trigger the callback function when complete
+						callbackFunction();										
+    				}
+                },
+				
+				// PROCESS+OUTPUT: this creates a download link in #elementID of the dataStructure in JSON format
+				insertDownloadLink: function ( argumentObj ) {
+					var dataStructure	= argumentObj.dataStructure;
+					var elementID		= argumentObj.elementID;
+					
+					//PROCESS: convert the dataStructure to JSON
+                    this.jsonString 	= JSON.stringify( dataStructure );
+					
+					//PROCESS: create a data URL from the JSON code
+					var dataURL			= "data:text/json;charset=utf-8," + encodeURIComponent( this.jsonString );
+					
+					//OUTPUT: insert the data URL into the output link
+					document.getElementById( elementID ).href 		= dataURL;
+				},
+								
+                // OUTPUT: display the data structure inside a given id
+                displayJSONInside:    function ( elementID ) {
+                    document.getElementById( elementID ).innerHTML	= this.jsonString;
+                }
+            };
+
+			//OUTPUT: create the download link and display the JSON code
+			var displayJSONExample = function () {
+				console.log( "in displayJSONExample..." );
+				
+                fileTransfer.insertDownloadLink({
+					dataStructure:	students, 
+					elementID:		'downloadID'
+					}
+				);
+                fileTransfer.displayJSONInside( 'jsonOutputID' );
+			
+			}
+			
+			//INPUT: upload a file, transfer the data and display
+			// 		this is triggered whenever a file is selected in the upload box
+			document.getElementById("fileId").onchange = function ( uploadEvent ) {
+
+                fileTransfer.uploadJSONFileInto({	// read in the file		
+					// read into this data structure
+					dataStructure:	students,					
+					// transfer in the upload data
+					uploadEvent:	uploadEvent, 
+					
+					// function to call after upload is complete
+					callback:		function () {				
+						// after the upload, display the changes to the data structure
+						displayJSONExample();		
+						} 
+					}
+				);
+            }
+			
+			//INPUT: when the page finishes loading, display the JSON example
+			document.body.onload	= function () {
+				displayJSONExample();
+			}
+        </script>
+	</body>
+</html>

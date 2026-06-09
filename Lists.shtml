@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: Survey Lists</title>
+		<meta name="description" content="Assignment: answer a survey in HTML using lists">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="lists, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015	- created!
+				4. Sept			- reduced number of questions required
+				8. Sept			- changed the style of the resources
+				1. Feb 2017		- modified hand-in info
+				6. Feb 2018		- added hidden agenda
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			<a href="/cpg/">Computer Programming 12</a> 
+			&mdash; <em>1.02 Skill-builder: Survey Lists</em>
+		</header>
+
+		<article>
+			<h2>Resources</h2>
+			<p>
+				//HTML: <a href="htmlLists.shtml">Lists</a><br />
+				//STYLE: <a href="styleChoosingAnEditor.shtml">Choosing an editor</a>			
+			</p>
+
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Get used to using a programming text editor
+				</li>		
+				<li>
+					See how information is nested hierarchically inside tags
+				</li>			
+				<li>
+					Get used to the flow and rhythm of typing code
+				</li>		
+				<li>
+					Share some fun and interesting information about yourself
+				</li>				
+			</ul>
+			
+			<h2>Saving your work</h2>
+			<p>Whatever you use, open an editor and save the empty document as "<code>1.02S-SurveyLists-LastName.html</code>".</p>
+
+			<h2>The assignment</h2>
+			<ol>
+				<li>Create a series of lists full of questions</li>
+				<li>Add your own answers to the questions</li>
+				<li>Get a friend to proofread your code for you</li>
+				<li>
+					<strong>You do not have to answer every question.</strong> 
+					Answer the ones you think are most important, then move on.
+				</li>
+			</ol>
+			<p>Create a document that looks like this:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">A survey using lists</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"A survey that shows that I know how to make lists"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"--Your name here--"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                8. August 2015  - created!
+        --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Survey questions answered by --Your name here--</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!-- teacher's note: Keep answering questions until you run out of time --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What are the three electronic devices that you most frequently use?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What are you best at in math class?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Do you have any hobbies in which you create things?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What are the most important skills to become a programmer?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What kinds of things do you want to learn in Computer Programming?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">In your opinion, who are the best teachers you have had so far, and why?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">What are some things your teacher should know in order to understand you better?</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc9">&lt;!-- for each question, provide answers in list form, like this: --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li&gt;&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li&gt;&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;li&gt;&lt;/li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/ul&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<p>Then answer the questions based on your own experience and beliefs.</p>
+			
+			<h2>Extend and expand</h2>
+			<p>Tell me more! Add the following questions to your survey:</p>
+			<ol>
+				<li>What course do you wish was offered at your school that currently isn't?</li>
+				<li>What do you do outside school for fun?</li>
+				<li>Tell me a story that you thing I would find interesting...</li>
+			</ol>
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

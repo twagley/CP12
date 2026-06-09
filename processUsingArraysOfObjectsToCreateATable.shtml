@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming: 
+			PROCESS - Using arrays of objects to create a table
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use arrays of objects to create a table">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				14. November	- created!
+				15. November 	- continued development, forked into table and map
+				1. May 2017		- changed style of code example					- Drapak
+				5. December 2018	- updated style and to fit resequence 		- Drapak
+			-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>Using arrays of objects to create a table</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<pre><code>//PROCESS: loop through each element of an array of objects 
+var loopThroughArrayOfObjects = function ( exampleArr ) {
+	for ( i in exampleArr ) {			// loop through each object of the array
+	
+		// do something with exampleArr[ i ].oneProperty
+		// do something with exampleArr[ i ].anotherProperty
+		// do something with exampleArr[ i ].yetAnotherProperty
+	}
+}</code></pre>
+
+			<h2>Using arrays of objects to create a table</h2>
+			
+			<p>
+				Arrays of objects are used to contain a series of multiples of objects.
+				It is the most common kind of information to come from databases and 
+				is perfect for displaying as a <strong>table</strong>.
+			</p>
+
+			<p>
+				For example, let's create a table of information about the best land speed records.
+				We can do this with the following procedure:
+			</p>
+			
+			<ol>
+				<li>
+					Declare and initialize the chart data as an array of objects.
+					After you click the button below, check out the <code>console.log</code>
+					to see what the array of objects looks like!
+				</li>
+				<li>
+					Open the <code>&lt;table&gt;</code> and create the <code>&lt;thead&gt;</code> code.
+				</li>
+				<li>
+					Loop through each element of the array.
+				</li>
+				<ol>
+					<li>
+						Each element of the array is an object, and it has object properties that you can access.
+					</li>
+					<li>
+						Open a new <code>&lt;tr&gt;</code>.
+					</li>
+					<li>
+						Add a series of <code>&lt;td&gt;</code>s, that add the object data inside.
+					</li>
+					<li>
+						Close the <code>&lt;/td&gt;</code>.
+					</li>
+				</ol>
+				<li>
+					Close the <code>&lt;/table&gt;</code> and output it.
+				</li>
+			</ol>
+			
+			<p>
+				<button id="buttonId">Click to generate a table from an array of objects</button>
+			</p>
+			<div id="outputId"></div>
+			<hr />
+			<p>...is made with the following code:</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">PROCESS: Using arrays of objects to create a table</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to use arrays of objects to create a table"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- Change log:
+            5. December 2018    - updated from undated original                 - Drapak
+        --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Click to generate the table</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//  ATTENTION!</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  This is NOT functional programming! You MUST rearrange this code</span><span class="sc41">
+            </span><span class="sc43">//  in order for it to work for your hand-in assignment!</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  Separate this program into //INIT, //PROCESS, and //OUTPUT functions</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  Data is from https://en.wikipedia.org/wiki/List_of_vehicle_speed_records</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//  Note that it IS acceptable style to have your objects become long lines,</span><span class="sc41">
+            </span><span class="sc43">//  but it is preferred to have them as smaller lines</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//INIT:</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Land speed record'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">1228</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'ThrustSSC'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Andy Green'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'15 October, 1997'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Wheel-driven'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">775.106</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Vesco Turbinator'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Don Vesco'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'18 October, 2001'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Motorcycle'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">605.697</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Ack Attack'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Rocky Robinson'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'25 September, 2010'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Diesel-powered'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">563.995</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'JCB DieselMax'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Andy Green'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'23 August, 2006'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Electric-powered'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">495.14</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Buckeye Bullet 2.5'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Roger Schroer'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'24 August, 2010'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Steam-powered'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">225.06</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Inspiration'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Charles Burnett III'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'25 August, 2009'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Wind-powered'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">203.09</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Ecotricity Greenbird'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Richard Jenkins'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'26 March, 2009'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Human-powered bicycle'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">133.78</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'VeloX3'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Sebastiaan Bowier'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'14 September, 2013'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Paced bicycle'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">268.831</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'custom made'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Fred Rompelberg'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'15 October, 1995'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Solar-powered'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">88.8</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Sunswift IV "IVy"'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Barton Mawer'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'7 January, 2011'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Radio-controlled car'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">325.12</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'RC Bullet'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Nic Case'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'25 October, 2014'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Tracked vehicle'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">82.23</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'FV101 Scorpion reconnaissance vehicle'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">''</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'26 March, 2002'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'On ice'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">331.61</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Audi RS6'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Janne Laitinen'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'6 March, 2011'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">category</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Lunar rover'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">17</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">vehicle</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Apollo 17 Lunar Roving Vehicle (LRV-003)'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">operator</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'Eugene Cernan'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">date</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'31 July, 1972'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">];</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS</span><span class="sc41">
+                </span><span class="sc43">// create a variable to hold the table code, and add the beginning of table</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">tableHTML</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"&lt;table&gt;"</span><span class="sc41">     
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;thead&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;tr&gt;"</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;Category&lt;/th&gt;"</span><span class="sc41"> 
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;Speed (km/h)&lt;/th&gt;"</span><span class="sc41"> 
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;Vehicle&lt;/th&gt;"</span><span class="sc41"> 
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;Operator&lt;/th&gt;"</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;Date&lt;/th&gt;"</span><span class="sc41"> 
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/tr&gt;"</span><span class="sc41"> 
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/thead&gt;"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;tbody&gt;"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">//LOOP: through each element of speedRecordArr </span><span class="sc41">
+                </span><span class="sc43">// and create a table row for object contained inside</span><span class="sc41">
+                </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">tableHTML</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">tableHTML</span><span class="sc41"> 
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;tr&gt;"</span><span class="sc41"> </span><span class="sc43">// open a new row</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">category</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/td&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">speed</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/td&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">vehicle</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/td&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">operator</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/td&gt;"</span><span class="sc41">
+                            </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">speedRecordArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">date</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/td&gt;"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/tr&gt;"</span><span class="sc50">;</span><span class="sc41"> </span><span class="sc43">// close the row</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+                
+                </span><span class="sc43">// finish by adding the end of the table code</span><span class="sc41">
+                </span><span class="sc46">tableHTML</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">tableHTML</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/tbody&gt;"</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/table&gt;"</span><span class="sc50">;</span><span class="sc41">
+                    
+                </span><span class="sc43">//OUTPUT    </span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">tableHTML</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT EVENT: attach mainProcedure to #buttonId</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			
+			<!--
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-table/5106621926211584">Live example: Using arrays of objects to create a table</a></h2>
+			<script src="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-table/5106621926211584/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>-->
+		</article>
+		<!--#include virtual="/footer.html" -->		
+		<script>
+			var mainProcedure = function () {
+				//INIT:
+				var speedRecordArr = [
+					{ category: 'Land speed record', speed: 1228, vehicle: 'ThrustSSC', operator: 'Andy Green', date: '15 October, 1997' },
+					{ category: 'Wheel-driven', speed: 775.106, vehicle: 'Vesco Turbinator', operator: 'Don Vesco', date: '18 October, 2001' },
+					{ category: 'Motorcycle', speed: 605.697, vehicle: 'Ack Attack', operator: 'Rocky Robinson', date: '25 September, 2010' },
+					{ category: 'Diesel-powered', speed: 563.995, vehicle: 'JCB DieselMax', operator: 'Andy Green', date: '23 August, 2006' },
+					{ category: 'Electric-powered', speed: 495.14, vehicle: 'Buckeye Bullet 2.5', operator: 'Roger Schroer', date: '24 August, 2010' },
+					{ category: 'Steam-powered', speed: 225.06, vehicle: 'Inspiration', operator: 'Charles Burnett III', date: '25 August, 2009' },
+					{ category: 'Wind-powered', speed: 203.09, vehicle: 'Ecotricity Greenbird', operator: 'Richard Jenkins', date: '26 March, 2009' },
+					{ category: 'Human-powered bicycle', speed: 133.78, vehicle: 'VeloX3', operator: 'Sebastiaan Bowier', date: '14 September, 2013' },
+					{ category: 'Paced bicycle', speed: 268.831, vehicle: 'custom made', operator: 'Fred Rompelberg', date: '15 October, 1995' },
+					{ category: 'Solar-powered', speed: 88.8, vehicle: 'Sunswift IV "IVy"', operator: 'Barton Mawer', date: '7 January, 2011' },
+					{ category: 'Radio-controlled car', speed: 325.12, vehicle: 'RC Bullet', operator: 'Nic Case', date: '25 October, 2014' },
+					{ category: 'Tracked vehicle', speed: 82.23, vehicle: 'FV101 Scorpion reconnaissance vehicle', operator: '', date: '26 March, 2002' },
+					{ category: 'On ice', speed: 331.61, vehicle: 'Audi RS6', operator: 'Janne Laitinen', date: '6 March, 2011' },
+					{ category: 'Lunar rover', speed: 17, vehicle: 'Apollo 17 Lunar Roving Vehicle (LRV-003)', operator: 'Eugene Cernan', date: '31 July, 1972' }
+				];
+				
+				console.log( "speedRecordArr = ", speedRecordArr );
+				
+				//PROCESS
+				// create a variable to hold the table code, and add the beginning of table
+				var tableHTML 
+					= "<table>"		
+						+ "<thead>"
+							+ "<tr>"
+								+ "<th>Category</th>" 
+								+ "<th>Speed (km/h)</th>" 
+								+ "<th>Vehicle</th>" 
+								+ "<th>Operator</th>"
+								+ "<th>Date</th>" 
+							+ "</tr>" 
+						+ "</thead>"
+						+ "<tbody>";
+				
+				//LOOP: through each element of speedRecordArr 
+				// and create a table row for object contained inside
+				for ( i in speedRecordArr ) {
+					tableHTML 
+						= tableHTML 
+						+ "<tr>" // open a new row
+							+ "<td>" + speedRecordArr[ i ].category + "</td>"
+							+ "<td>" + speedRecordArr[ i ].speed + "</td>"
+							+ "<td>" + speedRecordArr[ i ].vehicle + "</td>"
+							+ "<td>" + speedRecordArr[ i ].operator + "</td>"
+							+ "<td>" + speedRecordArr[ i ].date + "</td>"
+						+ "</tr>"; // close the row
+				}
+				
+				// finish by adding the end of the table code
+				tableHTML 
+					= tableHTML 
+					+ "</tbody>" 
+					+ "</table>";
+					
+				//OUTPUT	
+				document.querySelector( '#outputId' ).innerHTML = tableHTML;
+			}
+			
+			//INPUT EVENT: attach mainProcedure to #buttonId
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+    	</script>
+	</body>
+</html>

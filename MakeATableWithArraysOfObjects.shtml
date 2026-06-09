@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Make a table with an array of objects
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript arrays to create a table">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				5. December 2018	- created, forked off of MakeATable.shtml	- Drapak
+				
+		-->
+
+		<style>
+			.pre {
+				color: blue
+			}
+			.post {
+				color: green
+			}
+			.tween {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: <a href="processUsingArrays.shtml">Using arrays</a>
+				</li>
+
+				<li>
+					//PROCESS: <a href="processForLoops.shtml"><code>for</code> loops</a>
+				</li>
+				
+				<br>
+				
+				<li>
+					//PROCESS: <a href="http://drapak.ca/cpg/processUsingArraysOfObjectsToCreateATable.shtml">
+						Using arrays of objects to create a table
+					</a>
+				</li>
+				
+				<br>
+				
+				<li>
+					//OUTPUT: <a href="outputAddingElements.shtml">Adding elements directly</a>
+				</li>
+
+			</ul>
+		
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="3.09H-MakeATableWithArraysOfObjects-LastName.html">empty 
+				template</a> as 
+				"<code>3.09H-MakeATableWithArraysOfObjects-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<p>
+				As well, you might want to use some of 
+				<a href="MakeATableFingerSavers.js">Drapak's Finger-Savers&reg;</a>
+				in order to help save you some time in typing up repetitive code.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use arrays and <code>for...in</code> loops to create a table. 
+				You may choose your own level of difficulty.
+				Solve more problems to get a higher mark
+			</p>
+			
+			<h2>Problem Solving</h2>
+			
+			<p>Remember that a table is composed of the following code:</p>
+			
+<pre><code><span class="pre">&lt;table>
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Heading 1&lt;/th>
+			&lt;th>Heading 2&lt;/th>
+			&lt;th>Heading 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody id="outputID"></span>
+	
+		<span class="tween">&lt;tr>
+			&lt;td>item 1a&lt;/td>
+			&lt;td>item 2a&lt;/td>
+			&lt;td>item 3a&lt;/td>
+		&lt;/tr>
+		
+		&lt;tr>
+			&lt;td>item 1b&lt;/td>
+			&lt;td>item 2b&lt;/td>
+			&lt;td>item 3b&lt;/td>
+		&lt;/tr></span>
+		
+	<span class="post">&lt;/tbody>
+&lt;/table></span></code></pre>
+			<p>...makes this:</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Heading 1</th>
+						<th>Heading 2</th>
+						<th>Heading 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>item 1a</td>
+						<td>item 2a</td>
+						<td>item 3a</td>
+					</tr>
+					<tr>
+						<td>item 1b</td>
+						<td>item 2b</td>
+						<td>item 3b</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br>
+			
+			<h2>Make it your own!</h2>
+			
+			<p>
+				If you create your own table of information it does not have to be as large. 
+				Create your own, smaller, arrays of information you can display!
+			</p>
+			
+			<h3>Hints</h3>
+			<ol>
+				<li>
+					Create a <code>&lt;div></code> with 
+					<code>id="outputId"</code> in the body of your code
+				</li>
+				<li>Create a button that will trigger <code>mainProcedure()</code></li>
+				<li>
+					Create an output function that will insert a result into 
+					<code>outputId</code>
+				</li>
+				<li>Create a process function to create a table</li>
+				<li>
+					<ol>
+						<li class="pre">
+							Add the <code>&lt;table></code> and 
+							<code>&lt;thead></code> and <code>&lt;tbody></code>first
+						</li>
+						<li class="tween">
+							Use <code>for...in</code> loops to create the rows:
+						</li>
+						<li class="tween">
+							Add the <code>&lt;tr></code>, 
+							<code>&lt;th></code>s and the information
+						</li>
+						<li class="post">
+							Add the <code>&lt;/tbody></code> and <code>&lt;/table></code>
+						</li>
+					</ol>
+				</li>
+				<li>
+					Create a <code>mainProcedure</code> function that will pass 
+					multiple arrays to your process function, and then pass the 
+					results to your output function
+				</li>
+			</ol>
+			
+			<h2>Evaluation</h2>
+			<ul>
+				<li>
+					<strong>___/10 INIT:</strong> include ALL of:
+					<ol>
+						<li>link to jQuery in the head of your document</li>
+						<li>create an array of objects</li>
+						<li>add a new object to the array inside the square brackets: []</li>
+						<li>separate your array of objects into it's own function that 
+							<code>return</code>s the completed array
+						</li>
+						<strong>Independent challenge:</strong>
+						<li>push an object onto the end of your array</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 HTML-CSS:</strong> include ALL of:
+					<ol>
+						<strong>inside the CSS</strong> <code>&lt;style&gt;</code> block:
+						
+						<li>
+							create a different font style or weight for the headings and cells
+						</li>
+						<li>create a different background for the headings and cells</li>
+						<li>add a border to at least one part of the table</li>
+						
+						<strong>table components:</strong>:
+						<li>
+							create a table with headings 
+							<code>&lt;th&gt;</code> inside <code>&lt;thead&gt;</code>
+						</li>
+						<li>
+							create a table with data cells 
+							<code>&lt;td&gt;</code> inside <code>&lt;tbody&gt;</code>
+						</li>
+						
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> include ALL of:
+					<ol>
+						<li>
+							create a function that accepts an 
+							array of objects as arguments/parameters
+						</li>
+						<li>
+							create a separate function to //PROCESS the table code
+						</li>
+						<li>
+							use string addition or 
+							<code>createElement</code>to create the HTML for the table
+						</li>
+						<li>
+							use <code>for</code> loops to create a table row for 
+							each object in the array
+						</li>						
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> include ALL FIVE of:
+					<ol>
+						<li>
+							create a separate function to //OUTPUT the table code
+						</li>
+						<li>
+							make that function accept the table code as a parameter/argument
+						</li>
+						<li>
+							use <code>innerHTML</code> or 
+							<code>appendChild</code> 
+							to display the working table using Javascript
+						</li>
+						<strong>Independent challenges:</strong>
+						<li>
+							output images in your table using your array of objects
+						</li>
+						<li>
+							animate a graph using your array of objects
+						</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> include ALL of:
+					<ol>
+						<li>honour all previous //STYLE sections</li>
+						<li>
+							break up functions into separate ones for 
+							input, processing, and output
+						</li>
+						<li>
+							use descriptive comments to identify and describe each function,
+							and each loop:<br>
+							<code>
+								//loop through each element 
+								of the loop to create the rows
+							</code>
+						</li>
+					</ol>
+				</li>
+			</ul>
+			
+
+		</article>
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+		</script>
+	</body>
+</html>

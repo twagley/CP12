@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			OUTPUT - Changing an image
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to change the source of an image in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				1. October 2015	- created										- Drapak
+				5. March 2017	- reworked for clearer programming style		- Drapak
+				9. October 2018	- reworked code yet again						- Drapak
+				27. OCt 2018	- moved to querySelector						- Drapak
+		-->
+
+		<style>
+			iframe {
+				width: 700px;
+				height: 300px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Changing an image</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>document.querySelector( '#<var>imageId</var>' ).src 
+				= <var>"http://link.to/my/image.jpg"</var>;</code><br>
+				<span class="indent">
+					&mdash; updates #imageId with a link to a new image
+				</span><br>
+			</p>
+			
+			<h2>Replacing one image with another is easy!</h2>
+			
+			<p>For example:</p>
+			<p>
+				<img 
+					id="imageId" 
+					src="https://www.kasandbox.org/programming-images/cute/Rock.png" />
+					
+				<button id="buttonId">
+					I am mighty!<br>
+					and powerful!<br>
+					and can change this here rock into a star!
+				</button>
+			</p>
+
+
+			<p>...is made with:</p>
+	
+			<pre><code><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> 
+            </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"also known as Dwayne Douglas Johnson"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/cute/Rock.png"</span><span class="sc1">&gt;</span><span class="sc0">
+            
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            I am mighty!</span><span class="sc1">&lt;br&gt;</span><span class="sc0">and powerful!</span><span class="sc1">&lt;br&gt;</span><span class="sc0">and can change this here rock into a star!
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc43">//OUTPUT: replace the src of #imageId with a star</span><span class="sc41">
+        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://www.kasandbox.org/programming-images/cute/Star.png"</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+        
+        </span><span class="sc43">//INPUT: trigger changeImage when #buttonId is pressed</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeImage</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+	
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+			//OUTPUT: replace the src of #imageId with a star
+			var changeImage = function () {
+				document.querySelector( '#imageId' ).src 
+					= "https://www.kasandbox.org/programming-images/cute/Star.png"
+			}
+			
+			//INPUT: trigger changeImage when #buttonId is pressed
+			document.querySelector( '#buttonId' ).onclick	= changeImage;
+		</script>
+
+	</body>
+</html>

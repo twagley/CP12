@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Assignment: Shy Link is Shy
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript mouse events, animation, and function pipelines">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				12. October 2015	- created!
+				7. November 2018	- moved to updated style
+				18. Nov 2018		- removed input function read		- Drapak
+
+
+		-->			
+ 	
+		<style>
+			#imageID {
+				position:	fixed;
+				width:		80px;
+				top:		50%;
+				left:		50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 2.14 Hand-in &mdash; <em>Shy Link Is Shy</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//HTML and OUTPUT: 
+					<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+				</li>
+				<br>
+				
+				<li>
+					//INIT: 
+					<a href="initUsingLibraries.shtml">Using libraries</a>
+				</li>
+				<br>
+				
+				<li>
+					//INPUT: 
+					<a href="inputDetectingMouseovers.shtml">Detecting mouseovers</a>
+				</li>
+				<br>
+				
+				<li>
+					//PROCESS: 
+					<a href="processRandomnessAndRounding.shtml">Randomness and rounding</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionParametersAndReturns.shtml">Using 
+					function parameters and returns</a>
+				</li>
+				<br>
+				
+				<li>
+					//OUTPUT: 
+					<a href="outputAnimatingMotion.shtml">Animating motion</a>
+				</li>
+				<br>
+				<li>
+					//STYLE: 
+					<a href="styleFunctionPipelines.shtml">Use functional programming</a>
+				</li>
+				<br>
+				<li>
+					Image resources are 
+					<a href='http://drapak.ca/cpg/htmlImageResources.shtml'>here</a>.
+				</li>
+			</ul>
+
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="2.14H-ShyLinkIsShy-LastName.html">empty template</a> as 
+				"<code>2.14H-ShyLinkIsShy-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use functional programming to create a program that moves animates 
+				something smoothly in response to clicks, the keyboard, and/or the 
+				movement of the mouse.
+			</p>
+			
+			<h2>Evaluation</h2>
+			<ul>
+				<li>
+					<strong>___/10 HTML/CSS: Choose ANY FIVE OF</strong>
+					<ol>
+						<li>link to the jQuery library <strong>&larr; required</strong></li>
+						<li>create an element to move with an id</li>
+						<li>
+							change the <code>position</code> 
+							of that element in CSS so it can move
+						</li>
+						<li>trigger a function using <code>onmouseover</code></li>
+						<li>trigger a function using <code>onmouseout</code></li>
+						<li>trigger a function using <code>onclick</code></li>
+						<li>trigger a function using <code>onkeydown</code></li>
+
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including:
+					<ol>
+						<li>create a function that accepts an argument</li>
+						<li>create a function that returns a value</li>
+						<li>generate a random number using <code>Math.random()</code></li>
+						<li>use <code>if...else if...else</code></li>
+						<li>create at least one process-only function</li>
+						<li>create at least one output-only function</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including:
+					<ol>
+						<li>create a function that will animate something up using jQuery</li>
+						<li>
+							create a function that will animate something down using jQuery
+						</li>
+						<li>
+							create a function that will animate something left using jQuery
+						</li>
+						<li>
+							create a function that will animate something right using jQuery
+						</li>
+						<li>
+							change the src, width, or other style of an element 
+							using Javascript
+						</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> including:
+					<ol>
+						<li>add your name to the filename</li>
+						<li>write your name as the author</li>
+						<li>update the change log</li>
+						<li>correctly indent everything</li>
+						<li>use lowercase for all your HTML tags</li>
+						<li>use camelCase for all your ids and classes</li>
+						<li>avoid lines greater than 96 characters in length</li>
+						<li>restrict your style code to the head of your HTML file</li>
+						<li>space out your mathematical operators</li>
+						<li>write comments for your if statements</li>
+						<li>use descriptive variable names</li>
+						<li>
+							<strong>use a functional programming style:</strong>
+							breaking up functions into separate ones for 
+							main, input, processing, and output
+						</li>
+						<li>
+							<strong>use descriptive comments</strong>
+							to identify and describe each function,
+							<br>
+							for example: 
+							<code>//OUTPUT: this function accepts a distance and animates 
+							the image up that number of pixels</code>
+						</li>
+					</ol>
+				</li>
+			</ul>
+
+			<h2 id="outputID">
+				For example: Poor Link is shy! Click on him to see what happens...
+			</h2>
+			<img
+				id="imageID"
+				onmouseover="mainProcedure()"
+				onclick="sayMessage();"
+				src="http://drapak.ca/cpg/img/link-down.png" />			
+				
+			<h2>Make it your own</h2>
+			<p>
+				This assignment does not have to use Link. 
+				Look at the criteria - as long as you meet those criteria things are great!
+			</p>
+			
+			<h3>Not sure where to start?</h3>
+			
+			<p>
+				These are step by step directions to complete 
+				the basic version of this assignment.
+			</p>
+			<p>
+				Note that this does <strong>not</strong> 
+				include any <code>onclick</code> code
+			</p>
+			<ol>
+				<li>
+					Create an element to move, assign it an id, 
+					and change its position mode using CSS.
+				</li>
+				<li>
+					Create a PROCESS function that will randomly generate 
+					and return a distance (maybe from 1 &rarr; 200).
+				</li>
+				<li>
+					Create a PROCESS function 
+					that will randomly generate and return a number between 1 and 4
+					(one for each for up, down, left, and right).
+				</li>
+				<li>
+					Create four OUTPUT functions called for animating something in 
+					each of the four directions (up, down, left, right).
+					Each OUTPUT function should:
+				</li>
+				<ul>
+					<li>
+						change the image to suit the direction headed
+					</li>
+					<li>
+						take in the distance to move as an argument 
+						from a PROCESS function
+					</li>
+					<li>
+						and animate it in the correct direction 
+						a distance equal to random distance from the 
+						PROCESS function
+					</li>
+				</ul>
+				<li>
+					Create a MAIN function called <code>mainProcedure</code>
+					that will be triggered when the element is moused over. 
+					<code>mainProcedure</code> should:
+				</li>
+				<ul>
+					<li>
+						Trigger your random distance PROCESS function, 
+						and assign the result <code>return</code>ed
+						from that function to a variable.
+					</li>					
+					<li>
+						Trigger your random direction PROCESS function, 
+						and assign the result <code>return</code>ed
+						from that function to a variable.
+					</li>
+
+					<li>
+						that will use <code>if...else if...else</code> 
+						statements to trigger:
+					</li>
+					<ul>
+						<li>
+							Your <em>upwards</em> animation OUTPUT function
+							when the random direction is 1
+						</li>
+						<li>
+							Your <em>downwards</em> animation OUTPUT function
+							when the random direction is 2
+						</li>
+						<li>
+							Your <em>leftwards</em> animation OUTPUT function
+							when the random direction is 3
+						</li>
+						<li>
+							Your <em>rightwards</em> animation OUTPUT function
+							when the random direction is 4
+						</li>
+					</ul>
+				</ul>
+				<li>
+					If you haven't already, check that you have 
+					added descriptive comments to each function.
+				</li>
+				<li>
+					Although it is not required, <strong>use console logs</strong>
+					at the beginning of each function to tell you which functions are working.
+				</li>
+			</ol>
+		</article>
+		<!--#include virtual="/footer.html" -->
+		
+	
+		<!--
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+
+		
+		<script>
+			var _0xd1f1=["\x69\x6E\x20\x72\x61\x6E\x64\x6F\x6D\x44\x69\x72\x65\x63\x74\x69\x6F\x6E\x2E\x2E\x2E","\x6C\x6F\x67","\x72\x61\x6E\x64\x6F\x6D","\x63\x65\x69\x6C","\x69\x6E\x20\x63\x61\x6C\x63\x75\x6C\x61\x74\x65\x52\x61\x6E\x64\x6F\x6D\x44\x69\x73\x74\x61\x6E\x63\x65\x2E\x2E\x2E","\x72\x6F\x75\x6E\x64","\x69\x6E\x20\x67\x6F\x55\x70\x2E\x2E\x2E\x20\x64\x69\x73\x74\x61\x6E\x63\x65\x3A","\x73\x72\x63","\x69\x6D\x61\x67\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x75\x70\x2E\x70\x6E\x67","\x2D\x3D","\x70\x78","\x61\x6E\x69\x6D\x61\x74\x65","\x23\x69\x6D\x61\x67\x65\x49\x44","\x69\x6E\x20\x67\x6F\x44\x6F\x77\x6E\x2E\x2E\x2E\x20\x64\x69\x73\x74\x61\x6E\x63\x65\x3A","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x64\x6F\x77\x6E\x2E\x70\x6E\x67","\x2B\x3D","\x69\x6E\x20\x67\x6F\x4C\x65\x66\x74\x2E\x2E\x2E\x20\x64\x69\x73\x74\x61\x6E\x63\x65\x3A","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x6C\x65\x66\x74\x2E\x70\x6E\x67","\x69\x6E\x20\x67\x6F\x52\x69\x67\x68\x74\x2E\x2E\x2E\x20\x64\x69\x73\x74\x61\x6E\x63\x65\x3A","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x72\x69\x67\x68\x74\x2E\x70\x6E\x67","\x69\x6E\x20\x73\x61\x79\x4D\x65\x73\x73\x61\x67\x65","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x44\x6F\x6E\x27\x74\x20\x63\x6C\x69\x63\x6B\x20\x6F\x6E\x20\x6D\x65\x21"];var ANIMATION_DURATION=100;var mainProcedure=function(){var _0xefb2x3=calculateRandomDistance();var _0xefb2x4=getRandomDirection();if(_0xefb2x4==1){goUp(_0xefb2x3)}else {if(_0xefb2x4==2){goDown(_0xefb2x3)}else {if(_0xefb2x4==3){goLeft(_0xefb2x3)}else {goRight(_0xefb2x3)}}};};var getRandomDirection=function(){console[_0xd1f1[1]](_0xd1f1[0]);return Math[_0xd1f1[3]](Math[_0xd1f1[2]]()*4);};var calculateRandomDistance=function(){console[_0xd1f1[1]](_0xd1f1[4]);return Math[_0xd1f1[5]]((Math[_0xd1f1[2]]()*100)+100);};var goUp=function(_0xefb2x3){console[_0xd1f1[1]](_0xd1f1[6]+_0xefb2x3);document[_0xd1f1[9]](_0xd1f1[8])[_0xd1f1[7]]=_0xd1f1[10];$(_0xd1f1[14])[_0xd1f1[13]]({top:_0xd1f1[11]+_0xefb2x3+_0xd1f1[12]},{duration:ANIMATION_DURATION});};var goDown=function(_0xefb2x3){console[_0xd1f1[1]](_0xd1f1[15]+_0xefb2x3);document[_0xd1f1[9]](_0xd1f1[8])[_0xd1f1[7]]=_0xd1f1[16];$(_0xd1f1[14])[_0xd1f1[13]]({top:_0xd1f1[17]+_0xefb2x3+_0xd1f1[12]},{duration:ANIMATION_DURATION});};var goLeft=function(_0xefb2x3){console[_0xd1f1[1]](_0xd1f1[18]+_0xefb2x3);document[_0xd1f1[9]](_0xd1f1[8])[_0xd1f1[7]]=_0xd1f1[19];$(_0xd1f1[14])[_0xd1f1[13]]({left:_0xd1f1[11]+_0xefb2x3+_0xd1f1[12]},{duration:ANIMATION_DURATION});};var goRight=function(_0xefb2x3){console[_0xd1f1[1]](_0xd1f1[20]+_0xefb2x3);document[_0xd1f1[9]](_0xd1f1[8])[_0xd1f1[7]]=_0xd1f1[21];$(_0xd1f1[14])[_0xd1f1[13]]({left:_0xd1f1[17]+_0xefb2x3+_0xd1f1[12]},{duration:ANIMATION_DURATION});};var sayMessage=function(){console[_0xd1f1[1]](_0xd1f1[22]);document[_0xd1f1[9]](_0xd1f1[24])[_0xd1f1[23]]=_0xd1f1[25];};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Positioning images precisely</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to place image elements on a grid, using complex data as an input
+			and with adjustable offset and width values
+		
+			Created:	23. April 2015
+			Updated:	29. April 2015 - Obfuscated code
+						30. April 2015 - forked code and modified to for teaching widths and offsets for positioning images in a grid
+		-->
+
+		<script>
+		
+		
+		function mainProcedure () {
+			console.log("in mainProcedure...");
+			
+			resizeMap();
+			var mazeObject	=initMazeObject();
+			var output 		=createHtmlFromMazeArray(mazeObject);
+			outputScreenInformation(output);
+		}
+		
+		var _0xa58f=["\x77\x69\x64\x74\x68","\x73\x74\x79\x6C\x65","\x6D\x61\x70\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x76\x61\x6C\x75\x65","\x6D\x61\x70\x57\x69\x64\x74\x68\x49\x44","\x70\x78","","\x73\x70\x6C\x69\x74","\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30","\x30\x31\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31\x30","\x64\x6F\x74\x57\x69\x64\x74\x68\x49\x44","\x74\x6F\x70\x4F\x66\x66\x73\x65\x74\x49\x44","\x74\x6F\x70\x43\x65\x6C\x6C\x48\x65\x69\x67\x68\x74\x49\x44","\x6C\x65\x66\x74\x4F\x66\x66\x73\x65\x74\x49\x44","\x6C\x65\x66\x74\x43\x65\x6C\x6C\x57\x69\x64\x74\x68\x49\x44","\x6C\x6F\x67","\x63\x65\x6C\x6C\x2D","\x2D","\x64\x6F\x74","\x69\x6D\x67\x2F\x4D\x73\x50\x61\x63\x4D\x61\x6E\x2D\x64\x6F\x74\x2E\x6A\x70\x67","\x70\x69\x6C\x6C","\x69\x6D\x67\x2F\x4D\x73\x50\x61\x63\x4D\x61\x6E\x2D\x70\x6F\x77\x65\x72\x70\x69\x6C\x6C\x2E\x6A\x70\x67","\x6C\x65\x66\x74\x43\x65\x6C\x6C\x57\x69\x64\x74\x68","\x6C\x65\x66\x74\x4F\x66\x66\x73\x65\x74","\x74\x6F\x70\x43\x65\x6C\x6C\x48\x65\x69\x67\x68\x74","\x74\x6F\x70\x4F\x66\x66\x73\x65\x74","\x3C\x69\x6D\x67\x20\x69\x64\x3D\x27","\x27","\x20\x73\x72\x63\x3D\x27","\x20\x73\x74\x79\x6C\x65\x3D\x27\x70\x6F\x73\x69\x74\x69\x6F\x6E\x3A\x20\x61\x62\x73\x6F\x6C\x75\x74\x65\x3B\x20\x6C\x65\x66\x74\x3A\x20","\x70\x78\x3B\x20\x74\x6F\x70\x3A\x20","\x70\x78\x3B\x20\x77\x69\x64\x74\x68\x3A\x20","\x64\x6F\x74\x57\x69\x64\x74\x68","\x70\x78\x3B\x27\x3E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44"];function resizeMap(){document[_0xa58f[3]](_0xa58f[2])[_0xa58f[1]][_0xa58f[0]]=document[_0xa58f[3]](_0xa58f[5])[_0xa58f[4]]+_0xa58f[6]}function initMazeObject(){var _0x4898x3=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0],[0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],[0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0],[0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0],[0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];var _0x4898x4=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0],[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0],[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0],[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,1,1,1,1,0,0,1,1,1,0,0,0,0,1,1,1,0,0,1,1,1,1,0,0,0],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0],[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0],[0,0,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,0,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];var _0x4898x5=[_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[10][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[10][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7]),_0xa58f[9][_0xa58f[8]](_0xa58f[7])];var _0x4898x6={hallWall:_0x4898x3,dot:_0x4898x4,pill:_0x4898x5};return _0x4898x6;}function createHtmlFromMazeArray(_0x4898x6){var _0x4898x8={dotWidth:parseInt(document[_0xa58f[3]](_0xa58f[11])[_0xa58f[4]]),topOffset:parseInt(document[_0xa58f[3]](_0xa58f[12])[_0xa58f[4]]),topCellHeight:parseInt(document[_0xa58f[3]](_0xa58f[13])[_0xa58f[4]]),leftOffset:parseInt(document[_0xa58f[3]](_0xa58f[14])[_0xa58f[4]]),leftCellWidth:parseInt(document[_0xa58f[3]](_0xa58f[15])[_0xa58f[4]])};console[_0xa58f[16]](_0x4898x8);var _0x4898x9=_0xa58f[7];for(thisRow=0;thisRow<=30;thisRow++){for(thisColumn=0;thisColumn<=27;thisColumn++){var _0x4898xa=_0xa58f[17]+thisRow+_0xa58f[18]+thisColumn;if(_0x4898x6[_0xa58f[19]][thisRow][thisColumn]==1){_0x4898x9=_0x4898x9+outputImage(_0x4898xa,_0xa58f[20],thisColumn,thisRow,_0x4898x8)}else {if(_0x4898x6[_0xa58f[21]][thisRow][thisColumn]==1){_0x4898x9=_0x4898x9+outputImage(_0x4898xa,_0xa58f[22],thisColumn,thisRow,_0x4898x8)}};}};return _0x4898x9;}function outputImage(_0x4898xc,_0x4898xd,_0x4898xe,_0x4898xf,_0x4898x8){var _0x4898x10=(_0x4898xe*_0x4898x8[_0xa58f[23]])+_0x4898x8[_0xa58f[24]];var _0x4898x11=(_0x4898xf*_0x4898x8[_0xa58f[25]])+_0x4898x8[_0xa58f[26]];var _0x4898x12=_0xa58f[27]+_0x4898xc+_0xa58f[28]+_0xa58f[29]+_0x4898xd+_0xa58f[28]+_0xa58f[30]+_0x4898x10+_0xa58f[31]+_0x4898x11+_0xa58f[32]+_0x4898x8[_0xa58f[33]]+_0xa58f[34];return _0x4898x12;}function outputScreenInformation(_0x4898x14){document[_0xa58f[3]](_0xa58f[36])[_0xa58f[35]]=_0x4898x14}
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:			20px;
+				height:			20px;
+				font-size:		18px;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+			img {
+				position: absolute;
+			}
+			
+			aside {
+				position: absolute;
+				top: 0px;
+				left: 650px;
+			}
+			article {
+				position: absolute;
+				top: 700px;
+				left: 0px;
+			}
+			
+			#outputID {
+				//display: none;
+			}
+		</style>
+	</head>
+
+	<body onload="resizeMap();">
+		<img id="mapID" src="img/MsPacManScreen-empty.jpg" style="width: 400px">
+		<span id="outputID" ></span>
+		<aside>
+			<p>
+				Map image width: <input id="mapWidthID" size="3" value="400" onchange="mainProcedure();">px<br />
+				Dot/pill image width: <input id="dotWidthID" size="3" value="10" onchange="mainProcedure();">px<br />
+				<br />
+				<strong>top</strong> coordinates:<br />
+				Offset from top edge: <input id="topOffsetID" size="3" value="20" onchange="mainProcedure();">px<br />
+				Height of grid cells: <input id="topCellHeightID" size="3" value="20" onchange="mainProcedure();">px<br />
+				
+				<br />
+				<strong>left</strong> coordinates:<br />
+				Offset from left edge: <input id="leftOffsetID" size="3" value="20" onchange="mainProcedure();">px<br />
+				Width of grid cells: <input id="leftCellWidthID" size="3" value="20" onchange="mainProcedure();">px<br />
+				<br />
+				<button type="button" onclick="mainProcedure();">Click to add the dots!</button><br />
+				<br />
+				<code>var <var>top</var> =<var>topOffset</var> + (<var>row</var> * <var>cellHeight</var>);<br />
+				var <var>left</var> =<var>leftOffset</var> +  (<var>column</var> * <var>cellWidth</var>);</code>
+			</p>
+		</aside>			
+		<article>
+			<h2>Using data to precisely position images</h2>
+			<ol>
+				<li><strong>User interface</strong>
+					<ul>
+						<li>
+							CSS code that sets images to absolute positioning:<br />
+							<code>
+							&lt;style><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img {<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position: absolute;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+							&lt;style></code>
+						</li>
+						<li>Pictures of: 
+							<ul>
+								<li>Ms. Pacman screen</li>
+								<li>a dot</li>
+								<li>a powerpill</li>
+							</ul>
+						</li>
+						<li>A button to trigger the program</li>
+						<li>A <code>&lt;span id="outputID">&lt;/span></code> to hold the output info.</code></li>
+					</ul>
+				</li>
+				<li><strong>INPUT:</strong> When the button is clicked, it first creates a maze object holding the two-dimensional maze arrays</li>
+				<li>
+					<strong>PROCESS</strong>: Then the maze object is sent into a function that will process it
+					<ol>
+						<li>It creates a variable to hold an HTML string full of image information, say <var>outputHTML</var></li>
+						<li>
+							Then it loops through all the rows of the maze arrays, from 0 to 30
+							<ul>
+								<li>
+									And then it uses a <a href="DrawAMaze.html">nested loop</a> to loop through all the columns of the maze arrays, from 0 to 26
+									<ul>
+										<li>
+											We want to add image code to <var>outputHTML</var> that looks a little like this:<br /><br />
+											<code>&lt;img style="left: 228px; top: 61px" src="dot.jpg"></code><br />&nbsp;
+										</li>
+										
+										<li>It calculates the position in pixels:<br />
+										<br />
+										&bull;<code>var <var>topPixels</var> = ((<var>row</var> * <var>rowHeight</var>) + <var>rowOffset</var>);</code><br />
+										<br />
+										&bull;<code>var <var>leftPixels</var> = ((<var>column</var> * <var>columnWidth</var>) + <var>columnOffset</var>);</code><br />
+										<br />
+										&bull;<code>var <var>positionStyle</var> = " style='top: "<br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <var>topPixels</var><br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ "px; left: "<br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <var>leftPixels</var><br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ ";'"</code><br />&nbsp;
+										</li>
+										
+										<li>It takes a look inside the maze object<br />
+										&bull; If the dot array at that row and column is one, then it outputs a dot image:<br />
+										<br />
+										<code>if (<var>mazeObject</var>.<var><strong>dot</strong></var>[<var>row</var>][<var>column</var>]==1) {<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>outputHTML</var> += "&lt;img "<br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <var>positionStyle</var><br /> 
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ " src='dot.jpg'>";<br />
+										}</code><br /><br />&nbsp;
+										
+										&bull; If the powerpill  array at that row and column is one, then it outputs a powerpill image:<br />
+										<br />
+										<code>if (<var>mazeObject</var>.<var><strong>pill</strong></var>[<var>row</var>][<var>column</var>]==1) {<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>outputHTML</var> += "&lt;img "<br />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <var>positionStyle</var><br /> 
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ " src='powpill.jpg'>";<br />
+										}</code><br />&nbsp;
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</li>
+				<li><strong>OUTPUT:</strong> It puts <var>positionStyle</var> inside <code>document.getElementById('outputID').innerHTML</code> </strong></li>
+			</ol>
+			<h4>Challenge for your future code:</h4>
+			<p>How do you get it so that you would be able to turn off each dot or power pill individually, say, based on their row and column position?</p>
+		</article>
+
+	</body>
+</html>
+
+

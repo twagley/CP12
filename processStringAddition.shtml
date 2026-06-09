@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming: 
+			PROCESS - Using string addition
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use string addition">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				18. Oct				- created!									- Drapak
+				27. October 2018 	- updated style and clarified				- Drapak
+			-->
+
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//PROCESS: <em>String addition</em>
+		</header>
+		
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>newString</var> 
+					= <var>"Hello"</var> + <var>" "</var> + <var>"Kitty!"</var>;
+				</code><br>
+				<span class="indent">&mdash; concatenates strings into one bigger string<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>newString</var> = <var>"Hello"</var>.concat(<var>" Kitty!"</var>);
+				</code><br>
+				<span class="indent">&mdash; concatenates two strings </span><br>
+				<br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>extractedInteger</var> = parseInt( '1.618 is the golden ratio' );
+				</code><br>
+				<span class="indent">
+					&mdash; extracts the integer portion at the beginning of the string: 1
+				</span><br>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>extractedDecimal</var> 
+					= parseFloat( '1.618 is the golden ratio' );
+				</code><br>
+				<span class="indent">
+					&mdash; extracts the decimal portion at the beginning of the string: 1.618
+				</span><br>
+			</p>
+
+			<h2>Adding numbers together</h2>			
+			<p>Adding numbers together in Javascript is straightforward:</p>
+			<pre><code>var easyMath	= 2 + 2;	
+// easyMath now contains 4</code></pre>
+			
+			<h2>Adding strings together</h2>
+			<p>
+				String addition is called <strong>concatenation</strong>.
+				In it's basic form it is very similar to adding numbers:
+			</p>
+			<pre><code>var <var>newString</var> = <var>"Hello"</var> + <var>" "</var> + <var>"Kitty!"</var>;
+// newString now contains "Hello Kitty!"
+// Note that we had to add in the space character in between the words</code></pre>
+
+			<p>This is also a way to concatenate strings:</p>
+			<pre><code>var <var>newString</var> = <var>"Hello"</var>.concat(" Kitty!")</var>;
+// newString now contains "Hello Kitty!"</code></pre>
+
+			<h2>Common problems</h2>
+			<h4>Nested quotes</h4>
+			<p>
+				You can use either single quotes <code>''</code> 
+				or double quotes <code>""</code> to create strings.
+				Javascript will put anything between the two quotes inside the string.
+				So these two statements below are exactly the same</strong>:
+			</p>
+			<pre><code>var frenchGreeting = "Bonjour!";
+var frenchGreeting = 'Bonjour!';</code></pre>
+
+			<p>
+				However, Javascript will throw an error if the string 
+				surrounded by quotes contains the same kind of quote.
+			</p>
+			<p>
+				There are a couple ways around this.
+				One is to escape the quotes in the string with an 
+				<strong>escape character</strong>, 
+				which in Javascript is a backslash: <code>\</code>
+			</p>
+			<pre><code>var brokenString	= 'It's a beautiful day...';
+// brokenString will cause an error because of the apostrophe in "it's"
+
+var workingString 	= 'It<span class="withborder">\</span>'s a beautiful day...';
+// The escape character tells Javascript to read the apostrophe as part of the string</code></pre>
+			<p>
+				Another way to deal with this is to surround 
+				the quote with a different kind of quotation mark:
+			</p>
+			<pre><code>var brokenString	= 'It's a beautiful day...';
+var workingString 	= <span class="withborder">"</span>It's a beautiful day...<span class="withborder">"</span>;</code></pre>
+
+			<p>A common example:</p>
+			<pre><code>document.getElementById('outputID').innerHTML = "&lt;strong id="strongID">You win!&lt;/strong>";
+// fail
+
+document.getElementById('outputID').innerHTML = "&lt;strong id=\"strongID\">You win!&lt;/strong>";
+// win!</code></pre>
+
+			<h4>Adding strings and numbers together</h4>
+			<p>
+				If you add a number and a string together, 
+				it will add them both together like strings.
+			</p>
+			<pre><code>var answer = 4 + 8;
+// answer now holds 12
+
+var answer = '4' + 8;
+// answer now holds '48'
+
+var newSize = 16 + '10px';
+// newSize now holds '1610px'</code></pre>
+
+			<h4>Converting strings to numbers</h4>
+			<p>
+				In order to around the string to number addition problem, 
+				it is handy to convert strings to numbers.
+				This is especially important when you read information from an 
+				<code>&lt;input></code> value or from a <code>.style</code> 
+				property of an element.
+			</p>
+			<p>
+				We can use two special function to extract numbers from strings:
+				<code>parseInt()</code> for extracting integers,
+				and <code>parseFloat()</code> for extracting floating decimal numbers.
+				The words <strong>parse</strong> means to extract information from some data.
+			</p>
+			
+			<pre><code>var parsedDecimal = parseFloat( '3.141592654 is a rough approximation of pi' );
+// parsedDecimal now holds 3.141592654
+
+var parsedInteger = parseInt( '3.141592654 is a rough approximation of pi' );
+// parsedInteger now holds 3
+
+var newSize = 16 + parseInt( '10px' );
+// newSize now holds 26
+
+var newSize = (16 + parseInt( '10px' ) ) + 'px';
+// newSize now holds '26px'</code></pre>
+
+			<h2>Check your understanding</h2>
+			
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = 8 + 12;</code><br>
+				<span class="question" data-answer="answer contains 20"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = 8 + '10px';</code><br>
+				<span class="question" data-answer="answer contains '810px'"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = 'Hello world' - 'world';</code><br>
+				<span 
+					class="question" 
+					data-answer="Trick question: string substraction causes an error"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = ( 8 + 10 ) + 'px';</code><br>
+				<span class="question" data-answer="answer contains '18px'"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = 'Hello' + 'Kitty';</code><br>
+				<span class="question" data-answer="answer contains 'HelloKitty'"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = 'Today is ' + 'St. Patrick's day';</code><br>
+				<span 
+					class="question" 
+					data-answer="Trick question: the apostrophe in St. Patrick's day causes an error"></span>
+			</p>
+			<p>
+				What is inside <var>answer</var> in the following example:<br>
+				<code>var answer = parseInt('9.8 m/s2');</code><br>
+				<span class="question" data-answer="answer contains 9"></span>
+			</p>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy's
+					<a href="https://www.khanacademy.org/computing/computer-programming/programming/text-basics/p/terrific-text-part-one">
+						Text and strings
+					</a>
+				</li>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/jsref_concat_string.asp">
+						JavaScript String concat() Method
+					</a> and
+					<a href="http://www.w3schools.com/js/js_strings.asp">
+						JavaScript Strings
+					</a>
+				</li>
+			</ul>
+			
+			<!--
+
+			<h2>For example</h2>
+			
+			<p>...is created with the following code:</p>
+			
+			<pre><code></code></pre>
+			-->
+		</article>
+		<script>
+			document.body.onload = questionLoader;
+		</script>
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

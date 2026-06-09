@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Qualities of a Programmer</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to manage information in an object
+		
+			Created:	7. April 2015
+			Updated:	5. May 2015 - fixed typo
+		-->
+
+		<script>
+			
+	
+	
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.24 Skill builder: Qualities of a Programmer</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">object JS</span> <code>var <var>objectName</var> = {};</code> &mdash; define an empty object<br />
+				<span class="langstyle">object JS</span> <code><var>objectName.propertyName</var> = propertyInfo;</code> &mdash; set the propertyName of objectName to propertyInfo<br />
+				<span class="langstyle">object JS</span> <code><var>objectName[ 'propertyName' ]</var> = propertyInfo;</code> &mdash; set the propertyName of objectName to propertyInfo<br />
+				<span class="langstyle">object JS</span> <code><var>objectName{ propertyName: propertyInfo }</var>;</code> &mdash; set the propertyName of objectName to propertyInfo<br />
+
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Objects and Properties</h2>
+			
+			<p>Let's say I have pet chicken.</p>
+			<p>It's name is Prince Rupert the Second, it is dark brown, it has long feathers and is 2 years old. </p>
+			<p>I can store this information in the following (slightly awkward) ways:</p>
+			
+			<h4>1. Using a different variable for each property (time consuming)</h4>
+			<pre><code>
+	var <var>chickenName</var> = "Prince Rupert the Second";
+	var <var>chickenColour</var> = "dark brown";
+	var <var>chickenFeathers</var> = "long";
+	var <var>chickenAge</var> = 2;
+	
+	console.log(	<var>// output the chicken information</var>
+		"My chicken's name is " 
+		+ <var>chickenName</var> 
+		+ ". It is " 
+		+ <var>chickenColour</var> 
+		+ " with " 
+		+ <var>chickenFeathers</var> 
+		+ " feathers. It is " 
+		+ <var>chickenAge</var> 
+		+ " years old."
+		);
+			</code></pre>
+			
+			<h4>2. Stuffing each property into an array (time consuming, and an ugly hack)</h4>
+			<pre><code>
+	var <var>nameIndex</var> = 0;
+	var <var>colourIndex</var> = 1;
+	var <var>feathersIndex</var> = 2;
+	var <var>ageIndex</var> = 3
+	
+	var <var>chicken</var> = []; <var>// define as an empty array</var>
+	
+	<var>chicken</var>[<var>nameIndex</var>] = "Prince Rupert the Second";
+	<var>chicken</var>[<var>colourIndex</var>] = "dark brown";
+	<var>chicken</var>[<var>feathersIndex</var>] = "long";
+	<var>chicken</var>[<var>ageIndex</var>] = 2;
+	
+	console.log(	<var>// output the chicken information</var>
+		"My chicken's name is " 
+		+ <var>chicken</var>[<var>nameIndex</var>]
+		+ ". It is " 
+		+ <var>chicken</var>[<var>colourIndex</var>]
+		+ " with " 
+		+ <var>chicken</var>[<var>feathersIndex</var>]
+		+ " feathers. It is " 
+		+ <var>chicken</var>[<var>ageIndex</var>] 
+		+ " years old."
+		);
+			</code></pre>
+			
+			<h4>3. Create an <strong>object</strong> with a series of <strong>properties</strong> (elegant &amp; fast)</h4>
+			<pre><code>
+	var <var>chicken</var> = {}; <var>// define as an empty object</var>
+	<var>chicken.name</var> = "Prince Rupert the Second";
+	<var>chicken.colour</var> = "dark brown";
+	<var>chicken.feathers</var> = "long";
+	<var>chicken.age</var> = 2;
+	
+	console.log(
+		"My chicken's name is " 
+		+ <var>chicken.name</var>
+		+ ". It is " 
+		+ <var>chicken.colour</var>
+		+ " with " 
+		+ <var>chicken.feathers</var>
+		+ " feathers. It is " 
+		+ <var>chicken.age</var>
+		+ " years old."
+		);
+	<!--
+	<var>chicken.cluck</var> = function () {	<var>// you can define function <strong>methods</strong>, too!</var>
+				console.log("Buckaw!!");
+			};
+			
+	<var>chicken.quoteChickenLittle</var> = function () {	<var>// You make a property equal to an anonymous function</var>
+				console.log("The sky is falling!");
+			};
+	
+	<var>chicken.peck</var> = function (numberOfPecks) {	<var>// You make a property equal to an anonymous function</var>
+				for (i=1; i&lt;numberOfPecks; i++) {
+					console.log("Peck!");
+					}
+			};
+	
+	<var>chicken.output</var> = function () {
+				return "My chicken's name is " 
+					+ <var>chicken.name</var>
+					+ ". It is " 
+					+ <var>chicken.colour</var>
+					+ " with " 
+					+ <var>chicken.feathers</var>
+					+ " feathers. It is " 
+					+ <var>chicken.age</var>
+					+ " years old."
+			};
+			
+	chicken.cluck(); 	<var>// Outputs "Buckaw!" to the console log</var>
+	
+	console.log( chicken.output() ); 	<var>// Outputs the chicken description to the console log</var>
+	
+	chicken.peck(3);	<var>// Outputs "Peck!" "Peck!" "Peck!" to the console log.</var>
+	-->
+
+			
+		
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.24S-QualitiesOfAProgrammer-LastName.html" target="_blank">template</a> and rename it to your last name, such as "<code>1.24S-QualitiesOfAProgrammer-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>Modify the code above to create a program that outputs information about ONE of the following heroes of programming using objects and function pipelines.</h4>
+			
+			<h4>For example</h4>
+			<p>
+				<img src="img/AdaLovelace100px.png"> 
+				Ada Lovelace was born in 1815 and is famous for inventing the first programming language.
+			</p>
+			
+			<h4>A few programming heroes...</h4>
+			
+			<table>
+				<caption>Some famous programmers for you to consider using...</caption>
+				<!--
+				<tr>
+					<th>property</th>
+					<th>Programmer&nbsp;#1</th>
+					<th>Programmer&nbsp;#2</th>
+					<th>Programmer&nbsp;#3</th>
+					<th>Programmer&nbsp;#4</th>
+					<th>Programmer&nbsp;#5</th>
+					<th>Or:&nbsp;Your&nbsp;own&nbsp;choice</th>
+				</tr>
+				-->
+				<tr>
+					<th>programmer.name</th>
+					<th class="withborder">Ada&nbsp;Lovelace</th>
+					<th class="withborder">Alan&nbsp;Turing</th>
+					<th class="withborder">Steve&nbsp;Wozniak</th>
+					<th class="withborder">Tim&nbsp;Berners-Lee</th>
+					<th class="withborder">Limor&nbsp;Fried</th>
+					<th class="withborder">Your&nbsp;own&nbsp;choice</td>
+				</tr>
+				<tr>
+					<th>programmer.imgSrc</th>
+					<td class="withborder">
+						AdaLovelace100px.png<br /><br />
+						<img src="img/AdaLovelace100px.png">
+					</td>
+					<td class="withborder">
+						AlanTuring100px.png<br/><br />
+						<img src="img/AlanTuring100px.png">
+					</td>
+					<td class="withborder">
+						SteveWozniak100px.png<br/><br />
+						<img src="img/SteveWozniak100px.png">
+					</td>
+					<td class="withborder">
+						TimBerners-Lee100px.png<br/><br />
+						<img src="img/TimBerners-Lee100px.png">
+					</td>
+					<td class="withborder">
+						LimorFried100px.png<br/><br />
+						<img src="img/LimorFried100px.png">
+					</td>
+					<td class="withborder">?</td>
+				</tr>
+				<tr>
+					<th>programmer.born</th>
+					<td class="withborder">1815</td>
+					<td class="withborder">1912</td>
+					<td class="withborder">1950</td>
+					<td class="withborder">1955</td>
+					<td class="withborder">c. 1977</td>
+					<td class="withborder">?</td>
+				</tr>
+				<tr style="vertical-align: top;">
+					<th>programmer.famousFor</th>
+					<td class="withborder">Inventing the first programming language</td>
+					<td class="withborder">Cracking the German enigma code</td>
+					<td class="withborder">Doing most of the code and hardware for Steve Jobs in the early days of Apple</td>
+					<td class="withborder">Inventing the internet</td>
+					<td class="withborder">Open-source hardware entrepreneurship at <a href="https://adafruit.com" target="_blank">Adafruit</a></td>
+					<td class="withborder">?</td>
+				</tr>
+			</table>
+			
+			
+			<h4>You will need to consider the following</h4>
+			
+			<ul>
+				<li>use <code>&ltbody onload="mainProcedure();"></code> to get things started</li>
+				<li>Remember: <strong>no global variables</strong>, only variables inside individual functions</li>
+				<li>Use <code>function functionName(<var>somethingIn</var>) {return <var>somethingOut</var>}</code> to create pipelines</li>
+				<li>Separate functions into Init, Process, and Output</li>
+				<li>If you are not sure where to start, copy the example and then modify it to output the information of ONE of the programmers</li>
+			</ul>
+			
+
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized (chunked) code into separate init/input/processing/output functions</li>
+				<li>___/2 &mdash; Successful creation and use of arrays</li>
+				<li>___/2 &mdash; Successful use of time functions</li>
+				<li>___/1 &mdash; Successful use of timers</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			
+			<h2>Do it with style</h2>
+			<h4>Discover what your variables are</h4>
+			<p>Inside modern browsers is a Javascript console with a line that allows you to type in commands.</p>
+			<p>One of the things that it allows you to do is type in variable names so that you can see what is inside.</p>
+			<p>Try running the console on this page and type in: <code>monthNames</code>.</p>
+			-->
+				
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

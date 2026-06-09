@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Draw the Ms. Pacman Maze</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to generate a map from complex data structures
+		
+			Created:	21. April 2015
+			Updated:	
+		-->
+
+		<script>
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:			20px;
+				height:			20px;
+				font-size:		18px;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.27 Hand in: Draw the Ms. Pacman Maze</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">symbol HTML</span> <code>&amp;bull;</code> &mdash; creates the &bull; symbol<br />
+				<span class="langstyle">symbol HTML</span> <code>&amp;#9899;</code> &mdash; creates the &#9899; symbol<br />
+				<span class="langstyle">symbol HTML</span> <code>&amp;nbsp;</code> &mdash; creates an invisible non-breaking space<br />
+
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Convert complex data into visuals</h2>
+			
+			<h4>Let's say we have a collection of two-dimensional arrays:</h4>
+			<pre><code>
+	var <var>hallwayOrWall</var>	=[	<var>// 1=hallway (black), 0=wall (blue)    rows: 0-30, columns: 0-27</var>
+		<var>//	[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6], index of column numbers to help with data entry</var>
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], <var>// row 0</var>
+			[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], <var>// row 1</var>
+			[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], <var>// row 2</var>
+			[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], <var>// row 3</var>
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0], <var>// row 4</var>
+			[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], <var>// row 5</var>
+			[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], <var>// row 6</var>
+			[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0], <var>// row 7</var>
+			[0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0], <var>// row 8</var>
+			[0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0], <var>// row 9</var>
+			[0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0], <var>// row 10</var>
+			[0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0], <var>// row 11</var>
+			[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], <var>// row 12</var>
+			[0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0], <var>// row 13</var>
+			[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], <var>// row 14</var>
+			[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], <var>// row 15</var>
+			[0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0], <var>// row 16</var>
+			[0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0], <var>// row 17</var>
+			[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], <var>// row 18</var>
+			[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], <var>// row 19</var>
+			[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0], <var>// row 20</var>
+			[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], <var>// row 21</var>
+			[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], <var>// row 22</var>
+			[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1], <var>// row 23</var>
+			[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], <var>// row 24</var>
+			[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], <var>// row 25</var>
+			[0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0], <var>// row 26</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], <var>// row 27</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], <var>// row 28</var>
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], <var>// row 29</var>
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]  <var>// row 30</var>
+		];
+
+	var <var>hasADot</var>	=[	<var>// 1=dot, 0=nodot    rows: 0-30, columns: 0-27</var>
+		<var>//	[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6], index of column numbers to help with data entry</var>
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], <var>// row 0</var>
+			[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0], <var>// row 1</var>
+			[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], <var>// row 2</var>
+			[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], <var>// row 3</var>
+			[0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0], <var>// row 4</var>
+			[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], <var>// row 5</var>
+			[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], <var>// row 6</var>
+			[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0], <var>// row 7</var>
+			[0,1,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,0], <var>// row 8</var>
+			[0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0], <var>// row 9</var>
+			[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0], <var>// row 10</var>
+			[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], <var>// row 11</var>
+			[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], <var>// row 12</var>
+			[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0], <var>// row 13</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0], <var>// row 14</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0], <var>// row 15</var>
+			[0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0], <var>// row 16</var>
+			[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], <var>// row 17</var>
+			[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], <var>// row 18</var>
+			[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], <var>// row 19</var>
+			[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0], <var>// row 20</var>
+			[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], <var>// row 21</var>
+			[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], <var>// row 22</var>
+			[0,0,0,1,1,1,1,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,1,1,1,0,0,0], <var>// row 23</var>
+			[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], <var>// row 24</var>
+			[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], <var>// row 25</var>
+			[0,0,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,0,0], <var>// row 26</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], <var>// row 27</var>
+			[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], <var>// row 28</var>
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], <var>// row 29</var>
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]  <var>// row 30</var>
+		];
+							
+	var <var>hasAPowerPill</var>	=[	<var>// 1=power pill, 0=no power pill    rows: 0-30, columns: 0-27</var>
+		<var>//	[0123456789012345678901234567], index of column numbers to help with data entry</var>
+		<var>//	sometimes typing commas gets old, so I am using .split('') instead...</var>
+		<var>//  .split('') separates a string into an array one character at a time</var>
+			"0000000000000000000000000000".split(''), <var>// row 0</var>
+			"0000000000000000000000000000".split(''), <var>// row 1</var>
+			"0000000000000000000000000000".split(''), <var>// row 2</var>
+			"0000000000000000000000000000".split(''), <var>// row 3</var>
+			"0100000000000000000000000010".split(''), <var>// row 4</var>
+			"0000000000000000000000000000".split(''), <var>// row 5</var>
+			"0000000000000000000000000000".split(''), <var>// row 6</var>
+			"0000000000000000000000000000".split(''), <var>// row 7</var>
+			"0000000000000000000000000000".split(''), <var>// row 8</var>
+			"0000000000000000000000000000".split(''), <var>// row 9</var>
+			"0000000000000000000000000000".split(''), <var>// row 10</var>
+			"0000000000000000000000000000".split(''), <var>// row 11</var>
+			"0000000000000000000000000000".split(''), <var>// row 12</var>
+			"0000000000000000000000000000".split(''), <var>// row 13</var>
+			"0000000000000000000000000000".split(''), <var>// row 14</var>
+			"0000000000000000000000000000".split(''), <var>// row 15</var>
+			"0000000000000000000000000000".split(''), <var>// row 16</var>
+			"0000000000000000000000000000".split(''), <var>// row 17</var>
+			"0000000000000000000000000000".split(''), <var>// row 18</var>
+			"0000000000000000000000000000".split(''), <var>// row 19</var>
+			"0000000000000000000000000000".split(''), <var>// row 20</var>
+			"0000000000000000000000000000".split(''), <var>// row 21</var>
+			"0000000000000000000000000000".split(''), <var>// row 22</var>
+			"0000000000000000000000000000".split(''), <var>// row 23</var>
+			"0000000000000000000000000000".split(''), <var>// row 24</var>
+			"0000000000000000000000000000".split(''), <var>// row 25</var>
+			"0100000000000000000000000010".split(''), <var>// row 26</var>
+			"0000000000000000000000000000".split(''), <var>// row 27</var>
+			"0000000000000000000000000000".split(''), <var>// row 28</var>
+			"0000000000000000000000000000".split(''), <var>// row 28</var>
+			"0000000000000000000000000000".split('')  <var>// row 30</var>
+		];
+			</code></pre>
+
+			<h4>Then we can group them into a single object that we can use in a pipeline</h4>
+
+			<pre><code>
+	var <var>mazeObject</var> ={
+		<var>hallOrWall</var>: 	<var>hallwayOrWall</var>,
+		<var>dot</var>:	<var>hasADot</var>,
+		<var>pill</var>:	<var>hasAPowerPill</var>
+	};
+			</code></pre>
+			
+			<h4>We can process this information and display it as a map:</h4>
+			
+			<table id="tableID">
+			</table>
+			
+			<p>
+				<button type="button" onclick="mainProcedure();">Click to generate the map!</button>
+			</p>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Download the <a href="1.27H-DrawMsPacmanMaze-LastName.html" target="_blank">template</a> 
+				and rename it to your last name, such as "<code>1.27H-DrawMsPacmanMaze-LastName.html</code>".
+			</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>Use function pipelines and complex data structures to initialize information about a map, process it into HTML, and then display it. </h4>
+			<p>
+				<strong>You can create your own map if you wish.</strong>
+			</p>
+			
+			
+			
+			<h4>Recommended procedure</h4>
+			
+			<ol>
+				<li>Read over <a href="ComplexDataStructures.html">Complex data structures</a> and <a href="DrawAMaze.html">Draw a maze</a> again</li>
+
+				<li>Plan your separate functions input, process, and output functions. </li>
+				
+				<li>
+					Plan your function pipeline. Consider using:
+					<table>
+						<tr>
+							<td></td>
+						</tr>
+						<tr>
+							<th class="withborder">initMazeObject()</th>
+						</tr>
+						<tr>
+							<td class="withborder centered">return <strong>mazeObject</strong></td>
+						</tr>
+						<tr>
+							<th>&#8659;</th>
+						</tr>
+						<tr>
+							<th class="withborder">createHtmlTableFromMazeObject(<strong>mazeObject</strong>)</th>
+						</tr>
+						<tr>
+							<td class="withborder centered">return <strong>htmlTable</strong></td>
+						</tr>
+						<tr>
+							<th>&#8659;</th>
+						</tr>
+						<tr>
+							<th class="withborder">outputTableInformation(<strong>htmlTable</strong>)</th>
+						</tr>
+					</table>				
+				</li>
+				<li>You may also want a function that acts according to whether a cell has a dot or power pill in it</li>
+				<li>
+					Create your functions empty at first with only the input parameters and return variables, like this:<br />
+					<br/>
+					<code>function someKindOfFunction (<var>inputVariable</var>) {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('in someKindOfFunction, inputVariable=' + <var>inputVariable</var>);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var <var>outputVariable</var>;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <var>outputVariable</var>;<br />
+					}<br />
+					</code>
+				</li>
+
+				<li>Fill in the actual working code of the functions <strong>last of all</strong>, testing as you go.</li>
+				
+			</ol>
+			
+
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized code into separate input/processing/output functions</li>
+				<li>___/2 &mdash; Successful use of objects, arrays, and complex data structures</li>
+				<li>___/1 &mdash; Successful use of function pipelines</li>
+				<li>___/2 &mdash; Successful output of the map in HTML</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			
+			<h2>Do it with style</h2>
+			<h4>Communicate with variable names</h4>
+			<p><code>ckIfDtOrPl()</code> - Know what that means? Me neither.</p>
+			<p>However, <code>checkIfThisContainsADotOrAPill()</code> is much easier to understand. </p>
+			<p>
+				And once you have typed in a function or variable once, it only takes four keystrokes to type it afterwards: 
+				<strong>ctrl-C</strong>, <strong>ctrl-V</strong>.
+			</p>
+				
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

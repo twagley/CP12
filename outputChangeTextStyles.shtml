@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			OUTPUT - Changing text styles
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to change text styles in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. Sept 2015		- created!
+				22. Sept 			- added text-align and vertical-align
+				26. February 2017	- reworked to separate html and js
+				21. March 			- removed <br />
+				23. February 2018	- added visibility
+				25. February 2018	- fixed font style and weight examples
+									  (Thank you to Maddie Putnam for noticing!)
+				23. September 2018	- fixed code and example style				- Drapak
+				14. October 2018	- clarified code examples					- Drapak
+				7. Nov 2018			- added width								- Drapak
+		-->
+
+		<style>
+			iframe {
+				width: 700px;
+				height: 600px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Changing text styles</em>
+		</header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.color 
+					= "<var>red</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to red
+				</span><br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.backgroundColor 
+					= "<var>pink</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var>'s background to pink
+				</span><br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.fontSize 
+					= 20 + "<var>px</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to 20px type
+				</span><br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.fontStyle 
+					= "<var>italic</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to italic type
+				</span><br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.fontWeight 
+					= "<var>bold</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to bold type
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.width 
+					= 20 + "<var>px</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to 20px wide
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.visibility
+					= "<var>hidden</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to bold type
+				</span><br>
+
+				<span class="langstyle">//OUTPUT:</span> 
+				<code>
+					document.getElementById( "<var>exampleId</var>" ).style.visibility 
+					= "<var>visible</var>";
+				</code><br>
+				<span class="indent">
+					&mdash; changes <var>#exampleId</var> to bold type
+				</span><br>
+
+			</p>
+			
+			<h2>Almost everything that CSS does can be done with Javascript</h2>
+			
+			<p>
+				You can program style changes to your webpage using javascript by using
+				<code>document.getElementById('<var>exampleId</var>').style</code>
+			</p>
+			
+			<p>
+				It works a lot like CSS.
+				In fact, inside the browser programmed style changes 
+				are actually altering the CSS of your page as your program runs.
+			</p>
+			
+			<p>
+				That's why CSS and Javascript style commands are so darn similar.
+			</p>
+			<p>
+				The main difference is that CSS commands that would normally be hyphenated, 
+				like <code>background-color</code> is camelCased in Javascript: 
+				<code>backgroundColor</code>.
+			</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>In CSS:</th>
+						<th>In Javascript</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>#myId {<strong>color</strong>: purple;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>color</strong> 
+								= "purple";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>background-color</strong>: pink;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>backgroundColor</strong> 
+								= "pink";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>font-size</strong>: 6px;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>fontSize</strong> 
+								= 6 + "px";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>font-style</strong>: italic;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>fontStyle</strong> 
+								= "italic";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>font-weight</strong>: bold;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>fontWeight</strong> 
+								= "bold";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>text-align</strong>: center;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>textAlign</strong> 
+								= "center";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>vertical-align</strong>: middle;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>verticalAlign</strong> 
+								= "middle";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>width</strong>: 200px;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>width</strong> 
+								= 200 + "px";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>visibility</strong>: hidden;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>visibility</strong> 
+								= "hidden";
+							</code>
+						</td>
+					</tr>
+					<tr>
+						<td>#myId {<strong>visibility</strong>: visible;}</td>
+						<td>
+							<code>
+								document.getElementById( "<var>myId</var>" ).style.<strong>visibility</strong> 
+								= "visible";
+							</code>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2>Short code example:</h2>
+			
+			<p>
+				This button uses the following code:
+				<button id="buttonId">Change me!</button>
+			</p>
+<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">
+            //OUTPUT: Changing Text Styles in JS
+        </span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">//OUTPUT: Changing text styles</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"demoId"</span><span class="sc1">&gt;</span><span class="sc0">
+            This paragraph has been assigned
+            </span><span class="sc1">&lt;code&gt;</span><span class="sc0">id="demoId"</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">, like:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">p id="demoId"&gt;This paragraph...</span><span class="sc10">&amp;lt;</span><span class="sc0">/p&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Press each button to trigger the code:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeSizeId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.fontSize = 40 + "px";
+        </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeColorId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.color = "#00FF00";
+        </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeBackgroundId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.backgroundColor = "#003300";
+        </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+                
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeFontStyleId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.fontStyle = "italic";
+        </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeFontWeightId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.fontWeight = "bold";
+        </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"changeBackId"</span><span class="sc1">&gt;</span><span class="sc0">
+            And this button changes it all back...
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"hideId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.visibility = "hidden";
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;br&gt;&lt;br&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"displayId"</span><span class="sc1">&gt;</span><span class="sc0">
+            document.getElementById( "demoId" ).style.visibility = "visible";
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//OUTPUT: this changes size to 40px</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeSize</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newSize</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">40</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontSize</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newSize</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: this changes the color to green</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeColor</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newColor</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"#00FF00"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.color</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newColor</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+          
+            </span><span class="sc43">//OUTPUT: this changes the background color to dark green</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeBackground</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newBackground</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"#003300"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.backgroundColor</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newBackground</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: this changes the font to italic</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeFontStyle</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newStyle</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"italic"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontStyle</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newStyle</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: this changes the font to bold</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeFontWeight</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newWeight</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"bold"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontWeight</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newWeight</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: this changes everything back</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeBack</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontSize</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">16</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"px"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.color</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"black"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.backgroundColor</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"white"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontStyle</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"normal"</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.fontWeight</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"normal"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: this hides the text</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">hideText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newVisibility</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"hidden"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.visibility</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newVisibility</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: this displays the text</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(){</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newVisibility</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"visible"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc48">"demoId"</span><span class="sc50">).</span><span class="sc46">style.visibility</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newVisibility</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            
+            </span><span class="sc43">//INPUT: attach changeSize to changeSizeId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeSizeId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeSize</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach changeColor to changeColorId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeColorId"</span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeColor</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach changeBackground to changeBackgroundId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeBackgroundId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeBackground</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach changeFontStyle to changeFontStyleId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeFontStyleId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeFontStyle</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach changeFontWeight to changeFontWeightId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeFontWeightId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeFontWeight</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach changeBack to changeBackId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"changeBackId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">changeBack</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach hideText to hideId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"hideId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">                 </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">hideText</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: attach displayText to displayId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"displayId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">              </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">displayText</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			<br>
+			<p>The above code creates this:</p>
+			
+			<iframe class="indent" src="supporting/outputChangeTextStyles.shtml"></iframe>
+		</article>		
+		<script>
+            //OUTPUT: change the style of the button
+            var changeButtonStyle = function (){
+                document.getElementById("buttonId").style.fontSize           = "30px";
+                document.getElementById("buttonId").style.color              = "darkblue";
+                document.getElementById("buttonId").style.backgroundColor    = "lightblue";
+                document.getElementById("buttonId").style.fontStyle          = "italic";
+                document.getElementById("buttonId").style.fontWeight         = "bold";
+            }   
+
+			//INPUT: when the button is clicked on, change the button style
+			document.querySelector( '#buttonId' ).onclick = changeButtonStyle;
+		</script>
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

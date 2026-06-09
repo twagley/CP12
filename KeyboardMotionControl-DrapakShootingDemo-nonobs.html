@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Keyboard motion control</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript to move an image around using the keyboard">
+		<meta name="author" content="-yourName-">
+		<!--
+			Change log:
+				Created:	6. Oct 2015												- Drapak	
+				Modified:	21. March 2017	- moved script to bottom 				- Drapak
+							23. March 2017	- added more instructions				- Drapak
+							30. April 2017	- fixed long lines						- Drapak
+							12. Oct 2018	- added additional criteria for options	- Drapak
+							28. Oct 2018	- finished demo							- Drapak
+				
+				Finished:	
+		-->
+
+		<style>
+			body {
+				background-color:	pink;
+				color:				darkRed;
+				font-family:		Arial;
+			}
+			
+			#imageId {
+				position:		absolute;
+				top:			50%;
+				left:			5%;
+				width:			5%;
+			}
+			
+			#topOutputId {
+				font-weight:		bold;
+			}
+			
+			@keyframes fireAnimation {
+				0% {
+					left: 		5%;
+					opacity: 	0;
+				}
+				10% {
+					opacity: 	1;
+				}
+				90% {
+					opacity:	1;
+				}
+				100% {
+					left: 		95%;
+					opacity: 	0;
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--
+			Create a program that allows moves an image around the screen 
+			and that changes the image using the keyboard.
+			
+			To do this, you will:
+
+				1.	steal your moveup(), moveDown(), moveLeft(), and moveRight() functions 
+					from "Move Things with Buttons"
+					
+				2.	steal your function that reads keypresses from the "Keyboard Reader"
+				
+				3.	join them all together with an if .. else if ... else if ... else chain, 
+					like in "Defuse the Bomb!"
+
+			Get the keyboard reader working first, then get your if ... else chain working.
+			After that you can tweak the movement of your character and get it to face the 
+			correct direction.
+			
+			Evaluation checklist:
+		
+			___/10 	INPUT: including ANY FOUR of the following:
+				[]	make things happen when you click on them
+				[]	make things happen an input changes
+				[]	listen for keypresses
+				[]	read which key is pressed
+				[]	read current top position
+				[]	read current left position
+		
+			___/10	PROCESS: including ANY FOUR of the following:
+				[]	declaring a variable
+				[]	finding the integer or floating decimal of a string
+				[]	use math to determine positions
+				[]	use if...else statements to control flow of code
+				[]	have up and down movement working correctly
+				[]	have left and right movement working correctly
+		
+			___/10 	OUTPUT: including ANY FOUR of the following:
+				[]	set the position mode so things can move
+				[]	change the left position of something
+				[]	change the top position of something
+				[]	change a image
+				[]	output information with innerHTML
+		
+			___/10 	STYLE: 
+				[]	add your name to the filename
+				[]	write your name as the author
+				[]	update the change log
+				[]	correctly indent everything
+				[]	use lowercase for all your HTML tags
+				[]	use camelCase for all your ids and classes
+				[]	avoid lines greater than 96 characters in length
+				[]	restrict your style code to the head of your HTML file
+				[]	space out your mathematical operators
+				[]	write comments for your if statements
+				[]	use descriptive variable names
+
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		<img id="imageId" src="http://drapak.ca/cpg/img/link-down.png">
+		
+		<p>
+			Link is now at top: <span id='topOutputId'></span>px
+		</p>
+		<div id='outputId'></div>
+		
+		<script>
+			// first, set up the keypress reading function
+            // note that the keyEvent variable is inside the brackets
+            var readKeypress = function ( keyEvent ) {
+                console.log( 'in readKeypress...' );
+                
+				//INIT: set up the initial values for the program
+				const UP_KEY			= 87;	// W
+				const DOWN_KEY			= 83;	// S
+				const FIRE_KEY			= 32;	// space
+				const DISTANCE_PER_JUMP	= 20;
+				
+                // the next line handles how different browsers read keypresses
+                //INPUT: read the key that was pressed
+                var unicodeNumber   = keyEvent.which || keyEvent.keyCode;   
+				
+				//INPUT: read the current top position of the image
+				var currentTop	= document.getElementById( "imageId" ).offsetTop;
+                
+				//IF: the key pressed is the up key
+                if ( unicodeNumber == UP_KEY ) {
+					//OUTPUT: switch the picture to the picture of link going up
+					document.querySelector( '#imageId' ).src
+						= "http://drapak.ca/cpg/img/link-up.png";
+						
+					//PROCESS: calculate a new position slightly upward
+					var newTop	= currentTop - DISTANCE_PER_JUMP;
+					
+					//OUTPUT: display the newTop
+					document.querySelector( '#topOutputId' ).innerHTML = newTop;
+				
+					//OUTPUT: move the image to the new top position
+					document.querySelector( '#imageId' ).style.top = newTop + 'px';
+					
+				//IF: the key pressed is the down key
+				} else if ( unicodeNumber == DOWN_KEY ) {
+					//OUTPUT: switch the picture to the picture of link going down
+					document.querySelector( '#imageId' ).src
+						= "http://drapak.ca/cpg/img/link-down.png";				
+					
+					//PROCESS: calculate a new position slightly down
+					var newTop	= currentTop + DISTANCE_PER_JUMP;
+				
+					//OUTPUT: display the newTop
+					document.querySelector( '#topOutputId' ).innerHTML = newTop;
+				
+					//OUTPUT: move the image to the new top position
+					document.querySelector( '#imageId' ).style.top = newTop + 'px';
+					
+				} else if ( unicodeNumber == FIRE_KEY ) {
+					//OUTPUT: display the picture of pacman
+					document.querySelector( '#outputId' ).innerHTML 
+						= '<img id="pacmanId" ' 
+						+ 'src="http://drapak.ca/cpg/img/pacman/pacmanBigRight1.png">';
+						
+					//OUTPUT: adjust the position of pacman
+					document.querySelector( '#pacmanId' ).style.position	= 'absolute';
+					document.querySelector( '#pacmanId' ).style.left		= '5%';
+					document.querySelector( '#pacmanId' ).style.width		= '5%';
+					document.querySelector( '#pacmanId' ).style.top			
+						= currentTop + 'px';
+						
+					//OUTPUT: set up the animation for pacman
+					document.querySelector( '#pacmanId' ).style.animationDuration = '2s';
+					document.querySelector( '#pacmanId' ).style.animationName 
+						= 'fireAnimation';
+					document.querySelector( '#pacmanId' ).style.animationFillMode
+						= 'forwards';
+				}				
+            }
+            
+            // Then activate it with window.onkeydown, which is like onclick, 
+            // but is activated anytime a key is pressed down while the browser is active.
+            //
+            // Notice that there are no brackets () after readKeypress.
+            // This is because it is reading the entire function from the readKeypress variable
+            window.onkeydown    = readKeypress;
+		</script>
+	</body>
+</html>

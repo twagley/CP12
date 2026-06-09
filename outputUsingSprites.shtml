@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: OUTPUT: Using sprite sheets</title>
+		<meta name="description" content="Learn how to use sprite sheets in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--this page describes how to use object constructors
+		
+			Created:	26. April 2015
+			Updated:	29. April 2015 	- minor changes to text
+						6. December		- reworked for drapak.ca
+		-->
+
+		<link rel="stylesheet" type="text/css" href="pacmanSprites.css">		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+		</script>	
+		<style>
+			table {
+				background-color: grey;
+			}
+			table code {
+				background-color: grey;
+				color: white;
+			}
+			th, td {
+				vertical-align: middle;
+			}
+			
+			/* 4 unit - 48px wide sprites */
+			.pmPacmanBig0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -72px;
+				width: 48px;
+				height: 48px;
+			}
+			.pmPacmanBig1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -72px;
+				width: 48px;
+				height: 48px;
+			}
+			.pmPacmanBig2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -72px;
+				width: 48px;
+				height: 48px;
+			}
+
+			/* 2 unit - 24px wide sprites */
+			.pmPacmanUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmSlug0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmSlug1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -72px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmGhostLight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -96px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmGhostLight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -96px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmGhostDark0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -96px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmGhostDark1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -96px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmStrawberry {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmOrange {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmLemon {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmApple {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmGrape {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmFlower {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmKey {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyShiny0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyShiny0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmRedSlug0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmRedSlug1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmCherry1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -120px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPoints200 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPoints400 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPoints800 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPoints1600 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyStart {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -144px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanFull0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmExplosion {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyLipsUp {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmBlinkyLipsDown {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie5 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie6 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie7 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie8 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie9 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie10 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanDie11 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPacmanFull1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -168px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmInkyUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmPinkyStart {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -192px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesRight0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesRight1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesDown0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesDown1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesLeft0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesLeft1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesUp0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmEyesUp1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -216px;
+				width: 24px;
+				height: 24px;
+			}
+			.pmClydeStart {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -216px;
+				width: 24px;
+				height: 24px;
+			}
+
+			/* 1 unit - 12px wide sprites */
+
+			.pmLetterSpace1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterPeriod {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterQuote0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterQuote1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter5 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter6 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter7 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter8 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter9 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterSlash {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterDash {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCornerNE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCornerSE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCornerNW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCornerSW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -12px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterA {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterB {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterC {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterD {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterF {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterG {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterH {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterI {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterJ {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterK {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterL {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterM {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -156px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterN {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterO {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -180px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterP {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterQ {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterR {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterS {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterT {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterU {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterV {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterX {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterY {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterZ {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterExclamation {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCopyright {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterPoints0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterPoints1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -24px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterPoint {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterApostrophe {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSE3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSW3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNE3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNW3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal11 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal12 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNE4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNW4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical8 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical9 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSE4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSW4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerNE1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerNW1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerSE1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerSW1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -36px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter1xx {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter3xx {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter5xx {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter7xx {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterX00 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetter10 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterTwenty0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterTwenty1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterThirty0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterThirty1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterFifty0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterFifty1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -144px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterZeroZero0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -156px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterZeroZero1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -168px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerNE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerNW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleVertical0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleVertical1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerSE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleCornerSW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleNSingleWAndS {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleNSingleEAndS {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleSSingleWAndN {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleSSingleEandN {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontal0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontal1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontal2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -336px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontal3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -48px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontalClosedW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleHorizontalClosedE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerShortNE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -264px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerShortNW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -276px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerShortSE {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -288px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerShortSW {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -300px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleESingleWAndS {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -312px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDoubleWSingleEAndS {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -324px -60px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSW1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSE1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNW1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal5 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNE1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal6 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -96px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal7 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -0px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal8 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -12px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -24px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical5 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -36px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSW2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -48px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal9 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -60px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleHorizontal10 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -72px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerSE2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -84px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical6 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -96px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNW2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -108px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleCornerNE2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -120px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmSingleVertical7 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -132px -108px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot0 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -192px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot1 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -204px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot2 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -216px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot3 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -228px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot4 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -240px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmDot5 {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -252px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmBlank {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -348px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterBlank {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -360px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterSpace {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -372px -240px;
+				width: 12px;
+				height: 12px;
+			}
+			.pmLetterCircle {
+				background: url('http://drapak.ca/cpg/img/pacmanSprites.png') -384px -240px;
+				width: 12px;
+				height: 12px;
+			}
+
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//OUTPUT: <em>Using sprite sheets</em>
+		</header>
+
+		<article>
+			<div class="floatbox indent">
+					<!-- 0:0-->
+				<figure>
+					<h3>Large sprites<br>Each one takes up 4 x 4 = 16 units</h3>
+					<table id="bigTableID"><tr><th><div class="pmPacmanBig0" title="pmPacmanBig0"></div></th><td><code>&lt;div class='pmPacmanBig0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanBig1" title="pmPacmanBig1"></div></th><td><code>&lt;div class='pmPacmanBig1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanBig2" title="pmPacmanBig2"></div></th><td><code>&lt;div class='pmPacmanBig2'&gt;&lt;/div&gt;</code></td></tr></table>
+				</figure>
+				<figure>
+					<h3>Medium sprites<br>Each one takes up 2 x 2 = 4 units</h3>
+					<table id="mediumTableID"><tr><th><div class="pmApple" title="pmApple"></div></th><td><code>&lt;div class='pmApple'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyDown0" title="pmBlinkyDown0"></div></th><td><code>&lt;div class='pmBlinkyDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyDown1" title="pmBlinkyDown1"></div></th><td><code>&lt;div class='pmBlinkyDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyLeft0" title="pmBlinkyLeft0"></div></th><td><code>&lt;div class='pmBlinkyLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyLeft1" title="pmBlinkyLeft1"></div></th><td><code>&lt;div class='pmBlinkyLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyLipsDown" title="pmBlinkyLipsDown"></div></th><td><code>&lt;div class='pmBlinkyLipsDown'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyLipsUp" title="pmBlinkyLipsUp"></div></th><td><code>&lt;div class='pmBlinkyLipsUp'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyRight0" title="pmBlinkyRight0"></div></th><td><code>&lt;div class='pmBlinkyRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyRight1" title="pmBlinkyRight1"></div></th><td><code>&lt;div class='pmBlinkyRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyShiny0" title="pmBlinkyShiny0"></div></th><td><code>&lt;div class='pmBlinkyShiny0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyShiny0" title="pmBlinkyShiny0"></div></th><td><code>&lt;div class='pmBlinkyShiny0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyStart" title="pmBlinkyStart"></div></th><td><code>&lt;div class='pmBlinkyStart'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyUp0" title="pmBlinkyUp0"></div></th><td><code>&lt;div class='pmBlinkyUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmBlinkyUp1" title="pmBlinkyUp1"></div></th><td><code>&lt;div class='pmBlinkyUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmCherry1" title="pmCherry1"></div></th><td><code>&lt;div class='pmCherry1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeDown0" title="pmClydeDown0"></div></th><td><code>&lt;div class='pmClydeDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeDown1" title="pmClydeDown1"></div></th><td><code>&lt;div class='pmClydeDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeLeft0" title="pmClydeLeft0"></div></th><td><code>&lt;div class='pmClydeLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeLeft1" title="pmClydeLeft1"></div></th><td><code>&lt;div class='pmClydeLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeRight0" title="pmClydeRight0"></div></th><td><code>&lt;div class='pmClydeRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeRight1" title="pmClydeRight1"></div></th><td><code>&lt;div class='pmClydeRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeStart" title="pmClydeStart"></div></th><td><code>&lt;div class='pmClydeStart'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeUp0" title="pmClydeUp0"></div></th><td><code>&lt;div class='pmClydeUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmClydeUp1" title="pmClydeUp1"></div></th><td><code>&lt;div class='pmClydeUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmExplosion" title="pmExplosion"></div></th><td><code>&lt;div class='pmExplosion'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesDown0" title="pmEyesDown0"></div></th><td><code>&lt;div class='pmEyesDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesDown1" title="pmEyesDown1"></div></th><td><code>&lt;div class='pmEyesDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesLeft0" title="pmEyesLeft0"></div></th><td><code>&lt;div class='pmEyesLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesLeft1" title="pmEyesLeft1"></div></th><td><code>&lt;div class='pmEyesLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesRight0" title="pmEyesRight0"></div></th><td><code>&lt;div class='pmEyesRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesRight1" title="pmEyesRight1"></div></th><td><code>&lt;div class='pmEyesRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesUp0" title="pmEyesUp0"></div></th><td><code>&lt;div class='pmEyesUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmEyesUp1" title="pmEyesUp1"></div></th><td><code>&lt;div class='pmEyesUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmFlower" title="pmFlower"></div></th><td><code>&lt;div class='pmFlower'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmGhostDark0" title="pmGhostDark0"></div></th><td><code>&lt;div class='pmGhostDark0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmGhostDark1" title="pmGhostDark1"></div></th><td><code>&lt;div class='pmGhostDark1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmGhostLight0" title="pmGhostLight0"></div></th><td><code>&lt;div class='pmGhostLight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmGhostLight1" title="pmGhostLight1"></div></th><td><code>&lt;div class='pmGhostLight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmGrape" title="pmGrape"></div></th><td><code>&lt;div class='pmGrape'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyDown0" title="pmInkyDown0"></div></th><td><code>&lt;div class='pmInkyDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyDown1" title="pmInkyDown1"></div></th><td><code>&lt;div class='pmInkyDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyLeft0" title="pmInkyLeft0"></div></th><td><code>&lt;div class='pmInkyLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyLeft1" title="pmInkyLeft1"></div></th><td><code>&lt;div class='pmInkyLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyRight0" title="pmInkyRight0"></div></th><td><code>&lt;div class='pmInkyRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyRight1" title="pmInkyRight1"></div></th><td><code>&lt;div class='pmInkyRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyUp0" title="pmInkyUp0"></div></th><td><code>&lt;div class='pmInkyUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmInkyUp1" title="pmInkyUp1"></div></th><td><code>&lt;div class='pmInkyUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmKey" title="pmKey"></div></th><td><code>&lt;div class='pmKey'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLemon" title="pmLemon"></div></th><td><code>&lt;div class='pmLemon'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmOrange" title="pmOrange"></div></th><td><code>&lt;div class='pmOrange'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie0" title="pmPacmanDie0"></div></th><td><code>&lt;div class='pmPacmanDie0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie1" title="pmPacmanDie1"></div></th><td><code>&lt;div class='pmPacmanDie1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie10" title="pmPacmanDie10"></div></th><td><code>&lt;div class='pmPacmanDie10'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie11" title="pmPacmanDie11"></div></th><td><code>&lt;div class='pmPacmanDie11'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie2" title="pmPacmanDie2"></div></th><td><code>&lt;div class='pmPacmanDie2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie3" title="pmPacmanDie3"></div></th><td><code>&lt;div class='pmPacmanDie3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie4" title="pmPacmanDie4"></div></th><td><code>&lt;div class='pmPacmanDie4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie5" title="pmPacmanDie5"></div></th><td><code>&lt;div class='pmPacmanDie5'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie6" title="pmPacmanDie6"></div></th><td><code>&lt;div class='pmPacmanDie6'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie7" title="pmPacmanDie7"></div></th><td><code>&lt;div class='pmPacmanDie7'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie8" title="pmPacmanDie8"></div></th><td><code>&lt;div class='pmPacmanDie8'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDie9" title="pmPacmanDie9"></div></th><td><code>&lt;div class='pmPacmanDie9'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDown0" title="pmPacmanDown0"></div></th><td><code>&lt;div class='pmPacmanDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanDown1" title="pmPacmanDown1"></div></th><td><code>&lt;div class='pmPacmanDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanFull0" title="pmPacmanFull0"></div></th><td><code>&lt;div class='pmPacmanFull0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanFull1" title="pmPacmanFull1"></div></th><td><code>&lt;div class='pmPacmanFull1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanLeft0" title="pmPacmanLeft0"></div></th><td><code>&lt;div class='pmPacmanLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanLeft1" title="pmPacmanLeft1"></div></th><td><code>&lt;div class='pmPacmanLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanRight0" title="pmPacmanRight0"></div></th><td><code>&lt;div class='pmPacmanRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanRight1" title="pmPacmanRight1"></div></th><td><code>&lt;div class='pmPacmanRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanUp0" title="pmPacmanUp0"></div></th><td><code>&lt;div class='pmPacmanUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPacmanUp1" title="pmPacmanUp1"></div></th><td><code>&lt;div class='pmPacmanUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyDown0" title="pmPinkyDown0"></div></th><td><code>&lt;div class='pmPinkyDown0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyDown1" title="pmPinkyDown1"></div></th><td><code>&lt;div class='pmPinkyDown1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyLeft0" title="pmPinkyLeft0"></div></th><td><code>&lt;div class='pmPinkyLeft0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyLeft1" title="pmPinkyLeft1"></div></th><td><code>&lt;div class='pmPinkyLeft1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyRight0" title="pmPinkyRight0"></div></th><td><code>&lt;div class='pmPinkyRight0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyRight1" title="pmPinkyRight1"></div></th><td><code>&lt;div class='pmPinkyRight1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyStart" title="pmPinkyStart"></div></th><td><code>&lt;div class='pmPinkyStart'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyUp0" title="pmPinkyUp0"></div></th><td><code>&lt;div class='pmPinkyUp0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPinkyUp1" title="pmPinkyUp1"></div></th><td><code>&lt;div class='pmPinkyUp1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPoints1600" title="pmPoints1600"></div></th><td><code>&lt;div class='pmPoints1600'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPoints200" title="pmPoints200"></div></th><td><code>&lt;div class='pmPoints200'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPoints400" title="pmPoints400"></div></th><td><code>&lt;div class='pmPoints400'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmPoints800" title="pmPoints800"></div></th><td><code>&lt;div class='pmPoints800'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmRedSlug0" title="pmRedSlug0"></div></th><td><code>&lt;div class='pmRedSlug0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmRedSlug1" title="pmRedSlug1"></div></th><td><code>&lt;div class='pmRedSlug1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSlug0" title="pmSlug0"></div></th><td><code>&lt;div class='pmSlug0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSlug1" title="pmSlug1"></div></th><td><code>&lt;div class='pmSlug1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmStrawberry" title="pmStrawberry"></div></th><td><code>&lt;div class='pmStrawberry'&gt;&lt;/div&gt;</code></td></tr></table>
+				</figure>
+				<figure>
+					<h3>Small sprites<br>Each one takes up 1 unit</h3>
+					<table id="smallTableID"><tr><th><div class="pmBlank" title="pmBlank"></div></th><td><code>&lt;div class='pmBlank'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot" title="pmDot"></div></th><td><code>&lt;div class='pmDot'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot0" title="pmDot0"></div></th><td><code>&lt;div class='pmDot0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot1" title="pmDot1"></div></th><td><code>&lt;div class='pmDot1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot2" title="pmDot2"></div></th><td><code>&lt;div class='pmDot2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot3" title="pmDot3"></div></th><td><code>&lt;div class='pmDot3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot4" title="pmDot4"></div></th><td><code>&lt;div class='pmDot4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDot5" title="pmDot5"></div></th><td><code>&lt;div class='pmDot5'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerNE" title="pmDoubleCornerNE"></div></th><td><code>&lt;div class='pmDoubleCornerNE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerNE1" title="pmDoubleCornerNE1"></div></th><td><code>&lt;div class='pmDoubleCornerNE1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerNW" title="pmDoubleCornerNW"></div></th><td><code>&lt;div class='pmDoubleCornerNW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerNW1" title="pmDoubleCornerNW1"></div></th><td><code>&lt;div class='pmDoubleCornerNW1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerSE" title="pmDoubleCornerSE"></div></th><td><code>&lt;div class='pmDoubleCornerSE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerSE1" title="pmDoubleCornerSE1"></div></th><td><code>&lt;div class='pmDoubleCornerSE1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerSW" title="pmDoubleCornerSW"></div></th><td><code>&lt;div class='pmDoubleCornerSW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleCornerSW1" title="pmDoubleCornerSW1"></div></th><td><code>&lt;div class='pmDoubleCornerSW1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleESingleWAndS" title="pmDoubleESingleWAndS"></div></th><td><code>&lt;div class='pmDoubleESingleWAndS'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontal0" title="pmDoubleHorizontal0"></div></th><td><code>&lt;div class='pmDoubleHorizontal0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontal1" title="pmDoubleHorizontal1"></div></th><td><code>&lt;div class='pmDoubleHorizontal1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontal2" title="pmDoubleHorizontal2"></div></th><td><code>&lt;div class='pmDoubleHorizontal2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontal3" title="pmDoubleHorizontal3"></div></th><td><code>&lt;div class='pmDoubleHorizontal3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontalClosedE" title="pmDoubleHorizontalClosedE"></div></th><td><code>&lt;div class='pmDoubleHorizontalClosedE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleHorizontalClosedW" title="pmDoubleHorizontalClosedW"></div></th><td><code>&lt;div class='pmDoubleHorizontalClosedW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleNSingleEAndS" title="pmDoubleNSingleEAndS"></div></th><td><code>&lt;div class='pmDoubleNSingleEAndS'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleNSingleWAndS" title="pmDoubleNSingleWAndS"></div></th><td><code>&lt;div class='pmDoubleNSingleWAndS'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleSSingleEandN" title="pmDoubleSSingleEandN"></div></th><td><code>&lt;div class='pmDoubleSSingleEandN'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleSSingleWAndN" title="pmDoubleSSingleWAndN"></div></th><td><code>&lt;div class='pmDoubleSSingleWAndN'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleVertical0" title="pmDoubleVertical0"></div></th><td><code>&lt;div class='pmDoubleVertical0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleVertical1" title="pmDoubleVertical1"></div></th><td><code>&lt;div class='pmDoubleVertical1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmDoubleWSingleEAndS" title="pmDoubleWSingleEAndS"></div></th><td><code>&lt;div class='pmDoubleWSingleEAndS'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter0" title="pmLetter0"></div></th><td><code>&lt;div class='pmLetter0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter1" title="pmLetter1"></div></th><td><code>&lt;div class='pmLetter1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter10" title="pmLetter10"></div></th><td><code>&lt;div class='pmLetter10'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter1xx" title="pmLetter1xx"></div></th><td><code>&lt;div class='pmLetter1xx'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter2" title="pmLetter2"></div></th><td><code>&lt;div class='pmLetter2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter3" title="pmLetter3"></div></th><td><code>&lt;div class='pmLetter3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter3xx" title="pmLetter3xx"></div></th><td><code>&lt;div class='pmLetter3xx'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter4" title="pmLetter4"></div></th><td><code>&lt;div class='pmLetter4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter5" title="pmLetter5"></div></th><td><code>&lt;div class='pmLetter5'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter5xx" title="pmLetter5xx"></div></th><td><code>&lt;div class='pmLetter5xx'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter6" title="pmLetter6"></div></th><td><code>&lt;div class='pmLetter6'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter7" title="pmLetter7"></div></th><td><code>&lt;div class='pmLetter7'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter7xx" title="pmLetter7xx"></div></th><td><code>&lt;div class='pmLetter7xx'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter8" title="pmLetter8"></div></th><td><code>&lt;div class='pmLetter8'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetter9" title="pmLetter9"></div></th><td><code>&lt;div class='pmLetter9'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterA" title="pmLetterA"></div></th><td><code>&lt;div class='pmLetterA'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterApostrophe" title="pmLetterApostrophe"></div></th><td><code>&lt;div class='pmLetterApostrophe'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterB" title="pmLetterB"></div></th><td><code>&lt;div class='pmLetterB'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterBlank" title="pmLetterBlank"></div></th><td><code>&lt;div class='pmLetterBlank'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterC" title="pmLetterC"></div></th><td><code>&lt;div class='pmLetterC'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCircle" title="pmLetterCircle"></div></th><td><code>&lt;div class='pmLetterCircle'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCopyright" title="pmLetterCopyright"></div></th><td><code>&lt;div class='pmLetterCopyright'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCornerNE" title="pmLetterCornerNE"></div></th><td><code>&lt;div class='pmLetterCornerNE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCornerNW" title="pmLetterCornerNW"></div></th><td><code>&lt;div class='pmLetterCornerNW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCornerSE" title="pmLetterCornerSE"></div></th><td><code>&lt;div class='pmLetterCornerSE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterCornerSW" title="pmLetterCornerSW"></div></th><td><code>&lt;div class='pmLetterCornerSW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterD" title="pmLetterD"></div></th><td><code>&lt;div class='pmLetterD'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterDash" title="pmLetterDash"></div></th><td><code>&lt;div class='pmLetterDash'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterE" title="pmLetterE"></div></th><td><code>&lt;div class='pmLetterE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterExclamation" title="pmLetterExclamation"></div></th><td><code>&lt;div class='pmLetterExclamation'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterF" title="pmLetterF"></div></th><td><code>&lt;div class='pmLetterF'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterFifty0" title="pmLetterFifty0"></div></th><td><code>&lt;div class='pmLetterFifty0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterFifty1" title="pmLetterFifty1"></div></th><td><code>&lt;div class='pmLetterFifty1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterG" title="pmLetterG"></div></th><td><code>&lt;div class='pmLetterG'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterH" title="pmLetterH"></div></th><td><code>&lt;div class='pmLetterH'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterI" title="pmLetterI"></div></th><td><code>&lt;div class='pmLetterI'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterJ" title="pmLetterJ"></div></th><td><code>&lt;div class='pmLetterJ'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterK" title="pmLetterK"></div></th><td><code>&lt;div class='pmLetterK'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterL" title="pmLetterL"></div></th><td><code>&lt;div class='pmLetterL'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterM" title="pmLetterM"></div></th><td><code>&lt;div class='pmLetterM'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterN" title="pmLetterN"></div></th><td><code>&lt;div class='pmLetterN'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterO" title="pmLetterO"></div></th><td><code>&lt;div class='pmLetterO'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterP" title="pmLetterP"></div></th><td><code>&lt;div class='pmLetterP'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterPeriod" title="pmLetterPeriod"></div></th><td><code>&lt;div class='pmLetterPeriod'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterPoint" title="pmLetterPoint"></div></th><td><code>&lt;div class='pmLetterPoint'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterPoints0" title="pmLetterPoints0"></div></th><td><code>&lt;div class='pmLetterPoints0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterPoints1" title="pmLetterPoints1"></div></th><td><code>&lt;div class='pmLetterPoints1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterQ" title="pmLetterQ"></div></th><td><code>&lt;div class='pmLetterQ'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterQuote0" title="pmLetterQuote0"></div></th><td><code>&lt;div class='pmLetterQuote0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterQuote1" title="pmLetterQuote1"></div></th><td><code>&lt;div class='pmLetterQuote1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterR" title="pmLetterR"></div></th><td><code>&lt;div class='pmLetterR'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterS" title="pmLetterS"></div></th><td><code>&lt;div class='pmLetterS'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterSlash" title="pmLetterSlash"></div></th><td><code>&lt;div class='pmLetterSlash'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterSpace" title="pmLetterSpace"></div></th><td><code>&lt;div class='pmLetterSpace'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterSpace1" title="pmLetterSpace1"></div></th><td><code>&lt;div class='pmLetterSpace1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterT" title="pmLetterT"></div></th><td><code>&lt;div class='pmLetterT'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterThirty0" title="pmLetterThirty0"></div></th><td><code>&lt;div class='pmLetterThirty0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterThirty1" title="pmLetterThirty1"></div></th><td><code>&lt;div class='pmLetterThirty1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterTwenty0" title="pmLetterTwenty0"></div></th><td><code>&lt;div class='pmLetterTwenty0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterTwenty1" title="pmLetterTwenty1"></div></th><td><code>&lt;div class='pmLetterTwenty1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterU" title="pmLetterU"></div></th><td><code>&lt;div class='pmLetterU'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterV" title="pmLetterV"></div></th><td><code>&lt;div class='pmLetterV'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterW" title="pmLetterW"></div></th><td><code>&lt;div class='pmLetterW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterX" title="pmLetterX"></div></th><td><code>&lt;div class='pmLetterX'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterX00" title="pmLetterX00"></div></th><td><code>&lt;div class='pmLetterX00'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterY" title="pmLetterY"></div></th><td><code>&lt;div class='pmLetterY'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterZ" title="pmLetterZ"></div></th><td><code>&lt;div class='pmLetterZ'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterZeroZero0" title="pmLetterZeroZero0"></div></th><td><code>&lt;div class='pmLetterZeroZero0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmLetterZeroZero1" title="pmLetterZeroZero1"></div></th><td><code>&lt;div class='pmLetterZeroZero1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNE" title="pmSingleCornerNE"></div></th><td><code>&lt;div class='pmSingleCornerNE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNE1" title="pmSingleCornerNE1"></div></th><td><code>&lt;div class='pmSingleCornerNE1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNE2" title="pmSingleCornerNE2"></div></th><td><code>&lt;div class='pmSingleCornerNE2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNE3" title="pmSingleCornerNE3"></div></th><td><code>&lt;div class='pmSingleCornerNE3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNE4" title="pmSingleCornerNE4"></div></th><td><code>&lt;div class='pmSingleCornerNE4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNW" title="pmSingleCornerNW"></div></th><td><code>&lt;div class='pmSingleCornerNW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNW1" title="pmSingleCornerNW1"></div></th><td><code>&lt;div class='pmSingleCornerNW1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNW2" title="pmSingleCornerNW2"></div></th><td><code>&lt;div class='pmSingleCornerNW2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNW3" title="pmSingleCornerNW3"></div></th><td><code>&lt;div class='pmSingleCornerNW3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerNW4" title="pmSingleCornerNW4"></div></th><td><code>&lt;div class='pmSingleCornerNW4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSE" title="pmSingleCornerSE"></div></th><td><code>&lt;div class='pmSingleCornerSE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSE1" title="pmSingleCornerSE1"></div></th><td><code>&lt;div class='pmSingleCornerSE1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSE2" title="pmSingleCornerSE2"></div></th><td><code>&lt;div class='pmSingleCornerSE2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSE3" title="pmSingleCornerSE3"></div></th><td><code>&lt;div class='pmSingleCornerSE3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSE4" title="pmSingleCornerSE4"></div></th><td><code>&lt;div class='pmSingleCornerSE4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSW" title="pmSingleCornerSW"></div></th><td><code>&lt;div class='pmSingleCornerSW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSW1" title="pmSingleCornerSW1"></div></th><td><code>&lt;div class='pmSingleCornerSW1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSW2" title="pmSingleCornerSW2"></div></th><td><code>&lt;div class='pmSingleCornerSW2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSW3" title="pmSingleCornerSW3"></div></th><td><code>&lt;div class='pmSingleCornerSW3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerSW4" title="pmSingleCornerSW4"></div></th><td><code>&lt;div class='pmSingleCornerSW4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerShortNE" title="pmSingleCornerShortNE"></div></th><td><code>&lt;div class='pmSingleCornerShortNE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerShortNW" title="pmSingleCornerShortNW"></div></th><td><code>&lt;div class='pmSingleCornerShortNW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerShortSE" title="pmSingleCornerShortSE"></div></th><td><code>&lt;div class='pmSingleCornerShortSE'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleCornerShortSW" title="pmSingleCornerShortSW"></div></th><td><code>&lt;div class='pmSingleCornerShortSW'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal0" title="pmSingleHorizontal0"></div></th><td><code>&lt;div class='pmSingleHorizontal0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal1" title="pmSingleHorizontal1"></div></th><td><code>&lt;div class='pmSingleHorizontal1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal10" title="pmSingleHorizontal10"></div></th><td><code>&lt;div class='pmSingleHorizontal10'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal11" title="pmSingleHorizontal11"></div></th><td><code>&lt;div class='pmSingleHorizontal11'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal12" title="pmSingleHorizontal12"></div></th><td><code>&lt;div class='pmSingleHorizontal12'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal2" title="pmSingleHorizontal2"></div></th><td><code>&lt;div class='pmSingleHorizontal2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal3" title="pmSingleHorizontal3"></div></th><td><code>&lt;div class='pmSingleHorizontal3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal4" title="pmSingleHorizontal4"></div></th><td><code>&lt;div class='pmSingleHorizontal4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal5" title="pmSingleHorizontal5"></div></th><td><code>&lt;div class='pmSingleHorizontal5'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal6" title="pmSingleHorizontal6"></div></th><td><code>&lt;div class='pmSingleHorizontal6'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal7" title="pmSingleHorizontal7"></div></th><td><code>&lt;div class='pmSingleHorizontal7'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal8" title="pmSingleHorizontal8"></div></th><td><code>&lt;div class='pmSingleHorizontal8'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleHorizontal9" title="pmSingleHorizontal9"></div></th><td><code>&lt;div class='pmSingleHorizontal9'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical0" title="pmSingleVertical0"></div></th><td><code>&lt;div class='pmSingleVertical0'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical1" title="pmSingleVertical1"></div></th><td><code>&lt;div class='pmSingleVertical1'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical2" title="pmSingleVertical2"></div></th><td><code>&lt;div class='pmSingleVertical2'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical3" title="pmSingleVertical3"></div></th><td><code>&lt;div class='pmSingleVertical3'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical4" title="pmSingleVertical4"></div></th><td><code>&lt;div class='pmSingleVertical4'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical5" title="pmSingleVertical5"></div></th><td><code>&lt;div class='pmSingleVertical5'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical6" title="pmSingleVertical6"></div></th><td><code>&lt;div class='pmSingleVertical6'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical7" title="pmSingleVertical7"></div></th><td><code>&lt;div class='pmSingleVertical7'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical8" title="pmSingleVertical8"></div></th><td><code>&lt;div class='pmSingleVertical8'&gt;&lt;/div&gt;</code></td></tr><tr><th><div class="pmSingleVertical9" title="pmSingleVertical9"></div></th><td><code>&lt;div class='pmSingleVertical9'&gt;&lt;/div&gt;</code></td></tr></table>
+				</figure>
+			</div>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3school.com's
+					<a href="http://www.w3schools.com/js/js_object_definition.asp">
+						JavaScript Objects
+					</a>
+				</li>
+				<li>
+					w3school.com's
+					<a href="http://www.w3schools.com/js/js_object_prototypes.asp">
+						JavaScript Object Prototypes
+					</a>
+				</li>
+			</ul>
+			<!--
+			<h2>Code example</h2>
+			<hr />
+			
+			<p>...is made with the following code:</p>
+
+			<pre><code></code></pre>
+			-->
+			
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>

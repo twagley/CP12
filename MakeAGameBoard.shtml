@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Make a game board
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Make a game board">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="CSS assignment, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				Created:	20. Sept 2015		- created!
+				Modified:	28. March 2017		- added additional CSS options
+							11. February 2018	- cleaned up code for long lines
+												- added hidden agenda
+							16. September 2018	- cleaning up style
+		-->
+
+		<style>
+			article img {
+				height:	50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 1.08 Hand-in: <em>Make a game board</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<p>
+				<ul>
+					<li>
+						//CSS: <a href="cssTextFormatting.shtml">Text formatting</a>
+					</li>
+					<li>
+						//CSS: <a href="cssUsingIDs.shtml">Applying styles using IDs</a>
+					</li>
+					<li>
+						//CSS: <a href="cssPositioning.shtml">Positioning</a>
+					</li>
+					<li>
+						//CSS: <a href="cssAnimation.shtml">Animation</a>
+					</li>
+					<li>
+						//CSS: <a href="cssColor.shtml">Color</a>
+					</li>
+					<li>
+						//CSS: 
+						<a href="cssSelectors.shtml">Selectors: tags, IDs, and classes</a>
+					</li>
+					<li>
+						//CSS: <a href="cssStyleContainers.shtml">Style containers: 
+						<code>&lt;div></code> and <code>&lt;span></code></a>
+					</li>
+					<br>
+					<li>
+						//STYLE: <a href="styleTags.shtml">Capitalizing HTML tags</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleTabs.shtml">Formatting code with tab indents</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleComments.shtml">Use comments to communicate</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleAvoidLongLines.shtml">Avoid long lines of code</a>
+					</li>
+					<li>
+						//STYLE: 
+						<a href="styleKeepCSSInTheHead.shtml">Keep your CSS inside your 
+						<code>&lt;head></code></a>
+					</li>
+					
+				</ul>
+			</p>
+
+			<h2>The assignment</h2>
+			<p>
+				Use HTML and CSS to display a game board. 
+				Use color and font changes, positioning, CSS selectors, 
+				and style containers to show your skills.
+			</p>
+			
+			<p>
+				You may wish to add a table of scores on your page, 
+				and/or a list of simple instructions in order 
+				meet the evaluation requirements.
+			</p>
+			
+			<h2>Evaluation</h2>
+			<ul>
+				<li>
+					<strong>___/10 HTML: Quality of HTML code.</strong> 
+					For full marks, you must include:
+					<ol>
+						<li>a <code>&lt;span></code></li>
+						<li>a <code>&lt;div></code></li>
+						<li>a heading</li>
+						<li>a table</li>
+						<li>a list or paragraph</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 CSS: Quality of CSS code</strong>, choose ANY TEN of:
+					<ol>
+						<li>applying a style to a <code>tag</code></li>
+						<li>applying a style to an <code>#ID</code></li>
+						<li>applying a style to a <code>.class</code></li>
+						<li>applying a <code>color:</code> or <code>opacity:</code></li>
+						<li>applying a <code>background-color:</code></li>
+						<li>changing a <code>font-size:</code></li>
+						<li>
+							changing the <code>font-family:</code>, 
+							<code>font-style:</code>, or <code>font-weight:</code>
+						</li>
+						<li>changing the <code>width:</code> or <code>height:</code></li>
+						<li>changing the <code>text-align:</code></li>
+						<li>making a <code>border:</code></li>
+						<li>changing the <code>position:</code></li>
+						<li>
+							placing something using <code>left:</code> 
+							or <code>top:</code>
+						</li>
+						<li>changing stack order with <code>z-index:</code></li>
+						<li>adding a CSS animation</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong>, including:
+					<ol>
+						<li>
+							Use the correct filename for your assignments
+						</li>
+						<li>
+							Add your name as the code author
+						</li>
+						<li>
+							Keep the change log updated
+						</li>
+						<li>
+							<a href="styleTags.shtml">Capitalizing HTML tags</a>
+						</li>
+						<li>
+							<strong>x3</strong>
+							<a href="styleTabs.shtml">Formatting code with tab indents</a>
+						</li>
+						<li>
+							<a href="styleComments.shtml">Use comments to communicate</a>
+						</li>
+						<li>
+							<a href="styleAvoidLongLines.shtml">Avoid long lines of code</a>
+						</li>
+						<li>
+							<a href="styleKeepCSSInTheHead.shtml">
+								Keep your CSS inside your <code>&lt;head></code>
+							</a>
+						</li>
+					</ol>
+				</li>
+			</ul>
+			
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					No, it does not have to be a game board.
+					Make anything fun that you want that demonstrates the 
+					skills you have learned.
+				</li>
+				<li>
+					Use what you have learned about CSS to create something
+				</li>
+				<li>
+					Use good style to communicate clearly
+				</li>		
+				<li>
+					Know the difference between &lt;div> and &lt;span>
+				</li>
+			</ul>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty template as 
+				"<code><a href="1.08H-MakeAGameBoard-LastName.html">1.08H-MakeAGameBoard-LastName.html</a></code>" 
+				in your Computer Programming 12 directory.
+			</p>
+
+					
+			<h2>References and Image bank</h2>
+			<p>
+				All images will begin with
+				<code>http://drapak.ca/cpg/img/</code><br>
+				For example: 
+				<code>&lt;img src="http://drapak.ca/cpg/img/gameBoard-goBoard.svg"></code>
+			</p>
+			
+			<h3>Chess</h3>
+			<p>
+				<a href="https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode">
+					Chess symbols in Unicode
+				</a> [wikipedia]
+			</p>
+			
+			<h3>Go</h3>
+			<div class="floatbox">
+				<figure>
+					<img src="img/gameBoard-goBoard.svg">
+					<caption><code>gameBoard-goBoard.svg</code></caption>
+				</figure>
+
+				<figure>
+					<img src="img/gameBoard-Go-black.png">
+					<caption><code>gameBoard-Go-black.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Go-white.png">
+					<caption><code>gameBoard-Go-white.png</code></caption>
+				</figure>
+			</div>
+			
+			<h3>Parcheesi</h3>
+			<div class="floatbox">
+				<figure>
+					<img src="img/gameBoard-parcheesi.png">
+					<caption><code>gameBoard-parcheesi.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Parcheesi-blue.svg">
+					<caption><code>gameBoard-Parcheesi-blue.svg</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Parcheesi-green.svg">
+					<caption><code>gameBoard-Parcheesi-green.svg</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Parcheesi-red.svg">
+					<caption><code>gameBoard-Parcheesi-red.svg</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Parcheesi-yellow.svg">
+					<caption><code>gameBoard-Parcheesi-yellow.svg</code></caption>
+				</figure>
+			</div>
+ 			
+			<h3>
+				Monopoly &mdash; 
+				Everything but the board are based on designs from 
+				<a href="https://www.facebook.com/Star-City-Designs-128094110627537/timeline/">Star City Designs</a>
+			</h3>
+			<div class="floatbox">
+				<figure>
+					<img src="img/gameBoard-Monopoly-board.jpg">
+					<caption><code>gameBoard-Monopoly-board.jpg</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-1Dollar.png">
+					<caption><code>gameBoard-Monopoly-1Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-5Dollar.png">
+					<caption><code>gameBoard-Monopoly-5Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-10Dollar.png">
+					<caption><code>gameBoard-Monopoly-10Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-20Dollar.png">
+					<caption><code>gameBoard-Monopoly-20Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-50Dollar.png">
+					<caption><code>gameBoard-Monopoly-50Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-100Dollar.png">
+					<caption><code>gameBoard-Monopoly-100Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-500Dollar.png">
+					<caption><code>gameBoard-Monopoly-500Dollar.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-boot.png">
+					<caption><code>gameBoard-Monopoly-boot.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-car.png">
+					<caption><code>gameBoard-Monopoly-car.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-cat.png">
+					<caption><code>gameBoard-Monopoly-cat.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-die.png">
+					<caption><code>gameBoard-Monopoly-die.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-hat.png">
+					<caption><code>gameBoard-Monopoly-hat.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-hotel.png">
+					<caption><code>gameBoard-Monopoly-hotel.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-house.png">
+					<caption><code>gameBoard-Monopoly-house.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-iron.png">
+					<caption><code>gameBoard-Monopoly-iron.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-ship.png">
+					<caption><code>gameBoard-Monopoly-ship.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-thimble.png">
+					<caption><code>gameBoard-Monopoly-thimble.png</code></caption>
+				</figure>
+				<figure>
+					<img src="img/gameBoard-Monopoly-wheelbarrow.png">
+					<caption><code>gameBoard-Monopoly-wheelbarrow.png</code></caption>
+				</figure>
+			</div>
+			
+			<h2>Extend and expand</h2>
+			
+			<p>There are other games out there!</p>
+			<p>
+				What about hex maps for war games, or card games, and so on. 
+			</p>
+			<p>
+				Find images, link to them and make something interesting.
+			</p>
+			
+		</article>
+			
+		<!--#include virtual="/footer.html" -->
+		<script>
+		</script>
+	</body>
+</html>

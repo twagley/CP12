@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<title>HTML, CSS, and Javascript Reference Sheet</title>
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="#htmlreference">HTML</a>, <a href="#cssreference">CSS</a>, and <a href="#javascriptreference">Javascript</a> reference</h1>
+		</header>
+		
+		<aside>
+		</aside>
+		
+		
+		<article>
+			<h2 id="htmlreference">HTML reference</h2>
+			<h3>PAGE structure</h3>
+			<p><code><pre>
+&lt;!doctype html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;<var>Put title here</var>&lt;/title&gt;
+		
+		&lt;meta name="author" content="<var>YourName</var>"&gt;
+		&lt;meta charset="<var>UTF-8</var>"&gt;
+
+		<var>&lt;--
+			Description of what this page is meant to do
+			
+			Created:	10. Feb 2015
+			Modified:	16. Feb 2015 - added ...
+		--&gt;</var>
+		
+		&lt;style&gt;
+			<var>/* put CSS code in here */</var>
+		&lt;/style&gt;
+		
+		&lt;script&gt;
+			<var>/* put Javascript code in here */</var>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		<var>&lt;!-- put HTML code in here --&gt;</var>
+		
+		&lt;h1&gt;<var>Heading</var>&lt;/h1&gt;
+		&lt;p&gt;<var>First paragraph</var>&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+			</pre></code></p>
+			
+			<h3>BLOCK elements &amp; text containers</h3>
+			<p>
+				<code>&lt;div class="<var>cssClass</var>"&gt;<var>text division</var>&lt;/div&gt;</code> &mdash; CSS styled text container<br />
+				<br/>
+				<code>&lt;h1&gt;<var>Largest heading</var>&lt;/h1&gt;</code> &mdash; Largest heading<br />
+				<code>&lt;h2&gt;<var>Heading 2</var>&lt;/h2&gt;</code> &mdash; Second largest heading<br />
+				<code>&lt;h3&gt;<var>Heading 3</var>&lt;/h3&gt;</code> &mdash; Third largest heading<br />
+				<code>&lt;h4&gt;<var>Heading 4</var>&lt;/h4&gt;</code> &mdash; Fourth largest heading<br />
+				<br />
+				<code>&lt;p&gt;<var>This is a paragraph.</var>&lt;/p&gt;</code> &mdash; paragraph text<br />
+				<code>&lt;ul&gt;&lt;li&gt;<var>unordered list item</var>&lt;/li&gt;&lt;/ul&gt;</code> &mdash; &bull; bulleted item<br />
+				<code>&lt;ol&gt;&lt;li&gt;<var>ordered list item</var>&lt;/li&gt;&lt;/ol&gt;</code> &mdash; 1. numbered item<br />
+				<br />
+				<code><pre>
+&lt;table&gt; <var>&lt;!-- DO NOT use tables for layout --&gt;</var>
+	&lt;caption&gt;<var>Table caption</var>&lt;/caption&gt;
+	&lt;tr&gt; <var>&lt;!-- new row --&gt;</var>
+		&lt;th&gt;<var>Table heading 1</var>&lt;/th&gt; 
+		&lt;th&gt;<var>Table heading 2</var>&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt; <var>&lt;!-- new row --&gt;</var>
+		&lt;td&gt;<var>Table data 1</var>&lt;/td&gt;
+		&lt;td&gt;<var>Table data 2</var>&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</pre></code><br />
+				
+			
+			</p>
+
+			<h3>INLINE elements &amp; text formatting</h3>
+			<p>
+				<code>&lt;span class="<var>cssClass</var>"&gt;<var>group formatted text</var>&lt;/span&gt;</code> &mdash; text labeled with a general CSS class<br />
+				<code>&lt;span id="<var>cssId</var>"&gt;<var>uniquely formatted text</var>&lt;/span&gt;</code> &mdash; text labeled with an individual CSS id<br />
+				<br />
+				<code>&lt;a href="<var>anotherpage.html</var>"&gt;<var>click here</var>&lt;/a&gt;</code> &mdash; <a href="#">linked text</a><br />
+				<code>&lt;img src="<var>img/smiley.png</var>"&gt;</code> &mdash; embed an image: <img src="img/smiley.png"><br />
+				<code>&lt;strong&gt;<var>strong text</var>&lt;/strong&gt;</code> &mdash; <strong>strong text</strong><br />
+				<code>&lt;em&gt;<var>emphasized text</var>&lt;/em&gt;</code> &mdash; <em>emphasized text</em><br />
+				<br/>
+				<code>&amp;mdash;</code> &mdash; long dash (&mdash;)<br />
+				<code>&amp;#<var>100</var>;</code> &mdash; displays the character of Unicode #100 (&#100)<br />
+				<code>&amp;#<var>9644</var>;</code> &mdash; displays the character of Unicode #9644 (&#9644)<br />
+				<code>&lt;br /&gt;</code> &mdash; line break<br />
+				<code>&lt;hr /&gt;</code> &mdash; horizontal rule<hr /><br />
+			
+			</p>
+
+			<h3>FORM elements &amp; inputs</h3>
+			<p>	
+				<code>&lt;input type="text" id="<var>inputText</var>" name="<var>inputText</var> size="<var>5</var>"&gt;</code>
+					&mdash; <input type="text" id="inputText" name="inputText" size="5"><br />
+				<code>&lt;input type="number" id="<var>inputNumber</var>" name="<var>inputNumber</var>" min="<var>0</var>" max="<var>100</var>"&gt;</code>
+					&mdash; <input type="number" id="inputSpinner" name="inputSpinner" min="0" max="100" size="3"><br />
+				<code>&lt;input type="range" id="<var>inputRange</var>" name="<var>inputRange</var>" min="<var>0</var>" max="<var>100</var>"&gt;</code>
+					&mdash; <input type="range" id="inputRange" name="inputRange" min="0" max="100"><br />
+				<br />
+				<code>&lt;button type="<var>button</var>" id="<var>helloButton</var>" name="<var>helloButton</var>"&gt;<var>Click me!</var>&lt;/button&gt;</code>
+					&mdash; <button type="button" id="helloButton" name="helloButton">Click me!</button><br />
+				<br />
+				<code>&lt;output id="<var>outputBlock</var>" name="<var>outputBlock</var>"&gt;</code>
+					&mdash; Creates an html element into which you can put result code<br />
+				<code>autofocus="<var>true</var>"</code>
+					&mdash; Makes sure the cursor starts in the form element that contains <code>autofocus=...</code><br />
+
+			</p>
+			
+			<h2 id="cssreference">CSS reference</h2>
+			<h3>CSS selectors</h3>
+			<p>
+				<code>h1 {}</code> &mdash; select by HTML tag<br />
+				<code>.cssClass {}</code> &mdash; select by HTML <code>class="<var>cssClass</var>"</code> attribute<br />
+				<code>#cssId {}</code> &mdash; select by HTML <code>id="<var>cssId</var>"</code> attribute<br />
+				<br />
+				<code>h1:hover {}</code> &mdash; select by HTML tag when user hovers over something<br />
+			</p>
+			
+			<h3>Text formatting</h3>
+			<p>
+				<code>font-family: <var>&quot;Gill Sans&quot;</var>;</em></code> &mdash; which typeface to use<br />
+				<code>font-style: <var>italic;</var></code> &mdash; or <em>normal</em><br />
+				<code>font-weight: <var>bold;</var></code> &mdash; or <em>normal</em><br />
+				<code>font-size: <var>1em;</var></code> &mdash; or <em>15pt</em> or <em>15px</em><br />
+				<code>color: <var>red;</var></code> &mdash; or <em>#FFFFFF</em> or <em>rgb(0,0,255)</em><br />
+				<code>background-color: <var>white;</var></code> &mdash; or <em>#000000</em> or <em>rgb(255,255,255)</em>
+			</p>
+			
+			<h2 id="javascriptreference">Javascript reference</h2>
+			<h3>Functions</h3>
+			<p><code>function mathyAdder(<var>variable1</var>, <var>variable2</var>, <var>...</var>) {;</code><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function code in here...<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can refer and use information passed on by the <var>variables</var>.<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>return <var>variable1</var> + <var>variable2</var>;</code><br />
+				<code>}</code>
+				</p>
+
+			<h3>Events</h3>
+			<p>
+				<code>onclick="<var>someFunction();</var>"</code> &mdash; triggers a JS function when an HTML element is clicked<br />
+				<code>ondblclick="<var>someFunction();</var>"</code> &mdash; triggers a function when an HTML element is double clicked<br />
+				<code>onmouseover="<var>someFunction();</var>"</code> &mdash; triggers a function when the cursor goes over an HTML element<br />
+				<code>onload="<var>someFunction();</var>"</code> &mdash; triggers a function if the element loads successfully<br />
+				<code>onerror="<var>someFunction();</var>"</code> &mdash; triggers a function if the element fails to load<br />
+				<br />
+				<code>onkeypress="<var>someFunction(<var>event</var>);</var>"</code> &mdash; triggers a function if a key is pressed inside the element<br />
+				<code>var <var>characterPressed</var> 	= <var>event</var>.which || <var>event</var>.keyCode</code> &mdash; returns the Unicode of key pressed;
+
+			</p>
+			
+			<h3>DOM &mdash; Document Object Model</h3>
+			<p>
+				<code>document.getElementById("<var>someID</var>")</code> - gets a reference to the HTML element with <code>id="<var>someID</var>"</code><br/>
+				<code><var>elementReference</var>.innerHTML</code> - refers to the code inside an html element<br />
+				<code><var>elementReference</var>.value</code> - refers to the value inside an html form element<br />
+			</p>
+				
+			<h3>Data types</h3>
+			<h4>Boolean data types</h4>
+			<p><code>var amirite	=<var>true</var>;<br />
+			var amITheFairestOfThemAll	=<var>false</var>;</code></p>
+			
+			<h4>Number data types</h4>
+			<p><code>var answerToLifeTheUniverseAndEverything	=<var>42</var>;<br />
+			var americanDollarstoCanadianRate	=<var>1.10</var>;</code></p>
+			
+			<h4>String data types</h4>
+			<p><code>var lastName	=<var>"Dumbledore"</var>;<br />
+			var firstLine	=<var>"It was the best of times, it was the worst of times."</var>;</code></p>
+			
+			<h4>Array data types</h4>
+			<p><code>var languages	=[<var>"C++"</var>, <var>"perl"</var>, <var>"python"</var>, <var>"js"</var>];<br />
+			var cardNumbers	=[<var>"A"</var>, <var>"2"</var>, <var>"3"</var>, <var>"4"</var>, <var>"5"</var>, <var>"6"</var>, <var>"7"</var>, <var>"8"</var>, <var>"9"</var>, <var>"10"</var>, <var>"J"</var>, <var>"Q"</var>, <var>"K"</var> ];<br />
+			var cardPoints	=[<var>1</var>, <var>2</var>, <var>3</var>, <var>4</var>, <var>5</var>, <var>6</var>, <var>7</var>, <var>8</var>, <var>9</var>, <var>10</var>, <var>10</var>, <var>10</var>, <var>10</var>];</code></p>
+			
+			<h4>Object data types</h4>
+			<p><code>var heroesOfProgramming	={<br />firstName: <var>"Ada"</var>, <br />lastName: <var>"Lovelace"</var>, <br />accomplishment: <var>"first computer programmer"</var>, <br />born: <var>1815</var>, <br />died: <var>1852</var>};</code></p>
+			
+			<h3>Methods and operators</h3>
+			
+			<h4>Boolean</h4>
+			<p><code>var amirite	=true;</code><br />
+			<code>var amITheFairestOfThemAll	=false;</code></p>
+			
+			<h4>Number methods</h4>
+			<p><code>var piNum	=<var>3.141592654</var>;<br />
+			<br />
+			piNum.<strong>toFixed(</strong><var>2</var>); </code> &mdash; equals 3.14<code><br />
+			piNum.<strong>toPrecision(</strong><var>5</var>); </code> &mdash; equals 3.1416<code><br />
+			piNum.<strong>toString()</strong>; </code> &mdash; equals "3.1411592654"<br />
+			<code>piNum.<strong>parseInt()</strong>; </code> &mdash; equals 3<br />
+			<br />
+			<code><var>42</var> <strong>+</strong> 1; </code> &mdash; equals 43<code><br />
+			<var>42</var> <strong>-</strong> 1; </code> &mdash; equals 41<code><br />
+			<var>42</var> <strong>*</strong> 2; </code> &mdash; equals 84<code><br />
+			<var>42</var> <strong>/</strong> 2; </code> &mdash; equals 21<code><br />
+			<var>42</var> <strong>%</strong> 10; </code> &mdash; REMAINDER equals 2<code><br />
+			<var>42</var><strong>++</strong>; </code> &mdash; equals 43<code><br />
+			<var>42</var><strong>--</strong>; </code> &mdash; equals 41<br />
+			</p>
+			
+			<h4>Math methods</h4>
+			<p><code><strong>Math.random()</strong>; </code> &mdash; returns a random number between 0 and 1<br />
+			<code><strong>Math.min(</strong>-8, 50 ,0 , 42, -7); </code> &mdash; equals -8 (lowest number of arguments)<br />
+			<code><strong>Math.max(</strong>-8, 50 ,0 , 42, -7); </code> &mdash; equals 50 (largest number of arguments)<br />
+			<code><strong>Math.round(</strong>3.14); </code> &mdash; equals 3 (rounds normally)<br />
+			<code><strong>Math.pow(</strong>2,8); </code> &mdash; equals 2^8 or 2 to the power of 8<br />
+			</p>
+			
+			<h4>String methods</h4>
+			<p><code>var alphabet	=<var>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</var>;<br />
+			<br />
+			alphabet.<strong>length()</strong>; <var></code> &mdash; equals 26<code><br />
+			alphabet.<strong>charAt(</strong><var>4</var>);</code> &mdash; equals "D"<code><br />
+			alphabet.<strong>indexOf(</strong><var>"D"</var>);</code> &mdash; equals 4<code><br />
+			<strong>concat(</strong><var>"foo"</var>, <var>"bar"</var>);</code> &mdash; equals "foobar"<code><br />
+			<br />
+			var dramaticLine	=<var>"Luke, I am your father."</var>;<br />
+			<br />
+			dramaticLine.<strong>replace(</strong><var>"father"</var>, <var>"server this evening"</var>);</code> &mdash; equals "Luke, I am your server this evening."<code><br />
+			dramaticLine.<strong>search(</strong><var>"your father"</var>);</code> &mdash; equals 10<code><br />
+			dramaticLine.<strong>substr(</strong><var>1</var>, <var>5</var>);</code> &mdash; equals "uke, "<code><br />
+			dramaticLine.<strong>split(</strong>"");</code> &mdash; equals ["Luke,", "I", "am", "your", "father."]<code><br />
+			dramaticLine.<strong>toLowerCase()</strong>;</code> &mdash; equals "luke, i am your father."<code><br />
+			dramaticLine.<strong>toUpperCase()</strong>;</code> &mdash; equals "LUKE, I AM YOUR FATHER."<code><br />
+			<br/>
+			\' <var>=single quote,</var> \" <var>=double quote,</var> \\ <var>=backslash,</var> \n <var>=newline,</var> \r <var>=carriage&nbsp;return,</var> \t <var>=tab,</var> \b <var>=backspace,</var> \f <var>=formfeed</var><br />
+			</code></p>
+			
+			<h4>Array methods</h4>
+			<p><code>var languages	=[<var>"C++"</var>, <var>"perl"</var>, <var>"python"</var>, <var>"php"</var>];</code><br />
+			<br />
+			<code>languages.<strong>length()</strong>;</code> &mdash; equals 4<br />
+			<code>languages.<strong>[</strong>languages.length<strong>]</strong> ="javascript";</code> &mdash; adds "javascript" to array<br />
+			<code>languages.<strong>toString()</strong>;</code> &mdash; equals "C++,perl,python,php"<br />
+			<code>languages.<strong>join(</strong>"$");</code> &mdash; equals "C++$perl$python$php"<br />
+			<code>languages.<strong>sort()</strong>;</code> &mdash; equals ["C++", "perl", "php", "python"]<br />
+			<code>languages.<strong>reverse()</strong>;</code> &mdash; equals ["php", "python", "perl", "C++"]<br />
+			</p>
+			
+			<h4>Objects</h4>
+			<p><code>var heroesOfProgramming	={<br />firstName: "Ada", <br />lastName: "Lovelace", <br />accomplishment: "first computer programmer", <br />born: 1815, <br />died: 1852};</code></p>
+			
+		</article>
+
+		
+		
+		<footer>
+			<div class="legal">Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a><br />Want to use this? This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.</div>
+		</footer>
+	</body>
+</html>

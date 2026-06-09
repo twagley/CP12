@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			PROCESS: JSON - Javascript Object Notation
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how use JSON in Javascript">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				20. November 	- created											- Drapak
+			
+		-->
+
+		<style>
+			button {
+				font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//PROCESS: <em>JSON</em> &mdash; Bundling data for transfer
+		</header>
+
+		<article>
+
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>outputJSONString</var> = JSON.stringify( <var>exampleObj</var> );
+				</code><br>
+				<span class="indent">
+					&mdash; converts a data structure stored in a variable into a 
+					JSON string that represents that data as Javascript code
+				</span><br>
+				<br>
+				
+				<span class="langstyle">//PROCESS:</span> 
+				<code>
+					var <var>exampleObj</var> = JSON.parse( <var>JSONString</var> );
+				</code><br>
+				<span class="indent">
+					&mdash; converts the JSON string back into an actual data structure 
+					stored in a variable
+				</span>
+			</p>
+
+			<h2><strong>JSON</strong> is for storing or moving data</h2>
+			<p>
+				Often you want to transfer or store data.
+			</p>
+			<p>
+				For example, you may have a scorekeeping program that needs to save
+				a record or who scored goals throughout the game. 
+				Or you may need to transfer data about car prices from an online 
+				database to your program.
+			</p>
+			<p>
+				The industry standard for this is currently <strong>JSON</strong>.
+			</p>
+			<p>
+				JSON stands for <strong>J</strong>ava<strong>s</strong>cript 
+				<strong>O</strong>bject <strong>N</strong>otation. 
+				Essentially JSON converts an object into a 
+				string that looks like working Javascript code.
+			</p>
+			
+			<p>
+				For example, if I have the following code:
+			</p>
+<code><pre>var teacherObj = {
+	lastName:	"Drapak",
+	firstName:	"Dave",
+	school:		"Citadel High School",
+	startYear:	1996,
+	retireYear:	2027,
+	weakness:	"Stupid jokes"
+};</pre></code>
+
+			<p>
+				Then I can convert this code into a transferrable JSON string with:
+			</p>
+<code><pre>var JSONString = JSON.stringify( teacherObj );</pre></code>
+
+			<p>
+				Now <var>JSONString</var> holds a string that contains the contents 
+				of <var>teacherObj</var> as working Javascript code.
+			</p>
+		
+			<p>
+				<button id='buttonId'>JSON.stringify( teacherObj )</button>
+			</p>
+			
+			<p>
+				This string can now be saved in a file, or sent from one computer to
+				another.
+			</p>
+			
+			
+			
+			<h2>Turning <strong>JSON</strong> back into a variable</h2>
+			
+			<p>
+				Turning this string back is simple. 
+			</p>
+			
+			<p>
+				You can parse the data and assign it to a variable:
+			</p>
+<code><pre>var teacherObj = JSON.parse( JSONString );</pre></code>
+
+			<p>
+				You can now use <var>teacherObj</var> as a normal variable.
+			</p>
+			
+			<p>
+				<button id='button2Id'>teacherObj.weakness</button>
+			</p>
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="https://www.w3schools.com/js/js_json_intro.asp">
+						JSON - Introduction
+					</a> 
+				</li>
+				<li>
+					Mozilla Developer's Network's 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">
+						JSON.parse()
+					</a> and 
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">
+						JSON.stringify()
+					</a>
+				</li>
+			</ul>
+			<!--
+			<h2>Code example</h2>
+			
+			<iframe class="indent" src="supporting/processBasicMath.shtml"></iframe>
+
+			<p>...is made with the following code:</p>
+			<pre><code></code></pre>
+		-->
+		</article>		
+
+		<!--#include virtual="/footer.html" -->
+
+		<script>
+			//INIT: set up the teacher object with sample data
+			var teacherObj = {
+				lastName:	"Drapak",
+				firstName:	"Dave",
+				school:		"Citadel High School",
+				startYear:	1996,
+				retireYear:	2027,
+				weakness:	"Stupid jokes"
+			};
+			
+			//PROCESS: convert the variable to a JSON string
+			var JSONString = JSON.stringify( teacherObj );
+
+			//EVENT: when the button is clicked
+			document.querySelector( '#buttonId' ).onclick = function () {
+				//OUTPUT: display the JSON string inside the button
+				document.querySelector( '#buttonId' ).innerHTML = JSONString;
+			}
+			
+			//EVENT: when the button is clicked
+			document.querySelector( '#button2Id' ).onclick = function () {
+				//PROCESS:
+				var newTeacherObj = JSON.parse( JSONString );
+				
+				//OUTPUT: display the JSON string inside the button
+				document.querySelector( '#button2Id' ).innerHTML = newTeacherObj.weakness;
+			}
+
+		</script>
+	</body>
+</html>

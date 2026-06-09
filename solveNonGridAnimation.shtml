@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: SOLVE: Non-grid animation</title>
+		<meta name="description" content="Learn how to use non-grid animation in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. December 2015	-created
+		-->
+        <script>
+        </script>
+        <style>
+			iframe {
+				width:	80vw;
+				height:	80vh;
+			}
+        </style>
+    </head>
+    <body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			//SOLVE: <em>Frame-based animation that continues while you press the key</em>
+		</header>
+
+		<article>
+		
+			<h2>Frame-based animation without jQuery</h2>
+			
+			<p>
+				There are times when the built-in animation functions of jQuery don't work.
+				For example you may wish to move freely within an area, 
+				but jQuery does not elegantly allow you to stop in the middle of an animation.
+				(Yes, it is technically possible, but you don't want to.)
+			</p>
+			
+			<p>
+				In these cases you can animate things by hand.
+				In a nutshell, it works like this:
+			</p>
+			
+			<ul>
+				<li>
+					Set up a function that repeats itself frequently, (30 times a second or more), 
+					using something like <code>window.setInterval()</code>.
+				</li>
+				<li>
+					Each time the function is called, move the image over a few pixels.
+					If the movement is small, then the user sees slow, even motion.
+					If the movement is large, then the user sees faster, somewhat rougher motion.
+				</li>
+				<li>
+					It is faster to store the positions in the program's memory
+					(like <code>rocket.top</code> and <code>rocket.left</code> in the example), 
+					rather than reading the current positions each time.
+				</li>
+			</ul>
+			
+			
+			<h2>
+				Move when a key is pressed - stop when a key is released
+			</h2>
+			
+			<p>
+				This is a common way to control motion.
+				Again, this is useful if you want to move without being limited by a grid.
+			</p>
+			<p>
+				This works best when combined with frame-based animation.
+			</p>
+			<ul>
+				<li>
+					Set up a function (<code>window.onkeydown</code>) to listen for when keys are pressed down.
+					Start the animations only if the key detected is a new one.
+					(This avoids repeating keypresses in the same direction that 
+					accelerate things off the longer you hold the down.)
+				</li>
+				<li>
+					Set up a function  (<code>window.onkeyup</code>) to listen for when keys are released.
+					Kill any animations immediately.
+				</li>
+			</ul>
+
+			<hr />
+
+			<p>
+				<strong>Click inside the window</strong> and use the keys to start flying! 
+				Or <a href="supporting/solveNonGridAnimation.html">open in it's own browser window</a>
+			</p>
+			<p>
+				<iframe src="supporting/solveNonGridAnimation.html"></iframe>
+			</p>
+		
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/jsref/met_win_scrollto.asp">
+						Window scrollTo() Method
+					</a>
+				</li>
+			</ul>
+
+			<h2>Source code</h2>
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Continuing in the same direction while a key is pressed</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// rocket OBJECT</span><span class="sc41">
+            </span><span class="sc43">// rocket properties:</span><span class="sc41">
+            </span><span class="sc43">//      rocket.element</span><span class="sc41">
+            </span><span class="sc43">//      rocket.speed</span><span class="sc41">
+            </span><span class="sc43">//      rocket.top</span><span class="sc41">
+            </span><span class="sc43">//      rocket.left</span><span class="sc41">
+            </span><span class="sc43">//      rocket.interval</span><span class="sc41">
+            </span><span class="sc43">//      rocket.fps</span><span class="sc41">
+            </span><span class="sc43">//      rocket.lastKeyCode</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// rocket methods</span><span class="sc41">
+            </span><span class="sc43">//      rocket.initialize()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.animate()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goUp()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goDown()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goLeft()</span><span class="sc41">
+            </span><span class="sc43">//      rocket.goRight()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">rocket</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">element</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the element to animate</span><span class="sc41">
+                </span><span class="sc46">speed</span><span class="sc50">:</span><span class="sc41">          </span><span class="sc45">5</span><span class="sc50">,</span><span class="sc41">          </span><span class="sc43">// the amount to move with each animation frame</span><span class="sc41">
+                </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current top position</span><span class="sc41">
+                </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">           </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current left position</span><span class="sc41">
+                </span><span class="sc46">interval</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// holds the animation repeater function</span><span class="sc41">
+                </span><span class="sc46">fps</span><span class="sc50">:</span><span class="sc41">            </span><span class="sc45">30</span><span class="sc50">,</span><span class="sc41">         </span><span class="sc43">// the target number of frames per second</span><span class="sc41">
+                </span><span class="sc46">lastKeyCode</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the last key pressed...</span><span class="sc41">
+                
+                </span><span class="sc43">// INPUT: get the element containing the rocket</span><span class="sc41">
+                </span><span class="sc43">// and get the current top and left coordinates</span><span class="sc41">
+                </span><span class="sc46">initialize</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.element</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">id</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">  
+                    </span><span class="sc46">this.top</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetTop</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.element.offsetLeft</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: repeat an animation in an interval</span><span class="sc41">
+                </span><span class="sc46">animate</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">animationFunction</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// clear the previous animation repetition</span><span class="sc41">
+                    </span><span class="sc46 withborder">window.clearTimeout</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.interval</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">// move up once every animation frame</span><span class="sc41">
+                    </span><span class="sc46">this.interval</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46 withborder">window.setInterval</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">animationFunction</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">1000</span><span class="sc41"> </span><span class="sc50">/</span><span class="sc41"> </span><span class="sc46">rocket.fps</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate upwards</span><span class="sc41">
+                </span><span class="sc46">goUp</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.top</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate downwards</span><span class="sc41">
+                </span><span class="sc46">goDown</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.top</span><span class="sc41">                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate leftwards</span><span class="sc41">
+                </span><span class="sc46">goLeft</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">-</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: animate rightwards</span><span class="sc41">
+                </span><span class="sc46">goRight</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">this.left</span><span class="sc41">               </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.speed</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">this.element.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.left</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">// while a key is pressed down...</span><span class="sc41">
+            </span><span class="sc46 withborder">window.onkeydown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// INPUT: read the key that was pressed...</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'a key has been pressed...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">// PROCESS: only act if the key pressed is different that the last one, </span><span class="sc41">
+                </span><span class="sc43">// or if the key has been released before repressing </span><span class="sc41">
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rocket.lastKeyCode</span><span class="sc41"> </span><span class="sc50">!=</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// now store this key code for the next time...</span><span class="sc41">
+                    </span><span class="sc46">rocket.lastKeyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">87</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">          </span><span class="sc43">// W = up</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goUp</span><span class="sc50">();</span><span class="sc41"> 
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">65</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc43">// A = left</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goLeft</span><span class="sc50">();</span><span class="sc41"> 
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">83</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc43">// S = down</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goDown</span><span class="sc50">();</span><span class="sc41"> 
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyCode</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">68</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc43">// D = right</span><span class="sc41">
+                        </span><span class="sc46">rocket.animate</span><span class="sc50">(</span><span class="sc41"> 
+                            </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                </span><span class="sc46">rocket.goRight</span><span class="sc50">();</span><span class="sc41"> 
+                            </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// stop moving when a key is released</span><span class="sc41">
+            </span><span class="sc43">// delete this function if you want your image to keep moving in the same direction</span><span class="sc41">
+            </span><span class="sc46 withborder">window.onkeyup</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// clear the previous animation repetition</span><span class="sc41">
+                </span><span class="sc46">window.clearTimeout</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rocket.interval</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+
+                </span><span class="sc43">// clear the current key being pressed</span><span class="sc41">
+                </span><span class="sc46">rocket.lastKeyCode</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            body {
+                color:          darkBlue;
+                font-family:    "Open Sans", "Calibri", san-serif;
+            }
+            #backgroundID {
+                width:          100%;
+            }
+            h2 {
+                position:       absolute;
+                top:            5%;
+                left:           5%;
+            }
+            p {
+                position:       absolute;
+                top:            20%;
+                left:           5%;
+            }
+            #animateID {
+                position:       absolute;
+                top:            50%;
+                left:           50%;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"rocket.initialize( 'animateID' );"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"backgroundID"</span><span class="sc8">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/space/background.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">
+            Non-jQuery animation</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            and movement that continues while the key is pressed.
+        </span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Movement keys:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+             </span><span class="sc10">&amp;uarr;</span><span class="sc0">W </span><span class="sc10">&amp;larr;</span><span class="sc0">A </span><span class="sc10">&amp;darr;</span><span class="sc0">S </span><span class="sc10">&amp;rarr;</span><span class="sc0">D
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> 
+            </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"animateID"</span><span class="sc8"> 
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://www.kasandbox.org/programming-images/space/beetleship.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>		
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>
