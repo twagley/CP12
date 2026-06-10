@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Material request calculator</title>
+        
+        <script>
+			// This program creates a page that automatically calculates a 
+			// total cost of a table project depending on the amounts of the 
+			// materials used.
+			// It is like a basic spreadsheet.
+			
+			// INIT: define the array of materials and their costs
+            var materialArr = [
+                { material:	'16" long 2x4',				cost:	0.66},
+                { material:	'24" long 2x4', 			cost:	0.99},
+                { material:	'32" long 2x4', 			cost:	1.32},
+                { material:	'48" long 2x4', 			cost:	1.98},
+                { material:	'16" long resawn 2x4', 		cost:	0.33},
+                { material:	'24" long resawn 2x4', 		cost:	0.50},
+                { material:	'32" long resawn 2x4', 		cost:	0.66},
+                { material:	'48" long resawn 2x4', 		cost:	0.99},
+                { material:	'32" long resawn 2x6', 		cost:	1.05},
+                { material:	'48" long resawn 2x6', 		cost:	1.57},
+                { material:	'6x16" plywood 1/4" thick',	cost:	0.36},
+                { material:	'8x16" plywood 1/4" thick',	cost:	0.50},
+                    
+                { material:	null, 						cost:	null},
+
+                { material:	'#0 biscuit', 				cost:	0.06},
+                { material:	'1 1/4" #8 wood screw', 	cost:	0.02},
+                { material:	'table top clip', 			cost:	0.02},
+                { material:	'1/4 x 1 1/4" dowel', 		cost:	0.03},
+                { material:	'woodworking glue (get 1)',	cost:	0.25},
+                    
+                { material:	null, 						cost:	null},
+
+                { material:	'40 grit sandpaper',		cost:	0.22},
+                { material:	'60 grit sandpaper',		cost:	0.22},
+                { material:	'100 grit sandpaper',		cost:	0.22},
+                { material:	'150 grit sandpaper',		cost:	0.22},
+                { material:	'220 grit sandpaper',		cost:	0.22},
+                { material:	'N95 dust mask',			cost:	1.73},
+                { material:	'pair of gloves',			cost:	0.03},
+                { material:	'varnish (choose 1)',		cost:	0.82},
+            ];
+            
+            //PROCESS+OUTPUT: displays the table
+            var createTable = function () {
+                // loop through each material in the array
+                for (i in materialArr) {
+				
+					// if this material is null...
+                    if ( materialArr[ i ].material == null ) {
+                            
+						// display a blank line in the table	
+                        var rowElement = document.createElement( "tr" );
+                        rowElement.innerHTML 
+                            = "<td></td><td></td><td></td>"
+                            + "<td style='color: white;'>"
+                            + "= $<span id='total"
+                            + i
+                            + "ID'>0.00</span>";
+						// OUTPUT: add this row to the table
+                        document.getElementById('tbodyID').appendChild( rowElement );
+						
+					// otherwise, if this material is not null....
+                    } else {
+						// create a cell that has the name of the material inside it 
+						// Example: 	<td>wood</td>
+                        var materialElement	= document.createElement( "td" );
+                        var materialText	= document.createTextNode( materialArr[ i ].material );
+                        materialElement.appendChild( materialText );
+                            
+						// create a cell that is used for the user to input the number of each item
+						// Example: 
+						//	<td>
+						//		<input 
+						//			type='text' 
+						//			id='cost2ID' 
+						//			data-id='2' 
+						//			onchange='calculateMaterial(this);'>
+						//		</input>
+						//	</td>
+                        var numberElement		= document.createElement( "td" );
+                        var inputElement		= document.createElement( "input" );
+                        inputElement.type		= "text";
+                        inputElement.id			= 'cost' + i + 'ID';
+                        inputElement.setAttribute( 'data-id', i );
+                        inputElement.onchange   = function () { calculateMaterial(this); };
+                        numberElement.appendChild( inputElement );
+                        
+                        // create a cell element that contains the cost of the material
+						// Example: 	<td>× $0.99</td>
+						// note that I had to use toFixed(2) in order to have the costs display as currency
+                        var eachElement		= document.createElement( "td" );
+                        var eachText		= document.createTextNode( 
+												'× $' + materialArr[ i ].cost.toFixed(2) 
+											);
+                        eachElement.appendChild( eachText );
+                        
+						// create a cell that will display the current total calculation for this material
+						// Example: 	<td>= $<span id='total2ID'>0.00</span></td>
+                        var totalElement		= document.createElement( "td" );
+                        totalElement.innerHTML	= "= $<span id='total" + i + "ID'>0.00</span>";
+                            
+						// create a table row that contains the material, number, each cost, and total cells inside it
+                        var rowElement 			= document.createElement( "tr" );
+                        rowElement.appendChild( materialElement );
+                        rowElement.appendChild( numberElement );
+                        rowElement.appendChild( eachElement );
+                        rowElement.appendChild( totalElement );
+						
+						// OUTPUT: add this row to the table 
+                        document.getElementById('tbodyID').appendChild( rowElement );
+                    }
+                }
+				// create the final row that contains the total cost
+                var rowElement			= document.createElement( "tr" );
+                rowElement.innerHTML 
+                    = "<td></td><td></td>"
+                    + "<td>Total</td>"
+                    + "<th>= $<span id='totalID'>0.00</span></th>";
+					
+				// OUTPUT: add this row to the table
+                document.getElementById('tbodyID').appendChild( rowElement );
+            }
+            
+            //PROCESS: convert decimal into price format
+            var decimalToPrice = function ( decimal ) {
+				// take the price, multiply it by 100 and round it.
+				// this gets rid of floating point inaccuracies
+				// it also removes the decimal
+                var price 	= Math.round(decimal * 100) + '';
+				
+				// now add the first digits to the last two digits, with a . in between
+                price = price.substr( 0, price.length - 2) + '.' + price.substr( price.length - 2, 2 );
+				
+				// add a 0 to the front if the price is less than a dollar
+				// this converts .99 to 0.99
+                if (price.valueOf() < 1) {
+                    price = '0' + price;
+                }
+				
+                return price;
+            }
+            
+            //PROCESS: calculate the price of this material
+			// triggered everytime a price changes
+            var calculateMaterial = function ( originalElement ) {
+				// INPUT: read in the element's ID
+                var id = originalElement.getAttribute('data-id');
+				
+				// PROCESS: calculate the total cost by multiplying the cost by the number of items
+                var total = materialArr[ id ].cost * originalElement.value;
+				
+				// OUTPUT: output the new total, formatting to two decimals
+                document.getElementById('total' + id + 'ID').innerHTML = total.toFixed(2);
+				
+				// now recalculate the total cost of all materials 
+                calculateTotal();
+            }
+            
+            //PROCESS: calculate the total price
+			// triggered by button and each time an individual's material cost is calculated
+            var calculateTotal = function () {
+                var total = 0;
+                // PROCESS: loop through each material
+                for (i in materialArr) {
+					// INPUT: read in the cost of this material from the page
+                    var materialTotal = document.getElementById('total' + i + 'ID').innerHTML;
+					
+					// PROCESS: add this material to the running total
+                    total = total + parseFloat( materialTotal );
+                }
+				
+				//OUTPUT: display the running total
+				document.getElementById('totalID').innerHTML = total.toFixed(2);
+            }
+        </script>
+        <style>
+            body {
+                font-family:    	"Open Sans", "Arial", sans-serif;
+            }
+            th {
+                padding:            2px;
+                vertical-align:     bottom;
+                background-color:   lightGrey;
+                border-bottom:      1px solid black;
+            }
+            input {
+                width:          	70px;
+                text-align:     	center;
+            }
+        </style>
+    </head>
+    <body onload="createTable();">
+        <h2>Side table material request calculator</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Number<br />needed</th>
+                    <th>Cost per<br />item</th>
+                    <th>Cost per<br />material</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyID"></tbody>
+        </table>
+        <hr />
+        <p>
+            <button onclick="calculateTotal();">Calculate total</button>
+        </p>
+    </body>
+</html>

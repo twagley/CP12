@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc4 {
+	color: #FF8000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc6 {
+	color: #808080;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//OUTPUT: this puts the grid information inside the div called #outputId
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputGridCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">htmlCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">  
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"in outputGridCode. htmlCode = "</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">htmlCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"#outputId"</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">htmlCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS:  This uses a nested loop to create the HTML code 
+//          to place the &lt;div&gt;s in the correct row and column
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createGridCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">gridArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0"> 
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"in createGridCode. gridArr = "</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">gridArr</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">IMAGE_SIZE</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">30</span><span class="sc10">;</span><span class="sc0">   </span><span class="sc2">//set up the size of each image
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">gridCode</span><span class="sc0">        </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span><span class="sc0">   </span><span class="sc2">//define a string to hold the HTML for the grid
+</span><span class="sc0">
+    </span><span class="sc2">// loop through each ROW of the array...
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">row</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">gridArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc2">// loop through each COLUMN of this array row
+</span><span class="sc0">        </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">gridArr</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">row</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">     
+        
+            </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">backgroundColor</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span><span class="sc0">   </span><span class="sc2">// define an empty string for the background colour
+</span><span class="sc0">            
+            </span><span class="sc2">// if the array holds 0, then use a black background
+</span><span class="sc0">            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">gridArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">row</span><span class="sc0"> </span><span class="sc10">][</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">      
+                </span><span class="sc11">backgroundColor</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"black"</span><span class="sc0">
+            </span><span class="sc2">// if the array holds 1, then use a white background
+</span><span class="sc0">            </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">                                    
+                </span><span class="sc11">backgroundColor</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"white;"</span><span class="sc0">
+            </span><span class="sc10">}</span><span class="sc0">
+            
+            </span><span class="sc2">// calculate the location of this cell
+</span><span class="sc0">            </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">topLocation</span><span class="sc0">     </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">row</span><span class="sc0"> </span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">IMAGE_SIZE</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"px"</span><span class="sc10">;</span><span class="sc0">
+            </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">leftLocation</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc0"> </span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">IMAGE_SIZE</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"px"</span><span class="sc10">;</span><span class="sc0">
+            
+            </span><span class="sc2">// combine the elements to create HTML code. EXAMPLE: 
+</span><span class="sc0">            </span><span class="sc2">//  
+</span><span class="sc0">            </span><span class="sc2">//  &lt;div style='background-color: black; top: 30px; left: 30px;'&gt;&lt;/div&gt;
+</span><span class="sc0">            </span><span class="sc11">gridCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">gridCode</span><span class="sc0"> 
+                </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;div style='background-color: "</span><span class="sc0">  </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">backgroundColor</span><span class="sc0">   </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"; "</span><span class="sc0"> 
+                    </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"top: "</span><span class="sc0">                       </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">topLocation</span><span class="sc0">       </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"; "</span><span class="sc0">  
+                    </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"left: "</span><span class="sc0">                      </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">leftLocation</span><span class="sc0">      </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">";'&gt;"</span><span class="sc0"> 
+                </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/div&gt;"</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">gridCode</span><span class="sc10">;</span><span class="sc0">    </span><span class="sc2">// return the HTML grid code from this function
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">// INIT: initialize the array that holds the grid pattern
+// Complex data structures combine arrays and objects 
+// This one is an array of arrays -- a two-dimensional array
+// In this example, the array holds a bitmap smiley face
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">initImageGridArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in initImageGridArr...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">imageGridArr</span><span class="sc0">    </span><span class="sc10">=[</span><span class="sc0">  </span><span class="sc2">// rows 0-7, columns 0-8
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 0 = mazeArr [ 0 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 1 = mazeArr [ 1 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 2 = mazeArr [ 2 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 3 = mazeArr [ 3 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 3 = mazeArr [ 4 ]
+</span><span class="sc0">        
+        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 4 = mazeArr [ 5 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">],</span><span class="sc0"> </span><span class="sc2">// row 5 = mazeArr [ 6 ]
+</span><span class="sc0">        </span><span class="sc10">[</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc4">0</span><span class="sc10">]</span><span class="sc0">  </span><span class="sc2">// row 6 = mazeArr [ 7 ]
+</span><span class="sc0">    </span><span class="sc10">];</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">imageGridArr</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT: make the grid with #buttonId is clicked
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#buttonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">   
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"in mainProcedure..."</span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">imageGridArr</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">initImageGridArr</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">gridCode</span><span class="sc0">        </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createGridCode</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">imageGridArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputGridCode</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">gridCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+</span></div></body>
+</html>

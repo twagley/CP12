@@ -1,0 +1,16 @@
+<script>		
+	// after the window loads...
+	window.onload	= function () {
+	
+		// assign an onclick event to element #buttonID
+		document.getElementById('buttonID').onclick	= function () {
+		
+			// pop up an alert box..
+			alert('woot!');
+			}			
+	}
+</script>
+
+<body>
+	<button type="button" id="buttonID">alert me!</button>
+</body>

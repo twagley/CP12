@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Live example: Reading the mouse position</title>
+        <script>
+			//mouse OBJECT
+			//	properties: 
+			//		.top 					- the top position in pixels
+			//		.left 					- the left position in pixels
+			//		.currentSrc
+			//	methods:
+			//		.getCurrentPosition()	- gets the current position and stores it 
+			//		.displayPosition()		- displays the current position
+			//		.moveImage()			- moves the star image to the current position
+			//		.placeImage()			- places a new image inside #outputID
+			//		.cleanUpTheScreen()		- clears #outputID and removes the onmousemove function
+			//
+            var mouse = {
+				// current top and left position of the mouse
+				// in pixels
+				top: 0, 
+				left: 0, 
+				
+				// make the current image be the ninth element of the source array
+				currentSrc: "https://www.kasandbox.org/programming-images/cute/Star.png",
+								
+				// get the current position returned by the mouse event
+				getCurrentPosition: function ( event ) {
+					//console.log( 'in mouse.getCurrentPosition...' );
+					this.top    = event.clientY;
+					this.left   = event.clientX;
+				},
+
+				// display the current mouse position
+				displayPosition: function () {
+					//console.log( 'in mouse.displayPosition...' );
+
+					document.getElementById('topID').innerHTML 	= this.top;
+					document.getElementById('leftID').innerHTML	= this.left;
+				},
+
+				// move the star to the current mouse position
+				moveImage: function () {
+					//console.log( 'in mouse.moveImage...' );
+				
+					var imageStyle 	= document.getElementById('imageID').style;
+					imageStyle.top 	= this.top + 'px';
+					imageStyle.left	= this.left + 'px';
+				},
+
+				// add a new image to the outputID
+				placeImage: function () {
+					//console.log( 'in mouse.placeImage...' );
+
+					var newImage 		= document.createElement("img");
+					newImage.src 		= this.currentSrc ;
+					newImage.style.top 	= this.top + 'px';
+					newImage.style.left	= this.left + 'px';
+					
+					document.getElementById( 'outputID' ).appendChild( newImage );
+				},
+				
+				//OUTPUT: empty out the contents of #outputID
+				cleanUpTheScreen: function () {
+					console.log( 'in mouse.cleanUpTheScreen...' );
+					document.getElementById( 'outputID' ).innerHTML = "";
+				}
+            }
+
+			var mainProcedure = function () {
+				// set it so that whenever the mouse moves it triggers these functions...
+				document.onmousemove = function ( event ) {
+					mouse.getCurrentPosition( event );
+					mouse.displayPosition();
+					mouse.moveImage();
+					mouse.placeImage();
+				}
+				// display a hint on how to stop the program
+				document.getElementById( 'outputID' ).innerHTML = "<h4>Click anywhere to stop...</h4>";
+			}
+			
+			// whenever the mouse clicks
+            document.onmousedown = function () {
+				mouse.cleanUpTheScreen();
+				// remove the onmousemove function
+				document.onmousemove = '';
+            }
+		</script>
+        <style>
+            img {
+                position: fixed;
+				width: 50px;
+			}
+        </style>
+    </head>
+    <body>
+		<p>
+			top: 
+			<span id="topID"></span><br />
+			left: 
+			<span id="leftID"></span><br />
+			<button id="buttonID" onclick="mainProcedure();">Click to <strong>&star;</strong>t</button>			
+		</p>
+        <div id="outputID"></div>
+        <img id="imageID" src="https://www.kasandbox.org/programming-images/cute/Star.png" />
+    </body>
+</html>

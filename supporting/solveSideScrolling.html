@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Automatically scrolling to maintain focus on an element</title>
+        
+        <script>
+			// rocket OBJECT
+			// rocket properties:
+			//		rocket.element
+			//
+			//		rocket.currentSpeed
+			//		rocket.slowSpeed
+			//		rocket.mediumSpeed
+			//		rocket.fastSpeed
+			//
+			//		rocket.top
+			//		rocket.left
+			//		rocket.scrollOffset
+			//
+			//		rocket.interval
+			//		rocket.fps
+			//		rocket.lastKeyCode
+			//
+			// rocket methods
+			//		rocket.initialize()
+			//		rocket.goUp()
+			//		rocket.goDown()
+			//		rocket.goLeft()
+			//		rocket.goRight()
+			//		rocket.animate()
+			//
+            var rocket = {
+                element:    	null,		// the element to animate
+				
+                currentSpeed:	null,		// the current speed
+				slowSpeed:		4,			// move the element over by this many pixels at slow speed
+				fastSpeed:		12,			// move the element over by this many pixels at fast speed
+				mediumSpeed:	8,			// move the element over by this many pixels at medium speed
+				
+                top:        	null,		// current top coordinate
+                left:       	null,		// current left coordinate
+				scrollOffset:	-200, 		// the position of the rocket from the side of the screen while scrolling
+				
+				interval:		null,		// holds the animation repeater
+				fps:			30,			// the frame rate to aim for 
+				lastKeyCode:	null,		// the last key code that was pressed
+                
+                // INPUT: get the element containing the rocket
+                // and get the current top and left coordinates
+                initialize: function ( id ) {
+					console.log( 'initializing...' );
+					
+                    this.element		= document.getElementById( id );  
+                    this.top    		= this.element.offsetTop;
+                    this.left   		= this.element.offsetLeft;
+					this.currentSpeed	= this.mediumSpeed;
+					window.scrollTo( this.left + this.leftOffset, this.top );
+                },
+                // OUTPUT: animate upwards
+                goUp:   function () {
+					this.top 				= this.top - this.currentSpeed;
+                    this.element.style.top 	= this.top + 'px';
+					// follow by scrolling
+					window.scrollTo( this.left + this.scrollOffset, this.top );
+                },
+                // OUTPUT: animate downwards
+                goDown:   function () {
+					this.top 				= this.top + this.currentSpeed;
+                    this.element.style.top 	= this.top + 'px';
+					// follow by scrolling
+					window.scrollTo( this.left + this.scrollOffset, this.top );
+                },
+                // OUTPUT: animate leftwards
+                goLeft:   function () {
+					this.left 				= this.left - this.currentSpeed;
+                    this.element.style.left = this.left + 'px';
+					// follow by scrolling
+					window.scrollTo( this.left + this.scrollOffset, this.top );
+                },
+                // OUTPUT: animate rightwards
+                goRight:   function () {
+					this.left 				= this.left + this.currentSpeed;
+                    this.element.style.left = this.left + 'px';
+					// follow by scrolling
+					window.scrollTo( this.left + this.scrollOffset, this.top );
+                },
+				// PROCESS: repeat an animation in an interval
+				animate: function ( animationFunction ) {
+					// clear the previous animation repetition
+					window.clearTimeout( this.interval );
+					
+					// move up once every animation frame
+					this.interval = window.setInterval( animationFunction, 1000 / rocket.fps );
+				}
+            }
+			
+            // while a key is pressed down...
+			window.onkeydown = function ( keyEvent ) {
+                // INPUT: read the key that was pressed...
+				var keyCode = keyEvent.which || keyEvent.keyCode;
+				console.log( 'a key has been pressed...' );
+				console.log( keyCode );
+
+				// PROCESS: only act if the key pressed is different that the last one, 
+				// or if the key has been released before repressing 
+				if ( rocket.lastKeyCode != keyCode ) {
+					rocket.lastKeyCode = keyCode;
+					
+					if ( keyCode == 87 ) { 							// W = up
+						rocket.animate( 
+							function () { 
+								rocket.currentSpeed	= rocket.mediumSpeed;	// use medium speed for side-scroll effect
+								rocket.goUp(); 
+								rocket.goRight(); 							// add right movement only for side-scroll effect
+							} 
+						);
+					} else if ( keyCode == 65 ) { 					// A = left
+						rocket.animate( 
+							function () {
+								rocket.currentSpeed	= rocket.slowSpeed;		// use slow speed for side-scroll effect
+								rocket.goRight();							// normally goLeft(), but changed for side-scroll effect
+							} 
+						);
+					} else if ( keyCode == 83 ) { 					// S = down
+						rocket.animate( 
+							function () { 
+								rocket.currentSpeed	= rocket.mediumSpeed;	// use medium speed for side-scroll effect
+								rocket.goDown(); 
+								rocket.goRight(); 							// add right movement only for side-scroll effect 
+							} 
+						);
+					} else if ( keyCode == 68 ) { 					// D = right
+						rocket.animate( 
+							function () { 
+								rocket.currentSpeed	= rocket.fastSpeed;		// use fast speed for side-scroll effect
+								rocket.goRight(); 
+							} 
+						);
+					}
+				}
+            }
+
+			/*
+			// stop moving when a key is released
+			// delete this function if you want your image to drift forever
+			window.onkeyup = function () {
+				// clear the previous animation repetition
+				window.clearTimeout( rocket.interval );
+
+				// clear the current key being pressed
+				rocket.lastKeyCode = null;
+			}
+			*/
+        </script>
+        <style>
+			body {
+				color:          darkBlue;
+				font-family:    "Open Sans", "Calibri", san-serif;
+			}
+			#information {
+                position:   absolute;
+                top:        20px;
+                left:       20px;
+            }
+			#backgroundID {
+				height:		93vh;	/* set height to part of the viewport height to deal with scroll bars */
+			}            
+            #animateID {
+                position:   absolute;
+				height:		20vh;	/* set height to 20% of viewport height */
+                top:        50%;	
+                left:       5%;
+            }
+        </style>
+    </head>
+    <body onload="rocket.initialize( 'animateID' );">
+        <img 
+            id="backgroundID"
+            src="http://drapak.ca/cpg/img/SuperMarioWorld.png" />
+		<div id="information">
+			<h2>
+				Scroll automatically to maintain focus on an element
+			</h2>
+			<p>
+				<strong>Movement keys:</strong>
+				&uarr;W &larr;A &darr;S &rarr;D <br />
+			</p>		
+		</div>
+        <img 
+            id="animateID" 
+            src="https://www.kasandbox.org/programming-images/space/octopus.png" />			
+    </body>
+</html>

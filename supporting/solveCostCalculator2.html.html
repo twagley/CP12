@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc11 {
+	color: #0000FF;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Material request calculator</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// This program creates a page that automatically calculates a </span><span class="sc41">
+            </span><span class="sc43">// total cost of a table project depending on the amounts of the </span><span class="sc41">
+            </span><span class="sc43">// materials used.</span><span class="sc41">
+            </span><span class="sc43">// It is like a basic spreadsheet.</span><span class="sc41">
+            
+            </span><span class="sc43">// table OBJECT</span><span class="sc41">
+            </span><span class="sc43">// properties:</span><span class="sc41">
+            </span><span class="sc43">//      table.materialArr</span><span class="sc41">
+            </span><span class="sc43">//      table.materialCostArr</span><span class="sc41">
+            </span><span class="sc43">//      table.totalCost</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// methods:</span><span class="sc41">
+            </span><span class="sc43">//      table.createTable()</span><span class="sc41">
+            </span><span class="sc43">//      table.readMaterialNumbers()</span><span class="sc41">
+            </span><span class="sc43">//      table.recalculateCosts()</span><span class="sc41">
+            </span><span class="sc43">//      table.displayTotals()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">table</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// define the array of materials and their costs</span><span class="sc41">
+                </span><span class="sc46">materialArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'16" long 2x4'</span><span class="sc50">,</span><span class="sc41">             </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.66</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'24" long 2x4'</span><span class="sc50">,</span><span class="sc41">             </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.99</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'32" long 2x4'</span><span class="sc50">,</span><span class="sc41">             </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1.32</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'48" long 2x4'</span><span class="sc50">,</span><span class="sc41">             </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1.98</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'16" long resawn 2x4'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.33</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'24" long resawn 2x4'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.50</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'32" long resawn 2x4'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.66</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'48" long resawn 2x4'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.99</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'32" long resawn 2x6'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1.05</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'48" long resawn 2x6'</span><span class="sc50">,</span><span class="sc41">      </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1.57</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'6x16" plywood 1/4" thick'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.36</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'8x16" plywood 1/4" thick'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.50</span><span class="sc50">},</span><span class="sc41">
+                        
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">                       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc46">null</span><span class="sc50">},</span><span class="sc41">
+
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'#0 biscuit'</span><span class="sc50">,</span><span class="sc41">               </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.06</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'1 1/4" #8 wood screw'</span><span class="sc50">,</span><span class="sc41">     </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.02</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'table top clip'</span><span class="sc50">,</span><span class="sc41">           </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.02</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'1/4 x 1 1/4" dowel'</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.03</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'woodworking glue (get 1)'</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.25</span><span class="sc50">},</span><span class="sc41">
+                        
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">                       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc46">null</span><span class="sc50">},</span><span class="sc41">
+
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'40 grit sandpaper'</span><span class="sc50">,</span><span class="sc41">        </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.22</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'60 grit sandpaper'</span><span class="sc50">,</span><span class="sc41">        </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.22</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'100 grit sandpaper'</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.22</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'150 grit sandpaper'</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.22</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'220 grit sandpaper'</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.22</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'N95 dust mask'</span><span class="sc50">,</span><span class="sc41">            </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1.73</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'pair of gloves'</span><span class="sc50">,</span><span class="sc41">           </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.03</span><span class="sc50">},</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">material</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'varnish (choose 1)'</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc46">cost</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">0.82</span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc43">// define an empty array with the cost of each material</span><span class="sc41">
+                </span><span class="sc46">materialCostArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[],</span><span class="sc41">
+            
+                </span><span class="sc43">// define a total cost of all materials</span><span class="sc41">
+                </span><span class="sc46">totalCost</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                                
+                </span><span class="sc43">//PROCESS+OUTPUT: displays the table</span><span class="sc41">
+                </span><span class="sc46">createTable</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in table.createTable()'</span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">// loop through each material in the array</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    
+                        </span><span class="sc43">// if this material is null...</span><span class="sc41">
+                        </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">material</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                
+                            </span><span class="sc43">// display a blank line in the table    </span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"tr"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">rowElement.innerHTML</span><span class="sc41"> 
+                                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;"</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td style='color: white;'&gt;"</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"= $&lt;span id='total"</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41">
+                                </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"ID'&gt;0.00&lt;/span&gt;"</span><span class="sc50">;</span><span class="sc41">
+                            </span><span class="sc43">// OUTPUT: add this row to the table</span><span class="sc41">
+                            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'tbodyID'</span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            
+                        </span><span class="sc43">// otherwise, if this material is not null....</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                            </span><span class="sc43">// create a cell that has the name of the material inside it </span><span class="sc41">
+                            </span><span class="sc43">// Example:     &lt;td&gt;wood&lt;/td&gt;</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">materialElement</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"td"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">materialText</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">material</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">materialElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">materialText</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                                
+                            </span><span class="sc43">// create a cell that is used for the user to input the number of each item</span><span class="sc41">
+                            </span><span class="sc43">// Example: </span><span class="sc41">
+                            </span><span class="sc43">//  &lt;td&gt;</span><span class="sc41">
+                            </span><span class="sc43">//      &lt;input </span><span class="sc41">
+                            </span><span class="sc43">//          type='text' </span><span class="sc41">
+                            </span><span class="sc43">//          id='cost2ID' </span><span class="sc41">
+                            </span><span class="sc43">//          data-id='2' </span><span class="sc41">
+                            </span><span class="sc43">//          onchange='calculateMaterial(this);'&gt;</span><span class="sc41">
+                            </span><span class="sc43">//      &lt;/input&gt;</span><span class="sc41">
+                            </span><span class="sc43">//  &lt;/td&gt;</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">numberElement</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"td"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">inputElement</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"input"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">inputElement.type</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"text"</span><span class="sc50">;</span><span class="sc41">
+                            </span><span class="sc46">inputElement.id</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'cost'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc50">;</span><span class="sc41">
+                            </span><span class="sc46">inputElement.onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">table.recalculateCosts</span><span class="sc50">();</span><span class="sc41"> </span><span class="sc50">};</span><span class="sc41">
+                            </span><span class="sc46">numberElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">inputElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            
+                            </span><span class="sc43">// create a cell element that contains the cost of the material</span><span class="sc41">
+                            </span><span class="sc43">// Example:     &lt;td&gt;× $0.99&lt;/td&gt;</span><span class="sc41">
+                            </span><span class="sc43">// note that I had to use toFixed(2) in order to have the costs display as currency</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">eachElement</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"td"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">eachText</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createTextNode</span><span class="sc50">(</span><span class="sc41"> 
+                                                    </span><span class="sc49">'× $'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">cost.toFixed</span><span class="sc50">(</span><span class="sc45">2</span><span class="sc50">)</span><span class="sc41"> 
+                                                </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">eachElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">eachText</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            
+                            </span><span class="sc43">// create a cell that will display the current total calculation for this material</span><span class="sc41">
+                            </span><span class="sc43">// Example:     &lt;td&gt;= $&lt;span id='total2ID'&gt;0.00&lt;/span&gt;&lt;/td&gt;</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">totalElement</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"td"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">totalElement.innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"= $&lt;span id='total"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"ID'&gt;0.00&lt;/span&gt;"</span><span class="sc50">;</span><span class="sc41">
+                                
+                            </span><span class="sc43">// create a table row that contains the material, number, each cost, and total cells inside it</span><span class="sc41">
+                            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41">          </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"tr"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">rowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">materialElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">rowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">numberElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">rowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">eachElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            </span><span class="sc46">rowElement.appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">totalElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                            
+                            </span><span class="sc43">// OUTPUT: add this row to the table </span><span class="sc41">
+                            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'tbodyID'</span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                
+                    </span><span class="sc43">// create the final row that contains the total cost</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41">          </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"tr"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">rowElement.innerHTML</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;td&gt;Total&lt;/td&gt;"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;th&gt;= $&lt;span id='totalID'&gt;0.00&lt;/span&gt;&lt;/th&gt;"</span><span class="sc50">;</span><span class="sc41">
+                        
+                    </span><span class="sc43">// OUTPUT: add this row to the table</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'tbodyID'</span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">rowElement</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">//INPUT: read in the number of each material needed</span><span class="sc41">
+                </span><span class="sc46">readMaterialNumbers</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in table.readMaterialNumbers()'</span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+                    
+                    </span><span class="sc43">// loop through each material</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// if this material is null (blank line), then use 0 as number needed</span><span class="sc41">
+                        </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">material</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc46">null</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                            </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">;</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41"> 
+                        </span><span class="sc43">// otherwise, if not null, read it the number typed and convert to an integer</span><span class="sc41">
+                        </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                            </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">parseInt</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'cost'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                    
+                    </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: calculate the current totals</span><span class="sc41">
+                </span><span class="sc46">recalculateCosts</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in table.recalculateCosts()'</span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc46">this.totalCost</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">// create the array of the number of each material needed</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.readMaterialNumbers</span><span class="sc50">();</span><span class="sc41">
+
+                    </span><span class="sc43">// PROCESS: loop through each material</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// calculate the cost of each material</span><span class="sc41">
+                        </span><span class="sc46">this.materialCostArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">numberOfEachMaterialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">cost</span><span class="sc50">;</span><span class="sc41">
+                        
+                        </span><span class="sc43">// PROCESS: add this material to the running total</span><span class="sc41">
+                        </span><span class="sc46">this.totalCost</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.totalCost</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.materialCostArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">];</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                    
+                    </span><span class="sc43">// now display the totals</span><span class="sc41">
+                    </span><span class="sc46">this.displayTotals</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: display the current totals </span><span class="sc41">
+                </span><span class="sc46">displayTotals</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc49">'in table.displayTotals()'</span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc43">// loop through each material</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.materialArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc43">// output the total, formatting to two decimals</span><span class="sc41">
+                        </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'total'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.materialCostArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">toFixed</span><span class="sc50">(</span><span class="sc45">2</span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                    
+                    </span><span class="sc43">// display the running total, formatted to two decimal</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'totalID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.totalCost.toFixed</span><span class="sc50">(</span><span class="sc45">2</span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">               
+            </span><span class="sc50">};</span><span class="sc41">
+            
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            body {
+                font-family:        "Open Sans", "Arial", sans-serif;
+            }
+            th {
+                padding:            2px;
+                vertical-align:     bottom;
+                background-color:   lightGrey;
+                border-bottom:      1px solid black;
+            }
+            input {
+                width:              70px;
+                text-align:         center;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"table.createTable();"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Side table material request calculator</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;table&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;thead&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Material</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Number</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">needed</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Cost per</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">item</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Cost per</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">material</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/thead&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;tbody</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"tbodyID"</span><span class="sc1">&gt;&lt;/tbody&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/table&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;hr</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"table.recalculateCosts();"</span><span class="sc1">&gt;</span><span class="sc0">Calculate total</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

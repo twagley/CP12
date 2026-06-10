@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc11 {
+	color: #0000FF;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Character generator</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// character OBJECT</span><span class="sc41">
+            </span><span class="sc43">// properties: </span><span class="sc41">
+            </span><span class="sc43">//      character.imageSourceArr</span><span class="sc41">
+            </span><span class="sc43">//      character.imageSource</span><span class="sc41">
+            </span><span class="sc43">//      character.professionArr</span><span class="sc41">
+            </span><span class="sc43">//      character.profession</span><span class="sc41">
+            </span><span class="sc43">//      character.maxAbility</span><span class="sc41">
+            </span><span class="sc43">//      character.abilityArr</span><span class="sc41">
+            </span><span class="sc43">//      character.fashion</span><span class="sc41">
+            </span><span class="sc43">//      character.timing</span><span class="sc41">
+            </span><span class="sc43">//      character.humour</span><span class="sc41">
+            </span><span class="sc43">//      character.discretion</span><span class="sc41">
+            </span><span class="sc43">//      character.loyalty</span><span class="sc41">
+            </span><span class="sc43">//      character.balance</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// methods:</span><span class="sc41">
+            </span><span class="sc43">//      character.dieRoll( maxResult )</span><span class="sc41">
+            </span><span class="sc43">//      character.generate()</span><span class="sc41">
+            </span><span class="sc43">//      character.display()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">character</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// INIT: array of possible character pictures</span><span class="sc41">
+                </span><span class="sc46">imageSourceArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"https://www.kasandbox.org/programming-images"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"/cute/CharacterBoy.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://www.kasandbox.org/programming-images"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"/cute/CharacterCatGirl.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://www.kasandbox.org/programming-images"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"/cute/CharacterHornGirl.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://www.kasandbox.org/programming-images"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"/cute/CharacterPinkGirl.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://www.kasandbox.org/programming-images"</span><span class="sc41">
+                        </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"/cute/CharacterPrincessGirl.png"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: holds the randomly chosen image</span><span class="sc41">
+                </span><span class="sc46">imageSource</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: array of possible professions</span><span class="sc41">
+                </span><span class="sc46">professionArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"Profiterol chef"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Television documentary maker"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Golf ball dimpler"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Internet famous person"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Gator wrestler"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Tailor to the stars"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: holds the randomly chosen profession </span><span class="sc41">
+                </span><span class="sc46">profession</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: maximum ability score</span><span class="sc41">
+                </span><span class="sc46">maxAbility</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">20</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: array of ability score names</span><span class="sc41">
+                </span><span class="sc46">abilityArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"fashion"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"timing"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"humour"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"discretion"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"loyalty"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"balance"</span><span class="sc41">
+                </span><span class="sc50">],</span><span class="sc41">
+                
+                </span><span class="sc43">// INIT: ability scores    </span><span class="sc41">
+                </span><span class="sc46">fashion</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">timing</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">humour</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">discretion</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">loyalty</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                </span><span class="sc46">balance</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc50">,</span><span class="sc41">
+                
+                </span><span class="sc43">// PROCESS: creates a random number from 0 to maxRoll</span><span class="sc41">
+                </span><span class="sc46">dieRoll</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">maxRoll</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                   </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">Math.floor</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">Math.random</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc46">maxRoll</span><span class="sc50">);</span><span class="sc41"> 
+                    
+                </span><span class="sc50">},</span><span class="sc41">
+                </span><span class="sc43">// PROCESS: randomly assigns properties to this character</span><span class="sc41">
+                </span><span class="sc46">generate</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// generate a random profession</span><span class="sc41">
+                    </span><span class="sc46">this.profession</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.professionArr</span><span class="sc50">[</span><span class="sc41"> 
+                        </span><span class="sc46">this.dieRoll</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.professionArr.length</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> 
+                    </span><span class="sc50">];</span><span class="sc41">
+                    
+                    </span><span class="sc43">// generate a random image</span><span class="sc41">
+                    </span><span class="sc46">this.imageSource</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.imageSourceArr</span><span class="sc50">[</span><span class="sc41"> 
+                        </span><span class="sc46">this.dieRoll</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.imageSourceArr.length</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> 
+                    </span><span class="sc50">];</span><span class="sc41">
+                    
+                    </span><span class="sc43">// loop through ability score name array </span><span class="sc41">
+                    </span><span class="sc43">// to generate a random ability scores</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.abilityArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.abilityArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> 
+                            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.dieRoll</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.maxAbility</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">},</span><span class="sc41">
+                
+                </span><span class="sc43">// OUTPUT: display the randomly generated character</span><span class="sc41">
+                </span><span class="sc46">display</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">// add the correct source to the image</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'imageID'</span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.imageSource</span><span class="sc50">;</span><span class="sc41">
+                        
+                    </span><span class="sc43">// display the profession</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'professionID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.profession</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc43">// loop through each ability and display the score</span><span class="sc41">
+                    </span><span class="sc47">for</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc46">i</span><span class="sc41"> </span><span class="sc47">in</span><span class="sc41"> </span><span class="sc46">this.abilityArr</span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.abilityArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> 
+                            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">this.abilityArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">i</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">];</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+    
+            </span><span class="sc43">// triggered when the body is loaded and with each button press</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">character.generate</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">character.display</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            body, button {
+                font-family:        sans-serif;
+                background-color:   #333333;
+                color:              lightBlue;
+            }
+            button {
+                border:             1px solid lightBlue;
+                color:              white;
+            }
+            img {
+                position:           absolute;   
+                top:                50px;
+                left:               50%;
+            }
+            #professionID, td {
+                color:              white;
+            }
+            th, td {
+                text-align:         left;
+                padding-left:       20px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Random character generator</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">
+            Profession:
+            </span><span class="sc1">&lt;em</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"professionID"</span><span class="sc1">&gt;&lt;/em&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;h3&gt;</span><span class="sc0">Ability scores</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;table&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;thead&gt;&lt;/thead&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;tbody&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"fashionID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Fashion</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"timingID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Timing</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"humourID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Humour</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"discretionID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Discretion</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"loyaltyID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Loyalty</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;tr&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;td</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"balanceID"</span><span class="sc1">&gt;&lt;/td&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;th&gt;</span><span class="sc0">Balance</span><span class="sc1">&lt;/th&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/tr&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/tbody&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/table&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageID"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;hr</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure()"</span><span class="sc1">&gt;</span><span class="sc0">
+            Generate a new character
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

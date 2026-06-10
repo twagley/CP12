@@ -1,0 +1,29 @@
+<script>
+	// MAIN: this triggers all the other functions
+	function mainProcedure () {
+		initVariables();
+		getInput();
+		processInput();
+		outputResults();
+	}
+	
+	//INIT: this sets up the initial values of variables
+	function initVariables () {
+	
+	}
+
+	//INPUT: this reads the input from the user
+	function getInput () {
+	
+	}
+
+	//PROCESS: this processes the input and returns a result
+	function processInput () {
+	
+	}
+	
+	//OUTPUT: this outputs the result
+	function outputResults () {
+	
+	}
+</script>

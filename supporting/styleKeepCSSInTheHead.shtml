@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<style>
+			/* it is best to put ALL your CSS code here inside the <head> */
+			
+			strong {
+				color: red;
+			}
+			h1 {
+				color: blue;
+			}
+			
+			#starID {
+				color: blue;
+				font-style: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- It is possible to put your style inside a tag, but it is POOR STYLE -->
+		<h1>Monty Python's <span style="font-style: italic">Argument</span> sketch</h1>
+		
+		<p>
+			<!-- instead, add a class or an id to the tag and define it in the <head> -->
+			<strong>Man (<span id="starID">Michael Palin</span>):</strong> 
+			Ah. I'd like to have an argument, please.
+		</p>
+		<p>
+			<strong>Receptionist:</strong>
+			Certainly sir. Have you been here before?
+		</p>
+		<p>
+			<strong>Man:</strong>
+			No, this is my first time.
+		</p>
+		<p>
+			<strong>Receptionist:</strong>
+			I see. Well, do you want to have the full argument, or were you thinking of taking a course?
+		</p>
+	</body>
+</html>

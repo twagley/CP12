@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Character generator</title>
+        <script>
+			// character OBJECT
+			// properties: 
+			//		character.imageSourceArr
+			//		character.imageSource
+			//		character.professionArr
+			//		character.profession
+			//		character.maxAbility
+			//		character.abilityArr
+			//		character.fashion
+			//		character.timing
+			//		character.humour
+			//		character.discretion
+			//		character.loyalty
+			//		character.balance
+			//
+			// methods:
+			//		character.dieRoll( maxResult )
+			//		character.generate()
+			//		character.display()
+			//
+            var character = {
+                // INIT: array of possible character pictures
+                imageSourceArr: [
+                    "https://www.kasandbox.org/programming-images"
+                        + "/cute/CharacterBoy.png",
+                    "https://www.kasandbox.org/programming-images"
+                        + "/cute/CharacterCatGirl.png",
+                    "https://www.kasandbox.org/programming-images"
+                        + "/cute/CharacterHornGirl.png",
+                    "https://www.kasandbox.org/programming-images"
+                        + "/cute/CharacterPinkGirl.png",
+                    "https://www.kasandbox.org/programming-images"
+                        + "/cute/CharacterPrincessGirl.png"
+                ],
+                
+                // INIT: holds the randomly chosen image
+                imageSource: "",
+                
+                // INIT: array of possible professions
+                professionArr: [
+                    "Profiterol chef",
+                    "Television documentary maker",
+                    "Golf ball dimpler",
+                    "Internet famous person",
+                    "Gator wrestler",
+                    "Tailor to the stars"
+                ],
+                
+                // INIT: holds the randomly chosen profession 
+                profession: "",
+                
+                // INIT: maximum ability score
+                maxAbility: 20,
+                
+                // INIT: array of ability score names
+                abilityArr: [
+                    "fashion",
+                    "timing",
+                    "humour",
+                    "discretion",
+                    "loyalty",
+                    "balance"
+                ],
+                
+                // INIT: ability scores    
+                fashion: 0,
+                timing: 0,
+                humour: 0,
+                discretion: 0,
+                loyalty: 0,
+                balance: 0,
+                
+                // PROCESS: creates a random number from 0 to maxRoll
+                dieRoll: function ( maxRoll ) {
+                   return Math.floor( Math.random() * maxRoll); 
+                    
+                },
+                // PROCESS: randomly assigns properties to this character
+                generate: function () {
+                    // generate a random profession
+                    this.profession = this.professionArr[ 
+                        this.dieRoll( this.professionArr.length ) 
+                    ];
+                    
+                    // generate a random image
+                    this.imageSource = this.imageSourceArr[ 
+                        this.dieRoll( this.imageSourceArr.length ) 
+                    ];
+                    
+                    // loop through ability score name array 
+                    // to generate a random ability scores
+                    for (i in this.abilityArr) {
+                        this[ this.abilityArr[ i ] ] 
+                            = this.dieRoll( this.maxAbility );
+                    }
+                },
+                
+                // OUTPUT: display the randomly generated character
+                display: function () {
+                    // add the correct source to the image
+                    document.getElementById('imageID').src
+                        = this.imageSource;
+                        
+                    // display the profession
+                    document.getElementById('professionID').innerHTML
+                        = this.profession;
+                    
+                    // loop through each ability and display the score
+                    for (i in this.abilityArr) {
+                        document.getElementById( this.abilityArr[ i ] + 'ID' ).innerHTML 
+							= this[ this.abilityArr[ i ] ];
+                    }
+                }
+            };
+    
+			// triggered when the body is loaded and with each button press
+            var mainProcedure = function () {
+                character.generate();
+                character.display();
+            }
+        </script>
+        <style>
+            body, button {
+                font-family:        sans-serif;
+                background-color:   #333333;
+                color:              lightBlue;
+            }
+            button {
+                border:             1px solid lightBlue;
+                color:              white;
+            }
+            img {
+                position:           absolute;   
+                top:                50px;
+                left:               50%;
+            }
+            #professionID, td {
+                color:              white;
+            }
+            th, td {
+                text-align:         left;
+                padding-left:       20px;
+            }
+        </style>
+    </head>
+	
+    <body onload="mainProcedure();">
+        <h1>Random character generator</h1>
+        <h3>
+            Profession:
+            <em id="professionID"></em>
+        </h3>
+        
+        <h3>Ability scores</h3>
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td id="fashionID"></td>
+                    <th>Fashion</th>
+                </tr>
+                <tr>
+                    <td id="timingID"></td>
+                    <th>Timing</th>
+                </tr>
+                <tr>
+                    <td id="humourID"></td>
+                    <th>Humour</th>
+                </tr>
+                <tr>
+                    <td id="discretionID"></td>
+                    <th>Discretion</th>
+                </tr>
+                <tr>
+                    <td id="loyaltyID"></td>
+                    <th>Loyalty</th>
+                </tr>
+                <tr>
+                    <td id="balanceID"></td>
+                    <th>Balance</th>
+                </tr>
+            </tbody>
+        </table>
+        <img id="imageID">
+        <hr />
+        <button onclick="mainProcedure()">
+			Generate a new character
+		</button>
+    </body>
+</html>

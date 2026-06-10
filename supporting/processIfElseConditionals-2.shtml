@@ -1,0 +1,14 @@
+<script>
+	var payCalculator () {
+		//INPUT: read number of hours worked
+		var numberHoursWorked	= document.getElementById('numberHoursWorkedID').value;
+		
+		if ( numberHoursWorked <= 48 ) { // '<=' means 'less than or equals'
+			weeklyPay = numberHoursWorked * hourlyWage;
+		} else { 						 //	if worked more than 48 hours...
+			weeklyPay = ( 48 * hourlyWage ) + ( numberHoursWorked - 48) * hourlyWage * 1.5;
+		}		
+		
+		// and so on...
+	}
+</script>

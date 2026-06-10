@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Live example: Reading the mouse position</title>
+        <script>
+            var mouse = {
+				// current top and left position of the mouse
+				// in pixels
+				top: 		0, 
+				left: 		0, 
+				
+				rowMax: 	15,
+				columnMax: 	15,
+				
+				// array with the list of possible star images in it
+				sourceArr: [
+					"http://drapak.ca/cpg/img/BrownBlock.png",
+					"http://drapak.ca/cpg/img/DirtBlock.png",
+					"http://drapak.ca/cpg/img/GrassBlock.png",
+					"http://drapak.ca/cpg/img/PlainBlock.png",
+					"http://drapak.ca/cpg/img/RoofSouth.png",
+
+					"http://drapak.ca/cpg/img/StoneBlock.png",
+					"http://drapak.ca/cpg/img/WaterBlock.png",
+					"http://drapak.ca/cpg/img/WoodBlock.png",
+					"http://drapak.ca/cpg/img/WallBlock.png",
+					"http://drapak.ca/cpg/img/TreeUgly.png"
+				],
+				
+				// make the current image be the ninth element of the source array
+				currentSrc: "http://drapak.ca/cpg/img/BrownBlock.png",
+				currentImageValue: 0,
+
+				placementArr: [],
+				
+				initializePlacementArray: function () {
+					var emptyRowArray = [];
+					for ( row = 0; row <= this.rowMax; row++ ) {
+						var emptyColumnArray = [];
+						for ( column = 0; column <= this.columnMax; column++ ) {
+							emptyColumnArray.push( undefined );
+						}
+						emptyRowArray.push( emptyColumnArray );
+					}
+					this.placementArr = emptyRowArray;
+				},
+
+				// changes the current image internally and then outputs it
+				changeImage: function ( imageIndex ) {
+					//console.log('in mouse.changeImage: imageIndex=' + imageIndex );
+					this.currentSrc 						= this.sourceArr[ imageIndex ];
+					document.getElementById('imageID').src 	= this.currentSrc;
+					document.getElementById('currentImageID').src 	= this.currentSrc;
+					this.currentImageValue = imageIndex;
+				},
+				
+				// get the current position returned by the mouse event
+				getCurrentPosition: function ( event ) {
+					//console.log( 'in mouse.getCurrentPosition...' );
+					this.top    = event.clientY;
+					this.left   = event.clientX;
+				},
+
+				// display the current mouse position
+				displayPosition: function () {
+					//console.log( 'in mouse.displayPosition...' );
+
+					document.getElementById('topID').innerHTML 	= this.top;
+					document.getElementById('leftID').innerHTML	= this.left;
+				},
+
+				// move the star to the current mouse position
+				moveImage: function () {
+					//console.log( 'in mouse.moveImage...' );
+				
+					var imageStyle 	= document.getElementById('imageID').style;
+					imageStyle.top 	= (this.top + 5 ) + 'px';
+					imageStyle.left	= (this.left + 5 ) + 'px';
+				},
+
+				// loop through the sourceArr images and place each one inside the correct ID
+				placeKeyMenuImages: function () {
+					
+					for ( i in this.sourceArr ) {
+						var newImage 		
+							= "<img style='width: 50px;' src='" 
+							+ this.sourceArr[ i ] 
+							+ "' onclick='mouse.changeImage( " + i + " );' />";
+						document.getElementById( 'image' + i + 'ID' ).innerHTML = newImage;
+					}
+				},
+				// add an image to the table row and column
+				addImageToTable: function ( row, column ) {
+					console.log( 'in mouse.addImageToTable... row, column=' + row + ',' + column );
+
+					var newImage 		= document.createElement("img");
+					newImage.src 		= this.currentSrc ;
+					newImage.style.top	= ( row * 41 + 83 ) + 'px';
+					newImage.style.left	= ( column * 51 + 9 ) + 'px';
+					newImage.setAttribute('data-row', row);
+					newImage.setAttribute('data-column', column);
+					newImage.onclick	= function () {
+						mouse.placementArr[ this.getAttribute('data-row') ][ this.getAttribute('data-column') ] = undefined;
+						this.parentNode.removeChild( this ); 
+						mouse.outputPlacementArr();
+					};
+					
+					this.placementArr[ row][column ] = this.currentImageValue;
+					document.getElementById( "outputID" ).appendChild( newImage );
+					this.outputPlacementArr();
+				},
+				outputPlacementArr: function () {
+					document.getElementById('jsonID').innerHTML
+						= "var imageSourceArr = " 
+						+ JSON.stringify(this.sourceArr)
+						+ ";\n\n"
+						+ "var tileArr = " + JSON.stringify(this.placementArr);
+				}
+            }
+
+            // whenever the mouse moves...        
+            document.onmousemove = function ( event ) {
+                mouse.getCurrentPosition( event );
+				mouse.displayPosition();
+				mouse.moveImage();
+            }
+						
+			// whenever the keyboard is triggered 
+			window.onkeydown    = function ( keyEvent ) {
+				//INPUT: read which character was pressed...
+				var characterPressed    = keyEvent.which || keyEvent.keyCode;   
+				
+				if ( characterPressed == 48 ) { 		// key pressed is '0'
+					mouse.changeImage( 0 );
+				} else if ( characterPressed == 49 ) {	// key pressed is '1'
+					mouse.changeImage( 1 );
+				} else if ( characterPressed == 50 ) {	// key pressed is '2'
+					mouse.changeImage( 2 );
+				} else if ( characterPressed == 51 ) {	// key pressed is '3'
+					mouse.changeImage( 3 );
+				} else if ( characterPressed == 52 ) {	// key pressed is '4'
+					mouse.changeImage( 4 );
+				} else if ( characterPressed == 53 ) {	// key pressed is '5'
+					mouse.changeImage( 5 );
+				} else if ( characterPressed == 54 ) {	// key pressed is '6'
+					mouse.changeImage( 6 );
+				} else if ( characterPressed == 55 ) {	// key pressed is '7'
+					mouse.changeImage( 7 );
+				} else if ( characterPressed == 56 ) {	// key pressed is '8'
+					mouse.changeImage( 8 );
+				} else if ( characterPressed == 57 ) {	// key pressed is '9'
+					mouse.changeImage( 9 );
+				} 
+			}
+			
+			// create the HTML for a table of clickable elements and then output it
+			var createOutputTable = function () {
+				// create a variable to store the table HTML and start the head of the table
+				var tableHTML = "<thead></thead><tbody>";
+				
+				// loop through each row 
+				for ( row=0; row <= mouse.rowMax; row++ ) {
+					// create a new row
+					tableHTML = tableHTML
+						+ "<tr>";
+						
+					// loop through each column
+					for ( column = 0; column <= mouse.columnMax; column++ ) {
+						// add this particular table cell, with click actions... example:
+						//	<td id='cell0-0ID' onclick='mouse.addImage( 0, 0 );'>&nbsp;</td>
+						tableHTML = tableHTML
+							+ "<td id='cell"+row+"-"+column+"ID' onclick='mouse.addImageToTable( "+row+", "+column+" );'></td>";
+					}
+					// close the new row
+					tableHTML = tableHTML
+						+ "</tr>";
+				}
+				
+				// finish off the table HTML code
+				tableHTML = tableHTML
+					+ "</tbody>";
+					
+				// output the table
+				document.getElementById('tableGridID').innerHTML = tableHTML;
+			}
+			
+			
+			var mainProcedure = function () {
+				mouse.placeKeyMenuImages();
+				mouse.initializePlacementArray();
+				createOutputTable();
+			}
+        </script>
+        <style>
+			body {
+				background-color: black;
+				color: grey;
+				font-weight: bold;
+			}
+			textarea {
+				background-color: black;
+				color: grey;
+			}
+			img {
+				width: 100%;
+			}
+			
+			#outputID img, #imageID {
+				position: absolute;
+				max-height:	40px;
+				height: 40px;
+				max-width: 	50px;
+				min-width:	50px;
+			}
+			table td, img {
+				padding: 0px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;				
+			}
+			.withborder {
+				border: 1px solid grey;
+			}
+			table td, #imageID {
+				padding: 0px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;				
+				max-height:	40px;
+				height: 40px;
+				max-width: 	50px;
+				min-width:	50px;
+			}
+			
+			#tableGridID {
+				border-collapse: collapse;
+			}
+			#tableGridID td{
+				border: 1px solid #222222;
+			}
+			
+        </style>
+    </head>
+    <body onload="mainProcedure();">
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th>Current image:</th>
+
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="topID"></td>
+					<td id="leftID"></td>
+					<td id="currentImageID"></td>
+					
+					<td id="image0ID"></td>
+					<td id="image1ID"></td>
+					<td id="image2ID"></td>
+					<td id="image3ID"></td>
+					<td id="image4ID"></td>
+
+					<td id="image5ID"></td>
+					<td id="image6ID"></td>
+					<td id="image7ID"></td>
+					<td id="image8ID"></td>
+					<td id="image9ID"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table id="tableGridID"></table> 
+        <div id="outputID"></div>
+        <img id="imageID" src="http://drapak.ca/cpg/img/BrownBlock.png" />
+		
+		<h3>Grid array values:</h3>
+		<textarea id="jsonID" rows='50' style="width: 100%"></textarea>
+    </body>
+</html>

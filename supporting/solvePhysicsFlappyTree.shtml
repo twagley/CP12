@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Basic game physics: flappy tree</title>
+        <script>
+            // flappy OBJECT
+            // flappy properties:
+            //      flappy.element
+			//		flappy.fps
+            //
+            //      flappy.currentSpeedTop
+            //      flappy.currentSpeedLeft
+            //      flappy.gravity
+            //      flappy.speedBoostPerJump
+            //
+            //      flappy.top
+            //      flappy.left
+            //      flappy.scrollOffset
+            //
+            // flappy methods
+            //      flappy.initialize()
+            //      flappy.jumpUp()
+            //      flappy.calculatePosition()
+            //      flappy.move()
+            //
+            var flappy = {
+                element:        	null,       // the element to animate
+				fps:				30,			// the frames per second to animate
+                
+                currentSpeedTop:	null,       // the current vertical speed 
+                currentSpeedLeft:	120,			// the current horizontal speed
+				gravity:			60,			// the downward acceleration due to gravity per second
+				speedBoostPerJump:	80,			// the amount of speed added per jump
+                
+                top:            	null,       // current top coordinate
+                left:           	null,       // current left coordinate
+                scrollOffset:   	-200,       // the position of the flappy from the side of the screen while scrolling
+                                
+                // INPUT: get the element containing the flappy image and get the current top and left coordinates
+				// This is triggered when the page finishes loading
+                initialize: function ( id ) {
+                    console.log( 'initializing...' );
+                    
+                    this.element        = document.getElementById( id );  
+                    this.top            = this.element.offsetTop;
+                    this.left           = this.element.offsetLeft;
+
+                    // OUTPUT: scroll to flappy's initial position
+                    window.scrollTo( this.left + this.scrollOffset, this.top );
+                },
+				
+                // OUTPUT: give a boost to the vertical speed
+                jumpUp:   function () {
+                    this.currentSpeedTop	= this.currentSpeedTop - this.speedBoostPerJump;
+                },
+				
+				// PROCESS: use physics math to calculate the current position...
+				calculatePosition:	function () {
+					// calculate the new vertical speed using: v = at + vi
+					this.currentSpeedTop	= this.gravity * ( 1 / this.fps ) + this.currentSpeedTop;
+					
+					// calculate the new positions using: d = vt + di
+					this.top				= this.currentSpeedTop * ( 1 / this.fps ) + this.top;
+					this.left				= this.currentSpeedLeft * ( 1 / this.fps ) + this.left;
+				},
+				
+				//OUTPUT: display flappy in his current position
+				move: function () {
+					this.element.style.left	= this.left + "px";
+					this.element.style.top	= this.top + "px";
+
+                    // follow by scrolling
+                    window.scrollTo( this.left + this.scrollOffset, this.top );
+				}
+            }
+
+			// triggered by start button
+			var mainProcedure = function () {
+				// turn off the button
+				// otherwise each space bar hit will trigger the button again...
+				document.getElementById('buttonID').onclick	= null;
+								
+				// set up the animation loop
+				var interval = window.setInterval( 
+					function () {
+						flappy.calculatePosition();		// calculate the new position
+						flappy.move();					// move there
+					},
+					1000 / flappy.fps 					// every 33 milliseconds
+				);			
+			}
+
+			// if a key is pressed down...
+            window.onkeydown = function ( keyEvent ) {
+                // INPUT: read the key that was pressed...
+                var keyCode = keyEvent.which || keyEvent.keyCode;
+
+				if ( keyCode == 32 ) {	// if space bar is pressed 
+					flappy.jumpUp(); 	// add a boost up
+                }
+            }
+        </script>
+        <style>
+			h2, p {
+                position:   absolute;
+			}
+            #flappyID {
+                position:   absolute;
+                width:      50px;
+				top: 		50%;
+            }
+			#backgroundID {
+                position:   absolute;
+                height:     93vh;   /* set height to part of the viewport height to deal with scroll bars */
+            }      
+        </style>
+    </head>
+    <body onload="flappy.initialize('flappyID');">
+        <img 
+            id="backgroundID"
+            src="http://drapak.ca/cpg/img/SuperMarioWorld.png" />
+        <p>
+			<button id="buttonID" onclick="mainProcedure();">
+				Press to start playing flappy tree!
+			</button><br />
+            Press the space bar to move up.
+        </p>
+        <img id="flappyID" src="https://www.kasandbox.org/programming-images/cute/TreeTall.png" />
+    </body>
+</html>

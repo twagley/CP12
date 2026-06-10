@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc4 {
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc7 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc10 {
+	font-style: italic;
+	background: #FEFDE0;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"viewport"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"width=device-width, initial-scale=1"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">
+            drapak.ca - Computer Programming: 
+            PROCESS - Using arrays
+        </span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how use array variables"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> 
+            </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"keywords"</span><span class="sc8"> 
+            </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--#include virtual="/stylesandscripts.html" --&gt;</span><span class="sc0">   
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                1. November         - created!                                  - Drapak
+                28. October 2018    -                                           - Drapak
+            --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/masthead.html" --&gt;</span><span class="sc0">   
+        
+        </span><span class="sc1">&lt;header&gt;</span><span class="sc0">
+            //PROCESS: </span><span class="sc1">&lt;em&gt;</span><span class="sc0">Using arrays</span><span class="sc1">&lt;/em&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/header&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;article&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;h2</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"newcode"</span><span class="sc1">&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">New code</span><span class="sc10">&amp;gt;</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var </span><span class="sc1">&lt;var&gt;</span><span class="sc0">arrayLength</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> = </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.length;</span><span class="sc1">&lt;/code&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc0">
+                    </span><span class="sc10">&amp;mdash;</span><span class="sc0"> assigns the length of the 
+                    </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> array to </span><span class="sc1">&lt;var&gt;</span><span class="sc0">arrayLength</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">
+                    </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">[ </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.length ] 
+                    = </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newArrayElement</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">;
+                </span><span class="sc1">&lt;/code&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc0">
+                    </span><span class="sc10">&amp;mdash;</span><span class="sc0"> adds </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newArrayElement</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> to </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.push( </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newArrayElement</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> );</span><span class="sc1">&lt;/code&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc0">
+                    </span><span class="sc10">&amp;mdash;</span><span class="sc0"> adds </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newArrayElement</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> to </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;&lt;var&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.join( 'snakes' );</span><span class="sc1">&lt;/code&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc0">
+                    </span><span class="sc10">&amp;mdash;</span><span class="sc0"> creates a string with all the elements of 
+                    </span><span class="sc1">&lt;var&gt;</span><span class="sc0">exampleVar</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> joined together by the word 'snakes'
+                </span><span class="sc1">&lt;/span&gt;&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Adding new elements to an array using an index</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Let's say that we have created the following array:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">//INIT: set up primeNumbersArr
+var primeNumbersArr = [
+    2,  //index 0
+    3,  
+    5,
+    7,
+    11,
+    
+    13, //index 5
+    17,
+    19,
+    23,
+    29,
+    
+    31  //index 10
+];</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Check your understanding</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is the value of </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr[ 0 ]</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> 
+                    </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> 
+                    </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"&lt;code&gt;primeNumbersArr[ 0 ]&lt;/code&gt; contains 2"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is the value of </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr[ 7 ]</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> 
+                    </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> 
+                    </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"&lt;code&gt;primeNumbersArr[ 7 ]&lt;/code&gt; contains 19"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is the value of </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr[ 10 ]</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> 
+                    </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> 
+                    </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"&lt;code&gt;primeNumbersArr[ 10 ]&lt;/code&gt; contains 31"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What will be the next index number of </span><span class="sc1">&lt;var&gt;</span><span class="sc0">primeNumbersArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> 
+                    </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> 
+                    </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"the next index number of &lt;var&gt;primeNumbersArr&lt;/var&gt; is 11"</span><span class="sc1">&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                We can add a new element to </span><span class="sc1">&lt;var&gt;</span><span class="sc0">primeNumbersArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> 
+                by adding the next index number. For example:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">//PROCESS: add the next prime number to the array
+    primeNumbersArr[ 11 ] = 37; // the 11th prime number in the array is 37</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = primeNumbersArr;"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to display the current contents of </span><span class="sc1">&lt;var&gt;</span><span class="sc0">primeNumbersArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Finding the length of an array</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Arrays hold their length as a property.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                So if you want to find out the length of </span><span class="sc1">&lt;var&gt;</span><span class="sc0">primeNumbersArr</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">,
+                you would look at </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr.length</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                For example:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = primeNumbersArr.length;"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to show </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr.length</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Notice again that because arrays count from zero, 
+                the last element of an array will be at index </span><span class="sc1">&lt;var&gt;</span><span class="sc0">length - 1</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Adding new array elements using </span><span class="sc1">&lt;code&gt;</span><span class="sc0">.length</span><span class="sc1">&lt;/code&gt;&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Did you notice that the current length of an array 
+                is the same as it's next index number?
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                You can use this fact if you don't want to 
+                automatically add a number to the end of an array:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">//PROCESS: add the next prime number to the array
+primeNumbersArr[ primeNumbersArr.length ] = 41;</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;&lt;code&gt;</span><span class="sc0">.push()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">ing an element onto the end of an array</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                You can also use an array method called 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">push()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> to add a new element to an array.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">//INIT: set up stringArr and primeNumbersArr
+var stringArr = [
+    "Red",
+    "Orange",
+    "Yellow",
+    "Green",
+    "Blue",
+    
+    "Indigo"
+];
+
+//PROCESS: add violet to the end of the array
+stringArr.push( "Violet" );
+</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Displaying a whole array</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                If you use an array reference, </span><span class="sc1">&lt;code&gt;</span><span class="sc0">exampleArr</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">, 
+                instead of an individual array element, </span><span class="sc1">&lt;code&gt;</span><span class="sc0">exampleArr[0]</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">, 
+                it will return the entire contents of your array separated by commas:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                For example:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">//the following line will show all the elements of stringArr, separated by commas:
+document.querySelector( '#buttonId' ).innerHTML = stringArr;</span><span class="sc1">&lt;/code&gt;&lt;br&gt;&lt;/pre&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = initStringArr();"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to trigger 
+                    </span><span class="sc1">&lt;code&gt;</span><span class="sc0">document.querySelector( '#buttonId' ).innerHTML = stringArr;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;&lt;code&gt;</span><span class="sc0">.join()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">ing array elements together</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                It may bug you that the array elements do not have spaces between the commas.
+                There is a solution to that:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = initStringArr().join( ', ');"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to show </span><span class="sc1">&lt;code&gt;</span><span class="sc0">stringArr.join( ', ')</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;&lt;br&gt;</span><span class="sc0">
+                Notice how there is now a nice relaxing space after the commas?</span><span class="sc1">&lt;/br&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">.join()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> will join the elements of an array together into a long string, 
+                concatenated together with whatever is inside the </span><span class="sc1">&lt;code&gt;</span><span class="sc0">join()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> brackets.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">So </span><span class="sc1">&lt;code&gt;</span><span class="sc0">stringArr.join( ':' )</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> is the same as:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">stringArr[ 0 ]
++ ':'           
++ stringArr[ 1 ]
++ ':'           
++ stringArr[ 2 ]
++ ':'           
++ stringArr[ 3 ]
++ ':'           
++ stringArr[ 4 ]
++ ':'           
++ stringArr[ 5 ]
++ ':'           
++ stringArr[ 6 ]
++ ':'           
++ stringArr[ 7 ]</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What do you think will happen if you show 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">stringArr.join('puppies')</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> 
+                    </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = initStringArr().join('puppies');"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to see </span><span class="sc1">&lt;code&gt;</span><span class="sc0">stringArr.join('puppies')</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What do you think will happen if you show 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr.join('...')</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> 
+                    </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"this.innerHTML = primeNumbersArr.join('...');"</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to see </span><span class="sc1">&lt;code&gt;</span><span class="sc0">primeNumbersArr.join('...')</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Outputting a list using </span><span class="sc1">&lt;code&gt;</span><span class="sc0">.join()</span><span class="sc1">&lt;/code&gt;&lt;/h2&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Let's say that I want to create a list of colours.
+                Remember that a list looks like this:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">ol&gt;
+    </span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;item one</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;
+    </span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;item two</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;
+    </span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;item three</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;
+</span><span class="sc10">&amp;lt;</span><span class="sc0">/ol&gt;</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+    
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">And it produces:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;ol&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">item one</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">item two</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">item three</span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/ol&gt;</span><span class="sc0">       
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Did you notice how between each element of the list 
+                is joined together with </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">?
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">To create a list we have to do the following:</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;ol&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    Create a variable to hold the HTML list code, like </span><span class="sc1">&lt;var&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Add the beginning HTML of the list: </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">ol&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;</span><span class="sc1">&lt;/code&gt;&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    Add the list information joined together: 
+                    </span><span class="sc1">&lt;code&gt;</span><span class="sc0">exampleArr.join( '</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">li&gt;' )</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">Add the end HTML of the list: </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">/li&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">/ol&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    Display the results: 
+                    </span><span class="sc1">&lt;code&gt;</span><span class="sc0">document.querySelector( '#outputId' ).innerHTML = outputString;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/ol&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc7">'buttonId'</span><span class="sc1">&gt;</span><span class="sc0">
+                    Click to trigger </span><span class="sc1">&lt;code&gt;</span><span class="sc0">mainProcedure()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> of the following code:
+                </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">//INIT: create the string array
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">stringArr</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">[</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Red"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Orange"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Yellow"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Green"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Blue"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Indigo"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">,</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> 
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"Violet"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">];</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">mainProcedure</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">function</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">()</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">{</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">listHTML</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">createList</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">stringArr</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">);</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputList</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">listHTML</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">);</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">}</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS: join together the elements of stringArr into an HTML list
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">createList</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">function</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">stringArr</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">)</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">{</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">""</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// define an empty string to code the HTML code
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"</span><span class="sc10">&amp;lt;</span><span class="sc0">ol</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">li</span><span class="sc10">&amp;gt;</span><span class="sc0">"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">                       </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// add the beginning of the list code
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">stringArr</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">.</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">join</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"</span><span class="sc10">&amp;lt;</span><span class="sc0">/li</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">li</span><span class="sc10">&amp;gt;</span><span class="sc0">"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">);</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// join together with more list code
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc6"</span><span class="sc1">&gt;</span><span class="sc0">"</span><span class="sc10">&amp;lt;</span><span class="sc0">/li</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">/ol</span><span class="sc10">&amp;gt;</span><span class="sc0">"</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">                     </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// add the end of the list code 
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// This could be done all in one step as:
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">// var outputString = "</span><span class="sc10">&amp;lt;</span><span class="sc0">ol</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">li</span><span class="sc10">&amp;gt;</span><span class="sc0">" + stringArr.join( "</span><span class="sc10">&amp;lt;</span><span class="sc0">/li</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">li</span><span class="sc10">&amp;gt;</span><span class="sc0">" ) + "</span><span class="sc10">&amp;lt;</span><span class="sc0">/li</span><span class="sc10">&amp;gt;&amp;lt;</span><span class="sc0">/ol</span><span class="sc10">&amp;gt;</span><span class="sc0">";
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">    
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">return</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">}</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc2"</span><span class="sc1">&gt;</span><span class="sc0">//OUTPUT: display the list inside the div called #outputId
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">var</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputList</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc5"</span><span class="sc1">&gt;</span><span class="sc0">function</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">)</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">{</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">document</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">.</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">getElementById</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">(</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc7"</span><span class="sc1">&gt;</span><span class="sc0">'outputId'</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">).</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">innerHTML</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">=</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc11"</span><span class="sc1">&gt;</span><span class="sc0">outputString</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc0"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/span&gt;&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"sc10"</span><span class="sc1">&gt;</span><span class="sc0">}</span><span class="sc1">&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Learn more</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    Khan Academy's
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"https://www.khanacademy.org/computing/computer-programming/programming/arrays/p/intro-to-arrays"</span><span class="sc1">&gt;</span><span class="sc0">
+                        Intro to arrays
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    w3schools.com's
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"http://www.w3schools.com/js/js_arrays.asp"</span><span class="sc1">&gt;</span><span class="sc0">
+                        JavaScript Arrays
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0"> and
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"http://www.w3schools.com/js/js_array_methods.asp"</span><span class="sc1">&gt;</span><span class="sc0">
+                        JavaScript Array methods
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/ul&gt;</span><span class="sc0">
+            
+            </span><span class="sc9">&lt;!--
+
+            &lt;h2&gt;For example&lt;/h2&gt;
+            
+            &lt;p&gt;...is created with the following code:&lt;/p&gt;
+            
+            &lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+            --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/article&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INIT: create the prime number and string arrays</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">primeNumbersArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">3</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">5</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">3</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">7</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">11</span><span class="sc50">;</span><span class="sc41">
+
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">5</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">13</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">6</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">17</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">7</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">19</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">8</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">23</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">9</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">29</span><span class="sc50">;</span><span class="sc41">
+
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">10</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">31</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">primeNumbersArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc45">11</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">37</span><span class="sc50">;</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: display the list inside the div called #outputId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputList</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in outputList. outputString='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#outputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: join together the elements of stringArr into an HTML list</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in createList. stringArr='</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">""</span><span class="sc50">;</span><span class="sc41"> </span><span class="sc43">// define an empty string to code the HTML code</span><span class="sc41">
+                
+                </span><span class="sc43">// add the beginning of the list code</span><span class="sc41">
+                </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;ol&gt;&lt;li&gt;"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// join together with more list code</span><span class="sc41">
+                </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">stringArr.join</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'&lt;/li&gt;&lt;li&gt;'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">// add the end of the list code                 </span><span class="sc41">
+                </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"&lt;/li&gt;&lt;/ol&gt;"</span><span class="sc50">;</span><span class="sc41">                     
+                
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">outputString</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INIT: set up the array of colour strings</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">initStringArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in initStringArr...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"Red"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Orange"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Yellow"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Green"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"Blue"</span><span class="sc50">,</span><span class="sc41">
+                    
+                    </span><span class="sc48">"Indigo"</span><span class="sc41">
+                </span><span class="sc50">];</span><span class="sc41">
+
+                </span><span class="sc43">//PROCESS: add violet to the end of the array - just to demonstrate .push()</span><span class="sc41">
+                </span><span class="sc46">stringArr.push</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"Violet"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            
+                </span><span class="sc47">return</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//MAIN: link together the functions to create the list</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INIT: create the array of colour strings</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">initStringArr</span><span class="sc50">();</span><span class="sc41">
+                
+                </span><span class="sc43">//PROCESS: use the colours to create the HTML code of a list of colours</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">listHTML</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">createList</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">stringArr</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: display the list of colours</span><span class="sc41">
+                </span><span class="sc46">outputList</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">listHTML</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: start the main procedure when the button is clicked</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: start questionLoader when the page is finished loading</span><span class="sc41">
+            </span><span class="sc46">document.body.onload</span><span class="sc41">                            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">questionLoader</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/footer.html" --&gt;</span><span class="sc0">     
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

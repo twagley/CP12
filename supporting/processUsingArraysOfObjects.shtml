@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>PROCESS: Using arrays of objects to create a table</title>
+		<meta 
+			name="description" 
+			content="Learn how to use arrays of objects to create a table">
+		<meta name="author" content="Dave Drapak">
+		<!-- Change log:
+			5. December 2018	- updated from undated original					- Drapak
+		-->
+	</head>
+	<body>
+		<p>
+			<button id="buttonId">Click to generate the table</button>
+		</p>
+		<div id="outputId"></div>
+		<script>
+			//	ATTENTION!
+			//
+			//	This is NOT functional programming! You MUST rearrange this code
+			//	in order for it to work for your hand-in assignment!
+			//
+			//	Separate this program into //INIT, //PROCESS, and //OUTPUT functions
+			//
+			//	Data is from https://en.wikipedia.org/wiki/List_of_vehicle_speed_records
+			//
+			//  Note that it IS acceptable style to have your objects become long lines,
+			//	but it is preferred to have them as smaller lines
+			var mainProcedure = function () {
+				//INIT:
+				var speedRecordArr = [
+					{ category: 'Land speed record', speed: 1228, vehicle: 'ThrustSSC', operator: 'Andy Green', date: '15 October, 1997' },
+					{ category: 'Wheel-driven', speed: 775.106, vehicle: 'Vesco Turbinator', operator: 'Don Vesco', date: '18 October, 2001' },
+					{ category: 'Motorcycle', speed: 605.697, vehicle: 'Ack Attack', operator: 'Rocky Robinson', date: '25 September, 2010' },
+					{ category: 'Diesel-powered', speed: 563.995, vehicle: 'JCB DieselMax', operator: 'Andy Green', date: '23 August, 2006' },
+					{ category: 'Electric-powered', speed: 495.14, vehicle: 'Buckeye Bullet 2.5', operator: 'Roger Schroer', date: '24 August, 2010' },
+					{ category: 'Steam-powered', speed: 225.06, vehicle: 'Inspiration', operator: 'Charles Burnett III', date: '25 August, 2009' },
+					{ category: 'Wind-powered', speed: 203.09, vehicle: 'Ecotricity Greenbird', operator: 'Richard Jenkins', date: '26 March, 2009' },
+					{ category: 'Human-powered bicycle', speed: 133.78, vehicle: 'VeloX3', operator: 'Sebastiaan Bowier', date: '14 September, 2013' },
+					{ category: 'Paced bicycle', speed: 268.831, vehicle: 'custom made', operator: 'Fred Rompelberg', date: '15 October, 1995' },
+					{ category: 'Solar-powered', speed: 88.8, vehicle: 'Sunswift IV "IVy"', operator: 'Barton Mawer', date: '7 January, 2011' },
+					{ category: 'Radio-controlled car', speed: 325.12, vehicle: 'RC Bullet', operator: 'Nic Case', date: '25 October, 2014' },
+					{ category: 'Tracked vehicle', speed: 82.23, vehicle: 'FV101 Scorpion reconnaissance vehicle', operator: '', date: '26 March, 2002' },
+					{ category: 'On ice', speed: 331.61, vehicle: 'Audi RS6', operator: 'Janne Laitinen', date: '6 March, 2011' },
+					{ category: 'Lunar rover', speed: 17, vehicle: 'Apollo 17 Lunar Roving Vehicle (LRV-003)', operator: 'Eugene Cernan', date: '31 July, 1972' }
+				];
+				
+				console.log( "speedRecordArr = ", speedRecordArr );
+				
+				//PROCESS
+				// create a variable to hold the table code, and add the beginning of table
+				var tableHTML 
+					= "<table>"		
+						+ "<thead>"
+							+ "<tr>"
+								+ "<th>Category</th>" 
+								+ "<th>Speed (km/h)</th>" 
+								+ "<th>Vehicle</th>" 
+								+ "<th>Operator</th>"
+								+ "<th>Date</th>" 
+							+ "</tr>" 
+						+ "</thead>"
+						+ "<tbody>";
+				
+				//LOOP: through each element of speedRecordArr 
+				// and create a table row for object contained inside
+				for ( i in speedRecordArr ) {
+					tableHTML 
+						= tableHTML 
+						+ "<tr>" // open a new row
+							+ "<td>" + speedRecordArr[ i ].category + "</td>"
+							+ "<td>" + speedRecordArr[ i ].speed + "</td>"
+							+ "<td>" + speedRecordArr[ i ].vehicle + "</td>"
+							+ "<td>" + speedRecordArr[ i ].operator + "</td>"
+							+ "<td>" + speedRecordArr[ i ].date + "</td>"
+						+ "</tr>"; // close the row
+				}
+				
+				// finish by adding the end of the table code
+				tableHTML 
+					= tableHTML 
+					+ "</tbody>" 
+					+ "</table>";
+					
+				//OUTPUT	
+				document.querySelector( '#outputId' ).innerHTML = tableHTML;
+			}
+			
+			//INPUT EVENT: attach mainProcedure to #buttonId
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

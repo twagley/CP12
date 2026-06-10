@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Continuing in the same direction while a key is pressed</title>
+        <script>
+			// rocket OBJECT
+			// rocket properties:
+			//		rocket.element
+			//		rocket.speed
+			//		rocket.top
+			//		rocket.left
+			//		rocket.interval
+			//		rocket.fps
+			//		rocket.lastKeyCode
+			//
+			// rocket methods
+			//		rocket.initialize()
+			//		rocket.animate()
+			//		rocket.goUp()
+			//		rocket.goDown()
+			//		rocket.goLeft()
+			//		rocket.goRight()
+			//
+            var rocket = {
+                element:    	null,		// the element to animate
+                speed:      	5,			// the amount to move with each animation frame
+                top:        	null,		// the current top position
+                left:       	null,		// the current left position
+				interval:		null,		// holds the animation repeater function
+				fps:			30,			// the target number of frames per second
+				lastKeyCode:	null,		// the last key pressed...
+                
+                // INPUT: get the element containing the rocket
+                // and get the current top and left coordinates
+                initialize: function ( id ) {
+                    this.element	= document.getElementById( id );  
+                    this.top    	= this.element.offsetTop;
+                    this.left   	= this.element.offsetLeft;
+                },
+				
+				// PROCESS: repeat an animation in an interval
+				animate: function ( animationFunction ) {
+					// clear the previous animation repetition
+					window.clearTimeout( this.interval );
+					
+					// move up once every animation frame
+					this.interval = window.setInterval( animationFunction, 1000 / rocket.fps );
+				},
+				
+                // OUTPUT: animate upwards
+                goUp:   function () {
+					this.top 				= this.top - this.speed;
+                    this.element.style.top 	= this.top + 'px';
+                },
+				
+                // OUTPUT: animate downwards
+                goDown:   function () {
+					this.top 				= this.top + this.speed;
+                    this.element.style.top 	= this.top + 'px';
+                },
+				
+                // OUTPUT: animate leftwards
+                goLeft:   function () {
+					this.left 				= this.left - this.speed;
+                    this.element.style.left = this.left + 'px';
+                },
+				
+                // OUTPUT: animate rightwards
+                goRight:   function () {
+					this.left 				= this.left + this.speed;
+                    this.element.style.left = this.left + 'px';
+                }
+            }
+			
+            // while a key is pressed down...
+			window.onkeydown = function ( keyEvent ) {
+                // INPUT: read the key that was pressed...
+				var keyCode = keyEvent.which || keyEvent.keyCode;
+				console.log( 'a key has been pressed...' );
+				console.log( keyCode );
+
+				// PROCESS: only act if the key pressed is different that the last one, 
+				// or if the key has been released before repressing 
+				if ( rocket.lastKeyCode != keyCode ) {
+					// now store this key code for the next time...
+					rocket.lastKeyCode = keyCode;
+					
+					if ( keyCode == 87 ) { 			// W = up
+						rocket.animate( 
+							function () { 
+								rocket.goUp(); 
+							} 
+						);
+					} else if ( keyCode == 65 ) { 	// A = left
+						rocket.animate( 
+							function () { 
+								rocket.goLeft(); 
+							} 
+						);
+					} else if ( keyCode == 83 ) { 	// S = down
+						rocket.animate( 
+							function () { 
+								rocket.goDown(); 
+							} 
+						);
+					} else if ( keyCode == 68 ) { 	// D = right
+						rocket.animate( 
+							function () { 
+								rocket.goRight(); 
+							} 
+						);
+					}
+				}
+            }
+
+			// stop moving when a key is released
+			// delete this function if you want your image to keep moving in the same direction
+			window.onkeyup = function () {
+				// clear the previous animation repetition
+				window.clearTimeout( rocket.interval );
+
+				// clear the current key being pressed
+				rocket.lastKeyCode = null;
+			}
+        </script>
+        <style>
+            body {
+                color:          darkBlue;
+                font-family:    "Open Sans", "Calibri", san-serif;
+            }
+            #backgroundID {
+                width:      	100%;
+            }
+            h2 {
+                position:   	absolute;
+                top:        	5%;
+                left:       	5%;
+            }
+            p {
+                position:   	absolute;
+                top:        	20%;
+                left:       	5%;
+            }
+            #animateID {
+                position:   	absolute;
+                top:        	50%;
+                left:       	50%;
+            }
+        </style>
+    </head>
+    <body onload="rocket.initialize( 'animateID' );">
+        <img 
+            id="backgroundID"
+            src="https://www.kasandbox.org/programming-images/space/background.png" />
+		<h2>
+			Non-jQuery animation<br />
+            and movement that continues while the key is pressed.
+		</h2>
+        <p>
+            <strong>Movement keys:</strong>
+			 &uarr;W &larr;A &darr;S &rarr;D
+        </p>
+        <img 
+            id="animateID" 
+            src="https://www.kasandbox.org/programming-images/space/beetleship.png" />
+    </body>
+</html>

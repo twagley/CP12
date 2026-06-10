@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The sky at night</title>
+		<meta name="description" content="The sky at night">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				21. October 2015	- created!
+				29. October 		- added delay and fade
+		-->
+		<!-- load jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 		<script>
+			//INIT set up all the planet objects
+			//define mercury using one method
+			var mercury = {}; //define mercury as an empty object
+			
+			mercury.id				= "mercuryID";
+			mercury.src				= "http://drapak.ca/cpg/img/Mercury.png";
+			mercury.startDelay		= 300;
+			mercury.diameter		= 4879;
+			mercury.top				= 55;
+			mercury.left			= 55;
+			mercury.animationSpeed	= 1000;
+			mercury.timeToFade		= 2000;
+			
+			//define venus using another method
+			var venus = {};	//define venus as an empty object
+			
+			venus['id']				= "venusID";
+			venus['src']			= "http://drapak.ca/cpg/img/Venus.png";
+			venus['startDelay']		= 600;
+			venus['diameter']		= 12104;
+			venus['top']			= 40;
+			venus['left']			= 65;
+			venus['animationSpeed']	= 2000;
+			venus['timeToFade']		= 1900;
+			
+			//define earth using the all-in-one-line method
+			//this can be BAD style if the line gets too long, like this one
+			var earth = { id: "earthID", src: "http://drapak.ca/cpg/img/Earth.png", startDelay: 900, diameter: 12756, top: 20, left: 70, animationSpeed: 3000, timeToFade:1800 };
+			
+			//define mars and the others using a more legible method
+			var mars = {
+				id:				"marsID",
+				src:			"http://drapak.ca/cpg/img/Mars.png",
+				startDelay:		1200,
+				diameter:		6792,
+				top:			90,
+				left:			10,
+				animationSpeed:	4000,
+				timeToFade:		1700
+			};
+			
+			var jupiter = {
+				id:				"jupiterID",
+				src:			"http://drapak.ca/cpg/img/Jupiter.png",
+				startDelay:		1500,
+				diameter:		142984,
+				top:			50,
+				left:			70,
+				animationSpeed:	5000, 
+				timeToFade:		1600
+			};
+			
+			var saturn = {
+				id:				"saturnID",
+				src:			"http://drapak.ca/cpg/img/Saturn.png",
+				startDelay:		2000,
+				diameter:		120536,
+				top:			5,
+				left:			20,
+				animationSpeed:	6000,
+				timeToFade:		1500
+			};
+
+			var uranus = {
+				id:				"uranusID",
+				src:			"http://drapak.ca/cpg/img/Uranus.png",
+				startDelay:		2500,
+				diameter:		51118,
+				top:			80,
+				left:			20,
+				animationSpeed:	7000, 
+				timeToFade:		1400
+			};
+
+			var neptune = {
+				id:				"neptuneID",
+				src:			"http://drapak.ca/cpg/img/Neptune.png",
+				startDelay:		3000,
+				diameter:		49528,
+				top:			50,
+				left:			5,
+				animationSpeed:	6000, 
+				timeToFade:		1300
+			};
+			
+			// Now add the other planets into the mix!
+			// Uranus is uranusID, Uranus.png, delay: 2500, 51118 km dia, top, left: 80, 20, fade: 1400
+			// Neptune is Neptune.png, delay: 3000, 49528 km dia, ends at top, left: 50, 5, fade: 1300
+			
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure' );
+				
+				dimTheLights();
+				
+				//display each planet, and do cool stuff
+				setTimeout( function () { 
+					displayAndAnimate( mercury ) }, 
+					mercury.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( venus ) }
+					, venus.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( earth ) },
+					earth.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( mars ) },
+					mars.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( jupiter ) }, 
+					jupiter.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( saturn ) }, 
+					saturn.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( neptune ) }, 
+					neptune.startDelay );
+				setTimeout( function () { 
+					displayAndAnimate( uranus ) }, 
+					uranus.startDelay );
+			}
+			
+			//OUTPUT: display and animate cool things for a planet
+			var displayAndAnimate = function ( planetObj ) {
+				console.log( 'in displayAndAnimate' );
+				
+				// link the image id to the src
+				document.getElementById( planetObj.id ).src = planetObj.src;
+													
+				// animate towards their new position
+				// note that the top and left positions are given in '%' instead of 'px'
+				// left: 40% will place something at 40% of the way across the screen from the left edge
+				// this can be good if you want to make your programs resize to different screens
+				
+				$('#' + planetObj.id ).animate({
+					top:		planetObj.top + '%', 
+					left:		planetObj.left + '%',
+					width:		calculateImageWidth( planetObj.diameter ) + 'px'
+					}, planetObj.animationSpeed ); 
+					
+				$('#' + planetObj.id ).animate({
+					opacity:	0, 
+					}, planetObj.timeToFade );
+			}
+			
+			var calculateImageWidth = function ( planetDiameter ) {
+				return Math.round( planetDiameter / 500 )
+			}
+			
+			//OUTPUT: reverse the text colors
+			var dimTheLights = function () {
+				document.body.style.color 				= 'gray';
+				document.body.style.backgroundColor 	= 'black';
+			}
+		</script>
+		<style>
+			span {
+				border:				1px solid red;
+			}
+			button {
+				border:				1px solid grey;
+				color:				black;
+				background-color:	white;
+			}
+			img {
+				position:			fixed;
+				width:				10px;
+				/* start off in the middle of the screen */
+				top:				50%; 
+				left:				50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>The sky at night</h2>
+		<button onclick="mainProcedure();">Click to behold<br>the majesty of the heavens!</button><br>		
+		<img id="mercuryID">
+		<img id="venusID">
+		<img id="earthID">
+		<img id="marsID">
+		<img id="jupiterID">
+		<img id="saturnID">
+		<img id="neptuneID">
+		<img id="uranusID">
+		<br>
+	
+
+</body></html>

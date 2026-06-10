@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Start and stop timers in object oriented code</title>
+        <script>
+            // clock
+            // clock properties:
+            //      clock.startTime
+            //      clock.endTime
+            //      clock.elapsedTime
+            //      clock.interval
+            //
+            // clock methods:
+            //      clock.start()
+            //      clock.stop()
+            //      clock.getCurrentTime()
+			//		clock.calculateElapsedTime()
+            //      clock.display()
+            //
+            var clock = {
+                // startTime and endTime are measured in milliseconds since 1 Jan 1970
+                
+                startTime:      null, // time when timer started
+                endTime:        null, // time when timer stopped
+                elapsedTime:    null, // difference between start and stop
+                interval:       null, // variable to hold interval timer
+                
+                // MAIN: clock.start() starts the clock ticking...
+                start: function () {
+					// get the start time
+                    this.startTime  = this.getCurrentTime();
+					
+                    // set up a repeating interval that updates the time and displays it regularly
+					// copy the 'this' object so that the interval will work properly
+                    var self        = this;
+                    // this.interval is a variable that contains the interval so that later on we can turn it off when clock.stop() is called
+                    this.interval   = window.setInterval(function () {
+										self.endTime	= self.getCurrentTime();
+                                        self.calculateElapsedTime();
+                                        self.display();
+                                    }, 100);    
+                },
+
+                // MAIN: clock.stop() cancels the ticker and displays the current time
+                stop: function () {
+                    window.clearInterval( this.interval );
+					this.endTime	= this.getCurrentTime();
+                    this.calculateElapsedTime();
+                    this.display();
+                },
+                
+				// INPUT: gets the current time
+				getCurrentTime: function () {
+                    // get the current number of milliseconds since 1 Jan 1970 and return it
+                    return new Date().getTime();
+				},
+				
+                // PROCESS: clock.update() calculates the time since the button was pressed
+                calculateElapsedTime: function () {
+                    // the elasped time is the different between the end and start times
+                    this.elapsedTime    = this.endTime - this.startTime;
+                },
+                
+                // OUTPUT: clock.display() displays the time elapsed since the clock was started 
+                display:  function () {
+                    document.getElementById("outputID").innerHTML = this.elapsedTime;
+                }
+            }
+        </script>
+        <style>
+            body {
+                background-color:   lightBlue;
+                color:              darkBlue;
+            }
+            span {
+                color:              green;
+                font-weight:        bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>
+            Start and stop a timer using object-oriented Javascript.
+        </h2>
+        
+        <p>
+            <button onclick="clock.start();">
+                Press to trigger <code>clock.start()</code>
+            </button><br />
+            
+            <button onclick="clock.stop();">
+                Press to trigger <code>clock.stop()</code>
+            </button><br />
+            <br />
+            Number of milliseconds elapsed:
+            <span id="outputID"></span>
+        </p>
+    </body>
+</html>

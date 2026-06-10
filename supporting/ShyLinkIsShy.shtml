@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Computer Programming 12: Roll some dice</title>
+		<meta name="description" content="Assignment: Shy Link is Shy">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				12. October 2015	- created!
+		-->
+		<!-- load the jQuery library for the animations -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 		<script>
+			var	ANIMATION_DURATION	= 100;
+			
+			//PROCESS: get a random distance & direction and trigger the output
+			var mainProcedure = function() {
+				var distance	= calculateRandomDistance();
+				var direction	= getRandomDirection();
+				
+				if ( direction == 1 ) {
+					goUp(distance);
+				} else if ( direction == 2 ) {
+					goDown(distance);
+				} else if ( direction == 3 ) {
+					goLeft(distance);
+				} else {
+					goRight(distance);	
+				}
+			}
+			
+			//PROCESS: generate random number from 1-4
+			var getRandomDirection = function () {
+				console.log('in randomDirection...');
+				return Math.ceil( Math.random() * 4 );
+			}
+			
+			//PROCESS: calculate a random distance between 100 and 200
+			var calculateRandomDistance = function () {
+				console.log('in calculateRandomDistance...');
+				return  Math.round( 
+							(Math.random() * 100) 
+							+ 100 
+						);
+			}
+			
+			//OUTPUT: animate up the given distance
+			var goUp  = function ( distance ) {
+				console.log('in goUp... distance:' + distance );
+				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-up.png";
+				$('#imageID').animate(
+					{top: 		"-=" + distance + "px"}, 
+					{duration:	ANIMATION_DURATION}
+				);
+			}
+
+			//OUTPUT: animate down the given distance
+			var goDown = function ( distance ) {
+				console.log('in goDown... distance:' + distance );
+				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-down.png";
+				$('#imageID').animate(
+					{top: 		"+=" + distance + "px"}, 
+					{duration:	ANIMATION_DURATION}
+				);
+			}
+			
+			//OUTPUT: animate left the given distance
+			var goLeft = function ( distance ) {
+				console.log('in goLeft... distance:' + distance );
+				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-left.png";
+				$('#imageID').animate(
+					{left: 		"-=" + distance + "px"}, 
+					{duration:	ANIMATION_DURATION}
+				);
+			}
+
+			//OUTPUT: animate right the given distance
+			var goRight = function ( distance ) {
+				console.log('in goRight... distance:' + distance );
+				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-right.png";
+				$('#imageID').animate(
+					{left: 		"+=" + distance + "px"}, 
+					{duration:	ANIMATION_DURATION}
+				);
+			}
+			
+			//OUTPUT: output the message inside #outputID
+			var sayMessage = function () {
+				console.log('in sayMessage' );
+				document.getElementById('outputID').innerHTML	= "Don't click on me!";
+			}
+			
+			//INPUT: remove the mouseover
+			var stopThisFoolishness = function () {
+				//document.getElementById("imageID").removeEventListener("mouseover", mainProcedure( event ), false);
+				document.getElementById("imageID").onmouseover = "";
+			}
+		</script>
+		<style>
+			img {
+				position:	absolute;
+				width:		80px;
+				top:		50%;
+				left:		50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2 id="outputID">Poor Link is shy! Click on him to see what happens...
+			<img
+				id="imageID"
+				onmouseover="mainProcedure( event )"
+				onclick="sayMessage();"
+				src="http://drapak.ca/cpg/img/link-down.png" />
+			<button onclick="stopThisFoolishness()">Stop the mouseover</button>
+		</h2>
+	</body>
+</html>

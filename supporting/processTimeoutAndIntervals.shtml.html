@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc4 {
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc10 {
+	font-style: italic;
+	background: #FEFDE0;
+}
+.sc11 {
+	color: #0000FF;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"viewport"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"width=device-width, initial-scale=1"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Computer Programming 12: PROCESS - Timeout and intervals</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how use Javascript's timers and intervals"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"keywords"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--#include virtual="/stylesandscripts.html" --&gt;</span><span class="sc0">   
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                27. Oct     - created!
+            --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//PROCESS: delay for 2 seconds</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">delayedMessage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">setTimeout</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">displayNewButton</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc45">2000</span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: change the button text</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayNewButton</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'buttonID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Look! I'm a totally different button!"</span><span class="sc41">             
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"questionLoader();"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/masthead.html" --&gt;</span><span class="sc0">   
+        
+        </span><span class="sc1">&lt;header&gt;</span><span class="sc0">
+            //PROCESS: </span><span class="sc1">&lt;em&gt;</span><span class="sc0">Timeout and intervals</span><span class="sc1">&lt;/em&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/header&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;article&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;h2</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"newcode"</span><span class="sc1">&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">New code</span><span class="sc10">&amp;gt;</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">setTimeout( </span><span class="sc1">&lt;var&gt;</span><span class="sc0">functionName</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">, </span><span class="sc1">&lt;var&gt;</span><span class="sc0">numberOfMilliseconds</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">);</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc10">&amp;mdash;</span><span class="sc0"> triggers </span><span class="sc1">&lt;var&gt;</span><span class="sc0">functionName</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> after </span><span class="sc1">&lt;var&gt;</span><span class="sc0">numberOfMilliseconds</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> has elapsed</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"langstyle"</span><span class="sc1">&gt;</span><span class="sc0">//PROCESS:</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">setInterval( </span><span class="sc1">&lt;var&gt;</span><span class="sc0">functionName</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">, </span><span class="sc1">&lt;var&gt;</span><span class="sc0">numberOfMilliseconds</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">);</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"indent"</span><span class="sc1">&gt;</span><span class="sc10">&amp;mdash;</span><span class="sc0"> triggers </span><span class="sc1">&lt;var&gt;</span><span class="sc0">functionName</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> repeatedly every </span><span class="sc1">&lt;var&gt;</span><span class="sc0">numberOfMilliseconds</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Delaying actions</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">           
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                There are plenty of times that you would like your program to wait before continuing.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">For example:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonID"</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"delayedMessage();"</span><span class="sc1">&gt;</span><span class="sc0">Click me and wait two seconds</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Adding strings together</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                String addition is called </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">concatenation</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">.
+                In it's basic form it is very similar to adding numbers:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newString</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> = </span><span class="sc1">&lt;var&gt;</span><span class="sc0">"Hello"</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> + </span><span class="sc1">&lt;var&gt;</span><span class="sc0">" "</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> + </span><span class="sc1">&lt;var&gt;</span><span class="sc0">"Kitty!"</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">;
+// newString now contains "Hello Kitty!"
+// Note that we had to add in the space character in between the words</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">This is also a way to concatenate strings:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var </span><span class="sc1">&lt;var&gt;</span><span class="sc0">newString</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> = </span><span class="sc1">&lt;var&gt;</span><span class="sc0">"Hello"</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">.concat(" Kitty!")</span><span class="sc1">&lt;/var&gt;</span><span class="sc0">;
+// newString now contains "Hello Kitty!"</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Common problems</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Nested quotes</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                You can use either single quotes </span><span class="sc1">&lt;code&gt;</span><span class="sc0">''</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> or double quotes </span><span class="sc1">&lt;code&gt;</span><span class="sc0">""</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> to create strings.
+                Javascript will put anything between the two quotes inside the string.
+                So these two statements below </span><span class="sc1">&lt;strong&gt;&lt;/strong&gt;</span><span class="sc0">are exactly the same</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var frenchGreeting = "Bonjour!";
+var frenchGreeting = 'Bonjour!';</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                However, Javascript will throw an error if the string surrounded by quotes contains the same kind of quote.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                There are a couple ways around this.
+                One is to escape the quotes in the string with an </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">escape character</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">, 
+                which in Javascript is a backslash: </span><span class="sc1">&lt;code&gt;</span><span class="sc0">\</span><span class="sc1">&lt;/code&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var brokenString = 'It's a beautiful day...';
+// brokenString will cause an error because of the apostrophe in "it's"
+
+var workingString   = 'It</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"withborder"</span><span class="sc1">&gt;</span><span class="sc0">\</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">'s a beautiful day...';
+// The escape character tells Javascript to read the apostrophe as part of the string</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                Another way to deal with this is to surround the quote with a different kind of quotation mark:
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var brokenString = 'It's a beautiful day...';
+var workingString   = </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"withborder"</span><span class="sc1">&gt;</span><span class="sc0">"</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">It's a beautiful day...</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"withborder"</span><span class="sc1">&gt;</span><span class="sc0">"</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">;</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">A common example:</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">document.getElementById('outputID').innerHTML = "</span><span class="sc10">&amp;lt;</span><span class="sc0">strong id="strongID"&gt;You win!</span><span class="sc10">&amp;lt;</span><span class="sc0">/strong&gt;";
+// fail
+
+document.getElementById('outputID').innerHTML = "</span><span class="sc10">&amp;lt;</span><span class="sc0">strong id=\"strongID\"&gt;You win!</span><span class="sc10">&amp;lt;</span><span class="sc0">/strong&gt;";
+// win!</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Adding strings and numbers together</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                If you add a number and a string together, it will add them both together like strings.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var answer = 4 + 8;
+// answer now holds 12
+
+var answer = '4' + 8;
+// answer now holds '48'
+
+var newSize = 16 + '10px';
+// newSize now holds '1610px'</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Converting strings to numbers</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                In order to around the string to number addition problem, it is handy to convert strings to numbers.
+                This is especially important when you read information from an 
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">input&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> value or from a </span><span class="sc1">&lt;code&gt;</span><span class="sc0">.style</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> property of an element.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                We can use two special function to extract numbers from strings:
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">parseInt()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> for extracting integers,
+                and </span><span class="sc1">&lt;code&gt;</span><span class="sc0">parseFloat()</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> for extracting floating decimal numbers.
+                The words </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">parse</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> means to extract information from some data.
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;pre&gt;&lt;code&gt;</span><span class="sc0">var parsedDecimal = parseFloat( '3.141592654 is a rough approximation of pi' );
+// parsedDecimal now holds 3.141592654
+
+var parsedInteger = parseInt( '3.141592654 is a rough approximation of pi' );
+// parsedInteger now holds 3
+
+var newSize = 16 + parseInt( '10px' );
+// newSize now holds 26
+
+var newSize = (16 + parseInt( '10px' ) ) + 'px';
+// newSize now holds '26px'</span><span class="sc1">&lt;/code&gt;&lt;/pre&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Check your understanding</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = 8 + 12;</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"answer contains 20"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = 8 + '10px';</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"answer contains '810px'"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = 'Hello world' - 'world';</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"Trick question: string substraction causes an error"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = ( 8 + 10 ) + 'px';</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"answer contains '18px'"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = 'Hello' + 'Kitty';</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"answer contains 'HelloKitty'"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = 'Today is ' + 'St. Patrick's day';</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"Trick question: the apostrophe in St. Patrick's day causes an error"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+                What is inside </span><span class="sc1">&lt;var&gt;</span><span class="sc0">answer</span><span class="sc1">&lt;/var&gt;</span><span class="sc0"> in the following example:</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;code&gt;</span><span class="sc0">var answer = parseInt('9.8 m/s2');</span><span class="sc1">&lt;/code&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"question"</span><span class="sc8"> </span><span class="sc4">data-answer</span><span class="sc8">=</span><span class="sc6">"answer contains 9"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+
+            </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Learn more</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    Khan Academy's
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"https://www.khanacademy.org/computing/computer-programming/programming/text-basics/p/terrific-text-part-one"</span><span class="sc1">&gt;</span><span class="sc0">
+                        Text and strings
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+                    w3schools.com's
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"http://www.w3schools.com/jsref/jsref_concat_string.asp"</span><span class="sc1">&gt;</span><span class="sc0">
+                        JavaScript String concat() Method
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0"> and
+                    </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"http://www.w3schools.com/js/js_strings.asp"</span><span class="sc1">&gt;</span><span class="sc0">
+                        JavaScript Strings
+                    </span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+                </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;/ul&gt;</span><span class="sc0">
+            
+            </span><span class="sc9">&lt;!--
+
+            &lt;h2&gt;For example&lt;/h2&gt;
+            
+            &lt;p&gt;...is created with the following code:&lt;/p&gt;
+            
+            &lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+            --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/article&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/footer.html" --&gt;</span><span class="sc0">     
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

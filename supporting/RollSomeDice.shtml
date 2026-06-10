@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Roll some dice</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript roll some dice">
+		<meta name="author" content="Dave Drapak">
+
+		<!--
+			Change log:
+				
+				21. October 2018	- created									- Drapak
+		-->
+
+		<style>
+			#imageId {
+				width:		100px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			Mouse over the question mark to roll a die...<br>
+			<img 
+				id='imageId' 
+				alt='random images will appear here' 
+				src='https://www.kasandbox.org/programming-images/avatars/questionmark.png'>
+		</p>
+			
+ 		<script>
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				//PROCESS: generate a random number
+				var randomNumber = Math.ceil( Math.random() * 6 );
+				
+				//IF: the number is 1
+				if ( randomNumber == 1 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/avatars/mr-pants.png';
+						
+				//IF: the number is 2						
+				} else if ( randomNumber == 2 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/avatars/old-spice-man.png';
+						
+				//IF: the number is 3						
+				} else if ( randomNumber == 3 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/avatars/orange-juice-squid.png';
+						
+				//IF: the number is 4						
+				} else if ( randomNumber == 4 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/creatures/Hopper-Jumping.png';
+						
+				//IF: the number is 5						
+				} else if ( randomNumber == 5 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/avatars/leafers-tree.png';
+						
+				//IF: the number is 6						
+				} else if ( randomNumber == 6 ) {
+					//OUTPUT: change the source of #imageId to 
+					document.querySelector( '#imageId' ).src
+						= 'https://www.kasandbox.org/programming-images/space/octopus.png';						
+				} 
+			}
+			
+			document.querySelector( '#imageId' ).onmouseover	= mainProcedure;
+		</script>
+	</body>
+</html>

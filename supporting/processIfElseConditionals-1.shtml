@@ -1,0 +1,31 @@
+<body>
+	<h4>What will you feed me? Hint: I really love cereal!</h4>
+	<p>
+		<input id="inputId" type="text" />
+		<button id="buttonId">Feed me!</button>
+	</p>
+
+	<script>
+		// This checks to see if I am happy based on what was entered
+		var amIHappy = function () {
+			//INPUT: read what was typed in
+			var inputFood	= document.querySelector( '#inputId' ).value;
+			
+			//IF: they typed in the string "cereal"
+			if ( inputFood == 'cereal' ) { 
+				//OUTPUT: pop up a joyful message
+				alert( 'This is the best thing EVER!' );
+
+			//ELSE: anything else was typed in
+			} else { 
+				//OUTPUT: pop up a woeful message
+				alert( 'This is the WORST thing ever!' );
+			}
+		}
+		
+		//INPUT: trigger amIHappy when #buttonId is clicked 
+		//	or when #inputId is changed
+		document.querySelector( '#buttonId' ).onclick	= amIHappy;
+		document.querySelector( '#inputId' ).onchange	= amIHappy;
+	</script>
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Stylish people make stylish code!</TItle>
+	</head>
+	<body>
+		<H1>Hello world!</h1>
+		<p>Look - I'm a programming <strong>superstar</str0ng>!</p>
+		
+<h2>My favourite website< /h2>
+		<p>
+			The website I visit most often is:
+			<a hReF="http://cbc.ca">CBC.ca</a>
+		</p>
+</P>
+	
+	<H3>An awesome image</h3>
+		<imG src="http://imgs.xkcd.com/comics/sandwich.png"></img>
+	</body>
+</html>

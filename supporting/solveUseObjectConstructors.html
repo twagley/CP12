@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>Random Monster Swarm</title>
+		<meta name="description" content="Random monster swarm">
+		<meta name="author" content="AJ Pardy">
+		<!--
+			Change log:
+				Created:	5. May 2017												- Drapak
+				Modified:	
+							
+				Finished:	
+		-->
+ 		
+	    <style>
+            img {
+                position: absolute;
+				width: 30px;
+			}
+        </style>
+		<script 
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+		</script>
+    </head>
+    <body>
+		<h2>Oh no! A swarm is coming! Each click adds another random monster!</h2>
+		<p>
+			Current mouse position:<br>
+			Top: 
+			<span id="topID"></span> 
+			Left: 
+			<span id="leftID"></span>.
+		</p>
+		
+        <div id="outputID"></div>
+		
+        <script>
+			//INIT: create the array to hold all the Monster objects
+			var monsterArr = [];
+			
+			//INIT: these variables hold the current cursor position
+			var cursorX;
+			var cursorY;
+		
+			//INIT Object constructor: Monster
+			//
+			// var aMonster = new Monster( monsterNumber );
+			//
+			// Properties:	
+			//		.top
+			//		.left
+			//		.id
+			//		.speed
+			//		.sourceArr
+			//
+			// Methods:
+			//		.chooseDirection();
+			//		.changeImageDirection( 0-3 );
+			//		.goDown();
+			//		.goUp();
+			//		.goLeft();
+			//		.goRight();
+			//		.placeImage();
+			//
+            var Monster = function ( myMonsterNumber ) {
+				console.log("ITS ALIVE! Monster# =" + myMonsterNumber );
+				
+				//INIT: set up the initial variables for this Monster
+				//
+				// current top and left position of the mouse
+				// in pixels
+				this.top			= cursorY;				
+				this.left			= cursorX;
+								
+				// set the id of this monster
+				this.id		= 'image' + myMonsterNumber + 'ID';
+				
+				// give this monster a random speed from 1-90 px per turn
+				this.speed	= Math.ceil(Math.random() * 90) + "px";
+				
+				// array with the list of possible star images in it
+				this.sourceArr	= [
+					"http://drapak.ca/cpg/img/pacman/pacmanBlinkyDown0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanBlinkyUp0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanBlinkyRight0.png"
+				];
+
+				//PROCESS: move the Monster in a random direction
+				this.chooseDirection = function () {
+					//console.log( 'in Monster.chooseDirection...' );
+					var direction = Math.floor(Math.random() * 4);
+					
+					if ( direction == 0 ) {
+						this.goDown();
+					} else if ( direction == 1 ) {
+						this.goUp();
+					} else if ( direction == 2 ) {
+						this.goLeft();
+					} else {
+						this.goRight();
+					}
+				};
+				
+				//OUTPUT: changes the current image depending on the index of sourceArr
+				this.changeImageDirection = function ( imageIndex ) {
+					//console.log('in Monster.changeImageDirection:imageIndex=' + imageIndex);
+					document.getElementById(this.id).src 	= this.sourceArr[ imageIndex ];
+				};
+
+				//OUTPUT: 	1) change the monster's image
+				//			2) move this monster DOWN
+				//			3) choose a new direction when done
+				this.goDown = function () {
+					//console.log("in Monster.goDown...");
+					
+					//ugly hack so that 'this' can work inside start & complete
+					var self	= this;
+					
+					$("#" + this.id).animate(
+						{top: "+=" + this.speed}, 
+						{start: 	function () { 
+										self.changeImageDirection( 0 ); 
+									},
+						complete: 	function () {
+										self.chooseDirection();
+									}
+						}
+					);
+				};
+				
+				//OUTPUT: 	1) change the monster's image
+				//			2) move this monster UP
+				//			3) choose a new direction when done
+				this.goUp = function () {
+					//console.log("in Monster.goUp...");
+					
+					//ugly hack so that 'this' can work inside start & complete
+					var self	= this;
+
+					$("#" + this.id).animate(
+						{top: "-=" + this.speed}, 
+						{start: 	function () { 
+										self.changeImageDirection( 1 ); 
+									},
+						complete: 	function () {
+										self.chooseDirection();
+									}
+						}
+					);
+				};
+				
+				//OUTPUT: 	1) change the monster's image
+				//			2) move this monster LEFT
+				//			3) choose a new direction when done
+				this.goLeft = function () {
+					//console.log("in Monster.goLeft...");
+					
+					//ugly hack so that 'this' can work inside start & complete
+					var self	= this;
+
+					$("#" + this.id).animate(
+						{left: "-=" + this.speed}, 
+						{start: 	function () { 
+										self.changeImageDirection( 2 ); 
+									},
+						complete: 	function () {
+										self.chooseDirection();
+									} 
+						}
+					);
+				};
+				
+				//OUTPUT: 	1) change the monster's image
+				//			2) move this monster RIGHT
+				//			3) choose a new direction when done
+				this.goRight = function () {
+					//console.log("in Monster.goRight...");
+					
+					//ugly hack so that 'this' can work inside start & complete
+					var self	= this;
+
+					$("#" + this.id).animate(
+						{left: "+=" + this.speed}, 
+						{start: 	function () { 
+									self.changeImageDirection( 3 ); 
+									},
+						complete: 	function () {
+										self.chooseDirection();
+									} 
+						}
+					);
+				}
+
+				//OUTPUT: add a new image to the outputID
+				this.placeImage = function () {
+					//console.log( 'in Monster.placeImage...' );
+
+					var newImage 		= document.createElement("img");
+					newImage.src 		= this.sourceArr[ 0 ];
+					newImage.id			= this.id;
+					newImage.style.top 	= this.top + 'px';
+					newImage.style.left	= this.left + 'px';
+					
+					document.getElementById( 'outputID' ).appendChild( newImage );
+				};
+            }
+
+			//OUTPUT: display the current mouse position
+			var displayPosition = function () {
+				//console.log( 'in Monster.displayPosition...' );
+
+				document.getElementById('topID').innerHTML 	= cursorX;
+				document.getElementById('leftID').innerHTML	= cursorY;
+			};
+
+ 			
+            //INPUT: whenever the mouse is clicked
+            document.onmousedown = function () {
+				// find out how many monsters there currently are
+				monsterIndex	=monsterArr.length;
+				
+				// create a new monster using the current number of monsters as the index
+				// to the monsterArr, then place it and choose a direction to move
+				monsterArr[ monsterIndex ]	= new Monster( monsterIndex );
+				monsterArr[ monsterIndex ].placeImage();
+				monsterArr[ monsterIndex ].chooseDirection();
+				
+            }
+
+			//INPUT: this constantly updates and stores the current mouse position
+			document.onmousemove = function( event ){
+				cursorX = event.clientX;
+				cursorY = event.clientY;
+				
+				displayPosition();
+			}
+        </script>
+    </body>
+</html>

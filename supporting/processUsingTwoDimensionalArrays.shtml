@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Using two dimensional arrays and nested loops</title>
+		<meta name="description" content="Learn how use two dimensional arrays and nested loops">
+		<meta name="author" content="Dave Drapak">
+		<style>
+    		.outputClass div {
+				position: 	fixed;
+				width: 		30px;
+				height: 	30px;
+				border: 	1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="outputClass" id="outputID"></div>
+		<p>
+			<button id="buttonID">
+				Click to create a grid using two dimensional arrays
+			</button>
+		</p>
+		
+		<script>
+			// INIT: initialize the array that holds the grid pattern
+            // Complex data structures combine arrays and objects 
+            // This one is an array of arrays -- a two-dimensional array
+			// In this example, the array holds a bitmap smiley face
+			
+    		var imageGridArr	=[	// rows 0-7, columns 0-8
+				[0,1,1,1,1,1,1,1,0], // row 0 = mazeArr [ 0 ]
+				[1,0,0,0,0,0,0,0,1], // row 1 = mazeArr [ 1 ]
+				[1,0,1,0,0,0,1,0,1], // row 2 = mazeArr [ 2 ]
+				[1,0,0,0,0,0,0,0,1], // row 3 = mazeArr [ 3 ]
+				[1,0,1,0,0,0,1,0,1], // row 4 = mazeArr [ 4 ]
+				[1,0,0,1,1,1,0,0,1], // row 5 = mazeArr [ 5 ]
+				[1,0,0,0,0,0,0,0,1], // row 6 = mazeArr [ 6 ]
+				[0,1,1,1,1,1,1,1,0]  // row 7 = mazeArr [ 7 ]
+			];
+
+			var mainProcedure = function () {	// triggered by button
+				console.log("in mainProcedure...");
+				
+				var gridCode	= createGridCode( imageGridArr );
+				outputGridCode( gridCode );
+			}
+			
+            //PROCESS: 	This uses a nested loop to create the HTML code 
+			//			to place the <div>s in the correct row and column
+			var createGridCode = function ( gridArr ) { 
+				console.log("in createGridCode..." + gridArr);
+
+				var gridCode = ""; //define a string to hold all the HTML for the grid
+
+				// loop through each row of the array...
+				for ( row in gridArr ) {
+					// loop through each column of this array row
+					for ( column in gridArr [ row ] ) {		
+					
+						var divStyle = "";	// define an empty string to hold the div style
+						
+						// if the array holds 0, then use a black background
+						if ( gridArr[ row ][ column ] == 0 ) {		
+							divStyle = "background-color: black;"
+						// if the array holds 1, then use a white background
+						} else {									
+							divStyle = "background-color: white;"
+						}
+					
+						// combine the elements to create HTML code. EXAMPLE: 
+						// 	
+						//	<div style='color: white; background-color: black; 
+						//		top: 30px; left: 30px;'>
+						//	</div>
+						gridCode = gridCode 
+							+ "<div style='"
+							+ divStyle
+							+ "top: "
+							// calculate a position for each cell being 30px tall
+							+ row * 30		
+							+ "px; left: "
+							// calculate a position for each cell being 30px wide
+							+ column * 30 	
+							+"px;'></div>"
+					}
+				}
+
+				return gridCode;	// return the HTML grid code from this function
+			}
+			
+
+		    //OUTPUT: this puts the grid information inside the div called outputID
+			var outputGridCode = function ( htmlCode ) {  
+				console.log( "in outputGridCode..." + htmlCode );
+				
+				document.getElementById("outputID").innerHTML = htmlCode;
+			}
+			
+			//INPUT: make the button trigger mainProcedure
+			document.getElementById('buttonID').onclick = mainProcedure;
+    	</script>
+	</body>
+</html>

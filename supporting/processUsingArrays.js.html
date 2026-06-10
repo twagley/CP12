@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	background: #F2F4FF;
+}
+.sc2 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc5 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc6 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc7 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc10 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+.sc11 {
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//INIT: create the string array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">stringArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc0">
+    </span><span class="sc6">"Red"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc6">"Orange"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc6">"Yellow"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc6">"Green"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc6">"Blue"</span><span class="sc10">,</span><span class="sc0">
+    
+    </span><span class="sc6">"Indigo"</span><span class="sc10">,</span><span class="sc0"> 
+    </span><span class="sc6">"Violet"</span><span class="sc0">
+</span><span class="sc10">];</span><span class="sc0">
+
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">listHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">stringArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">listHTML</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0"> 
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: join together the elements of stringArr into an HTML list
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">stringArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc2">// define an empty string to code the HTML code
+</span><span class="sc0">    
+    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;ol&gt;&lt;li&gt;"</span><span class="sc10">;</span><span class="sc0">                       </span><span class="sc2">// add the beginning of the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">stringArr</span><span class="sc10">.</span><span class="sc11">join</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">    </span><span class="sc2">// join together with more list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;&lt;/ol&gt;"</span><span class="sc10">;</span><span class="sc0">                     </span><span class="sc2">// add the end of the list code 
+</span><span class="sc0">    
+    </span><span class="sc2">// This could be done all in one step as:
+</span><span class="sc0">    </span><span class="sc2">// var outputString = "&lt;ol&gt;&lt;li&gt;" + stringArr.join( "&lt;/li&gt;&lt;li&gt;" ) + "&lt;/li&gt;&lt;/ol&gt;";
+</span><span class="sc0">    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: display the list inside the div called #outputID
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">getElementById</span><span class="sc10">(</span><span class="sc7">'outputID'</span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span></div></body>
+</html>

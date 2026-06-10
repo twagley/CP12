@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Choose your own adventure!</title>
+        <script>
+            //
+            // Inspired by: 
+            // https://en.wikibooks.org/wiki/Choose_Your_Own_Pyventure
+            //
+			// node OBJECT
+			// properties:
+            // 		the node data object for a choose your own adventure
+            // 		looks like this:
+            //
+            // 		nodeName: {
+            // 		     description: "Description to display",
+            //      		choices: {
+            //          		'Choice description 1': 'resultNode1'  
+            //          		'Choice description 2': 'resultNode2'  
+            //          		'Choice description 3': 'resultNode3'  
+            //      		}
+            // 			}
+			//
+			//		node.start
+			//		node.openDoor
+			//		node.walkDownCorridor
+			//		node.leanAgainstDoor
+			//		node.stayHere
+			//
+			// methods:
+			//		node.displayNode( nameOfNodeToDisplay );
+			//
+            var node = {
+                    start: {
+                        description: "You see a door.",
+                        choices: {
+                            'Open the door': 'openDoor',
+                            'Stay here and do nothing': 'stayHere'
+                        }
+                    },
+                    openDoor: {
+                        description: "You see a corridor ahead",
+                        choices: {
+                            'Walk down the corridor': 'walkDownCorridor',
+                            'Lean against door': 'leanAgainstDoor'
+                        }
+                    },
+                    walkDownCorridor: {
+                        description: "You walk down the corridor, "
+                                    + "find $20 and go for lunch",
+                        choices: {
+                            'Start again': 'start'
+                        }
+                    },
+                    leanAgainstDoor: {
+                        description: "You lean against the door. " 
+                                    + "You get a tiny sliver that you do not " 
+                                    + "take care of and you die.",
+                        choices: {
+                            'Start again': 'start'
+                        }
+                    },
+                    stayHere: {
+                        description: "You eventually run out of food and pass out.",
+                        choices: {
+                            'Start again': 'start'
+                        }
+                    },
+                    
+                    // display the description and choices for
+                    // this node of the adventure
+                    displayNode: function ( node ) {
+						// OUTPUT: display the description of this node
+                        document.getElementById("descriptionID").innerHTML = this[node].description;
+                        
+						// PROCESS: create the buttons for each possible choice for this node
+                        // create a variable to hold the button code
+                        var buttonHTML = "";
+                        
+                        // loop through each choice for this node
+                        for (i in this[node].choices) {
+                            // and create a button for this choice 
+                            buttonHTML = buttonHTML
+                                + "<button onclick='node.displayNode(\""
+                                + this[node].choices[i]
+                                + "\");'>"
+                                + i
+                                + "</button> "
+                        }
+						
+                        // OUTPUT: display all the buttons
+                        document.getElementById("choicesID").innerHTML = buttonHTML;
+                    }
+                };
+            
+			// triggered when the page has finished loading
+            var mainProcedure = function () {
+                node.displayNode('start');
+            }       
+        </script>
+        <style>
+            body {
+                color: grey;
+                background-color: black;
+            }
+            #descriptionID {
+                color: pink;
+            }
+            button {
+                color: lightGrey;
+                background-color: black;
+                border: 1px solid lightGrey;
+            }
+            
+        </style>
+    </head>
+    <body onload="mainProcedure()">
+        <h1>The scary door!</h1>
+        <h2>A choose your own adventure</h2>
+        <hr />
+        <div id="descriptionID"></div>
+        <hr />
+        <div id="choicesID"></div>
+    </body>
+</html>

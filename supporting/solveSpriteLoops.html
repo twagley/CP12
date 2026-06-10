@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Image loops</title>
+		
+		<!-- load jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+			// ghost OBJECT
+			// ghost properties:
+			//		ghost.element
+			//		ghost.speed
+			//		ghost.duration
+			//
+			//		ghost.lookDownArr
+			//		ghost.lookUpArr
+			//		ghost.lookLeftArr
+			//		ghost.lookRightArr
+			//
+			//		ghost.currentSpritesArr
+			//		ghost.currentSpriteIndex
+			//
+			// ghost methods
+			//		ghost.setID()
+			//		ghost.changeSpriteImage()
+			//		ghost.goUp()
+			//		ghost.goDown()
+			//		ghost.goLeft()
+			//		ghost.goRight()
+			//
+            var ghost = {
+                element:    	null,			// the element to animate
+				speed:			300,			// the distance to move with each animation
+                duration:      	1000,			// the amount of time to move with each animation
+				
+				lookDownArr:	[				// sprite links for looking down
+					"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash1.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash3.png",
+				],
+				
+				lookUpArr: [					// sprite links looking up
+					"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanInkyUp1.png"
+				],
+				
+				lookLeftArr: [					// sprite links looking left
+					"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft1.png"
+				],
+				
+				lookRightArr: [					// sprite links looking right
+					"http://drapak.ca/cpg/img/pacman/pacmanMoveRight2.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanMoveRight0.png",
+					"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png",
+				],
+				
+				currentSpritesArr:	null,		// the current sprite array being used
+				currentSpriteIndex:	0,			// stores the index of the current sprite...
+                
+                // INIT: get the element containing the ghost
+                setID: function ( id ) {
+                    this.elementID	= id;
+                },
+				
+				//PROCESS+OUTPUT: loop to the next sprite...
+				changeSpriteImage: function () {
+					var spriteArr			= this.currentSpritesArr;
+					var maxIndex			= spriteArr.length - 1;	// record the maximum length of the current array of sprites
+
+					this.currentSpriteIndex = this.currentSpriteIndex + 1;		// move on to the next sprite image
+					
+					if ( maxIndex < this.currentSpriteIndex ) {					// if the current sprite number is greater than the number in the array,
+						this.currentSpriteIndex	= 0;							// then start again at zero
+					}
+					
+					document.getElementById( this.elementID ).src 				// change the element to the next image...
+						= spriteArr[ this.currentSpriteIndex ];
+				},
+				
+                // OUTPUT: animate upwards
+                goUp:   function () {
+					var self = this;						// copy 'this' so it does not get lost when 'start:' is triggered
+					
+					$( '#' + this.elementID ).animate(
+						{ top:			'-=' + this.speed + 'px' },
+						{ start:		function () { 		// set the current sprites to looking up before the animation starts
+											self.currentSpritesArr = self.lookUpArr; 
+										},
+						  duration:		this.duration, 
+						  easing:		'linear' }
+					);
+                },
+				
+                // OUTPUT: animate downwards
+                goDown:   function () {
+					var self = this;						// copy 'this' so it does not get lost when 'start:' is triggered
+					
+					$( '#' + this.elementID ).animate(
+						{ top:			'+=' + this.speed + 'px' },
+						{ start:		function () { 		// set the current sprites to looking up before the animation starts
+											self.currentSpritesArr = self.lookDownArr; 
+										},
+						  duration:		this.duration, 
+						  easing:		'linear' }
+					);
+                },
+				
+                // OUTPUT: animate leftwards
+                goLeft:   function () {
+					var self = this;						// copy 'this' so it does not get lost when 'start:' is triggered
+					
+					$( '#' + this.elementID ).animate(
+						{ left:			'-=' + this.speed + 'px' },
+						{ start:		function () { 		// set the current sprites to looking up before the animation starts
+											self.currentSpritesArr = self.lookLeftArr; 
+										},
+						  duration:		this.duration, 
+						  easing:		'linear' }
+					);
+                },
+				
+                // OUTPUT: animate rightwards
+                goRight:   function () {
+					var self = this;						// copy 'this' so it does not get lost when 'start:' is triggered
+					
+					$( '#' + this.elementID ).animate(
+						{ left:			'+=' + this.speed + 'px' },
+						{ start:		function () { 		// set the current sprites to looking up before the animation starts
+											console.log('in goright begin' )
+											self.currentSpritesArr = self.lookRightArr; 
+										},
+						  duration:		this.duration, 
+						  easing:		'linear' }
+					);
+                }
+            }			
+			
+			// this sets up the animation sprite looper
+			var imageLoop = setInterval( 
+				function () {
+					ghost.changeSpriteImage();
+				}, 80
+			);
+
+			// set up a series of animations
+			// this is triggered when the page is finished loading and when the button is pressed
+			var mainProcedure = function () {
+				ghost.setID( 'animateID' );		// register the ID of the ghost object
+				
+				ghost.goUp();
+				ghost.goLeft();
+				ghost.goDown();
+				ghost.goRight();
+			}
+			
+        </script>
+        <style>
+            body {
+                background-color:	darkBlue;
+            }
+            #animateID {
+                position:   		absolute;
+				opacity:			1;
+				width:				50px;
+                top:        		400px;
+                left:       		400px;
+            }
+        </style>
+    </head>
+    <body onload="mainProcedure();">
+		<img 
+            id="animateID"
+			src="http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png" />
+		<p>
+			<button onclick="mainProcedure();">One more time!</button>
+		</p>
+    </body>
+</html>

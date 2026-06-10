@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>A visual clock</title>
+		
+		<!-- link to jQuery for animations -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+			// clock OBJECT
+			//	properties:
+			//		clock.timeProperties
+			//
+			//		clock.year
+			//		clock.month
+			//		clock.day
+			//		clock.hour
+			//		clock.minute
+			//		clock.second
+			//
+			//		clock.maximum
+			//
+			//		clock.width
+			//		clock.height
+			//		clock.screen
+			//		clock.centreLeft
+			//		clock.centerTop
+			//
+			//	methods:
+			//		clock.getTime()
+			//		clock.padZero()
+			//		clock.displayText()
+			//		clock.calculateCenters()
+			//		clock.displayOrrery()
+			//
+            var clock = {
+				// an array to hold the list of time units
+                timeProperties: [
+                    "year",
+                    "month",
+                    "day",
+                    "hour",
+                    "minute",
+                    "second"
+                ],
+                    
+                // store the current time information
+                second:    0,
+                minute:    0,
+                hour:      0,
+                day:       0,
+                month:     0,
+                year:      0,
+                
+                // store the maximums for each time measure
+                maximum: {
+                    second:    60,
+                    minute:    60,
+                    hour:      24,
+                    day:       31,
+                    month:     12,
+                    year:      3000
+                },
+                
+                // INIT: define the screen dimensions
+                width:          window.innerWidth - 20,
+                height:         window.innerHeight - 20,
+                screen:         Math.min( window.innerWidth, window.innerWidth ),
+                centerLeft:     0,
+                centerTop:      0,
+                                    
+                // INPUT: get and store the current time information
+                getTime: function () {
+                    var dateObject = new Date();
+                    
+                    this.hour       = dateObject.getHours();
+                    this.minute     = dateObject.getMinutes();
+                    this.second     = dateObject.getSeconds();
+                    
+                    this.month      = dateObject.getMonth() + 1;
+                    this.day        = dateObject.getDate();
+                    this.year       = dateObject.getFullYear();
+                },
+                
+                // PROCESS: adds a zero to the front of hrs, secs, mins 
+                padZero: function ( number ) {
+                    var padded = "0" + number; 
+                    return padded.substr(padded.length - 2, 2);
+                },
+				
+                // OUTPUT: displays the current time as text
+                displayText: function () {
+                    // loop through each time property
+                    for (i in this.timeProperties) {
+                        // display the stored time inside the correct #ID 
+                        document.getElementById( this.timeProperties[i] + 'ID' ).innerHTML 
+                            = this.padZero( this[ this.timeProperties[i] ] );
+                    }
+                },
+                
+				// PROCESS: this calculates the center of the page					
+                calculateCenters: function () {
+                    this.centerLeft = this.width / 2;
+                    this.centerTop = this.height / 2;
+                },
+                
+				// PROCESS: calculate the new position of this circle marker
+				calculatePosition: function ( currentValue, maximumValue, unitRank) {
+					// define position as an empty object
+					var position	= {};
+					
+					// calculate the ratio of the current unitRank
+					// this will be how far around the circle the marker is
+					// for example, if it is 05:23:19
+					// hours ratio = 5/24, minutes ratio = 23/60, seconds ratio = 19/60
+					var ratio 		= currentValue / maximumValue;
+					
+					// calculate how far the marker is out from the centre
+					// the year is closest to the centre, seconds are furthermost
+					var radius 		= this.screen / 4 * unitRank / 5.6;
+										
+					// calculate the top and left positions based on the:
+					//		radius
+					//		centre coordinates
+					//		ratio
+					position.top	= this.centerTop 	+ radius	* Math.sin( 2 * Math.PI * ratio - Math.PI / 2);		
+					position.left	= this.centerLeft 	+ radius	* Math.cos( 2 * Math.PI * ratio - Math.PI / 2 );
+                        
+					return position;
+				},
+				
+                // OUTPUT: displays the orrery
+                displayOrrery: function () {
+                    // loop through each time property
+                    for (i in this.timeProperties) {
+						// get the new position
+						var position	= this.calculatePosition( 
+											this[ this.timeProperties[i] ], 
+											this.maximum[ this.timeProperties[i] ], 
+											i 
+										);
+										
+                        //animate to the new positions
+                        $( '#' + this.timeProperties[i] + 'PlanetID' ).animate(
+							{	top: 		position.top + 'px',
+								left: 		position.left + 'px' },
+							{	duration: 	800,
+								easing: 	'linear' }
+                        );
+                    }
+                }
+            }
+
+            // tick along changing things every second
+            setInterval( function () {
+                clock.getTime();
+                clock.displayText();
+                clock.displayOrrery();
+                }, 1000
+			);
+                
+			// triggered when the page has finished loading
+            var mainProcedure = function () {
+                clock.calculateCenters()
+            }
+        </script>
+        <style>
+            body {
+                background-color:   black;
+                color:              #444444;
+                font-family:        "Consolas", monospace;
+                font-size:          30px;
+                text-align:         left;
+            }
+            div {
+                position:   absolute;
+                top:            50%;
+                left:           50%;
+                height:         16px;
+                width:          16px;
+                border-radius:  8px;
+            }
+            #yearPlanetID {
+                background-color:   #222222;
+            }
+            #yearID {
+                color:              #222222;
+            }
+            #monthPlanetID {
+                background-color:   #444444;
+            }
+            #monthID {
+                color:              #444444;
+            }
+            #dayPlanetID {
+                background-color:   #666666;
+            }
+            #dayID {
+                color:              #666666;
+            }
+            #hourPlanetID {
+                background-color:   #888888;
+            }
+            #hourID {
+                color:              #888888;
+            }
+            #minutePlanetID {
+                background-color:   #aaaaaa;
+            }
+            #minuteID {
+                color:              #aaaaaa;
+            }
+            #secondPlanetID {
+                background-color:   #cccccc;
+            }
+            #secondID {
+                color:              #cccccc;
+            }
+        </style>
+    </head>
+    <body onload="mainProcedure();">
+        <p>
+            A visual<br />clock<br />
+            <span id="yearID"></span>
+            <span id="monthID"></span>
+            <span id="dayID"></span>
+            <br />
+            <span id="hourID"></span>
+            <span id="minuteID"></span>
+            <span id="secondID"></span>
+            
+        </p>
+
+        <div id="yearPlanetID"></div> 
+        <div id="monthPlanetID"></div> 
+        <div id="dayPlanetID"></div> 
+
+        <div id="hourPlanetID"></div>
+        <div id="minutePlanetID"></div> 
+        <div id="secondPlanetID"></div> 
+
+    </body>
+</html>
