@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>Parts of a Web Page</title>
+		<meta name="description" content="This page shows how to make a table">
+		<meta name="author" content="Dave Drapak">
+
+		<!--
+			Change log:	
+				8. August 2015	- created!
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<caption>All I know about pickles</caption>
+			<thead>
+				<tr>
+					<th>Pickle names</th>
+					<th>Average pickle rating</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Polski ogorki</td>
+					<td>9/10</td>
+				</tr>
+				<tr>
+					<td>Bread and butter</td>
+					<td>6/10</td>
+				</tr>
+				<tr>
+					<td>Banana peppers</td>
+					<td>3/10</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+

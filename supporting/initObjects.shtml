@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Computer Programming: INIT - Using objects</title>
+		<meta name="description" content="Learn how use objects in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				18. October 2015	- created									- Drapak
+				4. April 2017		- reworked to move script to tail			- Drapak
+				27. October 2018	- reworked style and clarified code			- Drapak
+		-->
+		<style>
+			input, button {
+				position: 		absolute;
+				left:			20em;
+			}
+			#outputId {
+				font-weight:	bold;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h2>Address maker</h2>
+		<p>
+			Please enter the address information into the blanks below:<br>
+			Name: 
+			<input id="nameId" type="text" value="Citadel High School"><br>
+			Street address: 
+			<input id="streetId" type="text" value="1855 Trollope Street"><br>
+			City: 
+			<input id="cityId" type="text" value="Halifax"><br>
+			Province: 
+			<input id="provinceId" type="text" value="Nova Scotia"><br>
+			Postal code: 
+			<input id="postalCodeId" type="text" value="B3H 0A4"><br>
+			<br>
+			<button id="buttonId">Click me!</button>
+		</p>
+		<p>
+			The address you entered was:<br><br>
+			<span id="outputId"></span>
+		</p>
+
+		<script>
+			//OUTPUT: display the HTML string inside #outputId
+			var outputAddress = function ( outputString ) {
+				console.log( 'in outputAddress, outputString=' + outputString );
+				
+				document.querySelector( '#outputId' ).innerHTML	= outputString;
+			}
+			
+			//PROCESS: accept an object, and then combine properties to make an HTML address
+			var createAddressString = function ( inputObj ) {
+				console.log( 'in createAddressString, inputObj:', inputObj );
+				
+				var outputString	= inputObj.name
+									+ "<br>"
+									+ inputObj.street
+									+ "<br>"
+									+ inputObj.city
+									+ "<br>"
+									+ inputObj.province
+									+ "<br>"
+									+ inputObj.postalCode;
+				return outputString;
+			}
+			
+			//INPUT: read the value of each input line and return an object the information
+			var getInput = function () {
+				console.log( 'in getInput...' );
+				
+				var inputObj	= {};
+				
+				inputObj.name			= document.querySelector( '#nameId' ).value;
+				inputObj.street			= document.querySelector( '#streetId' ).value;
+				inputObj.city			= document.querySelector( '#cityId' ).value;
+				inputObj.province		= document.querySelector( '#provinceId' ).value;
+				inputObj.postalCode		= document.querySelector( '#postalCodeId' ).value;
+				
+				return inputObj;
+			}
+			
+			//MAIN: make the functions connect the data together
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				var inputObj		= getInput();
+				var outputString	= createAddressString( inputObj );
+				outputAddress( outputString );
+			}
+			
+			//INPUT: trigger main procedure when #buttonId is clicked
+			document.querySelector( "#buttonId" ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

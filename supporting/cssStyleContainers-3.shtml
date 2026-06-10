@@ -1,0 +1,23 @@
+<head>
+	<style>
+		#floatingID {
+			width:				150px;
+			background-color:	lightGray;
+			color:				darkBlue;
+			border:				2px solid darkBlue;
+			position:			relative;
+			top:				50px;
+			left:				50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="floatingID">
+		<h3>This is a floating box</h3>
+		<p>
+			It is a very narrow container with its own background color,
+			border, and a different position.
+		</p>
+		<p><code>&lt;div></code> can be a very handy tag!</p>
+	</div>
+</body>

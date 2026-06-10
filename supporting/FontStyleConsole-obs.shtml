@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Font style console</title>
+
+		<meta name="author" content="YourName">
+		<meta name="description" content="This page uses buttons and text input to style some fonts">
+		<meta charset="UTF-8">
+		
+		<!--
+			Created:	27. Sept 2015
+			Modified:				
+			
+			HELLO STUDENTS!
+			I know it would be nice to just jack the code from the example, 
+			but you are not going to learn much from that.
+			
+			So read through the example resources, and try things out yourself.
+			After that you should ask for help if you need it.
+		-->
+		
+ 		<script>
+			var _0x30ee=["\x76\x61\x6C\x75\x65","\x69\x6E\x70\x75\x74\x54\x65\x78\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x66\x6F\x6E\x74\x57\x65\x69\x67\x68\x74","\x73\x74\x79\x6C\x65","\x62\x6F\x6C\x64","\x6E\x6F\x72\x6D\x61\x6C","\x66\x6F\x6E\x74\x53\x74\x79\x6C\x65","\x69\x74\x61\x6C\x69\x63","\x62\x6F\x72\x64\x65\x72","\x31\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x62\x6C\x61\x63\x6B","\x6E\x6F\x6E\x65","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x70\x69\x6E\x6B","\x77\x68\x69\x74\x65","\x63\x6F\x6C\x6F\x72\x49\x6E\x70\x75\x74\x49\x44","\x63\x6F\x6C\x6F\x72","\x66\x6F\x6E\x74\x53\x69\x7A\x65\x49\x6E\x70\x75\x74\x49\x44","\x66\x6F\x6E\x74\x53\x69\x7A\x65","\x70\x78"];var updateText=function(){var _0xf65ex2=document[_0x30ee[2]](_0x30ee[1])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[3]]=_0xf65ex2;};var makeBold=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[5]]=_0x30ee[7]};var makeNormalWeight=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[5]]=_0x30ee[8]};var makeItalic=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[9]]=_0x30ee[10]};var makeNormalStyle=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[9]]=_0x30ee[8]};var makeBlackBorder=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[11]]=_0x30ee[12]};var makeNoBorder=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[11]]=_0x30ee[13]};var makePinkBackground=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[14]]=_0x30ee[15]};var makeWhiteBackground=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[14]]=_0x30ee[16]};var updateTextColor=function(){var _0xf65exc=document[_0x30ee[2]](_0x30ee[17])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[18]]=_0xf65exc;};var updateFontSize=function(){var _0xf65exe=document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};var reduceFontSize=function(){var _0xf65exe=parseInt(document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]);var _0xf65exe=_0xf65exe-10;document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]=_0xf65exe;document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};var increaseFontSize=function(){var _0xf65exe=parseInt(document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]);var _0xf65exe=_0xf65exe+10;document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]=_0xf65exe;document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};
+		</script>
+
+		<style>
+			textarea{width:600px;height:150px}#boldID{font-weight:700}#italicID{font-style:italic}#borderID{border:1px solid #000}#pinkBackgroundID{background-color:pink}#colorInputButton,#colorInputID{color:#00f}#increaseFontSizeButton{font-size:1.2em}#reduceFontSizeButton{font-size:.7em}
+		</style>
+	</head>
+
+	<body onload="updateText();">
+		<h1>2.04: Hand-in: Font style console</h1><p>Please enter the text to be styled:<br/><textarea id="inputTextID"onchange="updateText();">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat feugiat ante quis tempor. Proin malesuada augue eget metus lacinia, id accumsan risus rutrum. Donec sodales velit et est fringilla venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis egestas nunc. Donec volutpat enim in elementum scelerisque. Pellentesque et sem quis nulla imperdiet ornare. Integer id iaculis mi. Quisque tincidunt porttitor dui, sit amet rutrum ligula placerat vitae. Morbi laoreet risus quam, a gravida est rutrum vitae.</textarea><br/><button onclick="updateText();">Update the text</button></p><hr/><table><thead></thead><tbody><tr><th>weight: </th><td><button id="boldID"onclick="makeBold();">bold</button><button onclick="makeNormalWeight();">normal</button></td></tr><tr><th>style: </th><td><button id="italicID"onclick="makeItalic();">italic</button><button onclick="makeNormalStyle();">normal</button></td></tr><tr><th>border: </th><td><button id="borderID"onclick="makeBlackBorder();">1px solid black</button><button onclick="makeNoBorder();">border: none</button></td></tr><tr><th>background: </th><td><button id="pinkBackgroundID"onclick="makePinkBackground();">pink</button><button onclick="makeWhiteBackground();">white</button></td></tr><tr><th>color: </th><td><input id="colorInputID"onchange="updateTextColor();"value="black"/><button id="colorInputButton"onclick="updateTextColor();">Update text color</button></td></tr><tr><th>size: </th><td><input id="fontSizeInputID"onchange="updateFontSize();"value="16"/><button id="reduceFontSizeButton"onclick="reduceFontSize();">-10</button><button id="increaseFontSizeButton"onclick="increaseFontSize();">+10</button><button onclick="updateFontSize();">Update font size</button></td></tr></tbody></table><div id="outputID"></div>
+	</body>
+</html>

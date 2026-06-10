@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Convert your code to function pipelines</title>
+		<meta name="description" content="Assignment: Convert your code to function pipelines">
+		<meta name="author" content="--yourName--">
+		<!--
+			Change log:
+				12. October 2015	- created!
+		-->
+		<!-- load jQuery for the animations -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 		<script>
+			var mainProcedure 	= function ( keyEvent ) {
+				console.log('in mainProcedure...');
+				
+				//INPUT: read which key was pressed
+				var keyCode	= keyEvent.which || keyEvent.keyCode; 
+				
+				//PROCESS: fork the code if they pressed the up button
+				if ( keyCode == 85 ) { 			// U button
+					//OUTPUT: make the star bigger
+					$('#imageID').animate({width: "+=40px"});
+				} else if ( keyCode == 68 ) { 	// D button
+					//OUTPUT: make the star smaller
+					$('#imageID').animate({width: "-=40px"});
+				}
+			}
+			
+			//INPUT: run mainProcedure when someone presses a key
+			window.onkeydown	= mainProcedure;
+		</script>
+		<style>
+			img {
+				width:	80px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>You are my biggest star!</h1>
+		<p>Press the &uarr; and &darr; keys to make the star bigger and littler.</p>
+		<img 
+			id="imageID"
+			src="https://www.kasandbox.org/programming-images/cute/Star.png" />
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<table>
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Heading #1</th>
+			<td>table data</td>
+			<td>table data</td>
+			<td>table data</td>
+		</tr>
+		<tr>
+			<th>Heading #2</th>
+			<td>table data</td>
+			<td>table data</td>
+			<td>table data</td>
+		</tr>
+		<tr>
+			<th>Heading #3</th>
+			<td>table data</td>
+			<td>table data</td>
+			<td>table data</td>
+		</tr>
+		<tr>
+			<th>Heading #4</th>
+			<td>table data</td>
+			<td>table data</td>
+			<td>table data</td>
+		</tr>
+	</tbody>
+</table>

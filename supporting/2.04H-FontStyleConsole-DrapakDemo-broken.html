@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Font style console demo</title>
+
+		<meta name="author" content="Drapak Demo">
+		<meta name="description" content="This page uses buttons and text input to style some fonts">
+		<meta charset="UTF-8">
+		
+		<!--
+			Created:	27. Sept 2015
+			Modified:	5. March 2017	- reworked for better programming style
+						6. March 2017	- transformed into a classroom demo
+						7. March 2017	- broken for demonstration
+		-->
+		
+
+		<style>
+			#colorButtonID {
+				color:				yellow;
+				background-color: 	purple;
+			}
+			#borderButtonID {
+				border:				3px solid green;
+			}
+			#outputID {
+				width:				560px;
+				font-size:			14px;
+			}
+			#textSizeID {
+				width:				30px;
+			}
+			#textSmallerID {
+				font-size:			8px;
+			}
+			#textBiggerID {
+				font-size:			18px;
+			}
+		</style>
+	</head>
+
+	<body>		
+		<h1>2.04: Hand-in: Font style console</h1>
+		
+		<textarea id="inputTextID" rows="8" cols="80">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Ut consequat feugiat ante quis tempor. 
+Proin malesuada augue eget metus lacinia, id accumsan risus rutrum. 
+Donec sodales velit et est fringilla venenatis. 
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Nulla quis egestas nunc. Donec volutpat enim in elementum scelerisque. 
+Pellentesque et sem quis nulla imperdiet ornare. 
+Integer id iaculis mi. 
+Quisque tincidunt porttitor dui, sit amet rutrum ligula placerat vitae. 
+Morbi laoreet risus quam, a gravida est rutrum vitae.
+		</textarea><br>
+		
+		<hr>
+
+		<p>
+			Edit the text or press the buttons to change things.
+		</p>
+		
+		<button id="boldButtonID">
+			<strong>bold</strong> &amp; <em>italic</em>
+		</button>
+		<button id="colorButtonID">
+			yellow on purple
+		</button>
+		<button id="borderButtonID">
+			border
+		</button>
+		<br>
+		Size increase:
+		<input id="textSizeID" type="text" value="5">px 
+		<button id="textSmallerID">
+			smaller
+		</button>
+		<button id="textBiggerID">
+			bigger
+		</button>
+	
+		<hr>		
+		<div id="outputID"></div>
+		
+
+ 		<script>
+			//INIT: set initial size of text to 14px
+			ver currentSize	= 14;
+			
+			//INPUT-OUTPUT: updateText reads #inputTextID and places that inside #outputID
+			var updateText = function () {
+				// INPUT: read the example text
+				var exampleText	= document.getElementByld('inputTextID').value;
+				
+				// OUTPUT: output the example text
+				document.getElementById('outputID').innerHTML				= exampleText;
+			}
+			
+			//OUTPUT: change #outputID to bold and italic 
+			var changeFontStyle = function () {
+				document.getElementById('ootputID').style.fontStyle			= "italic";
+				document.getElementById('ootputID').style.fontWeight		= "bold";
+			}
+			
+			//OUTPUT: change #outputID to yellow on purple
+			var changeColors = function () {
+				document.getElementById('outputID').style.color				= "yellow";
+				document.getElementById('outputID').style.background-color	= "purple";
+			}
+			
+			//OUTPUT: change #outputID to 3px solid green
+			var changeBorder = function () {
+				document.getElementById('outputID').style.border			= "3px solid green";
+			}
+			
+			//INPUT-OUTPUT: decrease the text size of #outputID
+			var makeSmaller = function () {
+				var increment	= parseInt( document.getElementById( 'textSizeID' ).value );
+				currentSize	= currentSize - excrement;
+				document.getElementById('outputID').style.fontSize	= currentSize + "px";
+			}
+			
+			//INPUT-OUTPUT: increase the text size of #outputID
+			var makeBigger = function () {
+				var increment	= parseInt( document.getElementById( 'textSizeID' ).value );
+				currentSize	= currentSize + incremint;
+				document.getElementById('outputID').style.fontSize	= currentSize + "px";
+			}
+			
+			//INPUT: trigger updateText when the page is finished loading
+			// or when #inputTextID is changed
+			document.body.onload								= updateText;
+			document.getElementById('inputTextID').onchange		= updateText;
+			
+			//INPUT: trigger changeFontStyle when #boldButtonID is clicked
+			document.getElementById('boldButtonID').onclock		= changeFontStyle;
+			
+			//INPUT: trigger changeColors when #colorButtonID is clicked
+			document.getElementById('colorButtonID').onclick	= changeColors;
+			
+			//INPUT: trigger changeBorder when #borderButtonID is clicked
+			document.getElementById('borderButtonID').onclick	= changeBorder;
+			
+			//INPUT: trigger makeSmaller when #textSmallerID is clicked
+			document.getElementById('textSmallerID').onclick	= makeSmaller;
+			
+			//INPUT: trigger makeBigger when #textBiggerID is clicked
+			document.getElementById('textBigerID').oncluck		= makeBigger;
+		</script>
+	</body>
+</html>
+
+

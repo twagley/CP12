@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>My unicode to character converter</title>
+		<meta name="description" content="Display a unicode character given the code number">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				5. Oct 2015		- created!										- Drapak
+				21. March 2017	- moved to script to bottom for better style	- Drapak
+				27. Oct 2018	- updated style and clarified code				- Drapak
+		-->
+		<style>
+			span { font-weight:	bold; }
+		</style>
+	</head>
+
+	<body>
+		<h3>Convert unicode (UTF-8) numbers to their characters</h3>
+		<p>
+			Unicode number: 
+			<input id="inputId" type="text" value="72">
+			<button id="buttonId">Convert number to character</button>
+		</p>
+		<p>
+			This character: "<span id="unicodeCharacterId"> </span>", 
+			can be coded in HTML as: 
+			<code>&amp;#<span id="unicodeNumberId"> </span>;</code>
+		</p>
+
+		<script>
+			var convertUnicode = function () {
+				console.log("in convertUnicode...");
+				
+				//INPUT: read the input line 
+				var unicodeNumber		= document.querySelector( '#inputId' ).value;
+				
+				//PROCESS: create the HTML code to display the unicode character
+				var unicodeCharacter	= "&#" + unicodeNumber + ";";
+				
+				//OUTPUT: output the raw unicodeNumber
+				document.querySelector( '#unicodeNumberId ').innerHTML		= unicodeNumber;
+				
+				//OUTPUT: output the unicode character
+				document.querySelector( '#unicodeCharacterId' ).innerHTML	= unicodeCharacter;
+			}
+			
+			//INPUT: trigger convertUnicode when the button is clicked or tab/enter is hit.
+			document.querySelector( '#inputId' ).onchange	= convertUnicode;
+			document.querySelector( '#buttonId' ).onclick	= convertUnicode;
+		</script>
+	</body>
+</html>

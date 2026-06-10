@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;img</span><span class="sc8"> 
+        </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bombImageId"</span><span class="sc8"> 
+        </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"Oh noes! A bob-omb!"</span><span class="sc8">
+        </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/nicePictureOfABomb.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"instructionsId"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Oh my gosh! You have to defuse the bomb!</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+        Which wire do you cut? Enter 1, 2, 3, or 4:
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"inputId"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"text"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonId"</span><span class="sc1">&gt;</span><span class="sc0">Cut carefully!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            
+            </span><span class="sc43">//INPUT: read the wire number that the user is going to cut</span><span class="sc41">
+            </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"inputId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">value</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//PROCESS: choose what to do depending on which wire number was chosen</span><span class="sc41">
+            
+            </span><span class="sc43">//IF: wire number one was chosen, the defusing wire</span><span class="sc41">
+            </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   
+                </span><span class="sc43">//OUTPUT: replace #bombImageId with image of defused bomb</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/defusedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//IF: wire number two was chosen, the exploding wire </span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: replace #bombImageId with image of exploded bomb</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/explodedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+
+            </span><span class="sc43">//IF: wire number three OR four was chosen, then do nothing</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">    </span><span class="sc43">// NOTE: "||" means "or"</span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: replace #bombImageId with image of still ticking bomb</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/stillActiveBomb.png"</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">//ELSE: no valid wire is chosen</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                                </span><span class="sc43">// </span><span class="sc41">
+                </span><span class="sc43">//OUTPUT: display additional instructions</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">outputInstructions</span><span class="sc41">  
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"Enter the &lt;strong&gt;number&lt;/strong&gt; "</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"of the wire that you will cut.&lt;br&gt;"</span><span class="sc41">
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"One wire will defuse the bomb, two of them will do nothing, "</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"and one will trigger it.&lt;br&gt;"</span><span class="sc41"> 
+                    </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc48">"Good luck!"</span><span class="sc50">;</span><span class="sc41"> 
+                    
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"instructionsId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">????????;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+        
+        </span><span class="sc43">//INPUT: trigger mainProcedure whenever #buttonId is clicked or #inputId changes</span><span class="sc41">
+        </span><span class="sc43">//NOTE: document.querySelector() is the same as </span><span class="sc41">
+        </span><span class="sc43">//      document.getElementById, but it uses CSS-style selectors, </span><span class="sc41">
+        </span><span class="sc43">//      such as: #exampleId</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#buttonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#inputId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onchange</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+    </span></div></body>
+</html>

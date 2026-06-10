@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Live example: Color Changer</title>
+    </head>
+    
+    <body id="bodyID">
+        <h1>Displaying and reading text input</h1>
+        <p>
+            Text color:
+            <input 
+                id="inputLineID" 
+                type="text" 
+                value="black">
+            <br>
+            <button id="changeColorButtonID">Change text color</button>
+            <br>
+			<br>
+            Background color:<br>
+            <textarea id="inputBoxID" rows="5" cols="40">white</textarea><br>
+            <button id="changeBackgroundButtonID">Change background</button>
+        </p>
+		
+        <script>
+			//INPUT-OUTPUT: change colour of bodyID to match inputLineID
+            var changeColor = function (){
+                document.getElementById("bodyID").style.color
+                    = document.getElementById("inputLineID").value;
+            }
+            
+			//INPUT-OUTPUT: change background colour of bodyID to match inputBoxID
+            var changeBackground = function (){
+                document.getElementById("bodyID").style.backgroundColor
+                    = document.getElementById("inputBoxID").value;
+            }
+			
+			//INPUT: attach changeColor to textarea and button
+			document.getElementById("inputLineID").onchange			= changeColor;
+			document.getElementById("changeColorButtonID").onclick	= changeColor;
+			
+			//INPUT: attach changeBackground to button and input line
+			document.getElementById("inputBoxID").onchange				= changeBackground;
+			document.getElementById("changeBackgroundButtonID").onclick	= changeBackground;
+        </script>
+    </body>
+</html>

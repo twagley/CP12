@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Online demographic data</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="author" 
+			content="Drapak">
+		<meta 
+			name="description" 
+			content="Create a page that uses Javascript to grab your online demographics data">
+		
+		<!--
+			20. November 2018	- Created										- Drapak
+			
+			Finished:	
+		-->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<h2>My demographic information as extracted from PowerSchool</h2>
+		
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<th id="nameId"></th>
+				</tr>
+				<tr>
+					<td>Phone number</td>
+					<th id="phoneId"></th>
+				</tr>
+				<tr>
+					<td>Street</td>
+					<th id="streetId"></th>
+				</tr>
+				<tr>
+					<td>Postal</td>
+					<th id="postalId"></th>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+
+			//OUTPUT: display the results of the transfer
+			var displayResults = function ( demographicsObj ) {
+				console.log( 'in displayResults. demographicsObj = ', demographicsObj );
+				
+				document.querySelector( '#nameId' ).innerHTML 	
+					= demographicsObj.preferred_first_last;
+				document.querySelector( '#phoneId' ).innerHTML 	
+					= demographicsObj.home_phone;
+				document.querySelector( '#streetId' ).innerHTML 	
+					= demographicsObj.street;
+				document.querySelector( '#postalId' ).innerHTML 	
+					= demographicsObj.postal;
+			}
+			
+			//PROCESS: this function takes the results of the data request
+			var processJSON = function ( data, status ) {
+				console.log( 'in processJSON...' );
+				console.log( '   data=' + data );
+				console.log( '   status=' + status );
+				
+				//IF: this was successful, send the info to the console...
+				if ( status == 'success' ) {
+					// convert the JSONstring back into an object
+					var demographicsObj	= JSON.parse( data );
+										
+					displayResults( demographicsObj );
+				}
+				
+				//IF: the transfer was not successful, show an error message to the console
+				else {
+					console.log( 'WARNING: demographics downloaded unsuccessfully' );				
+				}
+			}
+
+
+			//INPUT: get the demographics data from the web server
+			var getDemographics = function () {
+				console.log( 'in getDemographics...' );
+				//Set up the information to use to get the demographics information.
+				//You MUST request a personal token from Mr. Drapak to access YOUR info
+				
+				const EMAIL	= 'ddrapak@gnspes.ca';
+				const TOKEN = 'AdaLovelaceStartedItAll';
+				const URL	= 'https://drapak.ca/cpg/getDemographics.php';
+				
+				// create an object that contains the information needed to make the request
+				var informationRequestObj = { 		
+					'email': EMAIL,
+					'token': TOKEN
+				}
+				
+				//Use jQuery to get your request from the webserver
+				//The request has three parts:
+				//	1) the URL of the program to request information from
+				//	2) the information to send to that program for the request
+				//	3) the function to run when the request is complete
+
+				$.get( URL, informationRequestObj, processJSON );	
+			}
+			
+			//INPUT EVENT: get the demographics data from the server when the page is loaded
+			document.body.onload = getDemographics;
+		</script>
+	</body>
+</html>

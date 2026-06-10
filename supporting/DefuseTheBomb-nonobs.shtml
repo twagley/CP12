@@ -1,0 +1,26 @@
+			var mainProcedure = function() {
+				//INPUT: read the wire number that the user si going to cut
+				var wireNum	= document.getElementById("inputLineID").value;
+				
+				//PROCESS: choose what to do depending on which wire number was chosen
+				
+				if (wireNum == 1) {			// defusing wire
+					//OUTPUT: replace #bombImageID with image of defused bomb
+					document.getElementById("bombImageID").src	= "http://drapak.ca/cpg/img/defusedBomb.png";
+
+				} else if (wireNum == 2) {	// exploding wire
+					//OUTPUT: replace #bombImageID with image of exploded bomb
+					document.getElementById("bombImageID").src	= "http://drapak.ca/cpg/img/explodedBomb.png";
+
+				} else if ((wireNum == 3) || (wireNum == 4)) {	// do nothing wire (NOTE: "||" means "or")
+					//OUTPUT: replace #bombImageID with image of still ticking bomb
+					document.getElementById("bombImageID").src	= "http://drapak.ca/cpg/img/stillActiveBomb.png";
+					
+				} else {					// no valid wire chosen
+					//OUTPUT: display additional instructions
+					var outputInstructions	= "Enter the <strong>number</strong> of the wire that you will cut. <br />"
+											+ "One wire will defuse the bomb, two of them will do nothing, and one will trigger it. <br />" 
+											+ "Good luck!";							
+					document.getElementById("instructionsID").innerHTML	= outputInstructions;
+				}
+			}

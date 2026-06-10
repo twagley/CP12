@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"msPacId"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"blinkyId"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"pinkyId"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// Note that object constructors start with UPPER CASE by the rules of good style</span><span class="sc41">
+            </span><span class="sc43">// object constructors pass variables into the function definition as usual</span><span class="sc41">
+            </span><span class="sc43">// AnimatedObj's constructor requires an </span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41">  </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">idInfo</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">srcInfo</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc46">widthInfo</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">    
+                </span><span class="sc46">this.id</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">idInfo</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.selector</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.src</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">srcInfo</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.width</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">widthInfo</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.DURATION</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">100</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">this.DISTANCE</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc45">24</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// Notice also that it is "this.id=" instead of "this.id:"</span><span class="sc41">
+                </span><span class="sc43">// Also, even though object constructors are functions, they do NOT use return  </span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//AnimatedObj methods:</span><span class="sc41">
+            </span><span class="sc43">//      .outputImage()</span><span class="sc41">
+            </span><span class="sc43">//      .animateUp()</span><span class="sc41">
+            </span><span class="sc43">//      .animateDown()</span><span class="sc41">
+            </span><span class="sc43">//      .animateLeft()</span><span class="sc41">
+            </span><span class="sc43">//      .animateRight()</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">//OUTPUT: method to display the image</span><span class="sc41">
+            </span><span class="sc46">AnimatedObj.prototype.outputImage</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log('in AnimatedObj.outputImage this.selector=' + this.selector );</span><span class="sc41">
+                
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">                 </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.src</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">style.width</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.width</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">style.position</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"relative"</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+                
+            </span><span class="sc43">//OUTPUT: method to animate up</span><span class="sc41">
+            </span><span class="sc46">AnimatedObj.prototype.animateUp</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">      
+                </span><span class="sc43">//console.log( 'in AnimatedObj.animateUp. this.selector=' + this.selector );</span><span class="sc41">
+                
+                $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">      </span><span class="sc49">'-='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41"> 
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">this.DURATION</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: method to animate down</span><span class="sc41">
+            </span><span class="sc46">AnimatedObj.prototype.animateDown</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">      
+                </span><span class="sc43">//console.log( 'in AnimatedObj.animateDown. this.selector=' + this.selector );</span><span class="sc41">
+                
+                $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41"> 
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">this.DURATION</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+            
+            </span><span class="sc43">//OUTPUT: method to animate left</span><span class="sc41">
+            </span><span class="sc46">AnimatedObj.prototype.animateLeft</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">      
+                </span><span class="sc43">//console.log( 'in AnimatedObj.animateLeft. this.selector=' + this.selector );</span><span class="sc41">
+                
+                $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41"> 
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">this.DURATION</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+                
+            </span><span class="sc43">//OUTPUT: method to animate right</span><span class="sc41">
+            </span><span class="sc46">AnimatedObj.prototype.animateRight</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">  
+                </span><span class="sc43">//console.log( 'in AnimatedObj.animateRight. this.selector=' + this.selector );</span><span class="sc41">
+                
+                $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">this.selector</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+='</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc41"> </span><span class="sc50">},</span><span class="sc41"> 
+                    </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc46">this.DURATION</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">//  Global variables (just so that they can be seen by the buttons...</span><span class="sc41">
+            </span><span class="sc43">//  Create three objects quickly that can be animated</span><span class="sc41">
+            
+            </span><span class="sc43">//INIT: the msPacMan object</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">msPacMan</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
+                </span><span class="sc48">"msPacId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/MsPacMan.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+            </span><span class="sc50">);</span><span class="sc41"> 
+            
+            </span><span class="sc43">//INIT: the blinky (red ghost) object</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">blinky</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
+                </span><span class="sc48">"blinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+            </span><span class="sc50">);</span><span class="sc41">  
+            
+            </span><span class="sc43">//INIT: the pinky (pink ghost) object</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">pinky</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
+                </span><span class="sc48">"pinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyRight1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+            </span><span class="sc50">);</span><span class="sc41">      
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span><span class="sc0">
+</span></div></body>
+</html>

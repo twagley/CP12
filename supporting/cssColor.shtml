@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style>
+			#borderID {border: 1px solid red;}
+			#backgroundID {background-color: red;}
+
+			#namedID {color: red;}
+			#rgbID {color: rgb(0, 255, 0);}
+			#shortHexID {color: #00F;}
+			#normalHexID {color: #0000FF;}
+
+			#opacityID {opacity: 0.3;}
+		</style>
+	</head>
+
+	<body>
+		<h2>CSS Color Example</h2>
+		<p>There are many ways to indicate color in CSS. You can...</p>
+		<ul>
+			<li id="borderID">give something a colored border</li>
+			<li id="backgroundID">give something a colored background</li>
+			<li id="namedID">use color names</li>
+			<li id="rgbID">use <code>rgb()</code> values from 0-255</li>
+			<li id="shortHexID">use short hexidecimal colors</li>
+			<li id="normalHexID">use normal hexidecimal colors</li>
+			<li id="opacityID">use opacity</li>
+		</ul>			
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>Hello World!</title>
+		<meta name="description" content="My first HTML program!">
+		<meta name="author" content="Dave Drapak">
+
+		<!--
+			Change log:	
+				8. August 2015	- created!
+		-->
+		<script>
+			// Your Javascript programming code will go in here...
+		</script>
+
+		<style>
+			/* Your Cascading Style Sheets (CSS) code will go in here ...*/
+		</style>
+	</head>
+	
+	<body>
+		<h1>Hello world!</h1>
+		<p>
+			Type something prideful and witty in here:
+			"Look! I am a programing <strong>superstar!</strong>"
+		</p>
+		
+		<h2>My favourite website</h2>
+		<p>
+			The website that I visit the most often is
+			<a href="http://cbc.ca/news">CBC News</a>.
+		</p>
+		
+		<h3>An awesome image</h3>
+		
+		<img src="http://imgs.xkcd.com/comics/sandwich.png">
+	</body>
+</html>

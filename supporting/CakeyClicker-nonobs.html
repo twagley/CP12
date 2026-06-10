@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cakey Clicker</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="author" 
+			content="YourName">
+		<meta 
+			name="description" 
+			content="Create a page that uses Javascript to make a simple clicking game">
+		
+		<!--
+			Created:	25. February 2018										- Drapak
+			Modified:	
+			
+			Finished:	
+		-->
+		
+
+		<style>
+			body {
+				font-family:	"Open Sans";
+				
+				/* disable the blue highlighting from selection */
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;				
+			}
+	
+			table {
+				position:		absolute;
+				top:			100px;
+				right:			20px;
+				border:			1px solid black;
+			}
+			
+			td, th {
+				vertical-align:	top;
+				text-align:		left;
+			}
+			
+			h2 {
+				font-size:		40px;
+				font-style:		italic;
+				font-weight:	bold;
+				margin-left:	auto;
+				margin-right:	auto;
+				color:			red;
+			}
+			
+			#cakeID {
+				width:			100px;
+				display:		block;
+				margin-left:	auto;
+				margin-right:	auto;
+			}
+			
+			#scoreID {
+				opacity:		0.2;
+			}
+			
+			#listID {
+				position:		absolute;
+				top:			90px;
+				left:			0px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!-- The assignment: Create a page that uses Javascript to make a simple clicking game
+
+			1.	Place instructions
+			
+			Evaluation
+			
+			___/10 HTML-CSS: including ANY TEN of the following:
+				[ ]	a <span>
+				[ ]	a heading
+				[ ]	a table
+				[ ]	a div for output
+				[ ]	a descriptive paragraph
+				[ ] a list
+				
+				The following must be applied inside <style>:
+				
+				[ ]	applying a style to a tag
+				[ ]	applying a style to an #ID or .class
+				[ ]	applying a color, opacity, or background color
+				[ ]	applying a border
+				[ ]	applying a font size
+				[ ]	applying the font family, style, or weight
+				[ ]	applying the width
+				[ ]	applying text-align or vertical-align
+				[ ]	applying a position
+				[ ]	applying a top measurement
+				[ ]	applying a left measurement
+				[ ] applying a display style
+				[ ] applying margin-left or margin-right
+				
+			___/10 INPUT: including ANY FOUR of the following:
+				[ ]	a text area box
+				[ ]	an input line
+				[ ]	buttons
+				[ ]	things that work with document.getElementById().onclick
+				[ ]	things that work with document.getElementById().onchange
+				
+			___/10 PROCESS: including:
+				[ ]	successfully reading a text input
+				[ ]	assigning a variable
+				[ ]	using basic math
+				[ ]	using parseInt()
+				
+			___/10 OUTPUT: including ANY FOUR of the following:
+				[ ]	changing the color or background using Javascript
+				[ ]	changing the weight or style of a font using Javascript
+				[ ]	changing the size of a font using Javascript
+				[ ]	changing the border or width of something using Javascript
+				[ ]	output using .innerHTML
+			___/10 STYLE: honouring all //STYLE sections to date
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		
+		<h1>2.04: Hand-in: Cakey Clicker</h1>
+		
+		<div id="listID">
+			<ol>
+				<li>Name yourself</li>
+				<li>Get clicking!</li>
+				<li>Enjoy superstardom!</li>
+			</ol>
+		</div>
+
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<th id="nameDisplayID">
+						<input type="text" id="nameInputID" value="AnonymousClikker"><br>
+						<button type="button" id="buttonID">Name yourself!</button>
+					</th>
+				</tr>
+				<tr>
+					<td>Score</td>
+					<th id="scoreID">0</th>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		<img
+			id="cakeID"
+			src="./img/cake.svg">
+
+		
+ 		<script>
+			// display changes to the cake and score
+			var cakeyClick = function () {
+				console.log( 'in cakeyClick...' );
+				
+				//INPUT: read the current score
+				var score	= document.getElementById('scoreID').innerHTML;
+				
+				
+				//PROCESS: calculate the new score
+				score		= parseInt( score ) + 100;
+				
+				//PROCESS: calculate the new width of the cake
+				var newWidth	= 100 + (score / 10 );
+				
+				//PROCESS: calculate the new size of the score text
+				var scoreSize	= 14 + (score / 300 );
+				
+				//PROCESS: calculate the new size of the score text
+				var opacity		= 0.2 + (score / 10000 );
+
+				
+				//OUTPUT: display new score
+				document.getElementById('scoreID').innerHTML			= score;
+				document.getElementById('scoreID').style.fontSize		= scoreSize + 'px';
+				document.getElementById('nameDisplayID').style.fontSize	= scoreSize + 'px';
+				document.getElementById('scoreID').style.color			= 'blue';
+				document.getElementById('scoreID').style.opacity		= opacity;
+				
+				//OUTPUT: increase the current width of the cake
+				document.getElementById('cakeID').style.width	= newWidth + 'px';
+			}
+			
+			
+			//OUTPUT: display the name entered in #nameDisplayID
+			var displayName = function () {
+				console.log( 'in displayName...' );
+				
+				// display the name
+				document.getElementById("nameDisplayID").innerHTML
+					= document.getElementById("nameInputID").value;
+					
+				// change the background of the page
+				document.body.style.backgroundColor	= "yellow";
+				
+				// change the text in the list
+				document.getElementById("listID").innerHTML
+					= "<h2>Go!!!!!!!</h2>";		
+					
+				//INPUT: attach cakeyClick to any click on the body of the page
+				document.onclick 								= cakeyClick;
+			}
+			
+			
+			//INPUT: attach displayName to any changes in #nameInputID
+			document.getElementById('nameInputID').onchange	= displayName;
+			//INPUT: attach displayName to any clicks on #buttonID
+			document.getElementById('buttonID').onclick 	= displayName;
+		</script>
+	</body>
+</html>
+
+

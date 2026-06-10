@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Font style console</title>
+
+		<meta name="author" content="YourName">
+		<meta name="description" content="This page uses buttons and text input to style some fonts">
+		<meta charset="UTF-8">
+		
+		<!--
+			Created:	27. Sept 2015
+			Modified:				
+		-->
+		
+ 		<script>
+				var updateText = function () {
+					// INPUT: read the example text
+					var exampleText	= document.getElementById('inputTextID').value;
+					
+					// OUTPUT: output the example text
+					document.getElementById('outputID').innerHTML	= exampleText;
+				}
+				
+				//OUTPUT: make the example text bold
+				var makeBold = function () {
+					document.getElementById('outputID').style.fontWeight	= 'bold';
+				}
+
+				//OUTPUT: make the example text normal weight
+				var makeNormalWeight = function () {
+					document.getElementById('outputID').style.fontWeight	= 'normal';
+				}
+				//OUTPUT: make the example text bold
+				var makeItalic = function () {
+					document.getElementById('outputID').style.fontStyle		= 'italic';
+				}
+
+				//OUTPUT: make the example text normal weight
+				var makeNormalStyle = function () {
+					document.getElementById('outputID').style.fontStyle		= 'normal';
+				}
+
+				//OUTPUT: make the example text with black border
+				var makeBlackBorder = function () {
+					document.getElementById('outputID').style.border		= '1px solid black';
+				}
+
+				//OUTPUT: make the example text with no border
+				var makeNoBorder = function () {
+					document.getElementById('outputID').style.border		= 'none';
+				}
+
+				//OUTPUT: make the example text with pink background
+				var makePinkBackground = function () {
+					document.getElementById('outputID').style.backgroundColor		= 'pink';
+				}
+
+				//OUTPUT: make the example text with white background
+				var makeWhiteBackground = function () {
+					document.getElementById('outputID').style.backgroundColor		= 'white';
+				}
+
+				var updateTextColor = function () {
+					// INPUT: read the color
+					var textColor	= document.getElementById('colorInputID').value;
+					
+					// OUTPUT: output the color
+					document.getElementById('outputID').style.color	= textColor;
+				}
+				
+				var updateFontSize = function () {
+					// INPUT: read the font size
+					var fontSize	= document.getElementById('fontSizeInputID').value;
+					
+					// OUTPUT: output the new font style
+					document.getElementById('outputID').style.fontSize	= fontSize + "px";
+				}
+				
+				var reduceFontSize = function () {
+					// INPUT: read the font size
+					var fontSize	= parseInt( document.getElementById('fontSizeInputID').value );
+					
+					//PROCESS: reduce by 10
+					var fontSize	= fontSize - 10;
+					
+					// OUTPUT: output the new font value
+					document.getElementById('fontSizeInputID').value	= fontSize;
+
+					// OUTPUT: output the new font style
+					document.getElementById('outputID').style.fontSize	= fontSize + "px";
+				}
+				
+				var increaseFontSize = function () {
+					// INPUT: read the font size
+					var fontSize	= parseInt( document.getElementById('fontSizeInputID').value );
+					
+					//PROCESS: increase by 10
+					var fontSize	= fontSize + 10;
+					
+					// OUTPUT: output the new font value
+					document.getElementById('fontSizeInputID').value	= fontSize;
+
+					// OUTPUT: output the new font style
+					document.getElementById('outputID').style.fontSize	= fontSize + "px";
+				}
+				
+		</script>
+
+		<style>
+			textarea {
+				width:	600px;
+				height:	150px;
+			}
+			#boldID 		{ font-weight:		bold; }
+			#italicID 		{ font-style: 		italic; }
+			#borderID		{ border:			1px solid black; }
+			#pinkBackgroundID 
+							{ background-color:	pink; }
+			#colorInputID, #colorInputButton
+							{ color:			blue; }
+			#increaseFontSizeButton
+							{ font-size:		1.2em; }
+			#reduceFontSizeButton
+							{ font-size:		0.7em; }
+			
+		</style>
+	</head>
+
+	<body onload="updateText();">
+		<h1>2.04: Hand-in: Font style console</h1>
+		<!-- Create a page that will calculate the answer to a formula, given some information.
+		
+		-->
+		<p>
+			Please enter the text to be styled:<br />
+			
+			<textarea 
+				id="inputTextID"
+				onchange="updateText();">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat feugiat ante quis tempor. Proin malesuada augue eget metus lacinia, id accumsan risus rutrum. Donec sodales velit et est fringilla venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis egestas nunc. Donec volutpat enim in elementum scelerisque. Pellentesque et sem quis nulla imperdiet ornare. Integer id iaculis mi. Quisque tincidunt porttitor dui, sit amet rutrum ligula placerat vitae. Morbi laoreet risus quam, a gravida est rutrum vitae.</textarea><br />
+			
+			<button onclick="updateText();">Update the text</button>
+		</p>
+		<hr />
+		<table>
+			<thead></thead>
+			<tbody>
+				<tr>
+					<th>
+						weight: 
+					</th>
+					<td>
+						<button 
+							id="boldID"
+							onclick="makeBold();">
+							bold
+						</button>
+						<button onclick="makeNormalWeight();">normal</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						style: 
+					</th>
+					<td>
+						<button 
+							id="italicID"
+							onclick="makeItalic();">
+							italic
+						</button>
+						<button onclick="makeNormalStyle();">normal</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						border: 
+					</th>
+					<td>
+						<button 
+							id="borderID"
+							onclick="makeBlackBorder();">
+							1px solid black
+						</button>
+						<button onclick="makeNoBorder();">border: none</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						background: 
+					</th>
+					<td>
+						<button 
+							id="pinkBackgroundID"
+							onclick="makePinkBackground();">
+							pink
+						</button>
+						<button onclick="makeWhiteBackground();">white</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						color: 
+					</th>
+					<td>
+						<input	
+							id="colorInputID"
+							onchange="updateTextColor();"
+							value="black" />
+							
+						<button 
+							id="colorInputButton"
+							onclick="updateTextColor();">
+							Update text color
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						size: 
+					</th>
+					<td>
+						<input	
+							id="fontSizeInputID"
+							onchange="updateFontSize();"
+							value="16" />
+							
+						<button 
+							id="reduceFontSizeButton"
+							onclick="reduceFontSize();">
+							-10
+						</button>
+						<button 
+							id="increaseFontSizeButton"
+							onclick="increaseFontSize();">
+							+10
+						</button>
+						<button 
+							onclick="updateFontSize();">
+							Update font size
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+			
+		<div id="outputID"></div>
+	</body>
+</html>

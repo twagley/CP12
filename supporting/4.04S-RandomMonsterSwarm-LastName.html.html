@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Random Monster Swarm</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Random monster swarm"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"-LastName-"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--
+            Change log:
+                Created:    5. May 2017                                             - Drapak
+                Modified:   20. May 2017    - simplified code                       - Drapak
+                            23. May 2017    - removed mysterious chunks of code     - Drapak
+                            
+                            
+                Finished:   
+        --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #outputID img {
+                position: absolute;
+                width: 30px;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> 
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"</span><span class="sc1">&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">Oh no! A swarm is coming! Each click adds another random monster!</span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            Current mouse position:</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+            Top: 
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"topID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0"> 
+            Left: 
+            </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"leftID"</span><span class="sc1">&gt;&lt;/span&gt;</span><span class="sc0">.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputID"</span><span class="sc1">&gt;&lt;/div&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">//INIT: create the array to hold all the Monster objects</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">monsterArr</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[];</span><span class="sc41">
+            
+            </span><span class="sc43">//INIT: these global variables hold the current cursor position</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">cursorX</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">cursorY</span><span class="sc50">;</span><span class="sc41">
+        
+            </span><span class="sc43">//INIT Object Constructor: MonsterObj</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// var aMonster = new MonsterObj( monsterNumber );</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// Properties:  </span><span class="sc41">
+            </span><span class="sc43">//      .top</span><span class="sc41">
+            </span><span class="sc43">//      .left</span><span class="sc41">
+            </span><span class="sc43">//      .id</span><span class="sc41">
+            </span><span class="sc43">//      .DISTANCE</span><span class="sc41">
+            </span><span class="sc43">//      .sourceArr</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc43">// Methods:</span><span class="sc41">
+            </span><span class="sc43">//      .chooseDirection();</span><span class="sc41">
+            </span><span class="sc43">//      .changeImageDirection( 0-3 );</span><span class="sc41">
+            </span><span class="sc43">//      .goDown();</span><span class="sc41">
+            </span><span class="sc43">//      .goUp();</span><span class="sc41">
+            </span><span class="sc43">//      .goLeft();</span><span class="sc41">
+            </span><span class="sc43">//      .goRight();</span><span class="sc41">
+            </span><span class="sc43">//      .placeImage();</span><span class="sc41">
+            </span><span class="sc43">//</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">MonsterObj</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">myMonsterNumber</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc48">"ITS ALIVE! Monster# ="</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">myMonsterNumber</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                
+                </span><span class="sc43">//INIT: set up the initial variables for this Monster</span><span class="sc41">
+                </span><span class="sc43">//</span><span class="sc41">
+                </span><span class="sc43">// current top and left position of the mouse in pixels</span><span class="sc41">
+                </span><span class="sc46">this.top</span><span class="sc41">            </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50 withborder">???????;</span><span class="sc41">              
+                </span><span class="sc46">this.left</span><span class="sc41">           </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">cursorX</span><span class="sc50">;</span><span class="sc41">
+                                
+                </span><span class="sc43">// set the id of this monster</span><span class="sc41">
+                </span><span class="sc46">this.id</span><span class="sc41">             </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'image'</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">myMonsterNumber</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'ID'</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// set the distance to move each turn</span><span class="sc41">
+                </span><span class="sc46">this.DISTANCE</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"90px"</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// array with the list of possible monster images in it</span><span class="sc41">
+                </span><span class="sc46">this.sourceArr</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyDown0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyRight0.png"</span><span class="sc41">
+                </span><span class="sc50">];</span><span class="sc41">
+
+                </span><span class="sc43">//PROCESS: move the Monster in a random direction</span><span class="sc41">
+                </span><span class="sc46">this.chooseDirection</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log( 'in Monster.chooseDirection...' );</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">direction</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">Math.floor</span><span class="sc50">(</span><span class="sc46">Math.random</span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">*</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc50">);</span><span class="sc41">
+                    
+                    </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">direction</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc46">this.goDown</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">direction</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc46">this.goUp</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">direction</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc46">this.goLeft</span><span class="sc50">();</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                        </span><span class="sc50 withborder">??????.??????();</span><span class="sc41">
+                    </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT: changes the current image depending on the index of sourceArr</span><span class="sc41">
+                </span><span class="sc46">this.changeImageDirection</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">imageIndex</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log('in Monster.changeImageDirection:imageIndex=' + imageIndex);</span><span class="sc41">
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc46">this.id</span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.sourceArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">imageIndex</span><span class="sc41"> </span><span class="sc50">];</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+
+                </span><span class="sc43">//OUTPUT:   1) change the monster's image</span><span class="sc41">
+                </span><span class="sc43">//          2) move this monster DOWN</span><span class="sc41">
+                </span><span class="sc43">//          3) choose a new direction when done</span><span class="sc41">
+                </span><span class="sc46">this.goDown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log("in Monster.goDown...");</span><span class="sc41">
+                    
+                    </span><span class="sc43">//ugly hack so that 'this' can work inside start &amp; complete</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">
+                    
+                    $</span><span class="sc50">(</span><span class="sc48">"#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">).<span class='withborder'>??????</span>(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+="</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc50">},</span><span class="sc41"> 
+                        </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                        </span><span class="sc46">self.changeImageDirection</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                        </span><span class="sc46">self.chooseDirection</span><span class="sc50">();</span><span class="sc41">
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT:   1) change the monster's image</span><span class="sc41">
+                </span><span class="sc43">//          2) move this monster UP</span><span class="sc41">
+                </span><span class="sc43">//          3) choose a new direction when done</span><span class="sc41">
+                </span><span class="sc46">this.goUp</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log("in Monster.goUp...");</span><span class="sc41">
+                    
+                    </span><span class="sc43">//ugly hack so that 'this' can work inside start &amp; complete</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50 withborder">??????;</span><span class="sc41">
+
+                    $</span><span class="sc50">(</span><span class="sc48">"#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-="</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.</span><span class="sc50 withborder">??????},</span><span class="sc41"> 
+                        </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                        </span><span class="sc46">self.changeImageDirection</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                        </span><span class="sc46">self.</span><span class="sc50 withborder">??????();</span><span class="sc41">
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT:   1) change the monster's image</span><span class="sc41">
+                </span><span class="sc43">//          2) move this monster LEFT</span><span class="sc41">
+                </span><span class="sc43">//          3) choose a new direction when done</span><span class="sc41">
+                </span><span class="sc46">this.</span><span class="sc50 withborder">??????</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log("in Monster.goLeft...");</span><span class="sc41">
+                    
+                    </span><span class="sc43">//ugly hack so that 'this' can work inside start &amp; complete</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">self</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">
+
+                    $</span><span class="sc50">(</span><span class="sc48">"#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-="</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc50">},</span><span class="sc41"> 
+                        </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                        </span><span class="sc46">self.changeImageDirection</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc45">2</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                        </span><span class="sc46">self.chooseDirection</span><span class="sc50">();</span><span class="sc41">
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48 withborder">"??????"</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+                
+                </span><span class="sc43">//OUTPUT:   1) change the monster's image</span><span class="sc41">
+                </span><span class="sc43">//          2) move this monster RIGHT</span><span class="sc41">
+                </span><span class="sc43">//          3) choose a new direction when done</span><span class="sc41">
+                </span><span class="sc46">this.goRight</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log("in Monster.goRight...");</span><span class="sc41">
+                    
+                    </span><span class="sc43">//ugly hack so that 'this' can work inside start &amp; complete</span><span class="sc41">
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc50 withborder">??????</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">this</span><span class="sc50">;</span><span class="sc41">
+
+                    $</span><span class="sc50">(</span><span class="sc48">"#"</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41">
+                        </span><span class="sc50">{</span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+="</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc46">this.DISTANCE</span><span class="sc50">},</span><span class="sc41"> 
+                        </span><span class="sc50">{</span><span class="sc41">   </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                                        </span><span class="sc46">self.</span><span class="sc50 withborder">??????(</span><span class="sc41"> </span><span class="sc45">3</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41"> 
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                                        </span><span class="sc46">self.chooseDirection</span><span class="sc50">();</span><span class="sc41">
+                                    </span><span class="sc50">},</span><span class="sc41">
+                            </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc41">
+                        </span><span class="sc50">}</span><span class="sc41">
+                    </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41">
+
+                </span><span class="sc43">//OUTPUT: add a new image to the outputID</span><span class="sc41">
+                </span><span class="sc46">this.placeImage</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc43">//console.log( 'in Monster.placeImage...' );</span><span class="sc41">
+
+                    </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newImage</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">document.createElement</span><span class="sc50">(</span><span class="sc48">"img"</span><span class="sc50">);</span><span class="sc41">
+                    </span><span class="sc46">newImage.src</span><span class="sc41">        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.</span><span class="sc50 withborder">??????[</span><span class="sc41"> </span><span class="sc45">0</span><span class="sc41"> </span><span class="sc50">];</span><span class="sc41">
+                    </span><span class="sc46">newImage.id</span><span class="sc41">         </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.id</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">newImage.style.top</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.top</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc46">newImage.style.left</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">this.</span><span class="sc50 withborder">??????</span><span class="sc41"> </span><span class="sc50">+</span><span class="sc41"> </span><span class="sc49">'px'</span><span class="sc50">;</span><span class="sc41">
+                    
+                    </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'outputID'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">appendChild</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">newImage</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc50">};</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//OUTPUT: display the current mouse position</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">displayPosition</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">//console.log( 'in Monster.displayPosition...' );</span><span class="sc41">
+
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'topID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">cursorX</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'leftID'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">cursorY</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">};</span><span class="sc41">
+
+            
+            </span><span class="sc43">//INPUT: whenever the mouse is clicked down</span><span class="sc41">
+            </span><span class="sc46">document.onmousedown</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// find out how many monsters there currently are</span><span class="sc41">
+                </span><span class="sc46">monsterIndex</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">monsterArr.length</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc43">// create a new MonsterObj using the current number of monsters as the index</span><span class="sc41">
+                </span><span class="sc43">// to the monsterArr, then place it and choose a direction to move</span><span class="sc41">
+                </span><span class="sc46">monsterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">monsterIndex</span><span class="sc41"> </span><span class="sc50">]</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc50 withborder">??????(</span><span class="sc41"> </span><span class="sc46">monsterIndex</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+                </span><span class="sc46">monsterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc46">monsterIndex</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">placeImage</span><span class="sc50">();</span><span class="sc41">
+                </span><span class="sc46">monsterArr</span><span class="sc50">[</span><span class="sc41"> </span><span class="sc50 withborder">??????</span><span class="sc41"> </span><span class="sc50">].</span><span class="sc46">chooseDirection</span><span class="sc50">();</span><span class="sc41">
+                
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">//INPUT: this constantly updates and stores the current mouse position</span><span class="sc41">
+            </span><span class="sc46">document.onmousemove</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">event</span><span class="sc41"> </span><span class="sc50">){</span><span class="sc41">
+                </span><span class="sc46">cursorX</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.clientX</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc46">cursorY</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.clientY</span><span class="sc50">;</span><span class="sc41">
+                
+                </span><span class="sc46">displayPosition</span><span class="sc50">();</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

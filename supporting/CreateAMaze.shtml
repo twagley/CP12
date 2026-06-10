@@ -1,0 +1,168 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Draw a maze</title>
+
+		<meta name="author" content="EDIT: LastName">
+		<meta charset="UTF-8">
+		
+		<!--This page draws a maze in table cells based on the contents of 
+			a two dimensional array
+			
+			Created:	11. November -  -->
+
+		<script>
+			// INIT: initialize the array that holds the map pattern
+			// in mazeCell, 0=wall, 1=corridor			
+			
+			var mazeArr	=[];	// rows 0-3, columns 0-3
+			
+			var initSmallMaze = function () {
+				mazeArr	=[	// rows 0-3, columns 0-3
+					[0,1,0,0], // row 0
+					[0,1,1,0], // row 1
+					[0,0,1,0], // row 2
+					[0,0,1,0]  // row 3
+				];
+
+				mainProcedure();
+			}
+			
+			var initMediumMaze = function () {
+				mazeArr	=[	// rows 0-20, columns 0-20
+					[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // row 0
+					[0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 1
+					[0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], // row 2
+					[0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0], // row 3
+					[0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0], // row 4
+					[0,1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0], // row 5
+					[0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0], // row 6
+					[0,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,0], // row 7
+					[0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0], // row 8
+					[0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0], // row 9
+					[0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0], // row 10
+					[0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0], // row 11
+					[0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0], // row 12
+					[0,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0], // row 13
+					[0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], // row 14
+					[0,1,0,1,0,1,0,0,0,1,0,1,1,1,0,1,0,1,1,1,0], // row 15
+					[0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,0], // row 16
+					[0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0], // row 17
+					[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0], // row 18
+					[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0], // row 19
+					[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] // row 20
+				];
+
+				mainProcedure();
+			}
+
+			var initLargeMaze = function () {
+				mazeArr	=[	// 1=hallway (black), 0=wall (blue)    rows: 0-30, columns: 0-27
+				//	[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6], index of column numbers to help with data entry
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // row 0
+					[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], // row 1
+					[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 2
+					[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 3
+					[0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 4
+					[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 5
+					[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 6
+					[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0], // row 7
+					[0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0], // row 8
+					[0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0], // row 9
+					[0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0], // row 10
+					[0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0], // row 11
+					[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 12
+					[0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0], // row 13
+					[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], // row 14
+					[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], // row 15
+					[0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0], // row 16
+					[0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0], // row 17
+					[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], // row 18
+					[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], // row 19
+					[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0], // row 20
+					[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 21
+					[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 22
+					[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1], // row 23
+					[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], // row 24
+					[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0], // row 25
+					[0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0], // row 26
+					[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], // row 27
+					[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0], // row 28
+					[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 29
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]  // row 30
+				];
+
+				mainProcedure(); 
+			}
+
+			function mainProcedure () {	// triggered by a button click
+				console.log("in mainProcedure...");
+				
+				var mazeCode	= createMazeCode( mazeArr );
+				outputMazeCode( mazeCode );
+			}
+			
+			function createMazeCode( mazeArr ) { //PROCESS: This uses a nested loop through each elements of mazeCell 
+				console.log("in createMazeCode..." + mazeArr);
+
+				var mazeCode = "<!--woot-->";
+			
+				//loop through each row of the array...
+				for (row in mazeArr) {
+					console.log( 'row=' + row );
+					var rowArr = mazeArr[ row ];
+					
+					//loop through each column of the array
+					for (column in mazeArr[ row ]) {
+						var imgCode ="";
+						if (mazeArr[ row ][ column ] == 0 ) {
+							imgCode = "https://www.kasandbox.org/programming-images/cute/StoneBlock.png"
+						} else {
+							imgCode = "https://www.kasandbox.org/programming-images/cute/GrassBlock.png"
+						}
+
+					mazeCode = mazeCode
+						+ "<img "
+						+ " src='"
+						+ imgCode
+						+ "'"
+						+ " style='top: "
+						+ row * 25
+						+ "px; left: "
+						+ column * 30
+						+ "px;' "
+						+ "/>"
+					}
+				}
+				return mazeCode;
+			}
+			
+			function outputMazeCode ( htmlCode ) {  //OUTPUT: this puts the table information inside the table labelled "tableID"
+				console.log( "in outputMazeCode..." + htmlCode );
+				
+				document.getElementById("outputID").innerHTML	=htmlCode;
+			}
+		</script>
+		
+		<style>
+			img {
+				position: 	absolute;
+				width: 		30px;
+			}
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">	<!-- start the program after the page loads -->
+		<h1>Draw a maze</h1>
+		
+		<div id="outputID"></div>
+		<p>
+			<button onclick="initSmallMaze();">Click to make a small map!</button><br />		
+			<button onclick="initMediumMaze();">Click to make a bigger map!</button><br />		
+			<button onclick="initLargeMaze();">Click to make an even bigger map!</button><br />		
+		</p>
+	</body>
+</html>
+
+

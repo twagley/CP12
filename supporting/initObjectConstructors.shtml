@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+		<img id="msPacId">
+		<img id="blinkyId">
+		<img id="pinkyId">
+		
+		<script>
+			// Note that object constructors start with UPPER CASE by the rules of good style
+			// object constructors pass variables into the function definition as usual
+			// AnimatedObj's constructor requires an id, image source, and width
+			var AnimatedObj = function  ( idInfo, srcInfo, widthInfo ) { 	
+				this.id			= idInfo;
+				this.selector	= "#" + this.id;
+				this.src		= srcInfo;
+				this.width		= widthInfo;
+				this.DURATION	= 100;
+				this.DISTANCE	= 24;
+				
+				// Notice also that it is "this.id=" instead of "this.id:"
+				// Also, even though object constructors are functions, they do NOT use return	
+			}
+
+			//AnimatedObj methods:
+			//		.outputImage()
+			//		.animateUp()
+			//		.animateDown()
+			//		.animateLeft()
+			//		.animateRight()
+			//
+			//OUTPUT: method to display the image
+			AnimatedObj.prototype.outputImage	=function() {
+				//console.log('in AnimatedObj.outputImage this.selector=' + this.selector );
+				
+				document.querySelector( this.selector ).src					= this.src;
+				document.querySelector( this.selector ).style.width			= this.width;
+				document.querySelector( this.selector ).style.position		= "relative";
+			};
+				
+			//OUTPUT: method to animate up
+			AnimatedObj.prototype.animateUp		= function() {		
+				//console.log( 'in AnimatedObj.animateUp. this.selector=' + this.selector );
+				
+				$( this.selector ).animate(	
+					{ top: 		'-=' + this.DISTANCE + 'px' }, 
+					{ duration:	this.DURATION }
+				);
+			};
+			
+			//OUTPUT: method to animate down
+			AnimatedObj.prototype.animateDown	= function() {		
+				//console.log( 'in AnimatedObj.animateDown. this.selector=' + this.selector );
+				
+				$( this.selector ).animate(
+					{ top: 		'+=' + this.DISTANCE + 'px' }, 
+					{ duration:	this.DURATION }
+				);
+			};
+			
+			//OUTPUT: method to animate left
+			AnimatedObj.prototype.animateLeft	= function() {		
+				//console.log( 'in AnimatedObj.animateLeft. this.selector=' + this.selector );
+				
+				$( this.selector ).animate(
+					{ left: 	'-=' + this.DISTANCE + 'px' }, 
+					{ duration:	this.DURATION }
+				);
+			};
+				
+			//OUTPUT: method to animate right
+			AnimatedObj.prototype.animateRight	= function() {	
+				//console.log( 'in AnimatedObj.animateRight. this.selector=' + this.selector );
+				
+				$( this.selector ).animate(
+					{ left: 	'+=' + this.DISTANCE + 'px' }, 
+					{ duration:	this.DURATION }
+				);
+			}
+			
+			//	Global variables (just so that they can be seen by the buttons...
+			//	Create three objects quickly that can be animated
+			
+			//INIT: the msPacMan object
+			var msPacMan	= new AnimatedObj( 
+				"msPacId", "http://drapak.ca/cpg/img/MsPacMan.png", "40px"
+			); 
+			
+			//INIT: the blinky (red ghost) object
+			var blinky 		= new AnimatedObj( 
+				"blinkyId", "http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft1.png", "40px"
+			); 	
+			
+			//INIT: the pinky (pink ghost) object
+			var pinky 		= new AnimatedObj( 
+				"pinkyId", "http://drapak.ca/cpg/img/pacman/pacmanPinkyRight1.png", "40px"
+			); 		
+		</script>
+	</body>
+</html>

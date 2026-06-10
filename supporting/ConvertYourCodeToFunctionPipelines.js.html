@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	background: #F2F4FF;
+}
+.sc2 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc4 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc5 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc6 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc7 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc10 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+.sc11 {
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'in mainProcedure...'</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">getBiggerOrSmaller</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT: read which key was pressed
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'in readKeypress... keyEvent:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: fork the code if they pressed the up button
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getBiggerOrSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'in getBiggerOrSmaller... keyCode:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">85</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">          </span><span class="sc2">// U button
+</span><span class="sc0">        </span><span class="sc11">makeStarBigger</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">68</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc2">// D button
+</span><span class="sc0">        </span><span class="sc11">makeStarSmaller</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">   
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: make the star bigger
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">makeStarBigger</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'in makeStarBigger...'</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">'#imageID'</span><span class="sc10">).</span><span class="sc11">animate</span><span class="sc10">({</span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"+=40px"</span><span class="sc10">});</span><span class="sc0">   
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//OUTPUT: make the star smaller
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">makeStarSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'in makeStarSmaller...'</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">'#imageID'</span><span class="sc10">).</span><span class="sc11">animate</span><span class="sc10">({</span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"-=40px"</span><span class="sc10">});</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT: run mainProcedure when someone presses a key
+</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc10">;</span></div></body>
+</html>

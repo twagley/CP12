@@ -1,0 +1,7 @@
+<style>
+	p {
+		color: 			Red;
+		font-size: 		24px;
+		font-weight: 	bold;
+	}
+</style>

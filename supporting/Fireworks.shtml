@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The sky at night</title>
+		<meta name="description" content="Fireworks">
+		<meta name="author" content="Drapak">
+		<!--
+			Change log:
+				26. October 2015	- created!
+		-->
+		<!-- load jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<style>
+			
+			.fireworkClass {
+				position:			fixed;
+				width:				5px;
+				top:				60%;
+				z-index:			2;
+			}
+			#firework1Id {
+				left:				30%;
+			}
+			#firework2Id {
+				left:				50%;
+			}
+			#firework3Id {
+				left:				80%;
+			}
+			#backgroundId {
+				position:			absolute;
+				width:				100%;
+				z-index:			1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img 
+			id="backgroundId" 
+			src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg"> 
+			
+		<p>
+			Halifax waterfront image is from: 
+			<a href="https://www.flickr.com/photos/bencnh/508415582/in/album-72157618455740654/">bencnh's Flickr page</a>
+		</p>
+		
+		<img 
+			id="firework1Id"
+			class="fireworkClass"
+			src="http://drapak.ca/cpg/img/fireworks-blue.png"> 
+	
+		<img 
+			id="firework2Id"
+			class="fireworkClass"
+			src="http://drapak.ca/cpg/img/fireworks-red.png"> 
+	
+		<img 
+			id="firework3Id"
+			class="fireworkClass"
+			src="http://drapak.ca/cpg/img/fireworks-purple.png"> 
+	
+ 		<script>
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework1 = function () {
+				console.log( 'in fireFirework1...' );
+				
+				// go up like a rocket
+				$( '#firework1Id' ).animate( 
+					{
+						top:	"30%"
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework1Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework1Id' ).animate(
+					{ 	top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework2 = function () {
+				console.log( 'in fireFirework2...' );
+				
+				// go up like a rocket
+				$( '#firework2Id' ).animate( 
+					{
+						top:		"30%"
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework2Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework2Id' ).animate(
+					{ 	
+						top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//OUTPUT: animate the firework exploding, then fading
+			var fireFirework3 = function () {
+				console.log( 'in fireFirework3...' );
+				
+				// go up like a rocket
+				$( '#firework3Id' ).animate( 
+					{ 	
+						top:		"30%" 
+					}, 
+					800 
+				);
+				
+				// then explode
+				$( '#firework3Id' ).animate(
+					{ 	// you have to move over half the width while you expand...
+						top:		"-=150px",	
+						left:		"-=150px",	// same here as well
+						width:		"300px"
+					}, 
+					75 
+				);
+					
+				// and drift and fade
+				$( '#firework3Id' ).animate(
+					{ 	
+						top:		"-=40px",	// drift with the wind
+						left:		"+=40px",	// drift with the wind
+						opacity:	0,			// fade away to transparent
+						width:		"400px"		// increase slightly in size
+					}, 
+					2000 
+				);
+			}
+			
+			//MAIN: animate the firework up, wait one second, and then animate an explosion
+			var mainProcedure = function () {	
+				console.log( 'in mainProcedure...' );
+
+				setTimeout( fireFirework1, 1000 );
+				setTimeout( fireFirework2, 2000 );
+				setTimeout( fireFirework3, 3000 );
+			}
+			
+			//INPUT: start mainProcedure when #buttonId is pressed
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

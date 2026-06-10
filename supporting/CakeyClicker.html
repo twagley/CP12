@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cakey Clicker</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="author" 
+			content="Drapak">
+		<meta 
+			name="description" 
+			content="Create a page that uses Javascript to make a simple clicking game">
+		
+		<!--
+			Created:	25. February 2018										- Drapak
+			Modified:	
+			
+			Finished:	
+		-->
+		
+
+		<style>
+			/* squished to hide the magic - make your own CSS! */
+			body {font-family:"Open Sans";-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select:none;} table { position: absolute; top: 100px; right: 20px; border: 1px solid black; } td, th { vertical-align: top; text-align: left; } h2 { font-size: 40px; font-style: italic; font-weight: bold; margin-left: auto; margin-right: auto; color: red; } #cakeID { width: 100px; display: block; margin-left: auto; margin-right: auto; } #scoreID { opacity: 0.2; } #listID { position: absolute; top: 90px; left: 0px; }
+		</style>
+	</head>
+
+	<body>
+		<!-- The assignment: Create a page that uses Javascript to make a simple clicking game
+
+			1.	Place instructions
+			
+			Evaluation
+			
+			___/10 HTML-CSS: including ANY TEN of the following:
+				[ ]	a <span>
+				[ ]	a heading
+				[ ]	a table
+				[ ]	a div for output
+				[ ]	a descriptive paragraph
+				[ ] a list
+				
+				The following must be applied inside <style>:
+				
+				[ ]	applying a style to a tag
+				[ ]	applying a style to an #ID or .class
+				[ ]	applying a color, opacity, or background color
+				[ ]	applying a border
+				[ ]	applying a font size
+				[ ]	applying the font family, style, or weight
+				[ ]	applying the width
+				[ ]	applying text-align or vertical-align
+				[ ]	applying a position
+				[ ]	applying a top measurement
+				[ ]	applying a left measurement
+				[ ] applying a display style
+				[ ] applying margin-left or margin-right
+				
+			___/10 INPUT: including ANY FOUR of the following:
+				[ ]	a text area box
+				[ ]	an input line
+				[ ]	buttons
+				[ ]	things that work with document.getElementById().onclick
+				[ ]	things that work with document.getElementById().onchange
+				
+			___/10 PROCESS: including:
+				[ ]	successfully reading a text input
+				[ ]	assigning a variable
+				[ ]	using basic math
+				[ ]	using parseInt()
+				
+			___/10 OUTPUT: including ANY FOUR of the following:
+				[ ]	changing the color or background using Javascript
+				[ ]	changing the weight or style of a font using Javascript
+				[ ]	changing the size of a font using Javascript
+				[ ]	changing the border or width of something using Javascript
+				[ ]	output using .innerHTML
+			___/10 STYLE: honouring all //STYLE sections to date
+
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|
+		-->
+		
+		<h1>2.05: Hand-in: Cakey Clicker</h1>
+		
+		<div id="listID">
+			<ol>
+				<li>Name yourself</li>
+				<li>Get clicking!</li>
+				<li>Enjoy superstardom!</li>
+			</ol>
+		</div>
+
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<th id="nameDisplayID">
+						<input type="text" id="nameInputID" value="AnonymousClikker"><br>
+						<button type="button" id="buttonID">Name yourself!</button>
+					</th>
+				</tr>
+				<tr>
+					<td>Score</td>
+					<th id="scoreID">0</th>
+				</tr>
+			</tbody>
+		</table>
+		
+		<img
+			id="cakeID"
+			src="../img/cake.svg">
+
+		
+ 		<script>
+			var _0xa325=["\x69\x6E\x20\x63\x61\x6B\x65\x79\x43\x6C\x69\x63\x6B\x2E\x2E\x2E","\x6C\x6F\x67","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x73\x63\x6F\x72\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x66\x6F\x6E\x74\x53\x69\x7A\x65","\x73\x74\x79\x6C\x65","\x70\x78","\x6E\x61\x6D\x65\x44\x69\x73\x70\x6C\x61\x79\x49\x44","\x63\x6F\x6C\x6F\x72","\x62\x6C\x75\x65","\x6F\x70\x61\x63\x69\x74\x79","\x77\x69\x64\x74\x68","\x63\x61\x6B\x65\x49\x44","\x69\x6E\x20\x64\x69\x73\x70\x6C\x61\x79\x4E\x61\x6D\x65\x2E\x2E\x2E","\x76\x61\x6C\x75\x65","\x6E\x61\x6D\x65\x49\x6E\x70\x75\x74\x49\x44","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x62\x6F\x64\x79","\x79\x65\x6C\x6C\x6F\x77","\x6C\x69\x73\x74\x49\x44","\x3C\x68\x32\x3E\x47\x6F\x21\x21\x21\x21\x21\x21\x21\x3C\x2F\x68\x32\x3E","\x6F\x6E\x63\x6C\x69\x63\x6B","\x6F\x6E\x63\x68\x61\x6E\x67\x65","\x62\x75\x74\x74\x6F\x6E\x49\x44"];var cakeyClick=function(){console[_0xa325[1]](_0xa325[0]);var _0xd64fx2=document[_0xa325[4]](_0xa325[3])[_0xa325[2]];_0xd64fx2= parseInt(_0xd64fx2)+ 100;var _0xd64fx3=100+ (_0xd64fx2/ 10);var _0xd64fx4=14+ (_0xd64fx2/ 300);var _0xd64fx5=0.2+ (_0xd64fx2/ 10000);document[_0xa325[4]](_0xa325[3])[_0xa325[2]]= _0xd64fx2;document[_0xa325[4]](_0xa325[3])[_0xa325[6]][_0xa325[5]]= _0xd64fx4+ _0xa325[7];document[_0xa325[4]](_0xa325[8])[_0xa325[6]][_0xa325[5]]= _0xd64fx4+ _0xa325[7];document[_0xa325[4]](_0xa325[3])[_0xa325[6]][_0xa325[9]]= _0xa325[10];document[_0xa325[4]](_0xa325[3])[_0xa325[6]][_0xa325[11]]= _0xd64fx5;document[_0xa325[4]](_0xa325[13])[_0xa325[6]][_0xa325[12]]= _0xd64fx3+ _0xa325[7]};var displayName=function(){console[_0xa325[1]](_0xa325[14]);document[_0xa325[4]](_0xa325[8])[_0xa325[2]]= document[_0xa325[4]](_0xa325[16])[_0xa325[15]];document[_0xa325[18]][_0xa325[6]][_0xa325[17]]= _0xa325[19];document[_0xa325[4]](_0xa325[20])[_0xa325[2]]= _0xa325[21];document[_0xa325[22]]= cakeyClick};document[_0xa325[4]](_0xa325[16])[_0xa325[23]]= displayName;document[_0xa325[4]](_0xa325[24])[_0xa325[22]]= displayName
+		</script>
+	</body>
+</html>
+
+

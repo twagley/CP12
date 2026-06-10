@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Live example: Reading the mouse position</title>
+        <script>
+            var mouse = {
+				// current top and left position of the mouse
+				// in pixels
+				top: 0, 
+				left: 0, 
+				
+				// array with the list of possible star images in it
+				sourceArr: [
+					"http://img03.deviantart.net/29a5/i/2013/288/e/4/dark_pink_flower_stock_by_njakstudio-d6qladc.png",
+					"http://img00.deviantart.net/84de/i/2012/225/e/6/flower_png_pack_by_midi96-d5awnkw.png",
+					"https://upload.wikimedia.org/wikipedia/commons/f/f0/Yellow_Flower_Edited.png",
+					"http://drapak.ca/cpg/img/hibiscus-318982_640.png", // https://pixabay.com/static/uploads/photo/2014/04/07/22/39/hibiscus-318982_640.png
+					"http://img02.deviantart.net/0bee/i/2013/015/2/5/flower_2_free_reign_inspiration_and_design_by_misfitstwinkle-d5qee2d.png",
+
+					"http://orig07.deviantart.net/4e1b/f/2011/249/b/0/pink_rose_stock_png_by_kkcav-d494bnx.png",
+					"http://drapak.ca/cpg/img/flower-52483_640.png", //https://pixabay.com/static/uploads/photo/2012/07/17/22/40/flower-52483_640.png
+					"http://img02.deviantart.net/e007/i/2014/217/7/9/pink_flower_v3_by_thestockwarehouse-d7tvjtc.png",
+					"http://orig02.deviantart.net/94ee/f/2012/139/6/0/art_nouveau_rainbow_moonstone_flower_silve_jewelry_by_lilipilyspirit-d50azmq.png",
+					"http://res.publicdomainfiles.com/pdf_view/69/13927935629555.png"
+				],
+
+				// make the current image be the ninth element of the source array
+				currentSrc: "http://res.publicdomainfiles.com/pdf_view/69/13927935629555.png",
+				
+				// changes the current image internally and then outputs it
+				changeImage: function ( imageIndex ) {
+					//console.log('in mouse.changeImage: imageIndex=' + imageIndex );
+					this.currentSrc 						= this.sourceArr[ imageIndex ];
+					document.getElementById('imageID').src 	= this.currentSrc;
+				},
+				
+				// get the current position returned by the mouse event
+				getCurrentPosition: function ( event ) {
+					//console.log( 'in mouse.getCurrentPosition...' );
+					this.top    = event.clientY;
+					this.left   = event.clientX;
+				},
+
+				// display the current mouse position
+				displayPosition: function () {
+					//console.log( 'in mouse.displayPosition...' );
+
+					document.getElementById('topID').innerHTML 	= this.top;
+					document.getElementById('leftID').innerHTML	= this.left;
+				},
+
+				// move the star to the current mouse position
+				moveImage: function () {
+					//console.log( 'in mouse.moveImage...' );
+				
+					var imageStyle 	= document.getElementById('imageID').style;
+					imageStyle.top 	= this.top + 'px';
+					imageStyle.left	= this.left + 'px';
+				},
+
+				// add a new image to the outputID
+				placeImage: function () {
+					//console.log( 'in mouse.placeImage...' );
+
+					var newImage 		= document.createElement("img");
+					newImage.src 		= this.currentSrc ;
+					newImage.style.top 	= this.top + 'px';
+					newImage.style.left	= this.left + 'px';
+					
+					document.getElementById( 'outputID' ).appendChild( newImage );
+				},
+				
+				// loop through the sourceArr images and place each one inside the correct ID
+				placeKeyMenuImages: function () {
+					
+					for ( i in this.sourceArr ) {
+						var newImage 		= document.createElement("img");
+						newImage.src 		= this.sourceArr[ i ] ;						
+						document.getElementById( 'image' + i + 'ID' ).appendChild( newImage );
+					}
+				}
+            }
+
+            // whenever the mouse moves...        
+            document.onmousemove = function ( event ) {
+                mouse.getCurrentPosition( event );
+				mouse.displayPosition();
+				mouse.moveImage();
+            }
+			
+            // whenever the mouse clicks
+            document.onmousedown = function () {
+				if ( mouse.top > 50 ) {
+					mouse.placeImage();
+				}
+            }
+			
+			// whenever the keyboard is triggered 
+			window.onkeydown    = function ( keyEvent ) {
+				//INPUT: read which character was pressed...
+				var characterPressed    = keyEvent.which || keyEvent.keyCode;   
+				
+				if ( characterPressed == 48 ) { 		// key pressed is '0'
+					mouse.changeImage( 0 );
+				} else if ( characterPressed == 49 ) {	// key pressed is '1'
+					mouse.changeImage( 1 );
+				} else if ( characterPressed == 50 ) {	// key pressed is '2'
+					mouse.changeImage( 2 );
+				} else if ( characterPressed == 51 ) {	// key pressed is '3'
+					mouse.changeImage( 3 );
+				} else if ( characterPressed == 52 ) {	// key pressed is '4'
+					mouse.changeImage( 4 );
+				} else if ( characterPressed == 53 ) {	// key pressed is '5'
+					mouse.changeImage( 5 );
+				} else if ( characterPressed == 54 ) {	// key pressed is '6'
+					mouse.changeImage( 6 );
+				} else if ( characterPressed == 55 ) {	// key pressed is '7'
+					mouse.changeImage( 7 );
+				} else if ( characterPressed == 56 ) {	// key pressed is '8'
+					mouse.changeImage( 8 );
+				} else if ( characterPressed == 57 ) {	// key pressed is '9'
+					mouse.changeImage( 9 );
+				} 
+			}
+        </script>
+        <style>
+			body {
+				background-image: url("http://drapak.ca/cpg/img/background-16051_640.jpg");
+					/* from: https://pixabay.com/static/uploads/photo/2012/02/23/10/43/background-16051_640.jpg */
+				background-size: 100% auto;
+				color: darkgreen;
+				font-weight: bold;
+			}
+            img {
+                position: absolute;
+            }
+			img, td { 
+				width: 80px;
+			}
+			.withborder {
+				border: 1px solid grey;
+			}
+        </style>
+    </head>
+    <body onload="mouse.placeKeyMenuImages();">
+		<table>
+			<thead>
+				<tr>
+					<th>Top</th>
+					<th>Left</th>
+					<th>Key pressed:</th>
+
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="topID"></td>
+					<td id="leftID"></td>
+					<td></td>
+					
+					<td id="image0ID"></td>
+					<td id="image1ID"></td>
+					<td id="image2ID"></td>
+					<td id="image3ID"></td>
+					<td id="image4ID"></td>
+
+					<td id="image5ID"></td>
+					<td id="image6ID"></td>
+					<td id="image7ID"></td>
+					<td id="image8ID"></td>
+					<td id="image9ID"></td>
+				</tr>
+			</tbody>
+		</table>
+        <div id="outputID"></div>
+        <img id="imageID" src="http://res.publicdomainfiles.com/pdf_view/69/13927935629555.png" />
+    </body>
+</html>

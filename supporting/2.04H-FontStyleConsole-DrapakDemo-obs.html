@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Font style console demo</title>
+
+		<meta name="author" content="Drapak Demo">
+		<meta name="description" content="This page uses buttons and text input to style some fonts">
+		<meta charset="UTF-8">
+		
+		<!--
+			Created:	27. Sept 2015
+			Modified:	5. March 2017	- reworked for better programming style
+						6. March 2017	- transformed into a classroom demo
+		-->
+		
+
+		<style>
+#colorButtonID{color:#ff0;background-color:purple}#borderButtonID{border:3px solid green}#outputID{width:560px;font-size:14px}#textSizeID{width:30px}#textSmallerID{font-size:8px}#textBiggerID{font-size:18px}		</style>
+	</head>
+
+	<body>
+
+<h1>2.04: Hand-in: Font style console</h1><textarea cols=80 id=inputTextID rows=8>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Ut consequat feugiat ante quis tempor. 
+Proin malesuada augue eget metus lacinia, id accumsan risus rutrum. 
+Donec sodales velit et est fringilla venenatis. 
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Nulla quis egestas nunc. Donec volutpat enim in elementum scelerisque. 
+Pellentesque et sem quis nulla imperdiet ornare. 
+Integer id iaculis mi. 
+Quisque tincidunt porttitor dui, sit amet rutrum ligula placerat vitae. 
+Morbi laoreet risus quam, a gravida est rutrum vitae.
+		</textarea><br><hr><p>Edit the text or press the buttons to change things.</p><button id=boldButtonID><strong>bold</strong> & <em>italic</em></button> <button id=colorButtonID>yellow on purple</button> <button id=borderButtonID>border</button><br>Size increase: <input id=textSizeID value=5>px <button id=textSmallerID>smaller</button> <button id=textBiggerID>bigger</button><hr><div id=outputID></div> 		<script>
+var _0xb1e2=["\x76\x61\x6C\x75\x65","\x69\x6E\x70\x75\x74\x54\x65\x78\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x66\x6F\x6E\x74\x53\x74\x79\x6C\x65","\x73\x74\x79\x6C\x65","\x69\x74\x61\x6C\x69\x63","\x66\x6F\x6E\x74\x57\x65\x69\x67\x68\x74","\x62\x6F\x6C\x64","\x63\x6F\x6C\x6F\x72","\x79\x65\x6C\x6C\x6F\x77","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x70\x75\x72\x70\x6C\x65","\x62\x6F\x72\x64\x65\x72","\x33\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x67\x72\x65\x65\x6E","\x74\x65\x78\x74\x53\x69\x7A\x65\x49\x44","\x66\x6F\x6E\x74\x53\x69\x7A\x65","\x70\x78","\x6F\x6E\x6C\x6F\x61\x64","\x62\x6F\x64\x79","\x6F\x6E\x63\x68\x61\x6E\x67\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x62\x6F\x6C\x64\x42\x75\x74\x74\x6F\x6E\x49\x44","\x63\x6F\x6C\x6F\x72\x42\x75\x74\x74\x6F\x6E\x49\x44","\x62\x6F\x72\x64\x65\x72\x42\x75\x74\x74\x6F\x6E\x49\x44","\x74\x65\x78\x74\x53\x6D\x61\x6C\x6C\x65\x72\x49\x44","\x74\x65\x78\x74\x42\x69\x67\x67\x65\x72\x49\x44"];var currentSize=14;var updateText=function(){var _0x7e12x3=document[_0xb1e2[2]](_0xb1e2[1])[_0xb1e2[0]];document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[3]]= _0x7e12x3};var changeFontStyle=function(){document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[5]]= _0xb1e2[7];document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[8]]= _0xb1e2[9]};var changeColors=function(){document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[10]]= _0xb1e2[11];document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[12]]= _0xb1e2[13]};var changeBorder=function(){document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[14]]= _0xb1e2[15]};var makeSmaller=function(){var _0x7e12x8=parseInt(document[_0xb1e2[2]](_0xb1e2[16])[_0xb1e2[0]]);currentSize= currentSize- _0x7e12x8;document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[17]]= currentSize+ _0xb1e2[18]};var makeBigger=function(){var _0x7e12x8=parseInt(document[_0xb1e2[2]](_0xb1e2[16])[_0xb1e2[0]]);currentSize= currentSize+ _0x7e12x8;document[_0xb1e2[2]](_0xb1e2[4])[_0xb1e2[6]][_0xb1e2[17]]= currentSize+ _0xb1e2[18]};document[_0xb1e2[20]][_0xb1e2[19]]= updateText;document[_0xb1e2[2]](_0xb1e2[1])[_0xb1e2[21]]= updateText;document[_0xb1e2[2]](_0xb1e2[23])[_0xb1e2[22]]= changeFontStyle;document[_0xb1e2[2]](_0xb1e2[24])[_0xb1e2[22]]= changeColors;document[_0xb1e2[2]](_0xb1e2[25])[_0xb1e2[22]]= changeBorder;document[_0xb1e2[2]](_0xb1e2[26])[_0xb1e2[22]]= makeSmaller;document[_0xb1e2[2]](_0xb1e2[27])[_0xb1e2[22]]= makeBigger		</script>
+	</body>
+</html>
+
+
