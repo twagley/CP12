@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc4 {
+	color: #FF8000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//OUTPUT: display the result in #buttonID
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputAnswer</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in outputAnswer. answer='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#forLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">answer</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: loop from 1 to 10, and add to sum each time...
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getSumFromOneToTen</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in getSumFromOneToTen...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//INIT: start sum as zero           
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc4">11</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">;</span><span class="sc0">
+        
+        </span><span class="sc2">// show what is happening inside the loop...
+</span><span class="sc0">        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in loop! i='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' sum='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0"> 
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// show the final results
+</span><span class="sc0">    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'finished loop! i='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">' sum='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc2">// don't forget to return the answer!
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainForLoopProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainForLoopProcedure...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getSumFromOneToTen</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">outputAnswer</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">sum</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT:
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#forLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainForLoopProcedure</span><span class="sc10">;</span></div></body>
+</html>

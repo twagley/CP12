@@ -1,0 +1,10 @@
+//PROCESS: accept a number, and return the square of it
+var getSquare = function( inputNumber ) {
+	console.log( 'in getSquare. inputNumber=' + inputNumber );
+	
+	//PROCESS: calculate the square of the number used as the parameter
+	var answer = inputNumber * inputNumber;
+	
+	//PROCESS: send out the answer back to the ORIGINAL function call
+	return answer;
+	}

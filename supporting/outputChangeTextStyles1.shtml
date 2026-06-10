@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<button id= "buttonId" >
+			Change me!
+		</button>
+
+		<script>
+			//OUTPUT: change the style of the button
+			var changeButtonStyle = function (){
+				document.getElementById( "buttonId" ).style.fontSize		= 30 + "px";
+				document.getElementById( "buttonId" ).style.color			= "darkblue";
+				document.getElementById( "buttonId" ).style.backgroundColor	= "lightblue";
+				document.getElementById( "buttonId" ).style.fontStyle		= "bold";
+				document.getElementById( "buttonId" ).style.fontWeight		= "italic";
+			}     
+
+			//INPUT: attach changeButtonStyle to buttonId
+			document.getElementById( 'buttonId' ).onclick	= changeButtonStyle;
+		</script>
+	</body>
+</html>

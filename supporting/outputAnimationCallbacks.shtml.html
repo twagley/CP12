@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc7 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc11 {
+	color: #0000FF;
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc45 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Animating image changes"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Animating image changes</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            #imageId {
+                position:   absolute;
+                width:      50px;
+                top:        50%;
+                left:       50%;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;img</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"imageId"</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc7">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc7">'doAllSourceChangesThenAnimations();'</span><span class="sc1">&gt;</span><span class="sc0">
+                Do all the source changes together, then all the animations together
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc7">'changeSourceThenAnimateOneByOne();'</span><span class="sc1">&gt;</span><span class="sc0">
+                Change the source image, and then animate, one after another
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc7">'animateSourceChangesBeforeEachAnimation();'</span><span class="sc1">&gt;</span><span class="sc0">
+                Animate source changes before each animation
+            </span><span class="sc1">&lt;/button&gt;&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc43">//OUTPUT: do all the source changes together, then all the animations together</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">doAllSourceChangesThenAnimations</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// make all the image source changes</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+
+    </span><span class="sc43">// animate all the movement</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">       
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41">
+    
+
+</span><span class="sc43">//OUTPUT: Do the sources change and animation for each step, one at a time</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeSourceThenAnimateOneByOne</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// change image to face down and then animate down</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">     
+    
+    </span><span class="sc43">// change image to face right and then animate right</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face up and then animate up</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face left and then animate left</span><span class="sc41">
+    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">//NOTE: because of animation queues, this will change the image sources four</span><span class="sc41">
+    </span><span class="sc43">//      times and THEN animate #imageId</span><span class="sc41">
+</span><span class="sc50">};</span><span class="sc41">
+
+
+</span><span class="sc43">//OUTPUT:   Animate the movement, adding the image source change to the</span><span class="sc41">
+</span><span class="sc43">//          start: property as an anonymous function.</span><span class="sc41">
+</span><span class="sc43">//          Anything put inside start: will happen before the animation begins</span><span class="sc41">
+</span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">animateSourceChangesBeforeEachAnimation</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    </span><span class="sc43">// change image to face down and then animate down</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc49">'+=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41"> 
+    </span><span class="sc50">);</span><span class="sc41">      
+    
+    </span><span class="sc43">// change image to face right and then animate right</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'+=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face up and then animate up</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">        </span><span class="sc49">'-=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                    </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41"> 
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">);</span><span class="sc41">
+    
+    </span><span class="sc43">// change image to face left and then animate left</span><span class="sc41">
+    $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'-=50px'</span><span class="sc41"> 
+        </span><span class="sc50">},</span><span class="sc41"> 
+        </span><span class="sc50">{</span><span class="sc41"> 
+            </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">},</span><span class="sc41">
+            </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"All done!"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41"> 
+    </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc50">};</span><span class="sc41">          
+
+</span><span class="sc43">//sample animation code with function callbacks</span><span class="sc41">
+$</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc49">'-=50px'</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc49">'+=50px'</span><span class="sc41">    
+    </span><span class="sc50">},</span><span class="sc41"> 
+    </span><span class="sc50">{</span><span class="sc41">   
+        </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">   </span><span class="sc45">1000</span><span class="sc50">,</span><span class="sc41"> 
+        </span><span class="sc46">easing</span><span class="sc50">:</span><span class="sc41">     </span><span class="sc48">"linear"</span><span class="sc50">,</span><span class="sc41">
+        </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens BEFORE the animation</span><span class="sc41">
+            </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">},</span><span class="sc41">
+        </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc43">// this happens AFTER the animation</span><span class="sc41">
+            </span><span class="sc46">alert</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc48">"Animation finished!"</span><span class="sc50">);</span><span class="sc41">
+        </span><span class="sc50">}</span><span class="sc41">
+    </span><span class="sc50">}</span><span class="sc41"> 
+</span><span class="sc50">);</span><span class="sc41">
+
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

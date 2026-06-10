@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Online demographic data</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="author" 
+			content="Drapak">
+		<meta 
+			name="description" 
+			content="Get a sunny message!">
+		
+		<!--
+			20. November 2018	- Created										- Drapak
+			
+			Finished:	
+		-->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		</script>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<h2>
+			🌞 <span id="outputId">Hello you!</span>	🌞
+		</h2>
+		
+		<p>
+			<button id="buttonId">Get a sunny message from drapak.ca!</button>
+		</p>
+		
+		<script>
+
+			//OUTPUT: display the results of the transfer
+			var displayResults = function ( outputString ) {
+				console.log( 'in displayResults. outputString = ', outputString );
+				
+				document.querySelector( '#outputId' ).innerHTML = outputString;
+			}
+			
+			//PROCESS: this function takes the results of the request and processes them
+			var processWebsiteData = function ( data, status ) {
+				console.log( 'in processWebsiteData...' );
+				console.log( '   data=' + data );
+				console.log( '   status=' + status );
+				
+				//IF: this was successful, display the results
+				if ( status == 'success' ) {										
+					displayResults( data );
+				}
+				
+				//IF: the transfer was not successful, show an error message
+				else {
+					console.log( 'WARNING: demographics downloaded unsuccessfully' );
+				}
+			}
+
+			//PROCESS: generate a random message number 
+			var getRandomMessageNumber = function () {
+				console.log( 'in getRandomMessageNumber...' );
+				var messageNumber = Math.ceil( Math.random() * 100 );
+				return messageNumber;
+			}
+			
+			//INPUT: get the message from the web server
+			var getSunnyMessage = function () {
+				console.log( 'in getSunnyMessage...' );
+				//set up the URL to use to get the sunny message
+				const URL	= 'https://drapak.ca/cpg/getSunnyMessage.php';
+				
+				// generate a random number from 1 to 100 to get a new message each time
+				var messageNumber = getRandomMessageNumber();
+				
+				// create an object that contains the information needed to make the request
+				var informationRequestObj = { 		
+					'message': messageNumber
+				};
+				
+				//Use jQuery to get the request from the website
+				//The request has three parts:
+				//	1) the URL of the program to request information from
+				//	2) the information to send to that program for the request
+				//	3) the function to run when the transfer is complete
+
+				$.get( URL, informationRequestObj, processWebsiteData );	
+			}
+			
+			//INPUT/EVENT: get a sunny message when the button is clicked
+			document.querySelector( '#buttonId' ).onclick = getSunnyMessage;
+		</script>
+	</body>
+</html>

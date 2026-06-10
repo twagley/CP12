@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Draw a maze</title>
+
+		<meta name="author" content="EDIT: LastName">
+		<meta charset="UTF-8">
+		
+		<!--This draws a maze, and puts a link character on top of the maze, 
+			it to move around using the keyboard
+			
+			Created:	18. November -  
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<style>
+			img {
+				position: 		fixed;
+			}
+			#linkId {
+				top: 			50%;
+				left: 			50%;
+			}
+			#coordinatesId {
+				position:		fixed;
+				top:			20px;
+				left:			300px;
+				font-family: 	sans-serif;
+				font-weight:	bold;
+				color:			#999999;
+			}
+			
+		</style>
+	</head>
+
+	<body>	
+		<h1>Draw a maze</h1>
+		
+		<div id="outputId"></div>
+		<img id="linkId"></img>
+		<div id="coordinatesId">
+			Row: <span id="rowId"></span>
+			Column: <span id="columnId"></span>
+		</div>
+		<p>
+			<button id="buttonId">Click to create the playing field!</button><br />		
+		</p>
+		<audio id="audioBeepId">
+            <source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+        </audio>
+		<script>
+			var ROW_HEIGHT		= 40;
+			var COLUMN_WIDTH 	= 50;
+			
+			var maze = {
+				// INIT: initialize the array that holds the map pattern
+
+				imageSourceArr: [	"http://drapak.ca/cpg/img/BrownBlock.png",
+									"http://drapak.ca/cpg/img/DirtBlock.png",
+									"http://drapak.ca/cpg/img/GrassBlock.png",
+									"http://drapak.ca/cpg/img/PlainBlock.png",
+									"http://drapak.ca/cpg/img/RoofSouth.png",
+									"http://drapak.ca/cpg/img/StoneBlock.png",
+									"http://drapak.ca/cpg/img/WaterBlock.png",
+									"http://drapak.ca/cpg/img/WoodBlock.png",
+									"http://drapak.ca/cpg/img/WallBlock.png",
+									"http://drapak.ca/cpg/img/TreeUgly.png"
+				],
+				
+				contents: 	[	[6,6,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,0,0,0,0,0,0,6,null,null,null,null,null,null,null,null],
+								[6,0,0,0,0,6,6,6,null,null,null,null,null,null,null,null],
+								[6,6,6,0,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,6,6,0,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,0,0,0,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,0,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
+								[6,6,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+								[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]	
+				],
+
+				//generate the maze html and then display it
+				display:	function () {
+					console.log( 'in maze.display...' )
+					var mazeCode	= this.createMazeCode( );
+					this.outputMazeCode( mazeCode );	
+				},
+				
+				//PROCESS: This uses a nested loop through each elements of mazeCell 
+				createMazeCode:		function () {
+					console.log("in maze.createMazeCode...");
+
+					var mazeCode = "<!--woot-->";
+				
+					//loop through each row of the array...
+					for ( row in this.contents ) {
+						console.log( 'row=' + row );
+						var rowArr = this.contents[ row ];
+						
+						//loop through each column of the array
+						for (column in this.contents[ row ]) {
+
+							//check the inside of this cell in the array
+							if (this.contents[ row ][ column ] == null ) {
+								// do nothing
+							} else {
+								// add this image 
+								mazeCode = mazeCode
+									+ "<img "
+									+ " src='"
+									+ this.imageSourceArr[ this.contents[ row ][ column ] ]
+									+ "'"
+									+ " style='top: "
+									+ row * ROW_HEIGHT
+									+ "px; left: "
+									+ column * COLUMN_WIDTH
+									+ "px; width: "
+									+ COLUMN_WIDTH
+									+ "px;' "
+									+ "/>"
+							}
+						}
+					}
+					return mazeCode;
+				},
+			
+				//OUTPUT: this puts the table information inside the table labelled "tableID"
+				outputMazeCode:		 function ( htmlCode ) {  
+					console.log( "in maze.outputMazeCode..." + htmlCode );
+					document.getElementById("outputId").innerHTML	=htmlCode;
+				}
+				
+			};
+			
+			var link = {
+				id:				"linkId",
+				src:			"http://drapak.ca/cpg/img/link-down.png",
+				width:			( COLUMN_WIDTH - 14 ) + "px",
+				row:			1,
+				column:			1,
+				duration:		500,
+				topPosition:	0,
+				leftPosition:	0, 
+			}	
+			//OUTPUT: display link
+			//		set the opacity of link to 0
+			//		set the correct width
+			//		link it to an image 
+			//		fade in to full opacity
+			link.display = function () {
+				console.log( 'in link.display...' );
+				
+				document.getElementById(this.id).style.opacity	= 0;
+				document.getElementById(this.id).style.width	= this.width;
+				document.getElementById(this.id).src			= this.src;
+				$("#" + this.id ).animate( { opacity: 1 }, this.duration );
+			};	
+				
+			//OUTPUT: animate to the row and column position
+			link.animate = function( ) {
+				console.log( 'in link.animate...' );
+				document.getElementById('rowId').innerHTML 		= this.row;
+				document.getElementById('columnId').innerHTML 	= this.column;
+				
+				$("#" + this.id ).animate( 
+					{ 
+						top: 		this.topPosition,
+						left: 		this.leftPosition
+					}, 
+					{
+						duration: 	this.duration, 
+						easing: 	"linear"
+					}
+				);
+			};
+			
+			//OUTPUT: beep!
+			link.beep = function () {
+				console.log( 'in link.beep...' );
+				
+				document.getElementById("audioBeepID").play();
+			};
+				
+			//PROCESS: calculate new position
+			link.calculateNewPosition = function () {
+				console.log( 'in link.calculateNewPosition...' );
+			
+				this.topPosition	= ( this.row * ROW_HEIGHT + 2 ) + "px";
+				this.leftPosition	= ( this.column * COLUMN_WIDTH + 7 ) + "px";
+			}
+			
+			//OUTPUT: change the row position and then animate to there
+			link.goUp = function () {
+				console.log( 'in link.goUp...' );
+				document.getElementById( this.id ).src 
+					= "http://drapak.ca/cpg/img/link-up.png";
+				this.row = this.row - 1;
+				this.calculateNewPosition();
+				this.animate();
+			};
+			
+			//OUTPUT: change the row position and then animate to there
+			link.goDown = function () {
+				console.log( 'in link.goDown...' );
+				document.getElementById( this.id ).src 
+					= "http://drapak.ca/cpg/img/link-down.png";
+				this.row = this.row + 1;
+				this.calculateNewPosition();
+				this.animate();
+			};
+			
+			//OUTPUT: change the column position and then animate to there
+			link.goLeft = function () {
+				console.log( 'in link.goLeft...' );
+				document.getElementById( this.id ).src 
+					= "http://drapak.ca/cpg/img/link-left.png";
+				this.column = this.column - 1;
+				this.calculateNewPosition();
+				this.animate();
+			};
+			
+			//OUTPUT: change the column position and then animate to there
+			link.goRight = function () {
+				console.log( 'in link.goRight...' );
+				document.getElementById( this.id ).src 
+					= "http://drapak.ca/cpg/img/link-right.png";
+				this.column = this.column + 1;
+				this.calculateNewPosition();
+				this.animate();
+			};
+			
+
+			//INPUT EVENT: find the key that was pressed and move in that direction
+			window.onkeydown	=function (keyEvent) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				var characterPressed	=keyEvent.which || keyEvent.keyCode;
+				
+				if (characterPressed == 38) { // UP key is pressed
+					link.goUp();
+					
+				} else if (characterPressed == 40) { // DOWN key is pressed
+					link.goDown();
+					
+				} else if (characterPressed == 39) { // RIGHT key is pressed
+					link.goRight();
+					
+				} else if (characterPressed == 37) { // LEFT key is pressed
+					link.goLeft();
+				} 
+			}
+			
+			//INPUT EVENT: set up the maze when #buttonId is pressed
+			document.querySelector( '#buttonId' ).onclick = function () {
+				console.log( "button has been pressed..." );
+				
+				maze.display();
+				link.calculateNewPosition();
+				link.display();
+				link.animate();
+			}
+		</script>
+		
+	</body>
+</html>
+
+

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Computer Programming: Mad libs</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript strings and objects to create mad libs">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<!--
+			Change log:
+				18. October 2015	- created!
+				27. October 2018	- updated style 							- Drapak
+		-->
+
+        <style>
+            input, button {
+                position:   absolute;
+                left:       20em;
+            }
+			input {
+				width:		30em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>Mad libs!</h4>
+		<p>
+			Enter a name:
+			<input id="nameId" type="text" value="Grace Hopper"><br>
+			Enter a job:
+			<input id="jobId" type="text" 
+				value="computer scientist and United States Navy Rear Admiral"><br>
+			Enter an adjective:
+			<input id="adjectiveId" type="text" value="first"><br>
+			Enter an object:
+			<input id="inventionId" type="text" value="programming language compiler"><br><br>
+			
+			<button id='buttonId'>Generate the mad libs!</button>
+		</p>
+		<br>
+		<p id="outputId"></p>
+		
+		<script>
+            //OUTPUT: display the HTML string inside #outputId
+            var outputMadLib = function ( outputString ) {
+				console.log('in outputMadLib, outputString:' + outputString);
+				
+                document.querySelector( '#outputId' ).innerHTML   = outputString;
+            }
+			
+            //PROCESS: accept an object, 
+			//	and then combine the properties to make an HTML address string
+            var createMadLib = function ( inputObj ) {
+				console.log('in createMadLib, inputObj:', inputObj);
+				
+                var outputString    = "<strong>"
+									+ inputObj.name
+                                    + "</strong> was a <strong>"
+                                    + inputObj.job
+                                    + "</strong> who invented the <strong>"
+                                    + inputObj.adjective
+                                    + " "
+                                    + inputObj.invention 
+									+ "</strong>.";
+                return outputString;
+            }
+            
+            //INPUT: read the value of each of the input lines 
+			//	and return an object with all the information
+            var getInput = function () {
+				console.log( 'in getInput...' );
+				
+				//INIT: create an empty object to contain the information typed in
+                var inputObj    = {};
+                
+                inputObj.name           = document.querySelector( '#nameId' ).value;
+                inputObj.job         	= document.querySelector( '#jobId' ).value;
+                inputObj.adjective      = document.querySelector( '#adjectiveId' ).value;
+                inputObj.invention		= document.querySelector( '#inventionId' ).value;
+                
+                return inputObj;
+            }
+
+			//MAIN: this is function that connects all the functions together
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+                var inputObj        = getInput();
+                var outputString    = createMadLib( inputObj );
+                outputMadLib( outputString );
+            }
+            
+			//INPUT: connect #buttonId and #inventionId to the mainProcedure
+			document.querySelector( '#buttonId' ).onclick 		= mainProcedure;
+			document.querySelector( '#inventionId' ).onchange	= mainProcedure;
+        </script>
+	</body>
+</html>

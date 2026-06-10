@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+.sc21 {
+	background: #A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+	background: #F2F4FF;
+}
+.sc43 {
+	color: #008000;
+	background: #F2F4FF;
+}
+.sc46 {
+	background: #F2F4FF;
+}
+.sc47 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc48 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc49 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc50 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"utf-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">//INPUT: Buttons</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bodyId"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Using buttons in Javascript</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"insertButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Click me!
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"replaceButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Click me too!
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"alertButtonId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Click me three!
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"replaceBodyId"</span><span class="sc1">&gt;</span><span class="sc0">
+            Click me last!
+        </span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"emptyId"</span><span class="sc1">&gt;&lt;/p&gt;</span><span class="sc0">  
+        
+        </span><span class="sc9">&lt;!-- your script is the last thing in your &lt;body&gt; --&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// define your OUTPUT functions first...</span><span class="sc41">
+            
+            </span><span class="sc43">// OUTPUT: this is triggered by button #insertButtonId </span><span class="sc41">
+            </span><span class="sc43">//          and inserts text inside emptyId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">insertHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"I'm now inside the empty paragraph"</span><span class="sc50">;</span><span class="sc41">
+
+                </span><span class="sc43">// insert text inside an empty HTML element</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"emptyId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+            
+            </span><span class="sc43">// OUTPUT: this is triggered by button #replaceButtonId </span><span class="sc41">
+            </span><span class="sc43">//          and replaces the button text inside #replaceButtonId </span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">replaceButton</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"I have replaced the button text!"</span><span class="sc50">;</span><span class="sc41">
+
+                </span><span class="sc43">// replace the text inside the button</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"replaceButtonId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// OUTPUT: this is triggered by button #alertButtonId and triggers an alert</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">showAlert</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc43">// triggered an alert</span><span class="sc41">
+                </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"I made an alert()!"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// OUTPUT: this is triggered by button #replaceBodyId </span><span class="sc41">
+            </span><span class="sc43">//          and replaces the inside everything inside #bodyId</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">replaceBody</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"&lt;h1&gt;Nothing to see here&lt;/h1&gt;&lt;p&gt;Move along...&lt;/p&gt;"</span><span class="sc50">;</span><span class="sc41">
+
+                </span><span class="sc43">// replace the entire body with new code</span><span class="sc41">
+                </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bodyId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">newText</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+
+            </span><span class="sc43">// attach your INPUTs last...</span><span class="sc41">
+            </span><span class="sc43">// INPUT: attach the insertHTML function to insertButtonId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'insertButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">     </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">insertHTML</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">// INPUT: attach the replaceButton function to replaceButtonId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'replaceButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">replaceButton</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">// INPUT: attach the showAlert function to alertButtonId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'alertButtonId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">showAlert</span><span class="sc50">;</span><span class="sc41">
+            
+            </span><span class="sc43">// INPUT: attach the replaceBody function to replaceBodyId</span><span class="sc41">
+            </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'replaceBodyId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">replaceBody</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></div></body>
+</html>

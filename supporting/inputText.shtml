@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    
+    <body id='bodyId'>
+        <h1>Displaying and reading text input</h1>
+		<p>This does not actually change the colors on the page - <strong>YET!</strong></p>
+        <p>
+            Enter a font color:
+            <input id="fontId" type="text" value="blue"><br>
+            
+            <button id="fontButtonId">
+                pop up <code>document.getElementById( "fontId" ).value</code> 
+            </button><br>
+            <br>
+            
+            Enter a background color:<br>
+            <textarea id="backgroundId" rows="5" cols="40">lightBlue</textarea><br>
+
+            <button id="backgroundButtonId">
+                pop up <code>document.getElementById( "backgroundId" ).value</code> 
+            </button>
+        </p>
+		
+        <script>
+            //INPUT-OUTPUT: read in and then display the font color
+            var showFontColor = function (){
+				//INPUT: store the color that was typed into the input line
+				var newFontColor 	= document.getElementById( "fontId" ).value;
+				
+				//OUTPUT: display what color was typed as a pop up message
+                alert( newFontColor );
+            }
+            
+            //INPUT-OUTPUT: read in and then display the background color
+            var showBackground = function (){
+				//INPUT: store the background color that was typed into the textarea
+				var newBackground	= document.getElementById( "backgroundId" ).value
+				
+				//OUTPUT: display what background color was typed as a pop up message
+                alert( newBackground );
+            }
+			
+			//INPUT: attach showFontColor to fontId
+			document.getElementById( 'fontId' ).onchange			= showFontColor;
+			//INPUT: attach showFontColor to fontButtonId
+			document.getElementById( 'fontButtonId' ).onclick		= showFontColor;
+			
+			//INPUT: attach showBackground to backgroundId
+			document.getElementById( 'backgroundId' ).onchange		= showBackground;			
+			//INPUT: attach showBackground to backgroundButtonId
+			document.getElementById( 'backgroundButtonId' ).onclick	= showBackground;			
+        </script>
+    </body>
+</html>

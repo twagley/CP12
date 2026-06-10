@@ -1,0 +1,23 @@
+<body>
+	<p>
+		<img 
+			id="imageId" 
+			alt="also known as Dwayne Douglas Johnson"
+			src="https://www.kasandbox.org/programming-images/cute/Rock.png">
+			
+		<button id="buttonId">
+			I am mighty!<br>and powerful!<br>and can change this here rock into a star!
+		</button>
+	</p>
+
+	<script>
+		//OUTPUT: replace the src of #imageId with a star
+		var changeImage = function () {
+			document.querySelector( '#imageId' ).src 
+				= "https://www.kasandbox.org/programming-images/cute/Star.png"
+		}
+		
+		//INPUT: trigger changeImage when #buttonId is pressed
+		document.querySelector( '#buttonId' ).onclick	= changeImage;
+	</script>
+</body>

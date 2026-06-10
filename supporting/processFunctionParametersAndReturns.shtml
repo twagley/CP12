@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculate the volume of a cylinder</title>
+		<meta 
+			name="description" 
+			content="This program calculates the volume of a cylinder">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<!--
+			Change log:	
+				12. Oct			- created!										- Drapak
+				25. March 2017	- reworked for improved programming style		- Drapak
+				21. Oct 2018	- reworked for clarity and improved style		- Drapak
+			-->
+		<style>
+			#outputId {
+				color:			darkRed;
+				font-weight:	bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Volume of a sphere</h1>
+		<p>
+			Enter the radius of the sphere:
+			<input id="inputId" type="text" value="10"><br>
+			
+			<button id="buttonId">Calculate!</button><br>
+			The volume is <span id="outputId">Waiting for input...</span>
+		</p>
+
+		<script>
+			var mainProcedure = function() {
+				console.log( 'in mainProcedure...' );
+				
+				var radius 	= getRadius();
+				var volume	= calculateVolume( radius );
+				outputVolume( volume );
+			}
+			
+			//INPUT: read in text input from #radiusId
+			var getRadius = function () {
+				console.log( 'in getRadius...' );
+				
+				return document.querySelector( '#inputId ').value;
+			}
+
+			
+			//PROCESS: calculate and return the volume of a sphere given a radius
+			var calculateVolume = function ( radius ) {
+				console.log( 'in calculateVolume, radius=' + radius );
+				
+				//PROCESS: convert the radius from a string to a number
+				radius	= parseFloat( radius );		
+
+				//PROCESS: calculate the volume = 4/3 x pi x r ^ 3
+				var answer	= 4 / 3 * Math.PI * Math.pow( radius, 3 );
+				
+				//PROCESS: send the answer out out of the function
+				return answer;						
+			}
+			
+			//OUTPUT: display the answer inside #outputId
+			var outputVolume = function ( volume ) {
+				console.log ( 'in outputVolume, volume='  + volume );
+				
+				document.querySelector( '#outputId' ).innerHTML	= volume;
+			}
+			
+			//INPUT: make clicking the button or changing the numbers trigger mainProcedure
+			document.querySelector( '#inputId' ).onchange	= mainProcedure;
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Move things with buttons
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Read current positions and move to a new one.">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<!--
+			Change log:
+				29. Sept 2015	- created!										- Drapak
+				5. March 2017	- reworked for clearer style					- Drapak
+				3. October 2018	- moved to 2.06									- Drapak
+				27. Oct 2018	- updated style and moved to querySelector		- Drapak
+		-->
+
+		<style>
+			#imageId {
+				position: 	absolute;
+				top:		50px;	
+				left:		300px;
+			}
+			input {
+				width: 		50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img 
+			id="imageId" 
+			alt="image of a star"
+			src="https://www.kasandbox.org/programming-images/cute/Star.png">
+	
+		<p>
+			Distance to move for each button press:
+			<input id="inputId" type="text" value="15">px
+			
+			<button id="buttonId">&darr;</button>
+			<!-- 
+				A reference for arrow symbols:
+				up = &uarr;		down =&darr;	left = &larr;	right = &rarr;
+			-->
+		</p>
+
+ 		<script>
+			// This reads the distance per click and moves the star down by that amount
+			var moveDown = function () {
+				console.log( 'in moveDown...' );
+				
+				// INPUT: get the distance to move with each click
+				var distancePerClickString	= document.querySelector( '#inputId' ).value;
+				// .value returns a string - you convert it to a number with parseInt()
+				var distancePerClick		= parseInt( distancePerClickString );
+				
+				// INPUT: get the image's current distance from the top of the page
+				var currentTop			= document.querySelector( '#imageId' ).offsetTop;
+				
+				// PROCESS: increase the distance from the top by the parsed distance/click
+				var newTop				= currentTop + distancePerClick;
+				
+				// OUTPUT: send the variable contents to the developer's console
+				console.log( 'currentTop, newTop=' + currentTop + ', ' + newTop );
+				
+				// OUTPUT: update the image with a new top value
+				// note that you have to add px to the end of the number 
+				document.querySelector( '#imageId' ).style.top	= newTop + 'px';
+			}
+			
+			//INPUT: trigger moveDown when #buttonId is clicked
+			document.querySelector( '#buttonId' ).onclick	= moveDown;
+		</script>
+	</body>
+</html>

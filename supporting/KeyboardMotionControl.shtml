@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Keyboard motion control</title>
+		<meta name="description" content="Assignment: Use Javascript control movement via keyboard">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				6. Oct 2015		- created!
+				24. March 2017	- reworked
+		-->
+
+		<style>
+			#imageID {
+				position: 			absolutely_will_not_move_until_you_add_this;
+				width:				75px;
+			}
+			td {
+				text-align:			center;
+				vertical-align: 	middle;
+			}
+		</style>
+	</head>
+
+	<body>		
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td>&#87; &uarr;</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>&larr; &#65;</td>
+					<td>Let's move link around!</td>
+					<td>&#68; &rarr;</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>&#83; &darr;</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<img id="imageID" src="http://drapak.ca/cpg/img/link-down.png" />
+
+		<script>
+			var distance	= 15;	
+			
+			//this moves link to the right and changes the image...
+			var goRight = function () {
+					console.log('in goRight');
+					
+					//INPUT: get the current measurement from the left side of the screen
+					var currentLeft	= document.getElementById('imageID').offsetLeft;
+					
+					//PROCESS: calculate the new position
+					var newLeft		= currentLeft + distance;
+					
+					//OUTPUT: move link to the new position
+					document.getElementById('imageID').style.left	= newLeft + "px";
+					
+					//OUTPUT: change the link image to the one that faces right...
+					document.getElementById('same_as_the_picture_of_link_ID').src 
+						= "http://drapak.ca/cpg/img/link-right.png";
+			}
+			
+			//this reads the keypress and decides what to do for each keypress
+			var readKeypress = function (keyEvent) {
+				console.log('in readKeypress...');
+				
+				//INPUT: find out which key was pressed
+				var characterPressed    = keyEvent.which || keyEvent.keyCode; 
+				
+				//PROCESS: trigger the correct movement function by key code
+				if ( characterPressed == 68) { // right = D
+				} else if ( characterPressed == 65 ) { // left = A
+				} else if ( characterPressed == 87 ) { // up = W
+				} else if ( characterPressed == 83 ) { // down = S
+				}
+			}
+
+			window.onkeydown    = readKeypress;		
+		</script>
+	</body>
+</html>

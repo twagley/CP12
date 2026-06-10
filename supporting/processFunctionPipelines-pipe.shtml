@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Convert degrees to radians</title>
+		<meta name="description" content="Convert degrees to radians in Javascript">
+	</head>
+	<body>
+		<p>
+			Enter the degrees:
+			<input id="inputId" type="text"></input>
+			<button id="buttonId">Click to convert!</button>
+		</p>
+		<p>
+			The answer in radians is:
+			<span id="outputId"></span>
+		</p>
+
+		<script>
+			//OUTPUT: accepts the radians and outputs it inside #outputId
+			var outputRadians = function ( radians ) {
+				console.log( 'in outputRadians, radians=' + radians );
+				
+				document.querySelector( '#outputId' ).innerHTML	= radians;
+			}
+			
+			//PROCESS: accepts degrees and returns the equivalent in radians
+			var convertToRadians = function ( degrees ) {
+				console.log( 'in convertToRadians, degrees=' + degrees );
+				
+				//PROCESS: convert the input string to a number
+				degrees		= parseFloat( degrees );
+				//PROCESS: do the trigonometry
+				var radians	= degrees * Math.PI / 180; 
+				//OUTPUT: send the answer out of the function
+				return radians; 							
+			}
+			
+			//INPUT: read the input line and return it
+			var readDegrees = function () {
+				console.log( 'in readDegrees...' );
+				
+				return document.querySelector( '#inputId' ).value;
+			}
+			
+			//MAIN: 
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				var degrees	= readDegrees();				//INPUT
+				var radians	= convertToRadians( degrees );	//PROCESS
+				outputRadians( radians );					//OUTPUT
+				// the following code is the same as the lines above:
+				// outputRadians( convertToRadians ( readDegrees ) );
+			}
+			
+			//INPUT: trigger mainProcedure when the button is clicked or the number changed
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+			document.querySelector( '#inputId' ).onchange	= mainProcedure;
+		</script>
+	</body>
+</html>

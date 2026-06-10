@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Computer Programming 12: OUTPUT - Animating motion</title>
+		<meta name="description" content="Learn how to animate motion in Javascript">
+		<meta name="author" content="Dave Drapak">
+
+		<!-- the next line loads the jQuery library to simplify animation -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+		<script>
+			// OUTPUT: animate the image's position
+			var animateImage = function () {  
+				console.log('in animateHeader...');
+				// jQuery uses $() to select element using CSS-style selectors
+				$("#animateID").animate({top: "+=200px"});	// move down 200px from current pos
+				$("#animateID").animate({top: "-=200px"});	// move up 200px from current pos
+				$("#animateID").animate({left: "-=200px"});	// move left 200px from current pos
+				$("#animateID").animate({left: "+=200px"});	// move right 200px from current pos
+			}
+		</script>
+		<style>
+			#animateID {
+				/* set the position mode and starting coordinates */
+				position:	absolute;
+				top: 		500px;
+				left:		650px;
+			}
+		</style>
+	</head>
+	<body>
+			<img id="animateID" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Gertie.jpg" />
+			<button type="button" onclick="animateImage();">Click me to animate!</button>
+	</body>
+</html>

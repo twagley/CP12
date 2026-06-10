@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>My second keyboard sniffer</title>
+		<meta name="description" content="Display information from keyboard keypresses">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				5. Oct 2015	- created!
+		-->
+		<script>
+			// first, set up the keypress reading function
+			// note that the keyEvent variable is inside the brackets
+			var readKeypress = function (keyEvent) {
+				console.log('in readKeypress...');
+				
+				// the next line handles how different browsers read keypresses
+				//INPUT: read the key that was pressed
+				var characterPressed 	= keyEvent.which || keyEvent.keyCode;	
+				
+				//PROCESS: here is where you would do different things depending on characterPressed
+				var unicodeCharacter	="&#" + characterPressed + ";";
+				console.log(unicodeCharacter);
+				
+				//OUTPUT: display the character code that was pressed
+				document.getElementById('codeID').innerHTML	= characterPressed;
+				
+				//OUTPUT: display the unicode character
+				document.getElementById('characterID').innerHTML	= unicodeCharacter;
+				
+				//PROCESS: if the user presses tab...
+				if ( characterPressed == 9 ) {
+					//OUTPUT: replace the screen
+					document.getElementById('bodyID').innerHTML	= "<h2>Dang it!</h2>";
+				}
+			}
+			
+			// Then activate it with window.onkeydown, which is like onclick, 
+			// but is activated anytime a key is pressed down while the browser is active
+			// ...Notice that there are no brackets () after readKeyPress...
+			window.onkeydown	= readKeypress;
+		</script>
+		<style>
+			span {
+				font-weight:	bold;
+			}
+		</style>
+	</head>
+
+	<body id="bodyID">
+		<h4>Press any key ... as long as it is not <kbd>tab</kbd>!</h4>
+		<p>You pressed character #<span id="codeID"> </span></p>
+		<p>That is the same as '<span id="characterID"> </span>'</p>
+	</body>
+</html>

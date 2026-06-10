@@ -1,0 +1,11 @@
+<button type="button" id="buttonId">Click me now!</button>
+
+<script>
+	//OUTPUT: do something interesting when the button is pressed...
+	var mainProcedure = function () {
+		/* Javascript code goes in here */
+	}
+	
+	//INPUT: add an onclick event to the button
+	document.getElementById( 'buttonId' ).onclick	= mainProcedure;
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc4 {
+	color: #FF8000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc6 {
+	color: #808080;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//OUTPUT: display the results inside #outputTraditionalLoopId
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in outputPasswordList. outputCode='</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">getElementById</span><span class="sc10">(</span><span class="sc7">'outputTraditionalLoopId'</span><span class="sc10">).</span><span class="sc11">innerHTML</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//PROCESS: create the HTML code for a list from an array
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">createPasswordList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in createPasswordList, wordArr: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// initialize the output string and start the list code
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"&lt;ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">// loop through each index of the word array ( 0 -&gt; length - 1 )
+</span><span class="sc0">    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in wordArr loop, i, outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">","</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc2">//add this array value to the outputString 
+</span><span class="sc0">        </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;li&gt;"</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">wordArr</span><span class="sc10">[</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/li&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc2">// end the list code
+</span><span class="sc0">    </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"&lt;/ol&gt;"</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'final value of outputString: '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">// remember to return the result
+</span><span class="sc0">    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">outputString</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INIT: create the array of passwords
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">initPasswordArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in initPasswordArr...'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc2">//INIT: create an array of the top 25 most used passwords in 2017
+</span><span class="sc0">    </span><span class="sc2">//  from https://en.wikipedia.org/wiki/List_of_the_most_common_passwords
+</span><span class="sc0">    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc0">
+        </span><span class="sc6">"123456"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"password"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"12345678"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"qwerty"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"12345"</span><span class="sc10">,</span><span class="sc0">
+
+        </span><span class="sc6">"123456789"</span><span class="sc10">,</span><span class="sc0">        
+        </span><span class="sc6">"letmein"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"1234567"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"football"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"dragon"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"admin"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"welcome"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"monkey"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"login"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"abc123"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"starwars"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"123123"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"dragon"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"passw0rd"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"master"</span><span class="sc10">,</span><span class="sc0">
+        
+        </span><span class="sc6">"hello"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"freedom"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"whatever"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"qazwsx"</span><span class="sc10">,</span><span class="sc0">
+        </span><span class="sc6">"trustno1"</span><span class="sc0">
+    </span><span class="sc10">];</span><span class="sc0">
+    
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//MAIN
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainTraditionalLoopProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'in mainTraditionalLoopProcedure'</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0">     </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">initPasswordArr</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">createPasswordList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordArr</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">outputPasswordList</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">passwordList</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT EVENT: trigger the main procedure when the button is pressed
+</span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc7">'#traditionalLoopButtonId'</span><span class="sc0"> </span><span class="sc10">).</span><span class="sc11">onclick</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">mainTraditionalLoopProcedure</span><span class="sc10">;</span></div></body>
+</html>

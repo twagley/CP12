@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Election graph</title>
+		<meta name="description" content="Make an election graph">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				20. October 2015												- Drapak
+				21. October 		- separated functions like a good programmer! - Drapak
+				4. April 2017		- moved script to tail & onclicks to <script> - Drapak
+				27. October 2018	- updated style and clarified code			- Drapak
+		-->
+		<style>
+			input, button {
+				position: 			absolute;
+				left: 				10em;
+			}
+			div {
+				color:				white;
+				min-height:			1.2em;
+				max-height:			1.2em;
+				width:				0em;
+				padding-left:		0.3em;
+				overflow: 			hidden;
+			}
+			#liberalGraphId {
+				background-color: 	red;
+			}
+			#conservativeGraphId {
+				background-color: 	blue;
+			}
+			#newDemocratGraphId {
+				background-color: 	orange;
+			}
+			#blocGraphId {
+				background-color: 	cyan;
+			}
+			#greenGraphId {
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>Make an election graph!</h4>
+		<p>
+			Please enter the number of seats won by the respective parties:<br>
+			Liberal: 		<input id="liberalInputId" 		value="184"><br>
+			Conservative:	<input id="conservativeInputId"	value="99"><br>
+			New Democrat:	<input id="newDemocratInputId"	value="44"><br>
+			Bloc Quebecois:	<input id="blocInputId"			value="10"><br>
+			Green:			<input id="greenInputId"		value="1"><br>
+			<br>
+			<button id="displayGraphButtonId">Click to graphinate!</button><br>
+		</p>
+		<hr>
+		<div id="liberalGraphId">Liberal</div>
+		<div id="conservativeGraphId">Conservative</div>
+		<div id="newDemocratGraphId">New Democrat</div>
+		<div id="blocGraphId">Bloc Quebecois</div>
+		<div id="greenGraphId">Green</div>
+
+ 		<script>
+			//OUTPUT: change the graph divs to the calculated width
+			var displayGraph = function ( graphObj ) {
+				console.log( 'in displayGraph, graphObj=', graphObj );
+
+				document.querySelector( '#liberalGraphId' 		).style.width			
+					= graphObj.liberal 		+ 'px';
+				document.querySelector( '#conservativeGraphId' 	).style.width		
+					= graphObj.conservative	+ 'px';
+				document.querySelector( '#newDemocratGraphId' 	).style.width		
+					= graphObj.newDemocrat	+ 'px';
+				document.querySelector( '#blocGraphId' 			).style.width				
+					= graphObj.bloc 		+ 'px';
+				document.querySelector( '#greenGraphId' 		).style.width				
+					= graphObj.green		+ 'px';				
+			}
+			
+			//PROCESS: calculate the width of the graph to display, and store in graphWidth
+			var calculateGraphWidths = function ( electionResultsObj ) {
+				console.log( 
+					'in calculateGraphWidths, electionResultsObj=', 
+					electionResultsObj 
+				);
+				
+				//INIT: the multiplier to get an attractive width
+				const GRAPH_MULTIPLIER = 5;
+				
+				//INIT: the variable to store the widths as an empty object
+				var graphObj = {}; 		
+				
+				graphObj.liberal		= electionResultsObj.liberal 		* GRAPH_MULTIPLIER;
+				graphObj.conservative	= electionResultsObj.conservative 	* GRAPH_MULTIPLIER;
+				graphObj.newDemocrat	= electionResultsObj.newDemocrat 	* GRAPH_MULTIPLIER;
+				graphObj.bloc			= electionResultsObj.bloc 			* GRAPH_MULTIPLIER;
+				graphObj.green			= electionResultsObj.green 			* GRAPH_MULTIPLIER;
+				
+				return graphObj;
+			}
+			
+			//INPUT: read in the election results and store inside electionResultsObj
+			var getElectionResults = function () {
+				console.log( 'in getElectionResults' );
+				
+				//INIT: set up the election results as an empty object
+				var electionResultsObj = {};		
+				
+				electionResultsObj.liberal			
+					= document.querySelector( '#liberalInputId' 		).value;
+				electionResultsObj.conservative	
+					= document.querySelector( '#conservativeInputId' 	).value;
+				electionResultsObj.newDemocrat		
+					= document.querySelector( '#newDemocratInputId' 	).value;
+				electionResultsObj.bloc			
+					= document.querySelector( '#blocInputId' 			).value;
+				electionResultsObj.green			
+					= document.querySelector( '#greenInputId' 			).value;
+				
+				return electionResultsObj;
+			}
+			
+			//MAIN: connect together the data flow with the correct functions
+			var mainProcedure = function () {
+				console.log('in mainProcedure');
+				
+				//INPUT: get the election results stored in an object
+				var electionResultsObj		= getElectionResults();
+				
+				//PROCESS: create an object of the graph widths calculated from the results 
+				var graphObj				= calculateGraphWidths( electionResultsObj );
+				
+				//OUTPUT: display a graph using the widths in the graph object
+				displayGraph( graphObj );
+			}
+			
+			//INPUT: connect the mainProcedure and hideGraph to their buttons
+			document.querySelector( '#displayGraphButtonId' ).onclick	= mainProcedure;
+		</script>
+	</body>
+</html>

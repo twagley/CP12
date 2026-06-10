@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Live example: Using arrays of objects to create a map</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+            //INIT: set up the stars variable as an array of objects
+			// data from: https://en.wikipedia.org/wiki/List_of_stars_in_Orion
+            var stars = [
+            	{ name: 'Rigel', symbol: 'β', magnitude: 0.18, distance: 773, rightAngle: 5.242297, declination: -8.201639 }, 
+            	{ name: 'Betelgeuse', symbol: 'α', magnitude: 0.42, distance: 643, rightAngle: 5.919525, declination: 7.407028 }, 
+            	{ name: 'Bellatrix', symbol: 'γ', magnitude: 1.64, distance: 243, rightAngle: 5.418853, declination: 6.349722 }, 
+            	{ name: 'Alnilam', symbol: 'ε', magnitude: 1.69, distance: 1342, rightAngle: 5.603558, declination: -1.201917 }, 
+            	{ name: 'Alnitak A', symbol: 'ζ', magnitude: 1.88, distance: 817, rightAngle: 5.679311, declination: -1.942583 }, 
+            	{ name: 'Saiph', symbol: 'κ', magnitude: 2.07, distance: 721, rightAngle: 5.795942, declination: -9.669611 }, 
+            	{ name: 'Mintaka AB', symbol: 'δ', magnitude: 2.2, distance: 916, rightAngle: 5.533444, declination: -0.299083 }, 
+            	{ name: 'ι Ori', symbol: 'ι', magnitude: 2.75, distance: 1325, rightAngle: 5.59055, declination: -5.909889 }, 
+            	{ name: 'π3 Ori', symbol: 'π3', magnitude: 3.19, distance: 26, rightAngle: 4.830594, declination: 6.96125 }, 
+            	{ name: 'η Ori', symbol: 'η', magnitude: 3.35, distance: 901, rightAngle: 5.40795, declination: -2.397139 }, 
+            	{ name: 'Meissa A', symbol: 'λ', magnitude: 3.47, distance: 1055, rightAngle: 5.585633, declination: 9.934167 }, 
+            	{ name: 'τ Ori', symbol: 'τ', magnitude: 3.59, distance: 554, rightAngle: 5.293444, declination: -6.844389 }, 
+            	{ name: 'π4 Ori', symbol: 'π4', magnitude: 3.68, distance: 1259, rightAngle: 4.853436, declination: 5.605111 }, 
+            	{ name: 'Alnitak BC', symbol: 'ζ', magnitude: 3.7, distance: 817, rightAngle: 5.679333, declination: -1.942778 }, 
+            	{ name: 'π5 Ori', symbol: 'π5', magnitude: 3.71, distance: 1342, rightAngle: 4.904194, declination: 2.440667 }, 
+            	{ name: 'σ Ori AB', symbol: 'σ', magnitude: 3.77, distance: 1148, rightAngle: 5.645769, declination: -2.600056 }, 
+            	{ name: 'ο2 Ori', symbol: 'ο2', magnitude: 4.06, distance: 169, rightAngle: 4.939533, declination: 13.514583 }, 
+            	{ name: 'φ2 Ori', symbol: 'φ2', magnitude: 4.09, distance: 116, rightAngle: 5.615092, declination: 9.291417 }, 
+            	{ name: 'μ Ori', symbol: 'μ', magnitude: 4.12, distance: 152, rightAngle: 6.039719, declination: 9.647361 }, 
+            	{ name: '29 Ori', symbol: 'e', magnitude: 4.13, distance: 174, rightAngle: 5.399122, declination: -7.807944 }, 
+            	{ name: '32 Ori', symbol: 'A', magnitude: 4.2, distance: 288, rightAngle: 5.513069, declination: 5.948222 }, 
+            	{ name: 'π2 Ori', symbol: 'π2', magnitude: 4.35, distance: 194, rightAngle: 4.843533, declination: 8.90025 }, 
+            	{ name: 'φ1 Ori', symbol: 'φ1', magnitude: 4.39, distance: 985, rightAngle: 5.580344, declination: 9.489583 }, 
+            	{ name: 'χ1 Ori', symbol: 'χ1', magnitude: 4.39, distance: 28, rightAngle: 5.906411, declination: 20.276417 }, 
+            	{ name: 'ν Ori', symbol: 'ν', magnitude: 4.42, distance: 534, rightAngle: 6.1262, declination: 14.768528 }, 
+            	{ name: 'ξ Ori', symbol: 'ξ', magnitude: 4.45, distance: 634, rightAngle: 6.199, declination: 14.208806 }, 
+            	{ name: 'ρ Ori', symbol: 'ρ', magnitude: 4.46, distance: 344, rightAngle: 5.221522, declination: 2.86125 }, 
+            	{ name: 'π6 Ori', symbol: 'π6', magnitude: 4.47, distance: 953, rightAngle: 4.975806, declination: 1.714028 }, 
+            	{ name: 'ω Ori', symbol: 'ω', magnitude: 4.5, distance: 1622, rightAngle: 5.653097, declination: 4.121472 }, 
+            	{ name: 'HD 40657', symbol: '', magnitude: 4.53, distance: 420, rightAngle: 6.000931, declination: -3.074083 }, 
+            	{ name: '42 Ori', symbol: 'c', magnitude: 4.58, distance: 786, rightAngle: 5.589767, declination: -4.838333 }, 
+            	{ name: 'ψ Ori', symbol: 'ψ', magnitude: 4.59, distance: 1417, rightAngle: 5.447286, declination: 3.095667 }, 
+            	{ name: 'υ Ori', symbol: 'υ', magnitude: 4.62, distance: 1545, rightAngle: 5.532183, declination: -7.301528 }, 
+            	{ name: 'π1 Ori', symbol: 'π1', magnitude: 4.64, distance: 121, rightAngle: 4.914917, declination: 10.151139 }, 
+            	{ name: 'χ2 Ori', symbol: 'χ2', magnitude: 4.64, distance: 1801, rightAngle: 6.065328, declination: 20.138472 }, 
+            	{ name: '11 Ori', symbol: '', magnitude: 4.65, distance: 400, rightAngle: 5.07615, declination: 15.404194 }, 
+            	{ name: 'ο1 Ori', symbol: 'ο1', magnitude: 4.71, distance: 542, rightAngle: 4.875544, declination: 14.250778 }, 
+            	{ name: '31 Ori', symbol: '', magnitude: 4.71, distance: 456, rightAngle: 5.49555, declination: -1.092167 }, 
+            	{ name: '22 Ori', symbol: 'o', magnitude: 4.72, distance: 1289, rightAngle: 5.362708, declination: -0.382472 }, 
+            	{ name: '56 Ori', symbol: '', magnitude: 4.76, distance: 1113, rightAngle: 5.874011, declination: 1.855167 }, 
+            	{ name: '49 Ori', symbol: 'd', magnitude: 4.77, distance: 153, rightAngle: 5.648081, declination: -7.212722 }, 
+            	{ name: 'HD 36960', symbol: '', magnitude: 4.78, distance: 1863, rightAngle: 5.584078, declination: -6.002028 }, 
+            	{ name: '15 Ori', symbol: '', magnitude: 4.81, distance: 318, rightAngle: 5.161656, declination: 15.597278 }, 
+            	{ name: '25 Ori', symbol: 'ψ1', magnitude: 4.89, distance: 1109, rightAngle: 5.412453, declination: 1.846444 }, 
+            	{ name: '51 Ori', symbol: 'b', magnitude: 4.9, distance: 302, rightAngle: 5.707961, declination: 1.474667 }, 
+            	{ name: 'HD 44131', symbol: '', magnitude: 4.91, distance: 506, rightAngle: 6.333222, declination: -2.9445 }, 
+            	{ name: 'HD 37756', symbol: '', magnitude: 4.95, distance: 2090, rightAngle: 5.680756, declination: -1.128778 }, 
+            	{ name: '69 Ori', symbol: 'f1', magnitude: 4.95, distance: 774, rightAngle: 6.200911, declination: 16.130444 }, 
+            	{ name: 'θ2 Ori A', symbol: 'θ2', magnitude: 4.98, distance: 1895, rightAngle: 5.589694, declination: -5.416056 }, 
+            	{ name: '23 Ori', symbol: 'm', magnitude: 5, distance: 962, rightAngle: 5.380556, declination: 3.544444 }, 
+            	{ name: '74 Ori', symbol: 'k', magnitude: 5.04, distance: 64, rightAngle: 6.274047, declination: 12.271722 }, 
+            	{ name: '27 Ori', symbol: 'p', magnitude: 5.07, distance: 172, rightAngle: 5.408031, declination: -0.891667 }, 
+            	{ name: 'θ1 Ori C', symbol: 'θ1 C', magnitude: 5.13, distance: 1600, rightAngle: 5.587908, declination: -5.389694 }, 
+            	{ name: '64 Ori', symbol: '', magnitude: 5.14, distance: 1069, rightAngle: 6.0576, declination: 19.690611 }, 
+            	{ name: '6 Ori', symbol: 'g', magnitude: 5.18, distance: 241, rightAngle: 4.913031, declination: 11.425972 }, 
+            	{ name: 'HD 33554', symbol: '', magnitude: 5.18, distance: 321, rightAngle: 5.194878, declination: 16.045667 }, 
+            	{ name: '71 Ori', symbol: '', magnitude: 5.2, distance: 69, rightAngle: 6.247483, declination: 19.156889 }, 
+            	{ name: '60 Ori', symbol: '', magnitude: 5.21, distance: 367, rightAngle: 5.980439, declination: 0.552972 }, 
+            	{ name: '45 Ori', symbol: '', magnitude: 5.24, distance: 370, rightAngle: 5.594303, declination: -4.856083 }, 
+            	{ name: '52 Ori', symbol: '', magnitude: 5.26, distance: 479, rightAngle: 5.800064, declination: 6.454222 }, 
+            	{ name: '38 Ori', symbol: 'n2', magnitude: 5.32, distance: 345, rightAngle: 5.571331, declination: 3.766944 }, 
+            	{ name: '5 Ori', symbol: '', magnitude: 5.33, distance: 638, rightAngle: 4.889656, declination: 2.508278 }, 
+            	{ name: 'HD 31296', symbol: '', magnitude: 5.33, distance: 441, rightAngle: 4.913275, declination: 7.779167 }, 
+            	{ name: '14 Ori', symbol: 'i', magnitude: 5.33, distance: 194, rightAngle: 5.131353, declination: 8.498583 }, 
+            	{ name: '21 Ori', symbol: '', magnitude: 5.34, distance: 198, rightAngle: 5.319786, declination: 2.595944 }, 
+            	{ name: 'HD 36591', symbol: '', magnitude: 5.34, distance: 2567, rightAngle: 5.544819, declination: -1.591833 }, 
+            	{ name: '72 Ori', symbol: 'f2', magnitude: 5.34, distance: 479, rightAngle: 6.256981, declination: 16.143194 }, 
+            	{ name: 'HD 30210', symbol: '', magnitude: 5.35, distance: 266, rightAngle: 4.767139, declination: 11.705611 }, 
+            	{ name: 'VV Ori', symbol: '', magnitude: 5.36, distance: 1852, rightAngle: 5.558736, declination: -1.156083 }, 
+            	{ name: '55 Ori', symbol: '', magnitude: 5.36, distance: 1680, rightAngle: 5.856106, declination: -7.518 }, 
+            	{ name: 'HD 30034', symbol: '', magnitude: 5.39, distance: 157, rightAngle: 4.740492, declination: 11.146167 }, 
+            	{ name: '75 Ori', symbol: 'l', magnitude: 5.39, distance: 254, rightAngle: 6.285172, declination: 9.942528 }, 
+            	{ name: 'U Ori', symbol: '', magnitude: 5.4, distance: 1420, rightAngle: 5.930361, declination: 20.175 }, 
+            	{ name: '16 Ori', symbol: 'h', magnitude: 5.43, distance: 176, rightAngle: 5.155444, declination: 9.829611 }, 
+            	{ name: '73 Ori', symbol: '', magnitude: 5.44, distance: 1399, rightAngle: 6.262492, declination: 12.551083 }, 
+            	{ name: '33 Ori', symbol: 'n1', magnitude: 5.46, distance: 1567, rightAngle: 5.520703, declination: 3.292139 }, 
+            	{ name: 'HD 34043', symbol: '', magnitude: 5.5, distance: 598, rightAngle: 5.245569, declination: 5.156139 }, 
+            	{ name: '18 Ori', symbol: '', magnitude: 5.52, distance: 368, rightAngle: 5.267817, declination: 11.341361 }, 
+            	{ name: 'HD 35536', symbol: '', magnitude: 5.6, distance: 635, rightAngle: 5.41715, declination: -10.328833 }, 
+            	{ name: '35 Ori', symbol: '', magnitude: 5.6, distance: 513, rightAngle: 5.565081, declination: 14.305583 }, 
+            	{ name: 'HD 36881', symbol: '', magnitude: 5.6, distance: 1462, rightAngle: 5.587011, declination: 10.240111 }, 
+            	{ name: 'HD 43318', symbol: '', magnitude: 5.62, distance: 116, rightAngle: 6.259544, declination: -0.511667 }, 
+            	{ name: '66 Ori', symbol: '', magnitude: 5.63, distance: 2489, rightAngle: 6.082878, declination: 4.158667 }, 
+            	{ name: 'HD 36959', symbol: '', magnitude: 5.67, distance: 2694, rightAngle: 5.583614, declination: -6.009278 }, 
+            	{ name: '63 Ori', symbol: '', magnitude: 5.67, distance: 1101, rightAngle: 6.082831, declination: 5.419972 }, 
+            	{ name: 'HD 44033', symbol: '', magnitude: 5.67, distance: 548, rightAngle: 6.334508, declination: 14.651167 }, 
+            	{ name: 'HD 35007', symbol: '', magnitude: 5.68, distance: 1076, rightAngle: 5.358844, declination: -0.4165 }, 
+            	{ name: 'HD 35299', symbol: '', magnitude: 5.69, distance: 809, rightAngle: 5.395086, declination: -0.159806 }, 
+            	{ name: 'HD 40369', symbol: '', magnitude: 5.7, distance: 838, rightAngle: 5.981456, declination: 12.80825 }, 
+            	{ name: 'HD 42111', symbol: '', magnitude: 5.7, distance: 609, rightAngle: 6.149417, declination: 2.499722 }, 
+            	{ name: 'HD 43587', symbol: '', magnitude: 5.7, distance: 63, rightAngle: 6.287847, declination: 5.099694 }, 
+            	{ name: 'HD 37209', symbol: '', magnitude: 5.71, distance: 1918, rightAngle: 5.609914, declination: -6.06475 }, 
+            	{ name: '68 Ori', symbol: '', magnitude: 5.76, distance: 970, rightAngle: 6.200372, declination: 19.790583 }, 
+            	{ name: 'HD 36166', symbol: '', magnitude: 5.77, distance: 1254, rightAngle: 5.498547, declination: 1.78925 }, 
+            	{ name: 'HD 34989', symbol: '', magnitude: 5.78, distance: 736, rightAngle: 5.3621, declination: 8.428556 }, 
+            	{ name: 'HD 38527', symbol: '', magnitude: 5.78, distance: 300, rightAngle: 5.781153, declination: 9.5225 }, 
+            	{ name: 'HD 31373', symbol: '', magnitude: 5.79, distance: 423, rightAngle: 4.9306, declination: 15.040306 }, 
+            	{ name: 'HD 39007', symbol: '', magnitude: 5.79, distance: 334, rightAngle: 5.834078, declination: 9.871222 }, 
+            	{ name: 'HD 36134', symbol: '', magnitude: 5.8, distance: 467, rightAngle: 5.489917, declination: -3.446361 }, 
+            	{ name: 'HD 43023', symbol: '', magnitude: 5.83, distance: 315, rightAngle: 6.231733, declination: -3.741417 }, 
+            	{ name: 'HD 42954', symbol: '', magnitude: 5.86, distance: 452, rightAngle: 6.241272, declination: 17.906389 }, 
+            	{ name: 'HD 37320', symbol: '', magnitude: 5.87, distance: 556, rightAngle: 5.633642, declination: 7.541444 }, 
+            	{ name: 'HD 39910', symbol: '', magnitude: 5.87, distance: 304, rightAngle: 5.925044, declination: -4.6165 }, 
+            	{ name: 'HD 33646', symbol: '', magnitude: 5.88, distance: 916, rightAngle: 5.195931, declination: 1.037056 }, 
+            	{ name: 'HD 33608', symbol: '', magnitude: 5.89, distance: 125, rightAngle: 5.188647, declination: -2.490778 }, 
+            	{ name: 'HD 40020', symbol: '', magnitude: 5.89, distance: 307, rightAngle: 5.947053, declination: 11.521194 }, 
+            	{ name: '59 Ori', symbol: '', magnitude: 5.89, distance: 353, rightAngle: 5.973456, declination: 1.837139 }, 
+            	{ name: 'HD 33833', symbol: '', magnitude: 5.9, distance: 446, rightAngle: 5.213367, declination: -6.057111 }, 
+            	{ name: 'HD 32263', symbol: '', magnitude: 5.91, distance: 498, rightAngle: 5.030653, declination: 0.722167 }, 
+            	{ name: 'HD 43112', symbol: '', magnitude: 5.91, distance: 1370, rightAngle: 6.25235, declination: 13.851083 }, 
+            	{ name: 'HD 36780', symbol: '', magnitude: 5.92, distance: 842, rightAngle: 5.567794, declination: -1.470194 }, 
+            	{ name: '57 Ori', symbol: '', magnitude: 5.92, distance: 1405, rightAngle: 5.915747, declination: 19.749611 }, 
+            	{ name: 'HD 36162', symbol: '', magnitude: 5.93, distance: 344, rightAngle: 5.507269, declination: 15.360556 }, 
+            	{ name: 'HD 37788', symbol: '', magnitude: 5.93, distance: 168, rightAngle: 5.684886, declination: 0.337694 }, 
+            	{ name: 'HD 38529', symbol: '', magnitude: 5.94, distance: 138, rightAngle: 5.776378, declination: 1.168528 }, 
+            	{ name: 'HD 39421', symbol: '', magnitude: 5.95, distance: 379, rightAngle: 5.868814, declination: -9.041972 }, 
+            	{ name: 'HD 37481', symbol: '', magnitude: 5.96, distance: 1567, rightAngle: 5.643881, declination: -6.573944 }, 
+            	{ name: 'HD 39051', symbol: '', magnitude: 5.96, distance: 507, rightAngle: 5.836961, declination: 4.4235 }, 
+            	{ name: 'HD 39286', symbol: '', magnitude: 5.96, distance: 1370, rightAngle: 5.873169, declination: 19.867861 }, 
+            	{ name: 'HD 37171', symbol: '', magnitude: 5.97, distance: 821, rightAngle: 5.617875, declination: 11.035056 }, 
+            	{ name: 'HD 38089', symbol: '', magnitude: 5.97, distance: 163, rightAngle: 5.714975, declination: -6.796306 }, 
+            	{ name: 'HD 38858', symbol: '', magnitude: 5.97, distance: 51, rightAngle: 5.809694, declination: -4.094083 }, 
+            	{ name: 'HD 39118', symbol: '', magnitude: 5.97, distance: 1128, rightAngle: 5.841675, declination: 2.024722 }, 
+            	{ name: 'HD 39885', symbol: '', magnitude: 5.97, distance: 697, rightAngle: 5.941122, declination: 9.509417 }, 
+            	{ name: 'HD 31331', symbol: '', magnitude: 5.98, distance: 964, rightAngle: 4.914086, declination: 0.467167 }, 
+            	{ name: 'HD 35281', symbol: '', magnitude: 5.99, distance: 493, rightAngle: 5.388475, declination: -8.415583 }, 
+            	{ name: 'HD 37594', symbol: '', magnitude: 5.99, distance: 135, rightAngle: 5.658653, declination: -3.564722 }, 
+            	{ name: 'HD 39775', symbol: '', magnitude: 5.99, distance: 827, rightAngle: 5.912233, declination: 0.968611 }, 
+            	{ name: 'HD 44497', symbol: '', magnitude: 6, distance: 205, rightAngle: 6.376783, declination: 12.570306 }, 
+            	{ name: 'HD 37303', symbol: '', magnitude: 6.03, distance: 1358, rightAngle: 5.624267, declination: -5.938389 }, 
+            	{ name: 'HD 30545', symbol: '', magnitude: 6.04, distance: 707, rightAngle: 4.812397, declination: 3.588556 }, 
+            	{ name: 'HD 32686', symbol: '', magnitude: 6.04, distance: 3075, rightAngle: 5.081814, declination: -3.039667 }, 
+            	{ name: 'V1031 Ori', symbol: '', magnitude: 6.04, distance: 653, rightAngle: 5.790806, declination: -10.532917 }, 
+            	{ name: 'HD 42477', symbol: '', magnitude: 6.04, distance: 430, rightAngle: 6.191086, declination: 13.638611 }, 
+            	{ name: 'HD 43285', symbol: '', magnitude: 6.07, distance: 743, rightAngle: 6.261161, declination: 6.066194 }, 
+            	{ name: 'HD 33883', symbol: '', magnitude: 6.08, distance: 879, rightAngle: 5.225431, declination: 1.967694 }, 
+            	{ name: 'HD 38309', symbol: '', magnitude: 6.09, distance: 165, rightAngle: 5.7505, declination: 4.008194 }, 
+            	{ name: 'HD 41076', symbol: '', magnitude: 6.09, distance: 480, rightAngle: 6.056881, declination: 11.681083 }, 
+            	{ name: 'W Ori', symbol: '', magnitude: 6.1, distance: 700, rightAngle: 5.089919, declination: 1.177639 }, 
+            	{ name: 'HD 30870', symbol: '', magnitude: 6.11, distance: 704, rightAngle: 4.86205, declination: 9.975083 }, 
+            	{ name: 'HD 33419', symbol: '', magnitude: 6.11, distance: 314, rightAngle: 5.167572, declination: -0.565194 }, 
+            	{ name: 'HD 37232', symbol: '', magnitude: 6.11, distance: 867, rightAngle: 5.622031, declination: 8.951889 }, 
+            	{ name: 'HD 43683', symbol: '', magnitude: 6.12, distance: 637, rightAngle: 6.301558, declination: 14.382861 }, 
+            	{ name: 'HD 35317', symbol: '', magnitude: 6.13, distance: 189, rightAngle: 5.397592, declination: -0.866611 }, 
+            	{ name: 'HD 39632', symbol: '', magnitude: 6.13, distance: 1475, rightAngle: 5.903708, declination: 10.586417 }, 
+            	{ name: 'HD 31764', symbol: '', magnitude: 6.14, distance: 671, rightAngle: 4.983169, declination: 14.54325 }, 
+            	{ name: '13 Ori', symbol: '', magnitude: 6.15, distance: 92, rightAngle: 5.127311, declination: 9.472722 }, 
+            	{ name: 'HD 34180', symbol: '', magnitude: 6.15, distance: 150, rightAngle: 5.255144, declination: -1.409056 }, 
+            	{ name: 'HD 36558', symbol: '', magnitude: 6.15, distance: 1495, rightAngle: 5.543881, declination: 0.011972 }, 
+            	{ name: 'HD 37356', symbol: '', magnitude: 6.16, distance: 1120, rightAngle: 5.631497, declination: -4.814028 }, 
+            	{ name: 'HD 35588', symbol: '', magnitude: 6.18, distance: 1583, rightAngle: 5.429728, declination: 0.52025 }, 
+            	{ name: 'HD 35693', symbol: '', magnitude: 6.18, distance: 461, rightAngle: 5.453861, declination: 15.257667 }, 
+            	{ name: 'CK Ori', symbol: '', magnitude: 6.21, distance: 574, rightAngle: 5.505531, declination: 4.204861 }, 
+            	{ name: 'HD 40347', symbol: '', magnitude: 6.21, distance: 400, rightAngle: 5.969917, declination: -0.993972 }, 
+            	{ name: 'HD 37744', symbol: '', magnitude: 6.22, distance: 1680, rightAngle: 5.677025, declination: -2.82525 }, 
+            	{ name: 'HD 40282', symbol: '', magnitude: 6.22, distance: 519, rightAngle: 5.965142, declination: 1.224306 }, 
+            	{ name: 'HD 36430', symbol: '', magnitude: 6.23, distance: 1762, rightAngle: 5.522469, declination: -6.708389 }, 
+            	{ name: 'HD 33555', symbol: '', magnitude: 6.24, distance: 158, rightAngle: 5.182769, declination: -2.25375 }, 
+            	{ name: 'HD 35640', symbol: '', magnitude: 6.24, distance: 667, rightAngle: 5.433989, declination: -5.5185 }, 
+            	{ name: 'HD 36779', symbol: '', magnitude: 6.24, distance: 1240, rightAngle: 5.567747, declination: -1.035722 }, 
+            	{ name: 'HD 37016', symbol: '', magnitude: 6.24, distance: 1128, rightAngle: 5.589533, declination: -4.424333 }, 
+            	{ name: 'HD 38495', symbol: '', magnitude: 6.24, distance: 371, rightAngle: 5.767461, declination: -4.268306 }, 
+            	{ name: 'HD 43821', symbol: '', magnitude: 6.24, distance: 346, rightAngle: 6.311208, declination: 9.047278 }, 
+            	{ name: 'HD 31623', symbol: '', magnitude: 6.25, distance: 274, rightAngle: 4.954781, declination: -1.067194 }, 
+            	{ name: 'HD 36840', symbol: '', magnitude: 6.25, distance: 1230, rightAngle: 5.574803, declination: -0.012333 }, 
+            	{ name: 'HD 39927', symbol: '', magnitude: 6.28, distance: 321, rightAngle: 5.926494, declination: -4.788528 }, 
+            	{ name: 'HD 30869', symbol: '', magnitude: 6.3, distance: 136, rightAngle: 4.863867, declination: 13.655194 }, 
+            	{ name: 'HD 39685', symbol: '', magnitude: 6.3, distance: 552, rightAngle: 5.904367, declination: 3.225778 }, 
+            	{ name: 'BL Ori', symbol: '', magnitude: 6.3, distance: 1299, rightAngle: 6.424494, declination: 14.722 }, 
+            	{ name: 'HD 32115', symbol: '', magnitude: 6.31, distance: 162, rightAngle: 5.011061, declination: -2.066028 }, 
+            	{ name: 'V1197 Ori', symbol: '', magnitude: 6.31, distance: 679, rightAngle: 5.719256, declination: -1.613167 }, 
+            	{ name: 'HD 43819', symbol: '', magnitude: 6.32, distance: 631, rightAngle: 6.317181, declination: 17.325278 }, 
+            	{ name: 'Meissa B', symbol: 'λ', magnitude: 6.32, distance: 1055, rightAngle: 5.585694, declination: 9.935 }, 
+            	{ name: 'HD 30321', symbol: '', magnitude: 6.33, distance: 277, rightAngle: 4.773375, declination: -2.954389 }, 
+            	{ name: 'HD 33946', symbol: '', magnitude: 6.33, distance: 832, rightAngle: 5.229792, declination: 0.560472 }, 
+            	{ name: 'HD 34648', symbol: '', magnitude: 6.33, distance: 1863, rightAngle: 5.326467, declination: -1.411889 }, 
+            	{ name: 'HD 35407', symbol: '', magnitude: 6.33, distance: 1226, rightAngle: 5.410028, declination: 2.353167 }, 
+            	{ name: 'HD 36285', symbol: '', magnitude: 6.33, distance: 1216, rightAngle: 5.505764, declination: -7.434806 }, 
+            	{ name: 'HD 31739', symbol: '', magnitude: 6.34, distance: 454, rightAngle: 4.969694, declination: -2.212778 }, 
+            	{ name: 'V1649 Ori', symbol: '', magnitude: 6.34, distance: 245, rightAngle: 5.391967, declination: 5.323056 }, 
+            	{ name: 'HD 35909', symbol: '', magnitude: 6.35, distance: 322, rightAngle: 5.476325, declination: 13.679028 }, 
+            	{ name: 'HD 44867', symbol: '', magnitude: 6.35, distance: 385, rightAngle: 6.414656, declination: 16.057222 }, 
+            	{ name: 'HD 35775', symbol: '', magnitude: 6.36, distance: 425, rightAngle: 5.454278, declination: 2.341194 }, 
+            	{ name: 'HD 42351', symbol: '', magnitude: 6.37, distance: 2650, rightAngle: 6.183825, declination: 18.130472 }, 
+            	{ name: 'HD 43358', symbol: '', magnitude: 6.37, distance: 303, rightAngle: 6.264994, declination: 1.169 }, 
+            	{ name: 'HD 36058', symbol: '', magnitude: 6.39, distance: 762, rightAngle: 5.482475, declination: -3.307417 }, 
+            	{ name: 'θ2 Ori B', symbol: 'θ2', magnitude: 6.38, distance: 1895, rightAngle: 5.590667, declination: -5.416861 }, 
+            	{ name: 'HD 43335', symbol: '', magnitude: 6.39, distance: 728, rightAngle: 6.273275, declination: 17.181639 }, 
+            	{ name: 'HD 34880', symbol: '', magnitude: 6.4, distance: 679, rightAngle: 5.340669, declination: -5.367528 }, 
+            	{ name: 'V1377 Ori', symbol: '', magnitude: 6.4, distance: 2608, rightAngle: 5.593306, declination: -3.252833 }, 
+            	{ name: 'HD 35656', symbol: '', magnitude: 6.41, distance: 305, rightAngle: 5.444117, declination: 6.86875 }, 
+            	{ name: 'HD 35912', symbol: '', magnitude: 6.41, distance: 1160, rightAngle: 5.467075, declination: 1.29825 }, 
+            	{ name: 'HD 37904', symbol: '', magnitude: 6.41, distance: 273, rightAngle: 5.694531, declination: -2.896528 }, 
+            	{ name: 'HD 31423', symbol: '', magnitude: 6.42, distance: 192, rightAngle: 4.935839, declination: 7.904806 }, 
+            	{ name: 'HD 34317', symbol: '', magnitude: 6.42, distance: 608, rightAngle: 5.278069, declination: 1.947333 }, 
+            	{ name: 'HD 34878', symbol: '', magnitude: 6.43, distance: 415, rightAngle: 5.345483, declination: 2.544722 }, 
+            	{ name: 'V1357 Ori', symbol: '', magnitude: 6.44, distance: 59, rightAngle: 6.220128, declination: 10.627861 }, 
+            	{ name: 'HD 35575', symbol: '', magnitude: 6.44, distance: 791, rightAngle: 5.426806, declination: -1.491306 }, 
+            	{ name: 'HD 32273', symbol: '', magnitude: 6.45, distance: 508, rightAngle: 5.033342, declination: 1.608833 }, 
+            	{ name: 'HD 36814', symbol: '', magnitude: 6.45, distance: 637, rightAngle: 5.567356, declination: -7.023639 }, 
+            	{ name: 'V1389 Ori', symbol: '', magnitude: 6.45, distance: 709, rightAngle: 6.216547, declination: 6.016278 }, 
+            	{ name: 'HD 37808', symbol: '', magnitude: 6.46, distance: 536, rightAngle: 5.679497, declination: -10.408667 }, 
+            	{ name: 'V1369 Ori', symbol: '', magnitude: 6.49, distance: 1244, rightAngle: 5.355364, declination: 4.011972 }, 
+            	{ name: 'HD 36150', symbol: '', magnitude: 6.49, distance: 391, rightAngle: 5.494886, declination: -0.802417 }, 
+            	{ name: 'HD 37635', symbol: '', magnitude: 6.49, distance: 566, rightAngle: 5.658567, declination: -9.706611 }, 
+            	{ name: 'HD 31411', symbol: '', magnitude: 6.5, distance: 489, rightAngle: 4.932878, declination: 5.399056 }, 
+            	{ name: 'HD 37150', symbol: '', magnitude: 6.51, distance: 1270, rightAngle: 5.604175, declination: -5.647917 }, 
+            	{ name: 'HD 37808', symbol: '', magnitude: 6.52, distance: 793, rightAngle: 5.679497, declination: -10.408639 }, 
+            	{ name: 'HD 37017', symbol: '', magnitude: 6.56, distance: 1240, rightAngle: 5.589408, declination: -4.494167 }, 
+            	{ name: 'σ Ori E', symbol: 'σ', magnitude: 6.61, distance: 1148, rightAngle: 5.646442, declination: -2.594583 }, 
+            	{ name: 'HD 43317', symbol: '', magnitude: 6.62, distance: 1200, rightAngle: 6.263058, declination: 4.283639 }, 
+            	{ name: 'σ Ori D', symbol: 'σ', magnitude: 6.62, distance: 1148, rightAngle: 5.646006, declination: -2.599694 }, 
+            	{ name: 'θ1 Ori D', symbol: 'θ1 D', magnitude: 6.71, distance: 1600, rightAngle: 5.588111, declination: -5.387694 }, 
+            	{ name: 'θ1 Ori A', symbol: 'θ1 A', magnitude: 6.73, distance: 1600, rightAngle: 5.587728, declination: -5.387306 }, 
+            	{ name: 'HD 35155', symbol: '', magnitude: 6.77, distance: 939, rightAngle: 5.371844, declination: -8.599444 }, 
+            	{ name: 'Mintaka C', symbol: 'δ', magnitude: 6.83, distance: 916, rightAngle: 5.533472, declination: -0.284444 }, 
+            	{ name: 'KX Ori', symbol: '', magnitude: 6.9, distance: undefined, rightAngle: 5.584664, declination: -4.731833 }, 
+            	{ name: 'V901 Ori', symbol: '', magnitude: 6.97, distance: 1080, rightAngle: 5.682325, declination: -1.507194 }, 
+            	{ name: 'HD 33636', symbol: '', magnitude: 7.06, distance: 92, rightAngle: 5.196236, declination: 4.403528 }, 
+            	{ name: 'S Ori', symbol: '', magnitude: 7.2, distance: 3662, rightAngle: 5.483581, declination: -4.692444 }, 
+            	{ name: 'HD 37824', symbol: '', magnitude: 7.2, distance: 446, rightAngle: 5.690775, declination: 3.778028 }, 
+            	{ name: 'HD 37058', symbol: '', magnitude: 7.3, distance: undefined, rightAngle: 5.5926, declination: -4.837556 }, 
+            	{ name: 'HD 34445', symbol: '', magnitude: 7.31, distance: 152, rightAngle: 5.294717, declination: 7.353333 }, 
+            	{ name: 'HD 37151', symbol: '', magnitude: 7.37, distance: 627, rightAngle: 5.601731, declination: -7.72425 }, 
+            	{ name: 'V1192 Ori', symbol: '', magnitude: 7.5, distance: 721, rightAngle: 5.002283, declination: 3.286667 }, 
+            	{ name: 'HD 36629', symbol: '', magnitude: 7.65, distance: undefined, rightAngle: 5.549189, declination: -4.583139 }, 
+            	{ name: 'HD 37903', symbol: '', magnitude: 7.83, distance: 970, rightAngle: 5.693997, declination: -2.259028 }, 
+            	{ name: 'HD 35298', symbol: '', magnitude: 7.89, distance: 1730, rightAngle: 5.397322, declination: 2.082167 }, 
+            	{ name: 'HD 37806', symbol: '', magnitude: 7.9, distance: 1600, rightAngle: 5.683969, declination: -2.716861 }, 
+            	{ name: 'θ1 Ori B', symbol: 'θ1 B', magnitude: 7.96, distance: 1600, rightAngle: 5.587806, declination: -5.385278 }, 
+            	{ name: 'Gliese 205', symbol: '', magnitude: 6.97, distance: 19, rightAngle: 5.524306, declination: -3.677222 }, 
+            	{ name: 'V372 Ori', symbol: '', magnitude: 8.03, distance: undefined, rightAngle: 5.579717, declination: -5.570694 }, 
+            	{ name: 'HD 36668', symbol: '', magnitude: 8.06, distance: 811, rightAngle: 5.557239, declination: 0.621361 }, 
+            	{ name: 'HD 38801', symbol: '', magnitude: 8.26, distance: 296, rightAngle: 5.799772, declination: -8.327694 }, 
+            	{ name: 'RS Ori', symbol: '', magnitude: 8.42, distance: 4020, rightAngle: 6.370331, declination: 14.678139 }, 
+            	{ name: 'σ Ori C', symbol: 'σ', magnitude: 8.79, distance: 1148, rightAngle: 5.645589, declination: -2.60175 }, 
+            	{ name: 'HD 37605', symbol: '', magnitude: 8.69, distance: 140, rightAngle: 5.667147, declination: 6.060583 }, 
+            	{ name: 'V351 Ori', symbol: '', magnitude: 8.87, distance: 547, rightAngle: 5.738553, declination: 0.144556 }, 
+            	{ name: 'V2689 Ori', symbol: '', magnitude: 8.9, distance: 37, rightAngle: 5.608608, declination: 11.327861 }, 
+            	{ name: 'HD 290327', symbol: '', magnitude: 8.96, distance: 179, rightAngle: 5.389322, declination: -2.277611 }, 
+            	{ name: 'DN Ori', symbol: '', magnitude: 9.15, distance: 942, rightAngle: 6.007875, declination: 10.218056 }, 
+            	{ name: 'V1355 Ori', symbol: '', magnitude: 9.19, distance: undefined, rightAngle: 6.044544, declination: -0.860361 }, 
+            	{ name: 'FT Ori', symbol: '', magnitude: 9.29, distance: undefined, rightAngle: 6.232819, declination: 21.427556 }, 
+            	{ name: 'ER Ori', symbol: '', magnitude: 9.46, distance: 1340, rightAngle: 5.187364, declination: -8.556861 }, 
+            	{ name: 'HD 250550', symbol: '', magnitude: 9.48, distance: undefined, rightAngle: 6.033331, declination: 16.51575 }, 
+            	{ name: 'UX Ori', symbol: '', magnitude: 9.48, distance: 913, rightAngle: 5.074997, declination: -3.787306 }, 
+            	{ name: 'EY Ori', symbol: '', magnitude: 9.49, distance: undefined, rightAngle: 5.521781, declination: -5.70375 }, 
+            	{ name: 'BN Ori', symbol: '', magnitude: 9.6, distance: undefined, rightAngle: 5.608153, declination: 6.833944 }, 
+            	{ name: 'FU Ori', symbol: '', magnitude: 9.6, distance: undefined, rightAngle: 5.756211, declination: 9.070111 }, 
+            	{ name: 'BF Ori', symbol: '', magnitude: 9.69, distance: undefined, rightAngle: 5.62035, declination: -6.5835 }, 
+            	{ name: 'Gliese 221', symbol: '', magnitude: 9.69, distance: 66, rightAngle: 5.883411, declination: -5.994833 }, 
+            	{ name: 'V586 Ori', symbol: '', magnitude: 9.77, distance: undefined, rightAngle: 5.616458, declination: -6.154556 }, 
+            	{ name: 'HD 37411', symbol: '', magnitude: 9.79, distance: undefined, rightAngle: 5.637364, declination: -5.420361 }, 
+            	{ name: 'BD +03 740', symbol: '', magnitude: 9.81, distance: 371, rightAngle: 5.021283, declination: 4.110278 }, 
+            	{ name: 'HD 34282', symbol: '', magnitude: 9.84, distance: 622, rightAngle: 5.2668, declination: -9.809833 }, 
+            	{ name: 'EW Ori', symbol: '', magnitude: 9.9, distance: undefined, rightAngle: 5.335875, declination: 2.044444 }, 
+            	{ name: 'V1162 Ori', symbol: '', magnitude: 9.9, distance: undefined, rightAngle: 5.533886, declination: -7.256833 }, 
+            	{ name: 'Z Ori', symbol: '', magnitude: 9.98, distance: undefined, rightAngle: 5.930814, declination: 13.695 }, 
+            	{ name: 'GW Ori', symbol: '', magnitude: 10.1, distance: 896, rightAngle: 5.485664, declination: 11.870194 }, 
+            	{ name: 'V1005 Ori', symbol: '', magnitude: 10.11, distance: 84, rightAngle: 4.993008, declination: 1.783528 }, 
+            	{ name: 'V346 Ori', symbol: '', magnitude: 10.17, distance: 1570, rightAngle: 5.411889, declination: 1.730083 }, 
+            	{ name: 'CO Ori', symbol: '', magnitude: 10.3, distance: 1060, rightAngle: 5.46065, declination: 11.4275 }, 
+            	{ name: 'FZ Ori', symbol: '', magnitude: 10.7, distance: undefined, rightAngle: 5.689169, declination: 2.606389 }, 
+            	{ name: 'V380 Ori', symbol: '', magnitude: 10.7, distance: undefined, rightAngle: 5.607064, declination: -6.882694 }, 
+            	{ name: 'GG Ori', symbol: '', magnitude: undefined, distance: undefined, rightAngle: 5.719506, declination: -0.687472 }, 
+            	{ name: 'HK Ori', symbol: '', magnitude: 11.2, distance: undefined, rightAngle: 5.524458, declination: 12.152861 }, 
+            	{ name: 'T Ori', symbol: '', magnitude: 11.25, distance: undefined, rightAngle: 5.597344, declination: -5.476361 }, 
+            	{ name: 'DY Ori', symbol: '', magnitude: 11.29, distance: undefined, rightAngle: 6.104142, declination: 13.905306 }, 
+            	{ name: 'LkHα 208', symbol: '', magnitude: 11.3, distance: 1000, rightAngle: 6.130428, declination: 18.657361 }, 
+            	{ name: 'GJ 3379', symbol: '', magnitude: 11.31, distance: 17, rightAngle: 6.000972, declination: 2.706583 }, 
+            	{ name: 'FH Ori', symbol: '', magnitude: 11.37, distance: undefined, rightAngle: 5.388506, declination: 4.260611 }, 
+            	{ name: 'θ1 Ori E', symbol: 'θ1 E', magnitude: 11.4, distance: 1600, rightAngle: 5.587714, declination: -5.386111 }, 
+            	{ name: 'V371 Ori', symbol: '', magnitude: 11.5, distance: 51, rightAngle: 5.562447, declination: 1.945389 }, 
+            	{ name: 'Ross 87', symbol: '', magnitude: 11.51, distance: 19, rightAngle: 5.702575, declination: 12.489333 }, 
+            	{ name: 'Gliese 179', symbol: '', magnitude: 11.96, distance: 40, rightAngle: 4.868258, declination: 6.476528 }, 
+            	{ name: 'GP Ori', symbol: '', magnitude: 12.2, distance: undefined, rightAngle: 5.046686, declination: 15.320167 }, 
+            	{ name: 'RX J0529.4+0041', symbol: '', magnitude: 12.3, distance: undefined, rightAngle: 5.489069, declination: 0.691111 }, 
+            	{ name: 'GU Ori', symbol: '', magnitude: undefined, distance: undefined, rightAngle: 6.16795, declination: 12.829611 }, 
+            	{ name: 'YY Ori', symbol: '', magnitude: 13.2, distance: undefined, rightAngle: 5.579869, declination: -5.965806 }, 
+            	{ name: 'LV 2', symbol: 'θ1 G', magnitude: 13.68, distance: 1600, rightAngle: 5.587978, declination: -5.387944 }, 
+            	{ name: 'G 99-47', symbol: '', magnitude: 14.1, distance: 26, rightAngle: 5.940408, declination: 5.3635 }, 
+            	{ name: 'V1118 Ori', symbol: '', magnitude: 14.43, distance: undefined, rightAngle: 5.579097, declination: -5.561722 }, 
+            	{ name: 'LP 658-2', symbol: '', magnitude: 14.45, distance: 21, rightAngle: 5.919303, declination: -4.167861 }, 
+            	{ name: 'G 99-37', symbol: '', magnitude: 14.6, distance: 36, rightAngle: 5.855411, declination: -0.172583 }, 
+            	{ name: 'V1159 Ori', symbol: '', magnitude: undefined, distance: undefined, rightAngle: 5.483214, declination: -3.564528 }, 
+            	{ name: 'V1309 Ori', symbol: '', magnitude: 15.2, distance: undefined, rightAngle: 5.261503, declination: 1.077917 }, 
+            	{ name: 'CN Ori', symbol: '', magnitude: 16.2, distance: undefined, rightAngle: 5.868831, declination: -5.416806 }, 
+            	{ name: 'CZ Ori', symbol: '', magnitude: 17.6, distance: undefined, rightAngle: 6.278675, declination: 15.403139 }, 
+            	{ name: 'V1647 Ori', symbol: '', magnitude: 18.1, distance: undefined, rightAngle: 5.770317, declination: -0.101333 } 
+            	
+            ];
+
+            
+            var SCREEN_SCALE_FACTOR = window.innerHeight / 105;
+
+
+            var mainProcedure = function () {
+                var starHTML = createBlankDivs ( stars );
+                outputStars( starHTML );
+				var animationInfo = calculateAnimationInfo( stars )
+				animateStars( animationInfo );
+            }
+            
+            //PROCESS: take in the star data and create the HTML
+            // code for all the star divs
+            var createBlankDivs = function ( stars ) {
+                var starCode = ""; //this holds the table HTML
+
+                for ( i in stars ) {
+                    starCode = starCode
+                        + "<div id='star"
+						+ i
+						+"ID'class='"
+                        + convertMagnitudeToCSSClass( stars[i].magnitude )
+                        + "' style='top: "
+						+ 0
+						+ "px; left: "
+						+ i * SCREEN_SCALE_FACTOR
+						+ "px' title='"
+                        + stars[i].name
+                        + " - magnitude: "
+						+ stars[i].magnitude
+						+ " RA: "
+						+ stars[i].rightAngle
+						+ " declination: "
+						+ stars[i].declination
+						+ " magnitude: "
+						+ stars[i].magnitude
+						+ "'></div>";
+                }
+                return starCode;              
+            }
+            
+            //PROCESS: take in the star data and create the HTML
+            // code for all the star divs
+            var calculateAnimationInfo = function ( stars ) {
+                var starArr = []; //this holds the array of animation steps
+
+                for ( i in stars ) {
+					starArr.push( {
+						left: 	convertRightAscensionToLeft( stars[i].rightAngle ),
+						top: 	convertDeclinationToTop( stars[i].declination )
+                    } );
+                }
+                return starArr;              
+            }
+
+            
+            //PROCESS: take in the star data and create the HTML
+            // code for all the star divs
+            var createStarDivs = function ( stars ) {
+                var starCode = ""; //this holds the table HTML
+
+                for ( i in stars ) {
+                    starCode = starCode
+                        + "<div style='top: "
+                        + convertDeclinationToTop( stars[i].declination )
+                        + "; left: "
+                        + convertRightAscensionToLeft( stars[i].rightAngle )
+                        + ";' class='"
+                        + convertMagnitudeToCSSClass( stars[i].magnitude )
+                        + "' title='"
+                        + stars[i].name
+                        + " - magnitude: "
+						+ stars[i].magnitude
+						+ " RA: "
+						+ stars[i].rightAngle
+						+ " declination: "
+						+ stars[i].declination
+						+ " magnitude: "
+						+ stars[i].magnitude
+						+ "'></div>";
+                }
+                return starCode;              
+            }
+
+            
+            //PROCESS: convert the declination to top coordinate
+            //  declination min:    -10.532917 
+            //  declination max:    21.427556   
+            //  percent = 100 - (max - value)/(max - min ) * 100
+            var convertDeclinationToTop = function ( declination ) {
+                var top = ((21.427556 - declination)/(21.427556 + 10.532917) * 100 * SCREEN_SCALE_FACTOR) + "px";
+                console.log('top' + top);
+                return top;
+            }
+
+            //PROCESS: convert the declination to top coordinate
+            //  rightAngle min:     4.740492
+            //  rightAngle max:     6.424494
+            //  percent = 100 - (max - value)/(max - min ) * 100
+            var convertRightAscensionToLeft = function ( rightAscension ) {
+                var left = ((6.424494 - rightAscension)/(6.424494 - 4.740492) * 100 * SCREEN_SCALE_FACTOR) + "px";
+                console.log('ra,left:' + rightAscension + ', ' + left );
+                return left;
+            }
+            
+            //PROCESS: convert brightness to .magnitude class string
+            var convertMagnitudeToCSSClass = function ( magnitude ) {
+                // "Pop! Pop!" - Magnatude from Community
+                return "magnitude" + Math.floor( magnitude );
+            }
+            
+            //OUTPUT: output the table into the #outputID <div>
+            var outputStars = function ( starCode ) {
+                document.getElementById('outputID').innerHTML
+                    = starCode;
+            }
+
+			//OUTPUT: animate the stars
+			var animateStars = function ( animateInfo ) {
+				for (i in animateInfo) {
+					$('#star' + i + 'ID').animate({
+						top: animateInfo[i].top,
+						left: animateInfo[i].left
+					}, { duration: ( animateInfo.length - i ) * 20 });
+				}
+			}
+        </script>
+        <style>
+            body {  
+                background-color:   black; 
+				/* background image based on: https://commons.wikimedia.org/wiki/File:Orion_constellation_Hevelius.jpg 
+				background-image: url("http://drapak.ca/cpg/img/orionBackground.jpg"); */
+            }
+            div {   
+                position:           absolute;
+                border-radius:      25px;
+                background-color:   white;
+                color:              white;
+            }
+            .magnitude0 { 
+                border-radius: 9px; 
+                width: 18px; height: 18px; 
+                background-color: #ff5555;
+                color: #ffffff;
+            }
+            .magnitude1 { 
+                border-radius: 7px; 
+                width: 14px; height: 14px;
+                background-color: #ff6666;
+                color: #eeeeee;
+            }
+            .magnitude2 { 
+                border-radius: 5px; 
+                width: 10px; height: 10px; 
+                background-color: #ff7777;
+                color: #dddddd;
+            }
+            .magnitude3 { 
+                border-radius: 4px; 
+                width: 8px; height: 8px; 
+                background-color: #ff8888;
+                color: #cccccc;
+            }
+            .magnitude4 { 
+                border-radius: 3px; 
+                width: 6px; height: 6px; 
+                background-color: #ff9999;
+                color: #bbbbbb;
+            }
+            .magnitude5 { 
+                border-radius: 2.5px; 
+                width: 5px; height: 5px; 
+                background-color: #ffaaaa;
+                color: #aaaaaa;
+            }
+            .magnitude6 { 
+                border-radius: 2px; 
+                width: 4px; height: 4px; 
+                background-color: #ffbbbb;
+                color: #999999;
+            }
+            .magnitude7 { 
+                border-radius: 1.5px; 
+                width: 3px; height: 3px;
+                background-color: #ffcccc;
+                color: #888888;
+            }
+            .magnitude8 { 
+                border-radius: 1.5px; 
+                width: 2px; height: 2px; 
+                background-color: #ffdddd;
+                color: #777777;
+            }
+            .magnitude9 { 
+                border-radius: 1px; 
+                width: 2px; height: 2px; 
+                color: #666666;
+                background-color: #ffeeee;
+            }
+            .magnitude10, .magnitude11, .magnitude12, 
+            .magnitude13, .magnitude14, .magnitude15, 
+            .magnitude16, .magnitude17, .magnitude18, 
+            .magnitudeNaN { 
+                border-radius: 1px; 
+                width: 1px; height: 1px; 
+                font-size: 5px;
+                background-color: #ffffff;
+                color: #555555;
+            }
+            
+        </style>
+    </head>
+    <body onload="mainProcedure();" id="outputID">
+    </body>
+</html>

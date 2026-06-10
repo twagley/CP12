@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Reading the mouse position</title>
+        <style>
+            img {
+                position: absolute;
+            }
+			img, td { 
+				width: 50px;
+			}
+        </style>
+    </head>
+    <body>
+		<p>
+			top: <span id="topId"></span><br>
+			left: <span id="leftId"></span><br>
+			<button id="buttonId">Click to <strong>&star;</strong>t</button>			
+		</p>
+        <div id="outputId"></div>
+        <img id="imageId" src="https://www.kasandbox.org/programming-images/cute/Star.png">
+		
+        <script>
+			//INIT: set up the mouseObj's properties
+            var mouseObj = {
+				// current top and left position of the mouse, in px
+				top: 0, 
+				left: 0, 
+				
+				// make the current image be a star
+				currentSrc: "https://www.kasandbox.org/programming-images/cute/Star.png",
+			};
+			
+			// mouseObj methods:
+			//		.getCurrentPosition()
+			//		.displayPosition()
+			//		.moveImage()
+			//		.placeImage()
+			//		.cleanUpTheScreen()
+			//		.outputInstructions()
+			//
+			//INPUT: get the current position returned by the mouse event
+			mouseObj.getCurrentPosition = function ( event ) {
+				//console.log( 'in mouseObj.getCurrentPosition...' );
+				this.top    = event.clientY;
+				this.left   = event.clientX;
+			};
+
+			//OUTPUT: display the current mouse position
+			mouseObj.displayPosition = function () {
+				//console.log( 'in mouseObj.displayPosition...' );
+
+				document.getElementById('topId').innerHTML 	= this.top;
+				document.getElementById('leftId').innerHTML	= this.left;
+			};
+
+			//OUTPUT: move the star to the current mouse position
+			mouseObj.moveImage = function () {
+				//console.log( 'in mouseObj.moveImage...' );
+			
+				var imageStyle 	= document.getElementById('imageId').style;
+				imageStyle.top 	= this.top + 'px';
+				imageStyle.left	= this.left + 'px';
+			};
+
+			//OUTPUT: add a new image to the outputID
+			mouseObj.placeImage = function () {
+				//console.log( 'in mouseObj.placeImage...' );
+
+				var newImage 		= document.createElement("img");
+				newImage.src 		= this.currentSrc ;
+				newImage.style.top 	= this.top + 'px';
+				newImage.style.left	= this.left + 'px';
+				
+				document.getElementById( 'outputId' ).appendChild( newImage );
+			};
+			
+			//OUTPUT: empty out the contents of #outputID
+			mouseObj.cleanUpTheScreen = function () {
+				//console.log( 'in mouseObj.cleanUpTheScreen...' );
+				
+				document.getElementById( 'outputId' ).innerHTML = "";
+			};
+
+						
+			//OUTPUT: output instructions
+			mouseObj.outputInstructions = function () {
+				//console.log( 'in mouseObj.outputInstructions...' );
+				
+				document.getElementById( 'outputId' ).innerHTML = "Click anywhere to stop...";
+			};
+
+			
+			//INPUT EVENTS
+			//
+			//INPUT EVENT: whenever the mouse is clicked
+            document.onmousedown = function () {
+				//console.log( 'onmousedown...' );
+				
+				mouseObj.cleanUpTheScreen();
+				
+				//INPUT EVENT: turn off the effects of moving the mouse
+				document.onmousemove = '';
+            }
+			
+			//INPUT EVENT: when #buttonId is clicked
+			document.querySelector( "#buttonId" ).onclick = function () {
+				//console.log( '#buttonId.onclick...' );
+				
+				//INPUT EVENT: whenever the mouse moves, draw a star        
+				document.onmousemove = function ( event ) {
+					mouseObj.getCurrentPosition( event );
+					mouseObj.displayPosition();
+					mouseObj.moveImage();
+					mouseObj.placeImage();
+				}
+				
+				mouseObj.outputInstructions();
+			}
+		</script>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>INPUT - Read element positions</title>
+		<meta name="description" content="Learn how to read element positions with Javascript">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				26. Sept 2015	- created!									- Drapak
+				2. Oct 2015		- simplified and add console logs			- Drapak
+				5. March 2017	- reworked for clearer programming style	- Drapak
+				9. October 2018	- moved to new id style						- Drapak
+				27. Oct 2018	- moved to querySelector and clear variables- Drapak
+				21. Oct 2019	- corrected example code 					- Tyson Wagley
+		-->
+        <style>
+            #imageId {
+                width: 100px;
+            }
+        </style>
+    </head>
+	
+    <body>
+		<h1>
+		    Current position of <code>#imageId</code>:
+            <img 
+                id="imageId" 
+                src="https://www.kasandbox.org/programming-images/food/sushi.png">
+		</h1>
+		
+		<button id="topButtonId">
+			Show number of pixels from the top of the window
+		</button>
+		
+		<button id="leftButtonId">
+			Show number of pixels from the left of the window
+		</button>
+ 
+		<script>
+			//OUTPUT: pop up the number of pixels from the TOP
+			var displayTopPosition = function () {
+				console.log( 'in displayTopPosition...' );
+				
+				//INPUT: read the current position from the top of the screen
+				var currentTop	= document.querySelector( '#imageId' ).offsetTop;
+				
+				//OUTPUT: pop up the current left position
+				alert( currentTop );
+			}
+			
+			//OUTPUT: pop up the number of pixels from the LEFT
+			var displayLeftPosition = function () {
+				console.log( 'in displayLeftPosition...' );
+
+				//INPUT: read the current position from the left of the screen				
+				var currentLeft	= document.querySelector( '#imageId' ).offsetLeft;
+
+				//OUTPUT: pop up the current top position				
+				alert( currentLeft );
+			}
+			
+			//INPUT: trigger displayTopPosition when #topButtonId is clicked
+			document.querySelector( '#topButtonId' ).onclick	= displayTopPosition;
+			
+			//INPUT: trigger displayLeftPosition when #leftButtonId is clicked
+			document.querySelector( '#leftButtonId' ).onclick	= displayLeftPosition;
+        </script>
+    </body>
+</html>

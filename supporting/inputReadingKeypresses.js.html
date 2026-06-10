@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc6 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//INPUT: this reads the number of the key that was pressed
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">keyEvent</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"in readKeypress..."</span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">keyNumber</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">   
+</span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc2">//INPUT: triggers readKeypress when someone presses a key down
+</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc10">;</span><span class="sc0">
+
+
+
+</span><span class="sc2">//-OR-, for a more elegant FUNCTIONAL PROGRAMMING style...
+</span><span class="sc0">
+
+
+</span><span class="sc2">//INPUT: this listens to the keyboard, and returns the number of the key that was pressed
+</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"in .onkeydown..."</span><span class="sc10">);</span><span class="sc0">
+    
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">unicodeNumber</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">
+    
+    </span><span class="sc2">//your process and/or output functions can go in here. For example:
+</span><span class="sc0">    </span><span class="sc11">decideDirection</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">unicodeNumber</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+
+
+
+</span><span class="sc2">//-OR-, to TURN OFF the keyboard reader...
+</span><span class="sc0">
+
+</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span></div></body>
+</html>

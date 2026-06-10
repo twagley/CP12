@@ -1,0 +1,15 @@
+<body>
+	<!-- your HTML goes in here -->
+	
+	
+	<!-- <script> is the last thing in the <body> -->
+	<script>
+		// this is the main function    
+		function mainProcedure () {
+			// your code goes inside here
+		}
+		
+		//INPUT: start mainProcedure() when the body of the page is finished loading 
+		document.body.onload	= mainProcedure;
+	</script>
+</body>

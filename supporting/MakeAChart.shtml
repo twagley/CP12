@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Election graph</title>
+		<meta name="description" content="Make an election graph">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				20. October 2015	- created!
+				21. October 		- separated functions like a good little programmer
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 		<script>
+			var mainProcedure = function () {
+				console.log('in mainProcedure');
+				
+				var resultsObj		= getElectionResults();
+				var graphWidthObj	= calculateGraphWidths( resultsObj );
+				displayGraph( graphWidthObj );
+			}
+			
+			//INPUT: read in the election results and store inside inputObj
+			var getElectionResults = function () {
+				console.log( 'in getElectionResults' );
+				var electionResults = {};	//declare as an empty object
+				
+				electionResults.liberal			= document.getElementById('liberalInputID').value;
+				electionResults.conservative	= document.getElementById('conservativeInputID').value;
+				electionResults.newDemocrat		= document.getElementById('newDemocratInputID').value;
+				electionResults.bloc			= document.getElementById('blocInputID').value;
+				electionResults.green			= document.getElementById('greenInputID').value;
+				
+				return electionResults;
+			}
+			
+			//PROCESS: calculate the width of the graph to display, and store in graphWidth
+			var calculateGraphWidths = function ( electionResults ) {
+				console.log( 'in calculateGraphWidths' );
+				var GRAPH_MULTIPLIER = 5;
+				var graphWidth = {}; 		//declare as an empty object
+				
+				graphWidth.liberal				= electionResults.liberal 		* GRAPH_MULTIPLIER;
+				graphWidth.conservative			= electionResults.conservative 	* GRAPH_MULTIPLIER;
+				graphWidth.newDemocrat			= electionResults.newDemocrat 	* GRAPH_MULTIPLIER;
+				graphWidth.bloc					= electionResults.bloc 			* GRAPH_MULTIPLIER;
+				graphWidth.green				= electionResults.green 		* GRAPH_MULTIPLIER;
+				
+				return graphWidth;
+			}
+			
+			//OUTPUT: change the graph divs to the calculated width
+			var displayGraph = function ( graphWidth ) {
+				console.log( 'in displayGraph' );
+				/*
+				document.getElementById('liberalGraphID').style.width			= graphWidth.liberal 		+ 'px';
+				document.getElementById('conservativeGraphID').style.width		= graphWidth.conservative 	+ 'px';
+				document.getElementById('newDemocratGraphID').style.width		= graphWidth.newDemocrat 	+ 'px';
+				document.getElementById('blocGraphID').style.width				= graphWidth.bloc 			+ 'px';
+				document.getElementById('greenGraphID').style.width				= graphWidth.green 			+ 'px';				
+				*/
+				$('#liberalGraphID').animate({ width: graphWidth.liberal + 'px' }, graphWidth.liberal);
+				$('#conservativeGraphID').animate({ width: graphWidth.conservative + 'px' }, graphWidth.conservative);
+				$('#newDemocratGraphID').animate({ width: graphWidth.newDemocrat + 'px' }, graphWidth.newDemocrat);
+				$('#blocGraphID').animate({ width: graphWidth.bloc + 'px' }, graphWidth.bloc);
+				$('#greenGraphID').animate({ width: graphWidth.green + 'px' }, graphWidth.green);
+			}
+
+			//OUTPUT: return the graph back to zero
+			var hideGraph = function () {
+				var ANIMATION_SPEED = 200;
+				
+				$('#liberalGraphID').animate({ width: '0px' }, ANIMATION_SPEED );
+				$('#conservativeGraphID').animate({ width: '0px' }, ANIMATION_SPEED );
+				$('#newDemocratGraphID').animate({ width: '0px' }, ANIMATION_SPEED );
+				$('#blocGraphID').animate({ width: '0px' }, ANIMATION_SPEED );
+				$('#greenGraphID').animate({ width: '0px' }, ANIMATION_SPEED );
+			}
+		</script>
+		<style>
+			input, button {
+				position: 			absolute;
+				left: 				10em;
+			}
+			div {
+				color:				white;
+				min-height:			1.2em;
+				max-height:			1.2em;
+				width:				0em;
+				padding-left:		0.3em;
+				overflow: 			hidden;
+			}
+			#liberalGraphID {
+				background-color: 	red;
+			}
+			#conservativeGraphID {
+				background-color: 	blue;
+			}
+			#newDemocratGraphID {
+				background-color: 	orange;
+			}
+			#blocGraphID {
+				background-color: 	cyan;
+			}
+			#greenGraphID {
+				background-color: 	green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>Make an election graph!</h4>
+		<p>
+			Please enter the number of seats won by the respective parties:<br />
+			Liberal:
+			<input id="liberalInputID" 		value="184" /><br />
+			Conservative:
+			<input id="conservativeInputID"	value="99" /><br />
+			New Democrat:
+			<input id="newDemocratInputID"	value="44" /><br />
+			Bloc Quebecois:
+			<input id="blocInputID"			value="10" /><br />
+			Green:
+			<input id="greenInputID"		value="1" /><br />
+			<br />
+			<button onclick="mainProcedure();">Click to graphinate!</button><br />
+			<br />
+			<button onclick="hideGraph();">Return to zero!</button>
+		</p>
+		<hr />
+		<div id="liberalGraphID">Liberal</div>
+		<div id="conservativeGraphID"> Conservative</div>
+		<div id="newDemocratGraphID"> New Democrat</div>
+		<div id="blocGraphID"> Bloc Quebecois</div>
+		<div id="greenGraphID"> Green</div>
+	</body>
+</html>

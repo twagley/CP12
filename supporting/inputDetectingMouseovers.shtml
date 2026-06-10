@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Learn how to detect mouseovers with Javascript">
+		<!--
+			Change log:
+				12. Oct 2015	- created!										- Drapak
+				25. March 2017	- reworked for better style						- Drapak
+				21. Oct 2018	- reworked again for style and clarity			- Drapak
+		-->
+		<style>
+			#imageId{
+				height:	50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>
+			I'm more that just a rock!
+			<img 
+				id="imageId"
+				alt="Move over me to change me!"
+				src="https://www.kasandbox.org/programming-images/cute/Rock.png">
+		</p>
+		<script>
+			//OUTPUT: replace #imageId with a heart image
+			var showHeart = function () {
+				console.log( 'in showHeart...' );
+				
+				document.querySelector( '#imageId' ).src	
+					= "https://www.kasandbox.org/programming-images/space/healthheart.png";
+			}
+
+			//OUTPUT: replace #imageId with a rock image
+			var showRock = function () {
+				console.log( 'in showRock...' );
+				
+				document.querySelector( '#imageId' ).src		
+					= "https://www.kasandbox.org/programming-images/cute/Rock.png";
+			}
+			
+			//INPUT: attach showRock and showHeart to #imageId's mouseover and mouseout events
+			document.querySelector( '#imageId' ).onmouseover	= showHeart;
+			document.querySelector( '#imageId' ).onmouseout		= showRock;
+		</script>
+	</body>
+</html>

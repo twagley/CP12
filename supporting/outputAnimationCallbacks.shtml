@@ -1,0 +1,167 @@
+<html lang="en">
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+		<meta name="description" content="Animating image changes">
+		<title>Animating image changes</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<style>
+			#imageId {
+				position: 	absolute;
+				width: 		50px;
+				top:		50%;
+				left:		50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img id="imageId" src='http://drapak.ca/cpg/img/link-up.png' />
+		
+		<p>
+			<button onclick='doAllSourceChangesThenAnimations();'>
+				Do all the source changes together, then all the animations together
+			</button><br />
+			<button onclick='changeSourceThenAnimateOneByOne();'>
+				Change the source image, and then animate, one after another
+			</button><br />
+			<button onclick='animateSourceChangesBeforeEachAnimation();'>
+				Animate source changes before each animation
+			</button><br />
+		</p>
+		<script>
+//OUTPUT: do all the source changes together, then all the animations together
+var doAllSourceChangesThenAnimations = function () {
+	// make all the image source changes
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-down.png';
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-right.png';
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-up.png';
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-left.png';
+
+	// animate all the movement
+	$( '#imageId' ).animate( { top: '+=50px' } );		
+	$( '#imageId' ).animate( { left: '+=50px' } );
+	$( '#imageId' ).animate( { top: '-=50px' } );
+	$( '#imageId' ).animate( { left: '-=50px' } );
+}
+	
+
+//OUTPUT: Do the sources change and animation for each step, one at a time
+var changeSourceThenAnimateOneByOne = function () {
+	// change image to face down and then animate down
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-down.png';
+		
+	$('#imageId').animate( { top: '+=50px' } );		
+	
+	// change image to face right and then animate right
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-right.png';
+		
+	$('#imageId').animate( { left: '+=50px' } );
+	
+	// change image to face up and then animate up
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-up.png';
+		
+	$( '#imageId' ).animate( { top: '-=50px' } );
+	
+	// change image to face left and then animate left
+	document.querySelector( '#imageId' ).src 
+		= 'http://drapak.ca/cpg/img/link-left.png';
+		
+	$( '#imageId' ).animate( { left: '-=50px' } );
+	
+	//NOTE: because of animation queues, this will change the image sources four
+	//		times and THEN animate #imageId
+};
+
+
+//OUTPUT: 	Animate the movement, adding the image source change to the
+//			start: property as an anonymous function.
+//			Anything put inside start: will happen before the animation begins
+var animateSourceChangesBeforeEachAnimation = function () {
+	// change image to face down and then animate down
+	$( '#imageId' ).animate( 
+		{ 
+			top: 		'+=50px' 
+		}, 
+		{ 
+			start:	function () {
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-down.png';
+			}
+		} 
+	);		
+	
+	// change image to face right and then animate right
+	$( '#imageId' ).animate( 
+		{ 
+			left: 	'+=50px' 
+		}, 
+		{ 
+			start: 	function () {
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-right.png';
+			}
+		}
+	);
+	
+	// change image to face up and then animate up
+	$( '#imageId' ).animate( 
+		{ 
+			top: 		'-=50px' 
+		}, { 
+			start:	function () {
+					document.querySelector( '#imageId' ).src 
+						= 'http://drapak.ca/cpg/img/link-up.png';
+			} 
+		}
+	);
+	
+	// change image to face left and then animate left
+	$( '#imageId' ).animate( 
+		{ 
+			left: 	'-=50px' 
+		}, 
+		{ 
+			start:	function () {
+				document.querySelector( '#imageId' ).src 
+					= 'http://drapak.ca/cpg/img/link-left.png';
+			},
+			complete: function () {
+				alert( "All done!" );
+			}
+		} 
+	);
+};			
+
+//sample animation code with function callbacks
+$( '#imageId' ).animate( 
+	{ 	
+		left: 	'-=50px',
+		top: 	'+=50px'	
+	}, 
+	{ 	
+		duration: 	1000, 
+		easing:		"linear",
+		start:	function () {
+			// this happens BEFORE the animation
+			document.querySelector( '#imageId' ).src 
+				= 'http://drapak.ca/cpg/img/link-left.png';
+		},
+		complete: function () {
+			// this happens AFTER the animation
+			alert ("Animation finished!");
+		}
+	} 
+);
+
+		</script>
+	</body>
+</html>

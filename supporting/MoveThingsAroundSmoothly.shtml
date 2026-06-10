@@ -1,0 +1,74 @@
+			var placeLinkInitially = function () {
+				console.log('in placeLinkInitially...');
+				
+				// first get the position of the map		
+				var mapTop	= document.getElementById('mapID').offsetTop;
+				var mapLeft	= document.getElementById('mapID').offsetLeft;
+				
+				var linkTop		= mapTop + 618;
+				var linkLeft	= mapLeft + 180;
+				
+				// now place link on the map
+				console.log( 'initial link top, left:' + linkTop + ',' + linkLeft );
+				document.getElementById('animateID').style.top		=linkTop + 'px';
+				document.getElementById('animateID').style.left		=linkLeft + 'px';
+			}
+			
+			var mainProcedure = function () {
+				console.log('in mainProcedure...');
+
+				var easingVar		= "linear";
+				var durationVar		= 1000;
+
+				// start the animation
+				$('#animateID').animate(
+					{top: '+=25px', left: '+=150px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				$('#animateID').animate(
+					{top: '+=10px', left: '+=130px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				
+				$('#animateID').animate(
+					{top: '-=160px', left: '+=65px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				$('#animateID').animate(
+					{top: '-=160px', left: '+=5px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				$('#animateID').animate(
+					{top: '-=70px', left: '-=30px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+
+				$('#animateID').animate(
+					{top: '+=20px', left: '-=80px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+
+				$('#animateID').animate(
+					{top: '-=60px', left: '-=30px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				$('#animateID').animate(
+					{top: '-=30px', left: '+=70px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+				$('#animateID').animate(
+					{top: '-=170px', left: '-=90px'}, 
+					{duration: durationVar}, 
+					{easing: easingVar}
+				);
+			}
+			
+			document.body.onload	=	placeLinkInitially;

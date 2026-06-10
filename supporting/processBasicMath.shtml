@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drapak.ca - Area of a circle</title>
+		<meta name="description" content="This script calculates the area of a circle">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				27. Sept 2015	- created
+				3. March 2017	- reworked to move script to the end
+				9. October 2018	- updated id styles and added parseInt	- Drapak
+				11. Oct 2018	- fixed poor style in input line		- Drapak
+				16. Oct 2018	- clarified example code				- Drapak
+				21. Oct 2018	- clarified example code again			- Drapak
+		-->
+		<style>
+			#outputId {
+				font-weight:	bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Calculate the area of a circle</h1>
+		
+		<p>
+			What is radius of the circle?
+			
+			<input id="inputId" type="text" value="5">
+				
+			<button id="buttonId">
+				Calculate the area!
+			</button>
+		</p>
+		
+		<p>The area is: <span id="outputId">Waiting for input...</span></p>
+
+		<script>
+			// read the input and output the 
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				//INPUT: get the radius from the input line
+				var numberText		= document.querySelector( '#inputId' ).value;
+				
+				//PROCESS: clean up the input by converting the text to a number
+				var parsedNumber	= parseInt( numberText );
+
+				//PROCESS: calculate the answer
+				var answer			= Math.PI * ( Math.pow( parsedNumber, 2 ) );
+				
+				//OUTPUT: display the answer
+				document.querySelector( '#outputId' ).innerHTML	= answer;
+			}
+			
+			//INPUT: attach the change event to #inputId
+			document.querySelector( '#inputId' ).onchange		= mainProcedure;
+
+			//INPUT: attach the click event to #buttonId
+			document.querySelector( '#buttonId' ).onclick		= mainProcedure;
+		</script>
+	</body>
+</html>

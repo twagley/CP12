@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            //OUTPUT: Changing Text Styles in JS
+        </title>
+    </head>
+    
+    <body>
+		<h1>//OUTPUT: Changing text styles</h1>
+		
+        <p id="demoId">
+            This paragraph has been assigned
+            <code>id="demoId"</code>, like:<br>
+            <code>&lt;p id="demoId">This paragraph...&lt;/p></code>
+        </p>
+        
+        <p>Press each button to trigger the code:</p>
+        
+        <button id="changeSizeId">
+            document.getElementById( "demoId" ).style.fontSize = 40 + "px";
+        </button><br>
+        
+        <button id="changeColorId">
+            document.getElementById( "demoId" ).style.color = "#00FF00";
+        </button><br>
+        
+        <button id="changeBackgroundId">
+            document.getElementById( "demoId" ).style.backgroundColor = "#003300";
+        </button><br>
+                
+        <button id="changeFontStyleId">
+            document.getElementById( "demoId" ).style.fontStyle = "italic";
+        </button><br>
+        
+        <button id="changeFontWeightId">
+            document.getElementById( "demoId" ).style.fontWeight = "bold";
+        </button><br>
+        
+        <button id="changeBackId">
+            And this button changes it all back...
+        </button>
+		<br>
+        <button id="hideId">
+            document.getElementById( "demoId" ).style.visibility = "hidden";
+		</button>
+		<br><br>
+        <button id="displayId">
+            document.getElementById( "demoId" ).style.visibility = "visible";
+        </button>
+		
+        <script>
+            //OUTPUT: this changes size to 40px
+            var changeSize = function (){
+				var newSize 		= 40 + "px";
+				
+                document.getElementById("demoId").style.fontSize		= newSize;
+            }
+            
+            //OUTPUT: this changes the color to green
+            var changeColor = function (){
+				var newColor		= "#00FF00";
+				
+                document.getElementById("demoId").style.color 			= newColor;
+            }
+          
+            //OUTPUT: this changes the background color to dark green
+            var changeBackground = function (){
+				var newBackground	= "#003300";
+				
+                document.getElementById("demoId").style.backgroundColor	= newBackground;
+            }
+            
+            //OUTPUT: this changes the font to italic
+            var changeFontStyle = function (){
+				var newStyle		= "italic";
+				
+                document.getElementById("demoId").style.fontStyle 		= newStyle;
+            }
+            
+            //OUTPUT: this changes the font to bold
+            var changeFontWeight = function (){
+				var newWeight		= "bold";
+				
+                document.getElementById("demoId").style.fontWeight 		= newWeight;
+            }
+            
+            //OUTPUT: this changes everything back
+            var changeBack = function (){
+                document.getElementById("demoId").style.fontSize		= 16 + "px";
+                document.getElementById("demoId").style.color			= "black";
+                document.getElementById("demoId").style.backgroundColor	= "white";
+                document.getElementById("demoId").style.fontStyle		= "normal";
+                document.getElementById("demoId").style.fontWeight		= "normal";
+            }
+			
+            //OUTPUT: this hides the text
+            var hideText = function (){
+				var newVisibility	= "hidden";
+				
+                document.getElementById("demoId").style.visibility		= newVisibility;
+            }
+
+            //OUTPUT: this displays the text
+            var displayText = function (){
+				var newVisibility	= "visible";
+				
+                document.getElementById("demoId").style.visibility		= newVisibility;
+            }
+
+			
+			//INPUT: attach changeSize to changeSizeId
+			document.getElementById( "changeSizeId" ).onclick			= changeSize;
+			
+			//INPUT: attach changeColor to changeColorId
+			document.getElementById( "changeColorId").onclick			= changeColor;
+			
+			//INPUT: attach changeBackground to changeBackgroundId
+			document.getElementById( "changeBackgroundId" ).onclick		= changeBackground;
+			
+			//INPUT: attach changeFontStyle to changeFontStyleId
+			document.getElementById( "changeFontStyleId" ).onclick		= changeFontStyle;
+			
+			//INPUT: attach changeFontWeight to changeFontWeightId
+			document.getElementById( "changeFontWeightId" ).onclick		= changeFontWeight;
+			
+			//INPUT: attach changeBack to changeBackId
+			document.getElementById( "changeBackId" ).onclick			= changeBack;
+			
+			//INPUT: attach hideText to hideId
+			document.getElementById( "hideId" ).onclick					= hideText;
+			
+			//INPUT: attach displayText to displayId
+			document.getElementById( "displayId" ).onclick				= displayText;
+        </script>
+    </body>
+</html>

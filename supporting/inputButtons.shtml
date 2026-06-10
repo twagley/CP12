@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>//INPUT: Buttons</title>
+    </head>
+    
+    <body id="bodyId">
+        <h1>Using buttons in Javascript</h1>
+        <button id="insertButtonId">
+            Click me!
+        </button>
+
+        <button id="replaceButtonId">
+            Click me too!
+        </button>
+
+        <button id="alertButtonId">
+            Click me three!
+        </button>
+
+        <button id="replaceBodyId">
+            Click me last!
+        </button>
+
+        <p id="emptyId"></p>  
+		
+		<!-- your script is the last thing in your <body> -->
+		
+		<script>
+			// define your OUTPUT functions first...
+			
+			// OUTPUT: this is triggered by button #insertButtonId 
+			//			and inserts text inside emptyId
+			var insertHTML = function () {
+				var newText	= "I'm now inside the empty paragraph";
+
+				// insert text inside an empty HTML element
+				document.getElementById( "emptyId" ).innerHTML = newText;
+			}
+			
+			// OUTPUT: this is triggered by button #replaceButtonId 
+			//			and replaces the button text inside #replaceButtonId 
+			var replaceButton = function () {
+				var newText	= "I have replaced the button text!";
+
+				// replace the text inside the button
+				document.getElementById( "replaceButtonId" ).innerHTML = newText;
+			}
+
+			// OUTPUT: this is triggered by button #alertButtonId and triggers an alert
+			var showAlert = function () {
+				// triggered an alert
+				alert( "I made an alert()!" );
+			}
+
+			// OUTPUT: this is triggered by button #replaceBodyId 
+			//			and replaces the inside everything inside #bodyId
+			var replaceBody = function () {
+				var newText	= "<h1>Nothing to see here</h1><p>Move along...</p>";
+
+				// replace the entire body with new code
+				document.getElementById( "bodyId" ).innerHTML = newText;
+			}
+
+			// attach your INPUTs last...
+			// INPUT: attach the insertHTML function to insertButtonId
+			document.getElementById( 'insertButtonId' ).onclick		= insertHTML;
+			
+			// INPUT: attach the replaceButton function to replaceButtonId
+			document.getElementById( 'replaceButtonId' ).onclick	= replaceButton;
+			
+			// INPUT: attach the showAlert function to alertButtonId
+			document.getElementById( 'alertButtonId' ).onclick		= showAlert;
+			
+			// INPUT: attach the replaceBody function to replaceBodyId
+			document.getElementById( 'replaceBodyId' ).onclick		= replaceBody;
+		</script>
+    </body>
+</html>

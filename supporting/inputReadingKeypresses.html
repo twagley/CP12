@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>My first keyboard sniffer</title>
+		<meta name="description" content="Display information from keyboard keypresses">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				5. Oct 2015		- created!										- Drapak
+				21. March 2017	- moved script to bottom for better style		- Drapak
+				25. March 2018	- changed variable name for clarity				- Drapak
+				9. October 2018	- updated to change stylistic issues 			- Drapak
+		-->
+	</head>
+
+	<body>
+		<h4>Press any key to begin!</h4>
+		<p>You pressed character #<span id="keyNumberId"></span></p>
+
+		<script>
+			// first, set up the keypress reading function
+			// note that the keyEvent variable is inside the brackets
+			var readKeypress = function ( keyEvent ) {
+				console.log( 'in readKeypress...' );
+				
+				// the next line handles how different browsers read keypresses
+				//INPUT: read the key that was pressed
+				var unicodeNumber 	= keyEvent.which || keyEvent.keyCode;	
+				
+				//PROCESS: Here is where you would do different things 
+				//	depending on the variable, unicodeNumber.
+				//Typically this will be some kind of if ... else if ... else chain
+				
+				//OUTPUT: show the character code that was pressed
+				document.querySelector( '#keyNumberId').innerHTML	= unicodeNumber;
+			}
+			
+			// Then activate it with window.onkeydown, which is like onclick, 
+			// but is activated anytime a key is pressed down while the browser is active.
+			//
+			// Notice that there are no brackets () after readKeypress.
+			// This is because it is reading the entire function from the readKeypress variable
+			window.onkeydown	= readKeypress;
+		</script>
+	</body>
+</html>

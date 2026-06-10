@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Read mouse movement and position</title>
+		<meta name="description" content="Learn how to read mouse movement and position">
+		<meta name="author" content="Dave Drapak">
+		<script>
+			//PROCESS: get the current position returned by the mouse event
+			var getCurrentMousePosition = function ( event ) {
+				var topCoordinate    = event.clientY;
+				var leftCoordinate   = event.clientX;
+				
+				return {	// there are two parts to the coordinate, so it is best to return it as an object
+					top: topCoordinate, 
+					left: leftCoordinate
+				};
+			}
+
+			//OUTPUT: display the current mouse position
+			var displayPosition = function ( coordinateObj ) {
+				document.getElementById('topID').innerHTML 	= coordinateObj.top;
+				document.getElementById('leftID').innerHTML	= coordinateObj.left;
+			}
+
+			var mainProcedure = function ( event ) {
+				var coordinateObj = getCurrentMousePosition( event );
+				displayPosition( coordinateObj );
+			}
+			
+			//INPUT: listen for mouse movements and trigger mainProcedure each time
+			document.onmousemove = mainProcedure;
+		</script>
+	</head>
+
+	<body>
+		<h3>Current mouse position:</h3>
+		<p>
+			Top: <span id="topID"></span><br />
+			Left: <span id="leftID"></span>
+		</p>
+	</body>
+</html>

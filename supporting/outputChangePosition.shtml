@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>
+			OUTPUT - Changing an element's position
+		</title>
+		<meta 
+			name="description" 
+			content="Learn how to change positions of elements in Javascript">
+		<meta name="author" content="Dave Drapak">
+		<!--
+			Change log:
+				26. Sept 2015	- created										- Drapak
+				2. Oct			- simplified code and added console logs		- Drapak
+				5. March 2017	- reworked for clearer programming style		- Drapak
+				9. October 2018	- updated id style and clarified				- Drapak
+		-->
+        <style>
+            /* NOTHING will happen unless you change the position mode */
+            #imgId {
+                position: 	absolute;
+                width: 		100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Changing the position of an element</h1>
+        <p>First, make sure that you change the <code>position</code> mode.</p>
+
+		<button id="topButtonId">
+			Move to 50 pixels from the top
+		</button>
+		
+		<button id="leftButtonId">
+			Move to 200 pixels from the left
+		</button>
+		<br>
+		
+        <img 
+			id="imgId" 
+			alt="Yum! Sushi!"
+			src="https://www.kasandbox.org/programming-images/food/sushi.png">
+
+		<script>
+			//OUTPUT: move image to 100 pixels from the TOP:
+			var changeTopPosition = function () {
+				console.log( 'in changeTopPosition...' );
+				
+			    document.getElementById( 'imgId' ).style.top  = "50px";
+			}
+
+			//OUTPUT: move image to 200 pixels from the LEFT:
+			var changeLeftPosition = function () {
+				console.log( 'in changeLeftPosition...' );
+				document.getElementById( 'imgId' ).style.left = "200px";
+			}
+			
+			//INPUT: trigger changeTopPosition when #topButtonId is clicked
+			document.getElementById( 'topButtonId' ).onclick	= changeTopPosition;
+			
+			//INPUT: trigger changeLeftPosition when #leftButtonId is clicked
+			document.getElementById( 'leftButtonId' ).onclick	= changeLeftPosition;
+        </script>
+    </body>
+</html>

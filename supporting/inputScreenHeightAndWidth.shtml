@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>INPUT - Read the height and width of the screen</title>
+		<meta 
+			name="description" 
+			content="Learn how to read the height and width of the screen">
+		<meta name="author" content="Dave Drapak">
+
+	</head>
+	<body>
+		<p>
+			<button id="buttonId">Click to display screen dimension information</button>
+		</p>
+		<script>
+
+			
+			//INPUT: 	get the screen height and width (as a number of pixels), 
+			//			and return the info as an object
+			var getScreenInfo = function () {
+				console.log( "in getScreenInfo..." );
+				
+				return {
+					width:		window.innerWidth,
+					height:		window.innerHeight
+				};
+			}
+
+			//PROCESS: 	take the screen information and find out the 
+			//			largest and smallest dimensions and properties
+			var processScreenInfo = function ( screenObj ) {
+				console.log( "in processScreenInfo. screenObj=", screenObj );
+				
+				// find out the largest and smallest screen dimensions
+				screenObj.largestDimension 		= Math.max( screenObj.width, screenObj.height );
+				screenObj.smallestDimension 	= Math.min( screenObj.width, screenObj.height );
+				
+				//IF: the width is bigger than the height, then the screen is horizontal
+				if ( screenObj.width >= screenObj.height ) {
+					screenObj.largestProperty 	= 'width';
+					screenObj.smallestProperty 	= 'height';
+					screenObj.orientation		= 'horizontal';
+					
+				//ELSE: the screen is vertical					
+				} else {
+					screenObj.largestProperty 	= 'height';
+					screenObj.smallestProperty 	= 'width';
+					screenObj.orientation		= 'vertical';
+				}
+				
+				//put together the informationMessage and store back inside the screen object
+				screenObj.informationMessage 
+					= "Height = " 
+					+ screenObj.height
+					+ "\nWidth = " 
+					+ screenObj.width
+					+ "\nSmallest dimension = " 
+					+ screenObj.smallestDimension
+					+ "\nScreen orientation = " 
+					+ screenObj.orientation
+					+ "\nSmallest property = " 
+					+ screenObj.smallestProperty
+					+ "\nLargest dimension = " 
+					+ screenObj.largestDimension
+					+ "\nLargest property = " 
+					+ screenObj.largestProperty;
+					
+				return screenObj;
+			}
+			
+			//OUTPUT: display the screen information in an alert
+			var outputScreenInfo = function ( informationMessage ) {
+				console.log( "in outputScreenInfo. informationMessage=" + informationMessage );
+				
+				alert( informationMessage );
+			}
+			
+			//INPUT EVENT: read the screen information when the button is clicked
+			document.querySelector( '#buttonId' ).onclick = function () {
+				console.log( '#buttonId has been clicked' );
+				
+				var screenObj 	= getScreenInfo();
+				screenObj 		= processScreenInfo( screenObj );
+				outputScreenInfo( screenObj.informationMessage );
+			}
+		</script>
+	</body>
+</html>

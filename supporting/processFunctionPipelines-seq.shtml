@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Convert degrees to radians</title>
+		<meta name="description" content="Convert degrees to radians in Javascript">
+	</head>
+	<body>
+		<p>
+			Enter the degrees:
+			<input id="inputId" type="text"></input>
+			<button id="buttonId">Click to convert!</button>
+		</p>
+		<p>
+			The answer in radians is:
+			<span id="outputId"></span>
+		</p>
+		
+		<script>
+			var mainProcedure = function () {
+				console.log( 'in mainProcedure...' );
+				
+				//INPUT: read the number of degrees entered
+				var degrees	= document.querySelector( '#inputId' ).value;
+				
+				//PROCESS: convert degrees from a string to a number if needed
+				degrees		= parseFloat(degrees);
+				
+				//PROCESS: calculate the radians
+				var radians	= degrees * Math.PI / 180;
+				
+				//OUTPUT: display the radians
+				document.querySelector( '#outputId' ).innerHTML	= radians;
+			}
+			
+			//INPUT: trigger mainProcedure when the button is clicked or the input changes
+			document.querySelector( '#buttonId' ).onclick	= mainProcedure;
+			document.querySelector( '#inputId' ).onchange	= mainProcedure;
+		</script>
+	</body>
+</html>
