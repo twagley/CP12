@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Style - Keep your CSS inside your &lt;head>
+		</title>
+		<meta 
+			name="description" 
+			content="Programming style: use CSS inside the style block, not your HTML tags">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Keep your CSS inside your &lt;head>, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				30. July 2015	- created!
+				16. September 2018	- reworked style
+		-->
+
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Keep your CSS inside your <code>&lt;head></code></em>
+		</header>
+		
+		<article>
+		
+				
+			<p>
+				Good programmers put all the style information for an webpage in the 
+				<code>&lt;style&gt;</code> block up inside the <code>&lt;head&gt;</code> 
+				of your document.
+			</p>
+			<p>
+				However, the hideous truth is that you can add style 
+				code into any HTML tag using the <code>style=""</code> attribute:
+			</p>
+			
+			<pre><code><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">style</span><span class="sc8">=</span><span class="sc6">"color: red; text-align: center; text-style: bold;"</span><span class="sc1">&gt;</span><span class="sc0">
+    Hey look! I can micro-format each line!
+</span><span class="sc1">&lt;/p&gt;</span></code></pre>
+
+			<p>
+				However, it is <strong>bad style</strong> 
+				and you really should do <strong>anything</strong> to avoid it.
+			</p>
+			
+			<p>
+				Instead, make sure that your place your 
+				<code>&lt;style></code> code inside the 
+				<code>&lt;head></code> of your document.
+				Make all of your formatting and style decisions here,
+				and use <abbr>CSS</abbr> selectors to identify your code.
+			</p>
+			
+			<p>
+				Remember that your identifiers work like this:
+			</p>
+			
+			<ul class="showBullets indent">
+				<li>
+					<code>p {}</code> &mdash; for styling regular <abbr>HTML</abbr> tags
+				</li>
+				<li>
+					<code>#buttonId {}</code> 
+					&mdash; for styling tags with an <code>id="buttonId"</code> attribute
+				</li>
+				<li>
+					<code>.songClass {}</code> 
+					&mdash; for styling tags with a <code>class="songClass"</code> attribute
+				</li>
+			</ul>
+			
+			<pre><code><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            /* it is best to put ALL your CSS code here inside the </span><span class="sc1">&lt;head&gt;</span><span class="sc0"> */
+            
+            strong {
+                color: red;
+            }
+            h1 {
+                color: blue;
+            }
+            
+            #starId {
+                color: blue;
+                font-style: italic;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- It is possible to put your style inside a tag, but it is POOR STYLE --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Monty Python's </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">style</span><span class="sc8">=</span><span class="sc6">"font-style: italic"</span><span class="sc1">&gt;</span><span class="sc0">Argument</span><span class="sc1">&lt;/span&gt;</span><span class="sc0"> sketch</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc9">&lt;!-- instead, add a class or an id to the tag and define it in the &lt;head&gt; --&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Man (</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"starId"</span><span class="sc1">&gt;</span><span class="sc0">Michael Palin</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">):</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> 
+            Ah. I'd like to have an argument, please.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Receptionist:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+            Certainly sir. Have you been here before?
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Man:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+            No, this is my first time.
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Receptionist:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+            I see. Well, do you want to have the full argument, or were you thinking of taking a course?
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+		</article>
+
+		<script>		
+		</script>
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Variable scope</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how variable scope works
+		
+			Created:	7. April 2015
+			Updated:	
+		-->
+
+		<script>
+			
+	
+	
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.23 Skill builder: Variable scope</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				No new code today<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Visible variables and invisible variables</h2>
+			
+			<p>You can <strong>define</strong> a variable in one of the following ways:</p>
+			<ul>
+				<li><code>var <var>numberVariable</var> =0;</code></li>
+				<li><code>var <var>stringVariable</var> ="";</code></li>
+				<li><code>var <var>arrayVariable</var> = [];</code></li>
+				<li><code>var <var>objectVariable</var> = {};</code> <var>// more on objects later</var></li>
+			</ul>
+			<p>
+				Variables can only be seen inside the code block in which they are defined.
+				This means: 
+			</p>
+			<ol>
+				<li><strong>Global variables:</strong> Variables defined outside a function are visible everywhere</li>
+				<li><strong>Local variables:</strong> Variables defined inside a function can only be seen inside that function</li>
+				<li><strong>Local variables:</strong> Variables defined inside a loop can only be seen inside that loop</li>
+				<li>If you <strong>redefine</strong> a variable again, the new version of that variable will be seen inside that block, and the old version will still exist outside! ( HolySmokes! )</li>
+			</ol>
+			
+			
+			
+			<h3>Global variables</h3>	
+			
+			<p>Global variables are typically used by beginners until they figure out function pipelines.</p>
+
+
+
+			<h4>Reading a global variable outside any functions</h4>
+			<p><strong>Global variables</strong> are declared at the top of the program outside of the functions.</p>
+			<pre><code>
+	var <var>testVar</var> = 'foo';
+	
+	console.log( testVar );
+	
+	<button id="buttonID1" type="button" onclick="var testVar = 'foo';document.getElementById('buttonID1').innerHTML=testVar;"> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			
+			
+			
+			<h4>Reading a global variable inside a function</h4>
+			<p><strong>Global variables</strong> can be seen inside all program functions.</p>
+			<pre><code>
+	var <var>testVar</var> = 'foo';
+	
+	function testFunction() {
+		console.log( <var>testVar</var> );
+	}
+		
+	<button id="buttonID2" type="button" onclick="var testVar = 'foo'; function testFunction() {document.getElementById('buttonID2').innerHTML=testVar;}; testFunction();"> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			
+			
+			<h3>Local variables</h3>
+
+			<p>
+				Local variables are a cleaner way to code. 
+				Function pipelines use local variables instead of global variables.
+			</p>
+			
+			<h4>Reading a local variable inside a different function</h4>
+			<p><strong>Local variables</strong> can only be seen inside the same function in which they are defined. They cannot be seen inside other functions.</p>
+			<pre><code>
+	function functionOne () {
+		var <var>testVar</var> = 'foo';
+	}
+
+	function functionTwo () {
+		console.log( <var>testVar</var> );
+	}
+	
+	<button id="buttonID3" type="button" onclick="function functionOne () {var testVar = 'foo';} function functionTwo () {document.getElementById('buttonID3').innerHTML=testVar;}; functionOne();functionTwo();"> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			<p>Check the Javascript console to see what happened...</p>
+			
+			
+			
+			<h4>Reading a local variable that has already been defined globally</h4>
+			<p><strong>Local variables</strong> will clobber global variables if <strong>redefined</strong>.</p>
+			<pre><code>
+	var <var>testVar</var> = 'foo';
+	
+	function testFunction() {
+		var testVar = 'bar'; <var>// yikes - testVar has been <strong>redefined</strong></var>
+		
+		console.log( <var>testVar</var> )
+	}
+		
+	<button id="buttonID4" type="button" onclick="var testVar = 'foo'; function testFunction() { var testVar = 'bar'; document.getElementById('buttonID4').innerHTML=testVar;}; testFunction();"> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			
+			
+			
+			
+			<h4>Reading a global variable that has been redefined locally</h4>
+			<p>
+				<strong>Local variables</strong> will clobber global variables if redefined. 
+				But the global version will still work, but as a <strong>separate variable with the same name</strong>!
+				Reusing the same variable names is confusing and should be avoided.</p>
+			<pre><code>
+	var <var>testVar</var> = 'foo';
+	
+	testFunction();
+	
+	console.log( <var>testVar</var> );
+	
+	function testFunction() {
+		var testVar = 'bar'; <var>// yikes - testVar has been <strong>redefined</strong></var>
+	}
+		
+	<button id="buttonID5" type="button" onclick="var testVar = 'foo';testFunction();document.getElementById('buttonID5').innerHTML=testVar;function testFunction() {var testVar = 'bar';	}"> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			
+			
+			
+			
+			
+			<h4>Reading a local variable that has been redefined inside a programming block</h4>
+			<p><strong>Local variables</strong> will behave unpredictably if redefined inside a <code>for</code>, <code>if</code>, or <code>then</code> block. </p>
+			<pre><code>
+	function testFunction() {	<var>// outer code block</var>
+		var <var>testVar</var> = 'foo'; 
+		
+		for (i=1; i<10; i++) {	<var>// inner code block</var>
+			var <var>testVar</var> = 'bar'; 
+		}
+		
+		console.log( <var>testVar</var> );
+	}
+		
+	<button id="buttonID6" type="button" onclick="function testFunction() {var testVar = 'foo';	for (i=1; i<10; i++) {var testVar = 'bar'; } document.getElementById('buttonID6').innerHTML=testVar;} testFunction(); "> show <code>console.log( <var>testVar</var> )</code> </button>
+			</code></pre>
+			
+	<!--
+	<var>chicken.cluck</var> = function () {	<var>// you can define function <strong>methods</strong>, too!</var>
+				console.log("Buckaw!!");
+			};
+			
+	<var>chicken.quoteChickenLittle</var> = function () {	<var>// You make a property equal to an anonymous function</var>
+				console.log("The sky is falling!");
+			};
+	
+	<var>chicken.peck</var> = function (numberOfPecks) {	<var>// You make a property equal to an anonymous function</var>
+				for (i=1; i&lt;numberOfPecks; i++) {
+					console.log("Peck!");
+					}
+			};
+	
+	<var>chicken.output</var> = function () {
+				return "My chicken's name is " 
+					+ <var>chicken.name</var>
+					+ ". It is " 
+					+ <var>chicken.colour</var>
+					+ " with " 
+					+ <var>chicken.feathers</var>
+					+ " feathers. It is " 
+					+ <var>chicken.age</var>
+					+ " years old."
+			};
+			
+	chicken.cluck(); 	<var>// Outputs "Buckaw!" to the console log</var>
+	
+	console.log( chicken.output() ); 	<var>// Outputs the chicken description to the console log</var>
+	
+	chicken.peck(3);	<var>// Outputs "Peck!" "Peck!" "Peck!" to the console log.</var>
+	-->
+			</code></pre>
+			
+		
+			
+			<h2>The assignment</h2>
+			<h4>There is no written assignment for this exercise</h4>
+			
+
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 &mdash; Well-modularized (chunked) code into separate init/input/processing/output functions</li>
+				<li>___/2 &mdash; Successful creation and use of arrays</li>
+				<li>___/2 &mdash; Successful use of time functions</li>
+				<li>___/1 &mdash; Successful use of timers</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+			</ul>
+			
+			-->			
+						
+			<!--
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

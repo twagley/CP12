@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Capitalizing tags</title>
+		<meta name="description" content="In programming, you should avoid using uppercase in your HTML tags.">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="programming style, capitalizing tags, Halifax, Nova Scotia, programing, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				29. July 2015	- created!
+				30. July		- fixed indentation
+				1. Feb 2017		- fixed spelling mistake
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Capitalizing tags</em>
+		</header>
+		
+		<article>
+			<h1>Be a stylish programmer</h1>
+			<p>
+				Some people dance, and some people dance with style. 
+				A dancer with style may be able to get work as a dancer, but not without it.
+			</p>
+			<p>
+				The same thing is true in programming. 
+				Some people make code that works, and some people make code that is elegant and humanly legible. 
+				One person is employable and the other isn't. 
+				There are other effects as well: it is really hard to maintain crappy code. 
+				I speak from experience: there have been times when I went back to update code from years ago and had hardly any idea how it worked. 
+				In most cases it took a long time to rewrite it. 
+			</p>
+			<p>
+				Trust me: start writing code with good style <strong>now</strong>.
+			</p>
+			
+			<h2>Always write HTML tag codes in lowercase</h2>
+			
+			<p>
+				Your browser will render your pages whether or not they are in uppercase <code>HTML</code>, 
+				lowercase <code>html</code>, or a mix of both <code>htML</code>.
+				That is not a problem.
+			</p>
+			
+			<p>
+				But humans will read your code, too. 
+			</p>
+			<ul class="showBullets indent">
+				<li>good: <code>&lt;html&gt;</code></li>
+				<li>bad: <code>&lt;HTML&gt;</code></li>
+				<li>horrible: <code>&lt;HTml&gt;</code></li>
+			</ul>
+			
+			<pre><code><span class="sc9">&lt;!-- good style means using lowercase for HTML tags --&gt;</span><span class="sc0">
+			
+</span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Are we the Baddies?</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Webb:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+    What's so good about a sickle?
+</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Mitchell:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+    Well, nothing.
+    And if there's one thing we've learn in the last thousand miles of retreat 
+    it's that Russian agriculture is in dire need of mechanisation.
+</span><span class="sc1">&lt;/p&gt;</span><span class="sc0"></span></code></pre>
+			<pre><code><span class="sc9">&lt;!-- bad style means using UPPERCASE for tags --&gt;</span><span class="sc0"></span>
+			
+<span class="sc1">&lt;H1&gt;</span><span class="sc0">The Final Countdown</span><span class="sc1">&lt;/H1&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;P&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;STRONG&gt;</span><span class="sc0">Roy:</span><span class="sc1">&lt;/STRONG&gt;</span><span class="sc0">
+    Hello?</span><span class="sc1">&lt;BR&gt;</span><span class="sc0">
+    IT</span><span class="sc1">&lt;BR&gt;</span><span class="sc0">
+    Have you tried turning it off and on again?
+</span><span class="sc1">&lt;/P&gt;</span><span class="sc0"></span></code></pre>
+
+			<pre><code><span class="sc9">&lt;!-- horrible style is when you mix them both --&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;h1&gt;</span><span class="sc0">Won't you have some tea, Father?</span><span class="sc1">&lt;/H1&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Ms. Doyle:</span><span class="sc1">&lt;/STRong&gt;</span><span class="sc0">
+    Ah go on!</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+    Go on, go on, go on, go on!</span><span class="sc1">&lt;BR&gt;</span><span class="sc0">
+    Go on, go on, go on, go on, go on, go on, go on...</span><span class="sc1">&lt;br&gt;</span><span class="sc0">
+    Go on!
+</span><span class="sc1">&lt;/P&gt;</span><span class="sc0"></span></code></pre>
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

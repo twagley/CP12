@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Telling Time</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page shows how to use Javascript and arrays to output the time
+		
+			Created:	30. March 2015 
+			Updated:	
+		-->
+		<script>
+			var _0xf387=["\x2C\x20","\x73\x70\x6C\x69\x74","\x4A\x61\x6E\x75\x61\x72\x79\x2C\x20\x46\x65\x62\x72\x75\x61\x72\x79\x2C\x20\x4D\x61\x72\x63\x68\x2C\x20\x41\x70\x72\x69\x6C\x2C\x20\x4D\x61\x79\x2C\x20\x4A\x75\x6E\x65\x2C\x20\x4A\x75\x6C\x79\x2C\x20\x41\x75\x67\x75\x73\x74\x2C\x20\x53\x65\x70\x74\x65\x6D\x62\x65\x72\x2C\x20\x4F\x63\x74\x6F\x62\x65\x72\x2C\x20\x4E\x6F\x76\x65\x6D\x62\x65\x72\x2C\x20\x44\x65\x63\x65\x6D\x62\x65\x72","\x53\x75\x6E\x64\x61\x79\x2C\x20\x4D\x6F\x6E\x64\x61\x79\x2C\x20\x54\x75\x65\x73\x64\x61\x79\x2C\x20\x57\x65\x64\x6E\x65\x73\x64\x61\x79\x2C\x20\x54\x68\x75\x72\x73\x64\x61\x79\x2C\x20\x46\x72\x69\x64\x61\x79\x2C\x20\x53\x61\x74\x75\x72\x64\x61\x79","\x74\x68\x65\x72\x65\x49\x73\x4E\x6F\x5A\x65\x72\x6F\x74\x68\x2C\x20\x31\x73\x74\x2C\x20\x32\x6E\x64\x2C\x20\x33\x72\x64\x2C\x20\x34\x74\x68\x2C\x20\x35\x74\x68\x2C\x20\x36\x74\x68\x2C\x20\x37\x74\x68\x2C\x20\x38\x74\x68\x2C\x20\x39\x74\x68\x2C\x20\x31\x30\x74\x68\x2C\x20\x31\x31\x74\x68\x2C\x20\x31\x32\x74\x68\x2C\x20\x31\x33\x74\x68\x2C\x20\x31\x34\x74\x68\x2C\x20\x31\x35\x74\x68\x2C\x20\x31\x36\x74\x68\x2C\x20\x31\x37\x74\x68\x2C\x20\x31\x38\x74\x68\x2C\x20\x31\x39\x74\x68\x2C\x20\x32\x30\x74\x68\x2C\x20\x32\x31\x73\x74\x2C\x20\x32\x32\x6E\x64\x2C\x20\x32\x33\x72\x64\x2C\x20\x32\x34\x74\x68\x2C\x20\x32\x35\x74\x68\x2C\x20\x32\x36\x74\x68\x2C\x20\x32\x37\x74\x68\x2C\x20\x32\x38\x74\x68\x2C\x20\x32\x39\x74\x68\x2C\x20\x33\x30\x74\x68\x2C\x20\x33\x31\x73\x74","\x31\x32\x2C\x20\x31\x2C\x20\x32\x2C\x20\x33\x2C\x20\x34\x2C\x20\x35\x2C\x20\x36\x2C\x20\x37\x2C\x20\x38\x2C\x20\x39\x2C\x20\x31\x30\x2C\x20\x31\x31\x2C\x20\x31\x32\x2C\x20\x31\x2C\x20\x32\x2C\x20\x33\x2C\x20\x34\x2C\x20\x35\x2C\x20\x36\x2C\x20\x37\x2C\x20\x38\x2C\x20\x39\x2C\x20\x31\x30\x2C\x20\x31\x31","\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x61\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D\x2C\x20\x70\x6D","","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x67\x65\x74\x48\x6F\x75\x72\x73","\x67\x65\x74\x4D\x69\x6E\x75\x74\x65\x73","\x67\x65\x74\x53\x65\x63\x6F\x6E\x64\x73","\x67\x65\x74\x44\x61\x79","\x67\x65\x74\x4D\x6F\x6E\x74\x68","\x67\x65\x74\x44\x61\x74\x65","\x67\x65\x74\x46\x75\x6C\x6C\x59\x65\x61\x72","\x3A","\x20\x6F\x6E\x20","\x20","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64"];var monthNames=_0xf387[2][_0xf387[1]](_0xf387[0]);var daysOfWeek=_0xf387[3][_0xf387[1]](_0xf387[0]);var ordinalNumbers=_0xf387[4][_0xf387[1]](_0xf387[0]);var hours=_0xf387[5][_0xf387[1]](_0xf387[0]);var AMOrPM=_0xf387[6][_0xf387[1]](_0xf387[0]);var monthString,dayOfWeekString,ordinalNumberString,hourString,AMOrPMString,minutesString,secondsString,fullYearString=_0xf387[7];var dateObject;function mainProcedure(){console[_0xf387[9]](_0xf387[8]);getDateObject();calculateDateInfo();outputTimeAndDate();}function getDateObject(){dateObject= new Date()}function calculateDateInfo(){hourString=hours[dateObject[_0xf387[10]]()];minutesString=dateObject[_0xf387[11]]();secondsString=dateObject[_0xf387[12]]();AMOrPMString=AMOrPM[dateObject[_0xf387[10]]()];dayOfWeekString=daysOfWeek[dateObject[_0xf387[13]]()];monthString=monthNames[dateObject[_0xf387[14]]()];ordinalNumberString=ordinalNumbers[dateObject[_0xf387[15]]()];fullYearString=dateObject[_0xf387[16]]();}function outputTimeAndDate(){var _0x8874x13=hourString+_0xf387[17]+minutesString+_0xf387[17]+secondsString+AMOrPMString+_0xf387[18]+dayOfWeekString+_0xf387[0]+monthString+_0xf387[19]+ordinalNumberString+_0xf387[0]+fullYearString;document[_0xf387[22]](_0xf387[21])[_0xf387[20]]=_0x8874x13;}
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<header>
+			<h1>1.19 Skill builder: Telling Time</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">time JS</span> <code><var>dateObject</var> = new Date();</code> &mdash; creates a new Date() object<br />
+				<br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getHours()</code> &mdash; gets the hour of the day<br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getMinutes()</code> &mdash; gets the minutes <br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getSeconds()</code> &mdash; gets the seconds<br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getDay()</code> &mdash; gets the day of the week,  0 &rarr; 6<br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getMonth()</code> &mdash; gets the month number,  0 &rarr; 11 <br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getDate()</code> &mdash; gets the day of the month, 1 &rarr; 31 <br />
+				<span class="langstyle">time JS</span> <code><var>dateObject</var>.getFullYear()</code> &mdash; gets the four digit year<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Finding the time and date</h2>
+			
+			<p>
+				You can use Javascript to read and set dates. 
+				These dates are based on the clock of the user's computer, which can be inaccurate.
+				But it is good enough for many purposes.
+			</p>
+			
+			<h3>Getting the time</h3>
+			<p>
+				To read the time, you have to create a new <code>Date()</code> object:
+			</p>
+			<ul>
+				<li><code>var <var>dateObject</var> = new Date();</code></li>
+			</ul>
+			
+			<p>If you use <code>.innerHTML</code> to print out <var>dateObject</var>, you will see it displayed in a form that is half-human, half computer readable:</p>
+			<p>
+				<button id="buttonID" type="button" onclick="var dateObject=new Date();document.getElementById('buttonID').innerHTML=dateObject;">Click to display the date</button>
+			</p>
+				
+			<h3>Date() functions</h3>
+			<p>
+				This will do just fine for many cases, such as creating computer log entries.
+				But say that you want to display the time in different languages, or even in more humanly-readable English. 
+				Then you have to use <strong>Date() functions</strong> on your <var>dateObject</var>:
+			</p>
+
+			<p>Always start off by assigning a <code>Date()</code> object to a variable:</p>
+			
+			<ul>
+				<li><code>var <var>dateObject</var> = new Date();</code></li>
+			</ul>
+			
+			<p>Then you can use any of the following functions (and more):</p>
+			
+			<table>
+				<caption>functions for <code>Date()</code> objects</caption>
+				<tr>
+					<th>function</th>
+					<th>description</th>
+					<th>range</th>
+					<th>button example</th>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getHours()</code></th>
+					<td>gets the hour of the day</td>
+					<td>0 &rarr; 23 <strong>(24 hour clock)</strong></td>
+					<td><button id="hourID" type="button" onclick="var dateObject=new Date();document.getElementById('hourID').innerHTML=dateObject.getHours();">Click to .getHours()</button></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getMinutes()</code></th>
+					<td>gets the number of minutes</td>
+					<td>0 &rarr; 59</td>
+					<td><button id="minutesID" type="button" onclick="var dateObject=new Date();document.getElementById('minutesID').innerHTML=dateObject.getMinutes();">Click to .getMinutes()</button></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getSeconds()</code></th>
+					<td>gets the number of seconds</td>
+					<td>0 &rarr; 59</td>
+					<td><button id="secondsID" type="button" onclick="var dateObject=new Date();document.getElementById('secondsID').innerHTML=dateObject.getSeconds();">Click to .getSeconds()</button></td>
+				</tr>
+				<tr>
+					<th>no function in Javascript</th>
+					<td>am or pm</td>
+					<td>build your own code</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getDay()</code></th>
+					<td>gets the day of the <strong>week</strong></td>
+					<td>0 &rarr; 6</td>
+					<td><button id="weekdayID" type="button" onclick="var dateObject=new Date();document.getElementById('weekdayID').innerHTML=dateObject.getDay();">Click to .getDay()</button></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getMonth()</code></th>
+					<td>gets the month of the year</td>
+					<td>0 &rarr; 11</td>
+					<td><button id="monthID" type="button" onclick="var dateObject=new Date();document.getElementById('monthID').innerHTML=dateObject.getMonth();">Click to .getMonth()</button></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getDate()</code></th>
+					<td>gets the day of the <strong>month</strong></td>
+					<td>1 &rarr; 31</td>
+					<td><button id="dateID" type="button" onclick="var dateObject=new Date();document.getElementById('dateID').innerHTML=dateObject.getDate();">Click to .getDate()</button></td>
+				</tr>
+				<tr>
+					<th><code><var>dateObject</var>.getFullYear()</code></th>
+					<td>gets the current year</td>
+					<td>four digit year</td>
+					<td><button id="yearID" type="button" onclick="var dateObject=new Date();document.getElementById('yearID').innerHTML=dateObject.getFullYear();">Click to .getFullYear()</button></td>
+				</tr>
+			<table>
+			
+			<h3>Translating into human language</h3>
+			
+			<p>
+				Note that you are only given numbers instead of words for each function. 
+				This is intentional so that programmers can write code for different languages and other purposes.
+			</p>
+			<p>
+				Also note that days of the week and months of the year return the <strong>actual number - 1</strong>.
+				This is very handy if we want to display the month or weekday information using an array. 
+				For example, say we have an array set up:
+			</p>
+			
+			<ul>
+				<li><code>var <var>daysOfTheWeek</var> ="<var>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</var>".split(",&nbsp;"); // INIT: array for human-readable days of the week</code></li>
+			</ul>
+			
+			<p>
+				Now we can get a human-readable weekday value with the following expression:
+			</p>
+			
+			<ul>
+				<li><code>var <var>dateObject</var> = new Date();</code></li>
+				<li><code>var <var>englishDayOfTheWeek</var> = <var>daysOfTheWeek</var>[dateObject.getDay()];</code></li>
+			</ul>
+			
+			<p>
+				<button id="weekdayArrayID" type="button" onclick=
+					"var daysOfTheWeek ='Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday'.split(', ');var dateObject=new Date();document.getElementById('weekdayArrayID').innerHTML=daysOfTheWeek[dateObject.getDay()];"
+				>
+				Click to daysOfTheWeek[dateObject.getDay();]
+				</button>
+			</p>
+			
+			<p>You can do this with the months, converting days of the month to "1st", "2nd", "3rd",... and to quickly display whether something is am or pm.</p>
+		
+			
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.19S-TellingTime-LastName.html">template</a> and rename it to your last name, such as "<code>1.19S-TellingTime-LastName.html</code>".</p>
+
+			
+			<h2>The assignment</h2>
+			<h4>In this assignment you will add code to the template to create a program that displays the time in the following form:</h4>
+			<p id="outputID"></p>
+			
+			<p><br /><br /></p>
+			<p>Please keep in mind the following:</p>
+			<ol>
+				<li>Start by initializing the arrays. I have provided some information for you to help. How will will you convert this into arrays?</li>
+				<li>Remember to use intelligent variable names, such as: <var>dayOfTheWeek</var>.</li>
+				<li>Remember to split your functions into separate parts: INIT, INPUT, PROCESS, and OUTPUT.</li>
+				<li>In your descriptive comments for each function, indicate whether the function is for INIT, INPUT, PROCESS, or OUTPUT.</li>
+				<li>Use <code>onload="mainProcedure();"</code> to start the process rolling, not a button.</li>
+				<li>Use arrays to convert the information from the <code>Date()</code> functions into human-readable text</li>
+				<li>Is there another way to deal with am/pm?</li>
+			</ol>
+				
+				
+			
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/1 &mdash; Quality html code</li>
+				<li>___/3 &mdash; Well-modularized (chunked) code into separate functions following input/processing/output</li>
+				<li>___/3 &mdash; Successful Javascript solution: keyboard, ifs, and animation</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting, and style</li>
+			</ul>
+			
+
+			
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

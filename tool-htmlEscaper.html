@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Daniel Hug" />
+		<meta name="copyright" content="share alike" />
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				font: normal 24px monospace;
+				vertical-align: top;
+			}
+
+			html, body { height: 100% }
+
+			.half { height: 50% }
+
+			.half.first { padding-bottom: 28px }
+			.half.last  { padding-top: 28px }
+
+			textarea {
+				width: 100%;
+				height: 100%;
+				padding: 8px;
+				border: 0;
+				outline: 0;
+				resize: none;
+			}
+
+			.first textarea { padding-bottom: 0 }
+			.last  textarea { padding-top:    0 }
+
+			.middle {
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				margin-top: -23.5px;
+				text-align: center;
+			}
+
+			#method { padding: 8px; }
+		</style>
+		<script>
+			// Escape & Unescape HTML:
+			(function() {
+				var escapeEl = document.createElement('textarea');
+
+				window.escapeHTML = function(html) {
+					escapeEl.textContent = html;
+					return escapeEl.innerHTML;
+				};
+
+				window.unescapeHTML = function(html) {
+					escapeEl.innerHTML = html;
+					return escapeEl.textContent;
+				};
+			})();
+
+			// getElementById shortcut:
+			var $ = function(id, scopeEl) {
+				return (scopeEl || document).getElementById(id);
+			};
+
+			// Grab the needed elements:
+			var inputEl = $('input');
+			var outputEl = $('output');
+			var methodToggleEl = $('method');
+
+			// Handle input:
+			function inputHandler() {
+				outputEl.value = window[methodToggleEl.value + 'HTML'](inputEl.value);
+			}
+			inputHandler();
+			methodToggleEl.onchange = inputEl.oninput = inputHandler;
+		</script>
+	</head>
+	
+	<body>
+		<h2>Daniel Hug's <a href="http://jsfiddle.net/Daniel_Hug/qPUEX/">HTML Escaper</a></h2>
+		<div class="half first"><textarea id="input" placeholder='Paste your HTML in here...' spellcheck="false" autofocus></textarea></div>
+
+		<div class="middle">
+			<select id="method">
+				<option value="escape">escape</option>
+				<option value="unescape">unescape</option>
+			</select>
+		</div>
+
+		<div class="half last"><textarea id="output" placeholder='Output...' spellcheck="false"></textarea></div>
+	</body>
+</html>

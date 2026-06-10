@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12: The Javascript Errorery</title>
+		<meta 
+			name="description" 
+			content="An ongoing database of Javascript Errors, with some solutions">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources, error database">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				24. February 2018	- Created! - Drapak
+				
+		-->
+
+		<style>
+			#errorMessageID {
+				width:	60%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>Computer Programming: The <em>Errorery</em></header>
+
+		<article>
+
+			
+			<!-- display the leader board of most bugs submitted -->
+			
+			<h3>The <em>Errorery</em> leaderboard</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Bug hunter</th>
+						<th>Number of bugs</th>
+					</tr>
+				</thead>
+				<tbody id="leaderBoardTableBodyID">
+				</tbody>
+			</table>
+			
+			<!-- display the database of errors -->
+			
+			<h3>
+				The <em>Errorery</em>, <strong>click</strong>
+				the errors for the punchlines 
+				<span id=""></span>
+			</h3>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Error Message</th>
+						<th>Browser</th>
+						<th>Date</th>
+						<th>Hunter</th>
+					</tr>
+				</thead>
+				<tbody id="errorTableBodyID">
+				</tbody>
+			</table>
+			
+			<h3>Submit a new error message to the <em>Errorery</em></h3>
+			
+			<div id="submitID">
+				<p>
+					<label for="submitter">Your name</label><br>
+					<input id="nameID" name="submitter" type="text"><br>
+					<br>
+				
+					<label for="browserRadio">Your browser</label><br>
+					<input 
+						type="radio" 
+						name="browserRadio" 
+						id="browser1ID" 
+						value="Chrome" checked>
+						Chrome<br>
+					<input 
+						type="radio" 
+						name="browserRadio" 
+						id="browser2ID" 
+						value="Edge">
+						Edge<br>
+					<input 
+						type="radio" 
+						name="browserRadio" 
+						id="browser3ID" 
+						value="Firefox">
+						Firefox<br>
+					<input 
+						type="radio" 
+						name="browserRadio" 
+						id="browser4ID" 
+						value="Safari">
+						Safari
+					<br>
+					<br>
+					
+					<label for="errorMessage">Error message</label><br>
+					<input id="errorMessageID" name="errorMessage" type="text"><br>
+					<br>
+					
+
+					<label for="file">Choose file to upload</label><br>
+					<input type="file" id="fileID" name="file"><br>
+					<br>
+					<button type="button" id="submitID">Submit your error!</button>
+				</p>
+			</div>
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+		
+			//extract the data from the form and validate it
+			var validateData = function ( event ) {
+				console.log( "in validateData..." )
+				//INIT: set up the initial form object
+				var formObj	= {};
+				
+				//INPUT: get the name of the submitter
+				formObj.name	
+					= document.getElementById('nameID').value;
+					
+				//INPUT: get the name of the browser from the radio buttons
+				formObj.browser
+					= $('input[name=browserRadio]:checked').val();
+				
+				//INPUT: get the error message
+				formObj.message	
+					= document.getElementById('errorMessageID').value;
+					
+				//INPUT: get the file info
+				var files = event.target.files; // FileList object
+
+				// files is a FileList of File objects. List some properties.
+				var r = new FileReader();
+				r.onload = function(event) { 
+					var contents = event.target.result;
+					
+					console.log( "Got the file.\n" 
+						  +"name: " + files[ 0 ].name + "\n"
+						  +"type: " + files[ 0 ].type + "\n"
+						  +"size: " + files[ 0 ].size + " bytes\n"
+					);  
+					
+					formObj.file	= contents;
+					console.log( "formObj=" );
+					console.log( formObj );
+				}
+				r.readAsText( files[ 0 ] );
+			}
+			
+			//INPUT: connect the data validator when the button is clicked
+			document.getElementById('fileID').onchange	= validateData( event );
+		</script>
+	</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: TTEEMMPPLLAATTEE</title>
+		<meta name="description" content="DDEESSCCRRIIPPTTIIOONN">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, programing, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				27. July 2015	- created!
+		-->
+
+		<script>
+		</script>
+
+		<style>
+			article p, 
+			article li, 
+			article hr, 
+			article table, 
+			article figure, 
+			aside p, 
+			aside li, 
+			aside hr, 
+			aside table, 
+			aside figure {
+				//text-align: justify;
+				//margin-left: 50px;
+				//margin-right: 50px;
+			}
+		
+
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header><a href="/making/">Computer Programming 12</a> &mdash; <em>Picture frame</em></header>
+
+		<article>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">page HTML</span> <code>&lt;!doctype html&gt;</code> - at top of HTML5 documents<br />
+				<span class="langstyle">page HTML</span> <code>&lt;html&gt;</code> - contains all the HTML code<br />
+				<span class="langstyle">page HTML</span> <code>&lt;head&gt;</code> - information outside the window, like the title<br />
+				<span class="langstyle">page HTML</span> <code>&lt;body&gt;</code> - information inside the window<br />
+				<br/>
+				<span class="langstyle">block HTML</span> <code>&lt;h1&gt;</code> - makes a large heading<br />
+				<span class="langstyle">block HTML</span> <code>&lt;p&gt;</code> - makes a new paragraph<br />
+				<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;strong&gt;</code> - emphasizes text<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;a href=""&gt;</code> - create a hyperlink<br />
+				<span class="langstyle">inline HTML</span> <code>&lt;img src=""&gt;</code> - displays an image<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		
+			<h2>Howdy Programmer!</h2>
+			<p>Welcome to the world of Hyper Text Markup Language - <strong>HTML</strong>. Think of HTML as a language that controls how things are displayed in a web browser. The programming code of HTML is made of <strong>tags</strong>.</p>
+			
+			<p>For example, <code>&lt;!doctype html&gt;</code> means we are using the latest version of HTML, HTML5.<p>
+			<p>Anything inside the <code>&lt;title&gt;</code> tag appears on the title bar.</p>
+			<p><code>&lt;h1&gt;</code> tags are used to enclose the biggest headings in a document. Use them to organize the information in your documents.</p>
+			<p><code>&lt;p&gt;</code> tags are very common and used to enclose paragraphs in your document.</p>
+			<p>For most tags, you use them as a <strong>pair</strong>, normal at the beginning and then with a slash at the end: <code>&lt;strong&gt;emphasized text&lt;/strong&gt;</code>.
+
+			<figure>
+				<a href="https://www.khanacademy.org/computer-programming/hello-world/4834807768023040" target="_blank">Live demo: hello world!</a><br>
+				<script src="https://www.khanacademy.org/computer-programming/hello-world/4834807768023040/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+			</figure>
+
+			<h2>Saving your work</h2>
+			<p>In this course, work is passed in electronically to your teacher. This means that if it does not get saved electronically and passed in, it does not get marked.</p>
+			<p>In your student home directory, typically <code>H:/</code>, create a folder called, "<code>Computer Programming 12</code>".</p>
+			<p>Open your editor and save the empty document as "<code>1.01H-HelloWorld-LastName.html</code>" in your new Computer Programming 12 directory. Programmers usually save their documents with an intelligent filename before they even begin. </p>
+			<p>Note the <strong>exact characters used</strong> in your filename. In computer programming you need to be <strong>exact</strong> about your code and filenames or things won't work the way you would like. Same with your teacher: if you do not get the filename correct, it will not appear as handed in. <strong>Be precise!</strong></p>
+
+			<h2>A great beginning</h2>
+			<p>Type the example code into your document.</p>
+			<p>Use Notepad as your editor. You can find it by going to <code>Start Menu</code> &rarr; <code>Programs</code> &rarr; <code>Accessories</code> &rarr; <code>Notepad</code>.</p>
+			<p>Change the code to suit your personality, but follow the same format as the example as closely as you can. You can't cut and past: part of coding is learning the rhythm of typing in the language. Once you are finished, drag and drop your document into the <strong>pass in</strong> folder, typically at <code>I:/ddrapak/Computer Programming 12/</code>.</p>
+	
+			<pre class="noselect"><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"viewport"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"width=device-width, initial-scale=1"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Computer Programming 12: TTEEMMPPLLAATTEE</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"DDEESSCCRRIIPPTTIIOONN"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"keywords"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Halifax, Nova Scotia, programing, computer programming, javascript, teaching, learning resources"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--#include virtual="/stylesandscripts.html" --&gt;</span><span class="sc0">   
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                27. July 2015   - created!
+        --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!--#include virtual="/masthead.html" --&gt;</span><span class="sc0">   
+        
+        </span><span class="sc1">&lt;header&gt;&lt;a</span><span class="sc8"> </span><span class="sc3">href</span><span class="sc8">=</span><span class="sc6">"/making/"</span><span class="sc1">&gt;</span><span class="sc0">Computer Programming 12</span><span class="sc1">&lt;/a&gt;</span><span class="sc0"> </span><span class="sc10">&amp;mdash;</span><span class="sc0"> </span><span class="sc1">&lt;em&gt;</span><span class="sc0">TTEEMMPPLLAATTEE</span><span class="sc1">&lt;/em&gt;&lt;/header&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;article&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;/article&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--#include virtual="/footer.html" --&gt;</span><span class="sc0">     
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<p><img src="examples/HelloWorldExample.png"></p>
+			<p>The above code will create the following:<br />
+			<img src="img/HelloWorldExample.png"></p>
+			
+			<h2>Extend and expand</h2>
+			<p>I am curious what else you can do. Do you know any HTML? Put some additional code in there!</p>
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/2 = Handed in with correct file name</li>
+				<li>___/2 = Correct and complete information</li>
+				<li>___/3 = Correctly formatted information</li>
+				<li>___/3 = HTML is well formatted and organized</li>
+			</ul>
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

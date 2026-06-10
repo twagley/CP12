@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Choosing an Editor</title></title>
+		<meta name="description" content="Choosing an editor">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				8. August 2015	- created!
+				1. Feb 2017		- updated for new lab conditions
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Choosing an editor</em>
+		</header>
+		
+		<article>							
+			<h2>Thankfully there are other editors in the world besides Notepad.</h2>
+
+			<p>
+				The coding environment that programmers use is the source of a great deal of debate. 
+				Personally, it depends on which language I am using: 
+				in Linux I tend to use gedit and kdevelop, but in Windows I tend to use Notepad++.
+			</p>
+			<p>
+				<a href="http://www.sublimetext.com/">Sublime Text</a> is also very, very, good, and you can get a Portable version of it as well.
+				At home, you can use whatever you want. 
+				Take a look at <a href="https://code.visualstudio.com/">Visual Studio Code</a>: it is pretty good!
+			</p>
+			
+			<p>
+				The school computers do not allow us to install anything permanently. 
+				There are other great editors out there, but it is best to use them at home.
+			</p>
+			
+			<h2>Why use a programming editor?</h2>
+			<ol>
+				<!--
+				<li>Download my <a href="Notepad++Portable.zip">PortableApps Notepad++ zip archive</a>. Portable apps are programs that you can install to say, a flash drive, without it needing to use the windows registry. This is handy for people who like to use school and work computers that are well-secured and do not allow the permanent installation of programs.</li>
+				<li>Save the zip file to the <code>D:/</code> drive</p>
+				<li>In the <code>D:/</code> drive, delete any existing Notepad++ folders</li>
+				<li>Right-click on the zip archive to bring up the context menu</li>
+				<li>Choose <code>extract all...</code> or <code>extract here...</code></li>
+				<li>Start up Notepad++ and see if you prefer it</li>
+				-->
+				<li>Syntax highlighting - different kinds of code are different colours</li>
+				<li>There are often error-checking tools built-in</li>
+				<li>Programming code autocomplete! <strong>(Soooooo good!)</strong></li>
+				<li>Formatting helpers, like bulk tabbing</li>
+				<li>And so much more</li>
+				
+			</ol>
+			<p>
+				After a while you get so used to writing in programming editors that 
+				word processors start to seem awkward and slow.
+				I do much of my writing as a teacher in programming editors. 
+				I can't go back!
+			</p>
+	
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

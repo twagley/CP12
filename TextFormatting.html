@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<title>Hello color</title>
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<script>
+		
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.13 Skill Builder: Hello color</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">HTML</span> <code>&lt;style&gt;</code> - CSS style information used within the <strong>&lt;head&gt;</strong> of HTML5 documents<br /><br />
+				<span class="langstyle">CSS</span> <code>font-family: </code> - which typeface to use<br />
+				<span class="langstyle">CSS</span> <code>font-style: </code> - which style: <code>normal</code>, or <code>italic</code><br />
+				<span class="langstyle">CSS</span> <code>font-weight: </code> - how heavy: <code>normal</code>, or <code>bold</code><br />
+				<span class="langstyle">CSS</span> <code>font-size: </code> - typeface size<br />
+				<span class="langstyle">CSS</span> <code>color: </code> - indicates the text color<br />
+				<span class="langstyle">CSS</span> <code>background-color: </code> - indicates the background color<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+		
+		
+		<article>
+			<h2>Introducing Cascading Style Sheets</h2>
+			<p>Ah! Cascading Style Sheets &mdash; <strong>CSS</strong> &mdash; the better looking, better dressed cousin of HTML.</p>
+			
+			<p>When HTML was invented, the internet was young, and speeds were too slow to for a visual web-browsing experience. Because computers were slow (it could take 10 minutes to download a picture), the first version of HTML had limited formatting. Later versions added more and more formatting features, but eventually programmers and designers became frustrated by cool-looking webpages that had incredibly clunky and difficult to read code.<p>
+			
+			<p>So they decided to separate the <strong>structure</strong> (HTML code) of a document from it's <strong>style and design</strong> (CSS code).</p>
+			
+			<p>Modern web pages are split into three fairly distinct chunks: HTML, Javascript, and CSS - and good programmers try not to mix them up.</p>
+			
+			<p>The problem is that HTML will allow you to use some formatting codes within the HTML in order to allow backwards compatibility. Because of this it takes discipline to fully separate page structure, HTML, from it's formatting, CSS. However, you will save yourself enormous maintenance headaches by keeping all your style code apart from your page structure. </p>
+			
+			<h2>Applying CSS to your HTML code</h2>
+			<p>CSS formatting can be pretty powerful. In your documents it can control the size, shape, positioning, angle, justification, font use, color, and much more.</p> 
+			
+			<h3>Applying CSS to types of tags</h3>
+			<p>
+				This is pretty easy to do. 
+				Let's say that I wanted to change every piece of text in my document that is inside the <code>&lt;p&gt;</code> tags.
+				I can do this by inserting the following code inside the <code>&lt;style&gt;</code> block inside the <code>&lt;head&gt;</code> of my document:
+			</p>
+			<pre><code>
+p {
+	font-family: 	Arial;
+	font-style: 	italic;
+	font-weight: 	bold;
+	font-size: 	20px;
+	color: 		Blue;
+}
+			</code></pre>
+			<p>	
+				This will turn all of the paragraph text into blue, 20 pixel high, bold italic Arial. 
+				Ugly, yes, but it will do it. 
+			</p>
+			<p>
+				The part at the front of the CSS code - the <code>p {</code> - is the most important part. 
+				It is called the <strong>selector</strong>.
+			</p>
+			<ul>
+				<li>if I wanted to format all the large headings, then I would use <code>h1 {</code> as the selector. </li>
+				<li>if I wanted to change the format of the entire document, then I would use <code>body {</code> as the selector. </li>
+				<li>if I wanted to change the format of all the list items and the paragraphs <strong>together</strong>, then I would use <code>li,&nbsp;p&nbsp;{</code> as the selector. (Neat, huh? Two in one with little extra coding.)</li>
+				<li>and if I wanted to change the format of everything written inside table cells, then I would use <code>td {</code> as a selector.</li>
+			</ul>
+			
+			<h3>Applying CSS to a particular ID</h3>
+
+			<p>
+				Often though, you want to apply a style to just one specific id. 
+				For example, let's say that I had one particular medium sized heading that I wanted to make different from the rest. 
+				I could give that heading an id - say "specialHeader" - and code it like this:
+			</p>
+			<p><code>&lt;h3 id="specialHeader"&gt;This header will have unique formatting.&lt;/h3&gt;</code></p>
+			
+			<p>And in the <code>&lt;style&gt;</code> block inside the <code>&lt;head&gt;</code> I could add:</p>
+			<pre><code>
+#specialHeader {
+	font-weight: 	bold;
+	font-size: 	18px;
+	color: 		Orange;
+	background-color: Grey;
+}
+			</code></pre>
+			<p>
+				Notice that the <strong>selector</strong> has changed.
+				The <code><strong>#</strong></code> symbol indicates that the CSS code will be applied to the element with the specific ID.
+			</p>			
+
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.13S-HelloColor-LastName.html">template</a> and save it as "<code>1.13S-HelloColor-LastName.html</code>" in your Computer Programming 12 directory.</p>
+			
+			<h2>The Assignment</h2>
+			<p>
+				Recreate the following document using the same colors, type face, styles, and colors.<br/>
+				<img class="withborder" src="img/TextFormattingExample.png" ><br />
+				Construct the basic document using <code>&lt;p&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h3&gt;</code>, and <code>&lt;strong&gt;</code> tags.
+			</p>
+			<p>Then apply the formatting by adding the appropriate CSS to the text by defining the text properties for each of the tags above.</p>
+			<p>However, one part of the text is unique, and should be designated with an HTML <code>id="uniqueText"</code>, and a CSS selector of <code>#uniqueText {</code>.
+			<p>This example is not pretty, but it will show you how to apply basic text formatting.</p>
+			</p>
+		</article>
+
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a><br />
+				Want to use this? This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

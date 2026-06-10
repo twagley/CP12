@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Style - Use comments to communicate
+		</title>
+		<meta 
+			name="description" 
+			content="Good programming style means adding comments to explain and remind.">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Add comments while you work, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				27. July 2015		- created!
+				30. July 			- fixed indentation
+				27. Sept			- added learn more link
+				5. February 2017 	- added more reasons to do comments
+				11. February 2018	- fixed the examples and cleaned script location
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Add comments to communicate</em>
+		</header>
+		
+		<article>
+
+			<h2>To truly understand something, you have to teach it...</h2>
+			
+			<p>
+				Programming languages have <strong>comments</strong> 
+				&mdash; a way for the programmer to leave notes for humans in the code.
+				Comments are invisible to the computer, and don't do anything.				
+			</p>
+			<p>
+				Except make your code not suck.
+			</p>
+			
+			<p>
+				Comments are enclosed by codes that are different for each programming language. 
+				In our course, we will be using four kinds of comments:
+			</p>
+			
+			<ol class="indent">
+				<li>
+					<strong>HTML:</strong><br>
+					<code>&lt;!-- HTML lets us put multi-line comments inside these... --></code>
+				</li>
+				<li>
+					<strong>Cascading Style Sheets (CSS):</strong><br>
+					<code>/* CSS lets us put multiline comments inside the slash-star */</code>
+				</li>
+				<li>
+					<strong>Javascript (single-line):</strong> <br>
+					<code>// Javascript let's you add a comment with a double-slash...</code>
+				</li>
+				<li>
+					<strong>Javascript (multi-line):</strong> <br>
+					<code>/* Javascript also lets you add a comment over<br>
+					several lines with slash-star, too. */</code>
+				</li>
+			</ol>
+			
+			<p>
+				The main point of comments is to help explain and structure your code so that it helps you stay organized.
+				It also helps you communicate clearly to any human who may have read your code, 
+				including your co-workers, your employer, and even yourself, after enough time has passed.
+			</p>
+			
+			<p>
+				It is considered unprofessional to create uncommented code.
+				Think of comments as your way to teach others what is going on in your code.
+				Treat the reader like they are a beginning programmer.
+			</p>
+			
+			<h3>Use comments to...</h3>
+			<ul>
+				<li>Explain what your code is doing</li>
+				<li>Explain what your data structures contain</li>
+				<li>Record when you modified your work <em>(help justify your paycheque)</em></li>
+				<li>Give examples of how your code could be used</li>
+				<li>Keep a todo list</li>
+				<li>Keep a list of feature ideas</li>
+				<li>Keep a list of bugs to fix</li>
+				<li>Keep a list of questions to ask your teacher</li>
+			</ul>
+			
+			<h3>An example of the four kinds of comments</h3>
+			
+			<pre><code>&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
+        
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Parts of a Web Page</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"How to use comments in HTML, CSS, and JS"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+
+        </span><span class="sc9">&lt;!--
+            Change log: 
+                27. July 2015       - created!
+                29. July            - I always use a change log to see how things grow
+                                      and change. I often add TODO lists here as well,
+                                      and check them off as they are finished.
+                11. February 2018   - moved &lt;script> to end of code for good style
+        --&gt;</span><span class="sc0">
+
+        </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+            p {
+                /* CSS comments go inside here */
+                color:  red;
+            }
+        </span><span class="sc1">&lt;/style&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- show a paragraph --&gt;</span><span class="sc0">
+        </span><span class="sc9">&lt;!-- HTML comments go inside these --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Hello there!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+		
+        </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
+</span><span class="sc41">            </span><span class="sc43">// MAIN: You should explain what each function does before it is defined</span><span class="sc41">
+            </span>var <span class="sc46">mainProcedure</span> = <span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc42">/* 
+                    In Javascript, you can also have multi-line comments
+                */</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">
+        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					Khan Academy on
+					<a href="https://www.khanacademy.org/computing/computer-programming/html-css/html-tags-continued/p/html-comments">
+						HTML comments
+					</a> 
+				</li>
+			</ul>
+		</article>
+		<!--#include virtual="/footer.html" -->		
+		<script>
+		</script>
+
+
+	</body>
+</html>

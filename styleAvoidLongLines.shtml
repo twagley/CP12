@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Style - Avoid long lines
+		</title>
+		<meta 
+			name="description" 
+			content="Avoid long blocks of code">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				18. Sept 2015		- created!
+				11. February 2018	- cleaned up style and script location
+				16. September 2018	- fixed a long line!
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Avoid long lines</em>
+		</header>
+		
+		<article>
+			<h2>Break up long lines for easier legibility and printability</h2>
+			
+			<p>
+				Some of you have noticed how irritating it is to code 
+				when you have lines that go off the edge of the screen.
+			</p>
+			<p>	
+				One of the cool things about HTML is that you can hit <code>Enter</code>
+				anywhere in your code, and the browser will ignore it.  
+			</p>
+			<p>
+				This means that if a line is running off the edge of the screen,
+				you can break it up into one phrase or sentence per line in your code
+				without it affecting the look of how your web page is displayed.
+			</p>
+			<p>
+				This makes it much easier to follow the flow of code, 
+				and has the added bonus of not cutting things off 
+				or shrinking everything when you print. 
+			</p>
+			<p>
+				There is such a thing a "wrap long lines" in your text editors,
+				but that does not help you with printing.
+			</p>
+			
+			<h2>
+				The classroom style I use for marking is to end at the 96th
+				character position, or the length of a line of code in the
+				printed version of the "View source" function of Chrome.
+			</h2>
+			
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-avoid-long-lines-of-code/6260444783312896">Live example: Avoid long lines of code</a></h2> <script src="https://www.khanacademy.org/computer-programming/live-example-avoid-long-lines-of-code/6260444783312896/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+		<script>		
+		</script>
+	</body>
+</html>

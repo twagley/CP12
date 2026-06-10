@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>drapak.ca - Computer Programming 12</title>
+		
+		<!--#include virtual="/stylesandscripts.html" -->	
+		<!--interesting videos for Computer Programming 12
+		
+			Created:	1. July 2015 
+			Updated:	1. February 2017	- added Mario video!
+						5. February			- added Philomena Cunk and other videos
+		-->
+
+		<script>
+		</script>
+		<style>
+			iframe {
+				width: 356px;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>Computer Programming 12 <small>&mdash; Interesting videos</small></header>
+		
+		<article>
+			<p>
+				Often I will come across interesting videos relating to computing. 
+				Here is a brief collection...
+			</p>
+			
+			<h2>History of computing</h2>
+
+			<div class="floatbox indent">
+				<figure>
+					<iframe src="https://www.youtube.com/embed/Ou_9ntYRzzw" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure>
+					<iframe src="https://www.youtube.com/embed/G2_Q9FoD-oQ" frameborder="0" allowfullscreen></iframe>
+				</figure>
+			</div>
+
+			<h2>Game design</h2>
+
+			<div class="floatbox indent">
+				<figure>
+					<iframe src="https://www.youtube.com/embed/x24KoVNliMk" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- How the inventor of Mario ... -->
+					<iframe src="https://www.youtube.com/embed/K-NBcP0YUQI" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- Intro to UX Design - User Experience and You - Extra Credits -->
+					<iframe src="https://www.youtube.com/embed/mPD5dUBFsps" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- The Casual/Core Fallacy - Designing for Depth - Extra Credits -->
+					<iframe src="https://www.youtube.com/embed/5pL4AzGBAsU" frameborder="0" allowfullscreen></iframe>
+				</figure>
+			</div>
+
+			<h2>Processing</h2>
+			
+			<div class="floatbox indent">
+				<figure>
+					<iframe src="https://www.youtube.com/embed/NWBToaXK5T0" frameborder="0" allowfullscreen></iframe>
+				</figure>
+			</div>
+
+			<h2>Just fun</h2>
+			
+			<div class="floatbox indent">
+				<figure><!-- what is the WWW -->
+					<iframe src="https://www.youtube.com/embed/J8hzJxb0rpc" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- Metal gear solid -->
+					<iframe src="https://www.youtube.com/embed/WWQXzGTzM1g" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure>
+					<iframe src="https://www.youtube.com/embed/dvDHNDkO-Qo" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<!-- link that can crach chrome
+				<figure>
+					<iframe src="https://www.youtube.com/embed/0fw5Cyh21TE" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				-->
+				<figure>
+					<iframe src="https://www.youtube.com/embed/CCDIuZUfETc" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- Philomena Cunk -->
+					<iframe src="https://www.youtube.com/embed/92dLXSbrmak" frameborder="0" allowfullscreen></iframe>
+				</figure>
+				<figure><!-- living in a simulation -->
+					<iframe src="https://www.youtube.com/embed/JB3v3bDba5g" frameborder="0" allowfullscreen></iframe>
+				</figure>
+			</div>
+		</article>
+		
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

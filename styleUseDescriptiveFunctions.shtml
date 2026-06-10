@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Use descriptive function names</title></title>
+		<meta name="description" content="Use alert() to help debug your javascript programs">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Use descriptive function names, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				3. August 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Use descriptive function names</em>
+		</header>
+		
+		<article>
+			<h1>Always choose self-describing function names</h1>
+
+			<h4>Function names should start with a verb</h4>
+			<p>
+				Functions are supposed to <strong>do</strong> things.
+			</p>
+			<p>
+				And since verbs describe what is done, 
+				start your function name with the exact verb to describe what is going to happen.
+			</p>
+			<ul>
+				<li><strong>Bad:</strong> <code>var <var>priceConvertor</var> = function() {};</code></li>
+				<li><strong>Good:</strong> <code>var <var>convertPrice</var> = function() {};</code></li>
+				<li><strong>Better:</strong> <code>var <var>convertCanadiantoAmericanDollars</var> = function() {};</code></li>
+			</ul>
+			
+			
+			<h4>Use camelCase for functions</h4>
+
+			<p>
+				<strong>camelCase</strong> has all the words grouped together.
+				It has the first word lowercase, and the first letter of all remaining words capitalized.
+			</p>
+			<ul>
+				<li><strong>Bad:</strong> <code>var <var>Get_Location</var> = function() {};</code></li>
+				<li><strong>Good:</strong> <code>var <var>getLocation</var> = function() {};</code></li>
+				<li><strong>Good:</strong> <code>var <var>extractUserName</var> = function() {};</code></li>
+			</ul>
+			
+			<h4>Use CapsFirst and nouns for object constructors</h4>
+			<p>
+				Object constructors are for creating objects from a general template that have properties and methods attached to them.
+			</p>
+			<p>
+				By their nature, objects tend to be simple nouns.
+			</p>
+			<ul>
+				<li><strong>Bad:</strong> <code>var <var>kitty</var> = new kindOfAnimal();</code></li>
+				<li><strong>Good:</strong> <code>var <var>kitty</var> = new KindOfAnimal();</code></li>
+				<li><strong>Good:</strong> <code>var <var>yaris</var> = new Car();</code></li>
+			</ul>
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

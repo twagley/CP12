@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Debug using the console log</title></title>
+		<meta name="description" content="Debug using the console log">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Debug using the console log, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				4. August 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Debug using the console log</em>
+		</header>
+		
+		<article>
+			<h2>The console log can send you information silently</h2>
+
+			<p>By now, you have noticed all of the <code>console.log()</code> commands in the code examples.</p>
+			<p>
+				The <strong>console log</strong> is where most browsers will record error messages in Javascript code.
+				It is also a place where you can have your code send you messages.
+			</p>
+			<p>
+				Usually there is a menu item that will display the console log. 
+			</p>
+			<ul>
+				<li>In Chrome, it is in the <code>tools</code> menu under <code>more tools</code>&rarr;<code>JavaScript console</code>.</li>
+				<li>In Firefox, it is in the <code></code> menu under <code></code>.</li>
+				<li>In older versions of Internet Explorer it is often, well, unreliable.</li>
+			</ul>
+			
+			<p>
+				Run some code with the console open to see how it can help you debug things. It is like using alerts that you can keep buried in your code that nobody but you (and other developers) will see.
+			</p>
+			<p>
+				I recommend adding <code>console.log()</code> commands:
+			</p>
+			
+			<ul>
+				<li>at the beginning of each function</li>
+				<li>inside of each loop</li>
+				<li>any time that you have to confirm a critical calculation</li>
+			</ul>
+			<p>
+				You can also type variable names and commands directly into the console, and it will report their values back to you.
+				For example: <code>console.log("numOpponents=" + <var>numOpponents</var>);</code> 
+				will print out the current value of <var>numOpponents</var> to the console log.
+			</p>
+			<p>I am not making console logging mandatory, but you might be crazy not to use it. It makes debugging much more pleasant!</p>
+
+			<h2>Discover what values your variables hold without <code>console.log()</code></h2>
+			
+			<p>Inside modern browsers is a Javascript console with a line that allows you to type in commands.</p>
+			<p>One of the things that it allows you to do is type in variable names so that you can see what is inside.</p>
+			<p>
+				After you run a piece of code, try typing in the name of your variable directly into the console to see what that variable holds.
+				Powerful!
+			</p>
+				
+						
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

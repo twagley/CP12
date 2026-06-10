@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Debug with alert()</title>
+		<meta name="description" content="Use alert() to help debug your javascript programs">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="debug with alert, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				30. July 2015	- created!
+		-->
+
+		<script>		
+			window.onload	= function () {
+				document.getElementById('buttonID').onclick	= function () {
+					alert('woot!');
+					}			
+			}
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Debug with <code>alert()</code></em>
+		</header>
+		
+		<article>
+			<h2>Use <code>alert()</code> to help debug your javascript programs</h2>
+			<p>	
+				Debugging code is tricky. 
+				There are a number of tips that you can help you figure out where things break down in your code. 
+				One is the use of the <code>alert(<var>'message'</var>);</code> function in Javascript.
+			</p>
+				
+			<p>
+				For example, the code below makes an alert pop up after this button is clicked:
+				<button type="button" id="buttonID">alert me!</button>
+
+			</p>
+				
+			<pre><code><span class="sc1">&lt;script&gt;</span><span class="sc41">        
+    </span><span class="sc43">// after the window loads...</span><span class="sc41">
+    </span><span class="sc46">window.onload</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+    
+        </span><span class="sc43">// assign an onclick event to element #buttonID</span><span class="sc41">
+        </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc49">'buttonID'</span><span class="sc50">).</span><span class="sc46">onclick</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+        
+            </span><span class="sc43">// pop up an alert box..</span><span class="sc41">
+            </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc49">'woot!'</span><span class="sc50">);</span><span class="sc41">
+            </span><span class="sc50">}</span><span class="sc41">           
+    </span><span class="sc50">}</span><span class="sc41">
+</span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"button"</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"buttonID"</span><span class="sc1">&gt;</span><span class="sc0">alert me!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/body&gt;</span></code></pre>
+			<p>	
+				I will often insert an <code>alert();</code> right before the part of my Javascript that isn't working to make sure that my code is getting to where I think it is going.
+			</p> 
+			<p>	
+				I will also use it to pop up the value of a variable - 
+				<code>alert(<var>someVariable</var>);</code> - 
+				in order to see if my calculations are working the way I want. 
+			</p>
+			
+			<p>Inserting alerts is a simple way to track your code.</p>
+	
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

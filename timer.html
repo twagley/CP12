@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Ze timer of help!</title>
+
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="author" 
+			content="YourName">
+		<meta 
+			name="description" 
+			content="This page uses buttons to trigger functions">
+		
+		<!--
+			Created:	17. January 2019											- Drapak
+			Modified:	
+			
+			Finished:
+		-->
+		
+				
+		<style>
+			#inputId {
+				width:			3em;
+			}
+			span {
+				//display:		inline-block;
+				height:			0.5%;
+				width:			0.5%;
+				border:			1px solid grey;
+				font-family:	sans-serif;
+				font-size:		5.5pt;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Ze timer of help!</h1>
+		
+		<p>
+			How many seconds per person?
+			<input type='text' id='inputId' value='120'>
+			<button id='buttonId'>start the timer!</button>
+		</p>
+		
+		<div id='outputId'></div>
+		
+		<script>
+			//INIT: setup the ticker
+			var tick = 0;
+			
+			//INPUT: find the current width of the screen, and calculate cell width
+			var calculateCellWidth = function ( numberCells ) {
+				console.log( 'in calculateCellWidth...numberCells=' + numberCells );
+				
+				var screenWidth	= screen.width; 
+				var cellWidth	= ( screenWidth / numberCells ) - 3;
+				
+				console.log( 'cellWidth=' + cellWidth );
+				
+				return cellWidth;
+			} 
+			
+			
+			//PROCESS: create the HTML code for the time bar
+			var createTimeBar = function ( seconds ) {
+				console.log( 'in createTimeBar...seconds=' + seconds );
+				
+				var cellWidth	= calculateCellWidth( seconds ) + 'px';
+				
+				//LOOP: through each of the seconds
+				for ( i = 0; i <= seconds; i ++ ) {
+					var timeBar = document.createElement( 'span' );
+					timeBar.innerHTML 		= i;
+					timeBar.id				= 'cell' + i + 'Id';
+					//timeBar.style.minWidth	= cellWidth;
+					document.querySelector( '#outputId').appendChild( timeBar );
+				}
+			}
+		
+			//INPUT: read the input line to see what was entered
+			var getInput = function () {
+				console.log( 'in getInput' );
+				
+				return document.querySelector( '#inputId' ).value;
+			}
+			
+			//MAIN: read what was entered into the input line
+			var mainProcedure = function () {
+				console.log( 'in main' );
+				
+				var seconds		= parseInt( getInput() );
+				var timeBarHTML	= createTimeBar( seconds );
+				setInterval(
+					function() {
+						console.log( 'tick=' + tick );
+						
+						var thisCell = document.querySelector( '#cell' + tick + 'Id' );
+						thisCell.style.fontSize = '14pt';
+						thisCell.style.color = 'white';
+						thisCell.style.backgroundColor = 'black';
+						
+						if ( tick > 0 ) {
+							var oldCell = document.querySelector( '#cell' + ( tick - 1 ) + 'Id' );
+							oldCell.style.fontSize = '5.5pt';
+							oldCell.style.color = 'black';
+							oldCell.style.backgroundColor = 'white';
+						} else {
+							var oldCell = document.querySelector( '#cell' + seconds + 'Id' );	
+							oldCell.style.fontSize = '5.5pt';
+							oldCell.style.color = 'black';
+							oldCell.style.backgroundColor = 'white';
+						}
+						
+						tick = tick + 1;
+						
+						//IF: this is over 120, restart...
+						if ( tick > seconds ) {
+							tick = 0;
+						}
+					},
+					1000
+				)
+			}
+
+			//INPUT EVENTS: trigger mainProcedure when #buttonId is clicked
+			//				or when the user leaves the #inputId
+			document.querySelector( '#buttonId' ).onclick = mainProcedure;
+			document.querySelector( '#inputId' ).onchange = mainProcedure;
+			
+		</script>
+	</body>
+</html>
+
+

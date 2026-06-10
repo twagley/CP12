@@ -1,0 +1,231 @@
+/*
+General purpose CSS for the formatting of my Computer Programming 12 class documents
+
+Dave Drapak
+21. December 2014 - created
+*/
+
+/* Load up our fonts*/
+
+
+@font-face {
+    font-family: OpenSans;
+    src: url(OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gentium;
+  src: url(GenBasR.ttf);
+}
+@font-face {
+  font-family: Gentium;
+  src: url(GenBkBasI.ttf);
+  font-style: italic;
+}
+
+/*
+@font-face {
+	font-family: OpenSans;
+	src: url(OpenSans-Bold.ttf);
+	font-weight: bold;
+}
+*/
+
+
+
+/* general layout structure */
+
+body {
+    background-color: white;
+	font-size: 1em;
+    text-align: left;
+	font-family: Gentium, "Times New Roman", Times, serif;
+}
+
+header {
+    background-color:#404040;
+    color:white;
+    text-align:left;
+    padding:1em; 
+    clear:both;
+	font-weight: 200;
+	}
+	
+footer {
+    padding:0.5em; 
+	}
+
+section {
+    float:right;
+    padding:0 em; 
+}
+
+article {
+	width: 800px;
+	/*clear: left;*/
+    padding:0 em; 
+}
+
+aside {
+    width: 800px; 
+    /*float:right;*/
+    padding:0em; 
+}
+
+
+
+/* now all the headings */
+
+h1 {
+    font-family: OpenSans, Arial, sans-serif;
+	color: DarkRed;
+	margin-left: 1em;
+	font-size: 2em;
+	color: white;
+	margin-left: 0em;
+}
+
+h2 {
+    font-family: OpenSans, Arial, sans-serif;
+	color: DarkRed;
+	margin-left: 1em;
+	font-size: 1.6em;
+}
+
+h3 {
+    font-family: OpenSans, Arial, sans-serif;
+	color: DarkRed;
+	text-align: justify;
+	margin-left: 3.4em;
+	margin-right: 1em;
+}
+
+h4 {
+    font-family: OpenSans, Arial, sans-serif;
+	color: DarkRed;
+	text-align: justify;
+	margin-left: 4em;
+	margin-right: 1em;
+}
+
+caption, figcaption {
+    /* font-family: OpenSans, Arial, sans-serif; */
+	/*color: DarkRed; */
+	font-weight: bold;
+	font-style: italic;
+}
+
+th {
+    /* font-family: OpenSans, Arial, sans-serif; */
+	color: Black;
+	text-align: center;
+}
+
+tr {
+	vertical-align: top;
+}
+
+strong{
+    font-family: OpenSans, Arial, sans-serif;
+	color: DarkRed;
+	margin-left: 1em;
+}
+
+footer {
+    font-family: OpenSans, Arial, sans-serif;
+	color: #bbbbbb;
+	font-size: 0.8em;
+	margin-left: 1em;
+}
+
+h1 > a {
+	color: LightBlue;
+}
+
+/* all the general body text */
+
+p , li, hr, table, figure{
+	text-align: justify;
+	margin-left: 50px;
+	margin-right: 30px;
+}
+
+code, var {
+    font-family: "Consolas", "Courier New", "Lucida Console", Monaco, monospace;
+	color: DodgerBlue;
+	text-align: left;
+	font-weight: normal;
+	font-size: 0.9em;
+}
+
+code > strong {
+    font-family: "Consolas", "Courier New", "Lucida Console", Monaco, monospace;
+	color: DarkRed;
+	text-align: left;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+
+var {
+	color: black;
+	font-weight: normal;
+}
+
+pre {
+    display: block;
+    white-space: pre;
+	margin-left: 4em;
+	margin-right: 4em;
+	text-align: left;
+	tab-size: 4;
+	-moz-tab-size: 4;
+}
+
+strong {
+	font-weight: bold;
+	font-size: 0.80em;
+	margin-left: 0em;
+}
+
+.langstyle {
+	font-size: 0.6em;
+	font-variant: small-caps;
+	color: DarkRed;
+}
+
+.reflink {
+	font-size: 0.85em;
+	font-style: italic;
+}
+
+.goodcode {
+	color: LimeGreen;
+	margin-left: 0em
+}
+
+.badcode {
+	color: red;
+	margin-left: 4em
+}
+
+.flushmargin {
+	margin-left: 0em
+}
+
+.withborder{
+	border:1px solid DarkRed;
+}
+
+.tablewithborders {
+	border-collapse: collapse;
+	border:1px solid DarkRed;	 
+}
+
+.centered {
+	text-align: center;
+}
+
+.hiddenAgendaClass {
+	color: white;
+}

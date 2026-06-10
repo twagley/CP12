@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Using offsets to fine-tune placement of over-sized images</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to place image elements on a grid, using complex data as an input
+			and with adjustable offset and width values
+		
+			Created:	23. April 2015
+			Updated:	29. April 2015 - Obfuscated code
+						30. April 2015 - forked code and modified to for teaching widths and offsets for positioning images in a grid
+		-->
+
+		<script>
+		
+		
+		function mainProcedure () {
+			console.log("in mainProcedure...");
+
+			var posObject 	=getPositionAndOffsets();
+			moveImage ('msPacID', posObject.col, posObject.row, posObject.topOffset, posObject.leftOffset);
+		}
+		
+		function getPositionAndOffsets () {
+			return {
+				row:			document.getElementById('rowID').value,
+				col:			document.getElementById('colID').value,
+				topOffset:		document.getElementById('topOffsetID').value,
+				leftOffset:		document.getElementById('leftOffsetID').value,
+			}
+		}
+		
+		function addDots () {
+			console.log("in addDots...");
+			
+			resizeMap();
+			var mazeObject	=initMazeObject();
+			var output 		=createHtmlFromMazeArray(mazeObject);
+			output			+='		<img id="msPacID" src="img/MsPacMan.png" style="width: 30px">';
+			outputScreenInformation(output);
+		}
+		
+		function resizeMap () {
+			document.getElementById('mapID').style.width	="450px";
+		
+		}
+		
+		function initMazeObject (){
+			var hallwayOrWall	=[	// 1=hallway (black), 0=wall (blue)    rows: 0-30, columns: 0-27
+									//	[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6], index of column numbers to help with data entry
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // row 0
+										[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], // row 1
+										[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 2
+										[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 3
+										[0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 4
+										[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 5
+										[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 6
+										[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0], // row 7
+										[0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0], // row 8
+										[0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0], // row 9
+										[0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0], // row 10
+										[0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0], // row 11
+										[0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0], // row 12
+										[0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0], // row 13
+										[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], // row 14
+										[0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0], // row 15
+										[0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0], // row 16
+										[0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0], // row 17
+										[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], // row 18
+										[0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0], // row 19
+										[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0], // row 20
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 21
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 22
+										[1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], // row 23
+										[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0], // row 24
+										[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0], // row 25
+										[0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,0], // row 26
+										[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0], // row 27
+										[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0], // row 28
+										[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 28
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] // row 30
+									];
+					
+			var hasADot	=[	// 1=dot, 0=nodot    rows: 0-30, columns: 0-27
+									//	[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6], index of column numbers to help with data entry
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // row 0
+										[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0], // row 1
+										[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], // row 2
+										[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], // row 3
+										[0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0], // row 4
+										[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 5
+										[0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0], // row 6
+										[0,1,0,0,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,0,0,1,0], // row 7
+										[0,1,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,0], // row 8
+										[0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0], // row 9
+										[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0], // row 10
+										[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], // row 11
+										[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], // row 12
+										[0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0], // row 13
+										[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0], // row 14
+										[0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0], // row 15
+										[0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0], // row 16
+										[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], // row 17
+										[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], // row 18
+										[0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0], // row 19
+										[0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0], // row 20
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 21
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], // row 22
+										[0,0,0,1,1,1,1,0,0,1,1,1,0,0,0,0,1,1,1,0,0,1,1,1,1,0,0,0], // row 23
+										[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0], // row 24
+										[0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0], // row 25
+										[0,0,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,0,0], // row 26
+										[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0], // row 27
+										[0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0], // row 28
+										[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], // row 28
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] // row 30
+									];
+									
+			var hasAPowerPill	=[	// 1=power pill, 0=no power pill    rows: 0-30, columns: 0-27
+									//	[0123456789012345678901234567], index of column numbers to help with data entry
+									//	sometimes typing commas gets old, so I am using .split('') instead...
+									//  .split('') separates a string into an array one character at a time
+										"0000000000000000000000000000".split(''), // row 0
+										"0000000000000000000000000000".split(''), // row 1
+										"0000000000000000000000000000".split(''), // row 2
+										"0000000000000000000000000000".split(''), // row 3
+										"0100000000000000000000000010".split(''), // row 4
+										"0000000000000000000000000000".split(''), // row 5
+										"0000000000000000000000000000".split(''), // row 6
+										"0000000000000000000000000000".split(''), // row 7
+										"0000000000000000000000000000".split(''), // row 8
+										"0000000000000000000000000000".split(''), // row 9
+										"0000000000000000000000000000".split(''), // row 10
+										"0000000000000000000000000000".split(''), // row 11
+										"0000000000000000000000000000".split(''), // row 12
+										"0000000000000000000000000000".split(''), // row 13
+										"0000000000000000000000000000".split(''), // row 14
+										"0000000000000000000000000000".split(''), // row 15
+										"0000000000000000000000000000".split(''), // row 16
+										"0000000000000000000000000000".split(''), // row 17
+										"0000000000000000000000000000".split(''), // row 18
+										"0000000000000000000000000000".split(''), // row 19
+										"0000000000000000000000000000".split(''), // row 20
+										"0000000000000000000000000000".split(''), // row 21
+										"0000000000000000000000000000".split(''), // row 22
+										"0000000000000000000000000000".split(''), // row 23
+										"0000000000000000000000000000".split(''), // row 24
+										"0000000000000000000000000000".split(''), // row 25
+										"0100000000000000000000000010".split(''), // row 26
+										"0000000000000000000000000000".split(''), // row 27
+										"0000000000000000000000000000".split(''), // row 28
+										"0000000000000000000000000000".split(''), // row 28
+										"0000000000000000000000000000".split('')  // row 30
+									];
+			
+			var mazeObject ={
+				hallWall: 	hallwayOrWall,
+				dot:	hasADot,
+				pill:	hasAPowerPill
+			};
+		
+			return mazeObject;
+		}
+
+		function createHtmlFromMazeArray (mazeObject) { //PROCESS: converts the info in mazeObject into an HTML table
+			var output ="";
+			
+			for (thisRow = 0; thisRow <= 30; thisRow++) {	// cycle through each of the rows
+				for (thisColumn = 0; thisColumn <=27; thisColumn++) { // cycle through each of the columns
+					//console.log("thisRow:" + thisRow + "thisColumn:" + thisColumn);
+				
+					var IDLabel	="cell-"	// create cell id label, eg id="cell-12-14"
+									+ thisRow
+									+ "-"
+									+ thisColumn;
+									
+					
+					// create the info inside the cells, dot, pill, or nothing...
+					if (mazeObject.dot[thisRow][thisColumn] == 1) {			// if this contains a dot
+						output	=output + outputImage (IDLabel, 'img/MsPacMan-dot.jpg', thisColumn, thisRow);
+					} else if (mazeObject.pill[thisRow][thisColumn] == 1) {	// if this contains a pill
+						output	=output + outputImage (IDLabel, 'img/MsPacMan-powerpill.jpg', thisColumn, thisRow);
+					} 
+				}
+			}
+			return output
+		}		
+			
+			
+			
+		function outputImage (id, src, col, row) {
+			var left	=(col * 16) + 10; // calculate the left coordinate
+			var top		=(row * 16) + 26;  // calculate the top coordinate
+			
+			// get imgHTML to look like: <img id='cell-12-14' src='img/MsPacMan-dot.jpg' style='position: absolute; left: 120px; top: 45px; width: 14px;'>
+			var imgHTML	="<img id='" + id + "'"	
+						+ " src='" + src + "'"
+						+ " style='position: absolute; left: " + left + "px; top: " + top + "px; width: 16px;'>";
+						
+						
+			//console.log('outputImage: '+imgHTML);
+			return imgHTML;
+		}
+		
+		function moveImage (id, col, row, topOffset, leftOffset) {
+			var left	=(col * 16) + 10 + Number(leftOffset); // calculate the left coordinate
+			var top		=(row * 16) + 26 + Number(topOffset);  // calculate the top coordinate
+			
+			document.getElementById(id).style.top	=top+'px';
+			document.getElementById(id).style.left	=left+'px';
+			
+			document.getElementById('topCoordID').innerHTML		=top-topOffset;
+			document.getElementById('leftCoordID').innerHTML	=left-leftOffset;
+			document.getElementById('topFinalCoordID').innerHTML		=top;
+			document.getElementById('leftFinalCoordID').innerHTML	=left;
+		}
+		
+
+		function outputScreenInformation (html)	{	// OUTPUT: puts the created HTML string into an HTML table	
+			document.getElementById("outputID").innerHTML	=html;
+		}
+		
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:			20px;
+				height:			20px;
+				font-size:		18px;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+			img {
+				position: absolute;
+			}
+			
+			aside {
+				position: absolute;
+				top: 0px;
+				left: 410px;
+			}
+			article {
+				position: absolute;
+				top: 550px;
+				left: 0px;
+			}
+			
+			#outputID {
+				//display: none;
+			}
+		</style>
+	</head>
+
+	<body onload="resizeMap();addDots();mainProcedure();">
+		<img id="mapID" src="img/MsPacManScreen-empty.jpg">
+		
+		<span id="outputID" ></span>
+		<aside>
+			<p>
+				<code>&lt;img id="msPacID" src="MsPacMan.png" style="width: 30px"></code><br />
+				<br />
+				<code>// calculate the position of Ms Pacman using the <var>row</var> and <var>column</var> info</code><br />
+				<img src="img/MsPacMan.png" style="width: 16px; position: static;"> <strong>Ms. Pacman</strong> coordinates:<br />
+				<var>row</var>: <input id="rowID" size="3" value="13" onchange="mainProcedure();"><br />
+				<var>column</var>: <input id="colID" size="3" value="13" onchange="mainProcedure();"><br />
+				<br />
+				Calculated from <var>row</var>: <strong>'top: <span id="topCoordID"></span>px'</strong><br />
+				Calculated from <var>column</var>: <strong>'left: <span id="leftCoordID"></span>px'</strong><br />
+				<br />
+				<code>// now add the <var>topOffset</var> to the <var>top</var> position and <var>leftOffset</var> to the <var>left</var></code><br />
+				<var>topOffset</var>: <input id="topOffsetID" size="3" value="0" onchange="mainProcedure();">px<br />
+				<var>leftOffset</var>: <input id="leftOffsetID" size="3" value="0" onchange="mainProcedure();">px<br />
+				<br />	
+				Calculated including <var>topOffset</var>: <strong>'top: <span id="topFinalCoordID"></span>px'</strong><br />
+				Calculated including <var>leftOffset</var>: <strong>'left: <span id="leftFinalCoordID"></span>px'</strong><br />
+				<br />
+				<button type="button" onclick="mainProcedure();">Click to reposition!</button>
+			</p>
+		</aside>			
+		<article>
+			<h2>Using offsets to fine-tune placement</h2>
+			
+			<pre><code>
+	<var>// parseInt() stands for parse integer</var>
+	<var>// it gets the number portion of a string, for example:</var>
+	
+	var <var>position</var> = parseInt('<var>234px</var>'); <var>// equals 234</var>
+		
+		
+	<var>// how to get the current position of something:</var>	
+	var <var>currentTop</var>	=parseInt( document.getElementById('<var>thingID</var>').style.top );
+	var <var>currentLeft</var>	=parseInt( document.getElementById('<var>thingID</var>').style.left );
+	
+	<var>// add the offsets...</var>
+	var <var>newTop</var>	=<var>currentTop</var> -5;
+	var <var>newLeft</var>	=<var>currentLeft</var> -5;
+	
+	<var>// and move into the new position</var> 
+	document.getElementById('<var>thingID</var>').style.top	=<var>newTop</var> +'px';
+	document.getElementById('<var>thingID</var>').style.left	=<var>newLeft</var> +'px';
+	
+			</code></pre>
+		</article>
+
+	</body>
+</html>
+
+

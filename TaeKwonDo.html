@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Tae Kwon Do</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros basic input and output of array info 
+		
+			Created:	24. March 2015 
+			Updated:	
+		-->
+		<script>
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.17 Skill builder: Tae Kwon Do</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">array JS</span> <code>var <var>variableName</var> = [];</code> - declares an empty array<br />
+				<br />
+				<span class="langstyle">array JS</span> <code><var>variableName</var>[0] ="<var>one fish</var>";</code><br />
+				<span class="langstyle">array JS</span> <code><var>variableName</var>[1] ="<var>two fish</var>";</code><br />
+				<span class="langstyle">array JS</span> <code><var>variableName</var>[2] ="<var>red fish</var>";</code><br />
+				<span class="langstyle">array JS</span> <code><var>variableName</var>[3] ="<var>blue fish</var>";</code> - assigns values to array cells<br />
+				<br />
+				<span class="langstyle">array JS</span> <code>var <var>variableName</var> = ["<var>one fish</var>", "<var>two fish</var>", "<var>red fish</var>", "<var>blue fish</var>"];</code> - defines an array<br />
+				<br />
+				<span class="langstyle">array JS</span> <code>var <var>variableName</var> = "<var>one fish,two fish,red fish,blue fish</var>".split("<var>,</var>");</code> - defines an array<br />
+				<br />
+				<span class="langstyle">string JS</span> <code>"<var>Hello world!</var>".split(" ");</code> - splits a string on " " into an array<br />
+				<br />
+				<span class="langstyle">debug JS</span> <code>&amp;#<var>9644</var>;</code> - displays the character of Unicode #9644 (&#9644)<br />
+				<br />
+				<span class="langstyle">debug JS</span> <code>console.log("<var>Hello console!</var>")</code> - outputs "Hello console!" to the Javascript log<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a></span>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Storing sequential data</h2>
+			<p>
+				Let's say that you need to store some sequential data, say Isaac Newton's colours of the rainbow. 
+				From what you know already, you can store the colours like this:
+			</p>
+			<pre><code>
+	// INIT: initialize colour variables
+			
+	var colour1	="Red";				
+	var colour2	="Orange";				
+	var colour3	="Yellow";				
+	var colour4	="Green";				
+	var colour5	="Blue";	// About indigo: Newton thought that seven was a more "natural" number, 
+	var colour6	="Indigo";	// like the number of non-stellar objects in the solar system (as he knew it then). 
+	var colour7	="Violet";	// Really, there are thousands of colours. Indigo is rarely used.
+			</code></pre>
+			<p>
+				This works, but it is a little cumbersome.
+				And what if you want to use the colours in a loop?
+				There are ways to do it, but they are graceless.
+			</p>
+			
+			<h3>Introducing arrays</h3>
+			<p>
+				Arrays are a way of storing data in sequence. 
+				Our colours, for example, could be handled like this instead:
+			</p>
+			<pre><code>
+	// INIT: initialize colour array
+	var colour	=[]; // declare this variable as an array. Note the '[]'
+	
+	colour[0]	="Red";		// Note that the first array is in cell 0		
+	colour[1]	="Orange";				
+	colour[2]	="Yellow";				
+	colour[3]	="Green";				
+	colour[4]	="Blue";	
+	colour[5]	="Indigo";	
+	colour[6]	="Violet";	
+			</code></pre>
+				
+			<p>Or, it could be shown even simpler:</p>
+			<pre><code>
+	// INIT: initialize colour array
+	
+	var colour	=["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+			</code></pre>
+			
+			<p>
+				Think of the <code>colour</code> variable as having seven cells that can be accessed individually, like this:
+			</p>
+			<table>
+				<caption>How data is stored inside the <code>colour</code> array</caption>
+				<tr>
+					<th>Index</th>
+					<td class="withborder">0</td>
+					<td class="withborder">1</td>
+					<td class="withborder">2</td>
+					<td class="withborder">3</td>
+					<td class="withborder">4</td>
+					<td class="withborder">5</td>
+					<td class="withborder">6</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td class="withborder">Red</td>
+					<td class="withborder">Orange</td>
+					<td class="withborder">Yellow</td>
+					<td class="withborder">Green</td>
+					<td class="withborder">Blue</td>
+					<td class="withborder">Indigo</td>
+					<td class="withborder">Violet</td>
+				</tr>
+			<table>
+			
+			<p>
+				The <strong>index</strong> of an array is the number that points at the specific <strong>data</strong> cell in the array.
+			</p>
+			
+			
+			<h2>Earning your black belt in arrays</h2>
+
+			<p>
+				I started my teaching career teaching English in South Korea.
+				The martial art of Tae Kwon Do originated in South Korea, and it is more popular that It was terribly humbling to be teaching 10 year old students with black belts.
+			</p>
+			<p>Let's say that I wanted to be able to generate a table about the belt levels in Tae Kwon Do:</p>
+				
+			<table>
+				<caption>Tae Kwon Do (태권도) belts, their names, and colors</caption>
+				<tbody>
+					<tr>
+						<th>Rank</th>
+						<th>Description</th>
+						<th>Stripe &amp; color</th>
+					</tr>
+					<tr id="beltID0"><td>Tenth geup (급)</td><td>white</td><td class="withborder" style="color: White; background-color: White;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID1"><td>Ninth geup</td><td>white belt with yellow stripe</td><td class="withborder" style="color: Yellow; background-color: White;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID2"><td>Eighth geup</td><td>yellow</td><td class="withborder" style="color: Yellow; background-color: Yellow;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID3"><td>Seventh geup</td><td>yellow belt with green stripe</td><td class="withborder" style="color: Green; background-color: Yellow;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID4"><td>Sixth geup</td><td>green</td><td class="withborder" style="color: Green; background-color: Green;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID5"><td>Fifth geup</td><td>green belt with blue stripe</td><td class="withborder" style="color: Blue; background-color: Green;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID6"><td>Fourth geup</td><td>blue</td><td class="withborder" style="color: Blue; background-color: Blue;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID7"><td>Third geup</td><td>blue belt with red stripe</td><td class="withborder" style="color: Red; background-color: Blue;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID8"><td>Second geup</td><td>red</td><td class="withborder" style="color: Red; background-color: Red;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID9"><td>First geup</td><td>red belt with black stripe</td><td class="withborder" style="color: Black; background-color: Red;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID10"><td>First dan (단) or first-degree black belt</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID11"><td>Second dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID12"><td>Third dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID13"><td>Fourth dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID14"><td>Fifth dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID15"><td>Sixth dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID16"><td>Seventh dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID17"><td>Eighth dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+					<tr id="beltID18"><td>Ninth dan</td><td>black</td><td class="withborder" style="color: Black; background-color: Black;">▬▬▬▬▬▬▬▬</td></tr>
+				</tbody>
+			</table>
+
+			<h3>Initializing the belt info into arrays</h3>
+			<p>	
+				The first thing you need to do is get the table data into arrays. 
+				In today's lesson, you are going to initialize your belt information three different ways in order to expand your skills:
+			</p>
+			
+			<h4>Assigning arrays directly by cell index</h4>		
+			<p>For the belt rank names, we are going to assign each piece of data directly by specifying the <strong>index</strong> of the array cell, like so:</p>
+			<p><img src="img/TaeKwonDoInit1.png" class="withborder"></p>
+
+			<h4>Assigning arrays with a list</h4>
+			<p>For the colour descriptions of the belt, we are are going to put all the data entries in a list separated by commas and enclosed by square brackets (<code>[]</code>).</p>
+			<p>Note that the list items are on different lines: this is not necessary, but it makes the code easier to read and edit.</p>
+			<p><img src="img/TaeKwonDoInit2.png" class="withborder"></p>
+
+			<h4>Assigning arrays by splitting a string</h4>
+			<p>Sometimes you get bored typing in a million quotation marks and commas.</p>
+			<p>The <code>.split()</code> function can make you a happy programmer! For example:</p>
+			<p>
+				<code>var colour	="Red,Orange,Yellow,Green,Blue,Indigo,Violet".split(",");</code><br />
+				...will create the same thing as the colour array at the beginning of this lesson.
+			</p>
+			<p>
+				<code>var name	="Joséphine|Eléonore|Marie|Pauline|de Galard|de Brassacede|Béarn,|princesse de Broglie".split("|");</code><br />
+				...will create will split the all the princess de Broglie's names into list, using "|" as a divider.<br />
+				<figure>
+					<img src="img/broglie.jpg">
+					<figcaption>My name is very, very long</figcaption>
+				</figure>
+			</p>
+			<p>
+				We can use <code>.split()</code> strings to assign the colour names to the illustrations in the chart: one array for the belt, <code>.split()</code> on commas, and one array for the belt, which is <code>.split()</code> on the space character " ". 
+				If there is no stripe, we will use a stripe of the same colour as the belt:
+			</p>
+			<p><img src="img/TaeKwonDoInit3.png" class="withborder"></p>
+
+			<h3>Array friendly HTML code</h3>
+			<p>If you want to use javascript arrays to be able to act on your HTML code, you have to make sure that your HTML has <code>id=</code>'s that are in sequence, like this:</p>
+			<p><img src="img/TaeKwonDoBody.png" class="withborder"></p>
+			<p>Notice how the <code>id=</code>'s all start with the same thing - <code>beltID</code>.</p>
+			<p>Also notice how there is an <code>id=</code> number for each <strong>index</strong> of the data arrays, starting with index zero.</p>
+			<p>This block of HTML is just begging have the table cell (<code>&lt;td&gt;</code>) information inserted inside the rows (<code>&lt;tr&gt;</code>). So let's do that!</p>
+			
+			<h3>Processing the data into a new data into the <code>outputCells</code></h3>
+			<p>
+				In this example, <code>mainProcedure()</code> triggers two further subroutines:
+				<ol>
+					<li>One function, <code>createOutputCellStrings()</code>, to process the array data and compose the table rows, storing it inside a new array, <code>outputCells</code>.</li>
+					<li>And another function, <code>insertOutputCellStrings()</code>, to insert the <code>outputCells</code> inside the table rows with the correct <code>id=</code>'s.</li>
+				</ol>
+			</p>
+				
+			<p><code>createOutputCellStrings()</code> sets up a loop that goes from 0&rarr;18.</p>
+			
+			<p>Inside that loop, it creates HTML code to create table cells (<code>&lt;td&gt;</code>) for:</p>
+			<ol>
+				<li>The name of the belt level,</li>
+				<li>The description of the belt,</li>
+				<li>And an illustration of the belt colours and stripes, using <code>color:</code> and <code>background-color:</code> style codes and <code>&amp;#9644;</code> to create "&#9644;" symbols for the stripe</li>
+			</ol>
+			<p>Then it combines the three sets of cell codes and stores it in <code>outputCells</code>.</p>
+			<p><img src="img/TaeKwonDoProcess.png" class="withborder"></p>
+
+			<h3>Outputting the <code>outputCells</code> into the table rows</h3>
+			<p><code>insertOutputCellStrings()</code> sets up a loop that goes from 0&rarr;18.</p>
+			<p>Inside the loop, it inserts the <code>outputCells</code> HTML data inside the table row with the <code>id=</code> of the correct index number.</p>		
+			<p><img src="img/TaeKwonDoOutput.png" class="withborder"></p>
+
+			<h2>Show me an example!</h2>
+			
+			<p><a href="examples/TaeKwonDoExample.html" target="_blank">Try here!</a></p>
+
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.17S-TaeKwonDo-LastName.html">template</a> and rename it to your last name, such as "<code>1.17S-TaeKwonDo-LastName.html</code>".</p>
+
+			<h2>The assignment</h2>
+			<h4>In this assignment you modify the template to initialize arrays, and use array data to create a table of information.</h4>
+			<p>
+				The template that you have been given is full of bugs and typos.
+				I have specially crafted the bugs and typos so that they will draw attention to what you have learned about arrays.
+				Some of the bugs will not show up as errors when you run the code. 
+			</p>
+			<p>
+				Use the console log to troubleshoot the code, make changes, and then hand in normally.
+			</p>
+
+			<!--
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/1 &mdash; Quality html code</li>
+				<li>___/3 &mdash; Well-modularized (chunked) code into separate functions following input/processing/output</li>
+				<li>___/3 &mdash; Successful Javascript solution: keyboard, ifs, and animation</li>
+				<li>___/3 &mdash; Well-commented code with good indentation, commenting, and style</li>
+			</ul>
+			-->
+
+			<!--
+			<h2>Extend and expand</h2>
+			<p>
+				Can you modify the code so that it moves an arrow around in the same direction that it is pointing?<br />
+				(Hint: <code>&amp;uarr;</code>=&uarr;
+			</p>
+			<p>Can you change or rotate a graphic depending on which way the element is heading?</p>
+			<p>Of course motion is nice, but motion should be blocked by obstacles. Like, travelling through a maze. How would you do this?<br />
+				For one simple solution, you will have to know how <strong>arrays</strong> work, which is our next topic.</p>
+			-->
+		</article>
+					
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

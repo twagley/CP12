@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			The sky at night
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript objects to animate some planets">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				21. October 2015	- created!
+				12. April 2017		- improved style
+				23. April 2017		- removed one evaluation criterium
+				26. November 2018	- reworked for style
+		-->
+
+		<style>
+			span {
+				border:				1px solid red;
+			}
+			button {
+				border:				1px solid grey;
+				color:				black;
+				background-color:	white;
+			}
+			article img {
+				position:			fixed;
+				width:				10px;
+				/* start off in the middle of the screen */
+				top:				50%; 
+				left:				50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 3.05 Hand-in: <em>The sky at night</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="initObjects.shtml">Using objects</a>
+				</li>
+				<br />
+				<li>
+					//PROCESS: 
+					<a href="processStringAddition.shtml">String addition</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+				</li>
+				<li>
+					//PROCESS: 
+					<a href="processFunctionDefinitionsCallsReferences.shtml">
+						Functions: Definition, trigger, or reference?
+					</a>
+				</li>
+				<br />
+				<li>
+					//OUTPUT: 
+					<a href="outputAnimatingCSSProperties.shtml">
+						Animating other CSS properties
+					</a>
+				</li>
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty template as 
+				"<code><a href="3.05H-TheSkyAtNight-LastName.html">
+					3.05H-TheSkyAtNight-LastName.html
+				</a></code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use functions to animate objects around the screen.<br />
+				Like the opening credits of my favourite astronomy show, 
+				<a href="https://www.youtube.com/results?search_query=the+sky+at+night">
+					The sky at night
+				</a>.
+			</p>
+			
+			<h2>For example</h2>
+
+			<h4>The sky at night</h4>
+			<button onclick="dimTheLights();">
+				Click to<br />dim the lights!
+			</button>
+			<button onclick="mainProcedure();">
+				Click to behold<br />the majesty of the heavens!
+			</button><br>		
+			<img id="mercuryID" />
+			<img id="venusID" />
+			<img id="earthID" />
+			<img id="marsID" />
+			<img id="jupiterID" />
+			<img id="saturnID" />
+			<img id="neptuneID" />
+			<img id="uranusID" />
+			
+			<h2>
+				Evaluation
+				<!--&mdash; [<a href="TheSkyAtNight.pdf">pdf</a>] [<a href="TheSkyAtNight.pub">pub</a>]-->
+			</h2>
+			<ul>
+				<li>
+					<strong>___/10 INIT:</strong> including
+					<ol>
+						<li>create an empty object</li>
+						<li>
+							use the value of an object's property to 
+							create different animation behaviours
+						</li>
+						<li>pass an object to a function as a parameter/argument</li>
+						<li>use an object with multiple properties inside an animation</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including
+					<ol>
+						<li>
+							create a function that accepts an object as an argument/parameter
+						</li>
+						<li>
+							set a delay using <code>setTimeout()</code> 
+							or <code>setInterval</code>
+						</li>
+						<li>
+							use an anonymous function inside <code>setTimeout()</code>
+							or <code>setInterval</code>
+						</li>
+						<li>use string addition</li>
+						<li>processes all eight planets</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including ANY FIVE of 
+					<ol>
+						<li>change the src of an element</li>
+						<li>display information using .innerHTML</li>
+						<li>animate using a custom duration</li>
+						<li>
+							position an object using <code>%</code> 
+							instead of <code>px</code>
+						</li>
+						<li>animate a change in the width of an element</li>
+						<li>animate a fade in or fade out of an element</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> including
+					<ol>
+						<li>honour all previous //STYLE sections</li>
+						<li>use descriptive variable names</li>
+						<li>
+							break up functions into separate ones 
+							for input, processing, and output
+						</li>
+						<li>
+							uses descriptive comments to identify 
+							and describe each function, <br>
+							for example: 
+							<code>//PROCESS: this function accepts distanceUp and 
+							animates the image up that number of pixels</code>
+						</li>
+						<li>
+							add spaces between mathematical operators, <br/>
+							for example: <code>var exampleVar = 3 + 4</code>, 
+							not <code>var exampleVar=3+4</code>.
+						</li>
+					</ol>
+				</li>
+			</ul>
+			
+			
+		</article>
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+			var _0x8378=["\x69\x64","\x6D\x65\x72\x63\x75\x72\x79\x49\x44","\x73\x72\x63","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x4D\x65\x72\x63\x75\x72\x79\x2E\x70\x6E\x67","\x73\x74\x61\x72\x74\x44\x65\x6C\x61\x79","\x64\x69\x61\x6D\x65\x74\x65\x72","\x74\x6F\x70","\x6C\x65\x66\x74","\x61\x6E\x69\x6D\x61\x74\x69\x6F\x6E\x53\x70\x65\x65\x64","\x74\x69\x6D\x65\x54\x6F\x46\x61\x64\x65","\x76\x65\x6E\x75\x73\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x56\x65\x6E\x75\x73\x2E\x70\x6E\x67","\x65\x61\x72\x74\x68\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x45\x61\x72\x74\x68\x2E\x70\x6E\x67","\x6D\x61\x72\x73\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x4D\x61\x72\x73\x2E\x70\x6E\x67","\x6A\x75\x70\x69\x74\x65\x72\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x4A\x75\x70\x69\x74\x65\x72\x2E\x70\x6E\x67","\x73\x61\x74\x75\x72\x6E\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x53\x61\x74\x75\x72\x6E\x2E\x70\x6E\x67","\x75\x72\x61\x6E\x75\x73\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x55\x72\x61\x6E\x75\x73\x2E\x70\x6E\x67","\x6E\x65\x70\x74\x75\x6E\x65\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x4E\x65\x70\x74\x75\x6E\x65\x2E\x70\x6E\x67","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65","\x6C\x6F\x67","\x69\x6E\x20\x64\x69\x73\x70\x6C\x61\x79\x41\x6E\x64\x41\x6E\x69\x6D\x61\x74\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x25","\x70\x78","\x61\x6E\x69\x6D\x61\x74\x65","\x23","\x72\x6F\x75\x6E\x64","\x63\x6F\x6C\x6F\x72","\x73\x74\x79\x6C\x65","\x62\x6F\x64\x79","\x67\x72\x61\x79","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x62\x6C\x61\x63\x6B"];var mercury={};mercury[_0x8378[0]]=_0x8378[1];mercury[_0x8378[2]]=_0x8378[3];mercury[_0x8378[4]]=300;mercury[_0x8378[5]]=4879;mercury[_0x8378[6]]=55;mercury[_0x8378[7]]=55;mercury[_0x8378[8]]=1000;mercury[_0x8378[9]]=2000;var venus={};venus[_0x8378[0]]=_0x8378[10];venus[_0x8378[2]]=_0x8378[11];venus[_0x8378[4]]=600;venus[_0x8378[5]]=12104;venus[_0x8378[6]]=40;venus[_0x8378[7]]=65;venus[_0x8378[8]]=2000;venus[_0x8378[9]]=1900;var earth={id:_0x8378[12],src:_0x8378[13],startDelay:900,diameter:12756,top:20,left:70,animationSpeed:3000,timeToFade:1800};var mars={id:_0x8378[14],src:_0x8378[15],startDelay:1200,diameter:6792,top:90,left:10,animationSpeed:4000,timeToFade:1700};var jupiter={id:_0x8378[16],src:_0x8378[17],startDelay:1500,diameter:142984,top:50,left:70,animationSpeed:5000,timeToFade:1600};var saturn={id:_0x8378[18],src:_0x8378[19],startDelay:2000,diameter:120536,top:5,left:20,animationSpeed:6000,timeToFade:1500};var uranus={id:_0x8378[20],src:_0x8378[21],startDelay:2500,diameter:51118,top:80,left:20,animationSpeed:7000,timeToFade:1400};var neptune={id:_0x8378[22],src:_0x8378[23],startDelay:3000,diameter:49528,top:50,left:5,animationSpeed:6000,timeToFade:1300};var mainProcedure=function(){console[_0x8378[25]](_0x8378[24]);dimTheLights();setTimeout(function(){displayAndAnimate(mercury)},mercury[_0x8378[4]]);setTimeout(function(){displayAndAnimate(venus)},venus[_0x8378[4]]);setTimeout(function(){displayAndAnimate(earth)},earth[_0x8378[4]]);setTimeout(function(){displayAndAnimate(mars)},mars[_0x8378[4]]);setTimeout(function(){displayAndAnimate(jupiter)},jupiter[_0x8378[4]]);setTimeout(function(){displayAndAnimate(saturn)},saturn[_0x8378[4]]);setTimeout(function(){displayAndAnimate(neptune)},neptune[_0x8378[4]]);setTimeout(function(){displayAndAnimate(uranus)},uranus[_0x8378[4]]);};var displayAndAnimate=function(_0x8c48xb){console[_0x8378[25]](_0x8378[26]);document[_0x8378[27]](_0x8c48xb[_0x8378[0]])[_0x8378[2]]=_0x8c48xb[_0x8378[2]];$(_0x8378[31]+_0x8c48xb[_0x8378[0]])[_0x8378[30]]({top:_0x8c48xb[_0x8378[6]]+_0x8378[28],left:_0x8c48xb[_0x8378[7]]+_0x8378[28],width:calculateImageWidth(_0x8c48xb[_0x8378[5]])+_0x8378[29]},_0x8c48xb[_0x8378[8]]);$(_0x8378[31]+_0x8c48xb[_0x8378[0]])[_0x8378[30]]({opacity:0},_0x8c48xb[_0x8378[9]]);};var calculateImageWidth=function(_0x8c48xd){return Math[_0x8378[32]](_0x8c48xd/500)};var dimTheLights=function(){document[_0x8378[35]][_0x8378[34]][_0x8378[33]]=_0x8378[36];document[_0x8378[35]][_0x8378[34]][_0x8378[37]]=_0x8378[38];};
+		</script>
+	</body>
+</html>

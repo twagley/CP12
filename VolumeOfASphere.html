@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Volume of a sphere</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page continues to show how to divide your code into chunks:
+			input, calculation, output
+			
+			It also shows different methods on how to enter numerical data
+			
+			Created:	25. Feb 2015 -->
+		
+		<script>
+			/*	This function calls each of the sub modules */
+			function mainProcedure () {
+				var radius	=0;	/* define the radius var so it can be seen by everything */
+				var	volume	=0;	/* define the volume var so it can be seen as well */
+				getRadius();
+				calculateVolume();
+				displayRadiusAndVolume();
+			}
+			
+			/* 	getRadius looks at the input line, number spinner, and range slider and stores the .value as the radius.
+				Key to this is understanding that || means 'or' in Javascript. 
+				So the radius calculation is equal to whichever of the three values hold a number */
+			function getRadius() {
+				radius	=document.getElementById("inputTextLine").value
+						|| document.getElementById("inputNumberSpinner").value
+						|| document.getElementById("inputRangeSlider").value;
+			}
+
+			/* 	calculateVolume calculates the volume using V=4/3*pi(r^3), given the radius.
+				Math.pow(X,Y) calculates X^Y, or X to the power of Y */
+			function calculateVolume() {
+				volume	=4/3 * Math.PI * Math.pow(radius,3);
+			}
+			
+			/* 	displayRadiusAndVolume displays the radius and volume inside the <output> tags */
+			function displayRadiusAndVolume() {
+				document.getElementById("outputRadius").innerHTML	=radius;
+				document.getElementById("outputVolume").innerHTML	=volume;
+			}
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1>1.10 Skill-builder: Volume of a sphere</h1>
+		</header>
+		
+		<aside>
+			<h2 class="newcode">&lt;New code&gt;</h2>
+			<p>
+				<span class="langstyle">form HTML</span> <code>&lt;input type="number"&gt;</code> - creates a number input spinner<br />
+				<span class="langstyle">form HTML</span> <code>&lt;input type="range"&gt;</code> - creates a number input slider<br />
+				<br />
+				<span class="langstyle">dom JS</span> <code><var>elementReference</var>.value</code> - refers to the value inside an html form element<br />
+				<br />
+				<span class="langstyle">math JS</span> <code>Math.pow(<var>2</var>,<var>8</var>); </code> - equals 2^8 or, 2 to the power of 8<br />
+				<br />
+				<span class="reflink">look at the <a href="ReferenceSheet.html">reference sheet</a>
+			</p>
+		</aside>
+				
+		<article>
+			<h2>Many ways to input numbers</h2>
+
+			<p>There are several simple ways to have users enter numbers into your javascript program:
+				<ul>
+					<li>You can make a <strong>text line</strong> to have them type the number</li>
+					<li>You can make a <strong>number spinner</strong> to have users click to the right number</li>
+					<li>Or, you can make a <strong>range slider</strong> to have users drag a slider to the number you want.</li>
+				</ul>
+			</p>
+			
+			<h2>For example</h2>
+			
+			<h4>Input by text line - <code>&lt;input type="text" id="<var>inputText</var>" name="<var>inputText</var>" size="<var>5</var>"&gt;</code></h4>
+			<p>
+				Please enter the radius of the sphere: 
+				<input type="text" id="inputTextLine" name="inputTextLine" size="5" autofocus="true">
+			</p>
+			
+			<h4>Input by spinbox - <code>&lt;input type="number" id="<var>inputNumber</var>" name="<var>inputNumber</var>" min="<var>0</var>" max="<var>100</var>"&gt;</code></h4>
+			<p>
+				Please enter the radius of the sphere: 
+				<input type="number" id="inputNumberSpinner" name="inputNumberSpinner" min="0" max="100">
+			</p>
+			
+			<h4>Input by range slider - <code>&lt;input type="range" id="<var>inputRange</var>" name="<var>inputRange</var>" min="<var>0</var>" max="<var>100</var>"&gt;</code></h4>
+			<p>
+				Please enter the radius of the sphere: 
+				0 <input type="range" id="inputRangeSlider" name="inputRangeSlider" min="0" max="100"> 100
+			</p>
+
+			<hr /> <!-- and now the calculate button for everything -->
+			<p>
+				<button type="button" onclick="mainProcedure();">Calculate!</button>
+			</p>
+			
+			<p>A sphere of radius <output id="outputRadius" name="outputRadius"></output> has a volume of: <output id="outputVolume" name="outputVolume"></output></p>
+			
+			<h2>Saving your work</h2>
+			<p>Download the <a href="1.10S-VolumeOfASphere-LastName.html">template</a> and rename it to your last name, such as "<code>1.10S-VolumeOfASphere-LastName.html</code>"</p>
+
+			<h2>The assignment</h2>
+			<p>Analyse using an <strong>I</strong>nput/<strong>P</strong>rocessing/<strong>O</strong>utput chart and then create a program that calculates the volume of a sphere using <strong>V=<sup>4</sup>/<sub>3</sub>*&pi;r<sup>3</sup></strong>, given the radius.</p>
+			<ol>
+				<li>Fill in the IPO chart at the top of the page (see <a href="OrganizingProblems.html">Organizing Problems</a>, if needed)</li>
+				<li>Fill in the code to make things calculate properly with a text input box</li>
+				<li>Look at the new code at the top of the page to figure out how to calculate powers</li>
+				<li>Then change the code so that it works with a range slider or number spinbox</li>
+			</ol>
+			
+			<h2>Extend and expand</h2>
+			<p>How do you get your code to show both the radius and the volume, like in the example?</p>
+			<p>Is it possible to automatically draw a sphere of the proper radius on the screen, as well?</p>
+		</article>
+
+		<!--
+		<aside>	
+			<h2>Do it with style</h2>
+			<p>Filenames are easy to mess up. It is very easy to make a mistake - particularly with spaces and capitalization.</p>
+			<p>
+				In order to save time and increase accuracy, I tend to go to the file in the file manager, 
+				pull up the context menu to get <code>Rename...</code> 
+				and then hit<code>Control-C</code> to copy the first part of the filename. 
+				It does not include the file extension, like <code>.png</code>, but I can at least paste in the
+				beginning of the filename accurately.
+			</p>
+		</aside>
+		-->
+			
+		<footer>
+			<div class="legal">
+				Copyright <a href="http://drapak.hrsbteachers.ednet.ns.ca/">Dave Drapak</a>. 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.5/ca/80x15.png" /></a> 
+				&mdash; This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/deed.en_US">
+					Creative Commons Attribution-ShareAlike 2.5 Canada License</a>.
+			</div>
+		</footer>
+	</body>
+</html>

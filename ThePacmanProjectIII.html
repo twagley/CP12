@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>The Pacman Project: Game play</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to place image elements on a grid, using complex data as an input
+			and with adjustable offset and width values
+		
+			Created:	23. April 2015
+			Updated:	29. April 2015 - Obfuscated code
+						30. April 2015 - forked code and modified to for teaching widths and offsets for positioning images in a grid
+						4. May 2015		- forked code again to use for Pacman Project, part II
+						19. May 2015	-forked code again to create the Pacman project part III
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+		
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:			20px;
+				height:			20px;
+				font-size:		18px;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+		</style>
+	</head>
+
+	<body onload="resizeMap();addDots();">
+		<article>
+			<h2>The Pacman Project: Game play</h2>
+			<p>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/xMEjovSlyqs" frameborder="0" allowfullscreen></iframe>
+			</p>
+			
+			<p>As a class, we came up with a collection of game play elements:</p>
+			
+			<ul>
+				<li>
+					collecting dots
+					<ul>
+						<li>
+							dots disappear when you eat them <br />
+							(this requires each dot to have their own <code>id</code> related to their row and column, such as <code>id="dot-14-23"</code>)
+						</li>
+						<li>dots can increase points</li>
+						<li>eating dots can be a two-player competition</li>
+					</ul>
+				</li>
+				<li>
+					enemies can kill you
+					<ul>
+						<li>how do you detect if you and an enemy are in the same place?</li>
+						<li>two player game control</li>
+						<li>AI for ghosts</li>
+					</ul>
+				</li>
+				<li>
+					lives
+					<ul>
+						<li>collisions with other players/ghosts can kill you</li>
+						<li>you may have more than one life</li>
+					</ul>
+				</li>
+				<li>
+					fruit
+					<ul>
+						<li>bonus points</li>
+						<li>random appearance</li>
+						<li>may move around</li>
+					</ul>
+				</li>
+				<li>
+					power pills
+					<ul>
+						<li>able to eat ghosts without dying</li>
+						<li>add to score</li>
+						<li>increase your speed</li>
+						<li>ghosts slow down</li>
+						<li>ghosts run</li>
+						<li>limited time: the effects do not last forever</li>
+						<li>ghosts strobe before the effect disappears</li>
+					</ul>
+				
+				</li>
+				<li>
+					multiple ghosts control
+					<ul>
+						<li>perhaps one player can control the ghosts</li>
+						<li>all at once</li>
+						<li>switching control</li>
+						<li>random control switching</li>
+					</ul>
+				
+				</li>
+				<li>
+					level advancement
+					<ul>
+						<li>harder mazes</li>
+						<li>faster speeds</li>
+						<li>faster/smarter ghosts</li>
+						<li>
+							impossible levels
+							<ul>
+								<li>distorted maze</li>
+								<li>invisible walls</li>
+								<li>rising lava</li>
+							</ul>
+						
+						</li>
+					</ul>
+				
+				</li>
+				<li>
+					board wipe 
+					<ul>
+						<li>an in-game reset of all the ghosts positions</li>
+					</ul>
+				
+				</li>
+			</ul>
+			
+			
+			<h2>The assignment</h2>
+			<h4>In addition to the user interface and motion control from your last assignment, please use complex data structures, animation, and object constructors to add game play elements to the program.</h4>
+			
+			<h3>Recommendations:</h3>
+			
+			<ol>
+				<li>
+					Your game play code must be inside your object constructor.
+					Use object-oriented programming.
+				</li>
+				<li>
+					Each method should be either:
+					<ul>
+						<li>initialization</li>
+						<li>input</li>
+						<li>processing</li>
+						<li>or output</li>
+					</ul>
+					<strong>Don't mix these together</strong> in the same method. 
+					It makes troubleshooting tougher and decreases portability.
+				</li>
+				<li>
+					You will need to create your <var>mazeObject</var>, Ms. Pacman, player two (if any), and ghost objects (if any) globally so they can be seen by all your functions. 
+				</li>
+
+				<li>
+					Have I mentioned lately that <code>console.log()</code> commands help you debug your code a lot?
+					Just sayin'.
+				</li>
+			</ol>						
+
+			
+			<h2>Saving your work</h2>
+			<p>
+				Please save your work as "<code>Pacman-Gameplay-LastName.html</code>".
+			</p>
+			
+			<h2>Evaluation (out of 10)</h2>
+			<ul>
+				<li>___/1.5 &mdash; Use of object constructors with properties and methods for game play code</li>
+				<li>___/1.5 &mdash; Well-modularized methods with separate initialization/input/processing/output</li>
+				<li>___/2 &mdash; Well-commented code with good indentation, commenting (including "INIT:", ...), and style</li>
+				<li>___/5 &mdash; Successful implementation of five game play elements from above (the hollow circles)</li>
+			</ul>
+
+		</article>
+
+	</body>
+</html>
+
+

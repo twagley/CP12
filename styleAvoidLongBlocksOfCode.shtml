@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Avoid long blocks of code</title>
+		<meta name="description" content="Avoid long blocks of code">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				4. August 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Avoid long blocks of code</em>
+		</header>
+		
+		<article>
+			<h2>Breaking large functions into sub-functions makes code much easier to understand</h2>
+			
+			<p>Having long blocks of code are a pain to read, and an even bigger pain to debug.</p>
+			<p>	
+				Here is a simple rule: if you have a function that is getting longer than <strong>20 lines of code</strong>, you should seriously consider spinning off blocks of code into their own functions.
+				This is especially important if you have nested loops or long <code>if ... else if</code> chains.
+				Debugging long blocks of code is a particularly painful experience that is best avoided.
+			</p>
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Work from general to specific</title></title>
+		<meta name="description" content="Use alert() to help debug your javascript programs">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Work from general to specific, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				3. August 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Work from general to specific</em>
+		</header>
+		
+		<article>
+			<h2>Develop things in small chunks that work</h2>
+			<p>
+				By now, you have had the experience of typing in a large chunk of code and... nothing.
+				Just a bunch of errors. And a really frustrating time figuring out where the errors are coming from.
+			</p>
+			<p>
+				There is a way around this. 
+				If you develop your code in very small chunks at a time and get each chunk working,
+				it is much, much, <strong>MUCH</strong> easier to debug your mistakes. 
+			</p>
+			<p>
+				So if you are not trying out your code every five minutes or less, you are probably doing it the hard way.
+				I would recommend building your assignment in the following steps:
+			</p>
+			<ol>
+				<li>
+					<strong>Get the basics working:</strong><br />
+					<a href="img/ControllingMotionExample1.png">Look at the code</a> at the top of this example, type it in and get it working. Pay special attention to:
+					<ul>
+						<li>the jQuery linking code</li>
+						<li>the animateHeading function</li>
+						<li>the CSS code for <code>#animateID</code></li>
+						<li>and the HTML code for the body</li>
+					</ul>
+					<br />
+				</li>
+				<li>
+					<strong>Get the program recognizing keystrokes</strong>: <br />
+					Remember the <a href="examples/KeyboardControlExample1.html">first example from Keyboard control</a>? 
+					Steal the Javascript and HTML code from it, 
+					and incorporate it into the <code>&lt;script&gt;</code> and <code>&lt;body&gt;</code> areas of your code.
+					<br />&nbsp;
+				</li>
+				<li>
+					<strong>Get different actions happening for different keys</strong>: <br />
+					Then add the code from the <code>if ()</code> statement from the <a href="img/KeyboardControlExample2.png">next part of the lesson</a>, 
+					but change the functions for the different key codes. 
+					(Perhaps <code>animateUp();</code>, etc.?)
+					<br />&nbsp;
+				</li>
+				<li>
+					<strong>Define the different action functions:</strong><br />
+					Look at the <a href="img/KeyboardControlExample3.png">last part of Keyboard control</a>.
+					Use this as inspiration to organize your action functions.
+					<br />&nbsp;
+				</li>
+				<li>
+					<strong>Add the jQuery animation:</strong><br />
+					In particular, look at the last example on this page that refers to relative movement.
+					<br />&nbsp;
+				</li>
+				<li>
+					<strong>Clean it up and submit:</strong><br />
+					Check you code for good style, indentation, modular functions, intelligent commenting (including INPUT, PROCESS, and OUTPUT labels), etc.
+					Then hand it in...
+				</li>
+			</ol>
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

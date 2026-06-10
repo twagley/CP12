@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Closing HTML tags while you work</title>
+		<meta name="description" content="Good programming style means closing HTML tags while you work.">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Closing HTML tags while you work, Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				27. July 2015	- created!
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Closing HTML tags while you work</em>
+		</header>
+		
+		<article>
+
+			<h2>Close as you go...</h2>
+			<p>
+				One of the causes of errors in coding is forgetting to add the closing tag, 
+				for example not adding <code>&lt;/li&gt;</code> after <code>&lt;li&gt;</code>.
+			</p>
+			<p>
+				I like to type both pairs of tags (<code>&lt;li&gt;&lt;/li&gt;</code>) at the same time, 
+				and then go back and put the content in the middle directly afterward 
+				(<code>&lt;li&gt;list item content&lt;/li&gt;</code>). 
+				This way I never forget the closing tag.
+			</p>
+			<p>
+				Some editors, like <strong><a href="https://notepad-plus-plus.org/">Notepad++</a></strong>
+				have an option to automatically add the closing tag as soon as you have finished opening it.
+				Some people do not like this, but some people do. 
+			</p>
+			<p>
+				In <strong>Notepad++</strong>, you can turn this on and off by going to:
+				<code>Settings</code> &rarr; <code>Preferences...</code> &rarr; <code>Auto-Completion</code> &rarr; <code>XML/HTML close tag</code>.
+			</p>
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

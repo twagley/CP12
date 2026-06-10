@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Separate and comment your functions</title></title>
+		<meta name="description" content="Use alert() to help debug your javascript programs">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Separate and comment your functions, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				31. July 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Separate and comment your functions</em>
+		</header>
+		
+		<article>
+			<h1>Good programming is about good organization</h1>
+
+			<h2>Divide and conquer!</h2>
+			
+			<p>It is best to divide your code into functions that have separate tasks.</p>
+			
+			<p>
+				There are good reasons for this. 
+				Most importantly, modularizing your code helps you think clearly about how your code works.
+				Breaking your code into separate functions for 
+				<strong>main</strong>, <strong>initialization</strong>, <strong>input</strong>, <strong>processing</strong>, and <strong>output</strong> 
+				helps you stay mentally disciplined and helps you to avoid <em>spagetti code</em>.
+			</p>
+			
+			<p>
+				There are other reasons as well. 
+				For example, most languages have very similar structures for initialization and processsing, 
+				but very different structures for input and output.
+				Modularized code helps you to easily port your language to other languages.
+			</p>
+			<p>
+				It also makes it very easy to make improvements later on.
+				Want to keep your processing intact, but use a drag and drop interface for input instead of typing?
+				Then simply change the <strong>input</strong> functions and your program will run like normal.
+				Want to add a graph to illustrate a mathematical calculation?
+				Just add it to the <strong>output</strong> functions.
+			</p>
+			
+			<h2>Five kinds of functions</h2>
+			<p>
+				Remember that there are five general kinds of functions:
+			</p>
+			
+			<h4>Main</h4>
+			<p>
+				This is the controlling function that calls the others.
+			</p>
+			<p>
+				We comment it like this:<br>
+				<pre><code><span class="sc41"></span><span class="sc43">//MAIN: this triggers all the other functions</span><span class="sc41">
+</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50"></span></span><span class="sc41">
+    </span><span class="sc46">initVariables</span><span class="sc50">();</span><span class="sc41">
+    </span><span class="sc46">getInput</span><span class="sc50">();</span><span class="sc41">
+    </span><span class="sc46">processInput</span><span class="sc50">();</span><span class="sc41">
+    </span><span class="sc46">outputResults</span><span class="sc50">();</span><span class="sc41">
+</span><span class="sc50">}</span><span class="sc41"></span></code></pre>
+			</p>
+				
+			<h4>Initialization</h4>
+			<p>
+				This sets up the initial values for your variables.
+			</p>
+			<p>
+				Sometimes it occurs at the beginning of the program before the <code>main</code> function is called.
+			</p>
+			<p>
+				We comment it like this:<br>
+				<pre><code><span class="sc43">//INIT: this sets up the initial values of variables</span><span class="sc41">
+</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">initVariables</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+</span><span class="sc50">}</span><span class="sc41"></span></code></pre>
+			</p>
+			
+			<h4>Input</h4>
+			<p>Input functions are ones that read input from the user.</p>
+			<p>
+				There are many kinds of input:
+				typing, keyboard control, mouse movement, clicking, uploading a file, taking a picture, reading a website, and much more.
+			</p>
+			<p>
+				We comment input functions like this:<br>
+				<pre><code><span class="sc43">//INPUT: this reads the input from the user</span><span class="sc41">
+</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">getInput</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+</span><span class="sc50">}</span><span class="sc41"></span></code></pre>
+			</p>
+			
+			<h4>Process</h4>
+			<p>
+				Process functions are where the bulk of the calculations are done.
+				If decisions are made and things figured out, it happens here. 
+			</p>
+			<p>
+				We comment process functions like this:<br>
+				<pre><code><span class="sc43">//PROCESS: this processes the input and returns a result</span><span class="sc41">
+</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">processInput</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+</span><span class="sc50">}</span><span class="sc41"></span></code></pre>
+			</p>
+
+			<h4>Output</h4>
+			<p>
+				Output functions that the results of the processing and show it to the user.
+			</p>
+			<p>
+				Output can be updating a list, animating something, playing music, turning the temperature down, or many other things.
+			</p>
+			<p>
+				We comment output functions like this:<br>
+				<pre><code><span class="sc43">//OUTPUT: this outputs the result</span><span class="sc41">
+</span><span class="sc47">function</span><span class="sc41"> </span><span class="sc46">outputResults</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+
+</span><span class="sc50">}</span></code></pre>
+			</p>
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

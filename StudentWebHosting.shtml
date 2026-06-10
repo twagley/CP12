@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Student web space</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--this page describes how to set up a student email account, and then how to use that to access ourcloud, and the public webspace
+		
+			Created:	5. May 2015
+			Updated:	8. August 2015	- moved to drapak.ca
+		-->
+
+		<script>
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>Student web space</h1>
+		</header>
+		<article>
+			<p>Every public school student in Nova Scotia has their own web space, even if they do not know about it.</p>
+			
+			<p>Here is how you set it up:</p>
+			
+			<ol>
+				<li>Set up your NSPES email account</li>
+				<li>Set up Ourcloud</li>
+				<li>Upload HTML files into the <code>public</code> folder</li>
+				<li>
+					Access your public files through: <br />
+					<code>https://ourcloud.nspes.ca:8443/~yourUserName.nspes.ca/yourFileName.html</code>
+				</li>
+			</ol>
+
+			<h2>1. Set up your NSPES email account</h2>
+			
+			<p>	
+				If you are a public student in Nova Scotia, you will have an email account created within 24 hours of becoming a new student. 
+				Most of you have had an <strong>NSPES</strong> (Nova Scotia Public Education System) account for years without knowing it. 
+				Before you start, you will need the following information to activate it:
+			</p>
+			
+			<ul>
+				<li>Your name</li>
+				<li>Your birthdate</li>
+				<li>
+					Your Nova Scotia student number<br />
+					(check your student id, a report card, PowerSchool, or ask a teacher to look it up)
+				</li>
+				<li>Some time to set up accounts</li>
+				<li>Paper or a phone to record your information</li>
+			</ul>
+			
+			<p>
+				Now go to <a href="https://selfservice.nspes.ca/cgi-bin/account.pl">https://selfservice.nspes.ca/cgi-bin/account.pl</a>.
+				Let's say that we have a student, <strong>Tremaine Lewis Parsons</strong>, 
+				with a date of birth of <strong>June 13th, 1997</strong>, and student number of <strong>3000077002</strong>. 
+				We would fill in the form as follows:<br />
+				<img src="img/WebmailSetup.png" style="width: 500px">
+			</p>
+			
+			<p>
+				The <var>Favourite color</var> question is for password recovery in case you forget. 
+				It is tricky and slow to have your password reset: choose a question and answer that you will remember.
+			</p>
+			
+			<p>
+				Once you submit the form, it will create a username for you. 
+				In Tremaine's example, his new email address will be <strong>tlp077002@nspes.ca</strong>.
+				(Do you see the pattern?)
+				Choose a smart password, then put your username and password somewhere safe, like stored in your phone, or kept in your wallet, etc.
+			</p>
+			
+			<p>
+				Log in to your webmail account at <a href="https://nspes.ca/login.php">https://nspes.ca/login.php</a> to see if it works.<br />
+				If you have to change your password, go to the same page as above: <br />
+				<a href="https://selfservice.nspes.ca/cgi-bin/account.pl">https://selfservice.nspes.ca/cgi-bin/account.pl</a>
+			</p>
+			
+			<h2>2. Set up Ourcloud</h2>
+			
+			<p>
+				<strong>Ourcloud</strong> is a Dropbox-like service for Nova Scotian students and teachers.
+				It is hosted at <a href="https://ourcloud.nspes.ca/">https://ourcloud.nspes.ca/</a>.
+				Your Ourcloud password is always the same as your email password.
+				Log in to Ourcloud using your full email address:<br />
+				<br />
+				<img src="img/OurcloudLogin.png" style="width: 300px">
+			</p>
+			
+			<p>
+				Once you log in you will see two folders: <strong>private_files</strong> and <strong>public_html</strong><br />
+				<img src="img/OurcloudFolders.png" style="width: 500px">				
+			</p>
+			
+			<p>
+				Click on <strong>private_files</strong>. 
+				This is where you can store files that are only ever seen by yourself.
+			</p>
+			<p>
+				You can create folders in here to organize things.
+				You can add documents easily by dragging and dropping them from the file folder onto your web browser window. 
+			</p>
+			<p>
+				For each document, there is a download option as well so you can easily retrieve work.
+			</p>
+			
+			<h2>3. Upload HTML files</h2>
+			<p>
+				Now go back to and click on <strong>public_html</strong>.
+				Anything put into this folder is publicly viewable from the internet.
+				This is terrific if you want to share things you made.
+				You can drag and drop HTML documents (as well as any other documents) into this folder.
+				Remember to include images and other resources if your page uses them.
+			</p>
+			
+			<h2>4. Browse your HTML files live on the web</h2>
+			<p>
+				Let's say Tremaine dropped a document called <code>test.html</code> into <strong>public_html</strong>.
+			</p>
+			<p>
+				You could access that folder by browsing to: <br />
+				<code>https://ourcloud.nspes.ca:8443/~tlp077002.nspes.ca/test.html</code>
+			</p>
+			<p>
+				In other words, the address of your document will be:<br />
+				<code>https://ourcloud.nspes.ca:8443/~<strong>yourUserName</strong>.nspes.ca/<strong>yourFileName</strong></code>
+			</p>
+			
+			<p>
+				I organize my <strong>public_html</strong> folder into subfolders. 
+				For example, I put my Computer Programming 12 documents into a folder called <code>cpg</code>.
+				Thus the address of my main Computer Programming 12 page is available at:<br />
+				<code>https://ourcloud.nspes.ca:8443/~ddrapak.hrsb.ca/cpg/index.html</code>
+			</p>
+			
+			<h2>More goodies</h2>
+			<p>
+				Ourcloud has a series of mobile apps so that you can access your Ourcloud folders and documents from your devices.
+				I have mine set up on my iPad.
+			</p>
+			<p>
+				It also has a nice desktop app that synchronizes one of your home computer folders with Ourcloud. 
+				It is really nice to save HTML pages to the special folder on my laptop and have them just appear seconds later on the web. 
+				It saves a lot of time when developing things. 
+			</p>
+			<p>
+				These <strong>Sync</strong> apps are available here: <a href="https://owncloud.org/install/">https://owncloud.org/install/</a>.
+				You do not have to run the server software yourself in order to use Ourcloud.
+			</p>
+			<p>
+				And no, I don't know why the province of Nova Scotia decided to use the name Ourcloud instead of the usual software name, Owncloud.
+				I imagine they have their reasons: they are decent people.
+			</p>
+			
+			<h2>Make internet friends, not internet enemies</h2>
+			
+			<p>
+				Isn't it nice that our education system trusts you with your own free public web space?
+				Wouldn't it be terrible if someone posted foolish 
+				(illegal, or cruel, or high traffic, or inconsiderate, or otherwise thoughtless) stuff on their web space and then the province took away the service from <strong>EVERYONE</strong>?
+			</p>
+			
+			<p>
+			
+				Don't be that guy. 
+				(Or gal.)
+				Play nice...
+			</p>
+			
+			<p>
+				Seriously: they are actually trusting you with something powerful.
+				Don't blow it.
+			</p>
+			
+			
+		</article>
+
+		<!--#include virtual="/footer.html" -->
+	</body>
+</html>
+
+

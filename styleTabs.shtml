@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>drapak.ca - Computer Programming 12: Style - Formatting code with tabs</title>
+		<meta name="description" content="Good programming style means indenting your code with the tab key for human legibility.">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Formatting code with tabs, Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:	
+				27. July 2015	- created!
+				30. July 		- added tips and indentation
+		-->
+
+		<script>
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="questionLoader();">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Formatting code with tabs</em>
+		</header>
+		
+		<article>
+			<h2>Use tabs to show how tags are nested</h2>
+			<p>
+				Tabbing is used to make your code <strong>well-organized</strong> and <strong>human-readable</strong>.
+			</p>
+			
+			<p>
+				The idea is that you use a <kbd>tab</kbd> key to indent the code when it is contained inside other code.
+			</p>
+			
+			<h4>Good tabbing</h4>
+			<p>
+				In the example below, the <code>&lt;title></code> is inside the <code>&lt;head></code>, so it is indented.
+			</p>
+						
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Stylish people make stylish code!</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">See? I'm consistently stylish!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+			
+			<p>
+				Why do you think the <code>&lt;p></code> tag is indented?</code>
+				<span class="question" data-answer="Because it is inside the <code>&amp;lt;body></code> tag"></span>
+			</p>
+
+			<h4>Bad tabbing</h4>
+			
+			<p>
+				Bad tabbing is disorganized and hard to read. 
+				It looks like scrambled eggs.
+			</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;html&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;&lt;title&gt;</span><span class="sc0">Stylish people make stylish code!</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">      </span><span class="sc1">&lt;p&gt;</span><span class="sc0">See? I'm consistently stylish!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    
+    
+</span><span class="sc1">&lt;/body&gt;&lt;/html&gt;</span></code></pre>
+			
+			<h2>Indentation tips</h2>
+			<h4>Indentation tip #1</h4>
+			<p>
+				Use <kbd>tab</kbd> instead of <kbd>space</kbd> to indent your code. 
+				Yes, this spreads out your code.
+				(And heck, some editors actually replace the tab characters with spaces as you work!)
+				But it takes fewer key presses and it lines your code up automatically.
+			</p>
+			
+			<h4>Indentation tip #2</h4>
+			<p>
+				Adjust indentation as a block. 
+				Try this: 
+				<ol class="indent">
+					<li>Select a few lines with your cursor</li>
+					<li>Then hit <kbd>tab</kbd> and watch what happens</li>
+					<li>Now hit <kbd>shift-tab</kbd> and see the result</li>
+					<li>You're welcome!</li>
+				</ol>
+			</p>
+
+			<h2>An example of bad style</h2>
+			
+			<p>
+				Take a look a the code example below. 
+				Which parts do you think are examples of bad style? 
+			</p>
+			
+			<pre><code><span class="sc21">&lt;!</span><span class="sc26">DOCTYPE html</span><span class="sc21">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;HTML&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Stylish people make stylish code!</span><span class="sc1">&lt;/TItle&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;H1&gt;</span><span class="sc0">Hello world!</span><span class="sc1">&lt;/h1&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Look - I'm a programming </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">superstar</span><span class="sc2">&lt;/str0ng&gt;</span><span class="sc0">!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+        
+</span><span class="sc1">&lt;h2&gt;</span><span class="sc0">My favourite website</span><span class="sc2">&lt; </span><span class="sc1">/h2&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+            The website I visit most often is:
+            </span><span class="sc1">&lt;a</span><span class="sc8"> </span><span class="sc3">hReF</span><span class="sc8">=</span><span class="sc6">"http://cbc.ca"</span><span class="sc1">&gt;</span><span class="sc0">CBC.ca</span><span class="sc1">&lt;/a&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/P&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;H3&gt;</span><span class="sc0">An awesome image</span><span class="sc1">&lt;/h3&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;imG</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://imgs.xkcd.com/comics/sandwich.png"</span><span class="sc1">&gt;&lt;/img&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/html&gt;</span></code></pre>
+						</ul>
+
+		</article>
+
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

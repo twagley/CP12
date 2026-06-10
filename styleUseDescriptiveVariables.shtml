@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		
+		<title>
+			drapak.ca - Computer Programming 12: 
+			Style - Use descriptive variable names
+		</title>
+		<meta 
+			name="description" 
+			content="How to use descriptive names for variables">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Use descriptive variable names, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->	
+
+		<!--
+			Change log:
+				31. July 2015	- created!										- Drapak
+				9. October 2018	- updated style and added const					- Drapak
+		-->
+
+
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header>
+			//STYLE: <em>Use descriptive variable names</em>
+		</header>
+		
+		<article>
+			<h1>Always choose self-describing variable names</h1>
+
+			<p>Don't you hate it when people don't say what they mean?</p>
+			
+			<p>
+				Sometimes this happens when people think you understand, 
+				but they have not given you enough information to get the full picture.
+			</p>
+			
+			<p>
+				The same thing happens in programming when 
+				you don't name things thoughtfully.
+			</p>
+				
+			<h4>Use camelCase for variables</h4>
+			<p>
+				In most languages, you cannot have a space in a variable name.
+			</p>
+			<p>
+				In order to still have descriptive names without spaces, 
+				you have to use <strong>camelCase</strong>.
+				camelCase has all the words grouped together, 
+				and has the first word lowercase, 
+				and the first letter of all remaining words capitalized.
+			</p>
+			<ul>
+				<li><strong>Bad:</strong> <code>var <var>MyPonys_Name</var> = 'Herbert';</code></li>
+				<li><strong>Good:</strong> <code>var <var>myPonysName</var> = 'Herbert';</code></li>
+				<li><strong>Good:</strong> <code>var <var>currentPlayersTurnNumber</var> = 13;</code></li>
+			</ul>
+			
+			<h4>Use ALL_CAPS for constants</h4>
+			<p>
+				An exception to using camelCase is when you are defining a constant.
+			</p>
+			<p>
+				A constant is a variable that never changes. 
+				It holds data that is used, but never modified. 
+				Traditionally, constants are spelled in <strong>ALL_CAPS</strong> with underscores where the spaces would go.
+			</p>
+			<p>
+				It is also a good idea to use <code>const</code> instead of <code>var</code>
+				if you know that the value is never going to change.
+			</p>
+			
+			<ul>
+				<li>
+					<strong>Bad:</strong> 
+					<code>const <var>piValue</var> = 3.141592654;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>const <var>PI_VALUE</var> = 3.141592654;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>const <var>ACCELERATION_DUE_TO_GRAVITY</var> = 9.8;</code>
+				</li>
+			</ul>
+
+			<h4>Be descriptive</h4>
+			<p>
+				Although you will type less by using short, difficult to understand variable names, 
+				You will lose that time later when you are trying to figure out what each variable does.
+			</p>
+			<ul>
+				<li><strong>Bad:</strong> <code>var <var>x</var> = 1;</code></li>
+				<li><strong>Good:</strong> <code>var <var>xPosition</var> = 1;</code></li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>animationSpeed</var> = 10;</code>
+				</li>
+			</ul>
+
+			<h4>Use abbreviations sparingly</h4>
+			<p>
+				There are times when abbreviations are OK, 
+				such as when they are already used commonly in writing
+				(texting shorthand does not count).
+			</p>
+			<p>
+				In general, if you are making up your own abbreviations, 
+				they are probably going to be confusing to other people.
+			</p>
+			<ul>
+				<li>
+					<strong>Bad:</strong> <code>var <var>txWt</var> = 'bold';</code>
+				</li>
+				<li>
+					<strong>Good:</strong> <code>var <var>textWeight</var> = 'bold';</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>newBackgroundColour</var> = 'green';</code>
+				</li>
+			</ul>
+			<p>
+				There are some commonly used abbreviations in programming, however:
+			</p>
+			<ul>
+				<li><code>var <var>numApples</var> = "number of apples";</code></li>
+				<li><code>var <var>xPos</var> = "position along the x-axis";</code></li>
+				<li>
+					<code>
+						for (var <var>i</var> = 1; <var>i < 5</var>; <var>i</var>++) {}
+					</code> 
+					// <strong>i</strong> 
+					is traditionally used as an index variable inside loops
+				</li>
+			</ul>
+			
+			<h4>Most variable names should be nouns</h4>
+			<p>
+				It is generally a good idea to avoid using verbs, 
+				adjectives, adverbs, etc. for variable names.
+				If your variable name is not a noun, you are probably not communicating well.
+			</p>
+			<ul>
+				<li>
+					<strong>Bad:</strong> 
+					<code>var <var>charHowQuickly</var> = 42;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>characterSpeed</var> = 42;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>terrainType</var> = 'desert';</code>
+				</li>
+			</ul>
+			
+			<h4>BUT! Use questions for boolean (true || false) variables</h4>
+			
+			<p>
+				Boolean variables are a lot like a true or false answer to a question.
+				In fact, it often makes sense to use a question for a boolean variable name.
+			</p>
+
+			<ul>
+				<li>
+					<strong>Bad:</strong> 
+					<code>var <var>magicRingTrueOrFalse</var> = true;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>hasAMagicRing</var> = true;</code>
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>usesUselessVariableNames</var> = false;</code>
+				</li>
+			</ul>
+			
+			<h4>Include the variable type for objects and arrays</h4>
+			<p>
+				Most variables are straight-forward number or string variables. 
+				Programmers assume this when they are reading code.
+			</p>
+			<p>
+				If your variable is for a more complex data structure, 
+				then hint at that data structure in its name.
+			</p>
+
+			<ul>
+				<li>
+					<strong>Bad:</strong> 
+					<code>var <var>characterSheet</var> = {};</code> 
+					// ... is a badly named object
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>characterSheetObj</var> = {};</code>  
+					// ... is a well-named object
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>vehicleProperties</var> = {};</code> 
+					// ... is a well-named object<br>&nbsp; 
+				</li>
+				
+				<li>
+					<strong>Bad:</strong> 
+					<code>var <var>friends</var> = [];</code> // ...is a badly named array
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>friendList</var> = [];</code> // ...is a well-named array
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>labResultsArr</var> = [];</code> 
+					// ...is a well-named array<br>&nbsp; 
+				</li>
+				
+				<li>
+					<strong>Bad:</strong> 
+					<code>var <var>maze</var> = [[]];</code> 
+					// ...is a badly named two-dimensional array
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>mazeGrid</var> = [[]];</code> 
+					// ...is a well-named two-d array
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>tileTypeByHeightAndWidth</var> = [[]];</code> 
+					// ...is a well-named 2-D array
+				</li>
+			</ul>
+			
+		</article>
+		<script>		
+		</script>
+		<!--#include virtual="/footer.html" -->		
+	</body>
+</html>

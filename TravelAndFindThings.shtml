@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - Computer Programming: 
+			Travel through a maze and find things
+		</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript arrays and object oriented programming to travel through a maze and find things">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				30. November 2015	- created!
+				1. December 		- added example and obsfucated code		
+				13. December		- added hints for creation
+				13. January 		- added evaluation checklist handouts
+				17. May 2017		- reworked step-by-step instructions		- Drapak
+		-->
+
+		
+		<style>
+			article img {
+				position: 		fixed;
+			}
+			#linkID {
+				top: 			50%;
+				left: 			50%;
+			}
+			#coordinatesID {
+				position:		fixed;
+				top:			10px;
+				left:			50px;
+				font-family: 	sans-serif;
+				font-weight:	bold;
+				color:			white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+		<header>
+			//MAKE: 4.04 EXTRA: <em>Travel through a maze and find things</em>
+		</header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					<a href="outputAnimationCallbacks.shtml">//OUTPUT: Animation callbacks</a>
+				</li>
+			</ul>
+		
+		
+			<h2>Saving your work</h2>
+			<p>
+				<strong>Please save your document as</strong>
+				<code>4.04X-TravelAndFindThings-LastName.html</a></code>
+				in your Computer Programming 12 directory.
+			</p>
+			<p>
+				This project builds on 4.02, but is not the same file.
+				<strong>Do not hand your project as 4.02.
+				Each assignment should be separate.</strong>
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>Add to the code objects in your maze so that:</p>
+			
+			<ul>
+				<li>The current row and column of your character is displayed</li>
+				<li>Your character can only move on top of certain tiles of your maze</li>
+				<li>You add a layer of objects on top of the maze</li>
+				<li>Your character will be affected when they encounter these objects (add score, speed up, slow down, die, extra life, whatever...)</li>
+				<li>You display something else about your character (lives, score, speed, ...)</li>
+			</ul>
+			
+			<h2>For example: Travel and Find Things</h1>
+			
+			<div id="mazeID"></div>
+			<div id="prizeID"></div>
+			<img id="linkID"></img>
+			<div id="coordinatesID">
+				Score: <span id="scoreID"></span>
+				Row: <span id="rowID"></span>
+				Column: <span id="columnID"></span>
+			</div>
+			<p>
+				<button onclick="mainProcedure();">Click to create the playing field!</button><br />		
+			</p>
+			 <audio id="audioBeepID">
+				<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+			</audio>
+
+			<h2>Make it your own!</h2>
+			
+			<p>
+				Create your own prizes to be encountered on top of your maze.
+				What happens when you encounter each one?
+				Do things speed up or down?
+				Do you gain a life?
+				Do you gain points?
+				Does something else appear?
+			</p>
+			
+			<h2>Hints and frequently asked questions</h2>
+			<dl>
+				
+				<dt>
+					1. How do I get my character to work with rows and columns?
+				</dt>
+				<dd>
+					Create <code>row</code> and <code>column</code> properties inside the object constructor.<br />
+					Then adjust <code>this.row</code> and <code>this.column</code> whenever your character moves.<br />
+					For example, when you move up, you can use <code>this.row = this.row - 1</code>
+				</dd>
+				
+				<dt>
+					2. How do I display the row, column, and score?
+				</dt>
+				<dd>
+					Create an object method (function) called something like <code>showStats</code>.<br />
+					This function should display the current values of <code>this.row</code> and <code>this.column</code>.<br />
+					Then call <code>this.showStats()</code> right after you animate your character.
+				</dd>
+				
+				<dt>
+					3. How do I keep my character from moving where they shouldn't?
+				</dt>
+				<dd>
+					Before you animate your character, check inside of your maze array to see if the surface of the tile to move toward is allowable.<br />
+					You will have adjust the row and column in order to look ahead.<br />
+					Here is an example of an if statement that looks ahead to see if moving up is allowed:<br />
+					<code>if (maze.contents[ this.row - 1 ][ this.column ] == 1 ) { // allow the movement if the tile ahead is 1 (ground) }</code>
+				</dd>
+				
+				<dt>
+					4. How do I add the objects on top of the maze?
+				</dt>
+				<dd>
+					Reuse your object code for creating the maze and output into a new div, labelled something like "objectID".
+					You will have to create a new array for the positions of the objects.
+				</dd>
+				
+				<dt>
+					5. How do I adjust the placement of the object images?
+				</dt>
+				<dd>
+					When you place the images using the <code>top: </code> and <code>left: </code> coordinates, 
+					you can add an adjustment to move things up, down, or to the side.<br />
+					For example: <code>"top: " + (( row * 40) + 5 ) + "px;"</code>
+				</dd>
+
+				<dt>
+					6. How do make it so that each object has it's own ID?
+				</dt>
+				<dd>
+					When you create the object images, add an ID to them that includes the row and column.<br />
+					For example, an object at row 2, column 10 could have <code>id='object2-10ID'</code>.<br />
+					Use something like <code>" id='object" + row + "-" + column + "ID' "</code>.
+				</dd>
+				
+				<dt>
+					7. How do I detect if an object is present when moving through the maze?
+				</dt>
+				<dd>
+					First, make sure that each object has it's own ID, as above.<br />
+					Then create a function called something like <code>checkForObjects</code>.<br />
+					<code>checkForObjects</code> will look inside the objects array and see what to do.<br />
+					For example: <code>if ( objects.contents[ this.row ][ this.column ] == 2 ) { this.score = this.score + 500; } </code><br />
+					Now add call <code>this.checkForObjects()</code> at the end each animation, 
+					after <code>this.row</code> and <code>this.column</code> have been adjusted, 
+					but before the scores are displayed.
+				</dd>
+				
+				<dt>
+					8. How do I make it so that objects disappear when you encounter them?
+				</dt>
+				<dd>
+					First, make sure that each object has it's own ID, as above.<br />
+					Then inside <code>checkForObjects</code>, 
+					animate a fade to 0 opacity and then remove the object from the array.<br />
+					For example: <code>objects.contents[ this.row ][ this.column ] = null;</code>
+				</dd>				
+			</dl>
+			
+			<h2>Evaluation &mdash; [<a href="TravelAndFindThings.pdf">pdf</a>] [<a href="TravelAndFindThings.pub">pub</a>]</h2>
+			<ul>
+				<li>
+					<strong>___/10 INIT:</strong> including
+					<ol>
+						<li>add <code>this.column</code> and <code>this.row</code> to your character to track their movements through the maze</li>
+						<li>create a new array of arrays for the prizes</li>
+						<li>create an object for the prizes with properties and methods</li>
+						<li>access properties within the prize object using <code>this.</code></li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 PROCESS:</strong> including
+					<ol>
+						<li>use nested loops to generate a layer of prizes on top of the maze</li>
+						<li>use if statements to determine which image to show in the layer of prizes</li>
+						<li>use if statements to determine if it is possible to move right and left before animating in that direction</li>
+						<li>use if statements to determine if it is possible to move up and down before animating in that direction</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 OUTPUT:</strong> including
+					<ol>
+						<li>use .innerHTML to add the layer of prizes to your page</li>
+						<li>animate a prize using jQuery (fade in, move, shrink or grow, whatever...)</li>
+						<li>output your character's current row and column</li>
+						<li>changes the source of a character's image using an animation callback</li>
+						<li>output something else about your character (lives, score, current speed)</li>
+					</ol>
+				</li>
+				<li>
+					<strong>___/10 STYLE:</strong> including
+					<ol>
+						<li>honour all previous //STYLE sections</li>
+						<li>use descriptive variable names</li>
+						<li>
+							break up methods and function into separate chunks, max 15 lines each<br />
+							<strong>These do not have to follow INIT/INPUT/PROCESS/OUTPUT.</strong><br />
+							They simply have to make sense a a single method (not too few steps, not too many) 
+						</li>
+						<li>use descriptive comments to identify and describe each method or function, each loop, 
+							<strong>and each <code>if</code> statement</strong>:<br/>
+							<code>//if there is space to move forward...</code>
+						</li>
+						<li>
+							add spaces between mathematical and string operators, <br/>
+							for example: <code>var exampleVar = "hello " + "kitty"</code>, not <code>var exampleVar="hello "+"kitty"</code>.
+						</li>
+					</ol>
+				</li>
+			</ul>
+		</article>
+		<!--#include virtual="/footer.html" -->
+ 		<script>
+			var _0x4ca6=["\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x42\x72\x6F\x77\x6E\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x44\x69\x72\x74\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x47\x72\x61\x73\x73\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x50\x6C\x61\x69\x6E\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x52\x6F\x6F\x66\x53\x6F\x75\x74\x68\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x53\x74\x6F\x6E\x65\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x61\x74\x65\x72\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x6F\x6F\x64\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x57\x61\x6C\x6C\x42\x6C\x6F\x63\x6B\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x54\x72\x65\x65\x55\x67\x6C\x79\x2E\x70\x6E\x67","","\x63\x72\x65\x61\x74\x65\x4D\x61\x7A\x65\x43\x6F\x64\x65","\x6F\x75\x74\x70\x75\x74\x4D\x61\x7A\x65\x43\x6F\x64\x65","\x69\x6E\x20\x63\x72\x65\x61\x74\x65\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x6D\x61\x7A\x65\x43\x6F\x64\x65","\x3C\x21\x2D\x2D\x77\x6F\x6F\x74\x2D\x2D\x3E","\x63\x6F\x6E\x74\x65\x6E\x74\x73","\x72\x6F\x77\x3D","\x3C\x69\x6D\x67\x20","\x20\x73\x72\x63\x3D\x27","\x69\x6D\x61\x67\x65\x53\x6F\x75\x72\x63\x65\x41\x72\x72","\x27","\x20\x73\x74\x79\x6C\x65\x3D\x27\x74\x6F\x70\x3A\x20","\x70\x78\x3B\x20\x6C\x65\x66\x74\x3A\x20","\x70\x78\x3B\x20\x77\x69\x64\x74\x68\x3A\x20","\x70\x78\x3B\x27\x20","\x2F\x3E","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x4D\x61\x7A\x65\x43\x6F\x64\x65\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6D\x61\x7A\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x48\x65\x61\x72\x74\x2E\x70\x6E\x67","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x53\x74\x61\x72\x2E\x70\x6E\x67","\x3C\x69\x6D\x67\x20\x69\x64\x3D\x27\x70\x72\x69\x7A\x65","\x2D","\x49\x44\x27\x20","\x70\x72\x69\x7A\x65\x49\x44","\x61\x6E\x69\x6D\x61\x74\x65","\x23\x70\x72\x69\x7A\x65","\x49\x44","\x6C\x69\x6E\x6B\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x64\x6F\x77\x6E\x2E\x70\x6E\x67","\x70\x78","\x6F\x70\x61\x63\x69\x74\x79","\x73\x74\x79\x6C\x65","\x69\x64","\x77\x69\x64\x74\x68","\x73\x72\x63","\x64\x75\x72\x61\x74\x69\x6F\x6E","\x23","\x70\x6C\x61\x79","\x61\x75\x64\x69\x6F\x42\x65\x65\x70\x49\x44","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x75\x70\x2E\x70\x6E\x67","\x63\x6F\x6C\x75\x6D\x6E","\x72\x6F\x77","\x62\x65\x65\x70","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x6C\x65\x66\x74\x2E\x70\x6E\x67","\x68\x74\x74\x70\x3A\x2F\x2F\x64\x72\x61\x70\x61\x6B\x2E\x63\x61\x2F\x63\x70\x67\x2F\x69\x6D\x67\x2F\x6C\x69\x6E\x6B\x2D\x72\x69\x67\x68\x74\x2E\x70\x6E\x67","\x6C\x69\x6E\x65\x61\x72","\x73\x63\x6F\x72\x65","\x66\x61\x64\x65\x41\x6E\x64\x52\x65\x6D\x6F\x76\x65","\x72\x6F\x77\x49\x44","\x63\x6F\x6C\x75\x6D\x6E\x49\x44","\x73\x63\x6F\x72\x65\x49\x44","\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x64\x69\x73\x70\x6C\x61\x79","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E","\x77\x68\x69\x63\x68","\x6B\x65\x79\x43\x6F\x64\x65","\x67\x6F\x55\x70","\x67\x6F\x44\x6F\x77\x6E","\x67\x6F\x52\x69\x67\x68\x74","\x67\x6F\x4C\x65\x66\x74"];var ROW_HEIGHT=40;var COLUMN_WIDTH=50;var maze={imageSourceArr:[_0x4ca6[0],_0x4ca6[1],_0x4ca6[2],_0x4ca6[3],_0x4ca6[4],_0x4ca6[5],_0x4ca6[6],_0x4ca6[7],_0x4ca6[8],_0x4ca6[9]],contents:[[6,6,6,6,6,6,6,6,6,6,null,null,null,null,null,null],[6,1,6,1,1,1,1,1,1,6,null,null,null,null,null,null],[6,1,6,1,6,6,1,1,1,6,null,null,null,null,null,null],[6,1,1,1,1,6,1,1,1,6,null,null,null,null,null,null],[6,6,6,6,1,6,6,6,1,6,null,null,null,null,null,null],[6,1,1,1,1,1,1,1,1,6,null,null,null,null,null,null],[6,1,6,6,6,6,6,6,6,6,null,null,null,null,null,null],[6,1,1,1,1,1,1,1,6,6,null,null,null,null,null,null],[6,6,6,6,6,6,6,1,1,6,null,null,null,null,null,null],[6,6,6,6,6,6,6,6,1,6,null,null,null,null,null,null],[6,6,6,6,6,6,6,6,6,6,null,null,null,null,null,null]],mazeCode:_0x4ca6[10],display:function(){this[_0x4ca6[11]]();this[_0x4ca6[12]]();},createMazeCode:function(){console[_0x4ca6[14]](_0x4ca6[13]);this[_0x4ca6[15]]=_0x4ca6[16];for(row in this[_0x4ca6[17]]){console[_0x4ca6[14]](_0x4ca6[18]+row);var _0xfca5x4=this[_0x4ca6[17]][row];for(column in this[_0x4ca6[17]][row]){if(this[_0x4ca6[17]][row][column]==null){}else {this[_0x4ca6[15]]=this[_0x4ca6[15]]+_0x4ca6[19]+_0x4ca6[20]+this[_0x4ca6[21]][this[_0x4ca6[17]][row][column]]+_0x4ca6[22]+_0x4ca6[23]+row*ROW_HEIGHT+_0x4ca6[24]+column*COLUMN_WIDTH+_0x4ca6[25]+COLUMN_WIDTH+_0x4ca6[26]+_0x4ca6[27]}};};},outputMazeCode:function(){console[_0x4ca6[14]](_0x4ca6[28]);document[_0x4ca6[31]](_0x4ca6[30])[_0x4ca6[29]]=this[_0x4ca6[15]];}};var prize={imageSourceArr:[_0x4ca6[0],_0x4ca6[32],_0x4ca6[33],_0x4ca6[3],_0x4ca6[4],_0x4ca6[5],_0x4ca6[6],_0x4ca6[7],_0x4ca6[8],_0x4ca6[9]],contents:[[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,1,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,2,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,1,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],mazeCode:_0x4ca6[10],display:function(){this[_0x4ca6[11]]();this[_0x4ca6[12]]();},createMazeCode:function(){console[_0x4ca6[14]](_0x4ca6[13]);this[_0x4ca6[15]]=_0x4ca6[16];for(row in this[_0x4ca6[17]]){console[_0x4ca6[14]](_0x4ca6[18]+row);var _0xfca5x4=this[_0x4ca6[17]][row];for(column in this[_0x4ca6[17]][row]){if(this[_0x4ca6[17]][row][column]==null){}else {this[_0x4ca6[15]]=this[_0x4ca6[15]]+_0x4ca6[34]+row+_0x4ca6[35]+column+_0x4ca6[36]+_0x4ca6[20]+this[_0x4ca6[21]][this[_0x4ca6[17]][row][column]]+_0x4ca6[22]+_0x4ca6[23]+((row*ROW_HEIGHT)-29)+_0x4ca6[24]+column*COLUMN_WIDTH+_0x4ca6[25]+COLUMN_WIDTH+_0x4ca6[26]+_0x4ca6[27]}};};},outputMazeCode:function(){console[_0x4ca6[14]](_0x4ca6[28]);document[_0x4ca6[31]](_0x4ca6[37])[_0x4ca6[29]]=this[_0x4ca6[15]];},fadeAndRemove:function(_0xfca5x6,_0xfca5x7){$(_0x4ca6[39]+_0xfca5x6+_0x4ca6[35]+_0xfca5x7+_0x4ca6[40])[_0x4ca6[38]]({opacity:0},{duration:500});this[_0x4ca6[17]][_0xfca5x6][_0xfca5x7]=null;}};var link={id:_0x4ca6[41],src:_0x4ca6[42],width:(COLUMN_WIDTH-14)+_0x4ca6[43],row:1,column:1,duration:500,score:0,display:function(){document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[45]][_0x4ca6[44]]=0;document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[45]][_0x4ca6[47]]=this[_0x4ca6[47]];document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[48]]=this[_0x4ca6[48]];$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({opacity:1},this[_0x4ca6[49]]);},beep:function(){document[_0x4ca6[31]](_0x4ca6[52])[_0x4ca6[51]]()},goUp:function(){$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({margin:0},{duration:1,complete:function(){document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[48]]=_0x4ca6[53]}});if(maze[_0x4ca6[17]][this[_0x4ca6[55]]-1][this[_0x4ca6[54]]]==1){this[_0x4ca6[55]]=this[_0x4ca6[55]]-1;this[_0x4ca6[38]]();}else {this[_0x4ca6[56]]()};},goDown:function(){$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({margin:0},{duration:1,complete:function(){document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[48]]=_0x4ca6[42]}});if(maze[_0x4ca6[17]][this[_0x4ca6[55]]+1][this[_0x4ca6[54]]]==1){this[_0x4ca6[55]]=this[_0x4ca6[55]]+1;this[_0x4ca6[38]]();}else {this[_0x4ca6[56]]()};},goLeft:function(){$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({margin:0},{duration:1,complete:function(){document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[48]]=_0x4ca6[57]}});if(maze[_0x4ca6[17]][this[_0x4ca6[55]]][this[_0x4ca6[54]]-1]==1){this[_0x4ca6[54]]=this[_0x4ca6[54]]-1;this[_0x4ca6[38]]();}else {this[_0x4ca6[56]]()};},goRight:function(){$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({margin:0},{duration:1,complete:function(){document[_0x4ca6[31]](this[_0x4ca6[46]])[_0x4ca6[48]]=_0x4ca6[58]}});if(maze[_0x4ca6[17]][this[_0x4ca6[55]]][this[_0x4ca6[54]]+1]==1){this[_0x4ca6[54]]=this[_0x4ca6[54]]+1;this[_0x4ca6[38]]();}else {this[_0x4ca6[56]]()};},animate:function(){$(_0x4ca6[50]+this[_0x4ca6[46]])[_0x4ca6[38]]({top:(this[_0x4ca6[55]]*ROW_HEIGHT+2)+_0x4ca6[43],left:(this[_0x4ca6[54]]*COLUMN_WIDTH+7)+_0x4ca6[43]},{duration:this[_0x4ca6[49]],easing:_0x4ca6[59]});if(prize[_0x4ca6[17]][this[_0x4ca6[55]]][this[_0x4ca6[54]]]==2){this[_0x4ca6[60]]=this[_0x4ca6[60]]+500;link[_0x4ca6[49]]=link[_0x4ca6[49]]/2;prize[_0x4ca6[61]](this[_0x4ca6[55]],this[_0x4ca6[54]]);}else {if(prize[_0x4ca6[17]][this[_0x4ca6[55]]][this[_0x4ca6[54]]]==1){this[_0x4ca6[60]]=this[_0x4ca6[60]]+5000;prize[_0x4ca6[61]](this[_0x4ca6[55]],this[_0x4ca6[54]]);}};document[_0x4ca6[31]](_0x4ca6[62])[_0x4ca6[29]]=this[_0x4ca6[55]];document[_0x4ca6[31]](_0x4ca6[63])[_0x4ca6[29]]=this[_0x4ca6[54]];document[_0x4ca6[31]](_0x4ca6[64])[_0x4ca6[29]]=this[_0x4ca6[60]];}};function mainProcedure(){console[_0x4ca6[14]](_0x4ca6[65]);maze[_0x4ca6[66]]();prize[_0x4ca6[66]]();link[_0x4ca6[66]]();link[_0x4ca6[38]]();window[_0x4ca6[67]]=function(_0xfca5xa){var _0xfca5xb=_0xfca5xa[_0x4ca6[68]]||_0xfca5xa[_0x4ca6[69]];if(_0xfca5xb==38){link[_0x4ca6[70]]()}else {if(_0xfca5xb==40){link[_0x4ca6[71]]()}else {if(_0xfca5xb==39){link[_0x4ca6[72]]()}else {if(_0xfca5xb==37){link[_0x4ca6[73]]()}}}};};}
+		</script>
+	</body>
+</html>

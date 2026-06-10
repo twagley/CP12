@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>
+			drapak.ca - 
+			Computer Programming 12: 
+			Skill builder: Hello color
+		</title>
+		<meta 
+			name="description" 
+			content="Hello color CSS assignment">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Halifax, Nova Scotia, computer programming, CSS, teaching, learning resources">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+
+		<!--
+			Change log:
+				8. August 2015		- created!
+				15. September 2015	- made ready for teaching, linking the skills to the page
+				5. February 2017	- allowed for different kinds of scripts
+				
+		-->
+
+
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>
+			1.05 Skill builder: <em>Hello color</em>
+		</header>
+
+		<article>
+
+			<h2>Resources</h2>
+			<p>
+				//CSS: <a href="cssTextFormatting.shtml">Text formatting</a><br />
+				//STYLE: <a href="styleComments.shtml">Use comments to communicate</a>
+			</p>
+
+			<h2>Hidden Agenda</h2>
+			<ul class="hiddenAgendaClass">
+				<li>
+					Make a page using CSS text formatting.
+				</li>
+				<li>
+					It does not have to be a script. Have fun!
+					It could be anything.
+				</li>		
+				<li>
+					Start to use comments to explain and communicate your code
+				</li>			
+			</ul>
+			
+			<h2>Saving your work</h2>
+			<p>
+				Download the 
+				<a href="1.05S-HelloColor-LastName.html" target="_blank">template</a> 
+				and save it as 
+				"<code>1.05S-HelloColor-LastName.html</code>" 
+				in your Computer Programming 12 directory.
+			</p>
+			
+			<h2>The Assignment</h2>
+			<p>
+				Find a part of a classic comedy sketch, movie, television show, or video game cutscene.
+			</p>
+			<p>
+				Then convert it to a script form as below using the usual HTML tags:
+			</p>
+			
+			<p><iframe width="420" height="315" src="https://www.youtube.com/embed/JEle_DLDg9Y" frameborder="0" allowfullscreen></iframe></p>
+
+			<pre><code><span class="sc1">&lt;h1&gt;</span><span class="sc0">Mitchell and Webb: </span><span class="sc1">&lt;em&gt;</span><span class="sc0">Nazis</span><span class="sc1">&lt;/em&gt;&lt;/h1&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Scene:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;em&gt;</span><span class="sc0">German trench during World War II</span><span class="sc1">&lt;/em&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;ul&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Second Nazi:</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0"> 
+        I mean, what do skulls make you think of? 
+        Death... cannibals... beheading... pirates...
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Hans: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        Pirates are fun!
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Second Nazi: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        I didn't say we weren't fun, 
+        but fun or not pirates are still the baddies.
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">...</span><span class="sc1">&lt;br</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Second Nazi: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;em&gt;</span><span class="sc0">(regarding the Allies)</span><span class="sc1">&lt;/em&gt;</span><span class="sc0"> 
+        Their symbols are all quite nice! 
+        Stars, stripes, lions, sickles...
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Hans: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        What's so good about a sickle?
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Second Nazi: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        Well, nothing, 
+        and if here's one thing we've learn in the last thousand miles of retreat 
+        it's that Russian agriculture is in dire need of mechanisation.
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Hans: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        Tell me about it.
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Second Nazi: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        But, you gotta say, 
+        it's better than a skull. 
+        I mean, I really can't think of anything worse, 
+        as a symbol, than a skull!
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;li&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Hans: </span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
+        What about a... rat's [bottom].
+    </span><span class="sc1">&lt;/li&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/ul&gt;</span><span class="sc0"></span></code></pre>
+
+			<p>Then apply the formatting by adding the appropriate CSS to the text by defining the text properties for each of the tags above.</p>
+
+			<h2>Extend and expand</h2>
+			<p>
+				There are other kinds of CSS styles that we do not look at in the course. 
+				Look up how to use some of the following and put them into your example somehow:
+			</p>
+			
+			<ul>
+				<li><code>background-image:</code></li>
+				<li><code>font-variant:</code></li>
+				<li><code>direction:</code></li>
+				<li><code>opacity:</code></li>
+				<li><code>text-align:</code></li>
+				<li><code>text-decoration:</code></li>
+				<li><code>text-indent:</code></li>
+				<li><code>transition:</code></li>
+				<li><code>transform:</code></li>
+			</ul>
+			
+		</article>
+				
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+		</script>
+	</body>
+</html>
