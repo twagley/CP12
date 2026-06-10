@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Sieve of Eratosthenes</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page is meant to show how to create a loop that is used for 
+			calculation and not just counting
+			This example asks for an calculates the first N powers of two
+			
+			Created:	5. March 2015
+			Updated:	24. March 2015
+						--obfuscated the javascript code
+			-->
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>		
+		<script>
+			var _0xfa82=["\x69\x6E\x20\x69\x6E\x69\x74\x2E\x2E\x2E","\x6C\x6F\x67","\x73\x70\x61\x6E","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x69\x64","\x63\x65\x6C\x6C\x2D","\x63\x72\x65\x61\x74\x65\x54\x65\x78\x74\x4E\x6F\x64\x65","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x6C\x69\x73\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6D\x61\x78\x50\x72\x69\x6D\x65\x49\x44","\x69\x6E\x20\x6C\x6F\x6F\x70\x54\x68\x72\x6F\x75\x67\x68\x50\x6F\x73\x73\x69\x62\x6C\x65\x50\x72\x69\x6D\x65\x46\x61\x63\x74\x6F\x72\x73\x2E\x2E\x2E","\x73\x71\x72\x74","\x69\x6E\x20\x72\x65\x6D\x6F\x76\x65\x4D\x75\x6C\x74\x69\x70\x6C\x65\x73\x4F\x66\x54\x68\x69\x73\x46\x61\x63\x74\x6F\x72\x2E\x20\x74\x68\x69\x73\x46\x61\x63\x74\x6F\x72\x3D","\x52\x65\x6D\x6F\x76\x69\x6E\x67\x20\x66\x61\x63\x74\x6F\x72\x73\x20\x6F\x66\x20","\x70\x75\x73\x68","\x69\x6E\x20\x64\x69\x73\x70\x6C\x61\x79\x52\x65\x73\x75\x6C\x74\x73\x2E\x20\x74\x68\x69\x73\x43\x65\x6C\x6C\x3D","\x70\x6F\x74\x65\x6E\x74\x69\x61\x6C\x50\x72\x69\x6D\x65\x73\x5B\x74\x68\x69\x73\x43\x65\x6C\x6C\x5D","\x6C\x69\x73\x74\x4F\x66\x50\x72\x69\x6D\x65\x73","\x2C\x20","\x69\x6E\x20\x61\x6E\x69\x6D\x61\x74\x65\x52\x65\x73\x75\x6C\x74\x73\x2E","\x6C\x65\x6E\x67\x74\x68","\x73\x68\x69\x66\x74","\x64\x65\x73\x63","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x73\x74\x79\x6C\x65","\x44\x61\x72\x6B\x47\x72\x65\x79","\x63\x6F\x6C\x6F\x72","\x4C\x69\x67\x68\x74\x47\x72\x65\x79"];var potentialPrimes=[];var maxPrime=2000;var animationFrame=[];var animationDescription=[];var effectDelay=1;function mainProcedure(){init();loopThroughPossiblePrimeFactors();animateResults();}function init(){console[_0xfa82[1]](_0xfa82[0]);for(i=2;i<=maxPrime;i++){potentialPrimes[i]=true};for(i=2;i<=maxPrime;i++){var _0xa461x8=document[_0xfa82[3]](_0xfa82[2]);_0xa461x8[_0xfa82[4]]=_0xfa82[5]+i;var _0xa461x9=document[_0xfa82[6]](i);_0xa461x8[_0xfa82[7]](_0xa461x9);var _0xa461xa=document[_0xfa82[9]](_0xfa82[8]);_0xa461xa[_0xfa82[7]](_0xa461x8);};document[_0xfa82[9]](_0xfa82[11])[_0xfa82[10]]=maxPrime;}function loopThroughPossiblePrimeFactors(){console[_0xfa82[1]](_0xfa82[12]);for(possibleFactor=2;possibleFactor<=Math[_0xfa82[13]](maxPrime);possibleFactor++){removeMultiplesOfThisFactor(possibleFactor)};}function removeMultiplesOfThisFactor(_0xa461xd){console[_0xfa82[1]](_0xfa82[14]+_0xa461xd);for(multiple=2;multiple*_0xa461xd<=maxPrime;multiple++){var _0xa461xe=multiple*_0xa461xd;if(potentialPrimes[_0xa461xe]){potentialPrimes[_0xa461xe]=false;animationDescription[_0xfa82[16]](_0xfa82[15]+_0xa461xd);animationFrame[_0xfa82[16]](_0xa461xe);};};}function displayResults(_0xa461x10){console[_0xfa82[1]](_0xfa82[17]+_0xa461x10+_0xfa82[18]+potentialPrimes[_0xa461x10]);if(_0xa461x10<=maxPrime){if(potentialPrimes[_0xa461x10]){document[_0xfa82[9]](_0xfa82[19])[_0xfa82[10]]=document[_0xfa82[9]](_0xfa82[19])[_0xfa82[10]]+_0xfa82[20]+_0xa461x10;_0xa461x10=_0xa461x10+1;displayResults(_0xa461x10);}else {_0xa461x10=_0xa461x10+1;displayResults(_0xa461x10);}};}function animateResults(){console[_0xfa82[1]](_0xfa82[21]);if(animationFrame[_0xfa82[22]]>0){var _0xa461x10=animationFrame[_0xfa82[23]]();var _0xa461x12=animationDescription[_0xfa82[23]]();setTimeout(function(){grayOutThisCell(_0xa461x10);document[_0xfa82[9]](_0xfa82[24])[_0xfa82[10]]=_0xa461x12;animateResults();},effectDelay);};}function grayOutThisCell(_0xa461x10){document[_0xfa82[9]](_0xfa82[5]+_0xa461x10)[_0xfa82[26]][_0xfa82[25]]=_0xfa82[27];document[_0xfa82[9]](_0xfa82[5]+_0xa461x10)[_0xfa82[26]][_0xfa82[28]]=_0xfa82[29];}
+		</script>
+		
+		<style>
+			span {
+				font-family:Arial;
+				font-size:	0.7em;
+				width: 3.5em;
+				background-color: Green;
+				color: White;
+				float: left;
+				//margin-left: 0.5em;
+			}
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>Sieve of Eratosthenes: All prime numbers less than <strong id="maxPrimeID"></strong></h1>
+		<h2 id="desc">Processing...</h3>
+		<!--<p id="listOfPrimes">2</p>-->
+		<div id="listID"></div>
+
+	</body>
+</html>
+
+

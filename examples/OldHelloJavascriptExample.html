@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Drapak">
+		<title>Hello Javascript!</title>
+		
+		<!-- this document has simple code to explore basic javascript -->
+		<!-- 4. Feb 2015 -->
+		
+		
+		<!-- almost all of your javascript code will be in the <head> of your HTML file -->
+		<script>
+			var buttonStatus	=false;	/* this stores the current state of the button */
+			
+			/* this changes the button text wittily after being clicked - oh! the comedy!*/			
+			function buttonChanger () {	
+				if (buttonStatus == false) { 
+					document.getElementById("helloButton").innerHTML	="Hello World!";
+					buttonStatus	=true;
+				} else {
+					document.getElementById("helloButton").innerHTML	="Click again, I dare you!";
+					buttonStatus	=false;
+				}
+			}
+			
+			/* this slurps in the value from the calculator line, 
+			evaluates it, and outputs it to the answer box*/
+			function buttonCalculator () { 
+				/* to read an input line, you read its .value */
+				var calcInput	=document.getElementById("calculatorInput").value;	
+
+				/* OK, eval() is scary. Don't use it for security reasons. 
+				To see why, type in 'alert("woot!");' as your equation. Like I said - scary!*/
+				var calcResults	=eval(calcInput);
+				document.getElementById("answerBox").innerHTML	=calcResults;
+			}
+		</script>
+	</head>
+
+	<body>
+		<h2>Hello Javascript</h2>
+		
+		<!-- make a button that triggers a function when clicked -->
+		<button type="button" id="helloButton" onclick="buttonChanger();">
+			Click for awesome!
+		</button>
+		<hr /> <!-- make a dividing line or _H_orizontal _R_ule -->
+		
+		<p><strong>Type some valid math in here:</strong>
+		<br />
+
+		<!-- make a text input area to accept some cool maths -->
+		<input type="text" id="calculatorInput">
+		<br />
+		<br />
+
+		<!-- make a button that triggers a function when clicked -->
+		<button type="button" id="calculatorButton" onclick="buttonCalculator();">
+			Calculate like a math genius!
+		</button><br />
+		<br />
+		
+		<!-- show the answer! -->
+		Your answer: <strong id="answerBox"></strong></p>
+	</body>
+</html>

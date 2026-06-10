@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Hello color!</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page is meant to demonstrate the basics of CSS, 
+			particularly for text formatting.
+			
+			Created:	25. Feb 2015 -->
+		
+		<script>
+		</script>
+		
+		<style>
+			li, p {
+				font-family: 	Arial;
+				font-size: 		14px;
+				color:			Blue;
+			}
+						
+			strong {
+				color:			Red;
+			}
+			
+			h1, h3 {
+				color:			Purple;
+				font-style: 	italic;
+			}
+			
+			#specialCase {
+				color:			Green;
+				font-weight: 	bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Hello color!</h1>
+		
+		<p><strong>CSS</strong> allows you to format your pages thoughtfully.</p>
+		<p>In the old days, people would add the formatting code right inside the HTML.</p>
+		<p>
+			This turned into a maintenance <strong>nightmare</strong>: 
+			if you wanted to change all the headings in a page, you have to edit each one individually. 
+			In long documents this was a lot of work. 
+			And you couldn't use programming to change formatting easily at all.
+		</p>
+		
+		<h3>Then came CSS</h3>
+		<p>CSS solved a lot of problems:</p>
+		<ul>
+			<li>it organized formatting by encouraging coding all the style information inside the <strong>head</strong> of the document.</li>
+			<li>it made it possible to format elements in a document by tag - like <strong>p</strong>, <strong>h3</strong> or <strong>li</strong>, for example.</li>
+			<li>it made it possible to use Javascript to change the formatting as needed</li>
+			<li id="specialCase">and it still allows you to apply custom formats to small parts of code that are special cases.</li>
+		</ul>
+
+	</body>
+</html>
+
+

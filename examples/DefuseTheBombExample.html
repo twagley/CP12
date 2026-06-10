@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Defuse the bomb</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This example is used to show to how IF statements work
+			
+			Created:	10. March 2015 -->
+		
+		<script>
+			var wireNum	=0;	// global variable for storing the wire number
+			
+			function mainProcedure () {
+				getWireNum();
+				chooseOutcome();
+			}
+			
+			function getWireNum () {	// INPUT: grab the wire number from the input line
+				wireNum	=document.getElementById("inputLine").value;
+			}
+			
+			function chooseOutcome () { // PROCESS: act differently according to which wire
+				//	Remember to use the double equals for comparisons: "=="
+				if (wireNum == 1) {								// defusing wire
+					showDefusedBomb();
+				} else if (wireNum == 2) {						// exploding wire
+					showExplodedBomb();
+				} else if ((wireNum == 3) || (wireNum == 4)) {	// do nothing wire (NOTE: "||" means "or")
+					showStillActiveBomb();
+				} else {										// no wire chosen: clarify instructions
+					showMoreInstructions();
+				}
+			}
+			
+			function showDefusedBomb () {	// OUTPUT: replace image with defused bomb
+				document.getElementById("bombImageID").src	="defusedBomb.png";
+			}
+			
+			function showExplodedBomb () {	// OUTPUT: replace image with exploded bomb
+				document.getElementById("bombImageID").src	="explodedBomb.png";
+			}
+			
+			function showStillActiveBomb () {	// OUTPUT: replace image with still active bomb
+				document.getElementById("bombImageID").src	="stillActiveBomb.png";
+			}
+			
+			function showMoreInstructions () {	// OUTPUT: show additional instructions in the instructions area
+				var outputInstructions	="Enter the <strong>number</strong> of the wire that you will cut. <br />\
+										One wire will defuse the bomb, two of them will do nothing, and one will trigger it. <br />\
+										Good luck!";
+				document.getElementById("instructionsID").innerHTML	=outputInstructions;
+			}
+		</script>
+		
+		<style>
+			// Nothing to see here! Move along!
+		</style>
+	</head>
+
+	<body>
+		<p>
+			<img id="bombImageID" src="nicePictureOfABomb.png">
+		</p>
+		<p id="instructionsID">Oh my gosh! You have to defuse the bomb!</p>
+		<p>
+			Which wire do you cut? Enter 1, 2, 3, or 4:
+			<input type="text" id="inputLine" name="inputLine" size="2">
+			<button type="button" onclick="mainProcedure();">Cut carefully!</button>
+		</p>
+	</body>
+</html>
+
+

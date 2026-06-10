@@ -1,0 +1,23 @@
+
+	<script>
+		/*	This creates a function that is triggered each time that a key is pressed down. 
+			This is better than onkeypress, because onkeydown can detect arrow keys.
+			However, onkeydown cannot detect shifted letters: it detects the shift key as its own code. */
+			
+		var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+			
+		/*	This next command tells the browser to trigger when a key is pressed anywhere */
+		window.onkeydown	=function (keyEvent) {	
+			//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+			characterPressed	=keyEvent.which || keyEvent.keyCode;
+			showMeWhatIPressed();
+		}
+		
+		function showMeWhatIPressed () {
+			//	output the code I pressed - really for debugging more than anything else...
+			var messageToOutput		= "The Unicode value is: " 
+									+ characterPressed;
+
+			document.getElementById("outputBlock").innerHTML	=messageToOutput;			
+		}
+	</script>

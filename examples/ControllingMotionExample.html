@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Controlling motion</title>
+
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<!--This page intros motion animation via keyboard control 
+		
+			Created:	11. March 2015 
+			Updated:	
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+				
+			/*	INPUT: This next command tells the browser to trigger when a key is pressed anywhere */
+			window.onkeydown	=function (keyEvent) {	
+				//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+				characterPressed	=keyEvent.which || keyEvent.keyCode;
+				chooseKeypressResult();
+			}
+
+			function chooseKeypressResult () {	//	PROCESS: decide how to react with different key presses
+				//	and now the real star: a bunch of IF statements to decide what to do
+				//	note that the comparisons use a "==" and NOT a "="!
+				
+				if (characterPressed == 38) {	// if they pressed an UP arrow
+				} else if (characterPressed == 40) {	// if they pressed an DOWN arrow
+				} else if (characterPressed == 39) {	// if they pressed an RIGHT arrow
+				} else if (characterPressed == 37) {	// if they pressed an LEFT arrow
+				}
+			}
+			
+			function animateHeader () {
+				$("#animateID").animate({top: "100px"});
+			}
+			
+		</script>
+	</head>
+
+	<body>
+			<p id="animateID" style="position: relative">OK - let's animate something...</p>
+			<p><button type="button" onclick="animateHeader();">Sure, click here...</button></p>
+			
+	</body>
+</html>

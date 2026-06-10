@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Draw a Maze</title>
+		<!--This page transfers a two-dimensional arrays into a table
+		
+			Created:	31. March 2015 
+			Updated:	
+		-->
+
+		<script>
+			// INIT: define the ticTacToe array and the string to fill the table
+			var ticTacToe =[	["O", "X", "O"],	// row 0
+								["X", "X", "O"],	// row 1
+								["X", "O", "X"]	];	// row 2
+								
+			var tableInnerHTML	="";	// this will store the string that will go inside the table		
+				
+			function mainProcedure () {	// triggered by a button click
+				console.log("in mainProcedure...");
+				
+				processTicTacToe();
+				outputTableInformation();
+			}
+			
+			function processTicTacToe() { //PROCESS: This uses a nested loop through each elements of ticTacToe 
+				console.log("in processTicTacToe...");
+				// we want to be able to extract info into each cell, like: ticTactoe[row][column]
+				// and we want to create a series of rows like: "<tr> <td>X</td> <td>O</td> <td>X</td> </tr>"
+				
+				for (thisRow=0; thisRow <= 2; thisRow++) {					// loop thisRow through 0 -> 2
+					for (thisColumn=0; thisColumn <= 2; thisColumn++) {		// loop thisColumn through 0 -> 2
+						console.log( ticTacToe[thisRow][thisColumn] );		// output the letter stored in this cell of ticTacToe
+					}
+				}
+
+
+
+			}
+			
+			function outputTableInformation () {  //OUTPUT: this puts the table information inside the table labelled "tableID"
+				console.log("in outputTableInformation...");
+				
+				document.getElementById("tableID").innerHTML	=tableInnerHTML;
+			}
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<table id="tableID">	<!-- an empty table to fill with goodies -->
+		</table>
+		
+		<p>
+			<button type="button" onclick="mainProcedure();">Fill the table</button>
+		</p>
+	</body>
+</html>

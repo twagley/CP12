@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Number doubler!</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates proper function input and output
+			
+			Created:	1. April 2015
+			Updated:	
+		-->
+
+		<script>
+			
+			var inputNumber	=12;
+			var outputNumber;
+			
+			// PROCESS: adds one to a inputNumber to create outputNumber
+			function oldAddOne () {
+				console.log('in oldAddOne: ' + inputNumber);
+
+				outputNumber  	=inputNumber + 1;
+			}
+			
+			// so after you run:
+			//		"oldAddOne();" 
+			// outputNumber will equal 13
+			
+			
+			// Notice that this function keeps its own variables.
+			// There are no shared variables between the functions.	
+			
+			// PROCESS: accepts inputNumber, adds one, and returns it
+			function addOne (inputNumber) {
+				console.log('in addOne: ' + inputNumber);
+
+				return inputNumber + 1;
+			}
+			
+			// so after you run:
+			//		var outputNumber =addOne(12);
+			// outputNumber will equal 13
+			//
+			// using function (input) {return} is a cleaner, more elegant way to code
+			
+				
+			
+			
+		</script>
+		
+		<style>
+			/* nothing to see! */
+		</style>
+	</head>
+
+	<body>	<!-- start the program after the page loads -->
+		<h1>Number doubler!</h1>
+		
+		<p>
+			Enter a number to double: 
+			<input type="input" id="inputID" name="inputID" size="3" value="42"> 
+			<button type="button" onclick="mainProcedure();">Math it up!</button>
+		</p>
+		
+		<p>The answer is: <span id="outputID"></span></p>
+	</body>
+</html>
+
+

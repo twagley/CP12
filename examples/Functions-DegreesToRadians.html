@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Convert Degrees to Radians!</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates proper function input and output
+			
+			Created:	1. April 2015
+			Updated:	
+		-->
+
+		<script>
+			// Notice that each function keeps its own variables.
+			// There are no shared variables between the functions.
+	
+			function mainProcedure () { 
+				// grab the degrees, convert it to radians, and output it...
+				outputNumber( convertDegreesToRadians ( readDegrees() ) );	
+			}
+			
+			// INPUT: 	reads the value at #inputID to get the degrees, and returns it
+			function readDegrees () {
+				console.log('in readDegrees...');
+				
+				return document.getElementById('inputID').value;
+			}
+			
+			// PROCESS: accepts thisDegrees, converts it to radians, and returns it
+			function convertDegreesToRadians (thisDegrees) {
+				console.log('in convertDegreesToRadians: ' + thisDegrees);
+
+				return thisDegrees * Math.PI / 180;
+			}
+			
+			// OUTPUT: accepts thisNumber and outputs it inside #outputID
+			function outputNumber (thisNumber) {
+				console.log('in outputNumber: ' + thisNumber);
+				
+				document.getElementById('outputID').innerHTML	=thisNumber;
+			}
+		</script>
+		
+		<style>
+			/* nothing to see! */
+		</style>
+	</head>
+
+	<body>	<!-- start the program after the page loads -->
+		<h1>Convert Degrees to Radians!</h1>
+		
+		<p>
+			Enter the degrees to convert to radians: 
+			<input type="input" id="inputID" name="inputID" size="3" value="180">&deg;
+			<button type="button" onclick="mainProcedure();">Circumambulate!</button>
+		</p>
+		
+		<p>The answer is: <span id="outputID"></span></p>
+	</body>
+</html>
+
+

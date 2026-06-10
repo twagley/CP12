@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Number doubler!</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates proper function input and output
+			
+			Created:	1. April 2015
+			Updated:	
+		-->
+
+		<script>
+			// Notice that each function keeps its own variables.
+			// There are no shared variables between the functions.
+	
+			function mainProcedure () { 
+				var numToDouble		=readNumber();
+				
+				var doubledNumber 	=doubleNumber(numToDouble);
+				
+				outputNumber(doubledNumber);			
+			}
+			
+			// INPUT: 	reads #inputID to get the double-able number, and returns it
+			function readNumber () {
+				console.log('in readNumber...');
+				
+				var inputNumber		=document.getElementById('inputID').value;
+				return inputNumber;
+			}
+			
+			// PROCESS: accepts thisNumber, multiplies it by 2, and returns it
+			function doubleNumber (thisNumber) {
+				console.log('in doubleNumber: ' + thisNumber);
+
+				var newNumber  	=thisNumber * 2;
+				return newNumber;
+			}
+			
+			// OUTPUI: accepts thisNumber and outputs it inside #outputID
+			function outputNumber (thisNumber) {
+				console.log('in outputNumber: ' + thisNumber);
+				
+				document.getElementById('outputID').innerHTML	=thisNumber;
+			}
+		</script>
+		
+		<style>
+			/* nothing to see! */
+		</style>
+	</head>
+
+	<body>	<!-- start the program after the page loads -->
+		<h1>Number doubler!</h1>
+		
+		<p>
+			Enter a number to double: 
+			<input type="input" id="inputID" name="inputID" size="3" value="42"> 
+			<button type="button" onclick="mainProcedure();">Math it up!</button>
+		</p>
+		
+		<p>The answer is: <span id="outputID"></span></p>
+	</body>
+</html>
+
+

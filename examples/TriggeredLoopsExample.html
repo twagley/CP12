@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Triggered loops</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page is meant to show how to create a loop that is used for 
+			calculation and not just counting
+			This example asks for an calculates the first N powers of two
+			
+			Created:	5. March 2015 -->
+		
+		<script>
+			var maxMultiple		=0;
+			var outputString	="<h4>Your multiples of three:</h4><p>";
+
+			/*	This triggers the input/processing/output process */
+			function mainProcedure () {
+				readMaxMultiple();
+				calculateMultiples();
+				outputMultiples();
+			}
+			
+			function readMaxMultiple () {
+				maxMultiple	=document.getElementById("maxMultiple").value;
+			}
+			
+			function calculateMultiples () {
+				for (thisMultiple=1; thisMultiple <= maxMultiple; thisMultiple = thisMultiple + 3) {
+					outputString	=outputString + thisMultiple.toString() + "<br />";
+				}
+			}
+			
+			function outputMultiples () {
+				outputString	=outputString + "</p>";
+				document.getElementById("outputArea").innerHTML	=outputString;
+			}
+		</script>
+		
+		<style>
+			/*	no styles today */
+		</style>
+	</head>
+
+	<body>
+		<h1>Multiples of three</h1>
+		<p>
+			Please enter the maximum multiple of three to list: 
+			<input type="text" id="maxMultiple" name="maxMultiple" size="2"><br />
+			<button type="button" onclick="mainProcedure();">Calculate multiples</button><br />
+			
+			<output id="outputArea" name="outputArea"></output>
+		</p>
+	</body>
+</html>
+
+

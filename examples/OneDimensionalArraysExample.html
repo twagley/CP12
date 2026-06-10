@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>One dimensional arrays</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates how to use one-dimensional arrays 
+			
+			Created:	16. March 2015
+			Updated:	24. March 2015
+						--obfuscated the javascript code
+			-->
+
+
+		<script>
+			var _0x7734=["\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x69\x6E\x20\x69\x6E\x69\x74\x69\x61\x6C\x69\x7A\x65\x4D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x73\x2E\x2E\x2E","\x4A\x61\x6E\x75\x61\x72\x79","\x46\x65\x62\x72\x75\x61\x72\x79","\x4D\x61\x72\x63\x68","\x41\x70\x72\x69\x6C","\x4D\x61\x79","\x4A\x75\x6E\x65","\x4A\x75\x6C\x79","\x41\x75\x67\x75\x73\x74","\x53\x65\x70\x74\x65\x6D\x62\x65\x72","\x4F\x63\x74\x6F\x62\x65\x72","\x4E\x6F\x76\x65\x6D\x62\x65\x72","\x70\x75\x73\x68","\x6C\x65\x6E\x67\x74\x68","\x44\x65\x63\x65\x6D\x62\x65\x72","\x69\x6E\x20\x69\x6E\x69\x74\x69\x61\x6C\x69\x7A\x65\x44\x61\x79\x73\x4F\x66\x57\x65\x65\x6B\x2E\x2E\x2E","\x4D\x6F\x6E\x64\x61\x79","\x54\x75\x65\x73\x64\x61\x79","\x57\x65\x64\x6E\x65\x73\x64\x61\x79","\x54\x68\x75\x72\x73\x64\x61\x79","\x46\x72\x69\x64\x61\x79","\x53\x61\x74\x75\x72\x64\x61\x79","\x53\x75\x6E\x64\x61\x79","\x75\x6E\x73\x68\x69\x66\x74","\x69\x6E\x20\x69\x6E\x69\x74\x69\x61\x6C\x69\x7A\x65\x4F\x72\x64\x69\x6E\x61\x6C\x4E\x75\x6D\x62\x65\x72\x73\x2E\x2E\x2E","\x32\x6E\x64","\x33\x72\x64","\x34\x74\x68","\x35\x74\x68","\x36\x74\x68","\x37\x74\x68","\x38\x74\x68","\x39\x74\x68","\x31\x73\x74","\x74\x68","\x32","\x33\x30\x74\x68","\x33\x31\x73\x74","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x4D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x73\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6E\x75\x6D\x4D\x6F\x6E\x74\x68\x73\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x30","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x31","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x32","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x33","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x34","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x35","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x36","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x37","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x38","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x39","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x31\x30","\x6D\x6F\x6E\x74\x68\x4E\x61\x6D\x65\x49\x44\x31\x31","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x44\x61\x79\x73\x4F\x66\x57\x65\x65\x6B\x2E\x2E\x2E","\x64\x61\x79\x73\x49\x6E\x41\x57\x65\x65\x6B\x49\x44","\x77\x65\x65\x6B\x44\x61\x79\x49\x44","\x69\x6E\x20\x6F\x75\x74\x70\x75\x74\x4F\x72\x64\x69\x6E\x61\x6C\x4E\x75\x6D\x62\x65\x72\x73\x2E\x2E\x2E","\x6E\x75\x6D\x4F\x72\x64\x69\x6E\x61\x6C\x73\x49\x44","\x6C\x69\x73\x74\x4F\x66\x4F\x72\x64\x69\x6E\x61\x6C\x73\x49\x44","\x2C\x20","\x6A\x6F\x69\x6E"];var monthNames,daysOfWeek,ordinalNumbers=[];function mainProcedure(){console[_0x7734[1]](_0x7734[0]);initializeMonthNames();initializeDaysOfWeek();initializeOrdinalNumbers();outputMonthNames();outputDaysOfWeek();outputOrdinalNumbers();}function initializeMonthNames(){console[_0x7734[1]](_0x7734[2]);monthNames=[_0x7734[3],_0x7734[4],_0x7734[5],_0x7734[6],_0x7734[7],_0x7734[8],_0x7734[9],_0x7734[10],_0x7734[11],_0x7734[12]];monthNames[_0x7734[14]](_0x7734[13]);monthNames[monthNames[_0x7734[15]]]=_0x7734[16];}function initializeDaysOfWeek(){console[_0x7734[1]](_0x7734[17]);daysOfWeek=[_0x7734[18],_0x7734[19],_0x7734[20],_0x7734[21],_0x7734[22],_0x7734[23]];daysOfWeek[_0x7734[25]](_0x7734[24]);}function initializeOrdinalNumbers(){console[_0x7734[1]](_0x7734[26]);ordinalNumbers=[_0x7734[27],_0x7734[28],_0x7734[29],_0x7734[30],_0x7734[31],_0x7734[32],_0x7734[33],_0x7734[34]];ordinalNumbers[_0x7734[25]](_0x7734[35]);for(i=10;i<=20;i++){ordinalNumbers[_0x7734[14]](i+_0x7734[36])};for(i=1;i<=9;i++){ordinalNumbers[_0x7734[14]](_0x7734[37]+ordinalNumbers[i-1])};ordinalNumbers[_0x7734[14]](_0x7734[38]);ordinalNumbers[30]=_0x7734[39];}function outputMonthNames(){console[_0x7734[1]](_0x7734[40]);document[_0x7734[43]](_0x7734[42])[_0x7734[41]]=monthNames[_0x7734[15]];document[_0x7734[43]](_0x7734[44])[_0x7734[41]]=monthNames[0];document[_0x7734[43]](_0x7734[45])[_0x7734[41]]=monthNames[1];document[_0x7734[43]](_0x7734[46])[_0x7734[41]]=monthNames[2];document[_0x7734[43]](_0x7734[47])[_0x7734[41]]=monthNames[3];document[_0x7734[43]](_0x7734[48])[_0x7734[41]]=monthNames[4];document[_0x7734[43]](_0x7734[49])[_0x7734[41]]=monthNames[5];document[_0x7734[43]](_0x7734[50])[_0x7734[41]]=monthNames[6];document[_0x7734[43]](_0x7734[51])[_0x7734[41]]=monthNames[7];document[_0x7734[43]](_0x7734[52])[_0x7734[41]]=monthNames[8];document[_0x7734[43]](_0x7734[53])[_0x7734[41]]=monthNames[9];document[_0x7734[43]](_0x7734[54])[_0x7734[41]]=monthNames[10];document[_0x7734[43]](_0x7734[55])[_0x7734[41]]=monthNames[11];}function outputDaysOfWeek(){console[_0x7734[1]](_0x7734[56]);document[_0x7734[43]](_0x7734[57])[_0x7734[41]]=daysOfWeek[_0x7734[15]];for(i=0;i<=6;i++){document[_0x7734[43]](_0x7734[58]+i)[_0x7734[41]]=daysOfWeek[i]};}function outputOrdinalNumbers(){console[_0x7734[1]](_0x7734[59]);document[_0x7734[43]](_0x7734[60])[_0x7734[41]]=ordinalNumbers[_0x7734[15]];document[_0x7734[43]](_0x7734[61])[_0x7734[41]]=ordinalNumbers[_0x7734[63]](_0x7734[62]);}
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>One dimensional arrays</h1>
+		
+		<h3>There are <span id="numMonthsID"></span> months in a year.</h3>
+		<p>
+			The names of the months are: 
+			<strong>
+				<span id="monthNameID0"></span>,
+				<span id="monthNameID1"></span>,
+				<span id="monthNameID2"></span>,
+				<span id="monthNameID3"></span>,
+				<span id="monthNameID4"></span>,
+				<span id="monthNameID5"></span>,
+				<span id="monthNameID6"></span>,
+				<span id="monthNameID7"></span>,
+				<span id="monthNameID8"></span>,
+				<span id="monthNameID9"></span>,
+				<span id="monthNameID10"></span>,
+				<span id="monthNameID11"></span>
+			</strong>
+		</p>
+
+		<h3>There are <span id="daysInAWeekID"></span> days in a week.</h3>
+		<p>
+			The days of the week are: 
+			<strong>
+				<span id="weekDayID0"></span>, 
+				<span id="weekDayID1"></span>,
+				<span id="weekDayID2"></span>,
+				<span id="weekDayID3"></span>,
+				<span id="weekDayID4"></span>,
+				<span id="weekDayID5"></span>,
+				<span id="weekDayID6"></span>
+			</strong>
+		</p>
+		
+		<h3>Ordinal numbers are used to show order (for example: first, second, third, ...)</h3>
+		<h4>The first <span id="numOrdinalsID"></span> ordinal numbers are:</h4>
+		<p id="listOfOrdinalsID"></p>
+	</body>
+</html>
+
+

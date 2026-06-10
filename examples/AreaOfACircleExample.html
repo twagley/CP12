@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Area of a Circle</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This shows how to split your code into chunks:
+			HTML for the user interface, & the javascript broken up into useful modules:
+					input, calculation, output
+			
+			Created:	24. Feb 2015 -->
+		
+		<script>
+			/*	This function calls each of the sub modules */
+			function mainProcedure () {
+				var radius	=0;	/* define the radius var so it can be seen by everything */
+				var	area	=0;	/* define the area var so it can be seen as well */
+				getRadius();
+				calculateArea();
+				displayArea();
+			}
+			
+			/* 	getRadius looks inside the input line and stores that as the radius	*/
+			function getRadius() {
+				radius	=document.getElementById("inputLine").value;
+			}
+
+			/* 	calculateArea calculates the area using A=pi(r^2), given the radius */
+			function calculateArea() {
+				area	=radius * radius * Math.PI;
+			}
+			
+			/* 	displayArea displays the answer inside the element with id="outputBlock" */
+			function displayArea() {
+				document.getElementById("outputBlock").innerHTML	=area;
+			}
+		</script>
+		
+		<style>/* no style today! */</style>
+	</head>
+
+	<body>
+		<h1>Area of a Circle</h1>
+		<p>
+			Please enter the radius of the circle: 
+			<input type="text" id="inputLine" name="inputLine" size="5" autofocus="true">
+			<button type="button" onclick="mainProcedure();">Calculate!</button>
+		</p>
+		<p>The area is: <output id="outputBlock" name="outputBlock"></output></p>
+
+	</body>
+</html>
+
+

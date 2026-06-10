@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+
+		<title>Tic Tac Toe</title>
+		<!--This page transfers a two-dimensional arrays into a table
+		
+			Created:	31. March 2015 
+			Updated:	14. April 2015 -reworked for function pipelines
+		-->
+
+		<script>
+			function mainProcedure () {	// triggered by a button click
+				var ticTacToeGrid	=initGrid();
+				var htmlTable 		=convertGridToHTMLTable(ticTacToeGrid);
+				outputTableInformation(htmlTable);
+			}
+			
+			function initGrid() {// INIT: define the ticTacToe array and the string to fill the table
+				var ticTacToe =[	["O", "X", "O"],	// row 0
+									["X", "X", "O"],	// row 1
+									["X", "O", "X"]	];	// row 2
+				return ticTacToe;
+			}
+			
+			function convertGridToHTMLTable(ticTacToe) { //PROCESS: This uses a nested loop through each elements of ticTacToe 
+				// we want to be able to extract info into each cell, like: ticTactoe[row][column]
+				// and we want to create a series of rows like: "<tr> <td>X</td> <td>O</td> <td>X</td> </tr>"
+
+				var tableInnerHTML	="";	// this will store the string that will go inside the table		
+				
+				for (thisRow=0; thisRow <= 2; thisRow++) {		// loop thisRow through 0 -> 2
+					tableInnerHTML	=tableInnerHTML+"<tr>";		// start the HTML for a new row
+					
+					for (thisColumn=0; thisColumn <= 2; thisColumn++) {		// loop thisColumn through 0 -> 2
+					
+						tableInnerHTML	=tableInnerHTML						
+										+ "<td>"							// start the HTML for a new cell
+										+ ticTacToe[thisRow][thisColumn]	// add the letter stored in this cell of ticTacToe
+										+ "</td>";							// end the HTML for a new cell
+					}
+					
+					tableInnerHTML	=tableInnerHTML+"</tr>";	// end the HTML for a new row					
+				}
+				return tableInnerHTML;
+			}
+			
+			function outputTableInformation (html) {  //OUTPUT: this puts the table information inside the table labelled "tableID"
+				document.getElementById("tableID").innerHTML	=html;
+			}
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<table id="tableID">	<!-- an empty table to fill with goodies -->
+		</table>
+		
+		<p>
+			<button type="button" onclick="mainProcedure();">Fill the table</button>
+		</p>
+	</body>
+</html>

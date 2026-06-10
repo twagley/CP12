@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			function animateHeader () {
+				$("#animateID").animate({top: "+=100px"});
+			}			
+		</script>
+		<style>
+			#animateID {
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+			<h3 id="animateID">OK - let's animate something...</h3>
+			<p><button type="button" onclick="animateHeader();">Sure, click here...</button></p>			
+	</body>
+</html>

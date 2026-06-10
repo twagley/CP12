@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Drapak">
+		<title>Hello Javascript!</title>
+		
+		<!-- 
+			This document has simple code to explore basic javascript
+			
+			Created: 4. Feb 2015
+				5. Feb 2015	-simplified document to for a less complicated intro
+							-notice that html comments use a certain kind of tag?
+		-->
+		
+		<!-- almost all of your javascript code will be in the <head> of your HTML file -->
+		<script>
+		
+			/* 
+				This function changes the button text wittily after being clicked.
+				Oh! The comedy!
+				
+				It looks for the HTML element that has an id of "helloButton" and replaces 
+				anything inside that element with "Hello World!"
+				
+				Notice that the 'grammar' changes in the <script> area. You are now in 
+				javascript territory. Comments should be tagged with the slashes and asterices. 
+				
+				(You can get away with HTML comment tags in here, but that habit will mess 
+				you up if you do that in external javascript files. So don't.)
+				
+			*/
+
+			function buttonChanger () {	
+					document.getElementById("helloButton").innerHTML	="Hello World!";
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<h2>Hello Javascript</h2>
+		
+		<!-- 
+			Make a button that triggers a function when clicked
+		
+			It is good form to make the name= and id= of a form element to be the same.
+			The name= is not important for most Javascript programming, but it would make
+			a difference if you were submitting the form to a server for processing. 
+		-->
+		
+		<button type="button" id="helloButton" name="helloButton" onclick="buttonChanger();">
+			Wait! Don't click me!
+		</button>
+	</body>
+</html>

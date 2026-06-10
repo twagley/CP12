@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			$( "#clickme" ).click(function() {
+				$( "#book" ).animate({
+					opacity: 0.25,
+					left: "+=50px",
+					height: "toggle"
+				}, 5000);
+			});		
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<div id="clickme">
+		  Click here
+		</div>
+		<!--<img id="book" src="book.png" alt="" width="100" height="123"
+		  style="position: relative; left: 10px;"> -->
+		<p id="book" src="book.png" alt="" 
+		  style="position: relative; left: 10px;"> Hello!</p>
+	</body>
+</html>

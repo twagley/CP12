@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Build a clock</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page demonstrates how to use one-dimensional arrays and date objects
+			
+			Created:	16. March 2015 -->
+
+		<script>
+			// INIT:	define the nature of each variable
+			var monthNames		="January, February, March, April, May, June, July, August, September, October, November, December".split(", ");
+			var daysOfWeek		="Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday".split(", ");
+			var ordinalNumbers	="thereIsNoZeroth, 1st, 2nd, 3rd, 4th, 5th, 6th, 7th, 8th, 9th, 10th, 11th, 12th, 13th, 14th, 15th, 16th, 17th, 18th, 19th, 20th, 21st, 22nd, 23rd, 24th, 25th, 26th, 27th, 28th, 29th, 30th, 31st".split(", ");
+			var hours			="12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11".split(", ");
+			var AMOrPM			="am, am, am, am, am, am, am, am, am, am, am, am, pm, pm, pm, pm, pm, pm, pm, pm, pm, pm, pm, pm".split(", ");
+			
+			var monthString, dayOfWeekString, ordinalNumberString, hourString, AMOrPMString, minutesString, secondsString, fullYearString ="";
+			var dateObject;
+			
+			function mainProcedure () {
+				console.log("in mainProcedure...");
+				
+				getDateObject();
+				calculateDateInfo();
+				outputTimeAndDate();
+				
+				setInterval(function(){	// every 1000 milliseconds, update the date and output it
+					getDateObject();
+					calculateDateInfo();
+					outputTimeAndDate();
+				}, 1000);
+			}
+			
+			function getDateObject () {		// INPUT: grab the current time and date
+				dateObject	=new Date();	// note the 'new' and the capital 'D'
+			}
+
+			function calculateDateInfo () { // PROCESS: assign the proper values to the output variables;
+				hourString				=hours[ dateObject.getHours() ];
+				minutesString			=dateObject.getMinutes();
+				secondsString			=dateObject.getSeconds();
+				AMOrPMString			=AMOrPM[ dateObject.getHours() ];
+				
+				dayOfWeekString			=daysOfWeek[ dateObject.getDay() ];
+				monthString				=monthNames[ dateObject.getMonth() ];
+				ordinalNumberString		=ordinalNumbers[ dateObject.getDate() ];
+				fullYearString			=dateObject.getFullYear();
+			
+			}
+			
+			function outputTimeAndDate () {
+				document.getElementById("hourID").innerHTML		=hourString;
+				document.getElementById("minuteID").innerHTML	=minutesString;
+				document.getElementById("secondID").innerHTML	=secondsString;
+				document.getElementById("AMOrPMID").innerHTML	=AMOrPMString;
+				
+				document.getElementById("weekdayID").innerHTML	=dayOfWeekString;
+				document.getElementById("monthID").innerHTML	=monthString;
+				document.getElementById("dayID").innerHTML		=ordinalNumberString;
+				document.getElementById("yearID").innerHTML		=fullYearString;
+			}
+		</script>
+		
+		<style>
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>What time is it Mr. Wolf?</h1>
+		
+		<p>The time is currently: 
+			<strong>
+				<span id="hourID"></span>:<span id="minuteID"></span>:<span id="secondID"></span><span id="AMOrPMID"></span>
+			</strong> on
+			<strong>
+				<span id="weekdayID"></span>, 
+				<span id="monthID"></span>
+				<span id="dayID"></span>, 
+				<span id="yearID"></span>
+			</strong>
+		
+	</body>
+</html>
+
+

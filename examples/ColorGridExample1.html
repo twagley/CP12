@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Color grid</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This example is used to show how nested loops can by used
+			to affect the color values in an element using CSS
+			
+			Created:	8. March 2015 -->
+		
+		<script>
+			/*	This is called when a button is clicked */
+			function mainProcedure () {
+				createGrid();
+				calculateColor();
+			}
+			
+			/*
+				This creates a table with 256 rows and 256 columns, where each cell is 
+				labeled with an id="cell-43-232ID". For example:
+				
+				<table>
+					<tr>
+						<td id="cell-0-0ID"> </td>
+						<td id="cell-0-1ID"> </td>
+						<td id="cell-0-2ID"> </td>
+						...
+					</tr>
+					<tr>
+						<td id="cell-1-0ID"> </td>
+						<td id="cell-1-1ID"> </td>
+						<td id="cell-1-2ID"> </td>
+						...
+					</tr>
+					...
+				</table>
+				
+				Then it inserts the table code into the element called "gridID" 
+			*/
+			function createGrid () {
+				var tableString	="<table>";
+				for (thisRow=0; thisRow <=255; thisRow=thisRow+1) {
+					tableString	=tableString+"<tr>";
+					for (thisColumn=0; thisColumn <=255; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+							
+						tableString	=tableString
+									+"<td id='"
+									+thisCellID
+									+"'> </td>";
+					}
+					tableString	=tableString+"</tr>";
+				}
+				tableString	=tableString+"</table>";
+				document.getElementById("gridID").innerHTML =tableString;
+			}
+
+			function calculateColor () { 
+				for (thisRow=0; thisRow <=255; thisRow++) {
+					for (thisColumn=0; thisColumn <=255; thisColumn++) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+							
+						var thisColor	=
+							"rgb("
+							+ thisRow.toString()
+							+ ", "
+							+ thisColumn.toString()
+							+ ", 127)";
+							
+						applyColor(thisCellID, thisColor);
+					}
+				}
+			}
+			
+			function applyColor (thisID, thisColor) {
+				document.getElementById(thisID).style.backgroundColor=thisColor;
+			}
+		</script>
+		
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			
+			td {
+				height: 2px;
+				width: 2px;
+				border: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Color grid</h1>
+		<div id="gridID"></div>
+		<p>
+			<button type="button" onclick="mainProcedure();">Click to create a color grid!</button><br />
+		</p>
+	</body>
+</html>
+
+

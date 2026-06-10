@@ -1,0 +1,41 @@
+	function mainProcedure() {
+		var characterObject			=initCharacterObject();
+		var characterInfoString 	=createCharacterInfo(characterObject);
+		outputCharacterInfo( characterInfoString );
+		
+		// This could also be written as:
+		//		outputCharacterInfo( createCharacterInfo( initCharacterObject() ) );
+	}
+	
+	function initCharacterObject() { // INIT: set up the character object
+		var charObject	={};	// define as an empty object to start
+		
+		charObject.name			="Herbert the Mighty";
+		charObject.level		="11";
+		charObject.profession	="Accountant";
+		charObject.weapon		="spreadsheet";
+		
+		return charObject;		// this outputs the whole object and all its properties from this function
+	}
+	
+	// PROCESS: this creates a string that describes this character
+	// Input parameters: an object of character properties
+	function createCharacterInfo( thisCharacterObject ) { 
+		var thisInfoString	="Name: "
+							+ thisCharacterObject.name
+							+ " Level: "
+							+ thisCharacterObject.level
+							+ " Profession: "
+							+ thisCharacterObject.profession
+							+ " Weapon: "
+							+ thisCharacterObject.weapon;
+
+		return thisInfoString;	// this outputs the character info string from this function
+	}
+	
+	// OUTPUT: put the character description inside element with id="outputID"
+	// Input parameters: a string of character information
+	function outputCharacterInfo( thisCharacterInfoString ) { 
+		document.getElementById('outputID').innerHTML	=thisCharacterInfoString;
+	}
+	

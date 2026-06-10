@@ -1,0 +1,473 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Color grid</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This example is used to show how nested loops can by used
+			to affect the color values in an element using CSS
+			
+			Created:	8. March 2015 -->
+		
+		<script>
+			/*	This is called when a button is clicked */
+			function labelWithColors () {
+				for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+					for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+							
+						var thisColor	=
+							"rgb("
+							+ (thisRow*16).toString()
+							+ ", "
+							+ (thisColumn*16).toString()
+							+ ", 127)";
+							
+						document.getElementById(thisCellID).innerHTML=thisColor;
+					}
+				}
+			}
+			
+			function applyColors () {
+				for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+					for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+							
+						var thisColor	=
+							"rgb("
+							+ (thisRow*16).toString()
+							+ ", "
+							+ (thisColumn*16).toString()
+							+ ", 127)";
+							
+						document.getElementById(thisCellID).style.backgroundColor=thisColor;
+					}
+				}
+			}
+			
+			function labelWithCellID () {
+				for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+					for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+														
+						document.getElementById(thisCellID).innerHTML	="id='"+thisCellID+"'";
+					}
+				}
+			}
+			
+			function emptyCells () {
+				for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+					for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+														
+						document.getElementById(thisCellID).innerHTML	='';
+					}
+				}
+			}
+			
+			function showMultiplicationTable () {
+				for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+					for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+						var thisCellID	="cell-"
+							+ thisRow.toString()
+							+ "-"
+							+ thisColumn.toString()
+							+ "-ID";
+														
+						var thisHTML	=
+							thisRow.toString()
+							+ 'x'
+							+ thisColumn.toString()
+							+ '='
+							+ (thisRow * thisColumn).toString();
+							
+						document.getElementById(thisCellID).innerHTML	=thisHTML;
+					}
+				}
+			}
+		</script>
+		
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			
+			td {
+				height: 10px;
+				width: 10px;
+				border: 1px solid black;			
+			}
+			
+			.noBorder {
+				height: 10px;
+				width:	10px;
+				border: 0px;						
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<h1>Color grid</h1>
+		
+		<p>Let's say we have a <strong>4x4 table</strong>:</p>
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<p>Each table cell is made of <code>&lt;td&gt;</code> tags. And then inside, we add <strong>id=""</strong> labels like this:</p>
+		<table>
+			<tr>
+				<td>id="cell-0-0-ID"</td>
+				<td>id="cell-0-1-ID"</td>
+				<td>id="cell-0-2-ID"</td>
+				<td>id="cell-0-3-ID"</td>
+			</tr>
+			<tr>
+				<td>id="cell-1-0-ID"</td>
+				<td>id="cell-1-1-ID"</td>
+				<td>id="cell-1-2-ID"</td>
+				<td>id="cell-1-3-ID"</td>
+			</tr>
+			<tr>
+				<td>id="cell-2-0-ID"</td>
+				<td>id="cell-2-1-ID"</td>
+				<td>id="cell-2-2-ID"</td>
+				<td>id="cell-2-3-ID"</td>
+			</tr>
+			<tr>
+				<td>id="cell-3-0-ID"</td>
+				<td>id="cell-3-1-ID"</td>
+				<td>id="cell-3-2-ID"</td>
+				<td>id="cell-3-3-ID"</td>
+			</tr>
+		</table>
+		
+		<p>Then we can use <strong>nested loops</strong> to manipulate the individual cells. A nested loop goes like this:</p>
+		<pre><code>
+for (loopOne = 0; loopOne <=3; loopOne++) {
+	for (loopTwo = 0; loopTwo <=3; loopTwo++) {
+		/* do something repeated in here */
+	}
+}
+		</code></pre>
+		
+		<p>This will loop through the following sets of values:</p>
+		<ul>
+			<li>loopOne = 0; loopTwo = 0;</li>
+			<li>loopOne = 0; loopTwo = 1;</li>
+			<li>loopOne = 0; loopTwo = 2;</li>
+			<li>loopOne = 0; loopTwo = 3;</li>
+			<li>loopOne = 1; loopTwo = 0;</li>
+			<li>loopOne = 1; loopTwo = 1;</li>
+			<li>loopOne = 1; loopTwo = 2;</li>
+			<li>loopOne = 1; loopTwo = 3;</li>
+			<li>loopOne = 2; loopTwo = 0;</li>
+			<li>loopOne = 2; loopTwo = 1;</li>
+			<li>loopOne = 2; loopTwo = 2;</li>
+			<li>loopOne = 2; loopTwo = 3;</li>
+			<li>loopOne = 3; loopTwo = 0;</li>
+			<li>loopOne = 3; loopTwo = 1;</li>
+			<li>loopOne = 3; loopTwo = 2;</li>
+			<li>loopOne = 3; loopTwo = 3;</li>
+		</ul>
+		
+		<p>We can create code to do write something in each cell:</p>
+		<pre><code>
+for (loopOne = 0; loopOne <=3; loopOne++) {
+	for (loopTwo = 0; loopTwo <=3; loopTwo++) {
+		var thisCellID	=	// This adds together the parts of the cell ID
+				"Cell-"
+				+ loopOne.toString() 
+				+ "-"
+				+ loopTwo.toString() 
+				+ "-ID";
+		
+		// now write something inside each cell
+		document.getElementById(thisCellID).innerHTML="hello"; 	
+	}
+}
+		</code></pre>
+		
+		<p>Now we have:</p>
+		<table>
+			<tr>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+			</tr>
+			<tr>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+			</tr>
+			<tr>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+			</tr>
+			<tr>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+				<td>hello</td>
+			</tr>
+		</table>
+		<p>We can create code to do write something <strong>different</strong> in each cell:</p>
+		<pre><code>
+for (loopOne = 0; loopOne <=3; loopOne++) {
+	for (loopTwo = 0; loopTwo <=3; loopTwo++) {
+		var thisCellID	=	// This adds together the parts of the cell ID
+				"Cell-"
+				+ loopOne.toString() 
+				+ "-"
+				+ loopTwo.toString() 
+				+ "-ID";
+		
+		var thisCellContent	=	// This creates the text of a times table cell
+				loopOne.toString()
+				+ "x"
+				+ loopTwo.toString()
+				+ "="
+				+ (loopOne*loopTwo).toString();
+		
+		// now write the times table info into the inside of the cell
+		document.getElementById(thisCellID).innerHTML=thisCellContent; 	
+	}
+}
+		</code></pre>
+		
+		<p>Now we have:</p>
+		<table>
+			<tr>
+				<td>0x0=0</td>
+				<td>0x1=0</td>
+				<td>0x2=0</td>
+				<td>0x3=0</td>
+			</tr>
+			<tr>
+				<td>1x0=0</td>
+				<td>1x1=1</td>
+				<td>1x2=2</td>
+				<td>1x3=3</td>
+			</tr>
+			<tr>
+				<td>2x0=0</td>
+				<td>2x1=2</td>
+				<td>2x2=4</td>
+				<td>2x3=6</td>
+			</tr>
+			<tr>
+				<td>3x0=0</td>
+				<td>3x1=3</td>
+				<td>3x2=6</td>
+				<td>3x3=9</td>
+			</tr>
+		</table>
+		
+		<h2>A larger example</h2>
+		<button type="button" onclick="labelWithCellID();">Click to label with cell ID names</button>
+		<button type="button" onclick="showMultiplicationTable();">Click to show multiplication table</button>
+		<button type="button" onclick="labelWithColors();">Click to show color codes</button>
+		<button type="button" onclick="emptyCells();">Click to empty cell contents</button>
+		<button type="button" onclick="applyColors();">Click to add color!</button>
+		
+		<hr />
+		<table id="gridTable">
+			<tbody>
+				<tr>
+					<td id="cell-0-0-ID"> </td>
+					<td id="cell-0-1-ID"> </td>
+					<td id="cell-0-2-ID"> </td>
+					<td id="cell-0-3-ID"> </td>
+					<td id="cell-0-4-ID"> </td>
+					<td id="cell-0-5-ID"> </td>
+					<td id="cell-0-6-ID"> </td>
+					<td id="cell-0-7-ID"> </td>
+					<td id="cell-0-8-ID"> </td>
+					<td id="cell-0-9-ID"> </td>
+					<td id="cell-0-10-ID"> </td>
+					<td id="cell-0-11-ID"> </td>
+					<td id="cell-0-12-ID"> </td>
+					<td id="cell-0-13-ID"> </td>
+					<td id="cell-0-14-ID"> </td>
+					<td id="cell-0-15-ID"> </td>
+				</tr>
+				
+				<tr><td id="cell-1-0-ID"> </td><td id="cell-1-1-ID"> </td><td id="cell-1-2-ID"> </td><td id="cell-1-3-ID"> </td><td id="cell-1-4-ID"> </td><td id="cell-1-5-ID"> </td><td id="cell-1-6-ID"> </td><td id="cell-1-7-ID"> </td><td id="cell-1-8-ID"> </td><td id="cell-1-9-ID"> </td><td id="cell-1-10-ID"> </td><td id="cell-1-11-ID"> </td><td id="cell-1-12-ID"> </td><td id="cell-1-13-ID"> </td><td id="cell-1-14-ID"> </td><td id="cell-1-15-ID"> </td></tr>
+				
+				<tr><td id="cell-2-0-ID"> </td><td id="cell-2-1-ID"> </td><td id="cell-2-2-ID"> </td><td id="cell-2-3-ID"> </td><td id="cell-2-4-ID"> </td><td id="cell-2-5-ID"> </td><td id="cell-2-6-ID"> </td><td id="cell-2-7-ID"> </td><td id="cell-2-8-ID"> </td><td id="cell-2-9-ID"> </td><td id="cell-2-10-ID"> </td><td id="cell-2-11-ID"> </td><td id="cell-2-12-ID"> </td><td id="cell-2-13-ID"> </td><td id="cell-2-14-ID"> </td><td id="cell-2-15-ID"> </td></tr>
+				
+				<tr><td id="cell-3-0-ID"> </td><td id="cell-3-1-ID"> </td><td id="cell-3-2-ID"> </td><td id="cell-3-3-ID"> </td><td id="cell-3-4-ID"> </td><td id="cell-3-5-ID"> </td><td id="cell-3-6-ID"> </td><td id="cell-3-7-ID"> </td><td id="cell-3-8-ID"> </td><td id="cell-3-9-ID"> </td><td id="cell-3-10-ID"> </td><td id="cell-3-11-ID"> </td><td id="cell-3-12-ID"> </td><td id="cell-3-13-ID"> </td><td id="cell-3-14-ID"> </td><td id="cell-3-15-ID"> </td></tr>
+				
+				<tr><td id="cell-4-0-ID"> </td><td id="cell-4-1-ID"> </td><td id="cell-4-2-ID"> </td><td id="cell-4-3-ID"> </td><td id="cell-4-4-ID"> </td><td id="cell-4-5-ID"> </td><td id="cell-4-6-ID"> </td><td id="cell-4-7-ID"> </td><td id="cell-4-8-ID"> </td><td id="cell-4-9-ID"> </td><td id="cell-4-10-ID"> </td><td id="cell-4-11-ID"> </td><td id="cell-4-12-ID"> </td><td id="cell-4-13-ID"> </td><td id="cell-4-14-ID"> </td><td id="cell-4-15-ID"> </td></tr>
+				
+				<tr><td id="cell-5-0-ID"> </td><td id="cell-5-1-ID"> </td><td id="cell-5-2-ID"> </td><td id="cell-5-3-ID"> </td><td id="cell-5-4-ID"> </td><td id="cell-5-5-ID"> </td><td id="cell-5-6-ID"> </td><td id="cell-5-7-ID"> </td><td id="cell-5-8-ID"> </td><td id="cell-5-9-ID"> </td><td id="cell-5-10-ID"> </td><td id="cell-5-11-ID"> </td><td id="cell-5-12-ID"> </td><td id="cell-5-13-ID"> </td><td id="cell-5-14-ID"> </td><td id="cell-5-15-ID"> </td></tr>
+				
+				<tr><td id="cell-6-0-ID"> </td><td id="cell-6-1-ID"> </td><td id="cell-6-2-ID"> </td><td id="cell-6-3-ID"> </td><td id="cell-6-4-ID"> </td><td id="cell-6-5-ID"> </td><td id="cell-6-6-ID"> </td><td id="cell-6-7-ID"> </td><td id="cell-6-8-ID"> </td><td id="cell-6-9-ID"> </td><td id="cell-6-10-ID"> </td><td id="cell-6-11-ID"> </td><td id="cell-6-12-ID"> </td><td id="cell-6-13-ID"> </td><td id="cell-6-14-ID"> </td><td id="cell-6-15-ID"> </td></tr>
+				
+				<tr><td id="cell-7-0-ID"> </td><td id="cell-7-1-ID"> </td><td id="cell-7-2-ID"> </td><td id="cell-7-3-ID"> </td><td id="cell-7-4-ID"> </td><td id="cell-7-5-ID"> </td><td id="cell-7-6-ID"> </td><td id="cell-7-7-ID"> </td><td id="cell-7-8-ID"> </td><td id="cell-7-9-ID"> </td><td id="cell-7-10-ID"> </td><td id="cell-7-11-ID"> </td><td id="cell-7-12-ID"> </td><td id="cell-7-13-ID"> </td><td id="cell-7-14-ID"> </td><td id="cell-7-15-ID"> </td></tr>
+				
+				<tr><td id="cell-8-0-ID"> </td><td id="cell-8-1-ID"> </td><td id="cell-8-2-ID"> </td><td id="cell-8-3-ID"> </td><td id="cell-8-4-ID"> </td><td id="cell-8-5-ID"> </td><td id="cell-8-6-ID"> </td><td id="cell-8-7-ID"> </td><td id="cell-8-8-ID"> </td><td id="cell-8-9-ID"> </td><td id="cell-8-10-ID"> </td><td id="cell-8-11-ID"> </td><td id="cell-8-12-ID"> </td><td id="cell-8-13-ID"> </td><td id="cell-8-14-ID"> </td><td id="cell-8-15-ID"> </td></tr>
+				
+				<tr><td id="cell-9-0-ID"> </td><td id="cell-9-1-ID"> </td><td id="cell-9-2-ID"> </td><td id="cell-9-3-ID"> </td><td id="cell-9-4-ID"> </td><td id="cell-9-5-ID"> </td><td id="cell-9-6-ID"> </td><td id="cell-9-7-ID"> </td><td id="cell-9-8-ID"> </td><td id="cell-9-9-ID"> </td><td id="cell-9-10-ID"> </td><td id="cell-9-11-ID"> </td><td id="cell-9-12-ID"> </td><td id="cell-9-13-ID"> </td><td id="cell-9-14-ID"> </td><td id="cell-9-15-ID"> </td></tr>
+				
+				<tr><td id="cell-10-0-ID"> </td><td id="cell-10-1-ID"> </td><td id="cell-10-2-ID"> </td><td id="cell-10-3-ID"> </td><td id="cell-10-4-ID"> </td><td id="cell-10-5-ID"> </td><td id="cell-10-6-ID"> </td><td id="cell-10-7-ID"> </td><td id="cell-10-8-ID"> </td><td id="cell-10-9-ID"> </td><td id="cell-10-10-ID"> </td><td id="cell-10-11-ID"> </td><td id="cell-10-12-ID"> </td><td id="cell-10-13-ID"> </td><td id="cell-10-14-ID"> </td><td id="cell-10-15-ID"> </td></tr>
+				
+				<tr><td id="cell-11-0-ID"> </td><td id="cell-11-1-ID"> </td><td id="cell-11-2-ID"> </td><td id="cell-11-3-ID"> </td><td id="cell-11-4-ID"> </td><td id="cell-11-5-ID"> </td><td id="cell-11-6-ID"> </td><td id="cell-11-7-ID"> </td><td id="cell-11-8-ID"> </td><td id="cell-11-9-ID"> </td><td id="cell-11-10-ID"> </td><td id="cell-11-11-ID"> </td><td id="cell-11-12-ID"> </td><td id="cell-11-13-ID"> </td><td id="cell-11-14-ID"> </td><td id="cell-11-15-ID"> </td></tr>
+				
+				<tr><td id="cell-12-0-ID"> </td><td id="cell-12-1-ID"> </td><td id="cell-12-2-ID"> </td><td id="cell-12-3-ID"> </td><td id="cell-12-4-ID"> </td><td id="cell-12-5-ID"> </td><td id="cell-12-6-ID"> </td><td id="cell-12-7-ID"> </td><td id="cell-12-8-ID"> </td><td id="cell-12-9-ID"> </td><td id="cell-12-10-ID"> </td><td id="cell-12-11-ID"> </td><td id="cell-12-12-ID"> </td><td id="cell-12-13-ID"> </td><td id="cell-12-14-ID"> </td><td id="cell-12-15-ID"> </td></tr>
+				
+				<tr><td id="cell-13-0-ID"> </td><td id="cell-13-1-ID"> </td><td id="cell-13-2-ID"> </td><td id="cell-13-3-ID"> </td><td id="cell-13-4-ID"> </td><td id="cell-13-5-ID"> </td><td id="cell-13-6-ID"> </td><td id="cell-13-7-ID"> </td><td id="cell-13-8-ID"> </td><td id="cell-13-9-ID"> </td><td id="cell-13-10-ID"> </td><td id="cell-13-11-ID"> </td><td id="cell-13-12-ID"> </td><td id="cell-13-13-ID"> </td><td id="cell-13-14-ID"> </td><td id="cell-13-15-ID"> </td></tr>
+				
+				<tr><td id="cell-14-0-ID"> </td><td id="cell-14-1-ID"> </td><td id="cell-14-2-ID"> </td><td id="cell-14-3-ID"> </td><td id="cell-14-4-ID"> </td><td id="cell-14-5-ID"> </td><td id="cell-14-6-ID"> </td><td id="cell-14-7-ID"> </td><td id="cell-14-8-ID"> </td><td id="cell-14-9-ID"> </td><td id="cell-14-10-ID"> </td><td id="cell-14-11-ID"> </td><td id="cell-14-12-ID"> </td><td id="cell-14-13-ID"> </td><td id="cell-14-14-ID"> </td><td id="cell-14-15-ID"> </td></tr>
+				
+				<tr><td id="cell-15-0-ID"> </td><td id="cell-15-1-ID"> </td><td id="cell-15-2-ID"> </td><td id="cell-15-3-ID"> </td><td id="cell-15-4-ID"> </td><td id="cell-15-5-ID"> </td><td id="cell-15-6-ID"> </td><td id="cell-15-7-ID"> </td><td id="cell-15-8-ID"> </td><td id="cell-15-9-ID"> </td><td id="cell-15-10-ID"> </td><td id="cell-15-11-ID"> </td><td id="cell-15-12-ID"> </td><td id="cell-15-13-ID"> </td><td id="cell-15-14-ID"> </td><td id="cell-15-15-ID"> </td></tr>
+			</tbody>
+		</table>
+
+		<h4>Label with cell ID names</h4>
+		<pre><code>
+for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+	for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+	var thisCellID	="cell-"
+		+ thisRow.toString()
+		+ "-"
+		+ thisColumn.toString()
+		+ "-ID";
+									
+	document.getElementById(thisCellID).innerHTML	=thisCellID;
+	}
+}					
+		</code></pre>
+		
+		
+		<h4>Show multiplication table</h4>
+		<pre><code>
+for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+	for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+		var thisCellID	="cell-"
+			+ thisRow.toString()
+			+ "-"
+			+ thisColumn.toString()
+			+ "-ID";
+										
+		var thisHTML	=
+			thisRow.toString()
+			+ 'x'
+			+ thisColumn.toString()
+			+ '='
+			+ (thisRow * thisColumn).toString();
+			
+		document.getElementById(thisCellID).innerHTML	=thisHTML;
+	}
+}
+					
+		</code></pre>
+		
+		<h4>Show color codes</h4>
+		<pre><code>
+for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+	for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+		var thisCellID	="cell-"
+			+ thisRow.toString()
+			+ "-"
+			+ thisColumn.toString()
+			+ "-ID";
+			
+		var thisColor	=
+			"rgb("
+			+ (thisRow*16).toString()
+			+ ", "
+			+ (thisColumn*16).toString()
+			+ ", 127)";
+			
+		document.getElementById(thisCellID).style.backgroundColor=thisColor;
+	}
+}					
+		</code></pre>
+
+		<h4>Empty cell contents</h4>
+		<pre><code>
+for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+	for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+		var thisCellID	="cell-"
+			+ thisRow.toString()
+			+ "-"
+			+ thisColumn.toString()
+			+ "-ID";
+										
+		document.getElementById(thisCellID).innerHTML	='';
+	}
+}
+		</code></pre>
+		
+		<h4>Add color!</h4>
+		<pre><code>
+for (thisRow=0; thisRow <16; thisRow=thisRow+1) {
+	for (thisColumn=0; thisColumn <16; thisColumn=thisColumn+1) {
+		var thisCellID	="cell-"
+			+ thisRow.toString()
+			+ "-"
+			+ thisColumn.toString()
+			+ "-ID";
+			
+		var thisColor	=
+			"rgb("
+			+ (thisRow*16).toString()
+			+ ", "
+			+ (thisColumn*16).toString()
+			+ ", 127)";
+			
+		document.getElementById(thisCellID).style.backgroundColor=thisColor;
+	}
+}
+		</code></pre>
+	</body>
+</html>
+
+

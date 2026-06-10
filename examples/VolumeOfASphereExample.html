@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Volume of a Sphere</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page continues to show how to divide your code into chunks:
+			input, calculation, output
+			
+			It also shows different methods on how to enter numerical data
+			
+			Created:	25. Feb 2015 -->
+		
+		<script>
+			/*	This function calls each of the sub modules */
+			function mainProcedure () {
+				var radius	=0;	/* define the radius var so it can be seen by everything */
+				var	volume	=0;	/* define the volume var so it can be seen as well */
+				getRadius();
+				calculateVolume();
+				displayRadiusAndVolume();
+			}
+			
+			/* 	getRadius looks at the input line, number spinner, and range slider and stores the .value as the radius.
+				Key to this is understanding that || means 'or' in Javascript. 
+				So the radius calculation is equal to whichever of the three values hold a number */
+			function getRadius() {
+				radius	=document.getElementById("inputTextLine").value
+						|| document.getElementById("inputNumberSpinner").value
+						|| document.getElementById("inputRangeSlider").value;
+			}
+
+			/* 	calculateVolume calculates the volume using V=4/3*pi(r^3), given the radius.
+				Math.pow(X,Y) calculates X^Y, or X to the power of Y */
+			function calculateVolume() {
+				volume	=4/3 * Math.PI * Math.pow(radius,3);
+			}
+			
+			/* 	displayRadiusAndVolume displays the radius and volume inside the <output> tags */
+			function displayRadiusAndVolume() {
+				document.getElementById("outputRadius").innerHTML	=radius;
+				document.getElementById("outputVolume").innerHTML	=volume;
+			}
+		</script>
+		
+		<style>/* no style today! */</style>
+	</head>
+
+	<body>
+		<h1>Volume of a sphere</h1>
+		
+		<!-- show a whole bunch of different number entry methods -->
+		<h3>Input by text line</h3>
+		<p>
+			Please enter the radius of the sphere: 
+			<input type="text" id="inputTextLine" name="inputTextLine" size="5" autofocus="true">
+		</p>
+		
+		<h3>Input by number (spinbox)</h3>
+		<p>
+			Please enter the radius of the sphere: 
+			<input type="number" id="inputNumberSpinner" name="inputNumberSpinner" min="0" max="100">
+		</p>
+		
+		<h3>Input by range (slider)</h3>
+		<p>
+			Please enter the radius of the sphere: 
+			0 <input type="range" id="inputRangeSlider" name="inputRangeSlider" min="0" max="100"> 100
+		</p>
+
+		<hr /> <!-- and now the calculate button for everything -->
+		<button type="button" onclick="mainProcedure();">Calculate!</button>
+		
+		<p>A sphere of radius <output id="outputRadius" name="outputRadius"></output> has a volume of: <output id="outputVolume" name="outputVolume"></output></p>
+
+	</body>
+</html>
+
+

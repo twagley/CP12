@@ -1,0 +1,31 @@
+
+	<script>
+		/*	This creates a function that is triggered each time that a key is pressed down. 
+			This is better than onkeypress, because onkeydown can detect arrow keys.
+			However, onkeydown cannot detect shifted letters: it detects the shift key as its own code. */
+			
+		var characterPressed	=0;		// define characterPressed here so it can be accessed everywhere
+		var amountRed			=0;		// the amount of red in the style.color (0-255)
+		var sizeOfFont			=30;	// the initial size of the font in outputBlock
+			
+		/*	This next command tells the browser to trigger when a key is pressed anywhere */
+		window.onkeydown	=function (keyEvent) {	
+			//	detect the code of the key pressed, regardless of IE/Firefox/Chrome...
+			characterPressed	=keyEvent.which || keyEvent.keyCode;
+			showMeWhatIPressed();
+
+			//	and now the real star: a bunch of IF statements to decide what to do
+			//	note that the comparisons use a "==" and NOT a "="!
+			if (characterPressed == 38) {	// if they pressed an UP arrow
+				increaseRed();
+			} else if (characterPressed == 40) {	// if they pressed an DOWN arrow
+				decreaseRed();
+			} else if (characterPressed == 39) {	// if they pressed an RIGHT arrow
+				increaseSize();
+			} else if (characterPressed == 37) {	// if they pressed an LEFT arrow
+				decreaseSize();
+			}
+		}
+	</script>
+
+	

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Draw a maze</title>
+
+		<meta name="author" content="Drapak">
+		<meta charset="UTF-8">
+		
+		<!--This page draws a maze in table cells based on the contents of 
+			a two dimensional array
+			
+			Created:	16. March 2015
+			Updated:	24. March 2015
+						--obfuscated the javascript code
+			-->
+
+		<script>
+			var _0x2872=["\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","","\x3C\x74\x72\x3E","\x74\x68\x69\x73\x52\x6F\x77\x3A","\x74\x68\x69\x73\x43\x6F\x6C\x75\x6D\x6E\x3A","\x63\x65\x6C\x6C\x2D","\x2D","\x63\x6C\x61\x73\x73","\x3C\x74\x64\x20\x69\x64\x3D\x27","\x27\x20\x63\x6C\x61\x73\x73\x3D\x27","\x27\x3E\x3C\x2F\x74\x64\x3E","\x3C\x2F\x74\x72\x3E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x74\x61\x62\x6C\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64"];var mazeCell=[[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0],[0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0],[0,1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0],[0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0],[0,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,0],[0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0],[0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0],[0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0],[0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0],[0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0],[0,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0],[0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0],[0,1,0,1,0,1,0,0,0,1,0,1,1,1,0,1,0,1,1,1,0],[0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,0],[0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0],[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];function mainProcedure(){console[_0x2872[1]](_0x2872[0]);var _0xe50bx3=_0x2872[2];for(thisRow=0;thisRow<=20;thisRow++){_0xe50bx3+=_0x2872[3];for(thisColumn=0;thisColumn<=20;thisColumn++){console[_0x2872[1]](_0x2872[4]+thisRow+_0x2872[5]+thisColumn);var _0xe50bx4=_0x2872[6]+thisRow+_0x2872[7]+thisColumn;var _0xe50bx5=_0x2872[8]+mazeCell[thisRow][thisColumn];_0xe50bx3+=_0x2872[9]+_0xe50bx4+_0x2872[10]+_0xe50bx5+_0x2872[11];};_0xe50bx3+=_0x2872[12];};document[_0x2872[15]](_0x2872[14])[_0x2872[13]]=_0xe50bx3;}
+		</script>
+		
+		<style>
+			table  {
+				border-collapse: collapse;
+			}
+			
+			td {
+				width:	1em;
+				height:	1em;
+			}
+			
+			.class0 {
+				background-color: 	Black;
+				color:				White;
+			}
+			
+			.class1 {
+				background-color: 	White;
+				color:				Black;
+			}
+		</style>
+	</head>
+
+	<body onload="mainProcedure();">
+		<h1>Draw a maze</h1>
+		<!--<p id="listOfPrimes">2</p>-->
+		<table id="tableID"></table>
+
+	</body>
+</html>
+
+
