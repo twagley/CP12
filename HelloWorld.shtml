@@ -18,7 +18,7 @@
 			name="keywords" 
 			content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
@@ -64,7 +64,7 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			<a href="/cpg/">Computer Programming 12</a> &mdash; 
+			<a href="index.html">Computer Programming 12</a> &mdash; 
 			<em>Assignment: Hello world!</em>
 		</header>
 

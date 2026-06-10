@@ -9,14 +9,7 @@
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
 
-		<!--#include virtual="/stylesandscripts.html" -->
-
-		<!--
-			Change log:
-				27. July 2015	- created!
-		-->
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
@@ -35,6 +28,14 @@
 			}
 		</script>
 
+		<!--
+			Change log:
+				27. July 2015	- created!
+		-->
+
+		<script>
+		</script>
+
 		<style>
 			.strike {
 				text-decoration: line-through;
@@ -46,7 +47,24 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			<a href="/cpg/">Computer Programming 12</a> &mdash; 
+			<a href="index.html">Computer Programming 12</a>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<script>
+			// for this container: <span class="question" data-answer="the answer"></span>
+			// turn it into a clickable question
+			function questionLoader() {
+				console.log('in questionLoader...');
+				var element	= $('.question');
+				element.html("<a href='javascript:void(0);'>Click to show answer...</a>");
+				element.click(function(){
+					$(this).html($(this).attr('data-answer'));
+					});
+			}
+		</script> &mdash; 
 			<em>Assignment: Hello world!</em>
 		</header>
 
