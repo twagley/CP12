@@ -21,7 +21,24 @@
 			name="keywords" 
 			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
 
-		<!--#include virtual="/stylesandscripts.html" -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		
+		<script>
+			// for this container: <span class="question" data-answer="the answer"></span>
+			// turn it into a clickable question
+			function questionLoader() {
+				console.log('in questionLoader...');
+				var element	= $('.question');
+				element.html("<a href='javascript:void(0);'>Click to show answer...</a>");
+				element.click(function(){
+					$(this).html($(this).attr('data-answer'));
+					});
+			}
+		</script>
 
 		<!--
 			Change log:
@@ -115,7 +132,7 @@
 					<a href="https://api.iextrading.com/1.0/stock/aapl/book">https://api.iextrading.com/1.0/stock/aapl/book</a>
 				</li>
 				<li>
-					Pok�API
+					PokéAPI
 					<a href="https://pokeapi.co/api/v2/pokemon/1/">https://pokeapi.co/api/v2/pokemon/1/</a>
 				</li>
 				<li>
@@ -180,7 +197,7 @@
 
     </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;h2&gt;</span><span class="sc0">
-            🌞 </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;</span><span class="sc0">Hello you!</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">  🌞
+            ðŸŒž </span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"outputId"</span><span class="sc1">&gt;</span><span class="sc0">Hello you!</span><span class="sc1">&lt;/span&gt;</span><span class="sc0">  ðŸŒž
         </span><span class="sc1">&lt;/h2&gt;</span><span class="sc0">
         
         </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
