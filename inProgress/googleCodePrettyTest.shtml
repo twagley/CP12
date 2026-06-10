@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="author" content="Dave Drapak">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<meta name="description" content="Sometimes you have to build things for your classroom and school. Here are some of the projects I have made for myself and others.">
+		<meta name="keywords" content="Halifax, Nova Scotia, making, classroom improvement, woodshop improvement, classroom organization, art room, projects, teacher resources, woodworking">
+		<title>drapak.ca - Making</title>
+		
+		<!--#include virtual="/stylesandscripts.html" -->	
+		<!--
+		
+			Created:	2. July 2015 
+			Updated:	20. July 		- added description and keywords
+						26. July 		- added scholarship pages
+		-->
+
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+		<script>
+		</script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->	
+		
+		<header><a href="/making/">Making</a></header>
+		
+		<article>
+
+			<h1>Testy</h1>
+			<p>Let's try this out:</p>
+			
+			<pre class="prettyprint">
+				<code class="">
+&lt;!doctype html>
+&lt;html>
+	&lt;head>
+		&lt;meta name="author" content="Dave Drapak">
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1">
+		&lt;meta charset="UTF-8">
+
+		&lt;title>Scholarship application&lt;/title>
+		
+		&lt;!--this allows a student to apply online for a scholarship application
+		
+			Created:	7. June 2015
+			Updated:	14. June 2015	-switched to bootstrap for CSS help
+						15. June 2015	-continued to bootstrapify
+										-abstracted to individual process functions from switch case
+		-->
+
+		&lt;link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">&lt;/script>
+		&lt;script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">&lt;/script>
+		
+		&lt;script>
+			//var REVIEW_CATEGORIES 	= ["firstName", "lastName", "sin", "birth", "street", "city", "province", "postalCode", "homePhone", "cellPhone", "email", "elementarySchool", "juniorHigh", "postSecondarySchool", "programOfStudy", "websiteOfProgram", "conditionalAcceptance", "careerPlan", "totalFamilyIncome", "numberOfDependents", "occupationsOfParents", "job", "awardsAndBursaries",  "studentAid", "warVeteran", "teachersUnion", "church", "selfIdentification", "selfIndentificationOther", "cocurricularActivities", "otherCocurricularActivities", "executivePositionsHeld", "sportsTeams", "otherSportsTeams", "leadershipPositionsInSports", "leadershipExperience", "otherConsiderations"];
+
+			var DEMO_QUESTIONS	=[
+				{
+					attribute:		"firstName",
+					attributeText:	"First name",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"middleName",
+					attributeText:	"Middle name",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"lastName",
+					attributeText:	"Last name",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"sin",
+					attributeText:	"Social insurance number (required)",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"birth",
+					attributeText:	"Date of birth",
+					inputType:		"date",
+					prompt:			""
+				},
+				{
+					attribute:		"null",
+					attributeText:	"Address",
+					inputType:		"header",
+					prompt:			""
+				},
+				{
+					attribute:		"street",
+					attributeText:	"Street",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"city",
+					attributeText:	"City",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"province",
+					attributeText:	"Province",
+					inputType:		"dropdown",
+					prompt:			"British Columbia|Alberta|Saskatchewan|Manitoba|Ontario|Quebec|New Brunswick|Prince Edward Island|Nova Scotia|Newfoundland and Labrador"
+				},
+				{
+					attribute:		"postalCode",
+					attributeText:	"Postal code",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"null",
+					attributeText:	"Contact Info",
+					inputType:		"header",
+					prompt:			""
+				},
+				{
+					attribute:		"homePhone",
+					attributeText:	"Home phone number",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"cellPhone",
+					attributeText:	"Cell phone number",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"email",
+					attributeText:	"Email address",
+					inputType:		"line",
+					prompt:			""
+				},
+			];
+
+			var EDUCATION_QUESTIONS =[
+				{
+					attribute:		"elementarySchool",
+					attributeText:	"Elementary schools attended",
+					inputType:		"checkbox",
+					prompt:			"Inglis Street Elementary|Joseph Howe Elementary|LeMarchant-St. Thomas Elementary|Oxford School|Saint Mary's Elementary|"
+									+"Sir Charles Tupper Elementary|Springvale Elementary|St. Catherine's Elementary|St. Joseph's-Alexander MacKay Elementary|"
+									+"St. Stephen's|Westmount Elementary|Other"
+				},
+				{
+					attribute:		"juniorHigh",
+					attributeText:	"Junior high schools attended",
+					inputType:		"checkbox",
+					prompt:			"Gorsebrook Junior High|Halifax Central Junior High|Highland Park Junior High|Oxford School|St. Agnes Junior High|Other"
+				}
+			];
+			
+			var FUTURE_PLANS =[
+				{
+					attribute:		"postSecondarySchool",
+					attributeText:	"Post-secondary school",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"programOfStudy",
+					attributeText:	"Program of study (for example, Business or Skilled Trades)",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"websiteOfProgram",
+					attributeText:	"Website of above program",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"conditionalAcceptance",
+					attributeText:	"Have you been conditionally accepted into the program?",
+					inputType:		"radio",
+					prompt:			"yes|no"
+				},
+				{
+					attribute:		"careerPlan",
+					attributeText:	"Long-term career plan",
+					inputType:		"line",
+					prompt:			""
+				}
+			];
+			
+			var FAMILY_FINANCES = [			
+				{
+					attribute:		"totalFamilyIncome",
+					attributeText:	"Total family income",
+					inputType:		"radio",
+					prompt:			"$0-$40 000|$40 000 to $80 000|$80 000 to $120 000|$120 000 to $160 000|$160 000 or more"
+				},
+				{
+					attribute:		"numberOfDependents",
+					attributeText:	"Number of dependents (kids in your family)",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"occupationsOfParents",
+					attributeText:	"Occupation(s) of parent/guardian(s)",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"job",
+					attributeText:	"Do you have a part-time job? If so, please indicate where:",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"null",
+					attributeText:	"Post-secondary Funding",
+					inputType:		"header",
+					prompt:			""
+				},
+				{
+					attribute:		"awardsAndBursaries",
+					attributeText:	"Awards, bursaries, and scholarships you have been awarded",
+					inputType:		"awardlist",
+					prompt:			"6"
+				},
+				{
+					attribute:		"studentAid",
+					attributeText:	"Student aid",
+					inputType:		"radio",
+					prompt:			"Provincial/federal student loan|Private bank/institution loan/line of credit|Other"
+				}
+			];
+
+			var PERSONAL_BACKGROUND =[
+				{
+					attribute:		"warVeteran",
+					attributeText:	"Do you have a family member who is or was a war veteran?",
+					inputType:		"radio",
+					prompt:			"yes|no"
+				},
+				{
+					attribute:		"teachersUnion",
+					attributeText:	"Do you have a parent who is a member of the NSTU (Nova Scotia Teachers' Union)?",
+					inputType:		"radio",
+					prompt:			"yes|no"
+				},
+				{
+					attribute:		"church",
+					attributeText:	"Are you a member of a church? If yes, please write which one",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"null",
+					attributeText:	"Heritage",
+					inputType:		"header",
+					prompt:			""
+				},
+				{
+					attribute:		"selfIdentification",
+					attributeText:	"Self-identification",
+					inputType:		"checkbox",
+					prompt:			"Aboriginal people (First Nations, Metis, or Inuit)|Acadian descent|African descent/African Nova Scotian|Asian descent|"
+									+"East Asian descent|European descent|Middle Eastern descent|Other"
+				},
+				{
+					attribute:		"selfIndentificationOther",
+					attributeText:	"If you chose 'Other' above, please indicate",
+					inputType:		"line",
+					prompt:			""
+				}
+			];
+			
+			var COCURRICULAR_QUESTIONS =[
+				{
+					attribute:		"cocurricularActivities",
+					attributeText:	"Co-curricular activities",
+					inputType:		"checkbox",
+					prompt:			"Amnesty International|Chess Club|Choir/band/strings (non-credit)|Coffee House|ESL peer tutoring|Fashion show|Gay/Straight Alliance|"
+									+"Math League|Model Parliament|Model UN|Newspaper|Musical|NSSSA|Prom/Safe Grad|Student Council|SAGA|Technical Crew|"
+									+"Yearbook|Youth Health Centre"
+				},
+				{
+					attribute:		"otherCocurricularActivities",
+					attributeText:	"Other co-curricular activities",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"executivePositionsHeld",
+					attributeText:	"Executive positions held in co-curricular activities",
+					inputType:		"line",
+					prompt:			""
+				}
+			];
+			
+			var SPORTS_QUESTIONS =[
+				{
+					attribute:		"sportsTeams",
+					attributeText:	"School sports teams",
+					inputType:		"checkbox",
+					prompt:			"Badminton|Baseball|Basketball|Cross country|Curling|Field hockey|Football|Golf|Hockey|Lacrosse|Rugby|Ski team|Snowboard team|Soccer|Track and field|Volleyball"
+				},
+				{
+					attribute:		"otherSportsTeams",
+					attributeText:	"Other school sports teams",
+					inputType:		"line",
+					prompt:			""
+				},
+				{
+					attribute:		"leadershipPositionsInSports",
+					attributeText:	"Leadership positions in sports teams (ex. Captain)",
+					inputType:		"linelist",
+					prompt:			"6"
+				},
+				{
+					attribute:		"leadershipExperience",
+					attributeText:	"Leadership experience (Dave's note: what is meant by this?",
+					inputType:		"line",
+					prompt:			""
+				}			
+			];
+			
+			var OTHER_QUESTIONS =[
+				{
+					attribute:		"otherConsiderations",
+					attributeText:	"Are there other things we should know about you or your application?",
+					inputType:		"textbox",
+					prompt:			""
+				}
+			];
+			
+			var SCREEN_ARRAY	=[
+				{
+					title:		"Demographic Information",
+					questionArray:		DEMO_QUESTIONS
+				},
+				{
+					title:		"Previous Education",
+					questionArray:		EDUCATION_QUESTIONS
+				},
+				{
+					title:		"Future Plans",
+					questionArray:		FUTURE_PLANS
+				},
+				{
+					title:		"Family Finances",
+					questionArray:		FAMILY_FINANCES
+				},
+				{
+					title:		"Personal Background",
+					questionArray:		PERSONAL_BACKGROUND
+				},
+				{
+					title:		"Sports Activities",
+					questionArray:		SPORTS_QUESTIONS
+				},
+				{
+					title:		"Co-curricular Activities",
+					questionArray:		COCURRICULAR_QUESTIONS
+				},
+				{
+					title:		"Other Information",
+					questionArray:		OTHER_QUESTIONS
+				}
+			];
+			
+			var currentPage		=0;
+			var TOTAL_PAGES		=SCREEN_ARRAY.length;
+			var jsonResponse	= "";
+			
+			function mainProcedure () {
+				// first, create the set of divs for each page...
+				var divHTML	='';
+				for (var thisScreen=0; thisScreen &lt;= TOTAL_PAGES; thisScreen++) {//create the empty divs
+					divHTML	+='&lt;div id="outputID-'+thisScreen+'">&lt;/div>';
+				}
+				outputPage(divHTML, '');
+
+				//second, create the form inside each div
+				for (thisScreen=0; thisScreen &lt;= SCREEN_ARRAY.length-1; thisScreen++) {//loop through the individual screens...
+					outputQuestionPage(thisScreen);
+					$('#outputID-'+thisScreen).hide();
+				}
+				
+				// update progress bar
+				document.getElementById('progress').max		=SCREEN_ARRAY.length;
+
+				//show the first screen
+				$('#outputID-0').toggle();
+			}
+			
+			function displayQuestionPage (thisScreen) {
+				$('#outputID-'+thisScreen).show();
+				$('#outputID-'+(thisScreen-1)).hide();
+				// update progress bar
+				document.getElementById('progress').value	=thisScreen;
+			}
+			
+			//PROCESS: this creates the HTML for the questionnaire for a single page
+			function outputQuestionPage (questionPage) {
+				var outputHTML	="";
+				var questionObject	=SCREEN_ARRAY[questionPage];
+				var title			=questionObject.title;
+				var questionArray	=questionObject.questionArray;
+
+
+				outputHTML	+="&lt;h2>"+title+"&lt;/h2>&lt;form action='' name='formName'>";
+				
+				// loop through the question array, creating the interface for each part
+				for (var questionIndex=0; questionIndex &lt; questionArray.length; questionIndex++) {					
+					//depending on which kind of input required...
+					switch (questionArray[questionIndex].inputType) {
+						case 'line':
+							outputHTML	+=createInputLine(questionArray[questionIndex]);
+							break;
+						case 'header':
+							outputHTML	+=createHeader(questionArray[questionIndex]);
+							break;
+						case 'date':
+							outputHTML	+=createDate(questionArray[questionIndex]);						
+							break;
+						case 'checkbox':
+							outputHTML	+=createCheckbox(questionArray[questionIndex]);						
+							break;
+						case 'radio':
+							outputHTML	+=createRadio(questionArray[questionIndex]);						
+							break;
+						case 'linelist':
+							outputHTML	+=createLineList(questionArray[questionIndex]);						
+							break;
+						case 'textbox':
+							outputHTML	+=createTextbox(questionArray[questionIndex]);						
+							break;
+						case 'awardlist':
+							outputHTML	+=createAwardList(questionArray[questionIndex]);						
+							break;
+						case 'dropdown':
+							outputHTML	+=createDropdown(questionArray[questionIndex]);						
+							break;
+						default:
+							outputHTML	+=createDefault(questionArray[questionIndex]);						
+					}
+				}
+				
+				//console.log('in outputQuestionPage!!!');
+				
+				var onClickAction	= 'displayQuestionPage('+ (questionPage+1) +');';
+				if ((questionPage + 1) == TOTAL_PAGES) {
+					onClickAction	= 'reviewResults('
+									+ TOTAL_PAGES
+									+ ');'
+									+ onClickAction;
+				}
+				
+				//console.log('TOTAL_PAGES:' + TOTAL_PAGES + 'questionPage +1:' + (questionPage+1) + 'onClickAction:' +onClickAction);
+				
+				outputHTML	+= '&lt;div class="form-group">'
+							+ '	&lt;div class="control-label col-sm-2" >&lt;/div>'
+							+ '	&lt;div class="col-sm-4">'
+							+ '		&lt;button type="button" onclick="'
+							+ onClickAction
+							+ '">continue &rarr;&lt;/button>'
+							+ '	&lt;/div>'
+							+ '&lt;/div>'
+							+ '&lt;/form>';
+			
+				outputPage(outputHTML, questionPage);
+			}
+
+			//PROCESS: this gets the results and preps them for review...
+			function reviewResults (resultsPage) {
+				var responseObj	= {};
+				responseObj['fullName']	= $('#lastName').val() 
+										+ ', '
+										+ $('#firstName').val() 
+										+ ' '
+										+ $('#middleName').val();
+										
+				var outputHTML	= "&lt;h2>Please review your application&lt;/h2>"
+								+ "&lt;p>Go back to make changes if necessary&lt;/p>"
+								+ "&lt;dl class='dl-horizontal container-fluid'>";
+				
+				// loop through each of the screens
+				for (var thisScreen in SCREEN_ARRAY) {
+					var thisScreenArray	= SCREEN_ARRAY[thisScreen].questionArray;
+					var questionClass 	= '';//'col-sm-2';
+					var answerClass		= '';//'col-sm-10';
+					
+					// now, add the title for this section...
+					outputHTML	+= "&lt;dt class='" + questionClass + "'>&lt;h3>"
+								+ SCREEN_ARRAY[thisScreen].title
+								+ "&lt;/h3>&lt;/dt>"
+								+ "&lt;dd class='" + answerClass + "'>&lt;/dd>";
+					
+					// now loop through each part of this array...
+					for (var thisQuestion in thisScreenArray) {
+						var thisElement	= $('#' + thisScreenArray[thisQuestion].attribute);
+						
+						// if this is an existing element, then display it
+						if (thisElement) {
+							if (thisScreenArray[thisQuestion].attribute == 'null') {
+								outputHTML	+= "&lt;dt class='" + questionClass + "'>&lt;h4>"
+											+ thisScreenArray[thisQuestion].attributeText
+											+ "&lt;/h4>&lt;/dt>&lt;dd class='" + answerClass + "'>&lt;/dd>";
+							} else {
+								switch (thisScreenArray[thisQuestion].inputType) {
+									case 'line':
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ thisElement.val()
+													+ "&lt;/dd>";
+													
+										// add to the object of responses...
+										responseObj[thisScreenArray[thisQuestion].attribute]	= thisElement.val();
+
+										break;
+									case 'textbox':
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ thisElement.val()
+													+ "&lt;/dd>";
+													
+										// add to the object of responses...
+										responseObj[thisScreenArray[thisQuestion].attribute]	= thisElement.val();
+
+										break;
+									case 'radio':
+										var thisValue	= $('input[name="' + thisScreenArray[thisQuestion].attribute + '"]:checked').val();
+								
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ thisValue
+													+ "&lt;/dd>";
+													
+										// add to the object of responses...
+																				
+										if (thisValue == 'yes') {
+											responseObj[thisScreenArray[thisQuestion].attribute]	= 1;
+										} else if (thisValue == 'no') {
+											responseObj[thisScreenArray[thisQuestion].attribute]	= 0;
+										} else {
+											responseObj[thisScreenArray[thisQuestion].attribute]	= thisValue;
+										}
+
+										break;
+									case 'dropdown':
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ thisElement.val()
+													+ "&lt;/dd>";
+													
+										// add to the object of responses...
+										responseObj[thisScreenArray[thisQuestion].attribute]	= thisElement.val();
+
+										break;
+									case 'date':
+										var monthNum	= $('#' + thisScreenArray[thisQuestion].attribute + '-month').val();
+										monthNum		= parseInt(monthNum);
+										var monthArray	='null, January, February, March, April, May, June, July, August, September, October, November, December'.split(', ');
+										
+										var sqlDate 	= $('#' + thisScreenArray[thisQuestion].attribute + '-year').val()
+														+ '-'
+														+ monthNum
+														+ '-'
+														+  $('#' + thisScreenArray[thisQuestion].attribute + '-date').val();
+														
+										var outputDate 	= monthArray[monthNum]
+														+ ' '
+														+  $('#' + thisScreenArray[thisQuestion].attribute + '-date').val()
+														+ ", "
+														+ $('#' + thisScreenArray[thisQuestion].attribute + '-year').val();
+														
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ outputDate
+													+ "&lt;/dd>";
+													
+										// add to the object of responses...
+										responseObj[thisScreenArray[thisQuestion].attribute]	= sqlDate;
+
+										break;
+									case 'checkbox':
+										var prompts			= thisScreenArray[thisQuestion].prompt.split('|');
+										var answeredArray	= [];
+										
+
+										//then the options and values
+										for (var thisPrompt in prompts) {
+
+											var thisID	= '#' + thisScreenArray[thisQuestion].attribute + '_' + prompts[thisPrompt];
+											thisID	=cleanID(thisID);
+
+											var thisElement		= $(thisID);
+											
+											// add to object of responses...
+											thisID		= thisID.replace('#', '');
+												
+											if (thisElement.is(':checked')) {													
+												// add to the array of responses...
+												answeredArray.push(prompts[thisPrompt]);
+												
+												responseObj[thisID]	= 1;
+											} else {
+												responseObj[thisID]	= 0;
+											}
+										}
+										
+										// add a combined answer to responseObj
+										responseObj[thisScreenArray[thisQuestion].attribute]	= answeredArray.join(', ');
+										
+										// now to output the results
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ answeredArray.join('&lt;br>')
+													+ "&lt;/dd>";	
+
+										break;
+									case 'linelist':
+										var prompt			= thisScreenArray[thisQuestion].prompt;
+										var answeredArray	= [];
+										
+										//loop through each one of the line lists
+										for (var thisPrompt =0; thisPrompt &lt; prompt; thisPrompt++) {
+											var thisID	= '#' + thisScreenArray[thisQuestion].attribute + '-' + thisPrompt;
+
+											var thisElement		= $(thisID);
+											var thisValue		= thisElement.val();
+											
+											//if there is a value in here then add to the list
+											if (thisValue) {													
+												// add to the array of responses...
+												answeredArray.push(thisValue);
+												
+											}
+										}
+										
+										//add to the response object
+										var sqlList		= answeredArray.join(', ');
+										responseObj[thisScreenArray[thisQuestion].attribute]	= sqlList;
+										
+										// now to output the results
+										var htmlList	= answeredArray.join('&lt;br />');
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ htmlList
+													+ "&lt;/dd>";	
+
+										break;
+									case 'awardlist':
+										var prompt			= thisScreenArray[thisQuestion].prompt;
+										var answeredArray	= [];
+										var valueTotal	= 0;
+										
+										//loop through each one of the line lists
+										for (var thisPrompt =0; thisPrompt &lt; prompt; thisPrompt++) {
+										
+											// grab the names and values...
+											var valueID	= '#value-' + thisScreenArray[thisQuestion].attribute + '-' + thisPrompt;
+											var nameID	= '#name-' + thisScreenArray[thisQuestion].attribute + '-' + thisPrompt;
+
+											var thisValueElement	= $(valueID);
+											var thisNameElement		= $(nameID);
+											var thisValueValue		= thisValueElement.val();
+											var thisNameValue		= thisNameElement.val();
+											
+											//if there is a value in here then add to the list
+											if (thisValueValue) {													
+												valueTotal	+= parseInt(thisValueValue);
+												answeredArray.push('$' + thisValueValue + ' - ' + thisNameValue);
+											}
+										}
+										
+										//add to the response object
+										var sqlList		= answeredArray.join(', ');
+										responseObj[thisScreenArray[thisQuestion].attribute]					= sqlList;
+										responseObj[thisScreenArray[thisQuestion].attribute + '_totalValue']	= valueTotal;
+										
+										// now to output the results
+										var htmlList	= answeredArray.join('&lt;br />');
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>"
+													+ htmlList
+													+ "&lt;/dd>";	
+
+										break;
+									default:
+										outputHTML	+= "&lt;dt class='" + questionClass + "'>"
+													+ thisScreenArray[thisQuestion].attributeText
+													+ "&lt;/dt>"
+													+ "&lt;dd class='" + answerClass + "'>DEFFF!"
+													+ thisScreenArray[thisQuestion].attribute
+													+ 'val:'
+													+ thisElement.val()
+													+ "&lt;/dd>";
+
+										break;
+								}
+							}
+						
+						} else { // if this is not an existing element..
+							outputHTML	+= "&lt;dt class='" + questionClass + "'>NOPE: somethings wrong in reviewResults!!"
+										+ thisScreenArray[thisQuestion].attributeText
+										+ "&lt;/dt>"
+										+ "&lt;dd class='" + answerClass + "'>"
+										+ thisScreenArray[thisQuestion].attribute
+										+ "&lt;/dd>";
+						}
+					}					
+				}
+				
+				// get the JSON value for the response object
+				jsonResponse	=JSON.stringify(responseObj);
+				console.log(jsonResponse);
+				
+				// close off the output and add a submit button...
+				outputHTML	+= "&lt;br>&lt;dt>&lt;/dt>&lt;dd>Please submit your application once you have read it over.&lt;br>"
+							+ "&lt;button type='button' id='submitButton' onclick='submitApplication();'>Submit your application&lt;/button>&lt;/dd>"
+							+ "&lt;/dl>";
+				//output the results into the review page (current)
+				outputPage(outputHTML, resultsPage);
+				$('#outputID-' + resultsPage).show();
+			}
+			
+			// this submits the application to the database...
+			function submitApplication() {
+				console.log('in submitApplication');
+				console.log(jsonResponse);
+				
+				$('#submitButton').innerHTML	= 'Preparing to send information';
+				
+				$.post("newApplication.php",
+					{
+						json: 	jsonResponse, 
+						test: 	'fwibble'
+					},
+					function(data, status){
+						if (status == 'success') {
+							if (data == 'OK') {
+								document.getElementById('submitButton').innerHTML	="Your application has been recorded in the database!";
+								}
+							else {
+								document.getElementById('submitButton').innerHTML	=data;						
+							}
+						} else {
+							document.getElementById('submitButton').innerHTML	="Database storage failed!" + data;					
+						}
+					}
+				);
+
+				
+
+			}
+			
+			//PROCESS: this creates the HTML for an input line
+			function createInputLine(questionObject) {
+				return '&lt;div class="form-group">'
+						+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+						+'	&lt;div class="col-sm-4">'
+						+'		&lt;input type="text" class="form-control" id="' +htmlize(questionObject.attribute)+ '">'
+						+'	&lt;/div>'
+						+'&lt;/div>';
+			}
+			
+			function createHeader(questionObject) {//PROCESS: this creates the HTML for a header 
+				return	'&lt;div class="form-group">'
+						+'	&lt;div class="col-sm-2">&lt;/div>'
+						+'	&lt;h3 class="col-sm-10">' +htmlize(questionObject.attributeText)+ "&lt;/h3>"
+						+'&lt;/div>';
+			}
+			
+			function createDate(questionObject) {//PROCESS: this creates the HTML for a date input line 
+				return	'&lt;div class="form-group">'
+						+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+						+'	&lt;div class="col-sm-4">'
+						+'		&lt;div class="col-sm-4 control-label">'
+						+'			Year:'
+						+'		&lt;/div>'
+						+'		&lt;div class="col-sm-8">'
+						+"			&lt;select class='form-control' id='" +htmlize(questionObject.attribute)+ "-year'>"
+						+'				&lt;option value="1995">1995&lt;/option>'
+						+'				&lt;option value="1996">1996&lt;/option>'
+						+'				&lt;option value="1997" selected>1997&lt;/option>'
+						+'				&lt;option value="1998">1998&lt;/option>'
+						+'				&lt;option value="1999">1999&lt;/option>'
+						+'				&lt;option value="2000">2000&lt;/option>'
+						+'				&lt;option value="2001">2001&lt;/option>'
+						+'				&lt;option value="2002">2002&lt;/option>'
+						+'				&lt;option value="2003">2003&lt;/option>'
+						+'			&lt;/select>'
+						+'		&lt;/div>'
+						+'	&lt;/div>'
+						+'&lt;/div>'
+						+'&lt;div class="form-group">'
+						+'	&lt;div class="control-label col-sm-2" >&lt;/div>'
+						+'	&lt;div class="col-sm-4">'
+						+'		&lt;div class="col-sm-4 control-label">'
+						+'			Month:'
+						+'		&lt;/div>'
+						+'		&lt;div class="col-sm-8">'
+						+"			&lt;select class='form-control' id='" +htmlize(questionObject.attribute)+ "-month'>"
+						+'				&lt;option value="1">January&lt;/option>'
+						+'				&lt;option value="2">February&lt;/option>'
+						+'				&lt;option value="3">March&lt;/option>'
+						+'				&lt;option value="4">April&lt;/option>'
+						+'				&lt;option value="5">May&lt;/option>'
+						+'				&lt;option value="6">June&lt;/option>'
+						+'				&lt;option value="7">July&lt;/option>'
+						+'				&lt;option value="8">August&lt;/option>'
+						+'				&lt;option value="9">September&lt;/option>'
+						+'				&lt;option value="10">October&lt;/option>'
+						+'				&lt;option value="11">November&lt;/option>'
+						+'				&lt;option value="12">December&lt;/option>'
+						+'			&lt;/select>'
+						+'		&lt;/div>'
+						+'	&lt;/div>'
+						+'&lt;/div>'
+						+'&lt;div class="form-group">'
+						+'	&lt;div class="control-label col-sm-2" >&lt;/div>'
+						+'	&lt;div class="col-sm-4">'
+						+'		&lt;div class="col-sm-4 control-label">'
+						+'			Date:'
+						+'		&lt;/div>'
+						+'		&lt;div class="col-sm-8">'
+						+"			&lt;select class='form-control' id='" +htmlize(questionObject.attribute)+ "-date'>"
+						+'				&lt;option value="1">1&lt;/option>'
+						+'				&lt;option value="2">2&lt;/option>'
+						+'				&lt;option value="3">3&lt;/option>'
+						+'				&lt;option value="4">4&lt;/option>'
+						+'				&lt;option value="5">5&lt;/option>'
+						+'				&lt;option value="6">6&lt;/option>'
+						+'				&lt;option value="7">7&lt;/option>'
+						+'				&lt;option value="8">8&lt;/option>'
+						+'				&lt;option value="9">9&lt;/option>'
+						+'				&lt;option value="10">10&lt;/option>'
+						+'				&lt;option value="11">11&lt;/option>'
+						+'				&lt;option value="12">12&lt;/option>'
+						+'				&lt;option value="13">13&lt;/option>'
+						+'				&lt;option value="14">14&lt;/option>'
+						+'				&lt;option value="15">15&lt;/option>'
+						+'				&lt;option value="16">16&lt;/option>'
+						+'				&lt;option value="17">17&lt;/option>'
+						+'				&lt;option value="18">18&lt;/option>'
+						+'				&lt;option value="19">19&lt;/option>'
+						+'				&lt;option value="20">20&lt;/option>'
+						+'				&lt;option value="21">21&lt;/option>'
+						+'				&lt;option value="22">22&lt;/option>'
+						+'				&lt;option value="23">23&lt;/option>'
+						+'				&lt;option value="24">24&lt;/option>'
+						+'				&lt;option value="25">25&lt;/option>'
+						+'				&lt;option value="26">26&lt;/option>'
+						+'				&lt;option value="27">27&lt;/option>'
+						+'				&lt;option value="28">28&lt;/option>'
+						+'				&lt;option value="29">29&lt;/option>'
+						+'				&lt;option value="30">30&lt;/option>'
+						+'				&lt;option value="31">31&lt;/option>'
+						+'			&lt;/select>'
+						+'		&lt;/div>'
+						+'	&lt;/div>'
+						+'&lt;/div>';
+			}
+			
+			function createCheckbox(questionObject) {//PROCESS: this creates the HTML for a collection of checkboxes
+				var outputHTML	='&lt;div class="form-group">'
+										+'	&lt;label class="control-label col-sm-2" for="' +cleanID(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+										+'	&lt;div class="col-sm-10">';
+										
+				var optionList	=questionObject.prompt.split('|');//get the list of checkbox items from .prompt - seperated by |
+				
+				for (var i=0; i&lt; optionList.length; i++) {//loop through each checkbox item
+					var thisID	= cleanID(questionObject.attribute)
+								+ "_"
+								+ cleanID(optionList[i]);	
+					thisID	=cleanID(thisID);
+					
+					outputHTML	+='&lt;div class="checkbox">'
+								+"	&lt;label>"
+								+"	&lt;input type='checkbox' id='" 
+								+ thisID
+								+ "' value='"
+								+ htmlize(optionList[i])
+								+ "'>"
+								+ htmlize(optionList[i])
+								+"	&lt;/label>"
+								+'&lt;/div>';
+				}
+				
+				outputHTML	+='	&lt;/div>'
+							+'&lt;/div>';
+							
+				return outputHTML;
+			}
+			
+			function cleanID (thisString) {
+				thisString		= thisString.replace(/ /g, '_');
+				thisString		= thisString.replace(/\'/, '');
+				thisString		= thisString.replace(/\(/g, '');
+				thisString		= thisString.replace(/\)/g, '');
+				thisString		= thisString.replace(/\-/g, '_');
+				thisString		= thisString.replace(/\,/g, '');
+				thisString		= thisString.replace(/\./g, '');
+				thisString		= thisString.replace(/\//g, '_or_');
+
+				return thisString;
+			}
+			function createRadio(questionObject) {//PROCESS: this creates the HTML for a collection of radio buttons
+				var outputHTML	='&lt;div class="form-group">'
+								+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+								+'	&lt;div class="col-sm-10">';
+							
+				var optionList	=questionObject.prompt.split('|');//get the individual radio buttons from inside .prompt, separated by |
+				
+				for (var i=0; i&lt; optionList.length; i++) {//loop through each of the radio button items
+					// make sure the last option is selected as a default
+					var isSelected 	= "";
+					if (i == (optionList.length -1) ) {
+						isSelected 	= " checked ";
+					}
+					outputHTML	+='&lt;div class="radio">'
+								+"	&lt;label>"
+								+"	&lt;input type='radio' name='" 
+								+ htmlize(questionObject.attribute)
+								+ "' value='"
+								+ htmlize(optionList[i])
+								+ "'"
+								+ isSelected
+								+ ">"
+								+ htmlize(optionList[i])
+								+"	&lt;/label>"
+								+'&lt;/div>';
+				}
+				
+				outputHTML	+='	&lt;/div>'
+							+'&lt;/div>';
+							
+				return outputHTML;
+			}
+			
+			function createLineList(questionObject) {//PROCESS: this creates the HTML for a collection of line inputs
+				var outputHTML	='&lt;div class="form-group">'
+								+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+								+'	&lt;div class="col-sm-4">';
+														
+				for (var i=0; i&lt; questionObject.prompt; i++) {//.prompt contains the required number of lines - loop through them
+					outputHTML	+="&lt;input class='form-control' type='text' id='" 
+								+ htmlize(questionObject.attribute)
+								+ "-"
+								+ i
+								+ "'>"
+								+ "";
+				}
+				
+				outputHTML	+='	&lt;/div>'
+							+'&lt;/div>';
+							
+				return outputHTML;
+			}
+			
+			function createTextbox(questionObject) {//PROCESS: this creates the HTML for a textbox
+				var outputHTML	='&lt;div class="form-group">'
+										+'	&lt;label class="col-sm-2" for="' +questionObject.attribute+ '">'+htmlize(questionObject.attributeText)+'&lt;/label>'
+										+'	&lt;div class="col-sm-6">'
+										+'		&lt;textarea class="form-control col-sm-10" rows="6" id="' +questionObject.attribute+ '">&lt;/textarea>'
+										+'	&lt;/div>'
+										+'&lt;/div>';
+
+				return outputHTML;
+			}
+			
+			function createAwardList(questionObject) {//PROCESS: this creates the HTML for a list of awards and their values
+				var outputHTML	='&lt;div class="form-group">'
+								+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+								+'	&lt;div class="col-sm-8">';
+										
+				for (var i=0; i&lt; questionObject.prompt; i++) {//loop though the number of lines for awards (stored in .prompt)
+					var baseID	=htmlize(questionObject.attribute)
+								+ "-"
+								+ i;
+								
+					outputHTML	+="$&lt;input type='text' id='value-" 
+								+ baseID
+								+ "' size='2'>"
+								+" Award: &lt;input type='text' id='name-" 
+								+ baseID
+								+ "' size='20'>&lt;br />";
+					}
+				
+				outputHTML	+='	&lt;/div>'
+							+'&lt;/div>';
+							
+				return outputHTML;
+			}
+			
+			function createDropdown(questionObject) {//PROCESS: this creates the HTML for a dropdown menu
+				var outputHTML	='&lt;div class="form-group">'
+								+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+								+'	&lt;div class="col-sm-4">'
+								+"		&lt;select class='form-control' id='"
+								+			 htmlize(questionObject.attribute)
+								+		"'>";
+				var optionList	=questionObject.prompt.split('|');
+				
+				for (var i=0; i&lt; optionList.length; i++) {//loop though each item on the dropdown menu
+					if (optionList[i] != 'Nova Scotia') { // include &lt;selected> for Nova Scotia, if an option
+						outputHTML	+="&lt;option value='"
+									+ htmlize(optionList[i])
+									+ "'>"
+									+ htmlize(optionList[i])
+									+ "&lt;/option>";
+					} else {
+						optionList[i]	=optionList[i].replace('/*', '');
+						outputHTML	+="&lt;option value='Nova Scotia' selected>Nova Scotia&lt;/option>";								
+					}
+				}
+				
+				outputHTML	+='		&lt;/select>'
+							+'	&lt;/div>'
+							+'&lt;/div>';
+
+				return outputHTML;
+			}
+			
+			function createDefault(questionObject) {//PROCESS: this creates the HTML for any item with an unrecognized inputType
+				var outputHTML	='&lt;div class="form-group">'
+								+'	&lt;label class="control-label col-sm-2" for="' +htmlize(questionObject.attribute)+ '">'+ htmlize(questionObject.attributeText) +'&lt;/label>'
+								+'	&lt;div class="col-sm-4">'
+								+'		&lt;p class="form-control-static">'+questionObject.inputType+" not coded yet...&lt;/p>"
+								+'	&lt;/div>'
+								+'&lt;/div>';
+
+				return outputHTML;
+			}
+						
+			//PROCESS: this converts a string so that it can be easily displayed as html
+			function htmlize(thisString) {
+				thisString	=thisString.replace(/&/g, '&amp;');
+				thisString	=thisString.replace(/&lt;/g, '&lt;');
+				thisString	=thisString.replace(/>/g, '&gt;');
+				thisString	=thisString.replace(/"/g, '&quot;');
+				thisString	=thisString.replace(/'/g, '&#39;');
+			//	thisString	=thisString.replace(/\(/g, '&lt;br>(');
+								
+				return thisString;
+			}
+			
+			//OUTPUT: this outputs the final results into #outputID
+			function outputPage(outputHTML, outputNumber) {
+				//console.log(outputHTML);
+				var thisElement	= document.getElementById('outputID-'+outputNumber);
+				if (thisElement) {
+					thisElement.innerHTML	=outputHTML;
+				} else {
+					console.log('in outputPage: I dont know what ' + 'outputID-'+outputNumber + 'is' );
+				}
+				window.scrollTo(0, 0);
+			}
+			
+			
+		&lt;/script>
+		
+		&lt;style>
+			
+			/* general layout structure */
+
+			body {
+				font-family: "Open Sans", Arial, sans-serif;
+			}
+
+			/* now all the headings */
+
+			h1, h2, h3, h4 {
+				color: DarkRed;
+			}
+
+			strong{
+				color: DarkRed;
+				font-weight: bold;
+			}
+			
+			@media print {
+				h5 { 
+					page-break-before: always;
+				}
+				table {
+					//page-break-inside: avoid;
+				}
+				//@page {size: landscape}
+			}	
+
+			.dl-horizontal dt {
+				width: 			300px;
+				font-weight: 	normal;
+				font-style: 	italic;
+				padding-bottom: 0.2em;
+				padding-top: 	0.2em;
+			//	overflow:		visible;
+			}	
+			.dl-horizontal h3 {
+				font-style: normal;
+				overflow:		visible;
+			}	
+			.dl-horizontal dd {
+				margin-left: 	310px;
+				font-weight: 	bold;
+				padding-bottom: 0.2em;
+				padding-top: 	0.2em;
+			//	overflow:		visible;
+			}
+		&lt;/style>
+	&lt;/head>
+
+	&lt;body id="body" onload="mainProcedure();">
+		&lt;div class="container-fluid">
+			&lt;h1>Citadel High School Scholarship Application&lt;/h1>
+			
+			&lt;h4>
+				Application Progress: &lt;progress id="progress" value="" max="">&lt;/progress>
+			&lt;/h4>
+			
+			&lt;form id='outputID-' class="form-horizontal" role="form">
+			&lt;/form>
+		&lt;/div>
+	&lt;/body>
+&lt;/html>
+
+
+
+				</code>
+			</pre>
+		</article>
+	</body>
+</html>
