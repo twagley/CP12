@@ -2,230 +2,487 @@
 General purpose CSS for the formatting of my Computer Programming 12 class documents
 
 Dave Drapak
-21. December 2014 - created
+	21. December 2014 	- created
+	1. July 2015		- repurposed to be my general style sheet for my website
+	31. July 			- messing with margins and lists
+	23. September 2018	- fixed spacing of code samples - Drapak
 */
 
 /* Load up our fonts*/
-
-
-@font-face {
-    font-family: OpenSans;
-    src: url(OpenSans-Regular.ttf);
-}
-
-@font-face {
-  font-family: Gentium;
-  src: url(GenBasR.ttf);
-}
-@font-face {
-  font-family: Gentium;
-  src: url(GenBkBasI.ttf);
-  font-style: italic;
-}
-
-/*
-@font-face {
-	font-family: OpenSans;
-	src: url(OpenSans-Bold.ttf);
-	font-weight: bold;
-}
-*/
-
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic:400italic,700,400,700italic|Open+Sans:400italic,700italic,400,700,300);
 
 
 /* general layout structure */
-
 body {
-    background-color: white;
-	font-size: 1em;
-    text-align: left;
-	font-family: Gentium, "Times New Roman", Times, serif;
+    background-color: 	white;
 }
 
+/* font assignment */
+nav, footer, header, h1, h2, h3, h4, strong, .question, .summaryClass  {
+    font-family: 		"Open Sans", Arial, sans-serif;
+}
+
+nav .navbar-nav a {
+    padding-left: 		10px;
+    padding-right: 		10px;
+}
+
+body, small, #homeLink, header em {
+	font-family: 		"Gentium Basic", "Times New Roman", Times, serif;
+}
+
+abbr {
+	font-variant: 		small-caps;
+}
+
+/* container padding */ 
+header, article, aside, footer  {
+    padding:			28px; 
+}
+address {
+	margin-left: 		56px;
+}
+
+/* heading colors */
+h1, h2, h3, h4, strong, a, .summaryClass {
+	color: 				DarkRed;
+}
+
+ /* links */
+article a {
+	text-decoration: 	underline;
+	/*
+	-moz-text-decoration-color: red;
+    text-decoration-color: red;
+	*/
+	}
+header a {
+    color:				White;
+	text-decoration: 	none;
+}
+header a:hover {
+    color:				#9d9d9d;
+	text-decoration: 	none;
+}
+figure a {
+	text-decoration: 	none;
+}
+
+
+
+/* section headings */
 header {
-    background-color:#404040;
-    color:white;
-    text-align:left;
-    padding:1em; 
-    clear:both;
-	font-weight: 200;
+    background-color:	#404040;
+    color:				White;
+    clear:				both;
+	font-size: 			2em;
 	}
 	
-footer {
-    padding:0.5em; 
-	}
-
 section {
-    float:right;
-    padding:0 em; 
+    float:				right;
+    padding:			0em; 
 }
 
 article {
-	width: 800px;
-	/*clear: left;*/
-    padding:0 em; 
+	clear: 				left;
 }
 
 aside {
-    width: 800px; 
-    /*float:right;*/
-    padding:0em; 
+    //width: 400px; 
+    //float:right;
 }
 
+footer {
+	color: 				#bbbbbb;
+	font-size: 			0.8em;
+}
+
+nav strong {
+    color: 				#FFFFFF;
+    font-weight: 		bold;
+	text-transform: 	uppercase;
+}
 
 
 /* now all the headings */
 
-h1 {
-    font-family: OpenSans, Arial, sans-serif;
-	color: DarkRed;
-	margin-left: 1em;
-	font-size: 2em;
-	color: white;
-	margin-left: 0em;
+
+h1, h2, h3, h4, footer, header, article li, .summaryClass { /* clear floating info around these*/
+	clear: 				both;
 }
 
-h2 {
-    font-family: OpenSans, Arial, sans-serif;
-	color: DarkRed;
-	margin-left: 1em;
-	font-size: 1.6em;
+
+h1 {
+	font-size: 			2em;
+}
+
+h1 a {
+	color: 				LightBlue;
+}
+
+
+h2, .summaryClass {
+	font-size: 			1.6em;
+	padding-top: 		12px;
 }
 
 h3 {
-    font-family: OpenSans, Arial, sans-serif;
-	color: DarkRed;
-	text-align: justify;
-	margin-left: 3.4em;
-	margin-right: 1em;
+	text-align: 		justify;
+	margin-right: 		1em;
+	font-size: 			1.3em;
 }
 
 h4 {
-    font-family: OpenSans, Arial, sans-serif;
-	color: DarkRed;
-	text-align: justify;
-	margin-left: 4em;
-	margin-right: 1em;
+	text-align: 		justify;
+	font-size: 			1.0em;
+	font-weight: 		bold;
+
 }
 
-caption, figcaption {
-    /* font-family: OpenSans, Arial, sans-serif; */
+/* caption and block styling */
+caption {
 	/*color: DarkRed; */
-	font-weight: bold;
-	font-style: italic;
+	font-weight: 		bold;
+	font-style: 		italic;
 }
 
+figure, .floaty {
+ 	float: 				left;
+	display: 			table;
+	margin: 			10px;
+    position: 			relative;
+}
+
+figure img {
+    display: 			block;
+}
+
+figcaption {
+	word-wrap:			normal;
+	vertical-align:		bottom;
+	background: 		rgba(210, 210, 210, 0.75);
+    position: 			absolute;
+    bottom: 			0;
+    left: 				0;
+    right: 				0;
+	margin:				5px;
+	padding:			5px;
+	font-size:			0.9em;
+	line-height:		1.2em;
+}
+
+figcaption :hover {
+	/*background: 	rgba(255, 255, 255, 0.85);*/
+	
+}
+
+figcaption, figcaption strong, figcaption a {
+	color: 				DarkRed;
+}
+
+/* tables */
 th {
-    /* font-family: OpenSans, Arial, sans-serif; */
-	color: Black;
-	text-align: center;
+	color: 				Black;
+	text-align: 		center;
 }
 
 tr {
-	vertical-align: top;
+	vertical-align: 	top;
 }
 
 strong{
-    font-family: OpenSans, Arial, sans-serif;
-	color: DarkRed;
-	margin-left: 1em;
+	font-weight: 		bold;
+	font-size: 			0.8em;
+	margin-left: 		0em;
 }
 
-footer {
-    font-family: OpenSans, Arial, sans-serif;
-	color: #bbbbbb;
-	font-size: 0.8em;
-	margin-left: 1em;
+small {
+	font-size: 			1.15em;
+	font-style: 		italic;
 }
 
-h1 > a {
-	color: LightBlue;
+header em {
+	font-size: 			1.15em;
+	font-style: 		italic;
 }
 
 /* all the general body text */
 
 p , li, hr, table, figure{
-	text-align: justify;
-	margin-left: 50px;
-	margin-right: 30px;
+	font-size: 			1.1em;
 }
 
-code, var {
-    font-family: "Consolas", "Courier New", "Lucida Console", Monaco, monospace;
-	color: DodgerBlue;
-	text-align: left;
-	font-weight: normal;
-	font-size: 0.9em;
+/* margins */
+article p, 
+article hr, 
+article pre, 
+article table, 
+article dl, 
+article h4 {
+	margin-left: 		40px;
+	margin-right: 		20px;	
 }
 
-code > strong {
-    font-family: "Consolas", "Courier New", "Lucida Console", Monaco, monospace;
-	color: DarkRed;
-	text-align: left;
-	font-weight: normal;
-	font-size: 1em;
+article ul, 
+article ol, 
+article dd {
+	margin-left:		56px;
 }
 
-
-var {
-	color: black;
-	font-weight: normal;
+article ul .indent, article ol .indent {
+	margin-left: 		56px;	
 }
 
-pre {
-    display: block;
-    white-space: pre;
-	margin-left: 4em;
-	margin-right: 4em;
-	text-align: left;
-	tab-size: 4;
-	-moz-tab-size: 4;
+.indent {
+	margin-left: 		56px;
 }
 
-strong {
-	font-weight: bold;
-	font-size: 0.80em;
-	margin-left: 0em;
-}
-
-.langstyle {
-	font-size: 0.6em;
-	font-variant: small-caps;
-	color: DarkRed;
-}
-
-.reflink {
-	font-size: 0.85em;
-	font-style: italic;
-}
-
-.goodcode {
-	color: LimeGreen;
-	margin-left: 0em
-}
-
-.badcode {
-	color: red;
-	margin-left: 4em
+.floatbox {
+	margin-left: 		28px;
+ 	float: 				left;
+	display: 			table;
+	margin: 			10px;
+    position: 			relative;
 }
 
 .flushmargin {
-	margin-left: 0em
+	margin-left: 		0em;
 }
 
-.withborder{
-	border:1px solid DarkRed;
+h2 + ul, 
+h2 + ol {
+	margin-left: 		40px;
+	/* DFW */
 }
 
-.tablewithborders {
-	border-collapse: collapse;
-	border:1px solid DarkRed;	 
+/* formatting for code samples */
+code, var {
+    font-family: 		"Consolas", "Courier New", "Lucida Console", Monaco, monospace;
+	color: 				DodgerBlue;
+	text-align: 		left;
+	font-weight: 		normal;
+	font-size: 			0.9em;
+
+}
+
+code strong, .reference {
+    font-family: 		"Consolas", "Courier New", "Lucida Console", Monaco, monospace;
+	color: 				DarkRed;
+	text-align: 		left;
+	font-weight: 		normal;
+	font-size: 			1em;
+}
+
+var {
+	color: 				black;
+	font-weight: 		normal;
+}
+
+pre {
+    display: 			block;
+    white-space: 		pre;
+	text-align: 		left;
+	line-height: 		1.1;
+}
+
+.goodcode {
+	color: 				LimeGreen;
+	//margin-left: 		0em
+}
+
+.badcode {
+	color: 				red;
+	//margin-left: 		4em;
+}
+
+
+/* Don't print link hrefs */
+@media print {
+	a[href]:after {
+		content: 		none;
+	}
+	nav {
+		content: 		none;
+	}
+}
+
+/* classes */
+.langstyle {
+	font-size: 			0.6em;
+	font-variant: 		small-caps;
+	color: 				DarkRed;
+}
+
+.reflink {
+	font-size: 			0.85em;
+	font-style: 		italic;
 }
 
 .centered {
-	text-align: center;
+	text-align: 		center;
+}
+
+.floatbox {
+	clear: 				both;
+}
+
+.float {
+	float: 				left;
+}
+
+/* border styles */
+
+.imageLink {
+	border: 			5px solid Black;	 
+}
+
+.docLink {
+	border: 			5px solid DarkRed;	 
+}
+
+.presentationLink {
+	border:	 			5px solid Gray;	 
+}
+
+.withborder{
+	border:				1px solid DarkRed;
+}
+
+.withbackground{
+	background-color: 	pink;
+}
+
+.tablewithborders {
+	border-collapse: 	collapse;
+	border:				1px solid DarkRed;	 
+}
+
+/* for notepad++ export */
+
+.sc0 {
+	font-weight: 		bold;
+}
+.sc1 {
+	color: 				#0000FF;
+}
+.sc3 {
+	color: 				#FF0000;
+}
+.sc6 {
+	font-weight: 		bold;
+	color: 				darkBlue;
+}
+.sc8 {
+}
+.sc9 {
+	color: 				#008000;
+}
+.sc10 {
+	font-style: 		italic;
+	background: 		#FEFDE0;
+}
+.sc11 {
+	color: 				#0000FF;
+}
+.sc21 {
+	background: 		#A6CAF0;
+}
+.sc26 {
+}
+.sc40 {
+}
+.sc41 {
+}
+/*
+.sc41, .sc42, .sc43, .sc46., .sc47, .sc50 {
+	background: #F2F4FF;
+}
+*/
+.sc42 {
+	color: 				#008000;
+}
+.sc43 {
+	color: 				#008000;
+}
+.sc46 {
+	font-weight: 		bold;
+	color: 				darkBlue;
+}
+.sc47 {
+	font-style: 		italic;
+	color: 				#000080;
+}
+.sc50 {
+	font-weight: 		bold;
+}
+
+/* for no touchy */
+.noselect, .notouchy {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select:	none;
+    -moz-user-select: 	none;
+    -ms-user-select: 	none;
+    user-select: 		none;
 }
 
 .hiddenAgendaClass {
-	color: white;
+	color: 				white;
 }
+
+/* to handle questions */
+.question {
+	color: 				DarkRed;
+	//font-weight: 		bold;
+	border-collapse: 	collapse;
+	border: 			1px solid DarkRed;
+	font-size:			0.9em;
+	padding-left:		0.3em;
+	padding-right:		0.3em;
+}
+.question a {
+	text-decoration: 	none;
+}
+
+/* list styling */
+ul {
+	list-style-type: 	disc;
+}
+
+ul.showBullets {
+	list-style-type: 	disc;
+	}
+
+.listClass, .nobullets, .noBullets {
+    list-style-type: 	none;
+}
+/* fixes the disappearance of triangles due to bootstrap */
+details, summary {
+	display: revert;
+}
+
+
+/* ids */
+
+/* course booklet*/
+
+.level, .credits {
+	font-style:			italic;
+}
+.level:after {
+	content:			" - ";
+}
+.prerequisite {
+	font-weight:		bold;
+}
+table.courseTable td,
+table.courseTable th  {
+	padding:			4px;
+}
+table.courseTable th  {
+	text-align:			left;
+}
+td.ib {
+	text-align:			center;
+}
+
