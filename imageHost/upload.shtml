@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>drapak.ca - Computer Programming 12 - secret image host!</title>
+		<meta 
+			name="description" 
+			content="This is the secret image host function of drapak.ca">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="No keywords! No searches!">
+
+		<!--#include virtual="/stylesandscripts.html" -->
+		<script src="./Math.uuid.js"></script>
+
+		<!--
+			Change log:
+				4. March 2018		- created!
+		-->
+	</head>
+
+	<body>
+		<!--#include virtual="/masthead.html" -->
+
+		<header>Computer Programming 12</header>
+
+		<article>
+				<h2>
+					Sometimes you have to create your own 
+					awesome when the internet lets you down...
+				</h2>
+				<p>
+					Finding a reliable image host for student projects
+					has been an ongoing challenge. So let's create our own
+					image hosting service!
+				</p>
+				<p>
+					Please please please don't share the address to 
+					this page! I <strong>REALLY</strong>
+					don't want anyone to uploading linking anything 
+					porny or sketchy to drapak.ca! 
+				</p>
+				<p>
+					The file:
+					<input type="file" id="fileID">
+				</p>
+				<p>
+					<em id="messageID"></em>
+				</p>
+				<p>
+					Your link to your new image:<br>
+					<strong><a id="linkID"></a></strong>
+				</p>
+		</article>
+
+		<!--#include virtual="/footer.html" -->
+		
+		<script>
+			//MAIN: 
+			var mainProcedure = function ( fileObj ) {
+				console.log( "in mainProcedure..." );
+				
+				//create a unique uuid for the filename
+				var uuid = Math.uuid();
+				
+			}
+			
+			
+			
+			//PROCESS: extract the uploaded file						
+			function extractUploadedFile ( event ) {
+				console.log( "in extractUploadedFile" );
+				
+				var files = event.target.files; // FileList object
+
+				// files is a FileList of File objects. List some properties.
+				var fileObj = files[ 0 ];
+				
+				var readerObj = new FileReader();
+				
+				readerObj.onload = function( event ) { 
+
+					var resultObj = {};
+					resultObj.name		= fileObj.name;
+					resultObj.type		= fileObj.type;
+					resultObj.size		= fileObj.size;
+					resultObj.contents	= event.target.result;
+					
+					console.log( "Got the file.\n" 
+						  +"name: " + resultObj.name + "\n"
+						  +"type: " + resultObj.type + "\n"
+						  +"size: " + resultObj.size + " bytes\n"
+					);  
+					
+					//document.getElementById('data').innerHTML =contents;
+					mainProcedure( resultObj );
+				}
+				
+				readerObj.readAsText( fileObj );
+			}
+			
+			//INPUT: attach the extractUploadedFile to the change of the file 
+			//		upload box
+			document.getElementById("fileID").onchange	= function () {
+				extractUploadedFile( event );
+			};
+
+		</script>
+	</body>
+</html>
