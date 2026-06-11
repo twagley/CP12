@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://citadelcreates.drapak.ca/cpg/markerator.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>markerator</title>
+		
+		<meta name="description" content="Upload your code and get instant feedback!">
+		<meta name="author" content="Dave Drapak">
+			
+		<!-- load up the data structure constants -->
+		<script src="./markerator_files/criteria.js.download"></script>
+		<script src="./markerator_files/assignments.js.download"></script>
+		
+		<!--
+			Change log:
+				Created:	12. September 2018									- Drapak
+				Modified:	16. September		- moved emails and assignment to separate files
+							17. September		- adding sketches of server interaction 
+							20. September 		- added new fonts as default		- Drapak
+							23. September 		- added assignment info				- Drapak
+							24. September 		- added the reference page info 	- Drapak
+							29. September		- moved the code listing to front	- Drapak
+							30. September 		- adding checkboxes					- Drapak
+							9. October 2018		- added CakeyClicker				- Drapak
+												- added negative criteria
+												- added criteria category descriptions
+							13. October 2018	- split criteria and assignment js 	- Drapak
+							20. October 2018	- sets title of the page to filename- Drapak
+							3. Nov 2018			- added INIT criteria				- Drapak
+							13. January 2019	- added ability to unclick/remove	- Drapak
+							29. January 2019	- added structure array for example	- Drapak
+							
+				TODO:		isolate html tags to find lowercase Ids
+							isolate id="" class="" for camelCase
+							fix var search
+		-->
+		<style>
+			/* Load up our fonts*/
+			@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Open+Sans+Condensed:300');
+
+			/* ze Tags */
+			
+			body {
+				font-family: 	'Open Sans', Arial, sans-serif;
+				tab-size: 		4;
+			}
+			code, pre {
+				font-family: 	'Inconsolata', monospace;
+			}
+			table {
+				cellpadding:	0px;
+				cellspacing:	0px;
+				line-height:	1;
+			}
+
+			/* ze #Ids */
+
+			#assignmentId {
+				/*margin-left: 	5em;*/
+			}
+			#linesId, #programCodeId {
+				display:		block;
+			}
+			#lastProjectId {
+				font-weight:	bold;
+			}
+			
+			/* ze #Classes */
+			
+			.fileInputClass {
+				width:			30em;
+			}
+			.exampleClass {
+				margin-left: 	120px;
+				margin-top:		-39px;
+				font-style:		italic;
+				color:			#888888;
+			}
+			.referenceClass {
+				font-size:		0.7em;
+				font-style:		italic;
+			}
+			.criteriaTableClass {
+				text-align:		center;
+			}
+			.lineNumberTableClass {
+				font-family:	"Open Sans Condensed";
+				text-align:		center;
+				color:			darkGreen;
+				font-size:		0.8em;
+				max-width:		10em;
+			}
+			.questionClass {
+				font-family:	"Open Sans Condensed";
+				/*font-stretch: 	condensed;*/
+			}
+			.lineBreakClass {
+				font-weight:	bold;
+				color:			red;
+			}
+			.criteriaCodeClass {
+				font-family: 	'Inconsolata', monospace;
+				color:			darkGreen;
+				font-weight:	bold;
+				text-align:		right;
+				display:		inline-block;
+				min-width:		100px;
+			}
+			.negativeClass {
+				color:			red;
+			}
+			
+			/* criteria response colour styles */
+			
+			.yesClass {
+				color:			green;
+				font-weight:	bold;
+			}
+			.partialClass {
+				font-style:		italic;
+			}
+			.noClass {
+				color:			red;
+			}
+			
+			
+			/* dealing with the display of criteria previews */
+
+			.criteriaPreviewClass {
+				display:		none;
+			}
+			.exampleIndentClass {
+				margin-left:	5em;
+			}
+			#previewstyle0Id {
+				display:		block;
+			}
+			
+			/* alter link color for PDF printing */
+			a {
+				color:			#000088;
+			}
+		</style>
+	<style>/* stylelint-disable */
+/* stylelint-enable */
+/** Buttons
+---------------------------------------------------------*/
+th-rw4gc {
+  --transparent: rgba(255, 255, 255, 0);
+  --white: hsl(0, 0%, 100%);
+  --th-white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --th-black: hsl(0, 0%, 0%);
+  --lightGrey: hsl(0, 0%, 94%);
+  --th-grey-white: hsl(210, 10%, 97%);
+  --th-grey-light: hsl(210, 10%, 94.8%);
+  --th-grey-medium: hsl(212, 10%, 94%);
+  --th-grey: hsl(216, 22%, 91%);
+  --th-grey-dark: hsl(221, 20%, 78%);
+  --th-slate: hsl(221, 20%, 33%);
+  --th-slate-light: hsl(222, 20%, 45%);
+  --th-slate-dark: hsl(222, 22%, 18%);
+  --th-slate-alt: #333F57;
+  --th-slate-hover:#3E4A62;
+  --th-slate-dark-hover800:hsl(220, 22%, 24%);
+  --th-slate-dark-active800:hsl(219, 24%, 26%);
+  --th-slate-dark-hover600:hsl(222, 22%, 21%);
+  --th-slate-dark-active600:hsl(221, 24%, 23%);
+  --th-cool-grey-600: hsl(203, 16%, 44%);
+  --th-cool-grey-700: hsl(204, 18%, 30%);
+  --th-cool-grey-750: hsl(203, 18%, 32%);
+  --th-cool-grey-800: hsl(209, 20%, 25%);
+  --th-cool-grey-850: hsl(209, 20%, 21%);
+  --th-cool-grey-900: hsl(210, 24%, 16%);
+  --fontColorDark: var( --th-slate-dark);
+  --fontColorWhite: hsl(0, 0%, 100%);
+  --list-item-hover:hsl(225, 20%, 96%);
+  --list-item-light-hover: hsl(210, 20%, 98%);
+  --list-item-hover-dark:hsla(222, 22%, 18%, 0.50);
+  --list-item-light-hover-dark: hsla(222, 20%, 33%, 0.50);
+  --greyTransparent: hsla(222, 22%, 18%, 0.12);
+  --whiteTransparent: hsla(0, 0%, 100%, 0.12);
+  --defaultColor: hsl(220, 20%, 91%);
+  --defaultColorHover: hsl(220, 19%, 78%);
+  --defaultColorActive: hsl(220, 19%, 68%);
+  --defaultColorSelected: hsl(221, 20%, 75%);
+  --buttonBorderColor: 2px solid hsl(220, 20%, 91%);
+  --buttonBorderColorHover: 2px solid hsl(220, 19%, 78%);
+  --buttonBorderColorActive: 2px solid hsl(220, 19%, 68%);
+  --buttonBorderColorSelected: 2px solid hsl(221, 20%, 75%);
+  --iconFillColor: var( --th-slate-dark );
+  --primaryColor: hsl(211, 100%, 45%);
+  --primaryColorHover: hsl(211, 100%, 35%);
+  --primaryColorActive: hsl(211, 100%, 25%);
+  --primaryButtonBorder: 2px solid hsl(211, 100%, 45%);
+  --primaryButtonBorderHover: 2px solid hsl(211, 100%, 35%);
+  --primaryButtonBorderActive: 2px solid hsl(211, 100%, 25%);
+  --secondaryColor: var(--th-slate);
+  --secondaryColorHover: hsl(221, 20%, 23%);
+  --secondaryColorActive: hsl(221, 20%, 13%);
+  --secondaryButtonBorderColor: 2px solid var(--th-slate);
+  --secondaryButtonBorderColorHover: 2px solid hsl(221, 20%, 23%);
+  --secondaryButtonBorderColorActive: 2px solid hsl(221, 20%, 13%);
+  --disabledColor: hsl(0, 0%, 50%);
+  --disabledBackgroundColor: hsl(0, 0%, 95%);
+  --brandColorGreen: hsl(76, 60%, 52%);
+  --brandColorGreenActive: hsl(76, 62%, 40%);
+  --primaryColorGreen: hsl(79, 100%, 24%);
+  --primaryColorGreenHover: hsl(79, 100%, 14%);
+  --primaryColorGreenActive: hsl(79, 100%, 4%);
+  --buttonBorderGreen: 2px solid hsl(79, 100%, 24%);
+  --buttonBorderGreenHover: 2px solid hsl(79, 100%, 14%);
+  --buttonBorderGreenActive: 2px solid hsl(79, 100%, 4%);
+  --brandColorPink: hsl(344, 98%, 59%);
+  --primaryColorPink: #e12362;
+  --primaryColorPinkHover: hsl(340, 76%, 41%);
+  --primaryColorPinkActive: hsl(340, 76%, 31%);
+  --buttonBorderPink: 2px solid hsl(340, 76%, 51%);
+  --buttonBorderPinkHover: 2px solid hsl(340, 76%, 41%);
+  --buttonBorderPinkActive: 2px solid hsl(340, 76%, 31%);
+  --brandColorTeal: hsl(180, 85%, 34%);
+  --primaryColorTeal: hsl(184, 50%, 35%);
+  --primaryColorTealHover: hsl(184, 50%, 25%);
+  --primaryColorTealActive: hsl(184, 50%, 15%);
+  --buttonBorderTeal: 2px solid hsl(184, 50%, 35%);
+  --buttonBorderTealHover: 2px solid hsl(184, 50%, 25%);
+  --buttonBorderTealActive: 2px solid hsl(184, 50%, 15%);
+  --brandColorPurple: hsl(264, 100%, 68%);
+  --primaryColorPurple: hsl(264, 83%, 62%);
+  --primaryColorPurpleHover: hsl(264, 83%, 52%);
+  --primaryColorPurpleActive: hsl(264, 83%, 42%);
+  --buttonBorderPurple: 2px solid hsl(264, 83%, 62%);
+  --buttonBorderPurpleHover: 2px solid hsl(264, 83%, 52%);
+  --buttonBorderPurpleActive: 2px solid hsl(264, 83%, 42%);
+  --brandColorOrange: hsl(33, 94%, 48%);
+  --primaryColorOrange: hsl(15, 79%, 45%);
+  --primaryColorOrangeHover: hsl(15, 80%, 35%);
+  --primaryColorOrangeActive: hsl(15, 80%, 25%);
+  --buttonBorderOrange: 2px solid hsl(15, 79%, 45%);
+  --buttonBorderOrangeHover: 2px solid hsl(15, 80%, 35%);
+  --buttonBorderOrangeActive: 2px solid hsl(15, 80%, 25%);
+  --brandColorBlue: hsl(197, 100%, 50%);
+  --brandColorBlueActive: hsl(197, 100%, 39%);
+  --brandColorBlueWCAG: hsl(197, 100%, 42%);
+  --primaryColorBlue: hsl(201, 100%, 37%);
+  --primaryColorBlueHover: hsl(201, 100%, 27%);
+  --primaryColorBlueActive: hsl(201, 100%, 17%);
+  --buttonBorderBlue: 2px solid hsl(201, 100%, 37%);
+  --buttonBorderBlueHover: 2px solid hsl(201, 100%, 27%);
+  --buttonBorderBlueActive: 2px solid hsl(201, 100%, 17%);
+  --BrandcolorYellow: hsl(41, 90%, 61%);
+  --primaryColorReachDeck: hsl(209, 100%, 39%);
+  --primaryColorReachDeckHover: hsl(209, 100%, 29%);
+  --primaryColorReachDeckActive: hsl(209, 100%, 19%);
+  --buttonBorderReachDeck: 2px solid hsl(209, 100%, 39%);
+  --buttonBorderReachDeckHover: 2px solid hsl(209, 100%, 29%);
+  --buttonBorderReachDeckActive: 2px solid hsl(209, 100%, 19%);
+  --reachDeckEditorColor: hsl(112, 100%, 26%);
+  --launchpadButtonLight: hsl(210, 10%, 96%);
+  --launchpadButtonLightHover: hsl(220, 8%, 92%);
+  --launchpadButtonLightActive:hsl(0, 0%, 90%);
+  --ContrastPinkOrbitNoteHover: hsl(343, 81%, 48%);
+  --ContrastPinkOrbitNoteActive: hsl(345, 96%, 42%);
+  --ContrastButtonBorderPink: hsl(345, 96%, 42%);
+  --primaryColorClaroNavy: hsl(207, 74%, 27%);
+  --primaryColorClaroNavyHover: hsl(206, 83%, 21%);
+  --primaryColorClaroNavyActive: hsl(206, 89%, 17%);
+  --buttonBorderClaro: 2px solid hsl(207, 74%, 27%);
+  --buttonBorderClaroHover: 2px solid hsl(206, 83%, 21%);
+  --buttonBorderClaroActive: 2px solid hsl(206, 89%, 17%);
+  --primaryColorClaroBlue: hsl(201, 100%, 37%);
+  --primaryColorClaroBlueHover: hsl(201, 100%, 31%);
+  --primaryColorClaroBlueActive: hsl(201, 100%, 27%);
+  --claroDark: hsl(218, 54%, 20%);
+  --claroGrey: hsl(217, 31%, 68%);
+  --claroBlue: hsl(191, 88%, 40%);
+  --claroBlueAlt: hsl(188, 78%, 50%);
+  --claroGreen: hsl(75, 63%, 51%);
+  --altColor: var(--claroGreen);
+  --altColorHover: hsl(75, 70%, 40%);
+  --altColorActive: hsl(75, 77%, 33%);
+  --altButtonBorderColor: 2px solid var(--claroGreen);
+  --altButtonBorderColorHover: 2px solid hsl(75, 70%, 40%);
+  --altButtonBorderColorActive: 2px solid hsl(75, 77%, 33%);
+  --brandColorLingdys: hsl(0, 82%, 49%);
+  --primaryColorLingdys: hsl(217, 34%, 38%);
+  --primaryColorLingdysHover: hsl(217, 37%, 24%);
+  --primaryColorLingdysActive: hsl(217, 39%, 18%);
+  --buttonBorderLingdys: 2px solid hsl(217, 34%, 38%);
+  --buttonBorderLingdysHover: 2px solid hsl(217, 37%, 24%);
+  --buttonBorderLingdysActive: 2px solid hsl(217, 39%, 18%);
+  --brandColorAppWriter: #F70790;
+  --primaryColorAppWriter: #D8087F;
+  --primaryColorAppWriterHover:#B40669;
+  --primaryColorAppWriterActive: #9F055C;
+  --buttonBorderAppwriter: 2px solid #D8087F;
+  --buttonBorderAppwriterHover: 2px solid #B40669;
+  --buttonBorderAppWriterActive: 2px solid #9F055C;
+  --iconToggleFillOrbitNote: hsl(196, 99%, 50%);
+  --textColor: var( --th-slate-dark );
+  --textColorLight: var( --th-white );
+  --border: 1px solid var( --th-grey );
+  --borderDark: 1px solid var( --th-grey-dark );
+  --infoColor: hsl(194, 77%, 24%);
+  --successColor: hsla(134, 71%, 43%, 0.584);
+  --errorColor: hsl(0, 71%, 51%);
+  --warningColor: hsl(45, 97%, 51%);
+  --infoBackgroundColor: hsl(180, 100%, 99%);
+  --successBackgroundColor: hsl(78, 100%, 98%);
+  --errorBackgroundColor: hsl(0, 100%, 98%);
+  --warningBackgroundColor: hsl(35, 100%, 98%);
+  --notificationDarkModeBackground: hsl(218, 22%, 37%);
+  --infoBorderColor: hsl(191, 44%, 82%);
+  --successBorderColor: hsl(100, 28%, 69%);
+  --errorBorderColor: hsl(0, 37%, 73%);
+  --warningBorderColor: hsl(41, 30%, 71%);
+  --notificationDarkModeBorder: hsl(217, 19%, 41%);
+  --infoTitleColor: hsl(194, 77%, 24%);
+  --successTitleColor: hsl(121, 48%, 23%);
+  --errorTitleColor: hsl(1, 47%, 40%);
+  --warningTitleColor: hsl(37, 92%, 25%);
+  --infoWarningColor: hsl(194, 77%, 24%);
+  --successWarningColor: hsla(121, 48%, 23%, 0.8);
+  --errorWarningColor: hsla(1, 47%, 40%, 0.8);
+  --warningWarningColor: hsla(37, 92%, 25%, 0.8);
+  --line-height-base: 1.5;
+  --zindex-modal: 1050;
+  --modal-dialog-margin: 2rem;
+  --modal-content-border-radius: 1px;
+  --buttonBorderRadius: 30px;
+  --buttonRoundness: 30px;
+  --buttonLinkTextColor: var( --primaryColor)!important;
+  --buttonLinkIconColor: var( --primaryColor)!important;
+  --buttonNoBackgroundTextColor: var( --th-slate-dark);
+  --buttonNoBackgroundIconColor: var( --th-slate-dark);
+  --buttonNoBackgroundColor: transparent;
+  --buttonNoBackgroundColorHover: var(--icon-button-background-hover-color);
+  --buttonNoBackgroundColorActive: var(--icon-button-background-active-color);
+  --buttonNoBackgroundBorder: 2px solid transparent;
+  --buttonNoBackgroundBorderHover: 2px solid transparent;
+  --buttonNoBackgroundBorderActive: 2px solid transparent;
+  --activeDotColor: inherit;
+  --themeColorDefault: var(--defaultColor);
+  --themeColorGroundworks: var(--primaryColor);
+  --themeColorReadWrite: var(--primaryColorPurple);
+  --themeColorEquatio: var(--primaryColorBlue);
+  --themeColorBrowsealoud: var(--primaryColorOrange);
+  --themeColorWriq: var(--primaryColorTeal);
+  --themeColorFluencyTutor: var(--primaryColorGreen);
+  --themeColorSnapVerter: var(--primaryColorGreen);
+  --themeColorSpeechStream: var(--primaryColorPink);
+  --themeColorTexthelp: var(--primaryColorTeal);
+  --themeColorReachDeck: var(--primaryColorReachDeck);
+  --themeColorPdfReader: var(--primaryColorBlue);
+  --uniloginBackgroundColor: #F7F7F7;
+  --uniloginWindowBackgroundColor: var(--primaryColorBlue);
+  --line-height-base: 1.5;
+  --zindex-modal: 1050;
+  --modal-dialog-margin: 2em;
+  --modal-content-border-radius: 1px;
+  --modal-inner-padding: 1.5em;
+  --modal-title-padding: 1.5em;
+  --modal-title-line-height: var(--line-height-base);
+  --modal-content-bg: #fff;
+  --modal-content-border-color: rgba(0, 0, 0, .2);
+  --modal-content-fallback-border-color: #999;
+  --modal-backdrop-bg: #000;
+  --modal-backdrop-opacity: .5;
+  --modal-header-border-color: #e5e5e5;
+  --modal-footer-border-color: var(--modal-header-border-color);
+  --modal-header-background-color: #f5f5f5;
+  --select-border: 1px solid #DADADA;
+  --select-background: hsl(0, 0%, 100%);
+  --select-background-color: #efefef;
+  --select-background-color-hover: hsl(0, 0%, 97%);
+  --input-border: 1px solid #DADADA;
+  --input-background-color: #ffffff;
+  --settings-title-color: var(--primaryColor);
+  --settings-item-background-color: var(--th-white);
+  --settings-item-background-hover-color: var(--th-grey-medium);
+  --settings-item-background-active-color: var(--th-grey);
+  --list-group-background-color: transparent;
+  --list-group-item-background-color: var(--th-white);
+  --list-group-item-background-hover-color: var(--th-grey-light);
+  --list-group-item-background-active-color: var(--th-grey);
+  --list-group-item-icon-color: var(--th-slate-dark);
+  --ListGroupSearchItemColor: var(--th-white);
+  --ListGroupSearchItemColorHover: #f9fafb;
+  --ListGroupSearchItemTextColor: var(--th-slate);
+  --ListGroupSearchItemBorderColor: hsla(0, 0%, 0%, 0.15);
+  --ListGroupSearchItemAsideColor: hsl(0, 0%, 95%);
+  --ListGroupSearchItemAsideTextColor: #000;
+  --toolbar-button-disabled: hsl(0, 0%, 96.1%);
+  --toolbar-button-background: hsl(0, 0%, 96.1%);
+  --toolbar-button-hover-background: hsl(0, 0%, 80%);
+  --toolbar-button-color: hsl(0, 0%, 0%);
+  --toolbar-button-hover-active-background: hsl(0, 0%, 70.2%);
+  --toolbar-button-default-size: 43px;
+  --toolbar-button-focus-color: hsl(213, 71.3%, 60.4%);
+  --toolbar-button-svg-color: hsl(0, 0%, 29%);
+  --toolbar-button-toggle-color: hsl(264, 100%, 68%);
+  --panel-inner-padding: .7em;
+  --icon-button-background-default-color: hsla(0, 0%, 0%, 0.077);
+  --icon-button-background-hover-color: hsla(0, 0%, 0%, 0.125);
+  --icon-button-background-active-color: hsla(0, 0%, 0%, 0.187);
+  --icon-button-background-default-color-dark: rgba(255, 255, 255, 0.077);
+  --icon-button-background-hover-color-dark: rgba(255, 255, 255, 0.146);
+  --icon-button-background-active-color-dark: rgba(255, 255, 255, 0.221);
+  --icon-button-border-color: solid 2px transparent;
+  --menuIconFillColor: var(--th-slate);
+  --cardIconFillColor: var(--th-slate);
+  --default-menu-notify-background-colour: hsl(264, 100%, 68%);
+  --toolbarButtonBackgroundColor: var( --defaultColor);
+  --toolbarButtonBackgroundHoverColor: var( --icon-button-background-hover-color);
+  --toolbarButtonBackgroundActiveColor: var( --icon-button-background-active-color);
+  --toolbarIconHoverFill: var( --th-slate);
+  --toolbarIconToggleFill: var( --primaryColor);
+  --dashboardContentBackgroundColor: #fff;
+  --dashboardHeaderBackgroundColor: #fff;
+  --dashboardSidebarBorderTopColor: var( --lightGrey);
+  --dashboardTextColor: var(--th-slate);
+  --dashboardTitleTextColor: var(--fontColorDark);
+  --dashboardSubTitleTextColor: var(--th-slate-light);
+  --dashboardCardBackgroundColor: var(--white);
+  --dashboardCardBackgroundHoverColor: var(--th-grey-light);
+  --dashboardCardBackgroundActiveColor: var(--lightGrey);
+  --dashboardCardHighlightColor: var(--primaryColor);
+  --dashboardCardBorderColor: var(--lightGrey);
+  --dashboardCardFooterLinkColor: var(--primaryColor);
+  --dashboardCardAuditorColor: hsl(208, 100%, 43%);
+  --dashboardCardAuditorLabelColor: hsl(208, 100%, 43%);
+  --dashboardCardEditorLabelColor: var(--reachDeckEditorColor);
+  --dashboardCardToolbarColor: var(--primaryColorOrange);
+  --dashboardCardToolbarLabelColor: var(--primaryColorOrange);
+  --dashboardPaneBackgroundColor: #fcfcfc;
+  --dashboardPaneBorderColor: rgba(92, 106, 138, 0.4);
+  --dashboardPaneDashedBorderColor: var(--dashboardDashedBorderLight);
+  --dashboardDashedBorderLight: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%235C6A8ACC' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  --dashboardDashedBorderDark: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23323E52FF' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  --icon-opacity: 1;
+  --accordionBackgroundColor: #fff;
+  --accordionTextColor: #484848;
+  --accordionTextBottomColor: #484848;
+  --accordionIconColor: var(--toolbarWhite);
+  --accordionBackgroundColorHover: #f9fafb;
+  --tableBackgroundColor: none;
+  --tableBackgroundHeaderColor: #F9FAFB;
+  --tableBackgroundAltColor: #f7f7f7;
+  --tableBackgroundHoverColor: hsl(210, 20%, 98%);
+  --tableBorderColor: #E2E2E3;
+  --tableTextColor: #484848;
+}
+
+/* stylelint-disable */
+/* stylelint-enable */
+.th-wq,
+.th-th {
+  --toolbarBackgroundColor: var(--defaultColor);
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorWriq);
+  --themeColorSecondary: var(--secondaryColor);
+  --dashboardTopColor: var(--brandColorTeal);
+  --dashboardTitleColor: var(--themeColorWriq);
+  --iconFillColor: var(--white);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorTeal);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorTealHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorTealActive);
+  --primaryButtonBorderActive: var(--buttonBorderTealActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderTeal);
+  --primaryButtonBorderHover: var(--buttonBorderTealHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+}
+
+.th-rw,
+.th-wa {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorReadWrite);
+  --themeColorSecondary: var(--secondaryColor);
+  --toolbarBackgroundColor: var(--defaultColor);
+  --toolbarIconFill: var(--th-slate);
+  --toolbarIconHoverFill: var(--th-slate);
+  --toolbarIconActiveFill: var(--th-slate);
+  --toolbarIconToggledHoverFill: var(--primaryColorPurple);
+  --toolbarIconToggleFill: var(--primaryColorPurple);
+  --toolbarIconToggleHoverFill: var(--primaryColorPurple);
+  --dashboardTopColor: var(--brandColorPurple);
+  --dashboardTitleColor: var(--themeColorReadWrite);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderActive: var(--buttonBorderColorActive);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorPurple);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorPurpleHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorPurpleActive);
+  --primaryButtonBorderActive: var(--buttonBorderPurpleActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderPurple);
+  --primaryButtonBorderHover: var(--buttonBorderPurpleHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+  --menuNotifyBackgroundColour: var(--brandColorPurple);
+  --uniloginBackgroundColor: #FAF7FF;
+  --uniloginWindowBackgroundColor: var(--primaryColorPurple);
+}
+
+.th-pr {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorPdfReader);
+  --themeColorSecondary: var(--secondaryColor);
+  --primaryButtonBackgroundColor: var(--primaryColorBlue);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorBlueHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorBlueActive);
+  --primaryButtonBorderActive: var(--buttonBorderBlueActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderBlue);
+  --primaryButtonBorderHover: var(--buttonBorderBlueHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --toolbarBackgroundColor: var(--th-grey);
+  --toolbarButtonBackgroundColor: var(--th-grey);
+  --toolbarButtonBackgroundHoverColor: var(--ContrastPinkOrbitNoteHover);
+  --toolbarButtonBackgroundActiveColor: var(--ContrastPinkOrbitNoteActive);
+  --toolbarButtonBorderActive: var(--ContrastButtonBorderPink);
+  --toolbarIconFill: var(--th-slate);
+  --toolbarIconHoverFill: var(--white);
+  --toolbarIconActiveFill: var(--white);
+  --toolbarIconToggleFill: var(--ContrastPinkOrbitNoteActive);
+  --toolbarIconToggleHoverFill: var(--white);
+  --toolbarIconToggledHoverFill: var(--white);
+  --iconButtonBackgroundDefaultColor: var(--icon-button-background-default-color);
+  --iconButtonBackgroundHoverColor: var(--icon-button-background-hover-color);
+  --iconButtonBackgroundActiveColor: var(--icon-button-background-active-color);
+  --iconButtonBorderColor: 2px solid transparent;
+  --iconFillColor: var(--th-slate);
+  --panelBackgroundColor: var(--th-grey-light);
+  --panelBackgroundColorLight: var(--white);
+  --panelBackgroundColorDark: var(--th-grey);
+  --fontColor: var(--th-slate-dark);
+  --borderColor: 1px solid var(--th-grey-dark);
+  --settingsTitleColor: var(--themeColorPrimary);
+  --menuNotifyBackgroundColour: var(--brandColorPink);
+  --dashboardTopColor: var(--primaryColorBlue);
+  --dashboardTitleColor: var(--themeColorEquatio);
+  --cardIconFillColor: var(--primaryColorBlue);
+}
+
+.th-eq {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorEquatio);
+  --themeColorSecondary: var(--secondaryColor);
+  --dashboardTopColor: var(--brandColorBlue);
+  --dashboardTitleColor: var(--themeColorEquatio);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorBlue);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorBlueHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorBlueActive);
+  --primaryButtonBorderActive: var(--buttonBorderBlueActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderBlue);
+  --primaryButtonBorderHover: var(--buttonBorderBlueHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+  --uniloginBackgroundColor: #F2F9FF;
+  --uniloginWindowBackgroundColor: var(--brandColorBlueWCAG);
+}
+
+.th-ba {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorBrowsealoud);
+  --themeColorSecondary: var(--secondaryColor);
+  --toolbarBackgroundColor: var(--th-grey);
+  --toolbarIconButtonFillColor: var(--th-slate);
+  --toolbarButtonBackgroundColor: var(--th-grey);
+  --toolbarButtonBackgroundHoverColor: var(--primaryColorOrangeHover);
+  --toolbarButtonBackgroundActiveColor: var(--primaryColorOrangeActive);
+  --toolbarButtonBorderActive: var(--buttonBorderOrange);
+  --toolbarIconFill: var(--th-slate);
+  --toolbarIconHoverFill: var(--th-slate);
+  --toolbarIconActiveFill: var(--primaryColorBlue);
+  --toolbarIconToggleFill: var(--primaryColorBlue);
+  --toolbarIconToggleHoverFill: var(--white);
+  --dashboardTopColor: var(--brandColorOrange);
+  --dashboardTitleColor: var(--themeColorBrowsealoud);
+  --iconFillColor: var(--white);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorOrange);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorOrangeHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorOrangeActive);
+  --primaryButtonBorderActive: var(--buttonBorderOrangeActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderOrange);
+  --primaryButtonBorderHover: var(--buttonBorderOrangeHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+  --menuNotifyBackgroundColour: var(--white);
+}
+.th-ba .gw-menu-notification--inline {
+  --menuNotifyBackgroundColour: var(--themeColorBrowsealoud);
+}
+
+.th-at {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorReachDeck);
+  --themeColorSecondary: var(--secondaryColor);
+  --toolbarBackgroundColor: var(--defaultColor);
+  --toolbarIconFill: var(--th-slate);
+  --toolbarIconHoverFill: var(--th-slate);
+  --toolbarIconActiveFill: var(--th-slate);
+  --toolbarIconToggledHoverFill: var(--primaryColorBlue);
+  --toolbarIconToggleFill: var(--primaryColorBlue);
+  --toolbarIconToggleHoverFill: var(--primaryColorBlue);
+  --dashboardTopColor: var(--th-grey);
+  --dashboardTitleColor: var(--th-slate-dark);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorReachDeck);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorReachDeckHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorReachDeckActive);
+  --primaryButtonBorderActive: var(--buttonBorderReachDeckActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderReachDeck);
+  --primaryButtonBorderHover: var(--buttonBorderReachDeckHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --dashboardTopColor: #E12362;
+  --dashboardContentBackgroundColor: #F2F5F9;
+  --tableBackgroundHeaderColor: #DFE1E5;
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+}
+
+.th-rd {
+  font-size: 10px;
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorReachDeck);
+  --themeColorSecondary: var(--secondaryColor);
+  --toolbarBackgroundColor: var(--defaultColor);
+  --toolbarIconFill: var(--th-slate);
+  --toolbarIconHoverFill: var(--th-slate);
+  --toolbarIconActiveFill: var(--th-slate);
+  --toolbarIconToggledHoverFill: var(--primaryColorBlue);
+  --toolbarIconToggleFill: var(--primaryColorBlue);
+  --toolbarIconToggleHoverFill: var(--primaryColorBlue);
+  --dashboardTopColor: var(--th-grey);
+  --dashboardTitleColor: var(--th-slate-dark);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorReachDeck);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorReachDeckHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorReachDeckActive);
+  --primaryButtonBorderActive: var(--buttonBorderReachDeckActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderReachDeck);
+  --primaryButtonBorderHover: var(--buttonBorderReachDeckHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+}
+
+.th-ss {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorSpeechStream);
+  --themeColorSecondary: var(--secondaryColor);
+  --dashboardTopColor: var(--brandColorPink);
+  --dashboardTitleColor: var(--themeColorSpeechStream);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--themeColorSpeechStream);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorPinkHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorPinkActive);
+  --primaryButtonBorderActive: var(--buttonBorderPinkActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderPink);
+  --primaryButtonBorderHover: var(--buttonBorderPinkHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+}
+
+.th-st {
+  --uniloginBackgroundColor: #F2F9FF;
+  --uniloginWindowBackgroundColor: #2A3953;
+}
+
+.th-sv,
+.th-ft {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--themeColorFluencyTutor);
+  --themeColorSecondary: var(--secondaryColor);
+  --dashboardTopColor: var(--brandColorGreen);
+  --dashboardTitleColor: var(--themeColorFluencyTutor);
+  --iconFillColor: var(--th-slate-dark);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--themeColorFluencyTutor);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorGreenHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorGreenActive);
+  --primaryButtonBorderActive: var(--buttonBorderGreenActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderGreen);
+  --primaryButtonBorderHover: var(--buttonBorderGreenHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --secondaryButtonBackgroundColor: var(--secondaryColor);
+  --secondaryButtonBackgroundHoverColor: var(--secondaryColorHover);
+  --secondaryButtonBackgroundActiveColor: var(--secondaryColorActive);
+  --secondaryButtonTextColor: var(--fontColorWhite);
+  --secondaryButtonTextHoverColor: var(--fontColorWhite);
+  --secondaryButtonTextActiveColor: var(--fontColorWhite);
+  --secondaryButtonTextVisitedColor: var(--fontColorWhite);
+  --secondaryButtonBorder: var(--secondaryButtonBorder);
+  --secondaryButtonBorderHover: var(--secondaryButtonBorderColorHover);
+  --secondaryButtonBorderRadius: var(--buttonRoundness);
+  --secondaryButtonIconFillColor: var(--white);
+  --table-hover-item: var(--list-item-light-hover);
+  --settingsTitleColor: var(--themeColorPrimary);
+}
+
+.th-cr {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--primaryColorClaroNavy);
+  --themeColorSecondary: var(--secondaryColor);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorClaroNavy);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorClaroNavyHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorClaroNavyActive);
+  --primaryButtonBorderActive: var(--buttonBorderClaroActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderClaro);
+  --primaryButtonBorderHover: var(--buttonBorderClaroHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --altButtonBackgroundColor: var(--altColor);
+  --altButtonBackgroundHoverColor: var(--altColorHover);
+  --altButtonBackgroundActiveColor: var(--altColorActive);
+  --altButtonTextColor: var(--fontColorWhite);
+  --altButtonTextHoverColor: var(--fontColorWhite);
+  --altButtonTextActiveColor: var(--fontColorWhite);
+  --altButtonTextVisitedColor: var(--fontColorWhite);
+  --altButtonBorder: var(--altButtonBorder);
+  --altButtonBorderHover: var(--altButtonBorderColorHover);
+  --altButtonBorderRadius: var(--buttonRoundness);
+  --altButtonIconFillColor: var(--white);
+  --uniloginBackgroundColor: #F2F9FF;
+  --uniloginWindowBackgroundColor: var(--themeColorPrimary);
+}
+
+.th-wh {
+  background: #F6F6F6;
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--primaryColorClaroNavy);
+  --themeColorSecondary: var(--secondaryColor);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorClaroBlue);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorClaroBlueHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorClaroBlueActive);
+  --primaryButtonBorderActive: var(--buttonBorderClaroActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--primaryColorClaroBlue);
+  --primaryButtonBorderHover: var(--primaryColorClaroBlueHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --altButtonBackgroundColor: var(--altColor);
+  --altButtonBackgroundHoverColor: var(--altColorHover);
+  --altButtonBackgroundActiveColor: var(--altColorActive);
+  --altButtonTextColor: var(--fontColorWhite);
+  --altButtonTextHoverColor: var(--fontColorWhite);
+  --altButtonTextActiveColor: var(--fontColorWhite);
+  --altButtonTextVisitedColor: var(--fontColorWhite);
+  --altButtonBorder: var(--altButtonBorder);
+  --altButtonBorderHover: var(--altButtonBorderColorHover);
+  --altButtonBorderRadius: var(--buttonRoundness);
+  --altButtonIconFillColor: var(--white);
+  --uniloginBackgroundColor: #F2F9FF;
+  --uniloginWindowBackgroundColor: var(--primaryColorClaroNavy);
+}
+
+.th-lds {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--primaryColorLingdys);
+  --themeColorSecondary: var(--secondaryColor);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorLingdys);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorLingdysHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorLingdysActive);
+  --primaryButtonBorderActive: var(--buttonBorderLingdysActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderLingdys);
+  --primaryButtonBorderHover: var(--buttonBorderLingdysHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --altButtonBackgroundColor: var(--altColor);
+  --altButtonBackgroundHoverColor: var(--altColorHover);
+  --altButtonBackgroundActiveColor: var(--altColorActive);
+  --altButtonTextColor: var(--fontColorWhite);
+  --altButtonTextHoverColor: var(--fontColorWhite);
+  --altButtonTextActiveColor: var(--fontColorWhite);
+  --altButtonTextVisitedColor: var(--fontColorWhite);
+  --altButtonBorder: var(--altButtonBorder);
+  --altButtonBorderHover: var(--altButtonBorderColorHover);
+  --altButtonBorderRadius: var(--buttonRoundness);
+  --altButtonIconFillColor: var(--white);
+  --uniloginBackgroundColor: #F2F9FF;
+  --uniloginWindowBackgroundColor: var(--themeColorPrimary);
+}
+
+.th-aw {
+  --themeColorDefault: var(--defaultColor);
+  --themeColorPrimary: var(--primaryColorClaroNavy);
+  --themeColorSecondary: var(--secondaryColor);
+  --buttonBackgroundColor: var(--defaultColor);
+  --buttonBackgroundHoverColor: var(--defaultColorHover);
+  --buttonBackgroundActiveColor: var(--defaultColorActive);
+  --buttonTextColor: var(--fontColorDark);
+  --buttonTextHoverColor: var(--fontColorDark);
+  --buttonTextActiveColor: var(--fontColorDark);
+  --buttonTextVisitedColor: var(--fontColorDark);
+  --buttonBorder: var(--buttonBorder);
+  --buttonBorderHover: var(--buttonBorderColorHover);
+  --buttonBorderRadius: var(--buttonRoundness);
+  --buttonBorderIconFillColor: var(--black);
+  --primaryButtonBackgroundColor: var(--primaryColorAppWriter);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorAppWriterHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorAppWriterActive);
+  --primaryButtonBorderActive: var(--buttonBorderAppWriterActive);
+  --primaryButtonTextColor: var(--fontColorWhite);
+  --primaryButtonTextHoverColor: var(--fontColorWhite);
+  --primaryButtonTextActiveColor: var(--fontColorWhite);
+  --primaryButtonTextVisitedColor: var(--fontColorWhite);
+  --primaryButtonBorder: var(--buttonBorderAppWriter);
+  --primaryButtonBorderHover: var(--buttonBorderAppWriterHover);
+  --primaryButtonBorderRadius: var(--buttonRoundness);
+  --primaryButtonIconFillColor: var(--white);
+  --altButtonBackgroundColor: var(--altColor);
+  --altButtonBackgroundHoverColor: var(--altColorHover);
+  --altButtonBackgroundActiveColor: var(--altColorActive);
+  --altButtonTextColor: var(--fontColorWhite);
+  --altButtonTextHoverColor: var(--fontColorWhite);
+  --altButtonTextActiveColor: var(--fontColorWhite);
+  --altButtonTextVisitedColor: var(--fontColorWhite);
+  --altButtonBorder: var(--altButtonBorder);
+  --altButtonBorderHover: var(--altButtonBorderColorHover);
+  --altButtonBorderRadius: var(--buttonRoundness);
+  --altButtonIconFillColor: var(--white);
+  --uniloginBackgroundColor: #F7F7F7;
+  --uniloginWindowBackgroundColor: var(--primaryColorAppWriter);
+}
+
+th-rw4gc.dark-mode {
+  --toolbarBackgroundColor: var(--th-slate-dark);
+  --toolbarButtonBackgroundColor: var(--th-slate-dark);
+  --toolbarButtonBackgroundHoverColor: var(--icon-button-background-hover-color-dark);
+  --toolbarButtonBackgroundActiveColor: var(--icon-button-background-active-color-dark);
+  --toolbarButtonBorderActive: var(--buttonBorderPink);
+  --toolbarIconFill: var(--white);
+  --toolbarIconHoverFill: var(--white);
+  --toolbarIconActiveFill: var(--white);
+  --dashboardHeaderBackgroundColor: var(--th-slate-dark);
+  --dashboardSidebarBorderTopColor: var(--th-slate);
+  --dashboardSidebarBackgroundColor: var(--th-slate-dark);
+  --dashboardContentBackgroundColor: var(--th-slate);
+  --dashboardCardBackgroundColor: var(--th-slate-dark);
+  --dashboardCardBackgroundHoverColor: var(--th-slate-dark-hover600);
+  --dashboardCardBackgroundActiveColor: var(--th-slate-dark-active600);
+  --dashboardCardHighlightColor: var(--brandColorBlue);
+  --dashboardTextColor: var(--th-white);
+  --dashboardTitleTextColor: var(--th-white);
+  --dashboardSubTitleTextColor: var(--th-white);
+  --menuIconFillColor: var(--white);
+  --iconButtonBackgroundDefaultColor: var(--icon-button-background-default-color-dark);
+  --iconButtonBackgroundHoverColor: var(--icon-button-background-hover-color-dark);
+  --iconButtonBackgroundActiveColor: var(--icon-button-background-active-color-dark);
+  --iconButtonBorderColor: 2px solid transparent;
+  --iconFillColor: var(--white);
+  --buttonLinkTextColor: var(--white);
+  --buttonLinkIconColor: var(--white);
+  --buttonNoBackgroundTextColor: var(--white);
+  --buttonNoBackgroundIconColor: var(--white);
+  --buttonNoBackgroundColor: transparent;
+  --buttonNoBackgroundColorHover: var(--icon-button-background-hover-color-dark);
+  --buttonNoBackgroundColorActive: var(--icon-button-background-active-color-dark);
+  --buttonNoBackgroundBorder: 2px solid transparent;
+  --buttonNoBackgroundBorderHover: 2px solid transparent;
+  --buttonNoBackgroundBorderActive: 2px solid transparent;
+  --panelBackgroundColor: var(--th-slate);
+  --panelBackgroundColorLight: var(--th-slate-light);
+  --panelBackgroundColorDark: var(--th-slate-dark);
+  --fontColor: var(--textColorLight);
+  --borderColor: 1px solid var(--th-slate-light);
+  --infoBackgroundColor: var(--notificationDarkModeBackground);
+  --successBackgroundColor: var(--notificationDarkModeBackground);
+  --errorBackgroundColor: var(--notificationDarkModeBackground);
+  --warningBackgroundColor: var(--notificationDarkModeBackground);
+  --infoBorderColor: var(--notificationDarkModeBorder);
+  --successBorderColor: var(--notificationDarkModeBorder);
+  --errorBorderColor: var(--notificationDarkModeBorder);
+  --warningBorderColor: var(--notificationDarkModeBorder);
+  --infoWarningColor: #fff;
+  --successWarningColor: #fff;
+  --errorWarningColor: #fff;
+  --warningWarningColor: #fff;
+  --infoTitleColor: #fff;
+  --successTitleColor: #fff;
+  --errorTitleColor: #fff;
+  --warningTitleColor: #fff;
+  --accordionBackgroundColor: var(--th-slate-dark);
+  --accordionTextColor: #fff;
+  --accordionTextBottomColor: #f5f5f5;
+  --accordionIconColor: var(--toolbarWhite);
+  --accordionBackgroundColorHover: var(--th-slate-dark-hover600);
+  --tableBackgroundColor: var(--th-slate);
+  --tableBackgroundHeaderColor: var(--th-slate-alt);
+  --tableBackgroundAltColor: var(--th-slate-alt);
+  --tableBackgroundHoverColor: var(--th-slate-hover);
+  --tableBorderColor: var(--th-slate-dark);
+  --tableTextColor: #fff;
+  --ListGroupSearchItemColor: var(--th-slate-dark);
+  --ListGroupSearchItemColorHover: var(--th-slate-dark-hover800);
+  --ListGroupSearchItemTextColor: var(--th-white);
+  --ListGroupSearchItemBorderColor:rgba(0, 0, 0, 0.225);
+  --ListGroupSearchItemAsideColor: var(--th-slate-dark);
+  --ListGroupSearchItemAsideTextColor: #fff;
+}
+.dark-mode.th-rw {
+  --toolbarIconActiveFill: var(--white);
+  --toolbarIconToggledHoverFill: var(--brandColorPurple);
+  --toolbarIconToggleFill: var(--brandColorPurple);
+  --toolbarIconToggleHoverFill: var(--brandColorPurple);
+}
+.dark-mode.th-pr {
+  --toolbarButtonBackgroundHoverColor: var(--primaryColorBlue);
+  --toolbarButtonBackgroundActiveColor: var(--primaryColorBlueHover);
+  --toolbarButtonBorderActive: var(--buttonBorderBlueActive);
+  --toolbarIconToggleFill: var(--iconToggleFillOrbitNote);
+  --textColor: var(--textColorLight);
+  --cardIconFillColor: var(--brandColorBlue);
+  --primaryButtonBackgroundColor: var(--primaryColor);
+  --primaryButtonBackgroundHoverColor: var(--primaryColorHover);
+  --primaryButtonBackgroundActiveColor: var(--primaryColorActive);
+  --primaryButtonBorderActive: var(--primaryButtonBorderActive);
+  --primaryButtonBorder: var(--primaryButtonBorder);
+  --primaryButtonBorderHover: var(--primaryButtonBorderHover);
+  --dashboardTopColor: var(--primaryColorBlue);
+  --dashboardTitleColor: var(--themeColorEquatio);
+  --dashboardPaneBackgroundColor: var(--th-slate-dark);
+  --dashboardPaneBorderColor: var(--th-slate-dark);
+  --dashboardPaneDashedBorderColor: var(--dashboardDashedBorderDark);
+  --listGroupItemBackgroundColor: var(--th-slate-dark);
+  --listGroupItemBackgroundColorHover: var(--th-slate-dark-hover800);
+  --listGroupItemBackgroundColorActive: var(--th-slate-dark-active800);
+  --listGroupTileBackgroundColorActive: var(--th-slate-dark-active800);
+  --list-item-hover: var(--listGroupItemBackgroundColorHover);
+}
+.dark-mode.th-rd {
+  --toolbarIconToggledHoverFill: var(--brandColorBlue);
+  --toolbarIconToggleFill: var(--brandColorBlue);
+  --toolbarIconToggleHoverFill: var(--brandColorBlue);
+  --dashboardTopColor: var(--th-slate);
+  --dashboardCardAuditorColor: var(--primaryColorBlue);
+  --dashboardCardAuditorLabelColor: var(--th-grey);
+  --dashboardCardEditorColor: var(--reachDeckEditorColor);
+  --dashboardCardEditorLabelColor: var(--th-grey);
+  --dashboardCardToolbarColor: var(--primaryColorOrange);
+  --dashboardCardToolbarLabelColor: var(--th-grey);
+  --dashboardCardBorderColor: var(--th-slate-light);
+  --dashboardCardFooterLinkColor: hsl(197, 100%, 50%);
+  --icon-opacity: .9;
+  --cardIconFillColor: var(--th-white);
+  --listGroupItemBackgroundColor: var(--th-slate-dark);
+  --listGroupItemBackgroundColorHover: var(--th-slate-dark-hover800);
+  --listGroupItemBackgroundColorActive: var(--th-slate-dark-active800);
+  --listGroupTileBackgroundColorActive: var(--th-slate-dark-active800);
+  --list-item-hover: var(--listGroupItemBackgroundColorHover);
+}
+th-rw4gc.dark-mode {
+  --inputBorder: 1px solid var(--th-slate);
+  --inputTextColor: var( --th-white);
+  --inputBackgroundColor: var(--th-cool-grey-800);
+  --modalHeaderBackgroundColor: var(--th-cool-grey-800);
+  --modalContentBackgroundColor: var(--th-cool-grey-700);
+  --modalContentBorderColorHeader: var(--th-cool-grey-700);
+  --modalContentBorderColorFooter: var(--th-cool-grey-700);
+  --modalTextColor: var(--th-white);
+  --settingsDialogBackgroundColor: var(--th-cool-grey-700);
+  --settingsDialogMenuBackgroundColor: var(--th-cool-grey-800);
+  --settingsDialogItemSelectedBackgroundColor: var(--th-slate-dark);
+  --settingsDialogItemBackgroundColorHover: var(--th-cool-grey-700);
+  --settingsDialogItemBackgroundColorActive: var(--th-cool-grey-600);
+  --settingsTitleColor: #fff;
+  --selectBorder: 1px solid var( --slate-light);
+  --selectBackgroundColor: var( --th-slate);
+  --selectBackgroundColorHover: rgba(255, 255, 255, 0.146);
+  --selectBackgroundColorActive: rgba(255, 255, 255, 0.221);
+}
+.dark-mode .gw-select {
+  background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='22px' width='22px' viewBox='0 0 18 18'>%3Cpath d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' fill='%23fff'/%3E%3Cpath d='M0-.75h24v24H0z' fill='none'/%3E</svg>") no-repeat;
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.9em top 40%, 0 0;
+  background-color: #434e65 transparent;
+  border: 1px solid #fff;
+  background-size: 1.3em auto, 100%;
+  color: #fff;
+}
+.dark-mode .gw-select > option {
+  background: #434e65;
+}
+th-rw4gc.dark-mode {
+  --listGroupBackgroundColor: transparent;
+  --listGroupItemTextColor: var(--th-white);
+  --listGroupItemBackgroundColor: var(--th-cool-grey-800);
+  --listGroupItemActionsBackgroundColor: var(--th-cool-grey-850);
+  --listGroupItemBackgroundColorHover: var(--th-cool-grey-700);
+  --listGroupItemBackgroundColorActive: var(--th-cool-grey-600);
+  --listGroupItemIconColor: var(--th-white);
+  --listGroupItemArrowColor: var(--th-cool-grey-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root .day.dark-scheme {
+    background: #333;
+    color: white;
+  }
+  :root .night.dark-scheme {
+    background: black;
+    color: #ddd;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root .day.light-scheme {
+    background: white;
+    color: #555;
+  }
+  :root .night.light-scheme {
+    background: #eee;
+    color: black;
+  }
+}</style><style>th-rw4gc.th-rw {
+  color-scheme: light;
+  --listGroupItemBackgroundColorActive: white;
+  --squareButtonBackgroundHover: #f5f5f5;
+  --squareButtonIconFillColor: rgb(36, 42, 56);
+  --squareButtonActiveBackGroundColor: #EFEFEF;
+  --squareButtonIconTickColor: #506C7E ;
+}
+
+th-rw4gc.dark-mode {
+  --listGroupItemBackgroundColorFocus: rgb(63, 79, 90);
+  --modalTextColorFocus: white;
+  --listGroupItemBackgroundColorActive: rgb(36, 45, 51);
+  --modalTextColorActive: white;
+  --squareButtonBackgroundHover: rgb(56, 71, 81);
+  --squareButtonIconFillColor: white;
+  --squareButtonActiveBackGroundColor: #24323E;
+  --squareButtonIconTickColor: #FFF ;
+}
+
+th-rw4gc.dark-mode.th-rw {
+  color-scheme: dark;
+  --toolbarIconButtonFillColor: var(--white);
+  --settingsTitleColor: var(--white);
+}
+
+.gw-toolbar--s1 {
+  --th-fontSize: 5px;
+}
+
+.gw-toolbar--s2 {
+  --th-fontSize: 10px;
+}
+
+.gw-toolbar--s3 {
+  --th-fontSize: 15px;
+}
+
+.gw-toolbar--s4 {
+  --th-fontSize: 20px;
+}
+
+.gw-listitem-fontsize-s10 {
+  --gw-listitem-fontsize: 10px !important;
+}
+
+.gw-listitem-fontsize-s11 {
+  --gw-listitem-fontsize: 11px !important;
+}
+
+.gw-listitem-fontsize-s12 {
+  --gw-listitem-fontsize: 12px !important;
+}
+
+.gw-listitem-fontsize-s13 {
+  --gw-listitem-fontsize: 13px !important;
+}
+
+.gw-listitem-fontsize-s14 {
+  --gw-listitem-fontsize: 14px !important;
+}
+
+.gw-listitem-fontsize-s15 {
+  --gw-listitem-fontsize: 15px !important;
+}
+
+.gw-listitem-fontsize-s16 {
+  --gw-listitem-fontsize: 16px !important;
+}
+
+.gw-listitem-fontsize-s17 {
+  --gw-listitem-fontsize: 17px !important;
+}
+
+.gw-listitem-fontsize-s18 {
+  --gw-listitem-fontsize: 18px !important;
+}
+
+.gw-listitem-fontsize-s19 {
+  --gw-listitem-fontsize: 19px !important;
+}
+
+.gw-listitem-fontsize-s20 {
+  --gw-listitem-fontsize: 20px !important;
+}
+
+.gw-listitem-fontsize-s21 {
+  --gw-listitem-fontsize: 21px !important;
+}
+
+.gw-listitem-fontsize-s22 {
+  --gw-listitem-fontsize: 22px !important;
+}
+
+.gw-listitem-fontsize-s23 {
+  --gw-listitem-fontsize: 23px !important;
+}
+
+.gw-listitem-fontsize-s24 {
+  --gw-listitem-fontsize: 24px !important;
+}
+
+th-rw4gc {
+  color-scheme: light;
+  --th-fontSize: 10px;
+  --th-placeholderColor: hsl(222, 10%, 46%);
+}
+
+th-rw4gc.dark-mode {
+  color-scheme: dark;
+  --th-placeholderColor: hsl(222, 10%, 62%);
+}
+
+.gw-info {
+  --notification-bg-color: var(--infoBackgroundColor);
+  --notification-border-color: var(--infoBorderColor);
+  --notification-color: var(--infoTitleColor);
+}
+
+.gw-success {
+  --notification-bg-color: var(--successBackgroundColor);
+  --notification-border-color: var(--successBorderColor);
+  --notification-color: var(--successTitleColor);
+}
+
+.gw-error {
+  --notification-bg-color: var(--errorBackgroundColor);
+  --notification-border-color: var(--errorBorderColor);
+  --notification-color: var(--errorTitleColor);
+}
+
+.gw-warning {
+  --notification-bg-color: var(--warningBackgroundColor);
+  --notification-border-color: var(--warningBorderColor);
+  --notification-color: var(--warningTitleColor);
+}
+
+th-rw4gc.th-rw {
+  --toolbarIconToggleFill: var(--primaryColorPurple);
+  --toolbarIconToggleHoverFill: var(--primaryColorPurple);
+  --settingsTitleColor: var(--primaryColorPurple);
+}
+
+.gw-toolbar--undocked {
+  --toolbarWidth: fit-content;
+  --toolbarDisplay: block;
+  --toolbarPosition: fixed;
+}
+
+.gw-ul--small {
+  --liWidth: 150px;
+}
+
+.gw-ul--medium {
+  --liWidth: 300px;
+}
+
+.gw-ul--large {
+  --liWidth: 450px;
+}
+
+gw-radio label.gw-radio__input-label b {
+  font-weight: var(--label-bold-font-weight, bold);
+  font-size: var(--label-bold-font-size, 1.4em);
+  font-family: var(--label-bold-font-family, "Open Sans", sans-serif);
+  color: var(--label-bold-color, inherit);
+}
+
+gw-radio label.gw-radio__input-label u {
+  text-decoration: underline;
+  font-size: 1em; /* Inherit from parent label (1.2em) */
+  font-weight: normal;
+}</style></head>
+
+	<body>
+		<!-- INTERFACE -->
+		
+		<h2>Project evaluator for Computer Programming</h2>
+		<p>
+			This works on projects up to and including: 
+			<span id="lastProjectId">Exam</span>
+		</p>
+
+		<div id="fileUploadId">
+			<p>Upload your file here:</p>
+			
+			<table>
+				<tbody><tr>
+					<th>
+						<code>.html</code>:
+					</th>
+					<td>
+						<input id="htmlFileId" class="fileInputClass" type="file" placeholder="HTMLFilename">
+					</td>
+					<td>
+						— your main program file
+					</td>
+					
+				</tr>
+			</tbody></table>
+		</div>
+		
+
+		<h2>Assignment:</h2>
+		<div id="assignmentId"></div>
+		
+		<div id="criteriaMatchingId">
+			<h2>Criteria matching:</h2>
+			<div id="outputId"></div>
+		</div>
+
+		<div id="programCodeId">
+			<hr>
+			<h2>Program code:</h2>
+			<pre><code id="linesId"></code></pre>
+		</div>
+		<!--	
+------------STYLE GUIDE FOR LONG LINES: DO NOT PASS COLUMN 95 -------------------------------|			
+		-->
+ 		<script>
+
+		
+			// fileTransfer OBJECT
+			// 
+			//	properties:	
+			//		fileTransfer.jsonString
+			//
+			//	methods:
+			//		fileTransfer.uploadJSONFileInto( 
+			//	
+			//		fileTransfer.insertDownloadLink( 
+			//			
+			//		fileTransfer.displayJSON();
+			//
+            var fileTransfer = {
+				SANITY_CHECK:		true,	// display tables for sanity checks of data
+                jsonString:     	"",
+				rawContents:		"",
+				fileContents:		"",
+				filename:			"",
+				projectNumber:		-1,
+				lineArr:			[],
+				debug:				false,
+				
+				projectObj:			{},		// the big object that defines the assignment
+			
+              
+				//INPUT: read in the text data inside the file
+				readFile: function ( uploadEvent, callbackFunction ) {
+					// only process the first file that was uploaded
+    				var firstFile = uploadEvent.target.files[0];
+					// create a new file reader object to process the contents				
+    				var reader = new FileReader();
+					// start reading in the file as text					
+    				reader.readAsText( firstFile );							
+    				
+					// define what to do when the file is finished being read in...
+    				reader.onload = function( uploadEvent ) { 
+						if ( fileTransfer.debug )
+						// send file info to the console
+    					console.log( 											 
+							"Got the file.\n" 
+							+ "name: " + firstFile.name + "\n"
+							+ "type: " + firstFile.type + "\n"
+							+ "size: " + firstFile.size + " bytes\n"
+    					);  
+    					
+						//store the filename and mime type
+						this.filename		= firstFile.name;
+						this.mime			= firstFile.type;
+						
+						//OUTPUT: set the title to the file name
+						document.title		= this.filename;
+						
+						// store the contents from the file
+						this.rawContents	= uploadEvent.target.result;
+						
+						// convert the line breaks to unix first
+						this.fileContents	= this.rawContents.replace( /\r\n/g, '\n' );
+						this.fileContents	= this.fileContents.replace( /\r/g, '\n' );
+						// split the file into the individual lines
+						this.lineArr	= this.fileContents.split( '\n' );
+						
+						// add the filename in front so the line numbering starts with 1
+						this.lineArr.unshift( "FILENAME: " + firstFile.name );
+						
+						// trigger the callback function when complete
+						callbackFunction();								
+    				}.bind( this );
+				},
+				
+				
+				//PROCESS: this determines which assignment this is depending on the 
+				//			filename uploaded
+				determineAssignmentNumber: function () {
+					if ( this.debug ) console.log( 'in determineAssignmentNumber...' );
+					
+					//INIT: set up a variable flag for whether the assignment has been found
+					var hasAssignmentBeenFound	= false;
+					
+					//LOOP: through each of the projects
+					for ( projectIndex in PROJECT_ARR ) {
+						var expectedFilename	= PROJECT_ARR[ projectIndex ].filename;
+						
+						//PROCESS: break the expected filename into the front and back part
+						var filePartArr			= expectedFilename.split( 'LastName' );
+						
+						//PROCESS: check if this filename matches the expected filename
+						var frontFilenameRegExp	= new RegExp('^' + filePartArr[0]);
+						var backFilenameRegExp	= new RegExp(filePartArr[1] + '$');
+						
+						if ( this.filename.match( frontFilenameRegExp ) ) {
+							if ( this.filename.match( backFilenameRegExp ) ) {
+								if ( this.debug ) console.log( 'matched an assignment: '  + projectIndex );
+								
+								hasAssignmentBeenFound	= true;
+								
+								this.projectNumber	= projectIndex;
+								
+								//store the assignment object in this.
+								this.projectObj = PROJECT_ARR[ projectIndex ];
+								
+								//OUTPUT: display the assignment information
+								outputAssignmentInformation( this.projectNumber )
+								
+								//OUTPUT: hide the upload form
+								document.getElementById( 'fileUploadId' ).style.display 
+									= 'none';
+							}
+						}						
+					}
+					
+					//IF: there has not been a match
+					if ( hasAssignmentBeenFound == false ) {
+						//OUTPUT: display a message that we cannot detect a a projectIndex
+						document.getElementById( 'assignmentId' ).innerHTML
+							= "<h3>Can't match your assignment file</h3>"
+							+ "<p>This either because you have saved your file"
+							+ " with the incorrect filename, " 
+							+ " or because I have not updated this program"
+							+ " with the assignment requirements.</p>";
+					}
+				},
+			}
+			
+			
+			
+			//OUTPUT: display the assignment information
+			const outputAssignmentInformation = function ( projectNumber ) {
+				if ( this.debug ) console.log( "in outputAssignmentInformation..." );
+				
+				//INIT: create a variable of convenience for the evaluationObj
+				const evaluationObj = fileTransfer.projectObj.evaluationObj;
+				
+				//INIT: create a variable to hold the HTML code for a table
+				var tableHTML	= "<table><thead><tr><th></th></tr></thead><tbody>";
+				
+				//INIT: set the text label used for reference pages
+				const referencePage	= "reference";
+				
+				
+				//PROCESS: add any STYLE criteria
+				if ( 'styleArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.styleArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.styleArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.styleArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th>Criteria met?</th>"
+						+  "	<th>Line number</th>"
+						+  "	<th>STYLE Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.styleArr ) {
+						//INIT: set up a variable to hold the reference link
+						var referenceLink	= "";
+						var negativeClass	= "";
+						
+						//IF: there is a reference for this criteria
+						if ( 'reference' in evaluationObj.styleArr[ criteriaIndex ] ) {
+							if ( this.debug ) {								
+								console.log( 
+									'getting reference for:' , 
+									evaluationObj.styleArr[ criteriaIndex ]  
+								);
+							}
+
+							referenceLink	
+								= " <a class='referenceClass' href='"
+								+ evaluationObj.styleArr[ criteriaIndex ].reference.pageURL
+								+ "'>" + referencePage + "</a>"
+						}
+						
+						//IF: this is a negative criteria for evaluation
+						if ( evaluationObj.styleArr[ criteriaIndex ].negative ) {
+							if ( evaluationObj.styleArr[ criteriaIndex ].negative == true ) {
+								// negativeClass	= " negativeClass "
+							}
+						}
+						
+						
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass" + negativeClass + "'>" 
+							+			evaluationObj.styleArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='style" 
+							+				criteriaIndex
+							+  		"Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.styleArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"	
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.styleArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+			referenceLink
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+				
+
+				//PROCESS: add any HTML/CSS criteria
+				if ( 'htmlCSSArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.htmlCSSArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.htmlCSSArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.htmlCSSArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>HTML/CSS Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.htmlCSSArr ) {
+						if ( this.debug ) {
+							console.log( 
+								'evaluationObj.htmlCSSArr[ criteriaIndex ]=', 
+								evaluationObj.htmlCSSArr[ criteriaIndex ] 
+							);
+						}
+						
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.htmlCSSArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='htmlCSS" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.htmlCSSArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"	
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.htmlCSSArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  "		<a class='referenceClass' href='" 
+							+				evaluationObj.htmlCSSArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" 
+							+ 			referencePage 
+							+ 			"</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+				//PROCESS: add any HTML criteria
+				if ( 'htmlArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.htmlArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.htmlArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.htmlArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>HTML Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.htmlArr ) {
+						if ( this.debug ) {
+							console.log( 
+								'evaluationObj.htmlArr[ criteriaIndex ]=', 
+								evaluationObj.htmlArr[ criteriaIndex ] 
+							);
+						}
+						
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.htmlArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='html" 
+							+			criteriaIndex
+							+  		"Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.htmlArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"	
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.htmlArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  "		<a class='referenceClass' href='" 
+							+				evaluationObj.htmlArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" 
+							+ 			referencePage 
+							+ 			"</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+				//PROCESS: add any CSS criteria
+				if ( 'cssArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.cssArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.cssArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.cssArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>CSS Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.cssArr ) {
+						if ( this.debug ) {
+							console.log( 
+								'evaluationObj.cssArr[ criteriaIndex ]=', 
+								evaluationObj.cssArr[ criteriaIndex ] 
+							);
+						}
+						
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.cssArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='css" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.cssArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"	
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.cssArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  "		<a class='referenceClass' href='" 
+							+				evaluationObj.cssArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" 
+							+ 			referencePage 
+							+ 			"</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+				//PROCESS: add any INIT criteria
+				if ( 'initArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.initArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.initArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.initArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>INIT Criteria" 
+						+ 		evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.initArr ) {
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.initArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='init" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.initArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"							
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.initArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  "		<a class='referenceClass' href='" 
+							+				evaluationObj.initArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" 
+							+ 				referencePage 
+							+ 			"</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				};
+
+				//PROCESS: add any INPUT criteria
+				if ( 'inputArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.inputArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.inputArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.inputArr;
+						}
+					}
+					
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>INPUT Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.inputArr ) {
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.inputArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='input" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.inputArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"							
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.inputArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  "		<a class='referenceClass' href='" 
+							+				evaluationObj.inputArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" 
+							+ 				referencePage 
+							+ 			"</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+				//PROCESS: add any PROCESS criteria
+				if ( 'processArr' in evaluationObj ) {
+					if ( this.debug ) console.log( 'this evaluationObj.processArr:', evaluationObj.processArr );
+					
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.processArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.processArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.processArr;
+						}
+					}
+										
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>PROCESS Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.processArr ) {
+						if ( this.debug ) {
+							console.log( 'criteriaIndex=' + criteriaIndex );	
+							console.log( 
+								'evaluationObj.processArr[ criteriaIndex ]=', 
+								evaluationObj.processArr[ criteriaIndex ] 
+							);
+						}	
+						
+						var linkHTML = '';
+						
+						//IF: there exists a reference for this criteria
+						if ( evaluationObj.processArr[ criteriaIndex ].reference ) {
+							linkHTML
+								= "		<a class='referenceClass' href='" 
+								+ evaluationObj.processArr[ criteriaIndex ].reference.pageURL
+								+ "'>" + referencePage + "</a>"
+						}
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.processArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='process" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.processArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"							
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.processArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  			linkHTML
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+
+				//PROCESS: add any structure criteria
+				if ( 'structureArr' in evaluationObj ) {
+					if ( this.debug ) console.log( 'this evaluationObj.structureArr:', evaluationObj.structureArr );
+					
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.structureArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.structureArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.structureArr;
+						}
+					}
+										
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>STRUCTURE Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.structureArr ) {
+						if ( this.debug ) {
+							console.log( 'criteriaIndex=' + criteriaIndex );	
+							console.log( 
+								'evaluationObj.structureArr[ criteriaIndex ]=', 
+								evaluationObj.structureArr[ criteriaIndex ] 
+							);
+						}	
+						
+						var linkHTML = '';
+						
+						//IF: there exists a reference for this criteria
+						if ( evaluationObj.structureArr[ criteriaIndex ].reference ) {
+							linkHTML
+								= "		<a class='referenceClass' href='" 
+								+ evaluationObj.structureArr[ criteriaIndex ].reference.pageURL
+								+ "'>" + referencePage + "</a>"
+						}
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.structureArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='structure" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.structureArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"							
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.structureArr[ criteriaIndex ].question
+							+ 			"</span>"
+							+  			linkHTML
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+
+				//PROCESS: add any OUTPUT criteria
+				if ( 'outputArr' in evaluationObj ) {
+					var evaluationMessage	= "";
+					
+					//IF: there is an evaluationMessageObj.outputArr
+					if ( fileTransfer.projectObj.evaluationMessageObj ) {
+						if ( fileTransfer.projectObj.evaluationMessageObj.outputArr ) {
+							evaluationMessage	
+								= "<br>" 
+								+ fileTransfer.projectObj.evaluationMessageObj.outputArr;
+						}
+					}
+											
+					//add a descriptive header
+					tableHTML	
+						+= "<tr>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th></th>"
+						+  "	<th>OUTPUT Criteria" 
+						+ 			evaluationMessage 
+						+ 		"</th>"
+						+  "</tr>";
+								
+					//LOOP: through each of the criteria
+					for ( criteriaIndex in evaluationObj.outputArr ) {
+						if ( this.debug ) {
+							console.log( 
+								'looping through output criteria. evaluationObj.outputArr[ criteriaIndex ] =', 
+								evaluationObj.outputArr[ criteriaIndex ] 
+							);
+						}
+						
+						//add this criteria to the table
+						tableHTML
+							+= "<tr>"
+							+  "	<td class='criteriaCodeClass'>" 
+							+			evaluationObj.outputArr[ criteriaIndex ].criteria
+							+  "	</td>"
+							+  "	<td class='criteriaTableClass' id='output" 
+							+				criteriaIndex
+							+  "Id'>" 
+							+  "	</td>"
+							+  "	<td class='lineNumberTableClass' id='" 
+							+				evaluationObj.outputArr[ criteriaIndex ].criteria
+							+  		"LineId'>" 
+							+  "	</td>"							
+							+  "	<td><span class='questionClass'>" 
+							+			evaluationObj.outputArr[ criteriaIndex ].question
+							+  			"</span>" 
+							+ 			"<a class='referenceClass' href='" 
+							+				evaluationObj.outputArr[ 
+												criteriaIndex 
+											].reference.pageURL
+							+ 			"'>" + referencePage + "</a>"
+							+  "	</td>"
+							+  "</tr>";	
+					}
+				}
+				
+				tableHTML += " </tbody>\n</table>\n"
+				
+				//OUTPUT: all of the description
+				document.getElementById( 'assignmentId' ).innerHTML 
+					= "<h4><a href='"
+					+ fileTransfer.projectObj.url
+					+ "'>" 
+					+ fileTransfer.projectObj.title
+					+ "</a></h4>"
+					+ tableHTML;
+			}
+
+
+			
+			//PROCESS: find a tag
+			const findTag = function ( HTMLCSSObj ) {
+				if ( this.debug ) {
+					console.log( 'in findTag...' );
+					console.log( '...beginning: ' + HTMLCSSObj.begin );
+					console.log( '...ending: ' + HTMLCSSObj.end );
+					console.log( 'HTMLCSSObj=', HTMLCSSObj );				
+				}
+				
+				//INIT: create the array of successful searches
+				var resultsArr = [];
+				
+				
+				//TODO: limit mathy lines by using /^((?![<][/]).)*$/gm to remove </ lines
+				
+				//IF: there is a beginning defined
+				if ( 'begin' in HTMLCSSObj ) {
+					//LOOP: through each of the lines in the file...
+					for ( startIndex in fileTransfer.lineArr ) {
+						//IF: this line matches the search
+						if ( fileTransfer.lineArr[ startIndex ].match( HTMLCSSObj.begin ) ) {
+							if ( this .debug ) console.log( 'start of match: ' + startIndex );
+							
+							//IF: there is an end defined
+							if ( 'end' in HTMLCSSObj ) {
+								//now find the end of the tag...
+								//LOOP: through the remainder of the lines
+								for ( 
+									endIndex = startIndex; 
+									endIndex < fileTransfer.lineArr.length; 
+									endIndex ++ 
+								) {
+									
+									//IF: there is a match of the end of the search...
+									if ( 
+										fileTransfer.lineArr[ endIndex ].match( 
+											HTMLCSSObj.end 
+										) 
+									) {
+										if ( this.debug ) console.log( 'end of match: ' + endIndex );	
+										
+										//store the results into the results array
+										resultsArr.push( 
+											{ 
+												begin: parseInt( startIndex ), 
+												end: parseInt( endIndex ) 
+											} 
+										);
+										
+										//restart the search for the next open tag 
+										//to after the close tag
+										startIndex	= endIndex;
+										break;
+									}
+								}
+							//ELSE: there is not end defined - a one line command
+							} else {
+								//store the results into the results array
+								resultsArr.push( { begin: parseInt( startIndex ) } );
+							}
+						}
+					}
+				}
+				
+				return resultsArr;
+			}
+			
+			
+			
+			//PROCESS:
+			const convertCodeToDisplayableHTML = function ( inputText ) {
+				if ( this.debug ) console.log( "inputText: " + inputText ); 
+				
+				var lineLength = inputText.length;
+				
+				//now find long lines...
+				if ( lineLength > 96 )  {
+					inputText 
+						= inputText.substring(96, 0).replace( /</g, '&lt;')
+						+ "<span class='lineBreakClass'>||</span>"
+						+ inputText.substring(1000, 96).replace( /</g, '&lt;')
+						+ "\n";			
+						
+				//ELSE: just print out the normal line
+				} else {
+					inputText	= inputText.replace( /</g, '&lt;');
+				}
+				
+				return inputText;
+			}
+			
+			
+			
+			//OUTPUT: update the visible preview and the evaluation table
+			const updateCriteria = function ( criteriaId, result ) {
+				if ( this.debug ) console.log( 'in updateCriteria...' + criteriaId + result );
+				
+				//IF: the result is 0 / yes
+				if ( result == 0 ) {
+					document.getElementById( criteriaId + 'Id' ).innerHTML
+						= "<span class='yesClass'>yes</span>";
+				} else if ( result == 1 ) {
+					document.getElementById( criteriaId + 'Id' ).innerHTML
+						= "<span class='partialClass'>partially</span>";				
+				} else {
+					document.getElementById( criteriaId + 'Id' ).innerHTML
+						= "<span class='noClass'>no</span>";
+				}
+				
+				//figure out the next criteria
+				var evaluationObj = fileTransfer.projectObj.evaluationObj;
+				var criteriaArr = [];
+				
+				//first set up an array of criteriaIds
+				//IF: there are style criteria...
+				if ( 'styleArr' in evaluationObj ) {
+					//LOOP: through each part of the styleArr
+					for ( criteriaIndex in evaluationObj.styleArr ) {
+						criteriaArr.push( 'style' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are HTML/CSS criteria...
+				if ( 'htmlCSSArr' in evaluationObj ) {
+					//LOOP: through each part of the htmlCSSArr
+					for ( criteriaIndex in evaluationObj.htmlCSSArr ) {
+						criteriaArr.push( 'htmlCSS' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are HTML criteria...
+				if ( 'htmlArr' in evaluationObj ) {
+					//LOOP: through each part of the htmlArr
+					for ( criteriaIndex in evaluationObj.htmlArr ) {
+						criteriaArr.push( 'html' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are CSS criteria...
+				if ( 'cssArr' in evaluationObj ) {
+					//LOOP: through each part of the cssArr
+					for ( criteriaIndex in evaluationObj.cssArr ) {
+						criteriaArr.push( 'css' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are INPUT criteria...
+				if ( 'inputArr' in evaluationObj ) {
+					//LOOP: through each part of the inputArr
+					for ( criteriaIndex in evaluationObj.inputArr ) {
+						criteriaArr.push( 'input' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are INIT criteria...
+				if ( 'initArr' in evaluationObj ) {
+					//LOOP: through each part of the initArr
+					for ( criteriaIndex in evaluationObj.initArr ) {
+						criteriaArr.push( 'init' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are PROCESS criteria...
+				if ( 'processArr' in evaluationObj ) {
+					//LOOP: through each part of the processArr
+					for ( criteriaIndex in evaluationObj.processArr ) {
+						criteriaArr.push( 'process' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are STRUCTURE criteria...
+				if ( 'structureArr' in evaluationObj ) {
+					//LOOP: through each part of the processArr
+					for ( criteriaIndex in evaluationObj.structureArr ) {
+						criteriaArr.push( 'structure' + criteriaIndex );					
+					}
+				}
+				
+				//IF: there are OUTPUT criteria...
+				if ( 'outputArr' in evaluationObj ) {
+					//LOOP: through each part of the outputArr
+					for ( criteriaIndex in evaluationObj.outputArr ) {
+						criteriaArr.push( 'output' + criteriaIndex );					
+					}
+				}
+				
+				//now search for the current criteriaId
+				//LOOP: through each of the criteriaIds
+				for ( criteriaIndex in criteriaArr ) {
+					//IF: this criteria is the same as criteriaId
+					if ( criteriaId === criteriaArr[ criteriaIndex ] ) {
+						
+						// hide the current preview block
+						document.getElementById( 
+							'preview' + criteriaArr[ criteriaIndex ] + "Id"
+						).style.display	= 'none';
+						
+						//IF: this is not the end of the criteriaArr
+						if ( criteriaIndex < ( criteriaArr.length - 1 ) ) {
+							// display the next block
+							document.getElementById( 
+								'preview' 
+								+ criteriaArr[ parseInt( criteriaIndex ) + 1 ] 
+								+ "Id"
+							).style.display	= 'block';
+
+							// scroll back to the top of criteria
+							document.getElementById( 'criteriaMatchingId' ).scrollIntoView();
+
+						//ELSE: this is the end!						
+						} else {
+							//display the code block
+							document.getElementById( 'linesId' ).style.display	= 'block';
+							// hide the criteria matching block
+							document.getElementById( 'criteriaMatchingId' ).style.display
+								= 'none';
+							//trigger the print dialogue
+							window.print();
+						}
+					}
+				}
+			}
+			
+			
+			
+			//PROCESS: check for long lines
+			const checkForLongLines = function () {
+				if ( this.debug ) console.log( 'in checkForLongLines...' );
+
+				//INIT: create an array for long lines
+				var longLineArr	= [];
+				
+				//LOOP: through each of the lines
+				for ( lineIndex in fileTransfer.lineArr ) {
+					//INIT: create a variable of convenience for this line
+					var line	= fileTransfer.lineArr[ lineIndex ];
+					
+					//IF: there are more than 96 lines, then process the line
+					if ( line.length > 96 ) {
+						//add the long line
+						
+						longLineArr.push( 
+							{
+								begin:	lineIndex,
+								line:	line
+							}
+						);					
+					}
+				}
+				
+				return longLineArr;
+			}
+			
+			
+			
+			//OUTPUT: display the evaluationObj
+			const displayEvaluationObj = function ( criteriaObj, criteriaId ) {
+				if ( this.debug ) {
+					console.log( 'in displayEvaluationObj...' );
+					console.log( 'criteriaObj=', criteriaObj );
+					console.log( 'criteriaId=', criteriaId );				
+				}
+				
+				var referenceText	= "";
+				var exampleText		= "";
+				var codeLines		= "";
+				var negativeText	
+					= "<h4 class='criteriaCodeClass'>" 
+					+ "Use the checkboxes on correct examples of code.</h4>";
+				var negativeClass	= "";
+				var isNegative		= false; 
+				
+				//IF: there is a reference in the object
+				if ( 'reference' in criteriaObj ) {
+					referenceText
+						= "<p><strong>Reference:</strong> <a href='"
+						+ criteriaObj.reference.pageURL
+						+ "'>"
+						+ criteriaObj.reference.pageName
+						+ "</a></p>"
+				}
+				
+				//IF: there is an example
+				if ( 'example' in criteriaObj ) {
+					exampleText = convertCodeToDisplayableHTML( criteriaObj.example );
+				}
+
+				//IF: the hunting is negative
+				if ( criteriaObj.negative ) {
+					if ( criteriaObj.negative == true ) {
+						negativeClass = " negativeClass ";
+						negativeText 
+							= "<h4 class='" 
+							+ negativeClass 
+							+ "'>Use the checkboxes on INCORRECT examples of code.</h4>";
+						isNegative	= true;
+					} else {
+					
+					}
+				} else {
+				
+				}
+				
+				//PROCESS: join together the criteria info
+				var outputHTML 
+					= "<hr><h3>"
+					+ criteriaObj.question
+					+ "</h3>"
+					+ "<div class='exampleIndentClass'>"
+					+ referenceText
+					+ "<h4><code>Code example:</code></h4>"
+					+ "<pre class='exampleClass'><code>"
+					+ exampleText
+					+ "</code></pre>"
+					+ negativeText;
+					
+				//INIT: create a variable to store the resultsArr of matching lines
+				var resultsArr	= [];
+				
+				//IF: this criteriaObj is for longLines
+				if ( criteriaObj.name == 'longLines' ) {
+					resultsArr	= checkForLongLines();
+					
+				//ELSE: treat it as a normal criteria
+				} else {
+					//get an array of lines for this tag
+					resultsArr	= findTag( criteriaObj );
+				}
+
+				
+				//IF: there are no results
+				if ( resultsArr == undefined ) {
+					codeLines	= "<p>I can't find an example of this in the program.</p>";
+		
+				//ELSE: add the lines of code into the outputHTML
+				} else {
+					codeLines	= "<h4>Your code:</h4>";
+					
+					//LOOP: through each member of resultsArr
+					for ( resultsIndex in resultsArr ) {
+						//IF: this result has both a beginning and an end
+						if ( 'end' in resultsArr[ resultsIndex ] ) {
+
+							//LOOP: through from begin to end
+							for ( 
+								lineIndex = resultsArr[ resultsIndex ].begin;
+								lineIndex <= resultsArr[ resultsIndex ].end; 
+								lineIndex++ 
+							) {
+								//add this line to the codeLines
+								codeLines
+									+= '<input type="checkbox" id="' 
+									+ criteriaObj.criteria
+									+ '_'
+									+ lineIndex
+									+ 'Id" value="' +	criteriaObj.criteria 
+									+ '" onclick="addCriteriaLine( this, ' 
+									+ isNegative 
+									+ ' );">&nbsp;' 
+									+ "<strong>"
+									+ lineIndex
+									+ "</strong>: "
+									+ convertCodeToDisplayableHTML(
+										fileTransfer.lineArr[ lineIndex ]
+									)
+									+ "\n";
+							}
+							
+						//ELSE: just add the single line
+						} else {
+							//IF: there exists .line alternative for long lines
+							if ( resultsArr[ resultsIndex ].line )  {
+								codeLines
+									+= '<input type="checkbox" id="' 
+									+ criteriaObj.criteria
+									+ '_'
+									+ resultsArr[ resultsIndex].begin
+									+ 'Id" value="' +	criteriaObj.criteria
+ 									+ '" onclick="addCriteriaLine( this, ' 
+									+ isNegative 
+									+ ' );">&nbsp;' 
+									+ "<strong>"
+									+ resultsArr[ resultsIndex].begin
+									+ "</strong>: "
+									+ convertCodeToDisplayableHTML(
+										resultsArr[ resultsIndex].line.substring(96, 0)
+									  )
+									+ "<span class='lineBreakClass'>||</span>"
+									+ convertCodeToDisplayableHTML(
+										resultsArr[ resultsIndex].line.substring(1000, 96)
+ 									  )
+									+ "\n";			
+									
+							//ELSE: just print out the normal line
+							} else {
+								codeLines
+									+= '<input type="checkbox" id="' 
+									+ criteriaObj.criteria
+									+ '_'
+									+ resultsArr[ resultsIndex].begin
+									+ 'Id" value="' +	criteriaObj.criteria 
+									+ '" onclick="addCriteriaLine( this, ' 
+									+ isNegative 
+									+ ' );">&nbsp;' 
+									+ "<strong>"
+									+ resultsArr[ resultsIndex].begin
+									+ "</strong>: "
+									+ convertCodeToDisplayableHTML(
+										fileTransfer.lineArr[ resultsArr[ resultsIndex ].begin ]
+									)
+									+ "\n";
+							}
+						}
+					}
+				}
+
+				//OUTPUT: add this text to the outputId
+				document.getElementById( 'outputId' ).innerHTML	
+					+= "<div class='criteriaPreviewClass' id='preview" 
+					+ criteriaId
+					+ "Id'>" 
+					+ 	outputHTML 
+					+ 	"<pre><code>"
+					+ 	codeLines
+					+ 	"</code></pre>"
+					+ 	"<p>"
+					+ 		"<button onclick='updateCriteria(\"" 
+					+ 			criteriaId 
+					+ 			"\", 0);'>Yes, this IS done correctly!</button>"
+					+		" &mdash; "
+					+ 		"<button onclick='updateCriteria(\"" 
+					+ 			criteriaId 
+					+ 			"\", 1);'>Partially correct" 
+					+ 		"</button>"
+					+		" &mdash; "
+					+ 		"<button onclick='updateCriteria(\"" 
+					+ 			criteriaId 
+					+ 			"\", 2);'>No</button>" 
+					+ 	"</p>"
+					+ "</div></div>";
+			}
+			
+			
+			//PROCESS/OUTPUT: remove criteria for this line
+			const removeCriteriaLine = function ( element, isNegative ) {
+				if ( this.debug ) console.log( 'in removeCriteriaLine...' );
+				 
+				var criteria	= element.getAttribute( 'value' );
+				const id		= element.getAttribute( 'id' );				
+				const idArr		= id.split( '_' );
+				var line		= idArr[ 1 ].replace( 'Id', '' );
+				var lineString	= line;
+				
+				//clean up the line list
+				
+				//INPUT: read in the current list of lines
+				var lineList	= document.getElementById( criteria + 'LineId' ).innerHTML;
+				
+				//PROCESS: remove the current line
+				lineString		= lineList.replace( lineString + ' ', '' );
+				
+				//OUTPUT: this line number to the criteria label
+				document.getElementById( criteria + 'LineId' ).innerHTML = lineString;				
+				
+				// now clean up the criteria
+				
+				//INPUT: read in the current list of criteria
+				var criteriaList	
+					= document.getElementById( 'criteriaCodeLine' + line + 'Id' ).innerHTML;
+				
+				//PROCESS: remove the current line
+				criteria = criteriaList.replace( criteria + ' ', '' );				
+				
+				//OUTPUT: the criteria code to the line listing
+				document.getElementById( 'criteriaCodeLine' + line + 'Id' ).innerHTML 
+					= criteria;
+					
+					
+				//OUTPUT: change the click action for this element
+				element.onclick = '';
+				element.addEventListener( 
+					'click', 
+					function () {
+						addCriteriaLine( element, isNegative );
+					} 
+				);
+				
+			}
+			
+			
+			
+			//PROCESS/OUTPUT: this adds the criteria to the line listing
+			const addCriteriaLine = function ( element, isNegative ) {
+				if ( this.debug ) {
+					console.log( 'in addCriteriaLine...' );
+					console.log( 'element: ', element );
+				}
+				 
+				var criteria	= element.getAttribute( 'value' );
+				const id		= element.getAttribute( 'id' );				
+				const idArr		= id.split( '_' );
+				var line		= idArr[ 1 ].replace( 'Id', '' );
+				var lineString	= line;
+				
+				
+				
+				//IF: this is a negative criteria...
+				if ( isNegative == true ) {
+					criteria	
+						= "<span class='negativeClass'>"
+						+ criteria
+						+ "</span>";
+						
+					lineString
+						= "<span class='negativeClass'>"
+						+ lineString
+						+ "</span>";
+				}
+				
+				
+				//OUTPUT: change the click action for this element
+				element.onclick = '';
+				element.addEventListener( 
+					'click', 
+					function () {
+						removeCriteriaLine( element, isNegative );
+					} 
+				);
+				
+				//OUTPUT: the criteria code to the line listing
+				document.getElementById( 'criteriaCodeLine' + line + 'Id' ).innerHTML 
+					+= criteria + ' ';
+				
+				//OUTPUT: this line number to the criteria label
+				document.getElementById( criteria + 'LineId' ).innerHTML += lineString + " ";				
+				
+			}
+			
+			//INPUT: when a file has been entered into the file upload input
+			document.getElementById( 'htmlFileId' ).onchange = function ( uploadEvent ) {
+				if ( this.debug ) console.log( 'file has been entered...' );
+				
+				fileTransfer.readFile( 
+					uploadEvent, 
+					function () {
+						if ( fileTransfer.debug ) console.log( 'got the file!' );
+						
+						fileTransfer.determineAssignmentNumber();
+						
+						//INIT: create a string to hold the code for displaying lines of code
+						var codeLines	= "";
+						
+						//LOOP: through each line of the file uploaded
+						for ( lineIndex in fileTransfer.lineArr ) {
+							codeLines
+								+= "<span class='criteriaCodeClass' id='criteriaCodeLine" 
+								+ lineIndex 
+								+ "Id'></span>&nbsp;"
+								+ "<strong>"
+								+ lineIndex
+								+ "</strong>: "
+								+ convertCodeToDisplayableHTML(
+									fileTransfer.lineArr[ lineIndex ]
+								)
+								+ "\n";
+						}
+						
+						//OUTPUT: display the lines of code
+						document.getElementById( 'linesId' ).innerHTML = codeLines;
+						
+						//INIT: store the evaluationObj 
+						var evaluationObj = fileTransfer.projectObj.evaluationObj;
+						
+						//INIT: store the criteriaIndex
+						//var criteriaId	= 0;
+						
+						//
+						//check the evaluations!
+						//
+						
+						//IF: there is anything in the styleArr
+						if ( 'styleArr' in evaluationObj ) {
+							if ( fileTransfer.debug ) console.log( '...FOUND styleArr' );
+							
+							//LOOP: through each member of the styleArr
+							for ( criteriaIndex in evaluationObj.styleArr ) {
+								displayEvaluationObj( 
+									evaluationObj.styleArr[ criteriaIndex ],  
+									"style" + criteriaIndex
+								);
+							}
+						}
+						//IF: there is anything in htmlCSSArr...
+						if ( 'htmlCSSArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND htmlCSSArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.htmlCSSArr ) {
+								displayEvaluationObj( 
+									evaluationObj.htmlCSSArr[ criteriaIndex ],  
+									'htmlCSS' + criteriaIndex
+								);
+							}
+						
+						}
+						//IF: there is anything in htmlCSSArr...
+						if ( 'htmlArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND htmlArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.htmlArr ) {
+								displayEvaluationObj( 
+									evaluationObj.htmlArr[ criteriaIndex ],  
+									'html' + criteriaIndex
+								);
+							}
+						
+						}
+						//IF: there is anything in cssArr...
+						if ( 'cssArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND cssArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.cssArr ) {
+								displayEvaluationObj( 
+									evaluationObj.cssArr[ criteriaIndex ],  
+									'css' + criteriaIndex
+								);
+							}
+						
+						}
+						
+						//IF: there is anything in initArr...
+						if ( 'initArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND initArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.initArr ) {
+								displayEvaluationObj( 
+									evaluationObj.initArr[ criteriaIndex ],  
+									'init' + criteriaIndex
+								);
+							}
+						
+						}
+						//IF: there is anything in inputArr...
+						if ( 'inputArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND inputArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.inputArr ) {
+								displayEvaluationObj( 
+									evaluationObj.inputArr[ criteriaIndex ],  
+									'input' + criteriaIndex
+								);
+							}
+						
+						}
+						
+						//IF: there is anything in processArr...
+						if ( 'processArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND processArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.processArr ) {
+								displayEvaluationObj( 
+									evaluationObj.processArr[ criteriaIndex ],  
+									'process' + criteriaIndex
+								);
+							}
+						
+						}
+						
+						//IF: there is anything in structureArr...
+						if ( 'structureArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND structureArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.structureArr ) {
+								displayEvaluationObj( 
+									evaluationObj.structureArr[ criteriaIndex ],  
+									'structure' + criteriaIndex
+								);
+							}
+						
+						}
+						
+						//IF: there is anything in outputArr...
+						if ( 'outputArr' in evaluationObj) {
+							if ( fileTransfer.debug ) console.log( '...FOUND outputArr' );
+							
+							//LOOP: through each member of the array
+							for ( criteriaIndex in evaluationObj.outputArr ) {
+								displayEvaluationObj( 
+									evaluationObj.outputArr[ criteriaIndex ],  
+									'output' + criteriaIndex
+								);
+							}
+						
+						}
+					} 
+				);
+            }
+			
+			
+			
+			//INPUT: when the document finishes loading
+			document.body.onload	= function () {
+				if ( fileTransfer.debug ) console.log( 'finished loading...' );
+				
+				//find out the name of the last project that works...
+				const lastProjectName = PROJECT_ARR[ PROJECT_ARR.length - 1 ].title;
+				
+				//OUTPUT: the filename at the top of the page
+				document.querySelector( '#lastProjectId' ).innerHTML = lastProjectName;
+			}
+		</script>
+	
+
+</body></html>
