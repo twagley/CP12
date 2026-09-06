@@ -175,10 +175,10 @@
 			<h2>Span vs Div</h2>
 			<ul>
 				<li>
-					I think of using <code>&lt;span&gt;></code> in the same way I would use a click-and-drag of the mouse to highlight something small.
+					I think of using <code>&lt;span></code> in the same way I would use a click-and-drag of the mouse to highlight something small.
 				</li>
 				<li>
-					Compared to <code>&lt;div&gt;></code> which is highlighting a big section.
+					Compared to <code>&lt;div></code> which is highlighting a big section.
 				</li>
 			</ul>
 
