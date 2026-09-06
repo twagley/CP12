@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			Animate Mario
 		</title>
 		<meta 
@@ -47,6 +46,7 @@
 				11. February 2018	- cleaned up code								- Drapak
 									- moved script to end for good style			- Drapak
 				23. September 2018	- reworked style and set up as EXTRA			- Drapak
+				Sept 2026 - Changed title and some content - Wagley
 				
 		-->
 
@@ -100,16 +100,16 @@
 			
 			<ul>			
 				<li>
-					<img src="http://drapak.ca/cpg/img/marioMap.png">
-					<code>&lt;img src="http://drapak.ca/cpg/img/marioMap.png"></code>
+					<img src="http://twagley.github.io/CP12/img/marioMap.png">
+					<code>&lt;img src="http://twagley.github.io/CP12/img/marioMap.png"></code>
 				</li>
 				<li>
-					<img src="http://drapak.ca/cpg/img/marioGoodGuy.png">
-					<code>&lt;img src="http://drapak.ca/cpg/img/marioGoodGuy.png"></code>
+					<img src="http://twagley.github.io/CP12/img/marioGoodGuy.png">
+					<code>&lt;img src="http://twagley.github.io/CP12/img/marioGoodGuy.png"></code>
 				</li>
 				<li>
-					<img src="http://drapak.ca/cpg/img/marioBadGuy.png">
-					<code>&lt;img src="http://drapak.ca/cpg/img/marioBadGuy.png"></code>
+					<img src="http://twagley.github.io/CP12/img/marioBadGuy.png">
+					<code>&lt;img src="http://twagley.github.io/CP12/img/marioBadGuy.png"></code>
 				</li>
 			</ul>
 			
@@ -122,7 +122,7 @@
 			</p>
 			<p>
 				Can you add the bad guys and have them move as you go?
-				What about making the background sccroll by?
+				What about making the background scroll by?
 			</p>
 		</article>
 			
