@@ -28,7 +28,7 @@ const PROJECT_ARR = [
 		project:		"HelloWorld",
 		filename: 		"HelloWorld-LastName.html",
 		title:			"1.01 Skill-builder: Hello world!",
-		url:			"http://drapak.ca/cpg/HelloWorld.shtml",
+		url:			"http://twagley.github.io/HelloWorld.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -53,7 +53,7 @@ const PROJECT_ARR = [
 		project:		"SurveyLists",
 		filename: 		"1.02S-SurveyLists-LastName.html",
 		title:			"1.02 Skill-builder: Survey Lists",
-		url:			"http://drapak.ca/cpg/Lists.shtml",
+		url:			"http://twagley.github.io/Lists.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -75,7 +75,7 @@ const PROJECT_ARR = [
 		project:		"DataTypes",
 		filename: 		"1.03S-DataTypes-LastName.html",
 		title:			"1.03 Skill-builder: Datatypes and Tables",
-		url:			"http://drapak.ca/cpg/DataTypes.shtml",
+		url:			"http://twagley.github.io/DataTypes.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -101,7 +101,7 @@ const PROJECT_ARR = [
 		project:		"OttoTheRobot",
 		filename: 		"1.04H-OttoTheRobot-LastName.html",
 		title:			"1.04 Hand-in: Otto the Robot",
-		url:			"http://drapak.ca/cpg/OttoTheRobot.shtml",
+		url:			"http://twagley.github.io/OttoTheRobot.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -133,7 +133,7 @@ const PROJECT_ARR = [
 		project:		"HelloColor",
 		filename: 		"1.05S-HelloColor-LastName.html",
 		title:			"1.05 Skill builder: Hello color",
-		url:			"http://drapak.ca/cpg/TextFormatting.shtml",
+		url:			"http://twagley.github.io/TextFormatting.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -162,7 +162,7 @@ const PROJECT_ARR = [
 		project:		"ConstructAPicture",
 		filename: 		"1.06S-ConstructAPicture-LastName.html",
 		title:			"1.06 Skill-builder: Construct a picture",
-		url:			"http://drapak.ca/cpg/ConstructAPicture.shtml",
+		url:			"http://twagley.github.io/ConstructAPicture.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -188,7 +188,7 @@ const PROJECT_ARR = [
 		project:		"AnimateMario",
 		filename: 		"1.07X-AnimateMario-LastName.html",
 		title:			"1.07 EXTRA: Animate Mario",
-		url:			"http://drapak.ca/cpg/AnimateMario.shtml",
+		url:			"http://twagley.github.io/AnimateMario.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -213,7 +213,7 @@ const PROJECT_ARR = [
 		project:		"AnimateMario",
 		filename: 		"1.07S-AnimateMario-LastName.html",
 		title:			"1.07 EXTRA: Animate Mario",
-		url:			"http://drapak.ca/cpg/AnimateMario.shtml",
+		url:			"http://twagley.github.io/AnimateMario.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -238,7 +238,7 @@ const PROJECT_ARR = [
 		project:		"MakeAGameBoard",
 		filename: 		"1.08H-MakeAGameBoard-LastName.html",
 		title:			"1.08 Hand-in: Make a game board",
-		url:			"http://drapak.ca/cpg/MakeAGameBoard.shtml",
+		url:			"http://twagley.github.io/MakeAGameBoard.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -289,7 +289,7 @@ const PROJECT_ARR = [
 		project:		"HelloJavascript",
 		filename: 		"2.01S-HelloJavascript-LastName.html",
 		title:			"2.01 Skill-builder: Hello Javascript!",
-		url:			"http://drapak.ca/cpg/HelloJavascript.shtml",
+		url:			"http://twagley.github.io/HelloJavascript.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -324,7 +324,7 @@ const PROJECT_ARR = [
 		project:		"ColorChanger",
 		filename: 		"2.02S-ColorChanger-LastName.html",
 		title:			"2.02 Skill-builder: Color changer",
-		url:			"http://drapak.ca/cpg/colorChanger.shtml",
+		url:			"http://twagley.github.io/colorChanger.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -364,7 +364,7 @@ const PROJECT_ARR = [
 		project:		"Modals",
 		filename: 		"2.03X-Modals-LastName.html",
 		title:			"2.03 EXTRA: Modals",
-		url:			"http://drapak.ca/cpg/Modals.shtml",
+		url:			"http://twagley.github.io/Modals.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -396,7 +396,7 @@ const PROJECT_ARR = [
 		project:		"FormulaSolver",
 		filename: 		"2.04S-FormulaSolver-LastName.html",
 		title:			"2.04 Skill-builder: Formula solver",
-		url:			"http://drapak.ca/cpg/FormulaSolver.shtml",
+		url:			"http://twagley.github.io/FormulaSolver.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -445,7 +445,7 @@ const PROJECT_ARR = [
 		project:		"CakeyClicker",
 		filename: 		"2.04H-CakeyClicker-LastName.html",
 		title:			"2.05 Hand-in: Cakey Clicker",
-		url:			"http://drapak.ca/cpg/CakeyClicker.shtml",
+		url:			"http://twagley.github.io/CakeyClicker.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -525,7 +525,7 @@ const PROJECT_ARR = [
 		project:		"CakeyClicker",
 		filename: 		"2.05H-CakeyClicker-LastName.html",
 		title:			"2.05 Hand-in: Cakey Clicker",
-		url:			"http://drapak.ca/cpg/CakeyClicker.shtml",
+		url:			"http://twagley.github.io/CakeyClicker.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -605,7 +605,7 @@ const PROJECT_ARR = [
 		project:		"FontStyleConsole",
 		filename: 		"2.04H-FontStyleConsole-LastName.html",
 		title:			"2.05 Hand-in: Font style console",
-		url:			"http://drapak.ca/cpg/FontStyleConsole.shtml",
+		url:			"http://twagley.github.io/FontStyleConsole.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -685,7 +685,7 @@ const PROJECT_ARR = [
 		project:		"FontStyleConsole",
 		filename: 		"2.05H-FontStyleConsole-LastName.html",
 		title:			"2.05 Hand-in: Font style console",
-		url:			"http://drapak.ca/cpg/FontStyleConsole.shtml",
+		url:			"http://twagley.github.io/FontStyleConsole.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -765,7 +765,7 @@ const PROJECT_ARR = [
 		project:		"MoveThingsWithButtons",
 		filename: 		"2.06S-MoveThingsWithButtons-LastName.html",
 		title:			"2.06 Skill-builder: Move things with buttons",
-		url:			"http://drapak.ca/cpg/MoveThingsWithButtons.shtml",
+		url:			"http://twagley.github.io/MoveThingsWithButtons.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -804,7 +804,7 @@ const PROJECT_ARR = [
 		project:		"DefuseTheBomb",
 		filename: 		"2.07S-DefuseTheBomb-LastName.html",
 		title:			"2.07 Skill-builder: Defuse the Bomb!",
-		url:			"http://drapak.ca/cpg/DefuseTheBomb.shtml",
+		url:			"http://twagley.github.io/DefuseTheBomb.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -843,7 +843,7 @@ const PROJECT_ARR = [
 		project:		"KeyboardReader",
 		filename: 		"2.08S-KeyboardReader-LastName.html",
 		title:			"2.08 Skill-builder: Keyboard reader",
-		url:			"http://drapak.ca/cpg/KeyboardReader.shtml",
+		url:			"http://twagley.github.io/KeyboardReader.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -881,7 +881,7 @@ const PROJECT_ARR = [
 		project:		"KeyboardMotionControl",
 		filename: 		"2.09H-KeyboardMotionControl-LastName.html",
 		title:			"2.09 Hand-in: Keyboard motion control",
-		url:			"http://drapak.ca/cpg/KeyboardMotionControl.shtml",
+		url:			"http://twagley.github.io/KeyboardMotionControl.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -939,7 +939,7 @@ const PROJECT_ARR = [
 		project:		"MoveThingsAroundSmoothly",
 		filename: 		"2.10S-MoveThingsAroundSmoothly-LastName.html",
 		title:			"2.10 Skill-builder: Move things around smoothly",
-		url:			"http://drapak.ca/cpg/MoveThingsAroundSmoothly.shtml",
+		url:			"http://twagley.github.io/MoveThingsAroundSmoothly.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -968,7 +968,7 @@ const PROJECT_ARR = [
 		project:		"RollSomeDice",
 		filename: 		"2.11S-RollSomeDice-LastName.html",
 		title:			"2.11 Skill-builder: Roll some dice",
-		url:			"http://drapak.ca/cpg/RollSomeDice.shtml",
+		url:			"http://twagley.github.io/RollSomeDice.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1004,7 +1004,7 @@ const PROJECT_ARR = [
 		project:		"MyBiggestStar",
 		filename: 		"2.12S-MyBiggestStar-LastName.html",
 		title:			"2.12 Skill-builder: My Biggest Star",
-		url:			"http://drapak.ca/cpg/MyBiggestStar.shtml",
+		url:			"http://twagley.github.io/MyBiggestStar.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1045,7 +1045,7 @@ const PROJECT_ARR = [
 		project:		"HighOrLow",
 		filename: 		"2.13S-HighOrLow-LastName.html",
 		title:			"2.13 Skill-builder: High or Low",
-		url:			"http://drapak.ca/cpg/HighOrLow.shtml",
+		url:			"http://twagley.github.io/HighOrLow.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1089,7 +1089,7 @@ const PROJECT_ARR = [
 		project:		"ShyLinkIsShy",
 		filename: 		"2.14H-ShyLinkIsShy-LastName.html",
 		title:			"2.14 Hand-in — Shy Link Is Shy",
-		url:			"http://drapak.ca/cpg/ShyLinkIsShy.shtml",
+		url:			"http://twagley.github.io/ShyLinkIsShy.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1155,7 +1155,7 @@ const PROJECT_ARR = [
 		project:		"MadLibs",
 		filename: 		"3.01S-MadLibs-LastName.html",
 		title:			"3.01 Skill-builder: Mad libs",
-		url:			"http://drapak.ca/cpg/MadLibs.shtml",
+		url:			"http://twagley.github.io/MadLibs.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1201,7 +1201,7 @@ const PROJECT_ARR = [
 		project:		"MakeABarGraph",
 		filename: 		"3.02S-MakeABarGraph-LastName.html",
 		title:			"3.02 Skill-builder: Make a bar graph",
-		url:			"http://drapak.ca/cpg/MakeABarGraph.shtml",
+		url:			"http://twagley.github.io/MakeABarGraph.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1244,7 +1244,7 @@ const PROJECT_ARR = [
 		project:		"GetYourPersonalData",
 		filename: 		"3.03X-GetYourPersonalData-LastName.html",
 		title:			"3.03 EXTRA: Get your personal data",
-		url:			"http://drapak.ca/cpg/GetYourPersonalData.shtml",
+		url:			"http://twagley.github.io/GetYourPersonalData.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1285,7 +1285,7 @@ const PROJECT_ARR = [
 		project:		"Fireworks",
 		filename: 		"3.04S-Fireworks-LastName.html",
 		title:			"3.04 Skill-builder: Fireworks",
-		url:			"http://drapak.ca/cpg/Fireworks.shtml",
+		url:			"http://twagley.github.io/Fireworks.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1324,7 +1324,7 @@ const PROJECT_ARR = [
 		project:		"CharacterGenerator",
 		filename: 		"3.05H-CharacterGenerator-LastName.html",
 		title:			"3.05 Hand-in: Character Generator",
-		url:			"http://drapak.ca/cpg/CharacterGeneratorII.shtml",
+		url:			"http://twagley.github.io/CharacterGeneratorII.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1381,7 +1381,7 @@ const PROJECT_ARR = [
 		project:		"TheSkyAtNight",
 		filename: 		"3.05H-TheSkyAtNight-LastName.html",
 		title:			"3.05 Hand-in: The sky at night",
-		url:			"http://drapak.ca/cpg/TheSkyAtNight.shtml",
+		url:			"http://twagley.github.io/TheSkyAtNight.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1438,7 +1438,7 @@ const PROJECT_ARR = [
 		project:		"BucketList",
 		filename: 		"3.06S-BucketList-LastName.html",
 		title:			"3.06 Skill-builder: Bucket list",
-		url:			"http://drapak.ca/cpg/BucketList.shtml",
+		url:			"http://twagley.github.io/BucketList.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1480,7 +1480,7 @@ const PROJECT_ARR = [
 		project:		"MakeARainbow",
 		filename: 		"3.07S-MakeARainbow-LastName.html",
 		title:			"3.07 Skill-builder: Make a rainbow",
-		url:			"http://drapak.ca/cpg/MakeARainbow.shtml",
+		url:			"http://twagley.github.io/MakeARainbow.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1521,7 +1521,7 @@ const PROJECT_ARR = [
 		project:		"MakeATableWithArraysOfObjects",
 		filename: 		"3.09H-MakeATableWithArraysOfObjects-LastName.html",
 		title:			"3.09 Hand-in: Make a table using an array of objects",
-		url:			"http://drapak.ca/cpg/MakeATableWithArraysOfObjects.shtml",
+		url:			"http://twagley.github.io/MakeATableWithArraysOfObjects.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1588,7 +1588,7 @@ const PROJECT_ARR = [
 		project:		"CreateAMaze",
 		filename: 		"3.10S-CreateAMaze-LastName.html",
 		title:			"3.10 Skill-builder: Create a maze",
-		url:			"http://drapak.ca/cpg/CreateAMaze.shtml",
+		url:			"http://twagley.github.io/CreateAMaze.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1632,7 +1632,7 @@ const PROJECT_ARR = [
 		project:		"ObjectOrientedKeyboardControl",
 		filename: 		"4.01S-ObjectOrientedKeyboardControl-LastName.html",
 		title:			"//MAKE: 4.01 Skill-builder: Object-oriented keyboard control",
-		url:			"http://drapak.ca/cpg/ObjectOrientedKeyboardControl.shtml",
+		url:			"http://twagley.github.io/ObjectOrientedKeyboardControl.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1677,7 +1677,7 @@ const PROJECT_ARR = [
 		project:		"MazeAndMovement",
 		filename: 		"4.02H-MazeAndMovement-LastName.html",
 		title:			"4.02 Hand-in: Make a maze and something to move on it",
-		url:			"http://drapak.ca/cpg/MazeAndMovement.shtml",
+		url:			"http://twagley.github.io/MazeAndMovement.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1737,7 +1737,7 @@ const PROJECT_ARR = [
 		project:		"MiceAndImages",
 		filename: 		"4.03S-MiceAndImages-LastName.html",
 		title:			"4.03S Skill-builder: Mice and images",
-		url:			"http://drapak.ca/cpg/MiceAndImages.shtml",
+		url:			"http://twagley.github.io/MiceAndImages.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1782,7 +1782,7 @@ const PROJECT_ARR = [
 		project:		"RandomMonsterSwarm",
 		filename: 		"4.05S-RandomMonsterSwarm-LastName.html",
 		title:			"4.05S Skill-builder: Random Monster Swarm",
-		url:			"http://drapak.ca/cpg/RandomMonsterSwarm.shtml",
+		url:			"http://twagley.github.io/RandomMonsterSwarm.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1829,7 +1829,7 @@ const PROJECT_ARR = [
 		project:		"MonsterChasers",
 		filename: 		"4.06X-MonsterChasers-LastName.html",
 		title:			"4.06 EXTRA: Monster Chasers!",
-		url:			"http://drapak.ca/cpg/MonsterChasers.shtml",
+		url:			"http://twagley.github.io/MonsterChasers.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1878,7 +1878,7 @@ const PROJECT_ARR = [
 		project:		"Exam",
 		filename: 		"Exam-LastName.html",
 		title:			"Exam",
-		url:			"http://drapak.ca/cpg/examSkillsChecklist.pdf",
+		url:			"http://twagley.github.io/examSkillsChecklist.pdf",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
