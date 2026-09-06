@@ -353,7 +353,7 @@
 			<p>
 				Sometimes you want one image to be in front of another.  To do this, we use <code>z-index: </code> followed by a number. <br>
 				Higher numbers will go in front of lower numbers. So an image with <code>z-index: 5</code> will be in front of any image with a lower index number, such as <code>z-index: 2</code>.<br>
-				Caution, z-index does not work under the default <code>position: static</code>. If you don't set a z-index, it will be set to 0 (bottom layer).
+				Caution, z-index does not work under the default <code>position: static</code>. If you don't set a z-index, it will be set to 0 (bottom layer).  If two elements have the same number, the last one coded will go on top.
 			</p>
 			
 			<h2>Learn more</h2>
