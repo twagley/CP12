@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Capitalizing tags</title>
+		<title>Wagley CP12: Style - Capitalizing tags</title>
 		<meta name="description" content="In programming, you should avoid using uppercase in your HTML tags.">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="programming style, capitalizing tags, Halifax, Nova Scotia, programing, computer programming, javascript, teaching, learning resources">
@@ -33,6 +33,7 @@
 				29. July 2015	- created!
 				30. July		- fixed indentation
 				1. Feb 2017		- fixed spelling mistake
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
