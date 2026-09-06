@@ -7,7 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Otto the Robot</title>
+		<title>Wagley12: Otto the Robot</title>
 		<meta 
 			name="description" 
 			content="Assignment: plot the path of a human robot">
@@ -47,6 +47,7 @@
 				12. September 2018	- added clarity to evaluation criteria
 				13. September 2018	- added resources to the page
 				23. September 2018	- moved saving your work
+				Sept 2026 - Changed title and a bunch of content, removed working together aspects - Wagley
 		-->
 
 
@@ -129,8 +130,8 @@
 			
 			<h2>Saving your work</h2>
 			<p>
-				You will discuss your solution through an HTML report 
-				that each of you will create <strong>individually</strong>.
+				While you may work together on parts of this assignment, 
+				each of you will create your code <strong>individually</strong>.
 			</p>
 			<p>
 				Save the empty 
@@ -171,12 +172,11 @@
 					</ul>
 				</li>
 			</ul>
-
+			<br><br>
 			<p>
-				Working in groups of 2-4 students, complete the problem solving process to
-				solve the following problem: getting a student from our classroom 
-				(sitting in a chair) to the library in the most efficient way. 
-				The student must be sitting in a chair in the library (or alternately, 
+				If possible, work in groups of 2-4 students, discuss the steps needed to complete the following problem: 
+				getting a robo-student from our classroom (sitting in a chair) to the library in the most efficient way. 
+				The robo-student must be sitting in a chair in the library (or alternately, 
 				standing in front of the library doors) for the solution to be complete.
 			</p>
 
@@ -184,7 +184,7 @@
 			<ul>
 				<li>
 					You will be required to gather other information such as hall 
-					distances, number of steps, and location of rooms
+					distances, number of steps, and location of rooms. You can estimate, or go for a short walk while taking notes.
 				</li>
 				<li>
 					You may want to break down the entire solution into 
@@ -197,7 +197,7 @@
 				<li>Understand the problem (collect info to gather a knowledge base)</li>
 				<li>Identify alternative solutions</li>
 				<li>Select the best solution</li>
-				<li>List the instructions to get to the cafeteria</li>
+				<li>List the instructions to get to the library</li>
 				<li>Evaluate your solution (test your steps)</li>
 			</ol>
 
@@ -219,6 +219,7 @@
 					Repeat instructions x times (x can be any number) &mdash; 
 					example: <code>RPT(3) FWD</code>
 				</li>
+				<li><code>FLM</code> &mdash; Use flamethrower (Because, why not?)</li>
 				<li>Otto always begins in a seated position</li>
 			</ul>
 			
@@ -246,8 +247,15 @@
 				</li>
 				<li>Do a trial run of your solution with a student volunteering to be Otto</li>
 				<li>
-					Complete your HTML report <strong>individually</strong> and then hand it in
+					Complete your HTML report <strong>individually</strong>. Compare it to the Evaluation Checklist (have you added an image?)
 				</li>
+				<li>
+					Run your work through the Markerator (save resulting PDF)
+				</li>
+				<li>
+					Fix anything that needs fixing and hand it in.
+				</li>
+				
 			</ol>
 			
 			<h3>Code an HTML document that looks more or less like this:</h3>
