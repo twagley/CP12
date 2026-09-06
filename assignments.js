@@ -20,6 +20,7 @@
 //				6. Jan 2019			- fixed 3.09 and added 4.02						- Drapak
 //				29. Jan 2019		- changed order of skills for exam checklist	- Drapak
 //									- added structure array to exam					- Drapak
+//				Sept 6 2026			- Changed drapak.ca links to twagley.github.io	- Wagley
 
 	
 //INIT: set up the array of project objects
