@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			CSS applying styles using IDs
 		</title>
 		<meta 
@@ -46,6 +45,7 @@
 				15. Sept 2015	- created!
 				26. Sept 2015	- added learn more
 				16. September 2018 - migrating to less condfusing Id style
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
@@ -139,7 +139,7 @@
 			
 			<p>
 				Note that the Id, <code>redThingId</code>
-				has a hash tag in front of it. 
+				has a hashtag in front of it. 
 				This is used in CSS to apply a style to a single Id 
 				instead of every tag with that name. 
 			</p>
