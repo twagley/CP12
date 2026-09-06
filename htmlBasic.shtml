@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Basic HTML</title>
+		<title>Wagley CP12: Basic HTML</title>
 		<meta name="description" content="Learn how to create a basic HTML Page">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, HTML, teaching, learning resources">
@@ -70,7 +70,7 @@
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
-				<span class="langstyle">page HTML</span> <code>&lt;!doctype html&gt;</code> - at top of HTML5 documents<br />
+				<span class="langstyle">page HTML</span> <code>&lt;!doctype html&gt;</code> - at top of HTML documents<br />
 				<span class="langstyle">page HTML</span> <code>&lt;html&gt;</code> - contains all the HTML code<br />
 				<span class="langstyle">page HTML</span> <code>&lt;head&gt;</code> - information outside the window, like the title<br />
 				<span class="langstyle">page HTML</span> <code>&lt;body&gt;</code> - information inside the window<br />
@@ -130,7 +130,7 @@
 			<h3>The anatomy explained</h3>
 			
 			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
-    </span><span class="sc9">&lt;!-- this shows that this document is written in HTML5 - the most recent version --&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- this shows that this document is written in HTML - the most recent version --&gt;</span><span class="sc0">
     
 </span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
     </span><span class="sc9">&lt;!-- this shows that this page is written in english --&gt;</span><span class="sc0">
@@ -176,7 +176,7 @@
 				The programming code of HTML is made of <strong>tags</strong>.
 			</p>
 			<p>
-				For example, <code>&lt;!doctype html&gt;</code> means we are using the latest version of HTML, HTML5.
+				For example, <code>&lt;!doctype html&gt;</code> means we are using the latest version of HTML. <em>"Hey computer, this is going to be HTML, not a spreadsheet. Got it?"</em>
 			</p>
 			<p>
 				Anything inside the <code>&lt;title&gt;</code> tag appears on the title bar.
