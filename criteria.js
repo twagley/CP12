@@ -17,18 +17,12 @@
 //				29. January 2019	- change loopComment							- Drapak
 //				2. February 2019	- fixed rounding search 						- Drapak
 //				Sept 6 2026			- Changed drapak.ca/cpg links to twagley.github.io/CP12	- Wagley
-//				Sept 6 2026			- Added new references.	- Wagley
 
 
 
 
 //INIT: this is the object for all of the reference page info
 const REFERENCE_OBJ = {
-	//Other reference pages
-	OTHERFilename: {
-		pageURL:	"https://twagley.github.io/CP12/HelloWorld.shtml",
-		pageName:	"//OTHER: Filename",
-	},
 	
 	//HTML reference pages
 	HTMLBasics: {
@@ -922,7 +916,7 @@ const STYLE_OBJ = {
 					"		Finished:	18. September 2018	- Drapak\n" +
 					"-->",
 
-		reference:	REFERENCE_OBJ.HTMLBasics,
+		reference:	REFERENCE_OBJ.none,
 		negative:	false,
 		begin:		"[<][!]--",
 		end:		"--[>]"
@@ -962,7 +956,7 @@ const STYLE_OBJ = {
 		criteria:	"filename",
 		question: 	"Have you correctly added your name to the filename?",
 		example:	"1.05S-HelloColor-Drapak.html",
-		reference:	REFERENCE_OBJ.OTHERFilename,
+		reference:	REFERENCE_OBJ.none,
 		negative:	false,
 		begin:		"FILENAME:",
 	},
@@ -1083,7 +1077,7 @@ const STYLE_OBJ = {
 		criteria:	"style",
 		question: 	"Have you included a style block in your HTML page?",
 		example:	"<style></style>",
-		reference:	REFERENCE_OBJ.HTMLBasics,
+		reference:	REFERENCE_OBJ.none,
 		negative:	false,
 		begin:		"<style",
 		end:		"</style>"
@@ -2441,4 +2435,3 @@ const OUTPUT_OBJ = {
 		begin:		"",
 	},
 };
-
