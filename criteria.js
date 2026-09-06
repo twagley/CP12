@@ -16,7 +16,7 @@
 //				6. Jan 2019			- fixed 3.09 and added 4.02						- Drapak
 //				29. January 2019	- change loopComment							- Drapak
 //				2. February 2019	- fixed rounding search 						- Drapak
-//				Sept 6 2026			- Changed twagley.github.io links to twagley.github.io	- Wagley
+//				Sept 6 2026			- Changed drapak.ca/cpg links to twagley.github.io/CP12	- Wagley
 
 
 
@@ -26,71 +26,71 @@ const REFERENCE_OBJ = {
 	
 	//HTML reference pages
 	HTMLBasics: {
-		pageURL:	"http://twagley.github.io/cpg/htmlBasic.shtml",
+		pageURL:	"http://twagley.github.io/CP12/htmlBasic.shtml",
 		pageName:	"//HTML: Basics",
 	},
 	HTMLContainers: {
-		pageURL:	"http://twagley.github.io/cpg/cssStyleContainers.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssStyleContainers.shtml",
 		pageName:	"//HTML: Style containers — &lt;div> and &lt;span>",
 	},
 	HTMLLists: {
-		pageURL:	"http://twagley.github.io/cpg/htmlLists.shtml",
+		pageURL:	"http://twagley.github.io/CP12/htmlLists.shtml",
 		pageName:	"//HTML: Lists",
 	},
 	HTMLTables: {
-		pageURL:	"http://twagley.github.io/cpg/htmlTables.shtml",
+		pageURL:	"http://twagley.github.io/CP12/htmlTables.shtml",
 		pageName:	"//HTML: Tables",
 	},
 	HTMLunicode: {
-		pageURL:	"http://twagley.github.io/cpg/htmlConvertUnicode.shtml",
+		pageURL:	"http://twagley.github.io/CP12/htmlConvertUnicode.shtml",
 		pageName:	"//HTML: Converting to Unicode characters",
 	},
 	
 	//CSS references
 	CSSTextFormatting: {
-		pageURL:	"http://twagley.github.io/cpg/cssTextFormatting.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssTextFormatting.shtml",
 		pageName:	"//CSS: Text formatting",
 	},
 	CSSIds:	{
-		pageURL:	"http://twagley.github.io/cpg/cssUsingIDs.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssUsingIDs.shtml",
 		pageName:	"//CSS: Applying styles using Ids",
 	},
 	CSSPositioning: {
-		pageURL:	"http://twagley.github.io/cpg/cssPositioning.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssPositioning.shtml",
 		pageName:	"//CSS: Positioning",
 	}, 
 	CSSAnimation: {
-		pageURL:	"http://twagley.github.io/cpg/cssAnimation.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssAnimation.shtml",
 		pageName:	"//CSS: Animation",
 	},
 	CSSSelectors: {
-		pageURL:	"http://twagley.github.io/cpg/cssSelectors.shtml",
+		pageURL:	"http://twagley.github.io/CP12/cssSelectors.shtml",
 		pageName:	"//CSS: Selectors: tags, Ids, and classes",
 	},
 	
 	//STYLE references
 	styleCapitalizingTags: {
-		pageURL:	"http://twagley.github.io/cpg/styleTags.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleTags.shtml",
 		pageName:	"//STYLE: Capitalizing tags",
 	},
 	styleIndents: {
-		pageURL:	"http://twagley.github.io/cpg/styleTabs.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleTabs.shtml",
 		pageName:	"//STYLE: Formatting code with tabs",
 	},
 	styleLongLines: {
-		pageURL:	"http://twagley.github.io/cpg/styleAvoidLongLines.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleAvoidLongLines.shtml",
 		pageName:	"//STYLE: Avoid long lines",
 	},
 	styleCSSInHead: {
-		pageURL:	"http://twagley.github.io/cpg/styleKeepCSSInTheHead.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleKeepCSSInTheHead.shtml",
 		pageName:	"//STYLE: Keep your CSS inside your &lt;head>",
 	},
 	styleSpaceOutMath: {
-		pageURL:	"http://twagley.github.io/cpg/styleMath.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleMath.shtml",
 		pageName:	"//STYLE: Space out mathematical expressions",
 	},
 	styleUseDescriptiveVariables: {
-		pageURL:	"http://twagley.github.io/cpg/styleUseDescriptiveVariables.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleUseDescriptiveVariables.shtml",
 		pageName:	"//STYLE: Use descriptive variable names",
 	},
 	style: {
@@ -101,66 +101,66 @@ const REFERENCE_OBJ = {
 	//INIT references
 
 	initArrays: {
-		pageURL:	"http://twagley.github.io/cpg/initArrays.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initArrays.shtml",
 		pageName:	"//INIT: Creating arrays",
 	},
 	initLibraries: {
-		pageURL:	"http://twagley.github.io/cpg/initUsingLibraries.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initUsingLibraries.shtml",
 		pageName:	"//INIT: Using libraries",
 	},
 	initObjects: {
-		pageURL:	"http://twagley.github.io/cpg/initObjects.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initObjects.shtml",
 		pageName:	"//INIT: Using objects",
 	},		
 	initObjectsWithMethods: {
-		pageURL:	"http://twagley.github.io/cpg/initObjectsWithMethods.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initObjectsWithMethods.shtml",
 		pageName:	"//INIT: Creating objects with methods",
 	},
 	initTwoDimensionalArrays: {
-		pageURL:	"http://twagley.github.io/cpg/initTwoDimensionalArrays.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initTwoDimensionalArrays.shtml",
 		pageName:	"//INIT: Creating two dimensional arrays",
 	},
 	initVar: {
-		pageURL:	"http://twagley.github.io/cpg/initVariableAssignment.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initVariableAssignment.shtml",
 		pageName:	"//INIT: Using variables",
 	},
 	initObjectConstructors: {
-		pageURL:	"http://twagley.github.io/cpg/initObjectConstructors.shtml",
+		pageURL:	"http://twagley.github.io/CP12/initObjectConstructors.shtml",
 		pageName:	"//INIT: Creating objects using object constructors",
 	},
 	
 	//INPUT references
 	
 	inputButtons: {
-		pageURL:	"http://twagley.github.io/cpg/inputButtons.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputButtons.shtml",
 		pageName:	"//INPUT: Buttons",
 	},
 	inputElementPositions: {
-		pageURL:	"http://twagley.github.io/cpg/inputElementPositions.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputElementPositions.shtml",
 		pageName:	"//INPUT: Read element positions",
 	},	
 	inputMouseovers: {
-		pageURL:	"http://twagley.github.io/cpg/inputDetectingMouseovers.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputDetectingMouseovers.shtml",
 		pageName:	"//INPUT: Detecting mouseovers",
 	},
 	inputReadingKeypresses: {
-		pageURL:	"http://twagley.github.io/cpg/inputReadingKeypresses.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputReadingKeypresses.shtml",
 		pageName:	"//INPUT: Reading keypresses",
 	},
 	inputText: {
-		pageURL:	"http://twagley.github.io/cpg/inputText.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputText.shtml",
 		pageName:	"//INPUT: Text input",
 	},
 	inputGet: {
-		pageURL:	"http://twagley.github.io/cpg/inputGet.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputGet.shtml",
 		pageName:	"//INPUT: Getting information from websites",
 	},
 	inputMouseMovementAndPosition: {
-		pageURL:	"http://twagley.github.io/cpg/inputMouseMovementAndPosition.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputMouseMovementAndPosition.shtml",
 		pageName:	"//INPUT: Read mouse movements and position",
 	},
 	inputScreenHeightAndWidth: {
-		pageURL:	"http://twagley.github.io/cpg/inputScreenHeightAndWidth.shtml",
+		pageURL:	"http://twagley.github.io/CP12/inputScreenHeightAndWidth.shtml",
 		pageName:	"//INPUT: Read the height and width of the screen",
 	},
 	input: {
@@ -170,88 +170,88 @@ const REFERENCE_OBJ = {
 	
 	//PROCESS references
 	processArrays: {
-		pageURL:	"http://twagley.github.io/cpg/processUsingArrays.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processUsingArrays.shtml",
 		pageName:	"//PROCESS: Using arrays",
 	},	
 	processArraysOfObjectsToCreateTable: {
-		pageURL:	"http://twagley.github.io/cpg/processUsingArraysOfObjectsToCreateATable.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processUsingArraysOfObjectsToCreateATable.shtml",
 		pageName:	"//PROCESS: Using arrays of objects to create a table",
 	},	
 	processBasicMath: {
-		pageURL:	"http://twagley.github.io/cpg/processBasicMath.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processBasicMath.shtml",
 		pageName:	"//PROCESS: Basic math",
 	},
 	processForLoops: {
-		pageURL:	"http://twagley.github.io/cpg/processForLoops.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processForLoops.shtml",
 		pageName:	"//PROCESS: for loops",
 	},
 	processFunctionalProgramming: {
-		pageURL:	"http://twagley.github.io/cpg/styleFunctionPipelines.shtml",
+		pageURL:	"http://twagley.github.io/CP12/styleFunctionPipelines.shtml",
 		pageName:	"//STYLE: Using functional programming",
 	},
 	processIfElseConditionals: {
-		pageURL:	"http://twagley.github.io/cpg/processIfElseConditionals.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processIfElseConditionals.shtml",
 		pageName:	"//PROCESS: if...else conditionals",
 	},
 	processJSON: {
-		pageURL:	"http://twagley.github.io/cpg/processJSON.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processJSON.shtml",
 		pageName:	"//PROCESS: JSON — Bundling data for transfer",
 	},	
 	processRandomnessAndRounding: {
-		pageURL:	"http://twagley.github.io/cpg/processRandomnessAndRounding.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processRandomnessAndRounding.shtml",
 		pageName:	"//PROCESS: Randomness and rounding",
 	},
 	processTimers: {
-		pageURL:	"http://twagley.github.io/cpg/processTimeoutAndIntervals.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processTimeoutAndIntervals.shtml",
 		pageName:	"//PROCESS: Timeout and intervals",
 	},		
 	processUsingTwoDimensionalArrays: {
-		pageURL:	"http://twagley.github.io/cpg/processUsingTwoDimensionalArrays.shtml",
+		pageURL:	"http://twagley.github.io/CP12/processUsingTwoDimensionalArrays.shtml",
 		pageName:	"//PROCESS: Using two dimensional arrays and nested loops",
 	},		
 
 	
 	//OUTPUT references
 	outputAlertInnerHtmlAndConsoleLog: {
-		pageURL:	"http://twagley.github.io/cpg/outputAlertInnerHtmlAndConsoleLog.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAlertInnerHtmlAndConsoleLog.shtml",
 		pageName:	"//OUTPUT: alert(), .innerHTML, and console.log()",
 	},	
 	outputChangeTextStyles: {
-		pageURL:	"http://twagley.github.io/cpg/outputChangeTextStyles.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputChangeTextStyles.shtml",
 		pageName:	"//OUTPUT: Changing text styles",
 	},	
 	outputChangeElementPosition: {
-		pageURL:	"http://twagley.github.io/cpg/outputChangePosition.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputChangePosition.shtml",
 		pageName:	"//OUTPUT: Changing an element's position",
 	},
 
 	outputChangeAnImage: {
-		pageURL:	"http://twagley.github.io/cpg/outputChangeAnImage.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputChangeAnImage.shtml",
 		pageName:	"//OUTPUT: Changing an image",
 	},	
 	
 	outputChangePosition: {
-		pageURL:	"http://twagley.github.io/cpg/outputChangePosition.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputChangePosition.shtml",
 		pageName:	"//OUTPUT: Changing an element's position",
 	},
 	outputAnimateJQuery: {
-		pageURL:	"http://twagley.github.io/cpg/outputAnimatingMotion.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAnimatingMotion.shtml",
 		pageName:	"//OUTPUT: Animating motion",
 	},
 	outputOtherJQuery: {
-		pageURL:	"http://twagley.github.io/cpg/outputAnimatingCSSProperties.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAnimatingCSSProperties.shtml",
 		pageName:	"//OUTPUT: Animating other CSS properties with jQuery",
 	},
 	outputAddingElements: {
-		pageURL:	"http://twagley.github.io/cpg/outputAddingElements.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAddingElements.shtml",
 		pageName:	"//OUTPUT: Adding elements directly to an output HTML element",
 	},	
 	outputAnimationCallbacks: {
-		pageURL:	"http://twagley.github.io/cpg/outputAnimationCallbacks.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAnimationCallbacks.shtml",
 		pageName:	"//OUTPUT: Animation callbacks",
 	},	
 	outputAddingAndPlayingAudio: {
-		pageURL:	"http://twagley.github.io/cpg/outputAddingAndPlayingAudio.shtml",
+		pageURL:	"http://twagley.github.io/CP12/outputAddingAndPlayingAudio.shtml",
 		pageName:	"//OUTPUT: Adding and playing audio",
 	},	
 	output: {
@@ -259,7 +259,7 @@ const REFERENCE_OBJ = {
 		pageName:	"",
 	},	
 	none: {
-		pageURL:	"https://twagley.github.io/cpg/",
+		pageURL:	"https://twagley.github.io/CP12/",
 		pageName:	"There is no reference page for this skill",
 	},	
 	
@@ -1487,7 +1487,7 @@ const INPUT_OBJ = {
 					"\n" +
 					"//INPUT: get the message from the web server using jQuery\n" +
 					"$.get( \n" +
-					"	'https://twagley.github.io/cpg/getSunnyMessage.php',    // URL to contact\n" +
+					"	'https://twagley.github.io/CP12/getSunnyMessage.php',    // URL to contact\n" +
 					"	{ message: 42 },                                // information about the request\n" +
 					"	processWebsiteData                              // function to process the results\n" +
 					");",
@@ -1670,7 +1670,7 @@ const PROCESS_OBJ = {
 					"        start:  function () {\n" + 
 					"            // this happens BEFORE the animation\n" + 
 					"            document.querySelector( '#imageId' ).src \n" + 
-					"                = 'http://twagley.github.io/cpg/img/link-left.png';\n" + 
+					"                = 'http://twagley.github.io/CP12/img/link-left.png';\n" + 
 					"        },\n" + 
 					"        complete: function () {\n" + 
 					"            // this happens AFTER the animation\n" + 
@@ -2159,7 +2159,7 @@ const OUTPUT_OBJ = {
 					"        start:  function () {\n" + 
 					"            // this happens BEFORE the animation\n" + 
 					"            document.querySelector( '#imageId' ).src \n" + 
-					"                = 'http://twagley.github.io/cpg/img/link-left.png';\n" + 
+					"                = 'http://twagley.github.io/CP12/img/link-left.png';\n" + 
 					"        },\n" + 
 					"        complete: function () {\n" + 
 					"            // this happens AFTER the animation\n" + 
@@ -2303,7 +2303,7 @@ const OUTPUT_OBJ = {
 		criteria:	"srcOrStyle",
 		question: 	"Did you change the src, width, or other style of an element using javascript?",
 		example:	"document.getElementById( 'exampleId' ).src " + 
-					"= 'http://twagley.github.io/cpg/img/pacman/pacmanBigRight0.png';\n" + 
+					"= 'http://twagley.github.io/CP12/img/pacman/pacmanBigRight0.png';\n" + 
 					"document.getElementById( 'exampleId' ).style.width = width + 'px'; ",
 		reference:	REFERENCE_OBJ.outputChangeTextStyles,
 		begin:		"[.]style[.]|[.]src",
