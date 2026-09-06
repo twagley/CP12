@@ -16,7 +16,7 @@
 //				6. Jan 2019			- fixed 3.09 and added 4.02						- Drapak
 //				29. January 2019	- change loopComment							- Drapak
 //				2. February 2019	- fixed rounding search 						- Drapak
-//				Sept 6 2026			- Changed drapak.ca links to twagley.github.io	- Wagley
+//				Sept 6 2026			- Changed twagley.github.io links to twagley.github.io	- Wagley
 
 
 
@@ -26,71 +26,71 @@ const REFERENCE_OBJ = {
 	
 	//HTML reference pages
 	HTMLBasics: {
-		pageURL:	"http://drapak.ca/cpg/htmlBasic.shtml",
+		pageURL:	"http://twagley.github.io/cpg/htmlBasic.shtml",
 		pageName:	"//HTML: Basics",
 	},
 	HTMLContainers: {
-		pageURL:	"http://drapak.ca/cpg/cssStyleContainers.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssStyleContainers.shtml",
 		pageName:	"//HTML: Style containers — &lt;div> and &lt;span>",
 	},
 	HTMLLists: {
-		pageURL:	"http://drapak.ca/cpg/htmlLists.shtml",
+		pageURL:	"http://twagley.github.io/cpg/htmlLists.shtml",
 		pageName:	"//HTML: Lists",
 	},
 	HTMLTables: {
-		pageURL:	"http://drapak.ca/cpg/htmlTables.shtml",
+		pageURL:	"http://twagley.github.io/cpg/htmlTables.shtml",
 		pageName:	"//HTML: Tables",
 	},
 	HTMLunicode: {
-		pageURL:	"http://drapak.ca/cpg/htmlConvertUnicode.shtml",
+		pageURL:	"http://twagley.github.io/cpg/htmlConvertUnicode.shtml",
 		pageName:	"//HTML: Converting to Unicode characters",
 	},
 	
 	//CSS references
 	CSSTextFormatting: {
-		pageURL:	"http://drapak.ca/cpg/cssTextFormatting.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssTextFormatting.shtml",
 		pageName:	"//CSS: Text formatting",
 	},
 	CSSIds:	{
-		pageURL:	"http://drapak.ca/cpg/cssUsingIDs.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssUsingIDs.shtml",
 		pageName:	"//CSS: Applying styles using Ids",
 	},
 	CSSPositioning: {
-		pageURL:	"http://drapak.ca/cpg/cssPositioning.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssPositioning.shtml",
 		pageName:	"//CSS: Positioning",
 	}, 
 	CSSAnimation: {
-		pageURL:	"http://drapak.ca/cpg/cssAnimation.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssAnimation.shtml",
 		pageName:	"//CSS: Animation",
 	},
 	CSSSelectors: {
-		pageURL:	"http://drapak.ca/cpg/cssSelectors.shtml",
+		pageURL:	"http://twagley.github.io/cpg/cssSelectors.shtml",
 		pageName:	"//CSS: Selectors: tags, Ids, and classes",
 	},
 	
 	//STYLE references
 	styleCapitalizingTags: {
-		pageURL:	"http://drapak.ca/cpg/styleTags.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleTags.shtml",
 		pageName:	"//STYLE: Capitalizing tags",
 	},
 	styleIndents: {
-		pageURL:	"http://drapak.ca/cpg/styleTabs.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleTabs.shtml",
 		pageName:	"//STYLE: Formatting code with tabs",
 	},
 	styleLongLines: {
-		pageURL:	"http://drapak.ca/cpg/styleAvoidLongLines.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleAvoidLongLines.shtml",
 		pageName:	"//STYLE: Avoid long lines",
 	},
 	styleCSSInHead: {
-		pageURL:	"http://drapak.ca/cpg/styleKeepCSSInTheHead.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleKeepCSSInTheHead.shtml",
 		pageName:	"//STYLE: Keep your CSS inside your &lt;head>",
 	},
 	styleSpaceOutMath: {
-		pageURL:	"http://drapak.ca/cpg/styleMath.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleMath.shtml",
 		pageName:	"//STYLE: Space out mathematical expressions",
 	},
 	styleUseDescriptiveVariables: {
-		pageURL:	"http://drapak.ca/cpg/styleUseDescriptiveVariables.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleUseDescriptiveVariables.shtml",
 		pageName:	"//STYLE: Use descriptive variable names",
 	},
 	style: {
@@ -101,66 +101,66 @@ const REFERENCE_OBJ = {
 	//INIT references
 
 	initArrays: {
-		pageURL:	"http://drapak.ca/cpg/initArrays.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initArrays.shtml",
 		pageName:	"//INIT: Creating arrays",
 	},
 	initLibraries: {
-		pageURL:	"http://drapak.ca/cpg/initUsingLibraries.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initUsingLibraries.shtml",
 		pageName:	"//INIT: Using libraries",
 	},
 	initObjects: {
-		pageURL:	"http://drapak.ca/cpg/initObjects.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initObjects.shtml",
 		pageName:	"//INIT: Using objects",
 	},		
 	initObjectsWithMethods: {
-		pageURL:	"http://drapak.ca/cpg/initObjectsWithMethods.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initObjectsWithMethods.shtml",
 		pageName:	"//INIT: Creating objects with methods",
 	},
 	initTwoDimensionalArrays: {
-		pageURL:	"http://drapak.ca/cpg/initTwoDimensionalArrays.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initTwoDimensionalArrays.shtml",
 		pageName:	"//INIT: Creating two dimensional arrays",
 	},
 	initVar: {
-		pageURL:	"http://drapak.ca/cpg/initVariableAssignment.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initVariableAssignment.shtml",
 		pageName:	"//INIT: Using variables",
 	},
 	initObjectConstructors: {
-		pageURL:	"http://drapak.ca/cpg/initObjectConstructors.shtml",
+		pageURL:	"http://twagley.github.io/cpg/initObjectConstructors.shtml",
 		pageName:	"//INIT: Creating objects using object constructors",
 	},
 	
 	//INPUT references
 	
 	inputButtons: {
-		pageURL:	"http://drapak.ca/cpg/inputButtons.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputButtons.shtml",
 		pageName:	"//INPUT: Buttons",
 	},
 	inputElementPositions: {
-		pageURL:	"http://drapak.ca/cpg/inputElementPositions.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputElementPositions.shtml",
 		pageName:	"//INPUT: Read element positions",
 	},	
 	inputMouseovers: {
-		pageURL:	"http://drapak.ca/cpg/inputDetectingMouseovers.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputDetectingMouseovers.shtml",
 		pageName:	"//INPUT: Detecting mouseovers",
 	},
 	inputReadingKeypresses: {
-		pageURL:	"http://drapak.ca/cpg/inputReadingKeypresses.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputReadingKeypresses.shtml",
 		pageName:	"//INPUT: Reading keypresses",
 	},
 	inputText: {
-		pageURL:	"http://drapak.ca/cpg/inputText.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputText.shtml",
 		pageName:	"//INPUT: Text input",
 	},
 	inputGet: {
-		pageURL:	"http://drapak.ca/cpg/inputGet.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputGet.shtml",
 		pageName:	"//INPUT: Getting information from websites",
 	},
 	inputMouseMovementAndPosition: {
-		pageURL:	"http://drapak.ca/cpg/inputMouseMovementAndPosition.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputMouseMovementAndPosition.shtml",
 		pageName:	"//INPUT: Read mouse movements and position",
 	},
 	inputScreenHeightAndWidth: {
-		pageURL:	"http://drapak.ca/cpg/inputScreenHeightAndWidth.shtml",
+		pageURL:	"http://twagley.github.io/cpg/inputScreenHeightAndWidth.shtml",
 		pageName:	"//INPUT: Read the height and width of the screen",
 	},
 	input: {
@@ -170,88 +170,88 @@ const REFERENCE_OBJ = {
 	
 	//PROCESS references
 	processArrays: {
-		pageURL:	"http://drapak.ca/cpg/processUsingArrays.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processUsingArrays.shtml",
 		pageName:	"//PROCESS: Using arrays",
 	},	
 	processArraysOfObjectsToCreateTable: {
-		pageURL:	"http://drapak.ca/cpg/processUsingArraysOfObjectsToCreateATable.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processUsingArraysOfObjectsToCreateATable.shtml",
 		pageName:	"//PROCESS: Using arrays of objects to create a table",
 	},	
 	processBasicMath: {
-		pageURL:	"http://drapak.ca/cpg/processBasicMath.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processBasicMath.shtml",
 		pageName:	"//PROCESS: Basic math",
 	},
 	processForLoops: {
-		pageURL:	"http://drapak.ca/cpg/processForLoops.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processForLoops.shtml",
 		pageName:	"//PROCESS: for loops",
 	},
 	processFunctionalProgramming: {
-		pageURL:	"http://drapak.ca/cpg/styleFunctionPipelines.shtml",
+		pageURL:	"http://twagley.github.io/cpg/styleFunctionPipelines.shtml",
 		pageName:	"//STYLE: Using functional programming",
 	},
 	processIfElseConditionals: {
-		pageURL:	"http://drapak.ca/cpg/processIfElseConditionals.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processIfElseConditionals.shtml",
 		pageName:	"//PROCESS: if...else conditionals",
 	},
 	processJSON: {
-		pageURL:	"http://drapak.ca/cpg/processJSON.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processJSON.shtml",
 		pageName:	"//PROCESS: JSON — Bundling data for transfer",
 	},	
 	processRandomnessAndRounding: {
-		pageURL:	"http://drapak.ca/cpg/processRandomnessAndRounding.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processRandomnessAndRounding.shtml",
 		pageName:	"//PROCESS: Randomness and rounding",
 	},
 	processTimers: {
-		pageURL:	"http://drapak.ca/cpg/processTimeoutAndIntervals.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processTimeoutAndIntervals.shtml",
 		pageName:	"//PROCESS: Timeout and intervals",
 	},		
 	processUsingTwoDimensionalArrays: {
-		pageURL:	"http://drapak.ca/cpg/processUsingTwoDimensionalArrays.shtml",
+		pageURL:	"http://twagley.github.io/cpg/processUsingTwoDimensionalArrays.shtml",
 		pageName:	"//PROCESS: Using two dimensional arrays and nested loops",
 	},		
 
 	
 	//OUTPUT references
 	outputAlertInnerHtmlAndConsoleLog: {
-		pageURL:	"http://drapak.ca/cpg/outputAlertInnerHtmlAndConsoleLog.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAlertInnerHtmlAndConsoleLog.shtml",
 		pageName:	"//OUTPUT: alert(), .innerHTML, and console.log()",
 	},	
 	outputChangeTextStyles: {
-		pageURL:	"http://drapak.ca/cpg/outputChangeTextStyles.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputChangeTextStyles.shtml",
 		pageName:	"//OUTPUT: Changing text styles",
 	},	
 	outputChangeElementPosition: {
-		pageURL:	"http://drapak.ca/cpg/outputChangePosition.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputChangePosition.shtml",
 		pageName:	"//OUTPUT: Changing an element's position",
 	},
 
 	outputChangeAnImage: {
-		pageURL:	"http://drapak.ca/cpg/outputChangeAnImage.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputChangeAnImage.shtml",
 		pageName:	"//OUTPUT: Changing an image",
 	},	
 	
 	outputChangePosition: {
-		pageURL:	"http://drapak.ca/cpg/outputChangePosition.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputChangePosition.shtml",
 		pageName:	"//OUTPUT: Changing an element's position",
 	},
 	outputAnimateJQuery: {
-		pageURL:	"http://drapak.ca/cpg/outputAnimatingMotion.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAnimatingMotion.shtml",
 		pageName:	"//OUTPUT: Animating motion",
 	},
 	outputOtherJQuery: {
-		pageURL:	"http://drapak.ca/cpg/outputAnimatingCSSProperties.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAnimatingCSSProperties.shtml",
 		pageName:	"//OUTPUT: Animating other CSS properties with jQuery",
 	},
 	outputAddingElements: {
-		pageURL:	"http://drapak.ca/cpg/outputAddingElements.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAddingElements.shtml",
 		pageName:	"//OUTPUT: Adding elements directly to an output HTML element",
 	},	
 	outputAnimationCallbacks: {
-		pageURL:	"http://drapak.ca/cpg/outputAnimationCallbacks.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAnimationCallbacks.shtml",
 		pageName:	"//OUTPUT: Animation callbacks",
 	},	
 	outputAddingAndPlayingAudio: {
-		pageURL:	"http://drapak.ca/cpg/outputAddingAndPlayingAudio.shtml",
+		pageURL:	"http://twagley.github.io/cpg/outputAddingAndPlayingAudio.shtml",
 		pageName:	"//OUTPUT: Adding and playing audio",
 	},	
 	output: {
@@ -259,7 +259,7 @@ const REFERENCE_OBJ = {
 		pageName:	"",
 	},	
 	none: {
-		pageURL:	"https://drapak.ca/cpg/",
+		pageURL:	"https://twagley.github.io/cpg/",
 		pageName:	"There is no reference page for this skill",
 	},	
 	
@@ -1487,7 +1487,7 @@ const INPUT_OBJ = {
 					"\n" +
 					"//INPUT: get the message from the web server using jQuery\n" +
 					"$.get( \n" +
-					"	'https://drapak.ca/cpg/getSunnyMessage.php',    // URL to contact\n" +
+					"	'https://twagley.github.io/cpg/getSunnyMessage.php',    // URL to contact\n" +
 					"	{ message: 42 },                                // information about the request\n" +
 					"	processWebsiteData                              // function to process the results\n" +
 					");",
@@ -1670,7 +1670,7 @@ const PROCESS_OBJ = {
 					"        start:  function () {\n" + 
 					"            // this happens BEFORE the animation\n" + 
 					"            document.querySelector( '#imageId' ).src \n" + 
-					"                = 'http://drapak.ca/cpg/img/link-left.png';\n" + 
+					"                = 'http://twagley.github.io/cpg/img/link-left.png';\n" + 
 					"        },\n" + 
 					"        complete: function () {\n" + 
 					"            // this happens AFTER the animation\n" + 
@@ -2159,7 +2159,7 @@ const OUTPUT_OBJ = {
 					"        start:  function () {\n" + 
 					"            // this happens BEFORE the animation\n" + 
 					"            document.querySelector( '#imageId' ).src \n" + 
-					"                = 'http://drapak.ca/cpg/img/link-left.png';\n" + 
+					"                = 'http://twagley.github.io/cpg/img/link-left.png';\n" + 
 					"        },\n" + 
 					"        complete: function () {\n" + 
 					"            // this happens AFTER the animation\n" + 
@@ -2303,7 +2303,7 @@ const OUTPUT_OBJ = {
 		criteria:	"srcOrStyle",
 		question: 	"Did you change the src, width, or other style of an element using javascript?",
 		example:	"document.getElementById( 'exampleId' ).src " + 
-					"= 'http://drapak.ca/cpg/img/pacman/pacmanBigRight0.png';\n" + 
+					"= 'http://twagley.github.io/cpg/img/pacman/pacmanBigRight0.png';\n" + 
 					"document.getElementById( 'exampleId' ).style.width = width + 'px'; ",
 		reference:	REFERENCE_OBJ.outputChangeTextStyles,
 		begin:		"[.]style[.]|[.]src",
