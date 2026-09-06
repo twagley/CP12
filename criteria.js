@@ -17,7 +17,7 @@
 //				29. January 2019	- change loopComment							- Drapak
 //				2. February 2019	- fixed rounding search 						- Drapak
 //				Sept 6 2026			- Changed drapak.ca/cpg links to twagley.github.io/CP12	- Wagley
-//				Se[t 6 2026 - Broked! Reverted changes - Wagley
+//				Se[t 6 2026 - 		- Adding more references. Broken! Reverted changes. Redone and working. - Wagley
 
 
 
