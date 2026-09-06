@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: HTML Lists
+			Wagley CP12: HTML Lists
 		</title>
 		<meta 
 			name="description" 
@@ -45,6 +45,7 @@
 				26. Sept		- added learn more link
 				1. January 2019	- reworked style and fixed <br>
 				8. September 2021 - changed <caption> to <tbody> - Thanks to M. Bowdridge
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
