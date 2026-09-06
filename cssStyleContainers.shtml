@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			CSS Style Containers - divs and spans
 		</title>
 		<meta 
@@ -48,6 +47,7 @@
 				19. February 2018	- fixed an error that was embarrassingly 
 										pointed out to me in class
 				16. September 2018	- fixed long lines and Id styles
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 
@@ -171,6 +171,16 @@
         </span><span class="sc1">&lt;p&gt;&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">div&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> can be a very handy tag!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/body&gt;</span></code></pre>
+			
+			<h2>Span vs Div</h2>
+			<ul>
+				<li>
+					I think of using <code>&lt;span&gt;></code> in the same way I would use a click-and-drag of the mouse to highlight something small.
+				</li>
+				<li>
+					Compared to <code>&lt;div&gt;></code> which is highlighting a big section.
+				</li>
+			</ul>
 
 			<h2>Learn more</h2>
 			<ul>
