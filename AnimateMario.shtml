@@ -93,7 +93,8 @@
 
 			<h2>The assignment</h2>
 			<p>
-				Use CSS animation to move Mario through a side-scrolling platformer. 
+				Use CSS animation to move Mario through a side-scrolling platformer. <br>
+				(Keep in mind that we will be learning a much better way to animate images in future lessons, so don't get too bogged down with this)
 			</p>
 					
 			<h3>Image bank</h3>
