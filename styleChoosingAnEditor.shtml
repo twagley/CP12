@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Choosing an Editor</title></title>
+		<title>Wagley CP12: Style - Choosing an Editor</title></title>
 		<meta name="description" content="Choosing an editor">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
@@ -53,12 +53,12 @@
 
 			<p>
 				The coding environment that programmers use is the source of a great deal of debate. 
-				Personally, it depends on which language I am using: 
-				in Linux I tend to use gedit and kdevelop, but in Windows I tend to use Notepad++.
+				Personally, it depends on how I am using it: 
+				to edit this site, I work on GitHub's server side directly.
 			</p>
 			<p>
-				<a href="http://www.sublimetext.com/">Sublime Text</a> is also very, very, good, and you can get a Portable version of it as well.
-				At home, you can use whatever you want. 
+				<a href="http://www.sublimetext.com/">Sublime Text</a> is my favourite to use for personal development, such as doing assignments for this class. It's free and works on both Win and Mac.
+				At home, you can use whatever you want.
 				Take a look at <a href="https://code.visualstudio.com/">Visual Studio Code</a>: it is pretty good!
 			</p>
 			
@@ -87,7 +87,7 @@
 			<p>
 				After a while you get so used to writing in programming editors that 
 				word processors start to seem awkward and slow.
-				I do much of my writing as a teacher in programming editors. 
+				I do all of my coding in programming editors. 
 				I can't go back!
 			</p>
 	
