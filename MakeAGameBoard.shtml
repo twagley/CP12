@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			Make a game board
 		</title>
 		<meta 
@@ -48,6 +47,7 @@
 							11. February 2018	- cleaned up code for long lines
 												- added hidden agenda
 							16. September 2018	- cleaning up style
+							Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<style>
@@ -80,15 +80,15 @@
 						//CSS: <a href="cssAnimation.shtml">Animation</a>
 					</li>
 					<li>
-						//CSS: <a href="cssColor.shtml">Color</a>
+						//CSS: <a href="cssColor.shtml">Color</a> <em>*New!</em>
 					</li>
 					<li>
 						//CSS: 
-						<a href="cssSelectors.shtml">Selectors: tags, IDs, and classes</a>
+						<a href="cssSelectors.shtml">Selectors: tags, IDs, and classes</a> <em>*New!</em>
 					</li>
 					<li>
 						//CSS: <a href="cssStyleContainers.shtml">Style containers: 
-						<code>&lt;div></code> and <code>&lt;span></code></a>
+						<code>&lt;div></code> and <code>&lt;span></code></a> <em>*New!</em>
 					</li>
 					<br>
 					<li>
@@ -109,7 +109,7 @@
 					<li>
 						//STYLE: 
 						<a href="styleKeepCSSInTheHead.shtml">Keep your CSS inside your 
-						<code>&lt;head></code></a>
+						<code>&lt;head></code></a> <em>*New!</em>
 					</li>
 					
 				</ul>
@@ -228,10 +228,10 @@
 					
 			<h2>References and Image bank</h2>
 			<p>
-				All images will begin with
-				<code>http://drapak.ca/cpg/img/</code><br>
+				All images here will begin with
+				<code>http://twagley.github.io/CP12/img/</code><br>
 				For example: 
-				<code>&lt;img src="http://drapak.ca/cpg/img/gameBoard-goBoard.svg"></code>
+				<code>&lt;img src="http://twagley.github.io/CP12/img/gameBoard-goBoard.svg"></code>
 			</p>
 			
 			<h3>Chess</h3>
@@ -283,9 +283,7 @@
 			</div>
  			
 			<h3>
-				Monopoly &mdash; 
-				Everything but the board are based on designs from 
-				<a href="https://www.facebook.com/Star-City-Designs-128094110627537/timeline/">Star City Designs</a>
+				Monopoly
 			</h3>
 			<div class="floatbox">
 				<figure>
@@ -368,7 +366,7 @@
 			
 			<h2>Extend and expand</h2>
 			
-			<p>There are other games out there!</p>
+			<p>There are so many other games out there!</p>
 			<p>
 				What about hex maps for war games, or card games, and so on. 
 			</p>
