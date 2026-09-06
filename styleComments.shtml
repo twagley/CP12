@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			Style - Use comments to communicate
 		</title>
 		<meta 
@@ -48,6 +47,7 @@
 				27. Sept			- added learn more link
 				5. February 2017 	- added more reasons to do comments
 				11. February 2018	- fixed the examples and cleaned script location
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<style>
@@ -132,7 +132,7 @@
         
         </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Parts of a Web Page</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"How to use comments in HTML, CSS, and JS"</span><span class="sc1">&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Tyson Wagley"</span><span class="sc1">&gt;</span><span class="sc0">
 
         </span><span class="sc9">&lt;!--
             Change log: 
@@ -141,6 +141,7 @@
                                       and change. I often add TODO lists here as well,
                                       and check them off as they are finished.
                 11. February 2018   - moved &lt;script> to end of code for good style
+				6 Sept 2026			- Edited some wording to make explanations clear.
         --&gt;</span><span class="sc0">
 
         </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
@@ -152,8 +153,8 @@
     </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
 
     </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
-        </span><span class="sc9">&lt;!-- show a paragraph --&gt;</span><span class="sc0">
         </span><span class="sc9">&lt;!-- HTML comments go inside these --&gt;</span><span class="sc0">
+		</span><span class="sc9">&lt;!-- show a paragraph --&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;p&gt;</span><span class="sc0">Hello there!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
 		
         </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
