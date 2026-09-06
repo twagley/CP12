@@ -7,8 +7,7 @@
 			name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			CSS Selectors
 		</title>
 		<meta 
@@ -45,6 +44,7 @@
 				20. Sept 2015	- created!
 				26. Sept		- added learn more link
 				16. Sept 2018	- updated style
+				Sept 2026 - Changed title and added content on good naming conventions - Wagley
 		-->
 
 
@@ -181,6 +181,13 @@
 			<p>The above code produces:</p>
 			
 			<iframe src="supporting/cssStyleContainers.shtml"></iframe>
+
+			<h2>A reminder about good naming</h2>
+			<p>
+				Unlike the naming used above, it's good to give a descriptive name for classes. <br>
+				For example: <code>class="pinkHighlightBoldClass"</code> can be attached to many things, and I will immediately know what it is being used for.<br>
+				This will become even more important later on, as we do more than CSS changes to items in certain classes; example, <code>class="enemyClass"</code>, might have certain behaviours, stats, and more.
+			</p>
 
 			<h2>Learn more</h2>
 			<ul>
