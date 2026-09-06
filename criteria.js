@@ -922,7 +922,7 @@ const STYLE_OBJ = {
 					"		Finished:	18. September 2018	- Drapak\n" +
 					"-->",
 
-		reference:	REFERENCE_OBJ.none,
+		reference:	REFERENCE_OBJ.HTMLBasics,
 		negative:	false,
 		begin:		"[<][!]--",
 		end:		"--[>]"
@@ -962,7 +962,7 @@ const STYLE_OBJ = {
 		criteria:	"filename",
 		question: 	"Have you correctly added your name to the filename?",
 		example:	"1.05S-HelloColor-Drapak.html",
-		reference:	REFERENCE_OBJ.none,
+		reference:	REFERENCE_OBJ.OTHERFilename,
 		negative:	false,
 		begin:		"FILENAME:",
 	},
@@ -1083,7 +1083,7 @@ const STYLE_OBJ = {
 		criteria:	"style",
 		question: 	"Have you included a style block in your HTML page?",
 		example:	"<style></style>",
-		reference:	REFERENCE_OBJ.none,
+		reference:	REFERENCE_OBJ.HTMLBasics,
 		negative:	false,
 		begin:		"<style",
 		end:		"</style>"
