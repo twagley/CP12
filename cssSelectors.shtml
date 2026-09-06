@@ -186,7 +186,7 @@
 			<p>
 				Unlike the naming used above, it's good to give a descriptive name for classes. <br>
 				For example: <code>class="pinkHighlightBoldClass"</code> can be attached to many things, and I will immediately know what it is being used for.<br>
-				This will become even more important later on, as we do more than CSS changes to items in certain classes; example, <code>class="enemyClass"</code>, might have certain behaviours, stats, and more.
+				This will become even more important later on, as we do more than CSS changes to items in certain classes; example, <code>class="enemyClass"</code>, might bring in certain behaviours, stats, and more.
 			</p>
 
 			<h2>Learn more</h2>
