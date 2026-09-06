@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Images for student projects</title>
-		<meta name="description" content="Images hosted on drapak.ca">
+		<title>Wagley CP12: Images for student projects</title>
+		<meta name="description" content="Images hosted on twagley.github">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
 
@@ -32,6 +32,7 @@
 			Change log:
 				5. December 2015	- created!
 				20. December 2015	- moved to drapak.ca
+				Sept 2026 - Changed title and some content. All is now connected to twagley.github - Wagley
 		-->
 
         <script>
@@ -646,44 +647,44 @@
                     'holidayID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/terrain/", 
+                    "http://https://twagley.github.io/CP12/img/terrain/", 
                     terrainArr, 
                     'terrainID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/sprites/", 
+                    "http://https://twagley.github.io/CP12/img/sprites/", 
                     spriteArr, 
                     'spriteID'
                 );
 				console.log('displaying planets')
                 displayImages( 
-                    "http://drapak.ca/cpg/img/planets/", 
+                    "http://https://twagley.github.io/CP12/img/planets/", 
                     planetArr, 
                     'planetID'
                 );
 				console.log('displaying gamebaoard')
                 displayImages( 
-                    "http://drapak.ca/cpg/img/gameBoard/", 
+                    "http://https://twagley.github.io/CP12/img/gameBoard/", 
                     gameBoardArr, 
                     'gameBoardID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/pacman/", 
+                    "http://https://twagley.github.io/CP12/img/pacman/", 
                     pacmanLargeArr, 
                     'pacmanLargeID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/pacman/", 
+                    "http://https://twagley.github.io/CP12/img/pacman/", 
                     pacmanMediumArr, 
                     'pacmanMediumID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/pacman/", 
+                    "http://https://twagley.github.io/CP12/img/pacman/", 
                     pacmanSmallArr, 
                     'pacmanSmallID'
                 );
                 displayImages( 
-                    "http://drapak.ca/cpg/img/pacman/", 
+                    "http://https://twagley.github.io/CP12/img/pacman/", 
                     pacmanMiscArr, 
                     'pacmanMiscID'
                 );
@@ -742,7 +743,7 @@
 		<article>
 			<p>
 				Click on the image to view larger.<br /> 
-				Right-click and use <strong>Copy Image Location</strong> 
+				Right-click and use <strong>Copy Image Address</strong> 
 				to get the image source address.<br />
 			</p>
 			
@@ -761,7 +762,7 @@
 				<a href="#holidayID">holiday</a>
 			</p>
 			<p>				
-				<strong>Drapak.ca's</strong>
+				<strong>twagley.github.io's</strong>
 				<a href="#spriteID">character sprites</a> &ndash;
 				<a href="#terrainID">terrain</a> &ndash;
 				<a href="#planetID">planets</a> &ndash;
