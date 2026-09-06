@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: CSS text formatting</title>
+		<title>Wagley CP12: CSS text formatting</title>
 		<meta name="description" content="Learn how to format HTML text with CSS">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -53,7 +53,7 @@
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
-				<span class="langstyle">HTML</span> <code>&lt;style&gt;</code> - CSS style information used within the <strong>&lt;head&gt;</strong> of HTML5 documents<br /><br />
+				<span class="langstyle">HTML</span> <code>&lt;style&gt;</code> - CSS style information used within the <strong>&lt;head&gt;</strong> of HTML documents<br /><br />
 				<span class="langstyle">CSS</span> <code>font-family: </code> - which typeface to use<br />
 				<span class="langstyle">CSS</span> <code>font-style: </code> - which style: <code>normal</code>, or <code>italic</code><br />
 				<span class="langstyle">CSS</span> <code>font-weight: </code> - how heavy: <code>normal</code>, or <code>bold</code><br />
@@ -109,7 +109,12 @@
 				CSS formatting can be pretty powerful. 
 				In your documents it can control the size, shape, positioning, 
 				angle, justification, font use, color, and much more.
-			</p> 
+			</p>
+			<p>
+				A benefit of taking your time to make a greate style for your page is that 
+				you'll be able to copy it forward to any new page you are working on!
+			</p>
+
 			
 			<h3>Applying CSS to types of tags</h3>
 			<p>
@@ -120,14 +125,14 @@
 			<pre><code><span class="sc21">&lt;!</span><span class="sc26">doctype html</span><span class="sc21">&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;head&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Tyson Wagley"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Paragraph CSS selector example"</span><span class="sc1">&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Visual Arts 10: Drawing</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Hotdogs vs Gyros"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Wagley's Cooking Blog: What IS The Best Sandwich?</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
         
         </span><span class="sc9">&lt;!--
             Created:    15. September 2015 
-            Updated:    
+            Updated:    06. September 2026
         --&gt;</span><span class="sc0">
 
         </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
@@ -168,6 +173,8 @@
 				<li>if I wanted to change the format of the entire document, then I would use <code>body {</code> as the selector. </li>
 				<li>if I wanted to change the format of all the list items and the paragraphs <strong>together</strong>, then I would use <code>li,&nbsp;p&nbsp;{</code> as the selector. (Neat, huh? Two in one with just a comma.)</li>
 				<li>and if I wanted to change the format of everything written inside table cells, then I would use <code>td {</code> as a selector.</li>
+				<li>Want your table headers to stand out? Add CSS code using <code>th {</code> as a selector.</li>
+				<li>Don't like the default <code> h1 </code> style? Make your own by using <code>h1 {</code> as a selector.</li>
 			</ul>
 			
 			<h2>Learn more</h2>
