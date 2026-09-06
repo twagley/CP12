@@ -171,7 +171,10 @@
         </span><span class="sc1">&lt;p&gt;&lt;code&gt;</span><span class="sc10">&amp;lt;</span><span class="sc0">div&gt;</span><span class="sc1">&lt;/code&gt;</span><span class="sc0"> can be a very handy tag!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/body&gt;</span></code></pre>
-			
+			<p>
+				<em>You'll notice the '&lt;' above. This is used to code in the '<' symbol without it being read as the actual start of a tag.</em>
+			</p>
+
 			<h2>Span vs Div</h2>
 			<ul>
 				<li>
