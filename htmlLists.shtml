@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: HTML Lists</title>
+		<title>Wagley CP12: HTML Lists</title>
 		<meta name="description" content="Learn how to make lists in HTML">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -32,6 +32,7 @@
 			Change log:
 				8. August 2015	- created!
 				26. Sept		- added learn more link
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
@@ -101,7 +102,7 @@
 	&lt;li&gt;Yup!&lt;/li&gt;
 	&lt;li&gt;I&lt;/li&gt;
 	&lt;li&gt;love&lt;/li&gt;
-	&lt;li&gt;ordinal&lt;/li&gt;
+	&lt;li&gt;sequential&lt;/li&gt;
 	&lt;li&gt;numbers&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
 					</td>
@@ -129,7 +130,7 @@
 	&lt;li&gt;Certainly!&lt;/li&gt;
 	&lt;li&gt;I&lt;/li&gt;
 	&lt;li&gt;am&lt;/li&gt;
-	&lt;li&gt;free of&lt;/li&gt;
+	&lt;li&gt;free from&lt;/li&gt;
 	&lt;li&gt;counting&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 					</td>
