@@ -1671,7 +1671,7 @@ gw-radio label.gw-radio__input-label u {
 							referenceLink	
 								= " <a class='referenceClass' href='"
 								+ evaluationObj.styleArr[ criteriaIndex ].reference.pageURL
-								+ "'>" + referencePage + "</a>"
+								+ "' target='_blank'>" + referencePage + "</a>"
 						}
 						
 						//IF: this is a negative criteria for evaluation
@@ -1760,7 +1760,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.htmlCSSArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" 
+							+ 			"' target='_blank'>" 
 							+ 			referencePage 
 							+ 			"</a>"
 							+  "	</td>"
@@ -1822,7 +1822,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.htmlArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" 
+							+ 			"' target='_blank'>" 
 							+ 			referencePage 
 							+ 			"</a>"
 							+  "	</td>"
@@ -1884,7 +1884,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.cssArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" 
+							+ 			"' target='_blank'>" 
 							+ 			referencePage 
 							+ 			"</a>"
 							+  "	</td>"
@@ -1939,7 +1939,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.initArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" 
+							+ 			"' target='_blank'>" 
 							+ 				referencePage 
 							+ 			"</a>"
 							+  "	</td>"
@@ -1994,7 +1994,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.inputArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" 
+							+ 			"' target='_blank'>" 
 							+ 				referencePage 
 							+ 			"</a>"
 							+  "	</td>"
@@ -2045,7 +2045,7 @@ gw-radio label.gw-radio__input-label u {
 							linkHTML
 								= "		<a class='referenceClass' href='" 
 								+ evaluationObj.processArr[ criteriaIndex ].reference.pageURL
-								+ "'>" + referencePage + "</a>"
+								+ "' target='_blank'>" + referencePage + "</a>"
 						}
 						//add this criteria to the table
 						tableHTML
@@ -2114,7 +2114,7 @@ gw-radio label.gw-radio__input-label u {
 							linkHTML
 								= "		<a class='referenceClass' href='" 
 								+ evaluationObj.structureArr[ criteriaIndex ].reference.pageURL
-								+ "'>" + referencePage + "</a>"
+								+ "' target='_blank'>" + referencePage + "</a>"
 						}
 						//add this criteria to the table
 						tableHTML
@@ -2193,7 +2193,7 @@ gw-radio label.gw-radio__input-label u {
 							+				evaluationObj.outputArr[ 
 												criteriaIndex 
 											].reference.pageURL
-							+ 			"'>" + referencePage + "</a>"
+							+ 			"' target='_blank'>" + referencePage + "</a>"
 							+  "	</td>"
 							+  "</tr>";	
 					}
@@ -2205,7 +2205,7 @@ gw-radio label.gw-radio__input-label u {
 				document.getElementById( 'assignmentId' ).innerHTML 
 					= "<h4><a href='"
 					+ fileTransfer.projectObj.url
-					+ "'>" 
+					+ "' target='_blank'>" 
 					+ fileTransfer.projectObj.title
 					+ "</a></h4>"
 					+ tableHTML;
@@ -2490,7 +2490,7 @@ gw-radio label.gw-radio__input-label u {
 					referenceText
 						= "<p><strong>Reference:</strong> <a href='"
 						+ criteriaObj.reference.pageURL
-						+ "'>"
+						+ "' target='_blank'>" 
 						+ criteriaObj.reference.pageName
 						+ "</a></p>"
 				}
