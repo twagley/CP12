@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			Construct a Picture
 		</title>
 		<meta 
@@ -95,6 +94,7 @@
 			<p>
 				Create a scene by positioning the following Khan Academy images in an HTML page using CSS.
 				Use IDs and CSS Positioning to arrange things in an interesting way.
+				<br> Remember that you can get the image src from <code> Right-click </code> then <code> Copy Image Address </code>.
 			</p>
 					
 			<h3>All images begin with: <strong> https://www.kasandbox.org/programming-images/cute/</strong></h3>
@@ -241,7 +241,7 @@
 			<p>Link to them and add them to your palette of building blocks!</p>
 			<p>
 				You can find other linkable images 
-				<a href="http://drapak.ca/cpg/htmlImageResources.shtml">here</a>
+				<a href="http://twagley.github.io/CP12/htmlImageResources.shtml">here</a>
 			</p>
 			
 		</article>
