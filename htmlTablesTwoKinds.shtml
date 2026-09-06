@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Two kinds of HTML tables</title>
+		<title>Wagley CP12: Two kinds of HTML tables</title>
 		<meta name="description" content="Learn how to make tables in HTML">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -31,6 +31,7 @@
 		<!--
 			Change log:
 				10. September 2015	- created!
+				Sept 2026 - Changed title - Wagley
 		-->
 
 		<script>
