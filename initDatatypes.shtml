@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Datatypes and tables</title>
+		<title>Wagley CP12: Datatypes and tables</title>
 		<meta name="description" content="Assignment: organize datatypes into a table">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="datatypes, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -33,6 +33,7 @@
 				8. August 2015	- created!
 				8. Sept			- split into datatypes, tables, and tabs
 								- fixed spelling of hexadecimal
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
@@ -76,14 +77,15 @@
 			<p>
 				By learning HTML/CSS/Javascript, you will need to know the difference between <strong>boolean</strong>, 
 				<strong>hexidecimal</strong>, <strong>integer</strong>, <strong>floating point</strong>, 
-				<strong>character</strong>, <strong>string</strong>, and <strong>date</strong> datatypes. 
+				<strong>character</strong>, <strong>string</strong>, and <strong>date</strong> datatypes. <br />
 				You will also have to learn about <strong>binary</strong> datatypes, 
 				because that is essentially how everything is broken down by computers at a fundamental level.
 			</p>
 			
 			<p>
 				These are not all the kinds of datatypes out there, 
-				but these are shared among the most programming languages.
+				but these are shared among the most programming languages. <br />
+				Some programming languages (Swift, Java, C++)<em> really </em> care about labelling your data types correctly.
 			</p>
 
 			<h2>Datatype definitions</h2>
