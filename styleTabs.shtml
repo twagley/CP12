@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Formatting code with tabs</title>
+		<title>Wagley CP12: Style - Formatting code with tabs</title>
 		<meta name="description" content="Good programming style means indenting your code with the tab key for human legibility.">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Formatting code with tabs, Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
@@ -32,6 +32,7 @@
 			Change log:	
 				27. July 2015	- created!
 				30. July 		- added tips and indentation
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 		<script>
@@ -89,7 +90,7 @@
 </span><span class="sc1">&lt;html&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;head&gt;&lt;title&gt;</span><span class="sc0">Stylish people make stylish code!</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
-    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">      </span><span class="sc1">&lt;p&gt;</span><span class="sc0">See? I'm consistently stylish!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;body&gt;</span><span class="sc0">      </span><span class="sc1">&lt;p&gt;</span><span class="sc0">See? I'm not consistently stylish!</span><span class="sc1">&lt;/p&gt;</span><span class="sc0">
     
     
 </span><span class="sc1">&lt;/body&gt;&lt;/html&gt;</span></code></pre>
