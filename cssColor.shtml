@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: CSS color</title>
+		<title>Wagley CP12: CSS color</title>
 		<meta name="description" content="Learn how to use color in CSS">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -32,6 +32,7 @@
 			Change log:
 				20. Sept 2015	- created!
 				26. Sept		- added learn more link
+				Sept 2026 - Changed title and some content - Wagley
 		-->
 
 
@@ -89,8 +90,12 @@
 			<h2>Resource</h2>
 			
 			<p>
-				I like Quackit.com's 
+				I like Quackit.com's for simplicity
 				<a href="http://www.quackit.com/css/css_color_codes.cfm">CSS Color Codes</a>
+			</p>
+			<p>
+				But if I want a whole palette that works nicely together, I use 
+				<a href="https://color.adobe.com/explore">Adobe Color</a>.
 			</p>
 			
 			
