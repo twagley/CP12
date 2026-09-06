@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			CSS Positioning
 		</title>
 		<meta 
@@ -49,6 +48,7 @@
 				26. Sept			- added learn more link
 				11. February 2018	- simplified, added the short version
 				16. September 2018	- fixed Id style, long lines, and clarified
+				Sept 2026 - Changed title and added a bunch of z-index content - Wagley
 				
 		-->
 
@@ -75,11 +75,11 @@
 				&mdash; sets the width of an element to 100px<br>
 				<span class="langstyle">CSS</span> 
 				<code>z-index: 2;</code> 
-				&mdash; sets the stack order of an element<br>
+				&mdash; sets the stack order of an element, higher numbers will be in front<br>
 				<br>
 				<span class="langstyle">CSS</span> 
 				<code>position: static;</code> 
-				&mdash; makes an element unmovable<br>
+				&mdash; makes an element unmovable (top, left, etc will not work)<br>
 				<span class="langstyle">CSS</span> 
 				<code>position: fixed;</code> 
 				&mdash; positions according to the browser window<br>
@@ -305,7 +305,7 @@
 			<ul>
 				<li>
 					<strong><code>position: static</code></strong>
-					&mdash; makes the element <strong>unmovable</strong>
+					&mdash; makes the element <strong>unmovable</strong> (you can attach <em>top: 100px;</em> to it, but it will not work)
 				</li>
 				<li>
 					<strong><code>position: fixed</code></strong> 
@@ -329,7 +329,7 @@
 			<p>
 				Until you set an HTML to another 
 				<code>position</code> mode, 
-				it <strong>WILL NOT MOVE!</strong>
+				it <strong>WILL NOT MOVE!</strong> And other things like <code>z-index</code> will not work.
 			</p>
 			<p>
 				The safest mode for beginners is to use 
@@ -345,6 +345,15 @@
 				These devices will have screens of different sizes and height:width ratios.
 				To keep your pages visually consistent, avoid using 
 				<code>bottom:</code> and <code>right:</code> positioning.
+			</p>
+
+			<h2>
+				<strong>Understanding z-index</strong>
+			</h2>
+			<p>
+				Sometimes you want one image to be in front of another.  To do this, we use <code>z-index: </code> followed by a number. <br>
+				Higher numbers will go in front of lower numbers. So an image with <code>z-index: 5</code> will be in front of any image with a lower index number, such as <code>z-index: 2</code>.<br>
+				Caution, z-index does not work under the default <code>position: static</code>. If you don't set a z-index, it will be set to 0 (bottom layer).
 			</p>
 			
 			<h2>Learn more</h2>
