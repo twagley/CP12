@@ -647,44 +647,45 @@
                     'holidayID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/terrain/", 
+                    "https://twagley.github.io/CP12/img/terrain/", 
                     terrainArr, 
                     'terrainID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/sprites/", 
+                    "https://twagley.github.io/CP12/img/sprites/", 
+					https://github.com/twagley/CP12/blob/main/img/sprites/link-down.png"
                     spriteArr, 
                     'spriteID'
                 );
 				console.log('displaying planets')
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/planets/", 
+                    "https://twagley.github.io/CP12/img/planets/", 
                     planetArr, 
                     'planetID'
                 );
 				console.log('displaying gamebaoard')
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/gameBoard/", 
+                    "https://twagley.github.io/CP12/img/gameBoard/", 
                     gameBoardArr, 
                     'gameBoardID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/img/pacman/", 
                     pacmanLargeArr, 
                     'pacmanLargeID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/img/pacman/", 
                     pacmanMediumArr, 
                     'pacmanMediumID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/img/pacman/", 
                     pacmanSmallArr, 
                     'pacmanSmallID'
                 );
                 displayImages( 
-                    "http://https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/img/pacman/", 
                     pacmanMiscArr, 
                     'pacmanMiscID'
                 );
