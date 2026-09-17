@@ -653,7 +653,7 @@
                 );
                 displayImages( 
                     "https://twagley.github.io/CP12/img/sprites/", 
-					https://github.com/twagley/CP12/blob/main/img/sprites/link-down.png"
+					//https://github.com/twagley/CP12/blob/main/img/sprites/link-down.png"
                     spriteArr, 
                     'spriteID'
                 );
