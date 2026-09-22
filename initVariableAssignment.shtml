@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INIT - Using variables
 		</title>
 		<meta 
@@ -46,6 +46,7 @@
 				23. September 2018	- updated the code style and examples			- Drapak
 				9. October 2018	- fixed sample code									- Drapak
 				12. November 2019 - fixed text and math errors						- Tyson Wagley
+				Sept 22, 2026	- Small updates 									- Wagley
 		-->
 
 		<style>
@@ -98,7 +99,14 @@
 					&mdash; adds 10 to <var>exampleStringVariable</var>, making it 15
 				</span><br>
 			</p>
-			
+
+			<h2>What is a variable?</h2>
+			<p>
+				In programming, a variable is a <strong>named container</strong> used to store data. <br>  
+				Think of it like a storage box with a label on it (the variable name). <br>
+				Inside, you can store simple data (numbers, text, booleans, etc), or even more complex things (lists, objects, functional programs, etc).
+			</p>
+
 			<h2>Creating a variable in Javascript</h2>
 			<p>
 				When you use a variable for the first time in a 
@@ -110,7 +118,7 @@
 			</p>
 			<p>
 				In the example above, the word <code>var</code> indicates to the program 
-				that <var>exampleVar</var> is the name of a variable and that it can behind
+				that <var>exampleVar</var> is the name of a variable and that it can be
 				used to store data.
 			</p>
 			<p>
@@ -151,7 +159,7 @@
 			</p>
 			
 			<p>
-				In math, this reduces to 0 = 1, which is just plain wrong!
+				In math class, this reduces to 0 = 1, which is just plain wrong!
 			</p>
 			<p>
 				In programming, that line of code means: 

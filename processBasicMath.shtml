@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			PROCESS: Basic Math
 		</title>
 		<meta 
@@ -53,6 +53,7 @@
 				16. Oct 2018	- clarified code examples							- Drapak
 				21. Oct 2018	- changed the button interaction					- Drapak
 				2. Nov 2018		- clarified the parseInt code example				- Drapak
+				Sept 22, 2026	- Clarification fixes.								- Wagley
 		-->
 
 		<style>
@@ -270,7 +271,7 @@
 			<p>
 				Often the data that you read in your program is dirty &mdash;
 				particularly when you are converting between datatypes, like 
-				converting strings to numbers.
+				converting strings to numbers. <em> For example, it can calculate 4 + 4, but not "4m" + "4m". </em>
 			</p>
 			<p>
 				This is where <code>parseInt()</code> comes in handy.
@@ -284,7 +285,7 @@
 			</p>			<p> 
 				If you need to get a floating decimal, use <code>parseFloat()</code>
 				instead. For example, <code>parseFloat( "100.3km/h" )</code> 
-				will return the number <code>100.3</code>.
+				will return the number <code>100.3</code>. In this example, parseInt would have only returned the 100.
 			</p>
 			
 			<h2>Common mistakes</h2>
