@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming 12: 
+			Wagley CP12: 
 			OUTPUT - Changing text styles
 		</title>
 		<meta 
@@ -53,6 +52,7 @@
 				23. September 2018	- fixed code and example style				- Drapak
 				14. October 2018	- clarified code examples					- Drapak
 				7. Nov 2018			- added width								- Drapak
+				Sept 22, 2026		- Small updates								- Wagley
 		-->
 
 		<style>
@@ -158,8 +158,8 @@
 			
 			<p>
 				It works a lot like CSS.
-				In fact, inside the browser programmed style changes 
-				are actually altering the CSS of your page as your program runs.
+				In fact, when these programs run, these style changes 
+				will actually alter the CSS code of your page.
 			</p>
 			
 			<p>
@@ -167,7 +167,7 @@
 			</p>
 			<p>
 				The main difference is that CSS commands that would normally be hyphenated, 
-				like <code>background-color</code> is camelCased in Javascript: 
+				like <code>background-color</code> are camelCased in Javascript: 
 				<code>backgroundColor</code>.
 			</p>
 			

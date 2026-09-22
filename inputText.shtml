@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INPUT - Text Input
 		</title>
 		<meta 
@@ -46,6 +46,7 @@
 				21. March 2017	- removed the <br>									- Drapak
 				23. September 2018 - reworked code and examples for style			- Drapak
 				14. October 2018	- clarified examples							- Drapak
+				Sept 22, 2026	- Clarity updates.	-Wagley
 		-->
 		
 		<style>
@@ -105,15 +106,15 @@
 					= <var>mainProcedure</var>;
 				</code> <br>
 				<span class="indent">
-					&mdash; triggers <var>mainProcedure()</var> on 
-					<kbd>tab</kbd> and <kbd>enter</kbd> after an input change
+					&mdash; after an input change, triggers <var>mainProcedure()</var> on 
+					<kbd>tab</kbd>, <kbd>enter</kbd>, or clicking elsewhere 
 				</span><br>
 				<br>
 					
 			</p>
 			
 			<h2>Two ways to input text strings</h2>
-			<p>There are a couple of ways to enter text into a web page.</p>
+			<p>There are a couple of ways to allow users to enter text into a web page.</p>
 			
 			<h4>For short strings, use an input line</h4>
 			<p>
@@ -140,11 +141,16 @@
 			<h2>Using Javascript to read text strings</h2>
 
 			<p>
-				You can program scripts to read the text that your users have entered.
+				You can program scripts to read the text that your users have entered:
 			</p>
 			<p>
-				The entered text in stored inside 
 				<code>document.getElementById( "<var>inputId</var>" ).value</code>
+			</p>
+			<p>
+				You can assign that valuable to a variable that can be used by your programs:
+			</p>
+			<p>
+				<code>var enteredUsername = document.getElementById( "<var>usernameInputBoxId</var>" ).value</code>
 			</p>
 
 			<h2>Using <code>onchange</code> to trigger functions when text is editted</h2>
@@ -155,7 +161,7 @@
 			<p>
 				Well, if you add <code>onchange</code> to an input element, 
 				you can trigger a function whenever someone presses 
-				<kbd>tab</kbd> or <kbd>enter</kbd>
+				<kbd>tab</kbd>, <kbd>enter</kbd>, or clicks somewhere else on the page
 				after changing a text input.
 			</p>
 			<p>
