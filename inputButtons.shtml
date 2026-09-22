@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INPUT - Buttons
 		</title>
 		<meta 
@@ -47,6 +47,7 @@
 				23. Sept 2018	- updated code and example style					- Drapak
 				24. Sept 2018	- added to button examples							- Drapak
 				9. October 2018	- revamped code examples							- Drapak
+				Sept 22 2026	- Small updates	-Wagley
 		-->
 
 		<style>
@@ -122,7 +123,7 @@
 				That makes this: <button type="button">Click me!</button>
 			</p>
 			
-			<p>But click on it: nothing happens.</p>
+			<p>But click on it: nothing happens. <em>That's because we've effectively coded a light switch. We need to connect that switch to something...</em></p>
 			
 			<h3>Assigning an <code>onclick</code> action</h3>
 			<p>

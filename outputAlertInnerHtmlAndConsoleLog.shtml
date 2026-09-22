@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			OUTPUT - alert(), innerHTML, and console.log()
 		</title>
 		<meta 
@@ -48,6 +48,7 @@
 				23. September 2018	- updated code and example style				- Drapak
 				9. October 2018		- home sick. blah. changed to id style			- Drapak
 				13. October 2018	- clarified code example						- Drapak
+				Sept 22	2026		- Updates and extra info added		- Wagley
 		-->
 
 
@@ -107,13 +108,12 @@
 			<p>All Javascript code is placed inside the <code>&lt;script></code> block of a document.</p>
 			
 			<p>
-				Usually you want to define a main function to run,
-				often called <code>mainProcedure()</code>, 
-				and then you want it to run when the window has finished loading.
+				Usually you want to define a main function to run once the window has finished loading,
+				often called <code>mainProcedure()</code> or something similar.
 			</p>
 			
 			<p>
-				Using <code>document.body.onload = mainProcedure;</code> will do the trick!
+				Using <code>document.body.onload = mainProcedure;</code> will tell your site to run mainProcedure when it's finished loading.
 			</p>
 			
 			<p>The following code is of an empty script, ready to go:</p>
@@ -167,7 +167,7 @@
 				<code>mainProcedure</code>, the message will appear in the console.
 			</p>
 			<p>
-				You will find that the developer console is essential for hunting down bugs.
+				You will find that the developer console is <strong>essential</strong> for hunting down bugs.
 			</p>
 			
 			<h3>
@@ -187,9 +187,14 @@
 				If you add 
 				<code>document.getElementById('emptyId').innerHTML = "Hello world!"</code> to 
 				<code>mainProcedure</code>, that message will appear inside that paragraph.
+					
+				<br>This is an essential piece of code that you will use over and over again.
 			</p>
 			<p>
-				This is an essential piece of code that you will use over and over again.
+				<em>
+					<br>	Since "Hello World" is in quotations, it'll enter a string of text. 
+					<br>	Without quotations, it will look for a storage container (variable) instead. You'll see that in the example below.
+				</em>
 			</p>
 			
 			<h3>Code example:</h3>
