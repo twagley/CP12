@@ -38,6 +38,7 @@
 						30. April 2017		- fixed long lines						- Drapak
 						21. February 2018	- played with modals!					- Drapak
 						23. February 2018	- continued to work to break down prob	- Drapak
+				        Sept 22, 2026       - Clarifications                        - Wagley
 						
 			Finished:
 		-->
@@ -110,7 +111,7 @@
 			<h2>What is a modal?</h2>
 			<p>
 				A modal is like a pop-up box in your webpage that displays or
-				gathers information.
+				gathers information.  Games use similar structures for menu screens and quick-access menus (radials).
 			</p>
 			
 			<p>It works like this:</p>
