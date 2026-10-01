@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			PROCESS: If-Else Conditionals
 		</title>
 		<meta 
@@ -45,6 +45,7 @@
 				1. Oct 2015		- created
 				5. March 2017	- reworked for clearer programming style
 				27. Oct 2018	- reworked style and clarified					- Drapak
+				Oct 1, 2026		- Add || for multiple conditionals
 		-->
 
 		<style>
@@ -280,7 +281,42 @@
 					</a>
 				</li>
 			</ul>
-
+			<h2>Multiple conditions</h2>
+			<ul>
+				<li>
+					<strong>sometime you want to add more than one condition that will allow the code to run</strong> <br>
+					For example, the first example accepts "cereal", but not "Cereal".<br>
+					We can fix this by adding an "||" into our statement
+				</li>
+				<li>
+						|| is a mathematical way of saying "or"
+				</li>
+				<li>
+					<strong>Example: </strong>if ( inputFood == 'cereal' || input == 'Cereal' ) { <br>
+                	//code <br>
+					}<br>
+					<em>This would run if either cereal or Cereal is the true for the input.</em>
+				</li>
+				<li>You can also use && if you need BOTH conditions to be true.</li>
+				<strong>Example: </strong>if ( inputFood == 'cereal' && favouriteNumber == 3 ) { <br>
+                	//code <br>
+					}<br>
+					<em>This runs only if both conditions are true.</em>
+			</ul>
+			
+			
+			<h2>Learn more</h2>
+			<ul>
+				<li>
+					w3schools.com's
+					<a href="http://www.w3schools.com/js/js_if_else.asp">
+						JavaScript conditions
+					</a> and 
+					<a href="http://www.w3schools.com/js/js_comparisons.asp">
+						Javascript comparisons
+					</a>
+				</li>
+			</ul>
 		</article>		
 		<!--#include virtual="/footer.html" -->
 

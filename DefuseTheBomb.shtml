@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Defuse the Bomb!</title>
 		<meta 
 			name="description" 
@@ -44,10 +44,9 @@
 				5. Oct 2015		- created!										- Drapak
 				5. March 2017	- reworked for better programming style			- Drapak
 				9. October 2018	- updated the programming style again			- Drapak
+				Oct 1, 2026		- Small updates					- Wagley
 				
 		-->
-
-
 
 		<style>
 		</style>
@@ -88,7 +87,7 @@
 
 			<h2>For example</h2>
 
-			<img id="bombImageID" src="http://drapak.ca/cpg/img/nicePictureOfABomb.png">
+			<img id="bombImageID" src="http://twagley.github.io/CP12/img/nicePictureOfABomb.png">
 			
 			<p id="instructionsID"><strong>Oh my gosh! You have to defuse the bomb!</strong></p>
 			
@@ -114,7 +113,7 @@
     </span><span class="sc1">&lt;img</span><span class="sc8"> 
         </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bombImageId"</span><span class="sc8"> 
         </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"Oh noes! A bob-omb!"</span><span class="sc8">
-        </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/nicePictureOfABomb.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://twagley.github.io/CP12/img/nicePictureOfABomb.png"</span><span class="sc1">&gt;</span><span class="sc0">
     
     </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"instructionsId"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Oh my gosh! You have to defuse the bomb!</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
@@ -139,19 +138,19 @@
             </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of defused bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/defusedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/defusedBomb.png"</span><span class="sc50">;</span><span class="sc41">
             
             </span><span class="sc43">//IF: wire number two was chosen, the exploding wire </span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of exploded bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/explodedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/explodedBomb.png"</span><span class="sc50">;</span><span class="sc41">
 
             </span><span class="sc43">//IF: wire number three OR four was chosen, then do nothing</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">    </span><span class="sc43">// NOTE: "||" means "or"</span><span class="sc41">
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of still ticking bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/stillActiveBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/stillActiveBomb.png"</span><span class="sc50">;</span><span class="sc41">
             
             </span><span class="sc43">//ELSE: no valid wire is chosen</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                                </span><span class="sc43">// </span><span class="sc41">
