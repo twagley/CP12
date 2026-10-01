@@ -147,7 +147,6 @@
 				</li>
 				<li>
 					Note: the number can also be a variable that contains a number<br>
-					<br>
 					<strong>Works:</strong> 
 					<code>
 						var leftSize = 50;
