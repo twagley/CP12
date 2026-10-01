@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INPUT - Reading keypresses
 		</title>
 		<meta 
@@ -50,6 +50,7 @@
 								- added turning off the keyboard					- Drapak
 				9. October 2018	- updated style										- Drapak
 				10. Oct 2018	- clarified examples								- Drapak
+				Oct 1, 2026		- Minor updates		- Wagley
 		-->		
 
 		<style>
@@ -160,7 +161,7 @@
 					1. create a function that will be triggered when a key is pressed<br>
 					<em>note that <var>keyEvent</var> is inside the parentheses.<br>
 					<var>keyEvent</var> 
-					is a variable that stores information about what key has been pressed</em>
+					is a hidden variable your browser uses to stores information about what key has been pressed</em>
 				</dd>
 				
 				<dt>
