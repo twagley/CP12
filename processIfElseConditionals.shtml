@@ -288,12 +288,10 @@
 					For example, the coade above accepts "cereal", but not "Cereal".<br>
 					We can fix this by adding an "||" into our statement <br>
 					&emsp;|| is the mathematical way of saying "or"
-				</li>
-				<li>
 					<strong>Example: </strong>if ( inputFood == 'cereal' || input == 'Cereal' ) { <br>
                 	&emsp;//code <br>
 					}<br>
-					<em>This would run if either cereal or Cereal is the true for the input.</em>
+					<em>&emsp;This would run if either cereal or Cereal is the true for the input.</em>
 				</li>
 				<br>
 				<li>You can also use && if you need BOTH conditions to be true.</li>
@@ -301,7 +299,7 @@
 				if ( inputFood == 'cereal' && favouriteNumber == 3 ) { <br>
                 	&emsp;//code <br>
 					}<br>
-					<em>This runs only if both conditions are true.</em>
+					<em>&emsp;This runs only if both conditions are true.</em>
 			</ul>
 			
 			
