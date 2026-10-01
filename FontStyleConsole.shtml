@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Font style console
 		</title>
 		<meta 
@@ -49,6 +49,7 @@
 				3. October 2018	- moved to 2.05
 				9. October 2018	- reworked the template link 					- Drapak
 				12. Oct 2018	- added changing position resources				- Drapak
+				Oct 1 2026		- Fixes for clarity		- Wagley	
 
 			HELLO STUDENTS!
 			I know it would be nice to just jack the code from the example, 
@@ -100,7 +101,7 @@
 						//OUTPUT: <a href="outputChangeTextStyles.shtml">Changing text styles</a>
 					</li>
 					<li>
-						//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a>
+						//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a><em>New!</em>
 					</li>
 					<br>
 					<li>
@@ -124,7 +125,7 @@
 						<li>a <code>&lt;span></code></li>
 						<li>a heading</li>
 						<li>a table</li>
-						<li>a <code>div</code> for output</li>
+						<li>a <code>&lt;div></code> for output</li>
 						<li>a list</li>
 						<li>
 							a descriptive paragraph<br>

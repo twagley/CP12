@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			OUTPUT - Changing an element's position
 		</title>
 		<meta 
@@ -49,6 +49,7 @@
 				9. October 2018	- fixing brs and long lines						- Drapak
 				12. October		- added quotes to the code examples				- Drapak
 				24. October 	- fixed style and clarified						- Drapak
+				Oct 1 2026		- Added new common problem example				- Wagley
 		-->
 
 		<style>
@@ -143,6 +144,19 @@
 						document.querySelector( <var>"#exampleId"</var> ).style.left 
 						= <var>50px</var>;
 					</code>
+				</li>
+				<li>
+					Note: the number can also be a variable that contains a number<br>
+					<br>
+					<strong>Works:</strong> 
+					<code>
+						var leftSize = 50;
+					</code><br>
+					<code>
+						document.querySelector( <var>"#exampleId"</var> ).style.left 
+						= <var>leftSize</var> + <var>"px"</var>;
+					</code><br>	
+
 				</li>
 			</ul>
 			<h2>Learn more</h2>
