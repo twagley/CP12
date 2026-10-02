@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Style - Use descriptive variable names
 		</title>
 		<meta 
@@ -44,11 +44,34 @@
 			Change log:
 				31. July 2015	- created!										- Drapak
 				9. October 2018	- updated style and added const					- Drapak
+				Oct 2, 2026	- Added var vs let with examples		- Wagley
 		-->
 
 
 
 		<style>
+			.blueText{
+				color: blue;
+			}
+			.darkBlue{
+				color: darkblue;
+			}
+			.greenText{
+				color: green;
+			}
+
+
+			.yellowHighlight{
+				background-color: lightyellow;
+			}
+			#scopeDiv{
+				width:		600px;
+				background-color: #f4f4f4;
+				margin-left: 200px;
+				padding: 10px;
+
+			}
+
 		</style>
 	</head>
 
@@ -272,7 +295,43 @@
 				</li>
 			</ul>
 			
+		<!--New addition-->
+		<h4>Scope: var vs let</h4>
+			<p>
+				Besides using <strong>var</strong> to declare a variable, you can also use <strong>let</strong>.
+			</p>
+			<ul>
+				<li>
+					<strong>Good:</strong> 
+					<code>var <var>healthPoints</var> = 10;</code>  
+				</li>
+				<li>
+					<strong>Good:</strong> 
+					<code>let <var>healthPoints</var> = 10;</code>  
+				</li>
+			</ul>
+			<p>
+				The primary difference between the two is scope.<br>
+				<strong>var</strong> has a function scope; they can be reached anywhere inside the function where they are created.<br>
+				<strong>let</strong> and <strong>CONST</strong> can only be accessed within the block {} in which they exist.
+			</p>
+			<div id="scopeDiv">
+				
+					function <span class="blueText">scopeExample()</span> {<br>
+						&emsp;&emsp;&emsp;&emsp;if (true) {<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">var</span> functionScoped = "I leak out!";<br>
+	        			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">let</span> blockScoped = "I am trapped inside!";<br>
+						&emsp;&emsp;&emsp;&emsp;}<br>
+						&emsp;&emsp;&emsp;&emsp;console.log( functionScoped ); <span class="greenText">&emsp;&emsp;// Logs: "I leak out!"</span><br>
+  						&emsp;&emsp;&emsp;&emsp;console.log( blockScoped );    <span class="greenText">&emsp;&emsp;&emsp;// ReferenceError: blockScoped is not defined</span><br>
+					}<br>
+					console.log( functionScoped ); <span class="greenText">&emsp;&emsp;// ReferenceError. We are not longer in the function.</span><br>
+				
+
+			</div>
+			
 		</article>
+
 		<script>		
 		</script>
 		<!--#include virtual="/footer.html" -->		
