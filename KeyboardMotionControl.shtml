@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Keyboard motion control
 		</title>
 		<meta 
@@ -46,8 +46,9 @@
 				12. Oct 			- added evaluation sheets						- Drapak
 				9. October 2018		- removed the evaluation sheets and updated style- Drapak
 				12. October 2018	- added	flexibility to the projpect criteria	- Drapak
-				2. Nov 2018			- added warning about offsetRight/Bottom		- Drapaj
+				2. Nov 2018			- added warning about offsetRight/Bottom		- Drapak
 				7. November 2018	- added links to image resources				- Drapak
+				Oct 2, 2026			- Updates and fixes			- Wagley
 		-->
 		<style>
 			#imageID {
@@ -113,31 +114,31 @@
 					//STYLE: 
 					<strong>
 						<a href="styleUseDescriptiveVariables.shtml">Use 
-						descriptive variable names</a>
+						descriptive variable names</a><em> New! </em>
 					</strong>
 				</li>
 				<br>
 				
 				<li>
 					More image resources 
-					<a href='http://drapak.ca/cpg/htmlImageResources.shtml'>here</a>.
+					<a href='http://twagley.github.io/CP12/htmlImageResources.shtml'>here</a>.
 				</li>
 				<br>
 				<li>
-					<a href="http://drapak.ca/cpg/img/link-up.png"><img src="http://drapak.ca/cpg/img/link-up.png"></a> 
-					- &nbsp;http://drapak.ca/cpg/img/link-up.png
+					<a href="https://twagley.github.io/CP12/img/link-up.png"><img src="https://twagley.github.io/CP12/img/link-up.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/img/link-up.png
 				</li>
 				<li>
-					<a href="http://drapak.ca/cpg/img/link-down.png"><img src="http://drapak.ca/cpg/img/link-down.png"></a> 
-					- &nbsp;http://drapak.ca/cpg/img/link-down.png
+					<a href="https://twagley.github.io/CP12/img/link-down.png"><img src="https://twagley.github.io/CP12/img/link-down.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/img/link-down.png
 				</li>
 				<li>
-					<a href="http://drapak.ca/cpg/img/link-left.png"><img src="http://drapak.ca/cpg/img/link-left.png"></a> 
-					- &nbsp;http://drapak.ca/cpg/img/link-left.png
+					<a href="https://twagley.github.io/CP12/img/link-left.png"><img src="https://twagley.github.io/CP12/img/link-left.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/img/link-left.png
 				</li>
 				<li>
-					<a href="http://drapak.ca/cpg/img/link-right.png"><img src="http://drapak.ca/cpg/img/link-right.png"></a> 
-					- &nbsp;http://drapak.ca/cpg/img/link-right.png
+					<a href="https://twagley.github.io/CP12/img/link-right.png"><img src="https://twagley.github.io/CP12/img/link-right.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/img/link-right.png
 				</li>
 				<br>
 				<strong>Hint:</strong> you will start with one image of link,
@@ -159,9 +160,11 @@
 				Create a program that allows moves an image around the screen
 				and changes the image using the keyboard.
 				Check out the example below. 
-				Or check out a 
-				<a href='KeyboardMotionControl-DrapakVehicleDemo.html'>vehicle counter</a>.
-				Or a <a href='KeyboardMotionControl-DrapakShootingDemo.html'>pacman shooter</a>.
+				<br> Hint: You can use any four images or gifs that show a character from different angles.
+				<br>Or check out 
+				<a href='KeyboardMotionControl-DrapakVehicleDemo.html'>vehicle counter</a> for another way this can be done.
+				
+
 			</p>
 			
 			<p>
@@ -253,7 +256,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<img id="imageID" src="http://drapak.ca/cpg/img/link-down.png" />
+			<img id="imageID" src="https://twagley.github.io/CP12/img/link-down.png" />
 			<hr>
 
 			
