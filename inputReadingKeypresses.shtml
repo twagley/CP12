@@ -51,9 +51,23 @@
 				9. October 2018	- updated style										- Drapak
 				10. Oct 2018	- clarified examples								- Drapak
 				Oct 1, 2026		- Minor updates		- Wagley
+				Oct 2, 2026		- Major revamp to modernize the keyboard input reading	- Wagley
 		-->		
 
 		<style>
+			.blueText{
+				color: blue;
+			}
+			.darkBlue{
+				color: darkblue;
+			}
+
+
+
+			.yellowHighlight{
+				background-color: lightyellow;
+			}
+
 		</style>
 	</head>
 
@@ -63,40 +77,46 @@
 		<header>
 			//INPUT: <em>Reading keypresses</em>
 		</header>
-
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
 				<span class="langstyle">//INPUT JS:</span> 
-				<pre><code><span class="sc2">//INPUT: this reads the unicode number of the key that was pressed
-</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span> <span class="sc11">keyEvent</span> <span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
-    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span> <span class="sc6">"in readKeypress..."</span> <span class="sc10">);</span><span class="sc0">
-    
-    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">unicodeNumber</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">   
-</span><span class="sc10">}</span><span class="sc0">
+				<pre><code><span class="sc2">//INPUT: this tells the browser window to listen for a key being pressed, and then telling it what function to run if it returns 'true'
+</span>window.<span class="blueText">addEventListener</span><span class="yellowHighlight">(</span><span class="darkBlue">"keydown"</span><span class="yellowHighlight">,</span> <span class="blueText"> keydownFunction</span><span class="yellowHighlight">);</span>
 
-</span><span class="sc2">//INPUT: triggers readKeypress when someone presses a key down
-</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc10">;</span></code></pre>
+
+</span><span class="sc2">//INPUT: this function will collect the input of which key was pressed and output it to the console.log</span>
+
+function <span class="blueText">keydownFunction</span> (){<br>&emsp;&emsp;&emsp;&emsp;<span class="blueText">console.log</span>(<span class="darkBlue">"You pressed: "</span> + <span class="blueText"> event.key</span>);<br>}
+	</code></pre>
 			</p>
+
+
+				
 			<p>
 				-OR-, for an awkward <strong>FUNCTIONAL PROGRAMMING</strong> style...
 			</p>
 			<p>
-				<pre><code><span class="sc2">//INPUT: this listens to the keyboard, and returns the number of the key that was pressed
-</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
-    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"in .onkeydown..."</span><span class="sc10">);</span><span class="sc0">
-    
-    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">unicodeNumber</span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">
-    
-    </span><span class="sc2">//your process and/or output functions can go in here. For example:
-</span><span class="sc0">    </span><span class="sc11">decideDirection</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">unicodeNumber</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+				<pre><code><span class="sc2">//INPUT: this listens to the keyboard, and sends the number of the key that was pressed onto another program</span><span class="sc19">
+
+window.<span class="blueText">addEventListener</span><span class="yellowHighlight">(</span><span class="darkBlue">"keydown"</span><span class="yellowHighlight">,</span> <span class="blueText">keydownFunction</span><span class="yellowHighlight">);</span>
+
+function <span class="blueText">keydownFunction</span> (){
+&emsp;&emsp;&emsp;<span class="blueText"> console.log</span>(<span class="darkBlue">"In  keydownFunction"</span>);
+&emsp;&emsp;&emsp;<span class="sc5"> var</span><span class="sc0"> </span><span class="sc11">theKeyThatWasPressed </span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">event.which</span><span class="sc10">;</span>
+    </span>
+    <span class="sc2">//your process and/or output functions can go in here. For example:
+</span><span class="sc0">    </span><span class="sc11">decideDirection</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">theKeyThatWasPressed</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
 </span><span class="sc10">}</span></code></pre>
+
+
+
 			<p>
 				-OR-, to <strong>turn off</strong> the keyboard reader...
 			</p>
 			<p>
 				<pre><code><span class="sc2">//INPUT: turn off the keyboard reader
-</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span></code></pre>
+</span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">removeEventListener</span><span class="yellowHighlight">(</span><span class="darkBlue">"keydown"</span><span class="yellowHighlight">,</span> <span class="blueText"> keydownFunction</span><span class="yellowHighlight">);</span></code></pre>
 					
 			</p>
 			
@@ -115,26 +135,27 @@
 			</p>
 			
 			<ul>
+			
 				<li>
-					<code>window.onkeypress</code> 
-					will detect if a symbol key has been pressed and released, 
-					but it will not detect some non-symbol keys
-				</li>
-				<li>
-					<code>window.onkeyup</code> 
-					will detect when any key has been released, 
-					including non-symbol keys,
-					but it often feels delayed and sluggish
-				</li>
-				<li>
-					<code>window.onkeydown</code> 
+					<code>window.addEventListener("keydown", codeToRun) </code> 
 					will detect when any key has pressed, 
 					even if the key has not been raised,
 					including non-symbol keys
+					
+				</li>
+				<li>
+					<code>window.addEventListener("keyup", codeToRun)</code> 
+					will detect when any key has been released, 
+					including non-symbol keys,
+					but it often feels delayed and sluggish
 				</li>			
+				<li>
+					<code>window.addEventListener("keypress", codeToRun) </code> 
+					Deprecated, meaning it is functional, but no longer used.
+				</li>
 			</ul>
 			
-			<p>Most Javascript programs use <code>window.onkeydown</code>.</p>
+			<p>Most Javascript programs use <code>"keydown"</code>.</p>
 			
 			<h2>Listening to the <code>window</code></h2>
 			<p>
@@ -144,9 +165,9 @@
 			</p>
 			
 			<p>
-				You can't attach <code>onkeydown</code> to just any <code>id</code>.
+				You can't attach <code>"keydown"</code> to just any <code>id</code>.
 				For example: 
-				<code>document.getElementById('anyOldId').onkeypress = mainProcedure;</code>
+				<code>document.getElementById('anyOldId').addEventListener("keydown", codeToRun);</code>
 				will <strong>not</strong> work. 
 				We have to attach <code>onkeydown</code> to the <code>window</code>.
 			</p>
@@ -155,29 +176,34 @@
 			</p>
 			<dl>
 				<dt>
-					<code>var <var>readKeypress</var> = function (<var>keyEvent</var>) {</code>
+					<code>window.addEventListener("keydown", <var> keydownFunction</var>);</code>
 				</dt>
 				<dd>
-					1. create a function that will be triggered when a key is pressed<br>
-					<em>note that <var>keyEvent</var> is inside the parentheses.<br>
-					<var>keyEvent</var> 
-					is a hidden variable your browser uses to stores information about what key has been pressed</em>
+					1. create a listener that looks for a key press, and tells it what function to run<br>
+					<em>note that <var>keydown</var> is inside the parentheses.<br></em><br>
 				</dd>
 				
 				<dt>
 					<code>
 						var <var>unicodeNumber</var>    
-						= <var>keyEvent.which</var> || <var>keyEvent.keyCode</var>;
+						= <var>event.which</var> 
+					</code>&emsp;&emsp;&emsp;or&emsp;&emsp;<code>
+						var <var>unicodeNumber</var>    
+						= <var>event.key</var>;
 					</code>
 				</dt>
 				<dd>
-					2. store the unicode number inside a variable<br>
-					<em>
-						This code is ugly because different browsers 
-						store the keypress information differently
-					</em>
+					2. store which key has been pressed<br>
+					
+					<strong>event.key</strong> and <strong>event.which</strong> 
+					are hidden variables your browser uses to stores information about what key has been pressed <br>
+					
+					<strong>event.key</strong> gives the string (text) version of the pressed key <br>
+					<strong>event.which</strong> give the unicode number, which is easier for programs to compute
+					
+					<br>
 				</dd>
-				
+				<br>
 				<dt>
 					<code>//do something interesting with the unicode number</code>
 				</dt>
@@ -189,16 +215,7 @@
 				<dt>
 					<code>}</code>
 				</dt>
-				<dd>
-					
-				</dd>
 				
-				<dt>
-					<code>window.onkeydown    = <var>readKeypress</var>;</code>
-				</dt>
-				<dd>
-					4. then make a keypress trigger the function you created
-				</dd>
 			</dl>
 			
 			<h2>Example code</h2>
@@ -214,13 +231,10 @@
         </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;title&gt;</span><span class="sc0">My first keyboard sniffer</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Display information from keyboard keypresses"</span><span class="sc1">&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Tyson Wagley"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc9">&lt;!--
             Change log:
-                5. Oct 2015     - created!                                      - Drapak
-                21. March 2017  - moved script to bottom for better style       - Drapak
-                25. March 2018  - changed variable name for clarity             - Drapak
-                9. October 2018 - updated to change stylistic issues            - Drapak
+                Oct 2, 2026	- Created				- Wagley
         --&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/head&gt;</span><span class="sc0">
 
@@ -229,14 +243,16 @@
         </span><span class="sc1">&lt;p&gt;</span><span class="sc0">You pressed character #</span><span class="sc1">&lt;span</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"keyNumberId"</span><span class="sc1">&gt;&lt;/span&gt;&lt;/p&gt;</span><span class="sc0">
 
         </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
-</span><span class="sc41">            </span><span class="sc43">// first, set up the keypress reading function</span><span class="sc41">
-            </span><span class="sc43">// note that the keyEvent variable is inside the brackets</span><span class="sc41">
-            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">readKeypress</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
-                </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in readKeypress...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
+</span><span class="sc41">            </span><span class="sc43">// first, set up the event listener</span><span class="sc41">
+            </span><span class="sc43">// </span><span class="sc41">
+            </span><span class="sc47">window.</span><span class="sc46">addEventListener</span><span class="sc41"></span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">"keydown" , </span><span class="blueText">readKeyPress</span><span class="sc50">)</span><span class="sc50">;</span><span class="sc41">
+<span class="sc41">            </span><span class="sc43">// second, set up the processing and output funtion</span><span class="sc41"></span>
+	    function <span class="blueText">readKeyPress ()</span>{
+		<span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in readKeyPress...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
                 
-                </span><span class="sc43">// the next line handles how different browsers read keypresses</span><span class="sc41">
+                </span><span class="sc43">// the next line handles stores the unicode number of the pressed key</span><span class="sc41">
                 </span><span class="sc43">//INPUT: read the key that was pressed</span><span class="sc41">
-                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41">   
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.which</span><span class="sc50">;</span><span class="sc41">   
                 
                 </span><span class="sc43">//PROCESS: Here is where you would do different things </span><span class="sc41">
                 </span><span class="sc43">//  depending on the variable, unicodeNumber.</span><span class="sc41">
@@ -245,13 +261,7 @@
                 </span><span class="sc43">//OUTPUT: show the character code that was pressed</span><span class="sc41">
                 </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#keyNumberId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc50">;</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41">
-            
-            </span><span class="sc43">// Then activate it with window.onkeydown, which is like onclick, </span><span class="sc41">
-            </span><span class="sc43">// but is activated anytime a key is pressed down while the browser is active.</span><span class="sc41">
-            </span><span class="sc43">//</span><span class="sc41">
-            </span><span class="sc43">// Notice that there are no brackets () after readKeypress.</span><span class="sc41">
-            </span><span class="sc43">// This is because it is reading the entire function from the readKeypress variable</span><span class="sc41">
-            </span><span class="sc46">window.onkeydown</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">readKeypress</span><span class="sc50">;</span><span class="sc41">
+         
         </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
@@ -260,33 +270,28 @@
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-text-input-in-js/5507965699358720"> Live example: Text Input in JS </a></h2>
 			<script src="https://www.khanacademy.org/computer-programming/live-example-text-input-in-js/5507965699358720/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
 			-->
-		</article>		
+		</article>	
 
 		<!--#include virtual="/footer.html" -->
 
 		<script>
-			// first, set up the keypress reading function
-			// note that the keyEvent variable is inside the brackets
-			var readKeypress = function ( keyEvent ) {
-				console.log( 'in readKeypress...' );
-				
-				// the next line handles how different browsers read keypresses
-				//INPUT: read the key that was pressed
-				var keyNumber 	= keyEvent.which || keyEvent.keyCode;	
-				
-				//PROCESS: here is where you would do different things depending on keyNumber
-				//typically this will be some kind of if ... else if ... else chain
-				
-				//OUTPUT: show the character code that was pressed
-				document.querySelector( '#keyNumberId').innerHTML	= keyNumber;
-			}
-			
-			// Then activate it with window.onkeydown, which is like onclick, 
-			// but is activated anytime a key is pressed down while the browser is active.
-			//
-			// Notice that there are no brackets () after readKeypress.
-			// This is because it is reading the entire function from the readKeypress variable 
-			window.onkeydown	= readKeypress;
+		
+			window.addEventListener( "keydown" , readKeyPress);
+           
+		    function readKeyPress (){
+				console.log( 'in readKeyPress...' );
+	                
+	            // the next line handles stores the unicode number of the pressed key
+	            //INPUT: read the key that was pressed
+	            var unicodeNumber   = event.which;   
+                
+                //PROCESS: Here is where you would do different things 
+                //  depending on the variable, unicodeNumber.
+                //Typically this will be some kind of if ... else if ... else chain
+                
+                //OUTPUT: show the character code that was pressed
+                document.querySelector( '#keyNumberId').innerHTML   = unicodeNumber;
+            }
 		</script>
 	</body>
 </html>
