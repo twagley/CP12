@@ -60,6 +60,10 @@
 				color: green;
 			}
 
+			.redText{
+				color: darkred
+			}
+
 
 			.yellowHighlight{
 				background-color: lightyellow;
@@ -319,13 +323,13 @@
 				
 					function <span class="blueText">scopeExample()</span> {<br>
 						&emsp;&emsp;&emsp;&emsp;if (true) {<br>
-						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">var</span> functionScoped = "I leak out!";<br>
-	        			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">let</span> blockScoped = "I am trapped inside!";<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">var</span> <span class="redText">functionScoped</span> = "I leak out!";<br>
+	        			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<span class="blueText">let</span> <span class="redText">blockScoped</span> = "I am trapped inside!";<br>
 						&emsp;&emsp;&emsp;&emsp;}<br>
-						&emsp;&emsp;&emsp;&emsp;console.log( functionScoped ); <span class="greenText">&emsp;&emsp;// Logs: "I leak out!"</span><br>
-  						&emsp;&emsp;&emsp;&emsp;console.log( blockScoped );    <span class="greenText">&emsp;&emsp;&emsp;// ReferenceError: blockScoped is not defined</span><br>
+						&emsp;&emsp;&emsp;&emsp;console.log( <span class="redText">functionScoped</span> ); <span class="greenText">&emsp;&emsp;// Logs: "I leak out!"</span><br>
+  						&emsp;&emsp;&emsp;&emsp;console.log( <span class="redText">blockScoped</span> );    <span class="greenText">&emsp;&emsp;&emsp;// ReferenceError: blockScoped is not defined</span><br>
 					}<br>
-					console.log( functionScoped ); <span class="greenText">&emsp;&emsp;// ReferenceError. We are not longer in the function.</span><br>
+					console.log( <span class="redText">functionScoped</span> ); <span class="greenText">&emsp;&emsp;// ReferenceError. We are not longer in the function.</span><br>
 				
 
 			</div>
