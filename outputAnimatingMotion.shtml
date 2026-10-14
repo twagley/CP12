@@ -21,8 +21,8 @@
 			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -75,6 +75,7 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
+			<a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
 			//OUTPUT: <em>Animating motion</em>
 		</header>
 
@@ -83,7 +84,7 @@
 			<p>
 				<span class="langstyle">jQuery //INIT:</span> 
 					<code>
-						&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+						&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;
 					</code><br>
 					<span class="indent">&mdash; loads jQuery library</span><br>
 					<br>
