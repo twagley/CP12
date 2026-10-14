@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			OUTPUT - Animating motion
 		</title>
 		<meta 
@@ -48,6 +48,7 @@
 				21. October 2018	- reworked for better style				- Drapak
 				4. November 2019	- missing period corrected in example	- Tyson Wagley
 				6. January 2023		- fixing Gertie the Dinosaur			- Tyson Wagley
+				Oct 14, 2026 - Update jQuery versions	- Wagley
 				
 		-->
 
@@ -58,8 +59,8 @@
 			}
 			#animateId {
 				position:	absolute;
-				top: 		500px;
-				left:		750px;
+				top: 		400px;
+				left:		900px;
 			}
 			#msPacmanId {
 				position:	relative;
@@ -174,11 +175,11 @@
 			<h2>Let's animate something...</h2>
 			<p>
 				Animation is amazing. 
-				One of my animation heroes is Winsor MacKay, who was a cartoonist who made the first really 
+				Winsor MacKay, an animation icon, was a cartoonist who made the first really 
 				successful animated film, <a href="https://www.youtube.com/watch?v=sZ9mIoH-7c0">Gertie the Dinosaur</a> [youtube].<br>
 			</p>
 			<p>
-				<img id="animateId" src="https://drapak.ca/cpg/img/Gertie.jpg" />
+				<img id="animateId" src="https://twagley.github.io/CP12/img/Gertie.jpg" />
 				<button type="button" onclick="animateImage();">Click me to animate!</button>			
 			</p>
 			<hr />
@@ -188,13 +189,13 @@
 </span><span class="sc1">&lt;html</span><span class="sc8"> </span><span class="sc3">lang</span><span class="sc8">=</span><span class="sc6">"en"</span><span class="sc1">&gt;</span><span class="sc0">
 	</span><span class="sc1">&lt;head&gt;</span><span class="sc0">
 		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">charset</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc1">&gt;</span><span class="sc0">
-		</span><span class="sc1">&lt;title&gt;</span><span class="sc0">drapak.ca - Computer Programming 12: OUTPUT - Animating motion</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
+		</span><span class="sc1">&lt;title&gt;</span><span class="sc0">Wagley CP12: OUTPUT - Animating motion</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
 		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Learn how to animate motion in Javascript"</span><span class="sc1">&gt;</span><span class="sc0">
 		</span><span class="sc1">&lt;meta</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"author"</span><span class="sc8"> </span><span class="sc3">content</span><span class="sc8">=</span><span class="sc6">"Dave Drapak"</span><span class="sc1">&gt;</span><span class="sc0">
 
 		</span><span class="sc9">&lt;!-- the next line loads the jQuery library to simplify animation --&gt;</span><span class="sc0">
 		</span><span class="sc9">&lt;!-- it will load faster if it is at the top of your HTML page --&gt;</span><span class="sc0">
-		</span><span class="withborder"><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span></span><span class="sc0">
+		</span><span class="withborder"><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.0.0.js"</span><span class="sc1">&gt;&lt;/script&gt;</span></span><span class="sc0">
 
 		</span><span class="sc1">&lt;style&gt;</span><span class="sc0">
 			#animateId {
@@ -238,7 +239,7 @@
 			<ol>
 				<li>
 					Link to the jQuery library in the <code>&lt;head></code> of your page:<br>
-					<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;</code>
+					<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;</code>
 				</li>
 				<li>
 					Give the element an Id:<br>

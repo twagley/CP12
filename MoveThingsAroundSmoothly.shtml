@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Move things around smoothly
 		</title>
 		<meta 
@@ -23,7 +23,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -45,6 +45,7 @@
 				8. October 2015	- created!
 				25. March 2017	- moved script down for better style
 				21. October 2018	- updated style!
+				Oct 14 2026 - Updates - Wagley
 		-->
 		<style>
 			#animateID {
@@ -57,7 +58,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
 		</header>
 				
 		<article>

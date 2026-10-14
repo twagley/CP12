@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INIT - Using libraries
 		</title>
 		<meta 
@@ -22,7 +22,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -44,6 +44,7 @@
 				8. October 2015	- created
 				25. March 2017	- moved and updated to jquery 3.0
 				25. March 2018	- updated to jQuery 3.3.1
+				Cot 14, 2026 Updates - Wagley
 		-->
 	</head>
 
@@ -51,14 +52,15 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			//INIT: <em>Using libraries</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //INIT: <em>Using libraries</em>
 		</header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
 				<span class="langstyle">jQuery //INIT:</span> 
-				<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;</code><br />
+				<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;</code><br />
 				<span class="indent">&mdash; loads jQuery library</span><br />
 			</p>
 			
@@ -80,7 +82,7 @@
 			<p>	
 				This set of code is called a <strong>library</strong>.
 				Code libraries can share a set of useful programming functions to more than one
-				program. I have made dozens of code libraries in the past to support large or
+				program. This website uses dozens of code libraries to support large or
 				repetitive projects. For example, if I am constantly validating user security
 				among a couple hundred web pages, I will write one shared library that will
 				help apply security consistently and with less effort. Writing one library to
@@ -91,7 +93,7 @@
 			<p>
 				<strong>jQuery</strong> is a set of libraries developed by Google to help
 				make and run Google web apps.
-				The home of the jQuery community is at: <a href="jquery.com">jquery.com</a>.
+				The home of the jQuery community is at: <a href="https://jquery.com/">jquery.com</a>.
 			</p>
 			<p>jQuery's libraries allow you to do things like:</p>
 				<ul>
@@ -109,7 +111,7 @@
 				before your <code>&lt;script&gt;</code>:</p>
 			<p>
 				<code>
-					&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+					&lt;script src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;
 				</code>
 			</p>
 			<p>
