@@ -269,23 +269,11 @@
 			</ul>
 			
 			
-			<h2>Learn more</h2>
-			<ul>
-				<li>
-					w3schools.com's
-					<a href="http://www.w3schools.com/js/js_if_else.asp">
-						JavaScript conditions
-					</a> and 
-					<a href="http://www.w3schools.com/js/js_comparisons.asp">
-						Javascript comparisons
-					</a>
-				</li>
-			</ul>
 			<h2>|| and && conditionals</h2>
 			<ul>
 				<li>
 					<strong>Sometimes you want to add more than one condition that will allow the code to run</strong> <br>
-					For example, the coade above accepts "cereal", but not "Cereal".<br>
+					For example, the code above accepts "cereal", but not "Cereal".<br>
 					We can fix this by adding an "||" into our statement <br>
 					&emsp;|| is the mathematical way of saying "or"
 					<strong>Example: </strong>if ( inputFood == 'cereal' || input == 'Cereal' ) { <br>
