@@ -45,7 +45,8 @@
 				1. Oct 2015		- created
 				5. March 2017	- reworked for clearer programming style
 				27. Oct 2018	- reworked style and clarified					- Drapak
-				Oct 1, 2026		- Add || for multiple conditionals
+				Oct 1, 2026		- Added || and && for multiple conditionals		- Wagley
+				Oct 15, 2026	- Formatting	- Wagley
 		-->
 
 		<style>
