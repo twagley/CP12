@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			High or Low
 		</title>
 		<meta 
@@ -45,9 +45,10 @@
 				12. October 2015	- created!
 				21. October 2018	- updated style and clarified examples		- Drapak
 				4. November 2018	- new exercise based on MyBiggestStart		- Drapak
+				Oct 19, 2026 - Minor updates - Wagley
 
 			HELLO STUDENTS!
-			I know it would be nice to just jack the code from the example, 
+			I know it would be nice to just hijack the code from the example, 
 			but you are not going to learn much from that.
 			
 			So read through the example resources, and try things out yourself.
@@ -78,7 +79,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 2.13 Skill-builder: 
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 2.13 Skill-builder: 
 			<em>High or Low</em>
 		</header>
 				
@@ -87,7 +89,7 @@
 			<ul>
 				<li>
 					//PROCESS: 
-					<a href="processFunctionParametersAndReturns.shtml">Functional programming</a>
+					<a href="processFunctionParametersAndReturns.shtml">Functional Programming</a>
 				</li>
 				<li>
 					//PROCESS: 
