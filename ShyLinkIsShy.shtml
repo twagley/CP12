@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			Assignment: Shy Link is Shy
 		</title>
 		<meta 
@@ -45,6 +45,7 @@
 				12. October 2015	- created!
 				7. November 2018	- moved to updated style
 				18. Nov 2018		- removed input function read		- Drapak
+				Oct 19, 2026	- Minor updates - Wagley
 
 
 		-->			
@@ -62,7 +63,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 2.14 Hand-in &mdash; <em>Shy Link Is Shy</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 2.14 Hand-in &mdash; <em>Shy Link Is Shy</em>
 		</header>
 				
 		<article>
@@ -109,7 +111,7 @@
 				<br>
 				<li>
 					Image resources are 
-					<a href='http://drapak.ca/cpg/htmlImageResources.shtml'>here</a>.
+					<a href='https://twagley.github.io/CP12/htmlImageResources.shtml'>here</a>.
 				</li>
 			</ul>
 
