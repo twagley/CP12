@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			INPUT - Detecing mouseovers
 		</title>
 		<meta 
@@ -60,7 +60,8 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			//INPUT: <em>Detecting mouseovers</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //INPUT: <em>Detecting mouseovers</em>
 		</header>
 
 		<article>

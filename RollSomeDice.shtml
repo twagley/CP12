@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: Roll some dice
+			Wagley CP12: Roll some dice
 		</title>
 		<meta 
 			name="description" 
@@ -44,9 +44,10 @@
 				12. October 2015	- created!
 				25. March 2017		- reworked style and added hint about unicode dice
 				21. October 2018	- reworked style and moving toward different images per number
+				Oct 19, 2026		- Wagley
 
 			HELLO STUDENTS!
-			I know it would be nice to just jack the code from the example, 
+			I know it would be nice to just steal the code from the example, 
 			but you are not going to learn much from that.
 			
 			So read through the example resources, and try things out yourself.
@@ -63,7 +64,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 2.11 Skill-builder: <em>Roll some dice</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 2.11 Skill-builder: <em>Roll some dice</em>
 		</header>
 				
 		<article>

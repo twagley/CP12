@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			HTML - Showing dice in unicode
 		</title>
 		<meta 
@@ -61,7 +61,8 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			//HTML and OUTPUT: <em>Unicode dice</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //HTML and OUTPUT: <em>Unicode dice</em>
 		</header>
 
 		<article>
@@ -208,7 +209,7 @@
 
 			<p>
 				If you combine this with 
-				<a href="processRandomnessAndRounding.shtml">code that generates 
+				<a href="processRandomnessAndRounding.shtml">code that generates a 
 				<code><var>roll</var></code> randomly</a>, 
 				you can do this:
 			</p>
