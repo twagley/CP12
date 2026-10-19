@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Style - Use function pipelines to divide your code
 		</title>
 		<meta 
@@ -45,6 +45,7 @@
 				12. Oct				- created!
 				25. March 2017		- reworked for better programming style		- Drapak
 				21. October 2018	- reworked style and clarified examples		- Drapak
+				Oct 19, 2026	- Minor updates	- Wagley
 			-->
 
 		<style>
@@ -55,7 +56,8 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-			//STYLE: <em>Using function pipelines</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //STYLE: <em>Using function pipelines</em>
 		</header>
 		
 		<article>

@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			My Biggest Start
 		</title>
 		<meta 
@@ -65,7 +65,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 2.12 Skill-builder: 
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 2.12 Skill-builder: 
 			<em>My Biggest Star</em>
 		</header>
 				
@@ -165,6 +166,7 @@
                 Modified:   25. March 2017      - improved programming style        - Drapak
                             30. April 2017      - fixed long lines                  - Drapak
                             21. October 2018    - updated style and clarity         - Drapak
+							Oct 19, 2026		- Updated to event.key 				- Wagley
                             
                 Finished:   
         --&gt;</span><span class="sc0">
@@ -207,26 +209,26 @@
  
         </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
 </span><span class="sc41">            </span><span class="sc43">//MAIN</span><span class="sc41">
-            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyEvent</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+            </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46"></span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc46">console.log</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'in mainProcedure...'</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
                 
                 </span><span class="sc43">//INPUT: read which key was pressed</span><span class="sc41">
-                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">keyEvent.which</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc46">keyEvent.keyCode</span><span class="sc50">;</span><span class="sc41"> 
-                
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">keyThatWasPressed</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.key</span><span class="sc50">;</span><span class="sc41"> 
+              
                 </span><span class="sc43">//IF: the U key has been pressed</span><span class="sc41">
-                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">85</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
+                </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyThatWasPressed</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">85</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
                     </span><span class="sc43">//OUTPUT: make the star bigger</span><span class="sc41">
                     $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"+=40px"</span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
                     
                 </span><span class="sc43">//IF: the D key has been pressed</span><span class="sc41">
-                </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">68</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
+                </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">keyThatWasPressed</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">68</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                     </span><span class="sc43">//OUTPUT: make the star smaller</span><span class="sc41">
                     $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">width</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc48">"-=40px"</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
                 </span><span class="sc50">}</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41">
             
             </span><span class="sc43">//INPUT: run mainProcedure when someone presses a key</span><span class="sc41">
-            </span><span class="sc46">window.onkeydown</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">mainProcedure</span><span class="sc50">;</span><span class="sc41">
+            </span><span class="sc46">window.addEventListener("keydown", mainProcedure);
         </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>

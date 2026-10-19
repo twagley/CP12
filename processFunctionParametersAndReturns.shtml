@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - Computer Programming 12: 
+			Wagley CP12: 
 			PROCESS - Functional Programming
 		</title>
 		<meta 
@@ -47,6 +47,7 @@
 				25. March 2017	- reworked for improved style
 				21. Oct 2018	- reworked for improved style and clarity		- Drapak
 				4. Nov 2018	- changed name to functional programming			- Drapak
+				Oct 19, 2026	- Minor updates	- Wagley
 				
 		-->
 
@@ -63,7 +64,8 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-			//PROCESS: <em>Functional Programming</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //PROCESS: <em>Functional Programming</em>
 		</header>
 		
 		<article>
