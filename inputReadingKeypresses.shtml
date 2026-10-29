@@ -287,7 +287,8 @@ function <span class="blueText">keydownFunction</span> (){
 	                
 	            // the next line handles stores the unicode number of the pressed key
 	            //INPUT: read the key that was pressed
-	            var unicodeNumber   = event.which;   
+	            var unicodeNumber   = event.which;
+				var pressedKey = event.key;   
                 
                 //PROCESS: Here is where you would do different things 
                 //  depending on the variable, unicodeNumber.
@@ -295,6 +296,7 @@ function <span class="blueText">keydownFunction</span> (){
                 
                 //OUTPUT: show the character code that was pressed
                 document.querySelector( '#keyNumberId').innerHTML   = unicodeNumber;
+				document.querySelector( '#keyCharacterId').innerHTML   = pressedKey;
             }
 		</script>
 	</body>
