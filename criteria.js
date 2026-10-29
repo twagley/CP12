@@ -17,7 +17,8 @@
 //				29. January 2019	- change loopComment							- Drapak
 //				2. February 2019	- fixed rounding search 						- Drapak
 //				Sept 6 2026			- Changed drapak.ca/cpg links to twagley.github.io/CP12	- Wagley
-//				Se[t 6 2026 - 		- Adding more references. Broken! Reverted changes. Redone and working. - Wagley
+//				Sept 6 2026  		- Adding more references. Broken! Reverted changes. Redone and working. - Wagley
+//				Oct 29 2026			- Updated jquery link, added let to a lot of requirements, added event.key and addeventlistener		- Wagley
 
 
 
@@ -1165,16 +1166,16 @@ const INIT_OBJ = {
 	jQueryLibrary: {
 		criteria:	"jQueryLib",
 		question: 	"Did you link to the JQuery library in your &lt;head>?",
-		example:	'<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>',
+		example:	'<script src="https://code.jquery.com/jquery-4.0.0.js "></script>',
 		reference:	REFERENCE_OBJ.initLibraries,
-		begin:		"jquery.min.js",
+		begin:		"jquery.min.js|jquery-4",
 	},
 	initNumericalVar: {
 		criteria:	"initNumrcl",
 		question: 	"Did you initialize a numerical variable as zero in your code?",
 		example:	"var exampleNum = 0;",
 		reference:	REFERENCE_OBJ.initVar,
-		begin:		"var.*[=].*0|[:].*0",
+		begin:		"var.*[=].*0|[:].*0|let.*[=].*0",
 	},
 	useNumericalVar: {
 		criteria:	"useNumercl",
@@ -1188,14 +1189,14 @@ const INIT_OBJ = {
 		question: 	"Did you initialize an empty string in your code?",
 		example:	"var exampleStr = '';",
 		reference:	REFERENCE_OBJ.initVar,
-		begin:		"var.*[=].*''|var.*[=].*\"\"",
+		begin:		"var.*[=].*''|let.*[=].*''|var.*[=].*\"\"|let.*[=].*\"\"",
 	},
 	useStringVar: {
 		criteria:	"useStringVar",
 		question: 	"Did you use string variables in your code?",
 		example:	"name = firstName + lastName;",
 		reference:	REFERENCE_OBJ.initVar,
-		begin:		"var.*[=]",
+		begin:		"var.*[=]|let.*[=]",
 	},
 	object: {
 		criteria:	"initObject",
@@ -1306,16 +1307,16 @@ const INIT_OBJ = {
 		criteria:	"var",
 		question: 	"Do you set up a variable?",
 		example:	"//INIT: set an example variable with a value of 3\n" + 
-					"var exampleVariable = 3;",
+					"var exampleVariable = 3;   or   let speed = 10;",
 		reference:	REFERENCE_OBJ.initVar,
-		begin:		"var",
+		begin:		"var|let|const",
 	},
 	initializeArray: {
 		criteria:	"initArray",
 		question: 	"Do you set up an array with initial information?",
 		example:	'var stringArr = [ "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet" ];',
 		reference:	REFERENCE_OBJ.initArrays,
-		begin:		"var.*=.*[[]",
+		begin:		"var.*=.*[[]|let.*=.*[[]",
 	//	end:		"[]]"
 	},
 	initArray: {
@@ -1500,10 +1501,10 @@ const INPUT_OBJ = {
 	},
 	keyCode: {
 		criteria:	"keyCode",
-		question: 	"Does your program find out the unicode number of the key that was pressed?",
-		example:	"var unicodeNumber = keyEvent.which || keyEvent.keyCode;",
+		question: 	"Does your program find out key that was pressed?",
+		example:	"var theKeyThatWasPressed    = event.key",
 		reference:	REFERENCE_OBJ.inputReadingKeypresses,
-		begin:		"[.]keyCode",
+		begin:		"[.]keyCode|[.]key",
 	},	
 	fileUpload: {
 		criteria:	"fileUpload",
@@ -1554,14 +1555,14 @@ const INPUT_OBJ = {
 		question: 	"Do you use onclick to make things clickable?",
 		example:	"document.getElementById( 'exampleId' ).onclick = mainProcedure;",
 		reference:	REFERENCE_OBJ.inputButtons,
-		begin:		"[.]onclick",
+		begin:		"[.]onclick|[.]addEventListener('click'",
 	},
 	onkeydown: {
 		criteria:	"onkeydown",
 		question: 	"Is your program listening to when keys are pressed down?",
 		example:	"window.onkeydown    = readKeypress;",
 		reference:	REFERENCE_OBJ.inputReadingKeypresses,
-		begin:		"window.onkeydown",
+		begin:		"window.onkeydown|[.]addEventListener('keydown'",
 	},
 	onload: {
 		criteria:	"onload",
@@ -1579,7 +1580,7 @@ const INPUT_OBJ = {
 					"    var leftCoordinate   = cursorX;\n" +
 					"}",
 		reference:	REFERENCE_OBJ.inputMouseMovementAndPosition,
-		begin:		"[.]onmousedown",
+		begin:		"mousedown",
 	},
 	onmousemove: {
 		criteria:	"onmousemov",
@@ -1590,7 +1591,7 @@ const INPUT_OBJ = {
 					"    var leftCoordinate   = event.clientX;\n" +
 					"}",
 		reference:	REFERENCE_OBJ.inputMouseMovementAndPosition,
-		begin:		"[.]onmousemove",
+		begin:		"onmousemove",
 	},
 	onmouseoutOrOver: {
 		criteria:	"mousOutOvr",
@@ -1598,21 +1599,21 @@ const INPUT_OBJ = {
 		example:	"document.querySelector( '#exampleId' ).onmouseover = someFunction;\n" + 
 					"document.querySelector( '#exampleId' ).onmouseout = someFunction; ",
 		reference:	REFERENCE_OBJ.inputMouseovers,
-		begin:		"[.]onmouseover|[.]onmouseout",
+		begin:		"mouseover|mouseout|mouseenter",
 	},	
 	onmouseover: {
 		criteria:	"mouseover",
 		question: 	"Does your program detect when the user mouses over things?",
 		example:	"document.querySelector( '#exampleId' ).onmouseover = someFunction;\n",
 		reference:	REFERENCE_OBJ.inputMouseovers,
-		begin:		"[.]onmouseover",
+		begin:		"mouseover|mouseenter",
 	},	
 	onmouseout: {
 		criteria:	"mouseout",
 		question: 	"Does your program detect when the user mouses out of an element?",
 		example:	"document.querySelector( '#exampleId' ).onmouseout = someFunction; ",
 		reference:	REFERENCE_OBJ.inputMouseovers,
-		begin:		"[.]onmouseout",
+		begin:		"mouseout",
 	},
 	turnOffInputEvents: {
 		criteria:	"turnOffEvt",
