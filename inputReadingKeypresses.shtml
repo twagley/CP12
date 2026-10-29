@@ -52,6 +52,7 @@
 				10. Oct 2018	- clarified examples								- Drapak
 				Oct 1, 2026		- Minor updates		- Wagley
 				Oct 2, 2026		- Major revamp to modernize the keyboard input reading	- Wagley
+				Oct 29, 2026	- Shifted focused to event.key, added into example as well.	- Wagley
 		-->		
 
 		<style>
@@ -103,7 +104,7 @@ window.<span class="blueText">addEventListener</span><span class="yellowHighligh
 
 function <span class="blueText">keydownFunction</span> (){
 &emsp;&emsp;&emsp;<span class="blueText"> console.log</span>(<span class="darkBlue">"In  keydownFunction"</span>);
-&emsp;&emsp;&emsp;<span class="sc5"> var</span><span class="sc0"> </span><span class="sc11">theKeyThatWasPressed </span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">event.which</span><span class="sc10">;</span>
+&emsp;&emsp;&emsp;<span class="sc5"> var</span><span class="sc0"> </span><span class="sc11">theKeyThatWasPressed </span><span class="sc0">   </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">event.key</span><span class="sc10">;</span>
     </span>
     <span class="sc2">//your process and/or output functions can go in here. For example:
 </span><span class="sc0">    </span><span class="sc11">decideDirection</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">theKeyThatWasPressed</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
@@ -180,26 +181,26 @@ function <span class="blueText">keydownFunction</span> (){
 				</dt>
 				<dd>
 					1. create a listener that looks for a key press, and tells it what function to run<br>
-					<em>note that <var>keydown</var> is inside the parentheses.<br></em><br>
+					<em>	note that <var>keydown</var> is inside the parentheses.<br></em><br>
 				</dd>
 				
 				<dt>
 					<code>
-						var <var>unicodeNumber</var>    
-						= <var>event.which</var> 
+						var <var>keyThatWasPressed</var>    
+						= <var>event.key</var> 
 					</code>&emsp;&emsp;&emsp;or&emsp;&emsp;<code>
 						var <var>unicodeNumber</var>    
-						= <var>event.key</var>;
+						= <var>event.which</var>;
 					</code>
 				</dt>
 				<dd>
 					2. store which key has been pressed<br>
 					
-					<strong>event.key</strong> and <strong>event.which</strong> 
-					are hidden variables your browser uses to stores information about what key has been pressed <br>
-					
-					<strong>event.key</strong> gives the string (text) version of the pressed key <br>
-					<strong>event.which</strong> give the unicode number, which is easier for programs to compute
+						<strong>event.key</strong> and <strong>event.which</strong> 
+						are hidden variables your browser uses to stores information about what key has been pressed <br>
+						
+						<strong>event.key</strong> gives the string (text) version of the pressed key <br>
+						<strong>event.which</strong> gives the unicode number, which has it's odd uses, but is mostly ignored in modern programming.
 					
 					<br>
 				</dd>
@@ -221,7 +222,7 @@ function <span class="blueText">keydownFunction</span> (){
 			<h2>Example code</h2>
 			<hr>
 			<h4>Press any key to begin!</h4>
-			<p>You pressed character #<span id="keyNumberId"></span></p>
+			<p>You pressed character #<span id="keyNumberId"></span> which is "<span id="keyCharacterId"></span>".</p>
 			<hr>
 			<p>...is the result of the following code:</p>
 			
@@ -252,7 +253,8 @@ function <span class="blueText">keydownFunction</span> (){
                 
                 </span><span class="sc43">// the next line handles stores the unicode number of the pressed key</span><span class="sc41">
                 </span><span class="sc43">//INPUT: read the key that was pressed</span><span class="sc41">
-                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.which</span><span class="sc50">;</span><span class="sc41">   
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.which</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">pressedKey</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">event.key</span><span class="sc50">;</span><span class="sc41">   
                 
                 </span><span class="sc43">//PROCESS: Here is where you would do different things </span><span class="sc41">
                 </span><span class="sc43">//  depending on the variable, unicodeNumber.</span><span class="sc41">
@@ -260,7 +262,9 @@ function <span class="blueText">keydownFunction</span> (){
                 
                 </span><span class="sc43">//OUTPUT: show the character code that was pressed</span><span class="sc41">
                 </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#keyNumberId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">unicodeNumber</span><span class="sc50">;</span><span class="sc41">
-            </span><span class="sc50">}</span><span class="sc41">
+                </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#keyCharacterId'</span><span class="sc50">).</span><span class="sc46">innerHTML</span><span class="sc41">   </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc46">pressedKey</span><span class="sc50">;</span><span class="sc41">
+					
+			</span><span class="sc50">}</span><span class="sc41">
          
         </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
     </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
