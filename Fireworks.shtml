@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Fireworks
 		</title>
 		<meta 
@@ -22,8 +22,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -44,6 +43,7 @@
 			Change log:
 				27. October 2015	- created!									- Drapak
 				27. October 2018	- reworked for clarity and style			- Drapak
+				Oct 30 2026	-	Minor updates. Fixed image links. Removed photo credit because the flickr page no longer exists; cannot find original - Wagley
 
 			HELLO STUDENTS!
 			I know it would be nice to just jack the code from the example, 
@@ -84,7 +84,8 @@
 	<body id="bodyId">
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.04 Skill-builder: <em>Fireworks</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //    MAKE: 3.04 Skill-builder: <em>Fireworks</em>
 		</header>
 				
 		<article>
@@ -160,19 +161,18 @@
 			<h2>A gallery of useful fireworks images</h2>
 			
 			<p>
-				<img src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg" /> http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg from 
-				<a href="https://www.flickr.com/photos/bencnh/508415582/in/album-72157618455740654/">bencnh's Flickr page</a><br>
-				<img src="http://drapak.ca/cpg/img/fireworks-blue.png" /> http://drapak.ca/cpg/img/fireworks-blue.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-blue_and_red.png" /> http://drapak.ca/cpg/img/fireworks-blue_and_red.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-orange.png" /> http://drapak.ca/cpg/img/fireworks-orange.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-orange_and_blue.png" /> http://drapak.ca/cpg/img/fireworks-orange_and_blue.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-orange_and_grey.png" /> http://drapak.ca/cpg/img/fireworks-orange_and_grey.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-purple.png" /> http://drapak.ca/cpg/img/fireworks-purple.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-purple_with_stars.png" /> http://drapak.ca/cpg/img/fireworks-purple_with_stars.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-red.png" /> http://drapak.ca/cpg/img/fireworks-red.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-red-orange.png" /> http://drapak.ca/cpg/img/fireworks-red-orange.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-yellow_and_magenta.png" /> http://drapak.ca/cpg/img/fireworks-yellow_and_magenta.png<br>
-				<img src="http://drapak.ca/cpg/img/fireworks-yellow-orange.png" /> http://drapak.ca/cpg/img/fireworks-yellow-orange.png<br>
+				<img src="https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg" /> https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-blue.png" /> https://twagley.github.io/CP12/img/fireworks-blue.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-blue_and_red.png" /> https://twagley.github.io/CP12/img/fireworks-blue_and_red.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-orange.png" /> https://twagley.github.io/CP12/img/fireworks-orange.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-orange_and_blue.png" /> https://twagley.github.io/CP12/img/fireworks-orange_and_blue.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-orange_and_grey.png" /> https://twagley.github.io/CP12/img/fireworks-orange_and_grey.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-purple.png" /> https://twagley.github.io/CP12/img/fireworks-purple.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-purple_with_stars.png" /> https://twagley.github.io/CP12/img/fireworks-purple_with_stars.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-red.png" /> https://twagley.github.io/CP12/img/fireworks-red.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-red-orange.png" /> https://twagley.github.io/CP12/img/fireworks-red-orange.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-yellow_and_magenta.png" /> https://twagley.github.io/CP12/img/fireworks-yellow_and_magenta.png<br>
+				<img src="https://twagley.github.io/CP12/img/fireworks-yellow-orange.png" /> https://twagley.github.io/CP12/img/fireworks-yellow-orange.png<br>
 			</p>
 		</article>
 		<script>
@@ -183,22 +183,22 @@
 				document.body.innerHTML 
 					= '<img ' 
 					+ 'id="backgroundId" '
-					+ 'src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg"> '
+					+ 'src="https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg"> '
 					+ ""
 					+ '<img '
 					+ 'id="firework1Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="http://drapak.ca/cpg/img/fireworks-blue.png"> '
+					+ 'src="https://twagley.github.io/CP12/img/fireworks-blue.png"> '
 					+ ''
 					+ '<img '
 					+ 'id="firework2Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="http://drapak.ca/cpg/img/fireworks-red.png"> '
+					+ 'src="https://twagley.github.io/CP12/img/fireworks-red.png"> '
 					+ ''
 					+ '<img '
 					+ 'id="firework3Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="http://drapak.ca/cpg/img/fireworks-purple.png"> ';
+					+ 'src="https://twagley.github.io/CP12/img/fireworks-purple.png"> ';
 			}
 			
 			//OUTPUT: animate the firework exploding, then fading

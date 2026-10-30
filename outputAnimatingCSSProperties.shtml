@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			OUTPUT - Animating CSS properties
 		</title>
 		<meta 
@@ -22,8 +22,7 @@
 			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -66,14 +65,15 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			//OUTPUT: <em>Animating other CSS properties with jQuery</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN      </a>
+            //		OUTPUT: <em>Animating other CSS properties with jQuery</em>
 		</header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
 				<span class="langstyle">jQuery //INIT:</span> 
-				<code>&lt;script&nbsp;src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</code><br>
+				<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js "&gt;&lt;/script&gt;</code><br>
 				<span class="indent">&mdash; loads jQuery library</span><br>
 				<br>
 
