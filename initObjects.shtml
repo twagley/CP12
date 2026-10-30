@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			INIT - Using objects
 		</title>
 		<meta 
@@ -46,6 +46,7 @@
 				4. April 2017		- reworked for improved style				- Drapak
 				27. Oct 2018		- reworked for clarity and style			- Drapak
 				14. Nov 2018		- reworked Obj style						- Drapak
+				Oct 30 2026			- Small updates						- Wagley
 		-->
 
 		<style>
@@ -63,7 +64,8 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			//INIT: <em>Using objects</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //INIT: <em>Using objects</em>
 		</header>
 
 		<article>
@@ -144,6 +146,7 @@ console.log(
 	+ <var>chickenObj.age</var>
 	+ " years old."
 );</code></pre>
+				<p>It also serves the purpose of allowing you to create MANY chickens, each with their own similarly named properties.</p>
 			
 			<h2>Assigning properties to an object</h2>
 			<p>

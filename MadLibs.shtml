@@ -8,8 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - 
-			Computer Programming: Mad libs
+			Wagley CP12: Mad libs
 		</title>
 		<meta 
 			name="description" 
@@ -44,6 +43,7 @@
 			Change log:
 				18. October 2015	- created!									- Drapak
 				27. October 2018	- updated style								- Drapak
+				Oct 30 2026			- Small updates						- Wagley
 
 			HELLO STUDENTS!
 			I know it would be nice to just jack the code from the example, 
@@ -67,7 +67,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.01 Skill-builder: <em>Mad libs</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.01 Skill-builder: <em>Mad libs</em>
 		</header>
 				
 		<article>
@@ -93,7 +94,7 @@
 			<p>
 				Use Javascript string addition and object variables to create a mad libs generator.
 				Look closely at the example code in //INIT: <a href="initObjects.shtml">Using objects</a> for help
-				For example:
+				<br>For example:
 			</p>
 			
 			<hr />

@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			PROCESS - Using string addition
 		</title>
 		<meta 
@@ -44,6 +44,7 @@
 			Change log:	
 				18. Oct				- created!									- Drapak
 				27. October 2018 	- updated style and clarified				- Drapak
+				Oct 30 2026			- Small updates						- Wagley
 			-->
 
 	</head>
@@ -52,7 +53,8 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-			//PROCESS: <em>String addition</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //PROCESS: <em>String addition</em>
 		</header>
 		
 		<article>
@@ -104,6 +106,7 @@
 			<p>This is also a way to concatenate strings:</p>
 			<pre><code>var <var>newString</var> = <var>"Hello"</var>.concat(" Kitty!")</var>;
 // newString now contains "Hello Kitty!"</code></pre>
+			<p>In practice, .concat is rarely used for strings over the simple "+".</p>
 
 			<h2>Common problems</h2>
 			<h4>Nested quotes</h4>
