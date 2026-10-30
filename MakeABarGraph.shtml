@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Make a bar graph
 		</title>
 		<meta 
@@ -45,6 +45,7 @@
 				21. October 2015												- Drapak
 				4. April	2017	- moved script to tail and fixed example	- Drapak
 				27. October 2018	- updated style and clarified				- Drapak
+				Oct 30	2026	- Minor updates		- Wagley
 				
 		-->
 
@@ -82,7 +83,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.02 Skill-builder: <em>Make a bar graph</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //     MAKE: 3.02 Skill-builder: <em>Make a bar graph</em>
 		</header>
 				
 		<article>
