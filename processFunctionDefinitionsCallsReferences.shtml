@@ -296,7 +296,7 @@
 </span><span class="sc10">}</span><span class="sc0">
 
 </span><span class="sc2">//INPUT: run mainProcedure when someone presses a key
-</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc0">    </span><span class="sc10">("keydown:", </span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">);</span></code></pre>
+</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc0">    </span><span class="sc10">("keydown", </span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">);</span></code></pre>
 			
 		</article>
 		<!--#include virtual="/footer.html" -->	
