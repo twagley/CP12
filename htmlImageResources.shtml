@@ -33,6 +33,7 @@
 				5. December 2015	- created!
 				20. December 2015	- moved to drapak.ca
 				Sept 2026 - Changed title and some content. All is now connected to twagley.github - Wagley
+				Oct 30 2026 - Updated header and jquery link - Wagley
 		-->
 
         <script>
@@ -720,9 +721,9 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
 			<a href="index.html">Computer Programming 12</a>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
