@@ -21,8 +21,8 @@
 			name="keywords" 
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/jquery-4.0.0.js">
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
@@ -166,12 +166,12 @@
                 Modified:   25. March 2017      - improved programming style        - Drapak
                             30. April 2017      - fixed long lines                  - Drapak
                             21. October 2018    - updated style and clarity         - Drapak
-							Oct 19, 2026		- Updated to event.key 				- Wagley
+		Oct 19, 2026		- Updated to event.key 				- Wagley
                             
                 Finished:   
         --&gt;</span><span class="sc0">
         </span><span class="sc9">&lt;!-- load jQuery for the animations --&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span><span class="sc1">&gt;</span><span class="sc40">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.0.0.js"</span><span class="sc1">&gt;</span><span class="sc40">
 </span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
             img {

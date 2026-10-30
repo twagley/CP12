@@ -23,8 +23,7 @@
 			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -49,6 +48,7 @@
 				4. November 2019	- fixed function name mismatch 				- Tyson Wagley
 				9. November 2020	- fixed code example						- Tyson Wagley
 				Oct 19, 2026		- Minor updates		- Wagley
+				Oct 30, 2026		- Major updates to last example	- Wagley
 			-->
 
 		<style>
@@ -261,24 +261,24 @@
 				<span class="definitionClass">definition</span> <span class="callClass">call</span> <span class="referenceClass">reference</span>
 			</p>
 			
-			<pre><code><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+			<pre><code><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">mainProcedure</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
     </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in mainProcedure...'</span><span class="sc10"> );</span><span class="sc0">
-    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="callClass"><span class="sc11">readKeypress</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10"> );</span></span><span class="sc0">
-    </span><span class="question" onclick="this.style.border = '1px solid blue';" data-answer='<span class="sc11">getBiggerOrSmaller</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">);</span>'></span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">keyInput</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="callClass"><span class="sc11">readKeypress</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc0"> </span><span class="sc10"> );</span></span><span class="sc0">
+    </span><span class="question" onclick="this.style.border = '1px solid blue';" data-answer='<span class="sc11">getBiggerOrSmaller</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyInput</span><span class="sc0"> </span><span class="sc10">);</span>'></span><span class="sc0">
 </span><span class="sc10">}</span><span class="sc0">
 
 </span><span class="sc2">//INPUT: read which key was pressed
-</span><span class="question" onclick="this.style.border = '1px solid red';" data-answer='<span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span>'></span><span class="sc0">
-    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in readKeypress... keyEvent:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10"> );</span><span class="sc0">
-    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">keyEvent</span><span class="sc10">.</span><span class="sc11">keyCode</span><span class="sc10">;</span><span class="sc0">
+</span><span class="question" onclick="this.style.border = '1px solid red';" data-answer='<span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span>'></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in readKeypress... event:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10">.</span><span class="sc11">keyInput</span><span class="sc10">;</span><span class="sc0">
 </span><span class="sc10">}</span><span class="sc0">
 
 </span><span class="sc2">//PROCESS: fork the code if they pressed the up button
-</span><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getBiggerOrSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
-    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in getBiggerOrSmaller... keyCode:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc10"> );</span><span class="sc0">
-    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">85</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">          </span><span class="sc2">// U button
+</span><span class="definitionClass"><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">getBiggerOrSmaller</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">theKeyFromInput</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span></span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in getBiggerOrSmaller... key:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">keyInput</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">theKeyFromInput</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">"u"</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">          </span><span class="sc2">// U button
 </span><span class="sc0">        </span><span class="question" onclick="this.style.border = '1px solid blue';" data-answer='<span class="sc11">makeStarBigger</span><span class="sc10">();</span>'></span><span class="sc0">
-    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">68</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc2">// D button
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">theKeyFromInput</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">"d"</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">   </span><span class="sc2">// D button
 </span><span class="sc0">        </span><span class="callClass"><span class="sc11">makeStarSmaller</span><span class="sc10">();</span></span><span class="sc0">
     </span><span class="sc10">}</span><span class="sc0">   
 </span><span class="sc10">}</span><span class="sc0">
@@ -296,7 +296,7 @@
 </span><span class="sc10">}</span><span class="sc0">
 
 </span><span class="sc2">//INPUT: run mainProcedure when someone presses a key
-</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">onkeydown</span><span class="sc0">    </span><span class="sc10">=</span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">;</span></code></pre>
+</span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc0">    </span><span class="sc10">("keydown:", </span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">);</span></code></pre>
 			
 		</article>
 		<!--#include virtual="/footer.html" -->	
