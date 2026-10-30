@@ -269,8 +269,8 @@
 
 </span><span class="sc2">//INPUT: read which key was pressed
 </span><span class="question" onclick="this.style.border = '1px solid red';" data-answer='<span class="sc5">var</span><span class="sc0"> </span><span class="sc11">readKeypress</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span>'></span><span class="sc0">
-    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in readKeypress... event:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10"> );</span><span class="sc0">
-    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10">.</span><span class="sc11">which</span><span class="sc0"> </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10">.</span><span class="sc11">keyInput</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">( </span><span class="sc7">'in readKeypress... event:'</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">event.key</span><span class="sc10"> );</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">event</span><span class="sc10">.</span><span class="sc11">key</span><span class="sc0"> </span><span class="sc10">;</span><span class="sc0">
 </span><span class="sc10">}</span><span class="sc0">
 
 </span><span class="sc2">//PROCESS: fork the code if they pressed the up button
