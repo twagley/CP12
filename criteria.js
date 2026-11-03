@@ -1555,14 +1555,14 @@ const INPUT_OBJ = {
 		question: 	"Do you use onclick to make things clickable?",
 		example:	"document.getElementById( 'exampleId' ).onclick = mainProcedure;",
 		reference:	REFERENCE_OBJ.inputButtons,
-		begin:		"[.]onclick|[.]addEventListener('click'",
+		begin:		"[.]onclick|[.]addEventListener",
 	},
 	onkeydown: {
 		criteria:	"onkeydown",
 		question: 	"Is your program listening to when keys are pressed down?",
 		example:	"window.onkeydown    = readKeypress;",
 		reference:	REFERENCE_OBJ.inputReadingKeypresses,
-		begin:		"window.onkeydown|[.]addEventListener('keydown'",
+		begin:		"window.onkeydown|[.]addEventListener",
 	},
 	onload: {
 		criteria:	"onload",
