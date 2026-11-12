@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			The sky at night
 		</title>
 		<meta 
@@ -19,8 +19,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -43,6 +42,7 @@
 				12. April 2017		- improved style
 				23. April 2017		- removed one evaluation criterium
 				26. November 2018	- reworked for style
+				Nov 12, 2026	- Updated assignment description and link. 
 		-->
 
 		<style>
@@ -67,7 +67,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.05 Hand-in: <em>The sky at night</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.05 Hand-in: <em>The sky at night</em>
 		</header>
 				
 		<article>
@@ -112,10 +113,12 @@
 			<h2>The assignment</h2>
 			<p>
 				Use functions to animate objects around the screen.<br />
-				Like the opening credits of my favourite astronomy show, 
-				<a href="https://www.youtube.com/results?search_query=the+sky+at+night">
-					The sky at night
+				Like the opening credits of BBC's 
+				<a href="https://www.youtube.com/watch?v=5AKkPmFr3mo">
+					The Sky at Night
 				</a>.
+				The template will give you a head start on this, <br> 
+				but you are also free to create and animate your own objects.
 			</p>
 			
 			<h2>For example</h2>

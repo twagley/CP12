@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Character Generator
 		</title>
 		<meta 
@@ -19,7 +19,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
@@ -41,7 +41,7 @@
 			Change log:
 				12. April 2017		- created!									- Drapak
 				27. November 2018	- updated style and content					- Drapak
-
+				Nov 12, 2026		- Updates to format		- Wagley
 				-->
 
 		<style>
@@ -71,7 +71,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.05 Hand-in: <em>Character Generator</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.05 Hand-in: <em>Character Generator</em>
 		</header>
 				
 		<article>
@@ -134,32 +135,32 @@
 				</tr>
 				<tr>
 					<th>Typing</th>
-					<td>5</td>
+					<td>&emsp;95</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 				<tr>
 					<th>Spelling and Grammar</th>
-					<td>3</td>
+					<td>&emsp;63</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 				<tr>
 					<th>Modularizes Code</th>
-					<td>6</td>
+					<td>&emsp;26</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 				<tr>
 					<th>Problem Solving</th>
-					<td>2</td>
+					<td>&emsp;52</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 				<tr>
 					<th>Awesome with CSS</th>
-					<td>2</td>
+					<td>&emsp;2</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 				<tr>
 					<th>Coding Style</th>
-					<td>6</td>
+					<td>&emsp;86</td>
 					<td class="withborder">Random die roll from 1-100</td>
 				</tr>
 			</table>
