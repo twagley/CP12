@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Bucket list
 		</title>
 		<meta 
@@ -22,7 +22,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="ttps://code.jquery.com/jquery-4.0.0.js "></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
@@ -44,6 +44,7 @@
 			Change log:
 				1. November 2015	- created!									- Drapak
 				28. November 2018	- reworked for better style					- Drapak
+				Nov 12, 2026		- Clarity updates.  Changed to Wagley's bucket list			- Wagley
 		-->
 
 		<style>
@@ -53,7 +54,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.06 Skill-builder: <em>Bucket list</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.06 Skill-builder: <em>Bucket list</em>
 		</header>
 				
 		<article>
@@ -81,14 +83,15 @@
 			<p>
 				Use arrays and <code>.join()</code> to create a bucket list of 
 				things to do during your lifetime.<br>
-				The phrase <em>bucket list</em> was inspired by a 
+				The phrase <em>bucket list</em> was created by the screenwriter of the  
 				<a href="https://en.wikipedia.org/wiki/The_Bucket_List">2007 
-				movie starring Morgan Freeman</a>.
+				movie starring Morgan Freeman</a>.<br>
+				It is a list of all the things someone wants to do before they "kick the bucket".
 			</p>
 			
 			<h2>For example</h2>
 
-			<h4>Drapak's bucket list</h4>
+			<h4>Wagley's bucket list</h4>
 			<div id="outputID"></div>
 			<p>
 				<button onclick="mainProcedure();">

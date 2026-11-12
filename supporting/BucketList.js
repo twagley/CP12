@@ -1,16 +1,16 @@
 //INIT: create my bucket list array
 var bucketArr = [
-	"learn auto repair",
-	"overcome my fear of heights",
-	"build a deck with my son",
-	"help people in trouble with the law find good work",
-	"build a 3D or CNC printer",
+	"raise my daughters to be great people",
+	"build the ultimate home theatre",
+	"learn to play more instruments",
+	"create music that many people love",
+	"help grow my community",
 	
-	"build a shed with my son",
-	"make a sculpture showing the friendships between students",
-	"take the Foundation Year Programme at King's for fun",
-	"visit the Prado museum in Spain",
-	"make an encoded LED clock"
+	"go see Hobbiton in NZ",
+	"travel around Japan and South Korea",
+	"visit more places in India",
+	"go on a river cruise in Europe",
+	"go on a biking tour through Denmark and/or Italy"
 ];
 
 var mainProcedure = function () {
