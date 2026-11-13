@@ -1,4 +1,4 @@
-//	Drapak's FINGER-SAVER (r) pre-typed arrays of objects
+//	Drapak and Wagley's FINGER-SAVER (r) pre-typed arrays of objects
 //
 //	Choose ONE of the four options:
 //		1) Make your array of objects ( minimum of four objects )
@@ -6,7 +6,7 @@
 //		3) albumsArr
 //		4) videoGamesArr
 
-// 	Use one of these to create a initialization function, like this:
+// 	Use one of these to create an initialization function, like this:
 /*
 
 //INIT: set up the array of dwarf objects
@@ -48,7 +48,7 @@ var createDwarfArray = function () {
 */
 
 
-//INIT: create an array of objects of the best-selling albums of all time
+//INIT: create an array of objects of the best goalies of all time
 // from: https://www.nhl.com/news/top-10-nhl-goalies-for-2018-19-season/c-299839210
 var goaliesArr = [
 	{
@@ -117,7 +117,7 @@ var goaliesArr = [
 
 ];
 
-//INIT: create an array of objects of the best selling albums of all time
+//INIT: create an array of objects of the best selling albums of all time (updated 2026)
 //from: https://en.wikipedia.org/wiki/List_of_best-selling_albums
 var albumsArr = [
 	{
@@ -126,7 +126,7 @@ var albumsArr = [
 		album:				"Thriller",
 		year:				1982,
 		genre:				"Pop, rock, R&amp;B",
-		certifiedCopies:	47.3
+		certifiedCopies:	51.4
 	},
 	{
 		rank:				2,
@@ -134,131 +134,149 @@ var albumsArr = [
 		album:				"Their Greatest Hits (1971–1975)",
 		year:				1976,
 		genre:				"Country rock, soft rock, folk rock",
-		certifiedCopies:	41.2
+		certifiedCopies:	43.2
 	},
 	{
 		rank:				3,
-		artist:				"AC/DC",
-		album:				"Back in Black",
-		year:				1980,
-		genre:				"Hard rock",
-		certifiedCopies:	26.1
-	},
-	{
-		rank:				4,
-		artist:				"Pink Floyd",
-		album:				"The Dark Side of the Moon",
-		year:				1973,
-		genre:				"Progressive rock",
-		certifiedCopies:	24.2
-	},
-	{
-		rank:				5,
-		artist:				"Meat Loaf",
-		album:				"Bat Out of Hell",
-		year:				1977,
-		genre:				"Hard rock, classic rock, Pop music",
-		certifiedCopies:	21.5
-	},
-	{
-		rank:				6,
-		artist:				"Whitney Houston / Various artists",
-		album:				"The Bodyguard",
-		year:				1992,
-		genre:				"R&B, soul, pop, soundtrack",
-		certifiedCopies:	28.4
-	},
-	{
-		rank:				7,
 		artist:				"Eagles",
 		album:				"Hotel California",
 		year:				1976,
 		genre:				"Soft rock",
-		certifiedCopies:	31.5
+		certifiedCopies:	33.8
+	},
+	{
+		rank:				4,
+		artist:				"AC/DC",
+		album:				"Back in Black",
+		year:				1980,
+		genre:				"Hard rock",
+		certifiedCopies:	31.2
+	},
+	{
+		rank:				5,
+		artist:				"Shania Twain",
+		album:				"Come On Over",
+		year:				1997,
+		genre:				"Country, pop",
+		certifiedCopies:	30.7
+	},
+	{
+		rank:				6,
+		artist:				"Fleetwood Mac",
+		album:				"Rumours",
+		year:				1977,
+		genre:				"Soft Rock",
+		certifiedCopies:	30.3
+		
+	},
+	{
+		rank:				7,
+		artist:				"Whitney Houston / Various artists",
+		album:				"The Bodyguard",
+		year:				1992,
+		genre:				"R&B, soul, pop, soundtrack",
+		certifiedCopies:	29.7
 	},
 	{
 		rank:				8,
-		artist:				"Bee Gees / Various artists",
-		album:				"Saturday Night Fever",
-		year:				1977,
-		genre:				"Disco",
-		certifiedCopies:	21.6
+		artist:				"Pink Floyd",
+		album:				"The Dark Side of the Moon",
+		year:				1973,
+		genre:				"Progressive rock",
+		certifiedCopies:	25.7
 	},
 	
 	//now add at least two remaining albums:
-	//Rumours 	<-- add to the end of albumsArr
-	//Grease	<-- use .push() to add to albumsArr
+	//Bee Gees 	<-- add to the end of albumsArr
+	//Meat Loaf	<-- use .push() to add to albumsArr
 ];
 
-//INIT: create an array of objects for the best-selling video games of all time
+//INIT: create an array of objects for the best-selling video games of all time (Updated 2026)
 //from: https://en.wikipedia.org/wiki/List_of_best-selling_video_games
 var videoGamesArr = [
 	{
 		rank:			1,
 		title:			"Tetris",
-		sales:			170, 
+		sales:			520, 
 		platforms:		"Multi-platform",
-		releaseDate:	"June 6, 1984",
+		releaseDate:	"1984",
 		developer:		"Elektronorgtechnica"
 	},
 	{
 		rank:			2,
 		title:			"Minecraft",
-		sales:			154, 
+		sales:			425, 
 		platforms:		"Multi-platform",
-		releaseDate:	"November 18, 2011",
+		releaseDate:	"2011",
 		developer:		"Mojang"
 	},
 	{
 		rank:			3,
 		title:			"Grand Theft Auto V",
-		sales:			100, 
+		sales:			235, 
 		platforms:		"Multi-platform",
-		releaseDate:	"September 17, 2013",
-		developer:		"Rockstar North"
+		releaseDate:	"2013",
+		developer:		"Rockstar Games"
 	},
 	{
 		rank:			4,
-		title:			"Wii Sports",
-		sales:			82.86, 
-		platforms:		"Wii",
-		releaseDate:	"November 19, 2006",
-		developer:		"Nintendo EAD"
+		title:			"Read Dead Redemption 2",
+		sales:			89, 
+		platforms:		"Multi-platform",
+		releaseDate:	"2018",
+		developer:		"Rockstar Games"
 	},
 	{
 		rank:			5,
-		title:			"PlayerUnknown's Battlegrounds",
-		sales:			50, 
-		platforms:		"Multi-platform",
-		releaseDate:	"December 20, 2017",
-		developer:		"PUBG Corporation"
-	},
-	{
-		rank:			6,
-		title:			"Pokémon Red/Blue/Yellow",
-		sales:			45, 
-		platforms:		"Game Boy",
-		releaseDate:	"February 27, 1996",
-		developer:		"Game Freak"
-	},
-	{
-		rank:			7,
-		title:			"Super Mario Bros.",
-		sales:			40.24, 
-		platforms:		"NES",
-		releaseDate:	"September 13, 1985",
+		title:			"Wii Sports",
+		sales:			82.9, 
+		platforms:		"Wii",
+		releaseDate:	"2006",
 		developer:		"Nintendo"
 	},
 	{
+		rank:			6,
+		title:			"Mario Kart 8 / Deluxe",
+		sales:			80.46, 
+		platforms:		"Wii U / Switch",
+		releaseDate:	"2014",
+		developer:		"Nintendo"
+	},
+	{
+		rank:			7,
+		title:			"PlayerUnknown's Battlegrounds",
+		sales:			75, 
+		platforms:		"Multi-platform",
+		releaseDate:	"2017",
+		developer:		"Krafton"
+	},
+	{
 		rank:			8,
-		title:			"Mario Kart Wii",
-		sales:			37.14, 
-		platforms:		"Wii",
-		releaseDate:	"April 10, 2008",
-		developer:		"Nintendo EAD"
+		title:			"Terraria",
+		sales:			70, 
+		platforms:		"Multi-platform",
+		releaseDate:	"2011",
+		developer:		"Re-Logic / 505 Games"
+	},
+	{
+		rank:			9,
+		title:			"The Elder Scrolls V: Skyrim",
+		sales:			65, 
+		platforms:		"Multi-platform",
+		releaseDate:	"2011",
+		developer:		"Bethesda Softworks"
+	},
+		{
+		rank:			10,
+		title:			"The Witcher 3: Wild Hunt",
+		sales:			65, 
+		platforms:		"Multi-platform",
+		releaseDate:	"2015",
+		developer:		"CD Projekt"
 	},
 	
+	
 	// now add at least two more:
-	// Wii Sports Resort	 	<-- add to the end of videoGamesArr
-	// New Super Mario Bros.	<-- use .push() to add to videoGamesArr
+	// Super Mario Bros.	 	<-- add to the end of videoGamesArr
+	// Human: Fall Flat			<-- use .push() to add to videoGamesArr
 ];

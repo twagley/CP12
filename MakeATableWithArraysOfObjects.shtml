@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			Make a table with an array of objects
 		</title>
 		<meta 
@@ -22,8 +22,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -43,6 +42,7 @@
 		<!--
 			Change log:
 				5. December 2018	- created, forked off of MakeATable.shtml	- Drapak
+				Nov 13, 2026	- Small updates		- Wagley
 				
 		-->
 
@@ -62,7 +62,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
 		</header>
 				
 		<article>
@@ -83,9 +84,9 @@
 				<br>
 				
 				<li>
-					//PROCESS: <a href="http://drapak.ca/cpg/processUsingArraysOfObjectsToCreateATable.shtml">
+					//PROCESS: <a href="https://twagley.github.io/CP12/processUsingArraysOfObjectsToCreateATable.shtml">
 						Using arrays of objects to create a table
-					</a>
+					</a>  <em>New!</em>
 				</li>
 				
 				<br>
