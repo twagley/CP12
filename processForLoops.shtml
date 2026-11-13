@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 		
 		<title>
-			drapak.ca - Computer Programming: 
+			Wagley CP12: 
 			PROCESS - For loops</title>
 		<meta 
 			name="description" 
@@ -44,12 +44,13 @@
 				1. November		- created!
 				11. November 	- changed order of example code
 				28. November 2018	- updated creaky style 						- Drapak
+				Nov 13, 2026	- Small updates		- Wagley
 			-->
 
 
 		<style>
 		
-			,bottomLineClass {
+			bottomLineClass {
 				border-bottom: 1px solid black;
 			}
 		</style>
@@ -59,7 +60,8 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-			//PROCESS: <em><code>for</code> loops</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //PROCESS: <em><code>for</code> loops</em>
 		</header>
 		
 		<article>
@@ -627,7 +629,7 @@
 			</p>
 			
 			<p>
-				<button id="infiniteLoopButtonId">Click to trigger <code>mainInfiniteLoopProcedure()</code></button>
+				<button id="infiniteLoopButtonId">Click to trigger <code>mainInfiniteLoopProcedure()</code></button>  (Warning: Clicking this WILL break your browser)
 			</p>
 			
 			<pre><code><span class="sc2">//PROCESS: create the HTML code for a list from an array

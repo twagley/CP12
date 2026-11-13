@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1">
 
 		<title>
-			drapak.ca - Computer Programming: Make a rainbow
+			Wagley CP12: Make a rainbow
 		</title>
 		<meta 
 			name="description" 
@@ -19,8 +19,7 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		
@@ -41,6 +40,7 @@
 			Change log:
 				1. November 2015	- created!
 				28. November 2018 - updated style 								- Drapak
+				Nov 13, 2026	- Small updates		- Wagley
 				
 		-->
 
@@ -51,7 +51,8 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			//MAKE: 3.07 Skill-builder: <em>Make a rainbow</em>
+            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            //MAKE: 3.07 Skill-builder: <em>Make a rainbow</em>
 		</header>
 				
 		<article>
