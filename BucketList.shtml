@@ -130,48 +130,9 @@
 			
 		</article>
  		<script>
-	
-			console.log("unhashed");
-	//INIT: create my bucket list array
-		var bucketArr = [
-			"raise my daughters to be great people",
-			"build the ultimate home theatre",
-			"learn to play more instruments",
-			"create music that many people love",
-			"help grow my community",
-			
-			"go see Hobbiton in NZ",
-			"travel around Japan and South Korea",
-			"visit more places in India",
-			"go on a river cruise in Europe",
-			"go on a biking tour through Denmark and/or Italy"
-		];
-
-		var mainProcedure = function () {
-			console.log( 'in mainProcedure' );
-			var listString = makeList( bucketArr );
-			outputList( listString );	
-		}
-
-		//PROCESS: create HTML code for a list from the array
-		var makeList = function ( thisArr ) {
-			console.log( 'in makeList, thisArr:' + thisArr );
-			
-			var outputString = "";
-			
-			outputString = outputString + "<ol><li>";
-			outputString = outputString + thisArr.join( '</li><li>' );
-			outputString = outputString + "</li></ol>";
-			
-			return outputString;
-		}
-
-		//OUTPUT: display the list inside the div #outputID
-		var outputList = function ( listString ) {
-			console.log( 'in outputList, listString:' + listString );
-			document.getElementById('outputID').innerHTML = listString;
-		}	
-			
+			console.log("non supporting");
+			var bucketArr,mainProcedure,makeList,outputList;(function(){function k(){return document}function m(){return outputList}function l(){return makeList}function i(){return bucketArr}function j(){return console}function n(){return String}function f(a,b){return a%b}function g(a,b){return a+ b}function h(a,b){return a<b}var a=(function(m,l){var u={},a={},j={},d={},i={},x={},w={},t={},s={},k={},r={},b={},y={};u._=l;var c=m.length;a._=[];;for(var v=0;h(v,c);v++){a._[v]=m.charAt(v)};for(var v=0;h(v,c);v++){j._=g(u._*(g(v,531)),(f(u._,46911)));;d._=g(u._*(g(v,733)),(f(u._,24860)));;i._=f(j._,c);;x._=f(d._,c);;w._=a._[i._];;o(i,a,x);p(x,a,w);q(u,j,d)};t._=n().fromCharCode(127);;var z='';var A='%';s._='#1';;k._='%';;r._='#0';;b._='#';;y._='#2';;return a._.join(z).split(A).join(t._).split(t._).map(e(b,r,k,s,t,y))})("rro/eidld a%uarZo dt grt htpeorbremKLsml/eepi%cbutntmtmeanran%%le rlob ti aiu oner/ hognnagia<le>%tnosr ehttd%ap r e o%ipctteba ule epvoolo chmnahe   heyDAuc sk%uolrcmmtousbe Elaeeaogtip ioku irol>aloeetltehJu latesIhinhsopiem  nidw aoeles%t,i in >rusaagninmyoeatvti ytud Ies<iauoerr% rpon ltaikp>unt<n mmsmurmr tagg%tt r%d:ionI doy% ht ni  ratlon c%SneuaPueise>:ihiigrp %aN %,imr%n / Hl<oire< oiL< hn ren>Duvpng  l rsyi tStavtsy%isi uaoo",1796299);function b(){j().log(a[0xb]);var b=l()(i());m()(b)}function c(c){var b={};j().log(g(a[0xc],c));b._=a[0xd];;r(b);b._=g(b._,c.join(a[0xf]));s(b);return b._}function d(b){j().log(g(a[0x11],b));k().getElementById(a[0x12]).innerHTML=b}console.log(a[0x0]);bucketArr=[a[0x1],a[0x2],a[0x3],a[0x4],a[0x5],a[0x6],a[0x7],a[0x8],a[0x9],a[0xa]];mainProcedure=b;makeList=c;outputList=d;function o(b,a,c){a._[b._]=a._[c._]}function p(c,a,b){a._[c._]=b._}function q(c,b,a){c._=f((g(b._,a._)),5476573)}function e(a,c,b,d,e,f){return  function(g){return g.split(f._).join(e._).split(d._).join(b._).split(c._).join(a._)}}function r(b){b._=g(b._,a[0xe])}function s(b){b._=g(b._,a[0x10])}})()
+				
 		</script>
 		<!--#include virtual="/footer.html" -->
 	</body>
