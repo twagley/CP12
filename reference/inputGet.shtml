@@ -22,8 +22,7 @@
 			content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
@@ -188,7 +187,7 @@
             Finished:   
         --&gt;</span><span class="sc0">
         
-        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span><span class="sc1">&gt;</span><span class="sc40">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.1.0.js"</span><span class="sc1">&gt;</span><span class="sc40">
 </span><span class="sc41">        </span><span class="sc1">&lt;/script&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;style&gt;</span><span class="sc0">
             

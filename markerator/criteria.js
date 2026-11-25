@@ -1166,7 +1166,7 @@ const INIT_OBJ = {
 	jQueryLibrary: {
 		criteria:	"jQueryLib",
 		question: 	"Did you link to the JQuery library in your &lt;head>?",
-		example:	'<script src="https://code.jquery.com/jquery-4.0.0.js "></script>',
+		example:	'<script src="https://code.jquery.com/jquery-4.1.0.js"></script>',
 		reference:	REFERENCE_OBJ.initLibraries,
 		begin:		"jquery.min.js|jquery-4",
 	},

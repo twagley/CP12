@@ -22,7 +22,7 @@
 			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>		
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
@@ -73,7 +73,7 @@
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<p>
 				<span class="langstyle">jQuery //INIT:</span> 
-				<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js "&gt;&lt;/script&gt;</code><br>
+				<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.1.0.js"&gt;&lt;/script&gt;</code><br>
 				<span class="indent">&mdash; loads jQuery library</span><br>
 				<br>
 

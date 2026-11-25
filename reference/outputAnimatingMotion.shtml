@@ -21,8 +21,7 @@
 			content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
-		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>		
 		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
@@ -85,7 +84,7 @@
 			<p>
 				<span class="langstyle">jQuery //INIT:</span> 
 					<code>
-						&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;
+						&lt;script&nbsp;src="https://code.jquery.com/jquery-4.1.0.js"&gt;&lt;/script&gt;
 					</code><br>
 					<span class="indent">&mdash; loads jQuery library</span><br>
 					<br>
@@ -195,7 +194,7 @@
 
 		</span><span class="sc9">&lt;!-- the next line loads the jQuery library to simplify animation --&gt;</span><span class="sc0">
 		</span><span class="sc9">&lt;!-- it will load faster if it is at the top of your HTML page --&gt;</span><span class="sc0">
-		</span><span class="withborder"><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.0.0.js"</span><span class="sc1">&gt;&lt;/script&gt;</span></span><span class="sc0">
+		</span><span class="withborder"><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.1.0.js"</span><span class="sc1">&gt;&lt;/script&gt;</span></span><span class="sc0">
 
 		</span><span class="sc1">&lt;style&gt;</span><span class="sc0">
 			#animateId {
@@ -239,7 +238,7 @@
 			<ol>
 				<li>
 					Link to the jQuery library in the <code>&lt;head></code> of your page:<br>
-					<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.0.0.js"&gt;&lt;/script&gt;</code>
+					<code>&lt;script&nbsp;src="https://code.jquery.com/jquery-4.1.0.js"&gt;&lt;/script&gt;</code>
 				</li>
 				<li>
 					Give the element an Id:<br>

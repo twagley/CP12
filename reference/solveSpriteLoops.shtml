@@ -10,8 +10,7 @@
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
@@ -104,7 +103,7 @@
         </span><span class="sc1">&lt;title&gt;</span><span class="sc0">Image loops</span><span class="sc1">&lt;/title&gt;</span><span class="sc0">
         
         </span><span class="sc9">&lt;!-- load jQuery --&gt;</span><span class="sc0">
-        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;script</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://code.jquery.com/jquery-4.1.0.js"</span><span class="sc1">&gt;&lt;/script&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;script&gt;</span><span class="sc40">
 </span><span class="sc41">            </span><span class="sc43">// ghost OBJECT</span><span class="sc41">
             </span><span class="sc43">// ghost properties:</span><span class="sc41">

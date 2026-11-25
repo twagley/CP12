@@ -7,7 +7,7 @@
 		<meta name="author" content="Dave Drapak">
 
 		<!-- the next line loads the jQuery library to simplify animation -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
 		
 		<script>
 			// OUTPUT: animate the image's position
