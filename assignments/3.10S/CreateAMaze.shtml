@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -67,22 +67,22 @@
 			<ul>
 				<li>
 					//INIT: 
-					<a href="initTwoDimensionalArrays.shtml">Creating 
+					<a href="../../reference/initTwoDimensionalArrays.shtml">Creating 
 						two-dimensional arrays</a>
 				</li>
 				<br>
 				<li>
 					//PROCESS: 
-					<a href="processUsingTwoDimensionalArrays.shtml">Using 
+					<a href="../../reference/processUsingTwoDimensionalArrays.shtml">Using 
 						two-dimensional arrays and nested loops</a>
 				</li>
 				<br>
 				<li>
-					<a href="htmlImageResources.shtml">HTML Image Resources</a> 
+					<a href="../../reference/htmlImageResources.shtml">HTML Image Resources</a> 
 					<strong>for projects</strong>
 				</li>
 				<li>
-					<a href="supporting/TileDesigner-obs.html">A simple tile designer app</a> 
+					<a href="../../demos/TileDesigner-obs.html">A simple tile designer app</a> 
 					to save you time
 				</li>				
 				
@@ -127,7 +127,7 @@
 			<h2>Hints</h2>
 
 			<p>
-				Reread //PROCESS: <a href="processUsingTwoDimensionalArrays.shtml">Using two-dimensional arrays and nested loops</a>, 
+				Reread //PROCESS: <a href="../../reference/processUsingTwoDimensionalArrays.shtml">Using two-dimensional arrays and nested loops</a>, 
 				but create <code>&lt;img&gt;</code> codes instead of <code>&lt;div&gt;</code> codes.
 			</p>
 			

@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -64,7 +64,7 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../index.html"> MAIN  </a>
             //INIT: <em>Using objects</em>
 		</header>
 
@@ -207,7 +207,7 @@ console.log(
 			<!--
 			<p>
 				Take a look at the following code:<br>
-				<img src="img/QualitiesOfAProgrammerExample.png">
+				<img src="../assets/QualitiesOfAProgrammerExample.png">
 			</p>
 			
 						
@@ -387,7 +387,7 @@ console.log(
     </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 
-			<h2>Another example: <a href="objectsDemoElectionGraph.html">Creating an election graph</a></h2>
+			<h2>Another example: Creating an election graph</h2>
 		</article>		
 		<!--#include virtual="/footer.html" -->
 

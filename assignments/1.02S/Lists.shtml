@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -47,11 +47,11 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			<a href="index.html">Computer Programming 12</a>
+			<a href="../../index.html">Computer Programming 12</a>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -71,8 +71,8 @@
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//HTML: <a href="htmlLists.shtml">Lists</a><br />
-				//STYLE: <a href="styleChoosingAnEditor.shtml">Choosing an editor</a>			
+				//HTML: <a href="../../reference/htmlLists.shtml">Lists</a><br />
+				//STYLE: <a href="../../reference/styleChoosingAnEditor.shtml">Choosing an editor</a>			
 			</p>
 
 			<h2>Hidden Agenda</h2>

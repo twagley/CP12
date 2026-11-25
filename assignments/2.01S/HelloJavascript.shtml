@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -64,11 +64,11 @@
 				<ul>
 					<li>
 						//OUTPUT: 
-						<a href="outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>,
+						<a href="../../reference/outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>,
 						<code>.innerHTML</code>, and <code>console.log()</code></a>
 					</li>
 					<li>
-						//INPUT: <a href="inputButtons.shtml">Buttons</a>
+						//INPUT: <a href="../../reference/inputButtons.shtml">Buttons</a>
 					</li>
 				</ul>
 			</p>

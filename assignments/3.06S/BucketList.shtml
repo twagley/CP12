@@ -22,10 +22,10 @@
 			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="ttps://code.jquery.com/jquery-4.0.0.js "></script>
+		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -54,7 +54,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.06 Skill-builder: <em>Bucket list</em>
 		</header>
 				
@@ -62,11 +62,11 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+					//INIT: <a href="../../reference/initArrays.shtml">Creating arrays</a>
 				</li>
 				<br>
 				<li>
-					//PROCESS: <a href="processUsingArrays.shtml">Using arrays</a>
+					//PROCESS: <a href="../../reference/processUsingArrays.shtml">Using arrays</a>
 				</li>
 
 			</ul>
@@ -124,7 +124,7 @@
 				</li>
 				<li>
 					reread //PROCESS: 
-					<a href="processUsingArrays.shtml">Using arrays</a> for more info
+					<a href="../../reference/processUsingArrays.shtml">Using arrays</a> for more info
 				</li>
 			</ol>
 			

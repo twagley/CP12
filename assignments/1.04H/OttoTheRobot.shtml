@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -59,11 +59,11 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-			<a href="index.html">Computer Programming 12</a>
+			<a href="../../index.html">Computer Programming 12</a>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -83,16 +83,16 @@
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//HTML: <a href="htmlBasic.shtml">Basics</a><br>
-				//HTML: <a href="htmlLists.shtml">Lists</a><br>
-				//HTML: <a href="htmlTables.shtml">Tables</a><br>
-				//HTML: <a href="htmlTablesTwoKinds.shtml">Two kinds of tables</a><br >
+				//HTML: <a href="../../reference/htmlBasic.shtml">Basics</a><br>
+				//HTML: <a href="../../reference/htmlLists.shtml">Lists</a><br>
+				//HTML: <a href="../../reference/htmlTables.shtml">Tables</a><br>
+				//HTML: <a href="../../reference/htmlTablesTwoKinds.shtml">Two kinds of tables</a><br >
 				<br>
-				//INIT: <a href="initDatatypes.shtml">Datatypes</a><br>
+				//INIT: <a href="../../reference/initDatatypes.shtml">Datatypes</a><br>
 				<br>
-				//STYLE: <a href="styleTags.shtml">Capitalizing tags</a><br>
-				//STYLE: <a href="styleChoosingAnEditor.shtml">Choosing an editor</a><br>
-				//STYLE: <a href="styleTabs.shtml">Formatting code with tab indents</a>
+				//STYLE: <a href="../../reference/styleTags.shtml">Capitalizing tags</a><br>
+				//STYLE: <a href="../../reference/styleChoosingAnEditor.shtml">Choosing an editor</a><br>
+				//STYLE: <a href="../../reference/styleTabs.shtml">Formatting code with tab indents</a>
 			</p>
 
 			<h2>The role of Otto the Robot will now be played by...</h2>
@@ -263,7 +263,7 @@
 			<p>
 				<!--<a href="https://docs.google.com/document/d/11k3Iwk87OfTDrjYhOV8OjkYWczcR_h_rDE0-UQzOHWM/edit?usp=sharing" target="_blank">
 					Link to Google Docs template<br>-->
-					<img src="img/OttoTheRobot-template-screenshot.png" class="withborder">
+					<img src="../../assets/OttoTheRobot-template-screenshot.png" class="withborder">
 				</a>
 			</p>
 			

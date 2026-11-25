@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -80,7 +80,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
             </span><span class="sc43">// this happens BEFORE the animation</span><span class="sc41">
             </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-left.png'</span><span class="sc50">;</span><span class="sc41">
         </span><span class="sc50">},</span><span class="sc41">
         </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
             </span><span class="sc43">// this happens AFTER the animation</span><span class="sc41">
@@ -137,19 +137,19 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 				The result looks like this:
 			</p>
 			
-			<img id="imageId" src='http://drapak.ca/cpg/img/link-up.png' />	
+			<img id="imageId" src='../assets/link-up.png' />	
 
 <pre><code><span class="sc43">//OUTPUT: do all the source changes together, then all the animations together</span><span class="sc41">
 </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">doAllSourceChangesThenAnimations</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
     </span><span class="sc43">// make all the image source changes</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-down.png'</span><span class="sc50">;</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-right.png'</span><span class="sc50">;</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-up.png'</span><span class="sc50">;</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-left.png'</span><span class="sc50">;</span><span class="sc41">
 
     </span><span class="sc43">// animate all the movement</span><span class="sc41">
     $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">       
@@ -172,25 +172,25 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">changeSourceThenAnimateOneByOne</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
     </span><span class="sc43">// change image to face down and then animate down</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-down.png'</span><span class="sc50">;</span><span class="sc41">
         
     $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">     
     
     </span><span class="sc43">// change image to face right and then animate right</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-right.png'</span><span class="sc50">;</span><span class="sc41">
         
     $</span><span class="sc50">(</span><span class="sc49">'#imageId'</span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'+=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
     
     </span><span class="sc43">// change image to face up and then animate up</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-up.png'</span><span class="sc50">;</span><span class="sc41">
         
     $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">top</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
     
     </span><span class="sc43">// change image to face left and then animate left</span><span class="sc41">
     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-left.png'</span><span class="sc50">;</span><span class="sc41">
         
     $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">animate</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> </span><span class="sc46">left</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc49">'-=50px'</span><span class="sc41"> </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
     
@@ -233,7 +233,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc50">{</span><span class="sc41"> 
             </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-down.png'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-down.png'</span><span class="sc50">;</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41">
         </span><span class="sc50">}</span><span class="sc41"> 
     </span><span class="sc50">);</span><span class="sc41">      
@@ -246,7 +246,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc50">{</span><span class="sc41"> 
             </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-right.png'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-right.png'</span><span class="sc50">;</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41">
         </span><span class="sc50">}</span><span class="sc41">
     </span><span class="sc50">);</span><span class="sc41">
@@ -258,7 +258,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc50">},</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41"> 
             </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                     </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-up.png'</span><span class="sc50">;</span><span class="sc41">
+                        </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-up.png'</span><span class="sc50">;</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> 
         </span><span class="sc50">}</span><span class="sc41">
     </span><span class="sc50">);</span><span class="sc41">
@@ -271,7 +271,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc50">{</span><span class="sc41"> 
             </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-left.png'</span><span class="sc50">;</span><span class="sc41">
             </span><span class="sc50">},</span><span class="sc41">
             </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc46">alert</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"All done!"</span><span class="sc41"> </span><span class="sc50">);</span><span class="sc41">
@@ -299,7 +299,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
         </span><span class="sc46">start</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
             </span><span class="sc43">// this happens BEFORE the animation</span><span class="sc41">
             </span><span class="sc46">document.querySelector</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49">'#imageId'</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41"> 
-                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/link-left.png'</span><span class="sc50">;</span><span class="sc41">
+                </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/link-left.png'</span><span class="sc50">;</span><span class="sc41">
         </span><span class="sc50">},</span><span class="sc41">
         </span><span class="sc46">complete</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc47">function</span><span class="sc41"> </span><span class="sc50">()</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
             </span><span class="sc43">// this happens AFTER the animation</span><span class="sc41">
@@ -354,13 +354,13 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 			var doAllSourceChangesThenAnimations = function () {
 				// make all the image source changes
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-down.png';
+					= '../assets/link-down.png';
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-right.png';
+					= '../assets/link-right.png';
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-up.png';
+					= '../assets/link-up.png';
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-left.png';
+					= '../assets/link-left.png';
 
 				// animate all the movement
 				$( '#imageId' ).animate( { top: '+=50px' } );		
@@ -374,25 +374,25 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 			var changeSourceThenAnimateOneByOne = function () {
 				// change image to face down and then animate down
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-down.png';
+					= '../assets/link-down.png';
 					
 				$('#imageId').animate( { top: '+=50px' } );		
 				
 				// change image to face right and then animate right
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-right.png';
+					= '../assets/link-right.png';
 					
 				$('#imageId').animate( { left: '+=50px' } );
 				
 				// change image to face up and then animate up
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-up.png';
+					= '../assets/link-up.png';
 					
 				$( '#imageId' ).animate( { top: '-=50px' } );
 				
 				// change image to face left and then animate left
 				document.querySelector( '#imageId' ).src 
-					= 'http://drapak.ca/cpg/img/link-left.png';
+					= '../assets/link-left.png';
 					
 				$( '#imageId' ).animate( { left: '-=50px' } );
 				
@@ -413,7 +413,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 					{ 
 						start:	function () {
 									document.querySelector( '#imageId' ).src 
-										= 'http://drapak.ca/cpg/img/link-down.png';
+										= '../assets/link-down.png';
 								}
 					} 
 				);		
@@ -426,7 +426,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 					{ 
 						start: 	function () {
 									document.querySelector( '#imageId' ).src 
-										= 'http://drapak.ca/cpg/img/link-right.png';
+										= '../assets/link-right.png';
 								}
 					}
 				);
@@ -438,7 +438,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 					}, { 
 						start:	function () {
 										document.querySelector( '#imageId' ).src 
-											= 'http://drapak.ca/cpg/img/link-up.png';
+											= '../assets/link-up.png';
 								} 
 					}
 				);
@@ -451,7 +451,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 					{ 
 						start:	function () {
 									document.querySelector( '#imageId' ).src 
-										= 'http://drapak.ca/cpg/img/link-left.png';
+										= '../assets/link-left.png';
 								},
 						complete: function () {
 									alert( "All done!" );
@@ -474,7 +474,7 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 						start:	function () {
 									// this happens BEFORE the animation
 									document.querySelector( '#imageId' ).src 
-										= 'http://drapak.ca/cpg/img/link-left.png';
+										= '../assets/link-left.png';
 								},
 						complete: function () {
 									// this happens AFTER the animation

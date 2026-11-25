@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -122,7 +122,7 @@
 				<li>a dating sim</li>
 				<li>Conway's game of life</li>
 				<br />
-				<li><a href="examples/SieveExample.html">Sieve of Eratosthenes</a></li>
+				<li><a href="../examples/SieveExample.html">Sieve of Eratosthenes</a></li>
 				<li><a href="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-map-of-cities-of-the-world/5512987497070592">A map creator</a></li>	
 			</ul>
 			

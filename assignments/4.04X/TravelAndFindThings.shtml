@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -79,7 +79,7 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					<a href="outputAnimationCallbacks.shtml">//OUTPUT: Animation callbacks</a>
+					<a href="../../reference/outputAnimationCallbacks.shtml">//OUTPUT: Animation callbacks</a>
 				</li>
 			</ul>
 		
@@ -121,7 +121,7 @@
 				<button onclick="mainProcedure();">Click to create the playing field!</button><br />		
 			</p>
 			 <audio id="audioBeepID">
-				<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+				<source src="../../assets/beep.mp3" type="audio/mpeg">
 			</audio>
 
 			<h2>Make it your own!</h2>
@@ -216,7 +216,7 @@
 				</dd>				
 			</dl>
 			
-			<h2>Evaluation &mdash; [<a href="TravelAndFindThings.pdf">pdf</a>] [<a href="TravelAndFindThings.pub">pub</a>]</h2>
+			<h2>Evaluation &mdash; [<a href="TravelAndFindThings.pdf">pdf</a>]</h2>
 			<ul>
 				<li>
 					<strong>___/10 INIT:</strong> including

@@ -39,7 +39,7 @@
 	<body>
 		<img 
 			id="backgroundId" 
-			src="http://drapak.ca/cpg/img/Halifax-Waterfront_at_night.jpg"> 
+			src="../assets/Halifax-Waterfront_at_night.jpg"> 
 			
 		<p>
 			Halifax waterfront image is from: 
@@ -49,17 +49,17 @@
 		<img 
 			id="firework1Id"
 			class="fireworkClass"
-			src="http://drapak.ca/cpg/img/fireworks-blue.png"> 
+			src="../assets/fireworks-blue.png"> 
 	
 		<img 
 			id="firework2Id"
 			class="fireworkClass"
-			src="http://drapak.ca/cpg/img/fireworks-red.png"> 
+			src="../assets/fireworks-red.png"> 
 	
 		<img 
 			id="firework3Id"
 			class="fireworkClass"
-			src="http://drapak.ca/cpg/img/fireworks-purple.png"> 
+			src="../assets/fireworks-purple.png"> 
 	
  		<script>
 			//OUTPUT: animate the firework exploding, then fading

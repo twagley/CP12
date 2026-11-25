@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -68,47 +68,47 @@
 			<p>
 				<ul>
 					<li>
-						//CSS: <a href="cssTextFormatting.shtml">Text formatting</a>
+						//CSS: <a href="../../reference/cssTextFormatting.shtml">Text formatting</a>
 					</li>
 					<li>
-						//CSS: <a href="cssUsingIDs.shtml">Applying styles using IDs</a>
+						//CSS: <a href="../../reference/cssUsingIDs.shtml">Applying styles using IDs</a>
 					</li>
 					<li>
-						//CSS: <a href="cssPositioning.shtml">Positioning</a>
+						//CSS: <a href="../../reference/cssPositioning.shtml">Positioning</a>
 					</li>
 					<li>
-						//CSS: <a href="cssAnimation.shtml">Animation</a>
+						//CSS: <a href="../../reference/cssAnimation.shtml">Animation</a>
 					</li>
 					<li>
-						//CSS: <a href="cssColor.shtml">Color</a> <em>*New!</em>
+						//CSS: <a href="../../reference/cssColor.shtml">Color</a> <em>*New!</em>
 					</li>
 					<li>
 						//CSS: 
-						<a href="cssSelectors.shtml">Selectors: tags, IDs, and classes</a> <em>*New!</em>
+						<a href="../../reference/cssSelectors.shtml">Selectors: tags, IDs, and classes</a> <em>*New!</em>
 					</li>
 					<li>
-						//CSS: <a href="cssStyleContainers.shtml">Style containers: 
+						//CSS: <a href="../../reference/cssStyleContainers.shtml">Style containers: 
 						<code>&lt;div></code> and <code>&lt;span></code></a> <em>*New!</em>
 					</li>
 					<br>
 					<li>
-						//STYLE: <a href="styleTags.shtml">Capitalizing HTML tags</a>
+						//STYLE: <a href="../../reference/styleTags.shtml">Capitalizing HTML tags</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleTabs.shtml">Formatting code with tab indents</a>
+						<a href="../../reference/styleTabs.shtml">Formatting code with tab indents</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleComments.shtml">Use comments to communicate</a>
+						<a href="../../reference/styleComments.shtml">Use comments to communicate</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleAvoidLongLines.shtml">Avoid long lines of code</a>
+						<a href="../../reference/styleAvoidLongLines.shtml">Avoid long lines of code</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleKeepCSSInTheHead.shtml">Keep your CSS inside your 
+						<a href="../../reference/styleKeepCSSInTheHead.shtml">Keep your CSS inside your 
 						<code>&lt;head></code></a> <em>*New!</em>
 					</li>
 					
@@ -179,20 +179,20 @@
 							Keep the change log updated
 						</li>
 						<li>
-							<a href="styleTags.shtml">Capitalizing HTML tags</a>
+							<a href="../../reference/styleTags.shtml">Capitalizing HTML tags</a>
 						</li>
 						<li>
 							<strong>x3</strong>
-							<a href="styleTabs.shtml">Formatting code with tab indents</a>
+							<a href="../../reference/styleTabs.shtml">Formatting code with tab indents</a>
 						</li>
 						<li>
-							<a href="styleComments.shtml">Use comments to communicate</a>
+							<a href="../../reference/styleComments.shtml">Use comments to communicate</a>
 						</li>
 						<li>
-							<a href="styleAvoidLongLines.shtml">Avoid long lines of code</a>
+							<a href="../../reference/styleAvoidLongLines.shtml">Avoid long lines of code</a>
 						</li>
 						<li>
-							<a href="styleKeepCSSInTheHead.shtml">
+							<a href="../../reference/styleKeepCSSInTheHead.shtml">
 								Keep your CSS inside your <code>&lt;head></code>
 							</a>
 						</li>
@@ -229,9 +229,9 @@
 			<h2>References and Image bank</h2>
 			<p>
 				All images here will begin with
-				<code>http://twagley.github.io/CP12/img/</code><br>
+				<code>https://twagley.github.io/CP12/assets</code><br>
 				For example: 
-				<code>&lt;img src="http://twagley.github.io/CP12/img/gameBoard-goBoard.svg"></code>
+				<code>&lt;img src="https://twagley.github.io/CP12/assets/gameBoard-goBoard.svg"></code>
 			</p>
 			
 			<h3>Chess</h3>
@@ -244,16 +244,16 @@
 			<h3>Go</h3>
 			<div class="floatbox">
 				<figure>
-					<img src="img/gameBoard-goBoard.svg">
+					<img src="../../assets/gameBoard-goBoard.svg">
 					<caption><code>gameBoard-goBoard.svg</code></caption>
 				</figure>
 
 				<figure>
-					<img src="img/gameBoard-Go-black.png">
+					<img src="../../assets/gameBoard-Go-black.png">
 					<caption><code>gameBoard-Go-black.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Go-white.png">
+					<img src="../../assets/gameBoard-Go-white.png">
 					<caption><code>gameBoard-Go-white.png</code></caption>
 				</figure>
 			</div>
@@ -261,23 +261,23 @@
 			<h3>Parcheesi</h3>
 			<div class="floatbox">
 				<figure>
-					<img src="img/gameBoard-parcheesi.png">
+					<img src="../../assets/gameBoard-parcheesi.png">
 					<caption><code>gameBoard-parcheesi.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Parcheesi-blue.svg">
+					<img src="../../assets/gameBoard-Parcheesi-blue.svg">
 					<caption><code>gameBoard-Parcheesi-blue.svg</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Parcheesi-green.svg">
+					<img src="../../assets/gameBoard-Parcheesi-green.svg">
 					<caption><code>gameBoard-Parcheesi-green.svg</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Parcheesi-red.svg">
+					<img src="../../assets/gameBoard-Parcheesi-red.svg">
 					<caption><code>gameBoard-Parcheesi-red.svg</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Parcheesi-yellow.svg">
+					<img src="../../assets/gameBoard-Parcheesi-yellow.svg">
 					<caption><code>gameBoard-Parcheesi-yellow.svg</code></caption>
 				</figure>
 			</div>
@@ -287,79 +287,79 @@
 			</h3>
 			<div class="floatbox">
 				<figure>
-					<img src="img/gameBoard-Monopoly-board.jpg">
+					<img src="../../assets/gameBoard-Monopoly-board.jpg">
 					<caption><code>gameBoard-Monopoly-board.jpg</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-1Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-1Dollar.png">
 					<caption><code>gameBoard-Monopoly-1Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-5Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-5Dollar.png">
 					<caption><code>gameBoard-Monopoly-5Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-10Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-10Dollar.png">
 					<caption><code>gameBoard-Monopoly-10Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-20Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-20Dollar.png">
 					<caption><code>gameBoard-Monopoly-20Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-50Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-50Dollar.png">
 					<caption><code>gameBoard-Monopoly-50Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-100Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-100Dollar.png">
 					<caption><code>gameBoard-Monopoly-100Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-500Dollar.png">
+					<img src="../../assets/gameBoard-Monopoly-500Dollar.png">
 					<caption><code>gameBoard-Monopoly-500Dollar.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-boot.png">
+					<img src="../../assets/gameBoard-Monopoly-boot.png">
 					<caption><code>gameBoard-Monopoly-boot.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-car.png">
+					<img src="../../assets/gameBoard-Monopoly-car.png">
 					<caption><code>gameBoard-Monopoly-car.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-cat.png">
+					<img src="../../assets/gameBoard-Monopoly-cat.png">
 					<caption><code>gameBoard-Monopoly-cat.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-die.png">
+					<img src="../../assets/gameBoard-Monopoly-die.png">
 					<caption><code>gameBoard-Monopoly-die.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-hat.png">
+					<img src="../../assets/gameBoard-Monopoly-hat.png">
 					<caption><code>gameBoard-Monopoly-hat.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-hotel.png">
+					<img src="../../assets/gameBoard-Monopoly-hotel.png">
 					<caption><code>gameBoard-Monopoly-hotel.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-house.png">
+					<img src="../../assets/gameBoard-Monopoly-house.png">
 					<caption><code>gameBoard-Monopoly-house.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-iron.png">
+					<img src="../../assets/gameBoard-Monopoly-iron.png">
 					<caption><code>gameBoard-Monopoly-iron.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-ship.png">
+					<img src="../../assets/gameBoard-Monopoly-ship.png">
 					<caption><code>gameBoard-Monopoly-ship.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-thimble.png">
+					<img src="../../assets/gameBoard-Monopoly-thimble.png">
 					<caption><code>gameBoard-Monopoly-thimble.png</code></caption>
 				</figure>
 				<figure>
-					<img src="img/gameBoard-Monopoly-wheelbarrow.png">
+					<img src="../../assets/gameBoard-Monopoly-wheelbarrow.png">
 					<caption><code>gameBoard-Monopoly-wheelbarrow.png</code></caption>
 				</figure>
 			</div>

@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -66,8 +66,8 @@
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//CSS: <a href="cssUsingIDs.shtml">Applying styles using IDs</a><br />
-				//CSS: <a href="cssPositioning.shtml">Positioning</a><br />
+				//CSS: <a href="../../reference/cssUsingIDs.shtml">Applying styles using IDs</a><br />
+				//CSS: <a href="../../reference/cssPositioning.shtml">Positioning</a><br />
 			</p>
 
 			<h2>Hidden Agenda</h2>
@@ -241,7 +241,7 @@
 			<p>Link to them and add them to your palette of building blocks!</p>
 			<p>
 				You can find other linkable images 
-				<a href="http://twagley.github.io/CP12/htmlImageResources.shtml">here</a>
+				<a href="../../reference/htmlImageResources.shtml">here</a>
 			</p>
 			
 		</article>

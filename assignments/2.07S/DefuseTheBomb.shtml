@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -63,11 +63,11 @@
 			<ul>
 				<li>
 					//PROCESS: 
-					<a href="processIfElseConditionals.shtml"><code>if...else</code> conditionals</a>
+					<a href="../../reference/processIfElseConditionals.shtml"><code>if...else</code> conditionals</a>
 				</li>
 				<li>
 					//OUTPUT: 
-					<a href="outputChangeAnImage.shtml">Changing an image</a>
+					<a href="../../reference/outputChangeAnImage.shtml">Changing an image</a>
 				</li>
 			</ul>
 
@@ -87,7 +87,7 @@
 
 			<h2>For example</h2>
 
-			<img id="bombImageID" src="http://twagley.github.io/CP12/img/nicePictureOfABomb.png">
+			<img id="bombImageID" src="../../assets/nicePictureOfABomb.png">
 			
 			<p id="instructionsID"><strong>Oh my gosh! You have to defuse the bomb!</strong></p>
 			
@@ -113,7 +113,7 @@
     </span><span class="sc1">&lt;img</span><span class="sc8"> 
         </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bombImageId"</span><span class="sc8"> 
         </span><span class="sc3">alt</span><span class="sc8">=</span><span class="sc6">"Oh noes! A bob-omb!"</span><span class="sc8">
-        </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://twagley.github.io/CP12/img/nicePictureOfABomb.png"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://twagley.github.io/CP12/assets/nicePictureOfABomb.png"</span><span class="sc1">&gt;</span><span class="sc0">
     
     </span><span class="sc1">&lt;p</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"instructionsId"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;strong&gt;</span><span class="sc0">Oh my gosh! You have to defuse the bomb!</span><span class="sc1">&lt;/strong&gt;</span><span class="sc0">
@@ -138,19 +138,19 @@
             </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">1</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                   
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of defused bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/defusedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/defusedBomb.png"</span><span class="sc50">;</span><span class="sc41">
             
             </span><span class="sc43">//IF: wire number two was chosen, the exploding wire </span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of exploded bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/explodedBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/explodedBomb.png"</span><span class="sc50">;</span><span class="sc41">
 
             </span><span class="sc43">//IF: wire number three OR four was chosen, then do nothing</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc47">else</span><span class="sc41"> </span><span class="sc47">if</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">||</span><span class="sc41"> </span><span class="sc50">(</span><span class="sc41"> </span><span class="sc46">wireNum</span><span class="sc41"> </span><span class="sc50">==</span><span class="sc41"> </span><span class="sc45">4</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">)</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">    </span><span class="sc43">// NOTE: "||" means "or"</span><span class="sc41">
                 </span><span class="sc43">//OUTPUT: replace #bombImageId with image of still ticking bomb</span><span class="sc41">
                 </span><span class="sc46">document.getElementById</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc48">"bombImageId"</span><span class="sc41"> </span><span class="sc50">).</span><span class="sc46">src</span><span class="sc41">    
-                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"http://twagley.github.io/CP12/img/stillActiveBomb.png"</span><span class="sc50">;</span><span class="sc41">
+                    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/stillActiveBomb.png"</span><span class="sc50">;</span><span class="sc41">
             
             </span><span class="sc43">//ELSE: no valid wire is chosen</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41"> </span><span class="sc50">????????</span><span class="sc41"> </span><span class="sc50">{</span><span class="sc41">                                </span><span class="sc43">// </span><span class="sc41">

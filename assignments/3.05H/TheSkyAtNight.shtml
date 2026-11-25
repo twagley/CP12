@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -67,7 +67,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.05 Hand-in: <em>The sky at night</em>
 		</header>
 				
@@ -75,27 +75,27 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initObjects.shtml">Using objects</a>
+					//INIT: <a href="../../reference/initObjects.shtml">Using objects</a>
 				</li>
 				<br />
 				<li>
 					//PROCESS: 
-					<a href="processStringAddition.shtml">String addition</a>
+					<a href="../../reference/processStringAddition.shtml">String addition</a>
 				</li>
 				<li>
 					//PROCESS: 
-					<a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+					<a href="../../reference/processTimeoutAndIntervals.shtml">Timeout and intervals</a>
 				</li>
 				<li>
 					//PROCESS: 
-					<a href="processFunctionDefinitionsCallsReferences.shtml">
+					<a href="../../reference/processFunctionDefinitionsCallsReferences.shtml">
 						Functions: Definition, trigger, or reference?
 					</a>
 				</li>
 				<br />
 				<li>
 					//OUTPUT: 
-					<a href="outputAnimatingCSSProperties.shtml">
+					<a href="../../reference/outputAnimatingCSSProperties.shtml">
 						Animating other CSS properties
 					</a>
 				</li>
@@ -141,7 +141,7 @@
 			
 			<h2>
 				Evaluation
-				<!--&mdash; [<a href="TheSkyAtNight.pdf">pdf</a>] [<a href="TheSkyAtNight.pub">pub</a>]-->
+				<!--&mdash; [<a href="TheSkyAtNight.pdf">pdf</a>]-->
 			</h2>
 			<ul>
 				<li>

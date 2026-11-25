@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -66,8 +66,8 @@
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//CSS: <a href="cssAnimation.shtml">Animation</a><br>
-				//STYLE: <a href="styleAvoidLongLines.shtml">Avoid long lines</a><br>
+				//CSS: <a href="../../reference/cssAnimation.shtml">Animation</a><br>
+				//STYLE: <a href="../../reference/styleAvoidLongLines.shtml">Avoid long lines</a><br>
 			</p>
 
 			<h2>Hidden Agenda</h2>
@@ -101,16 +101,16 @@
 			
 			<ul>			
 				<li>
-					<img src="http://twagley.github.io/CP12/img/marioMap.png">
-					<code>&lt;img src="http://twagley.github.io/CP12/img/marioMap.png"></code>
+					<img src="../../assets/marioMap.png">
+					<code>&lt;img src="https://twagley.github.io/CP12/assets/marioMap.png"></code>
 				</li>
 				<li>
-					<img src="http://twagley.github.io/CP12/img/marioGoodGuy.png">
-					<code>&lt;img src="http://twagley.github.io/CP12/img/marioGoodGuy.png"></code>
+					<img src="../../assets/marioGoodGuy.png">
+					<code>&lt;img src="https://twagley.github.io/CP12/assets/marioGoodGuy.png"></code>
 				</li>
 				<li>
-					<img src="http://twagley.github.io/CP12/img/marioBadGuy.png">
-					<code>&lt;img src="http://twagley.github.io/CP12/img/marioBadGuy.png"></code>
+					<img src="../../assets/marioBadGuy.png">
+					<code>&lt;img src="https://twagley.github.io/CP12/assets/marioBadGuy.png"></code>
 				</li>
 			</ul>
 			

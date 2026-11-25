@@ -119,7 +119,7 @@
     <body onload="flappy.initialize('flappyID');">
         <img 
             id="backgroundID"
-            src="http://drapak.ca/cpg/img/SuperMarioWorld.png" />
+            src="../assets/SuperMarioWorld.png" />
         <p>
 			<button id="buttonID" onclick="mainProcedure();">
 				Press to start playing flappy tree!

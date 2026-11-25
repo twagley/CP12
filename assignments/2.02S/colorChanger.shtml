@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -68,14 +68,14 @@
 				<ul>
 					<li>
 						//OUTPUT: 
-						<a href="outputChangeTextStyles.shtml">Changing text styles</a>
+						<a href="../../reference/outputChangeTextStyles.shtml">Changing text styles</a>
 					</li>
 					<li>
-						//INPUT: <a href="inputText.shtml">Text</a>
+						//INPUT: <a href="../../reference/inputText.shtml">Text</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleXAndVWherePossible.shtml">Use cut and 
+						<a href="../../reference/styleXAndVWherePossible.shtml">Use cut and 
 						paste where possible</a>
 					</li>
 

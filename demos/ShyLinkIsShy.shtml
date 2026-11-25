@@ -48,7 +48,7 @@
 			//OUTPUT: animate up the given distance
 			var goUp  = function ( distance ) {
 				console.log('in goUp... distance:' + distance );
-				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-up.png";
+				document.getElementById('imageID').src	= "../assets/link-up.png";
 				$('#imageID').animate(
 					{top: 		"-=" + distance + "px"}, 
 					{duration:	ANIMATION_DURATION}
@@ -58,7 +58,7 @@
 			//OUTPUT: animate down the given distance
 			var goDown = function ( distance ) {
 				console.log('in goDown... distance:' + distance );
-				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-down.png";
+				document.getElementById('imageID').src	= "../assets/link-down.png";
 				$('#imageID').animate(
 					{top: 		"+=" + distance + "px"}, 
 					{duration:	ANIMATION_DURATION}
@@ -68,7 +68,7 @@
 			//OUTPUT: animate left the given distance
 			var goLeft = function ( distance ) {
 				console.log('in goLeft... distance:' + distance );
-				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-left.png";
+				document.getElementById('imageID').src	= "../assets/link-left.png";
 				$('#imageID').animate(
 					{left: 		"-=" + distance + "px"}, 
 					{duration:	ANIMATION_DURATION}
@@ -78,7 +78,7 @@
 			//OUTPUT: animate right the given distance
 			var goRight = function ( distance ) {
 				console.log('in goRight... distance:' + distance );
-				document.getElementById('imageID').src	= "http://drapak.ca/cpg/img/link-right.png";
+				document.getElementById('imageID').src	= "../assets/link-right.png";
 				$('#imageID').animate(
 					{left: 		"+=" + distance + "px"}, 
 					{duration:	ANIMATION_DURATION}
@@ -113,7 +113,7 @@
 				id="imageID"
 				onmouseover="mainProcedure( event )"
 				onclick="sayMessage();"
-				src="http://drapak.ca/cpg/img/link-down.png" />
+				src="../assets/link-down.png" />
 			<button onclick="stopThisFoolishness()">Stop the mouseover</button>
 		</h2>
 	</body>

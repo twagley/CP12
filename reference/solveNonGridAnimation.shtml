@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -110,10 +110,10 @@
 
 			<p>
 				<strong>Click inside the window</strong> and use the keys to start flying! 
-				Or <a href="supporting/solveNonGridAnimation.html">open in it's own browser window</a>
+				Or <a href="../demos/solveNonGridAnimation.html">open in it's own browser window</a>
 			</p>
 			<p>
-				<iframe src="supporting/solveNonGridAnimation.html"></iframe>
+				<iframe src="../demos/solveNonGridAnimation.html"></iframe>
 			</p>
 		
 			<h2>Learn more</h2>

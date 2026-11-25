@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -65,8 +65,8 @@
 
 			<h2>Resources</h2>
 			<p>
-				//CSS: <a href="cssTextFormatting.shtml">Text formatting</a><br />
-				//STYLE: <a href="styleComments.shtml">Use comments to communicate</a>
+				//CSS: <a href="../../reference/cssTextFormatting.shtml">Text formatting</a><br />
+				//STYLE: <a href="../../reference/styleComments.shtml">Use comments to communicate</a>
 			</p>
 
 			<h2>Hidden Agenda</h2>

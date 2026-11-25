@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -93,7 +93,7 @@
 			<hr />
 
 			<p>
-				<iframe src="supporting/solveSpriteLoops.html"></iframe>
+				<iframe src="../demos/solveSpriteLoops.html"></iframe>
 			</p>
 		
 			<h2>Source code</h2>
@@ -134,27 +134,27 @@
                 </span><span class="sc46">duration</span><span class="sc50">:</span><span class="sc41">       </span><span class="sc45">1000</span><span class="sc50">,</span><span class="sc41">           </span><span class="sc43">// the amount of time to move with each animation</span><span class="sc41">
                 
                 </span><span class="sc46 withborder">lookDownArr</span><span class="sc50">:</span><span class="sc41">    </span><span class="sc50">[</span><span class="sc41">               </span><span class="sc43">// sprite links for looking down</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash1.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanGhostFlash3.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanGhostFlash0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanGhostFlash1.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanGhostFlash2.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanGhostFlash3.png"</span><span class="sc50">,</span><span class="sc41">
                 </span><span class="sc50">],</span><span class="sc41">
                 
                 </span><span class="sc46 withborder">lookUpArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                    </span><span class="sc43">// sprite links looking up</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp1.png"</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyUp1.png"</span><span class="sc41">
                 </span><span class="sc50">],</span><span class="sc41">
                 
                 </span><span class="sc46 withborder">lookLeftArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                  </span><span class="sc43">// sprite links looking left</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyLeft1.png"</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanPinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanPinkyLeft1.png"</span><span class="sc41">
                 </span><span class="sc50">],</span><span class="sc41">
                 
                 </span><span class="sc46 withborder">lookRightArr</span><span class="sc50">:</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">                 </span><span class="sc43">// sprite links looking right</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight2.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanMoveRight2.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanMoveRight0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanMoveRight1.png"</span><span class="sc50">,</span><span class="sc41">
                 </span><span class="sc50">],</span><span class="sc41">
                 
                 </span><span class="sc46">currentSpritesArr</span><span class="sc50">:</span><span class="sc41">  </span><span class="sc46">null</span><span class="sc50">,</span><span class="sc41">       </span><span class="sc43">// the current sprite array being used</span><span class="sc41">
@@ -273,7 +273,7 @@
     </span><span class="sc1">&lt;body</span><span class="sc8"> </span><span class="sc3">onload</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;img</span><span class="sc8"> 
             </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"animateID"</span><span class="sc8">
-            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
+            </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyUp0.png"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;p&gt;</span><span class="sc0">
             </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">onclick</span><span class="sc8">=</span><span class="sc6">"mainProcedure();"</span><span class="sc1">&gt;</span><span class="sc0">One more time!</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;/p&gt;</span><span class="sc0">

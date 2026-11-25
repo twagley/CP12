@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -55,7 +55,7 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN      </a>
+            <a href="../index.html"> MAIN      </a>
             //  	PROCESS: <em>Timeout and intervals</em>
 		</header>
 		

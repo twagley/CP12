@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -54,7 +54,7 @@
 		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../index.html"> MAIN  </a>
             //PROCESS: <em>Using arrays</em>
 		</header>
 		

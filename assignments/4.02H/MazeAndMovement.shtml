@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -82,26 +82,26 @@
 			<ul>
 				<li>
 					//INIT: 
-					<a href="initTwoDimensionalArrays.shtml">
+					<a href="../../reference/initTwoDimensionalArrays.shtml">
 						Creating two-dimensional arrays
 					</a>
 				</li>
 				<li>
 					//INIT: 
-					<a href="initObjectsWithMethods.shtml">
+					<a href="../../reference/initObjectsWithMethods.shtml">
 						Creating objects with methods
 					</a>
 				</li>
 				<br>
 				<li>
 					//PROCESS: 
-					<a href="processUsingTwoDimensionalArrays.shtml">
+					<a href="../../reference/processUsingTwoDimensionalArrays.shtml">
 						Using two-dimensional arrays and nested loops
 					</a>
 				</li>
 				<br>
 				<li>
-					<a href="htmlImageResources.shtml">HTML image resources</a> 
+					<a href="../../reference/htmlImageResources.shtml">HTML image resources</a> 
 				</li>
 			</ul>
 		
@@ -154,7 +154,7 @@
 			
 			<h2>
 				Evaluation &mdash; check your project on the 
-				<a href="http://citadelcreates.drapak.ca/cpg/markerator.html">Markerator</a>
+				<a href="../../markerator/markerator.html">Markerator</a>
 			</h2>
 			<ul>
 				<li>

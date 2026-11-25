@@ -46,7 +46,7 @@
 			</tbody>
 		</table>
 		
-		<img id="imageID" src="http://drapak.ca/cpg/img/link-down.png" />
+		<img id="imageID" src="../assets/link-down.png" />
 
 		<script>
 			var distance	= 15;	
@@ -66,7 +66,7 @@
 					
 					//OUTPUT: change the link image to the one that faces right...
 					document.getElementById('same_as_the_picture_of_link_ID').src 
-						= "http://drapak.ca/cpg/img/link-right.png";
+						= "../assets/link-right.png";
 			}
 			
 			//this reads the keypress and decides what to do for each keypress

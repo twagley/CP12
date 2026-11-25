@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -69,13 +69,13 @@
 			<p>
 				Create an audio player with visible controls:
 				<pre><code>&lt;audio controls>
-  &lt;source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+  &lt;source src="https://twagley.github.io/CP12/assets/beep.mp3" type="audio/mpeg">
 &lt;/audio></code></pre>
 			</p>
 			<p>
 				Create an audio player with invisible controls:
 				<pre><code>&lt;audio id="audioBeepID">
-  &lt;source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+  &lt;source src="https://twagley.github.io/CP12/assets/beep.mp3" type="audio/mpeg">
 &lt;/audio></code></pre></p>
 
 			<span class="langstyle">js //OUTPUT:</span>
@@ -106,13 +106,13 @@
 			<h4>Show me audio with controls!</h4>
 			<p>
 				<audio controls>
-					<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+					<source src="../assets/beep.mp3" type="audio/mpeg">
 				</audio>			
 			</p>
 			
 			<h4>Show me audio with no controls!</h4>
 			<audio id="audioBeepID">
-				<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+				<source src="../assets/beep.mp3" type="audio/mpeg">
 			</audio>
 			
 			<h4>Trigger audio using javascript code!</h4>
@@ -138,12 +138,12 @@
     </span><span class="sc1">&lt;body&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Show me audio with controls!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;audio</span><span class="sc8"> </span><span class="sc4">controls</span><span class="sc1">&gt;</span><span class="sc0">
-            </span><span class="sc1">&lt;source</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/beep.mp3"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"audio/mpeg"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;source</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://twagley.github.io/CP12/assets/beep.mp3"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"audio/mpeg"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;/audio&gt;</span><span class="sc0">
 
         </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Show me audio with no controls!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;audio</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"audioID"</span><span class="sc1">&gt;</span><span class="sc0">
-            </span><span class="sc1">&lt;source</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"http://drapak.ca/cpg/beep.mp3"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"audio/mpeg"</span><span class="sc1">&gt;</span><span class="sc0">
+            </span><span class="sc1">&lt;source</span><span class="sc8"> </span><span class="sc3">src</span><span class="sc8">=</span><span class="sc6">"https://twagley.github.io/CP12/assets/beep.mp3"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"audio/mpeg"</span><span class="sc1">&gt;</span><span class="sc0">
         </span><span class="sc1">&lt;/audio&gt;</span><span class="sc0">
         
         </span><span class="sc1">&lt;h4&gt;</span><span class="sc0">Trigger audio using javascript code!</span><span class="sc1">&lt;/h4&gt;</span><span class="sc0">

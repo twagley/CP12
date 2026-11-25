@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -94,7 +94,7 @@
 
 			<h3>Multiple objects built quickly</h3>
 			<p>
-				In <a href="ObjectOrientedProgramming.html">Object-oriented programming</a> 
+				In Object-oriented programming 
 				we learned how to create objects with both <strong>properties</strong> 
 				(variable-like data storage) and <strong>methods</strong> 
 				(function-like actions). 
@@ -292,17 +292,17 @@
             
             </span><span class="sc43">//INIT: the msPacMan object</span><span class="sc41">
             </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">msPacMan</span><span class="sc41">    </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
-                </span><span class="sc48">"msPacId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/MsPacMan.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+                </span><span class="sc48">"msPacId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/MsPacMan.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
             </span><span class="sc50">);</span><span class="sc41"> 
             
             </span><span class="sc43">//INIT: the blinky (red ghost) object</span><span class="sc41">
             </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">blinky</span><span class="sc41">      </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
-                </span><span class="sc48">"blinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+                </span><span class="sc48">"blinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyLeft1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
             </span><span class="sc50">);</span><span class="sc41">  
             
             </span><span class="sc43">//INIT: the pinky (pink ghost) object</span><span class="sc41">
             </span><span class="sc47">var</span><span class="sc41"> </span><span class="sc46">pinky</span><span class="sc41">       </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc47">new</span><span class="sc41"> </span><span class="sc46">AnimatedObj</span><span class="sc50">(</span><span class="sc41"> 
-                </span><span class="sc48">"pinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanPinkyRight1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
+                </span><span class="sc48">"pinkyId"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanPinkyRight1.png"</span><span class="sc50">,</span><span class="sc41"> </span><span class="sc48">"40px"</span><span class="sc41">
             </span><span class="sc50">);</span><span class="sc41">      
         </span><span class="sc1">&lt;/script&gt;</span></code></pre>
 			
@@ -455,17 +455,17 @@
 			
 			//INIT: the msPacMan object
 			var msPacMan	= new AnimatedObj( 
-				"msPacId", "http://drapak.ca/cpg/img/MsPacMan.png", "40px"
+				"msPacId", "https://twagley.github.io/CP12/assets/MsPacMan.png", "40px"
 			); 
 			
 			//INIT: the blinky (red ghost) object
 			var blinky 		= new AnimatedObj( 
-				"blinkyId", "http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft1.png", "40px"
+				"blinkyId", "https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyLeft1.png", "40px"
 			); 	
 			
 			//INIT: the pinky (pink ghost) object
 			var pinky 		= new AnimatedObj( 
-				"pinkyId", "http://drapak.ca/cpg/img/pacman/pacmanPinkyRight1.png", "40px"
+				"pinkyId", "https://twagley.github.io/CP12/assets/pacman/pacmanPinkyRight1.png", "40px"
 			); 		
 			
 			//OUTPUT:  this function outputs an answer into the tag with the given id

@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -90,7 +90,7 @@
 			</p>
 			
 			<p>
-				<iframe src="supporting/solveCharacterGenerator.html"></iframe>
+				<iframe src="../demos/solveCharacterGenerator.html"></iframe>
 			</p>
 			
 			<h2>Source code</h2>

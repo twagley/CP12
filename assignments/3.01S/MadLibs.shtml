@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -67,7 +67,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.01 Skill-builder: <em>Mad libs</em>
 		</header>
 				
@@ -75,10 +75,10 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initObjects.shtml">Using objects</a>
+					//INIT: <a href="../../reference/initObjects.shtml">Using objects</a>
 				</li>
 				<li>
-					//PROCESS: <a href="processStringAddition.shtml">String addition</a>
+					//PROCESS: <a href="../../reference/processStringAddition.shtml">String addition</a>
 				</li>
 			</ul>
 
@@ -93,7 +93,7 @@
 			<h2>The assignment</h2>
 			<p>
 				Use Javascript string addition and object variables to create a mad libs generator.
-				Look closely at the example code in //INIT: <a href="initObjects.shtml">Using objects</a> for help
+				Look closely at the example code in //INIT: <a href="../../reference/initObjects.shtml">Using objects</a> for help
 				<br>For example:
 			</p>
 			

@@ -84,17 +84,17 @@
 			
 			//INIT: the msPacMan object
 			var msPacMan	= new AnimatedObj( 
-				"msPacId", "http://drapak.ca/cpg/img/MsPacMan.png", "40px"
+				"msPacId", "https://twagley.github.io/CP12/assets/MsPacMan.png", "40px"
 			); 
 			
 			//INIT: the blinky (red ghost) object
 			var blinky 		= new AnimatedObj( 
-				"blinkyId", "http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft1.png", "40px"
+				"blinkyId", "https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyLeft1.png", "40px"
 			); 	
 			
 			//INIT: the pinky (pink ghost) object
 			var pinky 		= new AnimatedObj( 
-				"pinkyId", "http://drapak.ca/cpg/img/pacman/pacmanPinkyRight1.png", "40px"
+				"pinkyId", "https://twagley.github.io/CP12/assets/pacman/pacmanPinkyRight1.png", "40px"
 			); 		
 		</script>
 	</body>

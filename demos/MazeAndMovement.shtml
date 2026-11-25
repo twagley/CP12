@@ -45,7 +45,7 @@
 			<button id="buttonId">Click to create the playing field!</button><br />		
 		</p>
 		<audio id="audioBeepId">
-            <source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+            <source src="../assets/beep.mp3" type="audio/mpeg">
         </audio>
 		<script>
 			var ROW_HEIGHT		= 40;
@@ -54,16 +54,16 @@
 			var maze = {
 				// INIT: initialize the array that holds the map pattern
 
-				imageSourceArr: [	"http://drapak.ca/cpg/img/BrownBlock.png",
-									"http://drapak.ca/cpg/img/DirtBlock.png",
-									"http://drapak.ca/cpg/img/GrassBlock.png",
-									"http://drapak.ca/cpg/img/PlainBlock.png",
-									"http://drapak.ca/cpg/img/RoofSouth.png",
-									"http://drapak.ca/cpg/img/StoneBlock.png",
-									"http://drapak.ca/cpg/img/WaterBlock.png",
-									"http://drapak.ca/cpg/img/WoodBlock.png",
-									"http://drapak.ca/cpg/img/WallBlock.png",
-									"http://drapak.ca/cpg/img/TreeUgly.png"
+				imageSourceArr: [	"https://twagley.github.io/CP12/assets/BrownBlock.png",
+									"https://twagley.github.io/CP12/assets/DirtBlock.png",
+									"https://twagley.github.io/CP12/assets/GrassBlock.png",
+									"https://twagley.github.io/CP12/assets/PlainBlock.png",
+									"https://twagley.github.io/CP12/assets/RoofSouth.png",
+									"https://twagley.github.io/CP12/assets/StoneBlock.png",
+									"https://twagley.github.io/CP12/assets/WaterBlock.png",
+									"https://twagley.github.io/CP12/assets/WoodBlock.png",
+									"https://twagley.github.io/CP12/assets/WallBlock.png",
+									"https://twagley.github.io/CP12/assets/TreeUgly.png"
 				],
 				
 				contents: 	[	[6,6,6,6,6,6,6,6,null,null,null,null,null,null,null,null],
@@ -139,7 +139,7 @@
 			
 			var link = {
 				id:				"linkId",
-				src:			"http://drapak.ca/cpg/img/link-down.png",
+				src:			"https://twagley.github.io/CP12/assets/link-down.png",
 				width:			( COLUMN_WIDTH - 14 ) + "px",
 				row:			1,
 				column:			1,
@@ -198,7 +198,7 @@
 			link.goUp = function () {
 				console.log( 'in link.goUp...' );
 				document.getElementById( this.id ).src 
-					= "http://drapak.ca/cpg/img/link-up.png";
+					= "../assets/link-up.png";
 				this.row = this.row - 1;
 				this.calculateNewPosition();
 				this.animate();
@@ -208,7 +208,7 @@
 			link.goDown = function () {
 				console.log( 'in link.goDown...' );
 				document.getElementById( this.id ).src 
-					= "http://drapak.ca/cpg/img/link-down.png";
+					= "../assets/link-down.png";
 				this.row = this.row + 1;
 				this.calculateNewPosition();
 				this.animate();
@@ -218,7 +218,7 @@
 			link.goLeft = function () {
 				console.log( 'in link.goLeft...' );
 				document.getElementById( this.id ).src 
-					= "http://drapak.ca/cpg/img/link-left.png";
+					= "../assets/link-left.png";
 				this.column = this.column - 1;
 				this.calculateNewPosition();
 				this.animate();
@@ -228,7 +228,7 @@
 			link.goRight = function () {
 				console.log( 'in link.goRight...' );
 				document.getElementById( this.id ).src 
-					= "http://drapak.ca/cpg/img/link-right.png";
+					= "../assets/link-right.png";
 				this.column = this.column + 1;
 				this.calculateNewPosition();
 				this.animate();

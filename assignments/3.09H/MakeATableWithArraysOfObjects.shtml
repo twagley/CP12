@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -62,7 +62,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
 		</header>
 				
@@ -70,21 +70,21 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+					//INIT: <a href="../../reference/initArrays.shtml">Creating arrays</a>
 				</li>
 				<br>
 				<li>
-					//PROCESS: <a href="processUsingArrays.shtml">Using arrays</a>
+					//PROCESS: <a href="../../reference/processUsingArrays.shtml">Using arrays</a>
 				</li>
 
 				<li>
-					//PROCESS: <a href="processForLoops.shtml"><code>for</code> loops</a>
+					//PROCESS: <a href="../../reference/processForLoops.shtml"><code>for</code> loops</a>
 				</li>
 				
 				<br>
 				
 				<li>
-					//PROCESS: <a href="https://twagley.github.io/CP12/processUsingArraysOfObjectsToCreateATable.shtml">
+					//PROCESS: <a href="../../reference/processUsingArraysOfObjectsToCreateATable.shtml">
 						Using arrays of objects to create a table
 					</a>  <em>New!</em>
 				</li>
@@ -92,7 +92,7 @@
 				<br>
 				
 				<li>
-					//OUTPUT: <a href="outputAddingElements.shtml">Adding elements directly</a>
+					//OUTPUT: <a href="../../reference/outputAddingElements.shtml">Adding elements directly</a>
 				</li>
 
 			</ul>

@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -65,7 +65,7 @@
 			<ol>
 				<li>
 					<strong>Get the basics working:</strong><br />
-					<a href="img/ControllingMotionExample1.png">Look at the code</a> at the top of this example, type it in and get it working. Pay special attention to:
+					<a href="../assets/ControllingMotionExample1.png">Look at the code</a> at the top of this example, type it in and get it working. Pay special attention to:
 					<ul>
 						<li>the jQuery linking code</li>
 						<li>the animateHeading function</li>
@@ -76,21 +76,21 @@
 				</li>
 				<li>
 					<strong>Get the program recognizing keystrokes</strong>: <br />
-					Remember the <a href="examples/KeyboardControlExample1.html">first example from Keyboard control</a>? 
+					Remember the <a href="../examples/KeyboardControlExample1.html">first example from Keyboard control</a>? 
 					Steal the Javascript and HTML code from it, 
 					and incorporate it into the <code>&lt;script&gt;</code> and <code>&lt;body&gt;</code> areas of your code.
 					<br />&nbsp;
 				</li>
 				<li>
 					<strong>Get different actions happening for different keys</strong>: <br />
-					Then add the code from the <code>if ()</code> statement from the <a href="img/KeyboardControlExample2.png">next part of the lesson</a>, 
+					Then add the code from the <code>if ()</code> statement from the <a href="../assets/KeyboardControlExample2.png">next part of the lesson</a>, 
 					but change the functions for the different key codes. 
 					(Perhaps <code>animateUp();</code>, etc.?)
 					<br />&nbsp;
 				</li>
 				<li>
 					<strong>Define the different action functions:</strong><br />
-					Look at the <a href="img/KeyboardControlExample3.png">last part of Keyboard control</a>.
+					Look at the <a href="../assets/KeyboardControlExample3.png">last part of Keyboard control</a>.
 					Use this as inspiration to organize your action functions.
 					<br />&nbsp;
 				</li>

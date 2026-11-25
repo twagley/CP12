@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -66,14 +66,14 @@
 				<ul>
 					<li>
 						//INIT: 
-						<a href="initVariableAssignment.shtml">Using variables</a>
+						<a href="../../reference/initVariableAssignment.shtml">Using variables</a>
 					</li>
 					<li>
-						//PROCESS: <a href="processBasicMath.shtml">Basic math</a>
+						//PROCESS: <a href="../../reference/processBasicMath.shtml">Basic math</a>
 					</li>
 					<li>
 						//STYLE: 
-						<a href="styleMath.shtml">Space out mathematical expressions</a>
+						<a href="../../reference/styleMath.shtml">Space out mathematical expressions</a>
 					</li>
 					<br />
 					<li>
@@ -126,7 +126,7 @@
 
 			<h4>
 				HINT: look carefully at the //PROCESS: 
-				<a href="processBasicMath.shtml">Basic math</a> example code
+				<a href="../../reference/processBasicMath.shtml">Basic math</a> example code
 			</h4>
 			
 			<h2>Saving your work</h2>

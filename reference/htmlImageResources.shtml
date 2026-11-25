@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -648,45 +648,45 @@
                     'holidayID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/terrain/", 
+                    "https://twagley.github.io/CP12/assets/terrain", 
                     terrainArr, 
                     'terrainID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/sprites/", 
+                    "https://twagley.github.io/CP12/assets/sprites", 
 					//https://github.com/twagley/CP12/blob/main/img/sprites/link-down.png"
                     spriteArr, 
                     'spriteID'
                 );
 				console.log('displaying planets')
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/planets/", 
+                    "https://twagley.github.io/CP12/assets/planets", 
                     planetArr, 
                     'planetID'
                 );
 				console.log('displaying gamebaoard')
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/gameBoard/", 
+                    "https://twagley.github.io/CP12/assets/gameBoard", 
                     gameBoardArr, 
                     'gameBoardID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/assets/pacman", 
                     pacmanLargeArr, 
                     'pacmanLargeID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/assets/pacman", 
                     pacmanMediumArr, 
                     'pacmanMediumID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/assets/pacman", 
                     pacmanSmallArr, 
                     'pacmanSmallID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/img/pacman/", 
+                    "https://twagley.github.io/CP12/assets/pacman", 
                     pacmanMiscArr, 
                     'pacmanMiscID'
                 );
@@ -721,11 +721,11 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
-			<a href="index.html">Computer Programming 12</a>
+            <a href="../index.html"> MAIN  </a>
+			<a href="../index.html">Computer Programming 12</a>
 		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>

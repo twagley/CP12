@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-4.0.0.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -58,7 +58,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
 		</header>
 				
@@ -66,12 +66,12 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initUsingLibraries.shtml">Using libraries</a>
+					//INIT: <a href="../../reference/initUsingLibraries.shtml">Using libraries</a>
 				</li>
 				<br />
 				
 				<li>
-					//OUTPUT: <a href="outputAnimatingMotion.shtml">Animating motion</a>
+					//OUTPUT: <a href="../../reference/outputAnimatingMotion.shtml">Animating motion</a>
 				</li>
 			</ul>
 
@@ -112,12 +112,12 @@
 			<p>
 				<button onclick="mainProcedure();">Start the tour!</button><br />
 				
-				<img id="mapID" src="img/Dorsten-map.jpg" /><br />
+				<img id="mapID" src="../../assets/Dorsten-map.jpg" /><br />
 				
 				"<a href="https://commons.wikimedia.org/wiki/File:Dorsten_1633-cupper-engraving_by_matthaeus-merian.jpg#/media/File:Dorsten_1633-cupper-engraving_by_matthaeus-merian.jpg">Dorsten 1633-cupper-engraving by matthaeus-merian</a>". 
 				Licensed under Public Domain via 
 				<a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.<br />
-				<img id="animateID" src="http://drapak.ca/cpg/img/link-right.png" />
+				<img id="animateID" src="../../assets/link-right.png" />
 			</p>
 			
 		</article>

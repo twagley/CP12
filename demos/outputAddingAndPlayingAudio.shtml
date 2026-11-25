@@ -10,12 +10,12 @@
 	<body>
 		<h4>Show me audio with controls!</h4>
 		<audio controls>
-			<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+			<source src="../assets/beep.mp3" type="audio/mpeg">
 		</audio>
 
 		<h4>Show me audio with no controls!</h4>
 		<audio id="audioID">
-			<source src="http://drapak.ca/cpg/beep.mp3" type="audio/mpeg">
+			<source src="../assets/beep.mp3" type="audio/mpeg">
 		</audio>
 		
 		<h4>Trigger audio using javascript code!</h4>

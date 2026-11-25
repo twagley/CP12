@@ -2,7 +2,7 @@
 	<img 
 		id="bombImageId" 
 		alt="Oh noes! A bob-omb!"
-		src="http://drapak.ca/cpg/img/nicePictureOfABomb.png">
+		src="../assets/nicePictureOfABomb.png">
 	
 	<p id="instructionsId">
 		<strong>Oh my gosh! You have to defuse the bomb!</strong>
@@ -27,19 +27,19 @@
 			if ( wireNum == 1 ) {					
 				//OUTPUT: replace #bombImageId with image of defused bomb
 				document.getElementById( "bombImageId" ).src	
-					= "http://drapak.ca/cpg/img/defusedBomb.png";
+					= "../assets/defusedBomb.png";
 			
 			//IF: wire number two was chosen, the exploding wire 
 			} else if ( ???????? ) {
 				//OUTPUT: replace #bombImageId with image of exploded bomb
 				document.getElementById( "bombImageId" ).src	
-					= "http://drapak.ca/cpg/img/explodedBomb.png";
+					= "../assets/explodedBomb.png";
 
 			//IF: wire number three OR four was chosen, then do nothing
 			} else if ( ( ???????? ) || ( wireNum == 4 ) ) {	// NOTE: "||" means "or"
 				//OUTPUT: replace #bombImageId with image of still ticking bomb
 				document.getElementById( "bombImageId" ).src	
-					= "http://drapak.ca/cpg/img/stillActiveBomb.png";
+					= "../assets/stillActiveBomb.png";
 			
 			//ELSE: no valid wire is chosen
 			} ???????? {								// 

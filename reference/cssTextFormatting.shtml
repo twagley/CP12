@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -158,7 +158,7 @@
 </span><span class="sc1">&lt;/html&gt;</span><span class="sc0">
 </span></code></pre>
 
-			<p>Makes this: <iframe src="supporting/cssTextFormatting.shtml"></iframe></p>
+			<p>Makes this: <iframe src="../demos/cssTextFormatting.shtml"></iframe></p>
 						
 			<p>	
 				This will turn all of the paragraph text into blue, 20 pixel high, bold italic Arial. 

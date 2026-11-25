@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -57,7 +57,7 @@
 				<br />
 				
 				<span class="langstyle">//PROCESS:</span> 
-					<code>newImage.src = <var>"http://drapak.ca/cpg/img/link-up.png";</var></code> <br />
+					<code>newImage.src = <var>"https://twagley.github.io/CP12/assets/link-up.png";</var></code> <br />
 					<span class="indent">&mdash; adds a source link to the image element</span><br />
 					
 				<span class="langstyle">//PROCESS:</span> 
@@ -95,11 +95,11 @@
 </span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">left</span><span class="sc10">:</span><span class="sc0">  </span><span class="sc4">65</span><span class="sc10">,</span><span class="sc0"> 
 
     </span><span class="sc2">// source link to image file
-</span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">src</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"http://drapak.ca/cpg/img/link-up.png"</span><span class="sc10">,</span><span class="sc0">
+</span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">src</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"https://twagley.github.io/CP12/assets/link-up.png"</span><span class="sc10">,</span><span class="sc0">
 
     </span><span class="sc2">//combine the data all together into an image element similar to:
 </span><span class="sc0">    </span><span class="sc2">// &lt;img 
-</span><span class="sc0">    </span><span class="sc2">//      src='http://drapak.ca/cpg/img/link-up.png'
+</span><span class="sc0">    </span><span class="sc2">//      src='https://twagley.github.io/CP12/assets/link-up.png'
 </span><span class="sc0">    </span><span class="sc2">//      style='position: absolute; top: 35px; left: 65px;' /&gt;
 </span><span class="sc0">    </span><span class="sc11">createAndOutputImage</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
         </span><span class="sc2">//create an empty variable to hold the HTML code of the image
@@ -164,11 +164,11 @@
 </span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">left</span><span class="sc10">:</span><span class="sc0">  </span><span class="sc4">65</span><span class="sc10">,</span><span class="sc0"> 
 
     </span><span class="sc2">// source link to image file
-</span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">src</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"http://drapak.ca/cpg/img/link-up.png"</span><span class="sc10">,</span><span class="sc0">
+</span><span class="sc0">    </span><span class="sc5">this</span><span class="sc10">.</span><span class="sc11">src</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"https://twagley.github.io/CP12/assets/link-up.png"</span><span class="sc10">,</span><span class="sc0">
 
     </span><span class="sc2">//combine the data all together into an image element similar to:
 </span><span class="sc0">    </span><span class="sc2">// &lt;img 
-</span><span class="sc0">    </span><span class="sc2">//      src='http://drapak.ca/cpg/img/link-up.png'
+</span><span class="sc0">    </span><span class="sc2">//      src='https://twagley.github.io/CP12/assets/link-up.png'
 </span><span class="sc0">    </span><span class="sc2">//      style='position: absolute; top: 35px; left: 65px;' /&gt;
 </span><span class="sc0">    </span><span class="sc11">createAndOutputImage</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
         </span><span class="sc2">// create a new empty image element

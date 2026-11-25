@@ -29,7 +29,7 @@ const PROJECT_ARR = [
 		project:		"HelloWorld",
 		filename: 		"HelloWorld-LastName.html",
 		title:			"1.01 Skill-builder: Hello world!",
-		url:			"http://twagley.github.io/CP12/HelloWorld.shtml",
+		url:			"../assignments/1.01H/HelloWorld.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -54,7 +54,7 @@ const PROJECT_ARR = [
 		project:		"SurveyLists",
 		filename: 		"1.02S-SurveyLists-LastName.html",
 		title:			"1.02 Skill-builder: Survey Lists",
-		url:			"http://twagley.github.io/CP12/Lists.shtml",
+		url:			"../assignments/1.02S/Lists.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -76,7 +76,7 @@ const PROJECT_ARR = [
 		project:		"DataTypes",
 		filename: 		"1.03S-DataTypes-LastName.html",
 		title:			"1.03 Skill-builder: Datatypes and Tables",
-		url:			"http://twagley.github.io/CP12/DataTypes.shtml",
+		url:			"../assignments/1.03S/DataTypes.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -102,7 +102,7 @@ const PROJECT_ARR = [
 		project:		"OttoTheRobot",
 		filename: 		"1.04H-OttoTheRobot-LastName.html",
 		title:			"1.04 Hand-in: Otto the Robot",
-		url:			"http://twagley.github.io/CP12/OttoTheRobot.shtml",
+		url:			"../assignments/1.04H/OttoTheRobot.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -134,7 +134,7 @@ const PROJECT_ARR = [
 		project:		"HelloColor",
 		filename: 		"1.05S-HelloColor-LastName.html",
 		title:			"1.05 Skill builder: Hello color",
-		url:			"http://twagley.github.io/CP12/TextFormatting.shtml",
+		url:			"../assignments/1.05S/TextFormatting.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -163,7 +163,7 @@ const PROJECT_ARR = [
 		project:		"ConstructAPicture",
 		filename: 		"1.06S-ConstructAPicture-LastName.html",
 		title:			"1.06 Skill-builder: Construct a picture",
-		url:			"http://twagley.github.io/CP12/ConstructAPicture.shtml",
+		url:			"../assignments/1.06S/ConstructAPicture.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -189,7 +189,7 @@ const PROJECT_ARR = [
 		project:		"AnimateMario",
 		filename: 		"1.07X-AnimateMario-LastName.html",
 		title:			"1.07 EXTRA: Animate Mario",
-		url:			"http://twagley.github.io/CP12/AnimateMario.shtml",
+		url:			"../assignments/1.07X/AnimateMario.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -214,7 +214,7 @@ const PROJECT_ARR = [
 		project:		"AnimateMario",
 		filename: 		"1.07S-AnimateMario-LastName.html",
 		title:			"1.07 EXTRA: Animate Mario",
-		url:			"http://twagley.github.io/CP12/AnimateMario.shtml",
+		url:			"../assignments/1.07X/AnimateMario.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -239,7 +239,7 @@ const PROJECT_ARR = [
 		project:		"MakeAGameBoard",
 		filename: 		"1.08H-MakeAGameBoard-LastName.html",
 		title:			"1.08 Hand-in: Make a game board",
-		url:			"http://twagley.github.io/CP12/MakeAGameBoard.shtml",
+		url:			"../assignments/1.08H/MakeAGameBoard.shtml",
 		skillBuilder:	false,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -290,7 +290,7 @@ const PROJECT_ARR = [
 		project:		"HelloJavascript",
 		filename: 		"2.01S-HelloJavascript-LastName.html",
 		title:			"2.01 Skill-builder: Hello Javascript!",
-		url:			"http://twagley.github.io/CP12/HelloJavascript.shtml",
+		url:			"../assignments/2.01S/HelloJavascript.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -325,7 +325,7 @@ const PROJECT_ARR = [
 		project:		"ColorChanger",
 		filename: 		"2.02S-ColorChanger-LastName.html",
 		title:			"2.02 Skill-builder: Color changer",
-		url:			"http://twagley.github.io/CP12/colorChanger.shtml",
+		url:			"../assignments/2.02S/colorChanger.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -365,7 +365,7 @@ const PROJECT_ARR = [
 		project:		"Modals",
 		filename: 		"2.03X-Modals-LastName.html",
 		title:			"2.03 EXTRA: Modals",
-		url:			"http://twagley.github.io/CP12/Modals.shtml",
+		url:			"../assignments/2.03X/Modals.shtml",
 		skillBuilder:	true,
 		evaluationObj:	{
 			htmlCSSArr:	[
@@ -397,7 +397,7 @@ const PROJECT_ARR = [
 		project:		"FormulaSolver",
 		filename: 		"2.04S-FormulaSolver-LastName.html",
 		title:			"2.04 Skill-builder: Formula solver",
-		url:			"http://twagley.github.io/CP12/FormulaSolver.shtml",
+		url:			"../assignments/2.04S/FormulaSolver.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -446,7 +446,7 @@ const PROJECT_ARR = [
 		project:		"CakeyClicker",
 		filename: 		"2.04H-CakeyClicker-LastName.html",
 		title:			"2.05 Hand-in: Cakey Clicker",
-		url:			"http://twagley.github.io/CP12/CakeyClicker.shtml",
+		url:			"../assignments/2.05H/CakeyClicker.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -526,7 +526,7 @@ const PROJECT_ARR = [
 		project:		"CakeyClicker",
 		filename: 		"2.05H-CakeyClicker-LastName.html",
 		title:			"2.05 Hand-in: Cakey Clicker",
-		url:			"http://twagley.github.io/CP12/CakeyClicker.shtml",
+		url:			"../assignments/2.05H/CakeyClicker.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -606,7 +606,7 @@ const PROJECT_ARR = [
 		project:		"FontStyleConsole",
 		filename: 		"2.04H-FontStyleConsole-LastName.html",
 		title:			"2.05 Hand-in: Font style console",
-		url:			"http://twagley.github.io/CP12/FontStyleConsole.shtml",
+		url:			"../assignments/2.05H/FontStyleConsole.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -686,7 +686,7 @@ const PROJECT_ARR = [
 		project:		"FontStyleConsole",
 		filename: 		"2.05H-FontStyleConsole-LastName.html",
 		title:			"2.05 Hand-in: Font style console",
-		url:			"http://twagley.github.io/CP12/FontStyleConsole.shtml",
+		url:			"../assignments/2.05H/FontStyleConsole.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -766,7 +766,7 @@ const PROJECT_ARR = [
 		project:		"MoveThingsWithButtons",
 		filename: 		"2.06S-MoveThingsWithButtons-LastName.html",
 		title:			"2.06 Skill-builder: Move things with buttons",
-		url:			"http://twagley.github.io/CP12/MoveThingsWithButtons.shtml",
+		url:			"../assignments/2.06S/MoveThingsWithButtons.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -805,7 +805,7 @@ const PROJECT_ARR = [
 		project:		"DefuseTheBomb",
 		filename: 		"2.07S-DefuseTheBomb-LastName.html",
 		title:			"2.07 Skill-builder: Defuse the Bomb!",
-		url:			"http://twagley.github.io/CP12/DefuseTheBomb.shtml",
+		url:			"../assignments/2.07S/DefuseTheBomb.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -844,7 +844,7 @@ const PROJECT_ARR = [
 		project:		"KeyboardReader",
 		filename: 		"2.08S-KeyboardReader-LastName.html",
 		title:			"2.08 Skill-builder: Keyboard reader",
-		url:			"http://twagley.github.io/CP12/KeyboardReader.shtml",
+		url:			"../assignments/2.08S/KeyboardReader.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -882,7 +882,7 @@ const PROJECT_ARR = [
 		project:		"KeyboardMotionControl",
 		filename: 		"2.09H-KeyboardMotionControl-LastName.html",
 		title:			"2.09 Hand-in: Keyboard motion control",
-		url:			"http://twagley.github.io/CP12/KeyboardMotionControl.shtml",
+		url:			"../assignments/2.09H/KeyboardMotionControl.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -940,7 +940,7 @@ const PROJECT_ARR = [
 		project:		"MoveThingsAroundSmoothly",
 		filename: 		"2.10S-MoveThingsAroundSmoothly-LastName.html",
 		title:			"2.10 Skill-builder: Move things around smoothly",
-		url:			"http://twagley.github.io/CP12/MoveThingsAroundSmoothly.shtml",
+		url:			"../assignments/2.10S/MoveThingsAroundSmoothly.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -969,7 +969,7 @@ const PROJECT_ARR = [
 		project:		"RollSomeDice",
 		filename: 		"2.11S-RollSomeDice-LastName.html",
 		title:			"2.11 Skill-builder: Roll some dice",
-		url:			"http://twagley.github.io/CP12/RollSomeDice.shtml",
+		url:			"../assignments/2.11S/RollSomeDice.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1005,7 +1005,7 @@ const PROJECT_ARR = [
 		project:		"MyBiggestStar",
 		filename: 		"2.12S-MyBiggestStar-LastName.html",
 		title:			"2.12 Skill-builder: My Biggest Star",
-		url:			"http://twagley.github.io/CP12/MyBiggestStar.shtml",
+		url:			"../assignments/2.12S/MyBiggestStar.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1046,7 +1046,7 @@ const PROJECT_ARR = [
 		project:		"HighOrLow",
 		filename: 		"2.13S-HighOrLow-LastName.html",
 		title:			"2.13 Skill-builder: High or Low",
-		url:			"http://twagley.github.io/CP12/HighOrLow.shtml",
+		url:			"../assignments/2.13S/HighOrLow.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1090,7 +1090,7 @@ const PROJECT_ARR = [
 		project:		"ShyLinkIsShy",
 		filename: 		"2.14H-ShyLinkIsShy-LastName.html",
 		title:			"2.14 Hand-in — Shy Link Is Shy",
-		url:			"http://twagley.github.io/CP12/ShyLinkIsShy.shtml",
+		url:			"../assignments/2.14H/ShyLinkIsShy.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1156,7 +1156,7 @@ const PROJECT_ARR = [
 		project:		"MadLibs",
 		filename: 		"3.01S-MadLibs-LastName.html",
 		title:			"3.01 Skill-builder: Mad libs",
-		url:			"http://twagley.github.io/CP12/MadLibs.shtml",
+		url:			"../assignments/3.01S/MadLibs.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1202,7 +1202,7 @@ const PROJECT_ARR = [
 		project:		"MakeABarGraph",
 		filename: 		"3.02S-MakeABarGraph-LastName.html",
 		title:			"3.02 Skill-builder: Make a bar graph",
-		url:			"http://twagley.github.io/CP12/MakeABarGraph.shtml",
+		url:			"../assignments/3.02S/MakeABarGraph.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1286,7 +1286,7 @@ const PROJECT_ARR = [
 		project:		"Fireworks",
 		filename: 		"3.04S-Fireworks-LastName.html",
 		title:			"3.04 Skill-builder: Fireworks",
-		url:			"http://twagley.github.io/CP12/Fireworks.shtml",
+		url:			"../assignments/3.04S/Fireworks.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1325,7 +1325,7 @@ const PROJECT_ARR = [
 		project:		"CharacterGenerator",
 		filename: 		"3.05H-CharacterGenerator-LastName.html",
 		title:			"3.05 Hand-in: Character Generator",
-		url:			"http://twagley.github.io/CP12/CharacterGeneratorII.shtml",
+		url:			"../assignments/3.05H/CharacterGeneratorII.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1382,7 +1382,7 @@ const PROJECT_ARR = [
 		project:		"TheSkyAtNight",
 		filename: 		"3.05H-TheSkyAtNight-LastName.html",
 		title:			"3.05 Hand-in: The sky at night",
-		url:			"http://twagley.github.io/CP12/TheSkyAtNight.shtml",
+		url:			"../assignments/3.05H/TheSkyAtNight.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1439,7 +1439,7 @@ const PROJECT_ARR = [
 		project:		"BucketList",
 		filename: 		"3.06S-BucketList-LastName.html",
 		title:			"3.06 Skill-builder: Bucket list",
-		url:			"http://twagley.github.io/CP12/BucketList.shtml",
+		url:			"../assignments/3.06S/BucketList.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1481,7 +1481,7 @@ const PROJECT_ARR = [
 		project:		"MakeARainbow",
 		filename: 		"3.07S-MakeARainbow-LastName.html",
 		title:			"3.07 Skill-builder: Make a rainbow",
-		url:			"http://twagley.github.io/CP12/MakeARainbow.shtml",
+		url:			"../assignments/3.07S/MakeARainbow.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1522,7 +1522,7 @@ const PROJECT_ARR = [
 		project:		"MakeATableWithArraysOfObjects",
 		filename: 		"3.09H-MakeATableWithArraysOfObjects-LastName.html",
 		title:			"3.09 Hand-in: Make a table using an array of objects",
-		url:			"http://twagley.github.io/CP12/MakeATableWithArraysOfObjects.shtml",
+		url:			"../assignments/3.09H/MakeATableWithArraysOfObjects.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1589,7 +1589,7 @@ const PROJECT_ARR = [
 		project:		"CreateAMaze",
 		filename: 		"3.10S-CreateAMaze-LastName.html",
 		title:			"3.10 Skill-builder: Create a maze",
-		url:			"http://twagley.github.io/CP12/CreateAMaze.shtml",
+		url:			"../assignments/3.10S/CreateAMaze.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1633,7 +1633,7 @@ const PROJECT_ARR = [
 		project:		"ObjectOrientedKeyboardControl",
 		filename: 		"4.01S-ObjectOrientedKeyboardControl-LastName.html",
 		title:			"//MAKE: 4.01 Skill-builder: Object-oriented keyboard control",
-		url:			"http://twagley.github.io/CP12/ObjectOrientedKeyboardControl.shtml",
+		url:			"../assignments/4.01S/ObjectOrientedKeyboardControl.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1678,7 +1678,7 @@ const PROJECT_ARR = [
 		project:		"MazeAndMovement",
 		filename: 		"4.02H-MazeAndMovement-LastName.html",
 		title:			"4.02 Hand-in: Make a maze and something to move on it",
-		url:			"http://twagley.github.io/CP12/MazeAndMovement.shtml",
+		url:			"../assignments/4.02H/MazeAndMovement.shtml",
 		skillBuilder:	false,
 		
 		evaluationObj:	{
@@ -1738,7 +1738,7 @@ const PROJECT_ARR = [
 		project:		"MiceAndImages",
 		filename: 		"4.03S-MiceAndImages-LastName.html",
 		title:			"4.03S Skill-builder: Mice and images",
-		url:			"http://twagley.github.io/CP12/MiceAndImages.shtml",
+		url:			"../assignments/4.03S/MiceAndImages.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1783,7 +1783,7 @@ const PROJECT_ARR = [
 		project:		"RandomMonsterSwarm",
 		filename: 		"4.05S-RandomMonsterSwarm-LastName.html",
 		title:			"4.05S Skill-builder: Random Monster Swarm",
-		url:			"http://twagley.github.io/CP12/RandomMonsterSwarm.shtml",
+		url:			"../assignments/4.05S/RandomMonsterSwarm.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1830,7 +1830,7 @@ const PROJECT_ARR = [
 		project:		"MonsterChasers",
 		filename: 		"4.06X-MonsterChasers-LastName.html",
 		title:			"4.06 EXTRA: Monster Chasers!",
-		url:			"http://twagley.github.io/CP12/MonsterChasers.shtml",
+		url:			"../assignments/4.06X/MonsterChasers.shtml",
 		skillBuilder:	true,
 		
 		evaluationObj:	{
@@ -1879,7 +1879,7 @@ const PROJECT_ARR = [
 		project:		"Exam",
 		filename: 		"Exam-LastName.html",
 		title:			"Exam",
-		url:			"http://twagley.github.io/CP12/examSkillsChecklist.pdf",
+		url:			"../handouts/examSkillsChecklist.pdf",
 		skillBuilder:	false,
 		
 		evaluationObj:	{

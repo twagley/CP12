@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -64,26 +64,26 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//HTML: <a href="htmlBasic.shtml">Basic HTML</a>
+					//HTML: <a href="../../reference/htmlBasic.shtml">Basic HTML</a>
 				</li>
 				<br>
 				
 				<li>
 					//INIT: 
-					<a href="initArraysOfObjects.shtml">Creating arrays of objects</a>
+					<a href="../../reference/initArraysOfObjects.shtml">Creating arrays of objects</a>
 				</li>
 				<br>
 				
 				<li>
 					//INPUT: 
-					<a href="inputScreenHeightAndWidth.shtml">Reading 
+					<a href="../../reference/inputScreenHeightAndWidth.shtml">Reading 
 						the height and width of the screen</a>
 				</li>
 				<br>
 
 				<li>
 					//PROCESS: 
-					<a href="processUsingArraysOfObjectsToCreateAMap.shtml">Using 
+					<a href="../../reference/processUsingArraysOfObjectsToCreateAMap.shtml">Using 
 						arrays of objects to create a map</a>
 				</li>
 			</ul>
@@ -113,7 +113,7 @@
 
 			<p>
 				Look closely at the code examples in //PROCESS: 
-				<a href="processUsingArraysOfObjectsToCreateAMap.shtml">Using 
+				<a href="../../reference/processUsingArraysOfObjectsToCreateAMap.shtml">Using 
 					arrays of objects to create a map</a>
 			</p>
 			<p>

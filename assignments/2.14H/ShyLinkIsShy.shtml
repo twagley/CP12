@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -63,7 +63,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.14 Hand-in &mdash; <em>Shy Link Is Shy</em>
 		</header>
 				
@@ -72,46 +72,46 @@
 			<ul>
 				<li>
 					//HTML and OUTPUT: 
-					<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+					<a href="../../reference/htmlUnicodeDice.shtml">Unicode dice</a>
 				</li>
 				<br>
 				
 				<li>
 					//INIT: 
-					<a href="initUsingLibraries.shtml">Using libraries</a>
+					<a href="../../reference/initUsingLibraries.shtml">Using libraries</a>
 				</li>
 				<br>
 				
 				<li>
 					//INPUT: 
-					<a href="inputDetectingMouseovers.shtml">Detecting mouseovers</a>
+					<a href="../../reference/inputDetectingMouseovers.shtml">Detecting mouseovers</a>
 				</li>
 				<br>
 				
 				<li>
 					//PROCESS: 
-					<a href="processRandomnessAndRounding.shtml">Randomness and rounding</a>
+					<a href="../../reference/processRandomnessAndRounding.shtml">Randomness and rounding</a>
 				</li>
 				<li>
 					//PROCESS: 
-					<a href="processFunctionParametersAndReturns.shtml">Using 
+					<a href="../../reference/processFunctionParametersAndReturns.shtml">Using 
 					function parameters and returns</a>
 				</li>
 				<br>
 				
 				<li>
 					//OUTPUT: 
-					<a href="outputAnimatingMotion.shtml">Animating motion</a>
+					<a href="../../reference/outputAnimatingMotion.shtml">Animating motion</a>
 				</li>
 				<br>
 				<li>
 					//STYLE: 
-					<a href="styleFunctionPipelines.shtml">Use functional programming</a>
+					<a href="../../reference/styleFunctionPipelines.shtml">Use functional programming</a>
 				</li>
 				<br>
 				<li>
 					Image resources are 
-					<a href='https://twagley.github.io/CP12/htmlImageResources.shtml'>here</a>.
+					<a href='../../reference/htmlImageResources.shtml'>here</a>.
 				</li>
 			</ul>
 
@@ -216,7 +216,7 @@
 				id="imageID"
 				onmouseover="mainProcedure()"
 				onclick="sayMessage();"
-				src="http://drapak.ca/cpg/img/link-down.png" />			
+				src="../../assets/link-down.png" />			
 				
 			<h2>Make it your own</h2>
 			<p>

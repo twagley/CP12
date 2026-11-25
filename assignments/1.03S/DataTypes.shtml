@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -63,10 +63,10 @@
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//INIT: <a href="initDatatypes.shtml">Datatypes</a><br />
-				//HTML: <a href="htmlTables.shtml">Tables</a><br />
-				//HTML: <a href="htmlTablesTwoKinds.shtml">Two kinds of tables</a><br />
-				//STYLE: <a href="styleTabs.shtml">Formatting code with tab indents</a>
+				//INIT: <a href="../../reference/initDatatypes.shtml">Datatypes</a><br />
+				//HTML: <a href="../../reference/htmlTables.shtml">Tables</a><br />
+				//HTML: <a href="../../reference/htmlTablesTwoKinds.shtml">Two kinds of tables</a><br />
+				//STYLE: <a href="../../reference/styleTabs.shtml">Formatting code with tab indents</a>
 			</p>
 
 			<h2>Saving your work</h2>
@@ -140,7 +140,7 @@
 			</p>
 			<p>
 				You may also wish to use a 
-				<a href="examples/DatatypeCards.pdf">paper version</a> 
+				<a href="../../examples/DatatypeCards.pdf">paper version</a> 
 				of this cut up into little cards.
 			</p>
 			

@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -51,7 +51,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.07 Skill-builder: <em>Make a rainbow</em>
 		</header>
 				
@@ -59,11 +59,11 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INIT: <a href="initArrays.shtml">Creating arrays</a>
+					//INIT: <a href="../../reference/initArrays.shtml">Creating arrays</a>
 				</li>
 				<br>
 				<li>
-					//PROCESS: <a href="processForLoops.shtml"><code>for</code> loops</a>
+					//PROCESS: <a href="../../reference/processForLoops.shtml"><code>for</code> loops</a>
 				</li>
 
 			</ul>
@@ -143,13 +143,13 @@
 					to your output function
 				</li>
 				<li>
-					Reread //PROCESS: <a href="processForLoops.shtml"><code>for</code> 
+					Reread //PROCESS: <a href="../../reference/processForLoops.shtml"><code>for</code> 
 					loops</a> for more info
 				</li>
 			</ol>
 			
 		</article>
- 		<script src="./supporting/MakeARainbow.js"></script>
+ 		<script src="../../demos/MakeARainbow.js"></script>
 		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

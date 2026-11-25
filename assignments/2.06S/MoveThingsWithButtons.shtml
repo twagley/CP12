@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -71,10 +71,10 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//INPUT: <a href="inputElementPositions.shtml">Read element positions</a>
+					//INPUT: <a href="../../reference/inputElementPositions.shtml">Read element positions</a>
 				</li>
 				<li>
-					//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a>
+					//OUTPUT: <a href="../../reference/outputChangePosition.shtml">Changing an element's position</a>
 				</li>
 			</ul>
 

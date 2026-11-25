@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -65,15 +65,15 @@
 		<!--#include virtual="/masthead.html" -->
 
 		<header>
-			<a href="index.html">Computer Programming 12</a> &mdash; 
+			<a href="../../index.html">Computer Programming 12</a> &mdash; 
 			<em>Assignment: Hello world!</em>
 		</header>
 
 		<article>
 			<h2>Resources</h2>
 			<p>
-				//HTML: <a href="htmlBasic.shtml">Basics</a><br />
-				//STYLE: <a href="styleTags.shtml">Capitalizing tags</a><br />				
+				//HTML: <a href="../../reference/htmlBasic.shtml">Basics</a><br />
+				//STYLE: <a href="../../reference/styleTags.shtml">Capitalizing tags</a><br />				
 			</p>
 
 
@@ -159,7 +159,7 @@
 	
 			<p>
 				The above code will create the following:<br>
-				<iframe src="./supporting/HelloWorld.shtml"></iframe>
+				<iframe src="../../demos/HelloWorld.shtml"></iframe>
 			</p>
 			<h2>Saving your work</h2>
 			<p>

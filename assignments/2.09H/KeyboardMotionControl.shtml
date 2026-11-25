@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -79,41 +79,41 @@
 			<ul>
 				<li>
 					//HTML: 
-					<a href="htmlConvertUnicode.shtml">Converting to unicode characters</a>
+					<a href="../../reference/htmlConvertUnicode.shtml">Converting to unicode characters</a>
 				</li>
 				<br>
 				
 				<li>
 					//INPUT: 
-					<a href="inputElementPositions.shtml">Read element positions</a>
+					<a href="../../reference/inputElementPositions.shtml">Read element positions</a>
 				</li>
 				<li>
 					//INPUT: 
-					<a href="inputReadingKeypresses.shtml">Reading keypresses</a>
+					<a href="../../reference/inputReadingKeypresses.shtml">Reading keypresses</a>
 				</li>
 				<br>
 				
 				<li>
 					//PROCESS: 
-					<a href="processIfElseConditionals.shtml"><code>if...else</code> 
+					<a href="../../reference/processIfElseConditionals.shtml"><code>if...else</code> 
 					conditionals</a>
 				</li>
 				<br>
 				
 				<li>
 					//OUTPUT: 
-					<a href="outputChangePosition.shtml">Changing an element's position</a>
+					<a href="../../reference/outputChangePosition.shtml">Changing an element's position</a>
 				</li>
 				<li>
 					//OUTPUT: 
-					<a href="outputChangeAnImage.shtml">Changing an image</a>
+					<a href="../../reference/outputChangeAnImage.shtml">Changing an image</a>
 				</li>
 				<br>
 				
 				<li>
 					//STYLE: 
 					<strong>
-						<a href="styleUseDescriptiveVariables.shtml">Use 
+						<a href="../../reference/styleUseDescriptiveVariables.shtml">Use 
 						descriptive variable names</a><em> New! </em>
 					</strong>
 				</li>
@@ -121,24 +121,24 @@
 				
 				<li>
 					More image resources 
-					<a href='http://twagley.github.io/CP12/htmlImageResources.shtml'>here</a>.
+					<a href='../../reference/htmlImageResources.shtml'>here</a>.
 				</li>
 				<br>
 				<li>
-					<a href="https://twagley.github.io/CP12/img/link-up.png"><img src="https://twagley.github.io/CP12/img/link-up.png"></a> 
-					- &nbsp;https://twagley.github.io/CP12/img/link-up.png
+					<a href="../../assets/link-up.png"><img src="../../assets/link-up.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/assets/link-up.png
 				</li>
 				<li>
-					<a href="https://twagley.github.io/CP12/img/link-down.png"><img src="https://twagley.github.io/CP12/img/link-down.png"></a> 
-					- &nbsp;https://twagley.github.io/CP12/img/link-down.png
+					<a href="../../assets/link-down.png"><img src="../../assets/link-down.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/assets/link-down.png
 				</li>
 				<li>
-					<a href="https://twagley.github.io/CP12/img/link-left.png"><img src="https://twagley.github.io/CP12/img/link-left.png"></a> 
-					- &nbsp;https://twagley.github.io/CP12/img/link-left.png
+					<a href="../../assets/link-left.png"><img src="../../assets/link-left.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/assets/link-left.png
 				</li>
 				<li>
-					<a href="https://twagley.github.io/CP12/img/link-right.png"><img src="https://twagley.github.io/CP12/img/link-right.png"></a> 
-					- &nbsp;https://twagley.github.io/CP12/img/link-right.png
+					<a href="../../assets/link-right.png"><img src="../../assets/link-right.png"></a> 
+					- &nbsp;https://twagley.github.io/CP12/assets/link-right.png
 				</li>
 				<br>
 				<strong>Hint:</strong> you will start with one image of link,
@@ -178,8 +178,7 @@
 			<h2>
 				Evaluation 
 				<!--
-					&mdash; [<a href="KeyboardMotionControl.pdf">pdf</a>] 
-					[<a href="KeyboardMotionControl.pub">pub</a>]-->
+					&mdash; [<a href="KeyboardMotionControl.pdf">pdf</a>]-->
 			</h2>
 			<ul>
 				<li>
@@ -256,7 +255,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<img id="imageID" src="https://twagley.github.io/CP12/img/link-down.png" />
+			<img id="imageID" src="../../assets/link-down.png" />
 			<hr>
 
 			

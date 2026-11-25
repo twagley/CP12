@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -65,21 +65,21 @@
 			<ul>
 				<li>
 					//INIT: 
-					<a href="initObjectConstructors.shtml">
+					<a href="../../reference/initObjectConstructors.shtml">
 						Creating objects using object constructors
 					</a>
 				</li>
 				<br>
 				<li>
 					//INPUT: 
-					<a href="inputMouseMovementAndPosition.shtml">
+					<a href="../../reference/inputMouseMovementAndPosition.shtml">
 						Reading mouse movements and position
 					</a>
 				</li>
 				<br>
 				<li>
 					//OUTPUT: 
-					<a href="outputAddingImagesToAnOutputElement.shtml">
+					<a href="../../reference/outputAddingImagesToAnOutputElement.shtml">
 						Adding new images to an output element
 					</a>
 				</li>
@@ -196,10 +196,10 @@
                 
                 </span><span class="sc43">// array with the list of possible monster images in it</span><span class="sc41">
                 </span><span class="sc46">this.sourceArr</span><span class="sc41">  </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyDown0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanBlinkyRight0.png"</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyDown0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanBlinkyRight0.png"</span><span class="sc41">
                 </span><span class="sc50">];</span><span class="sc41">
             </span><span class="sc50">};</span><span class="sc41">
             </span><span class="sc43">//OUTPUT: changes the current image depending on the index of sourceArr</span><span class="sc41">

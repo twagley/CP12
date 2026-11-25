@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -84,7 +84,7 @@
 	<body id="bodyId">
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //    MAKE: 3.04 Skill-builder: <em>Fireworks</em>
 		</header>
 				
@@ -92,10 +92,10 @@
 			<h2>Resources</h2>
 			<ul>
 				<li>
-					//PROCESS: <a href="processTimeoutAndIntervals.shtml">Timeout and intervals</a>
+					//PROCESS: <a href="../../reference/processTimeoutAndIntervals.shtml">Timeout and intervals</a>
 				</li>
 				<li>
-					//OUTPUT: <a href="outputAnimatingCSSProperties.shtml">Animating other CSS properties</a>
+					//OUTPUT: <a href="../../reference/outputAnimatingCSSProperties.shtml">Animating other CSS properties</a>
 				</li>
 			</ul>
 
@@ -161,18 +161,18 @@
 			<h2>A gallery of useful fireworks images</h2>
 			
 			<p>
-				<img src="https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg" /> https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-blue.png" /> https://twagley.github.io/CP12/img/fireworks-blue.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-blue_and_red.png" /> https://twagley.github.io/CP12/img/fireworks-blue_and_red.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-orange.png" /> https://twagley.github.io/CP12/img/fireworks-orange.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-orange_and_blue.png" /> https://twagley.github.io/CP12/img/fireworks-orange_and_blue.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-orange_and_grey.png" /> https://twagley.github.io/CP12/img/fireworks-orange_and_grey.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-purple.png" /> https://twagley.github.io/CP12/img/fireworks-purple.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-purple_with_stars.png" /> https://twagley.github.io/CP12/img/fireworks-purple_with_stars.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-red.png" /> https://twagley.github.io/CP12/img/fireworks-red.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-red-orange.png" /> https://twagley.github.io/CP12/img/fireworks-red-orange.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-yellow_and_magenta.png" /> https://twagley.github.io/CP12/img/fireworks-yellow_and_magenta.png<br>
-				<img src="https://twagley.github.io/CP12/img/fireworks-yellow-orange.png" /> https://twagley.github.io/CP12/img/fireworks-yellow-orange.png<br>
+				<img src="../../assets/Halifax-Waterfront_at_night.jpg" /> https://twagley.github.io/CP12/assets/Halifax-Waterfront_at_night.jpg<br>
+				<img src="../../assets/fireworks-blue.png" /> https://twagley.github.io/CP12/assets/fireworks-blue.png<br>
+				<img src="../../assets/fireworks-blue_and_red.png" /> https://twagley.github.io/CP12/assets/fireworks-blue_and_red.png<br>
+				<img src="../../assets/fireworks-orange.png" /> https://twagley.github.io/CP12/assets/fireworks-orange.png<br>
+				<img src="../../assets/fireworks-orange_and_blue.png" /> https://twagley.github.io/CP12/assets/fireworks-orange_and_blue.png<br>
+				<img src="../../assets/fireworks-orange_and_grey.png" /> https://twagley.github.io/CP12/assets/fireworks-orange_and_grey.png<br>
+				<img src="../../assets/fireworks-purple.png" /> https://twagley.github.io/CP12/assets/fireworks-purple.png<br>
+				<img src="../../assets/fireworks-purple_with_stars.png" /> https://twagley.github.io/CP12/assets/fireworks-purple_with_stars.png<br>
+				<img src="../../assets/fireworks-red.png" /> https://twagley.github.io/CP12/assets/fireworks-red.png<br>
+				<img src="../../assets/fireworks-red-orange.png" /> https://twagley.github.io/CP12/assets/fireworks-red-orange.png<br>
+				<img src="../../assets/fireworks-yellow_and_magenta.png" /> https://twagley.github.io/CP12/assets/fireworks-yellow_and_magenta.png<br>
+				<img src="../../assets/fireworks-yellow-orange.png" /> https://twagley.github.io/CP12/assets/fireworks-yellow-orange.png<br>
 			</p>
 		</article>
 		<script>
@@ -183,22 +183,22 @@
 				document.body.innerHTML 
 					= '<img ' 
 					+ 'id="backgroundId" '
-					+ 'src="https://twagley.github.io/CP12/img/Halifax-Waterfront_at_night.jpg"> '
+					+ 'src="../../assets/Halifax-Waterfront_at_night.jpg"> '
 					+ ""
 					+ '<img '
 					+ 'id="firework1Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="https://twagley.github.io/CP12/img/fireworks-blue.png"> '
+					+ 'src="../../assets/fireworks-blue.png"> '
 					+ ''
 					+ '<img '
 					+ 'id="firework2Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="https://twagley.github.io/CP12/img/fireworks-red.png"> '
+					+ 'src="../../assets/fireworks-red.png"> '
 					+ ''
 					+ '<img '
 					+ 'id="firework3Id" '
 					+ 'class="fireworkClass" '
-					+ 'src="https://twagley.github.io/CP12/img/fireworks-purple.png"> ';
+					+ 'src="../../assets/fireworks-purple.png"> ';
 			}
 			
 			//OUTPUT: animate the firework exploding, then fading

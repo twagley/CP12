@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -64,7 +64,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.11 Skill-builder: <em>Roll some dice</em>
 		</header>
 				
@@ -73,15 +73,15 @@
 			<ul>
 				<li>
 					//INPUT: 
-					<a href="inputDetectingMouseovers.shtml">Detecting mouseovers</a>
+					<a href="../../reference/inputDetectingMouseovers.shtml">Detecting mouseovers</a>
 				</li>
 				<li>
 					//PROCESS: 
-					<a href="processRandomnessAndRounding.shtml">Randomness and rounding</a>
+					<a href="../../reference/processRandomnessAndRounding.shtml">Randomness and rounding</a>
 				</li>
 				<li>
 					//HTML and OUTPUT: 
-					<a href="htmlUnicodeDice.shtml">Unicode dice</a>
+					<a href="../../reference/htmlUnicodeDice.shtml">Unicode dice</a>
 				</li>
 			</ul>
 

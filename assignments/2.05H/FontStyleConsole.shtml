@@ -25,7 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -80,42 +80,42 @@
 			<p>
 				<ul>
 					<li>
-						//INPUT: <a href="inputButtons.shtml">Buttons</a>
+						//INPUT: <a href="../../reference/inputButtons.shtml">Buttons</a>
 					</li>
 					<li>
-						//INPUT: <a href="inputText.shtml">Text</a>
-					</li>
-					<br>
-					<li>
-						//INIT: <a href="initVariableAssignment.shtml">Using variables</a>
+						//INPUT: <a href="../../reference/inputText.shtml">Text</a>
 					</li>
 					<br>
 					<li>
-						//PROCESS: <a href="processBasicMath.shtml">Basic math</a>
+						//INIT: <a href="../../reference/initVariableAssignment.shtml">Using variables</a>
 					</li>
 					<br>
 					<li>
-						//OUTPUT: <a href="outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>, <code>.innerHTML</code>, and <code>console.log()</code></a>
-					</li>
-					<li>
-						//OUTPUT: <a href="outputChangeTextStyles.shtml">Changing text styles</a>
-					</li>
-					<li>
-						//OUTPUT: <a href="outputChangePosition.shtml">Changing an element's position</a><em>New!</em>
+						//PROCESS: <a href="../../reference/processBasicMath.shtml">Basic math</a>
 					</li>
 					<br>
 					<li>
-						//STYLE: <a href="styleXAndVWherePossible.shtml">Use cut and paste where possible</a>
+						//OUTPUT: <a href="../../reference/outputAlertInnerHtmlAndConsoleLog.shtml"><code>alert()</code>, <code>.innerHTML</code>, and <code>console.log()</code></a>
 					</li>
 					<li>
-						//STYLE: <a href="styleMath.shtml">Space out mathematical expressions</a>
+						//OUTPUT: <a href="../../reference/outputChangeTextStyles.shtml">Changing text styles</a>
+					</li>
+					<li>
+						//OUTPUT: <a href="../../reference/outputChangePosition.shtml">Changing an element's position</a><em>New!</em>
+					</li>
+					<br>
+					<li>
+						//STYLE: <a href="../../reference/styleXAndVWherePossible.shtml">Use cut and paste where possible</a>
+					</li>
+					<li>
+						//STYLE: <a href="../../reference/styleMath.shtml">Space out mathematical expressions</a>
 					</li>
 				</ul>
 			</p>
 
 			<h2>
 				Evaluation 
-				<!-- - [<a href="FontStyleConsole.pdf">pdf</a>] [<a href="FontStyleConsole.pub">pub</a>] -->
+				<!-- - [<a href="FontStyleConsole.pdf">pdf</a>] -->
 			</h2>
 			<ul>
 				<li>

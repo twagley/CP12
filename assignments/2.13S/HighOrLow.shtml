@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://code.jquery.com/jquery-4.0.0.js ">
 		<script src="https://code.jquery.com/jquery-4.0.0.js "></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -78,7 +78,7 @@
 	<body>
 		<!--#include virtual="/masthead.html" -->
 		<header>
-            <a href="https://twagley.github.io/CP12/index.html"> MAIN  </a>
+            <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.13 Skill-builder: 
 			<em>High or Low</em>
 		</header>
@@ -88,16 +88,16 @@
 			<ul>
 				<li>
 					//PROCESS: 
-					<a href="processFunctionParametersAndReturns.shtml">Functional Programming</a>
+					<a href="../../reference/processFunctionParametersAndReturns.shtml">Functional Programming</a>
 				</li>
 				<li>
 					//PROCESS: 
-					<a href="processFunctionDefinitionsCallsReferences.shtml">Functions: 
+					<a href="../../reference/processFunctionDefinitionsCallsReferences.shtml">Functions: 
 					Definition, trigger, or reference?</a>
 				</li>
 				<li>
 					//STYLE: 
-					<a href="styleFunctionPipelines.shtml">Use function pipelines</a>
+					<a href="../../reference/styleFunctionPipelines.shtml">Use function pipelines</a>
 				</li>
 			</ul>
 

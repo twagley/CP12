@@ -24,7 +24,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -65,14 +65,14 @@
 			<ul>
 				<li>
 					//INIT: 
-					<a href="initObjectConstructors.shtml">
+					<a href="../../reference/initObjectConstructors.shtml">
 						Creating objects using object constructors
 					</a>
 				</li>
 				<br>
 				<li>
 					//INPUT: 
-					<a href="inputMouseMovementAndPosition.shtml">
+					<a href="../../reference/inputMouseMovementAndPosition.shtml">
 						Reading mouse movements and position
 					</a>
 				</li>
@@ -213,10 +213,10 @@
                 
                 </span><span class="sc43">// array with the list of possible star images in it</span><span class="sc41">
                 </span><span class="sc46">this.SOURCE_ARR</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc50">[</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyDown0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
-                    </span><span class="sc48">"http://drapak.ca/cpg/img/pacman/pacmanInkyRight0.png"</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyDown0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyUp0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyLeft0.png"</span><span class="sc50">,</span><span class="sc41">
+                    </span><span class="sc48">"https://twagley.github.io/CP12/assets/pacman/pacmanInkyRight0.png"</span><span class="sc41">
                 </span><span class="sc50">];</span><span class="sc41">
             </span><span class="sc50">}</span><span class="sc41">
             

@@ -28,7 +28,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
-		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
@@ -76,7 +76,7 @@
 				<span class="langstyle">//PROCESS:</span> 
 					<code>
 						newImageElement.src = 
-						<var>"http://drapak.ca/cpg/img/link-up.png";</var>
+						<var>"https://twagley.github.io/CP12/assets/link-up.png";</var>
 					</code> <br>
 					<span class="indent">— 
 						adds a source link to the image element
@@ -306,7 +306,7 @@
 	
 	</span><span class="sc43">// link the image source</span><span class="sc41">
 	</span><span class="sc46">imageElement.src</span><span class="sc41"> 
-		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png'</span><span class="sc50">;</span><span class="sc41">
+		</span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'https://twagley.github.io/CP12/assets/pacman/pacmanGhostFlash2.png'</span><span class="sc50">;</span><span class="sc41">
 	
 	</span><span class="sc43">// add the id</span><span class="sc41">
 	</span><span class="sc46">imageElement.id</span><span class="sc41"> </span><span class="sc50">=</span><span class="sc41"> </span><span class="sc49">'imageID'</span><span class="sc50">;</span><span class="sc41">
@@ -593,7 +593,7 @@
 				
 				// link the image source
 				imageElement.src 
-					= 'http://drapak.ca/cpg/img/pacman/pacmanGhostFlash2.png';
+					= '../assets/pacman/pacmanGhostFlash2.png';
 				
 				// add the id
 				imageElement.id = 'imageID';
