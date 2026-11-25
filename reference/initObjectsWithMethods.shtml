@@ -414,7 +414,7 @@ window.onkeydown	= function (<var>keyEvent</var>) {
 
 			var animationObj = {
 				id:			"animateId",
-				src:		"MsPacMan.png",
+				src:		"../assets/MsPacMan.png",
 				width:		"100px",
 				DISTANCE:	24,
 				DURATION:	100

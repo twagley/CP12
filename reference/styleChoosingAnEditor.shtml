@@ -70,7 +70,7 @@
 			<h2>Why use a programming editor?</h2>
 			<ol>
 				<!--
-				<li>Download my <a href="Notepad++Portable.zip">PortableApps Notepad++ zip archive</a>. Portable apps are programs that you can install to say, a flash drive, without it needing to use the windows registry. This is handy for people who like to use school and work computers that are well-secured and do not allow the permanent installation of programs.</li>
+				<li>Download <a href="https://portableapps.com/apps/development/notepadpp_portable">Notepad++ Portable from PortableApps</a>. Portable apps are programs that you can install to say, a flash drive, without it needing to use the windows registry. This is handy for people who like to use school and work computers that are well-secured and do not allow the permanent installation of programs.</li>
 				<li>Save the zip file to the <code>D:/</code> drive</p>
 				<li>In the <code>D:/</code> drive, delete any existing Notepad++ folders</li>
 				<li>Right-click on the zip archive to bring up the context menu</li>

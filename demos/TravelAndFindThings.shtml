@@ -20,16 +20,16 @@
 			
 			var maze = {
 				// INIT: initialize the array that holds the map pattern images
-				imageSourceArr: [	"https://twagley.github.io/CP12/assets/BrownBlock.png",
-									"https://twagley.github.io/CP12/assets/DirtBlock.png",
-									"https://twagley.github.io/CP12/assets/GrassBlock.png",
-									"https://twagley.github.io/CP12/assets/PlainBlock.png",
-									"https://twagley.github.io/CP12/assets/RoofSouth.png",
-									"https://twagley.github.io/CP12/assets/StoneBlock.png",
-									"https://twagley.github.io/CP12/assets/WaterBlock.png",
-									"https://twagley.github.io/CP12/assets/WoodBlock.png",
-									"https://twagley.github.io/CP12/assets/WallBlock.png",
-									"https://twagley.github.io/CP12/assets/TreeUgly.png"
+				imageSourceArr: [	"../assets/BrownBlock.png",
+									"../assets/DirtBlock.png",
+									"../assets/GrassBlock.png",
+									"../assets/PlainBlock.png",
+									"../assets/RoofSouth.png",
+									"../assets/StoneBlock.png",
+									"../assets/WaterBlock.png",
+									"../assets/WoodBlock.png",
+									"../assets/WallBlock.png",
+									"../assets/TreeUgly.png"
 				],
 				//and now rhe contents of the maze: 1: ground, 6: water
 				contents: 	[	[6,6,6,6,6,6,6,6,6,6,null,null,null,null,null,null],
@@ -100,16 +100,16 @@
 			
 			var prize = {
 				// INIT: initialize the array that holds the map pattern images
-				imageSourceArr: [	"https://twagley.github.io/CP12/assets/BrownBlock.png",
+				imageSourceArr: [	"../assets/BrownBlock.png",
 									"https://www.kasandbox.org/programming-images/cute/Heart.png",
 									"https://www.kasandbox.org/programming-images/cute/Star.png",
-									"https://twagley.github.io/CP12/assets/PlainBlock.png",
-									"https://twagley.github.io/CP12/assets/RoofSouth.png",
-									"https://twagley.github.io/CP12/assets/StoneBlock.png",
-									"https://twagley.github.io/CP12/assets/WaterBlock.png",
-									"https://twagley.github.io/CP12/assets/WoodBlock.png",
-									"https://twagley.github.io/CP12/assets/WallBlock.png",
-									"https://twagley.github.io/CP12/assets/TreeUgly.png"
+									"../assets/PlainBlock.png",
+									"../assets/RoofSouth.png",
+									"../assets/StoneBlock.png",
+									"../assets/WaterBlock.png",
+									"../assets/WoodBlock.png",
+									"../assets/WallBlock.png",
+									"../assets/TreeUgly.png"
 				],
 				//and now the prize contents 1:heart 2: star
 				contents: 	[	[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
@@ -190,7 +190,7 @@
 			
 			var link = {
 				id:				"linkID",
-				src:			"https://twagley.github.io/CP12/assets/link-down.png",
+				src:			"../assets/link-down.png",
 				width:			( COLUMN_WIDTH - 14 ) + "px",
 				row:			1,
 				column:			1,

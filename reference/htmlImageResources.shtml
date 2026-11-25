@@ -589,7 +589,7 @@
                 for (i in imageArr) {
                     // create variables for element and source link
                     var newImage    = document.createElement("img");
-                    var imageSource = sourcePrefix + imageArr[ i ]
+                    var imageSource = new URL( sourcePrefix + imageArr[ i ], document.baseURI ).href
                     
                     // add source title, and click function
                     newImage.src    = imageSource;
@@ -648,45 +648,45 @@
                     'holidayID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/terrain", 
+                    "../assets/terrain/", 
                     terrainArr, 
                     'terrainID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/sprites", 
+                    "../assets/sprites/", 
 					//https://github.com/twagley/CP12/blob/main/img/sprites/link-down.png"
                     spriteArr, 
                     'spriteID'
                 );
 				console.log('displaying planets')
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/planets", 
+                    "../assets/planets/", 
                     planetArr, 
                     'planetID'
                 );
 				console.log('displaying gamebaoard')
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/gameBoard", 
+                    "../assets/gameBoard/", 
                     gameBoardArr, 
                     'gameBoardID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/pacman", 
+                    "../assets/pacman/", 
                     pacmanLargeArr, 
                     'pacmanLargeID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/pacman", 
+                    "../assets/pacman/", 
                     pacmanMediumArr, 
                     'pacmanMediumID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/pacman", 
+                    "../assets/pacman/", 
                     pacmanSmallArr, 
                     'pacmanSmallID'
                 );
                 displayImages( 
-                    "https://twagley.github.io/CP12/assets/pacman", 
+                    "../assets/pacman/", 
                     pacmanMiscArr, 
                     'pacmanMiscID'
                 );
