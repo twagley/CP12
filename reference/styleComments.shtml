@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			Style - Use comments to communicate
-		</title>
+		<title>Wagley CP12: STYLE - Use comments to communicate</title>
 		<meta 
 			name="description" 
 			content="Good programming style means adding comments to explain and remind.">
@@ -54,7 +51,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Add comments to communicate</em>
@@ -177,7 +173,6 @@
 				</li>
 			</ul>
 		</article>
-		<!--#include virtual="/footer.html" -->		
 		<script>
 		</script>
 

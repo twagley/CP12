@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			INPUT - Buttons
-		</title>
+		<title>Wagley CP12: INPUT - Buttons</title>
 		<meta 
 			name="description" 
 			content="Learn how to use buttons with Javascript">
@@ -65,7 +62,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INPUT: <em>Buttons</em>
@@ -248,7 +244,6 @@
 			<p>The code above produces:</p>
 			<iframe src="../demos/inputButtons.shtml"></iframe>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 	<script>
 		function mainProcedure() {

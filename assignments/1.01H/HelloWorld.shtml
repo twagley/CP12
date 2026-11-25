@@ -7,7 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>1.01H HelloWorld - Computer Programming 12</title>
+		<title>Wagley CP12: Hello world!</title>
 		<meta 
 			name="description" 
 			content="Computer Programming 12 provides an introduction to programming to high school students">
@@ -61,7 +61,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			<a href="../../index.html">Computer Programming 12</a> &mdash; 
@@ -192,6 +191,5 @@
 			<p>I am curious what else you can do. Do you know any HTML? Put some additional code in there!</p>
 		</article>		
 				
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

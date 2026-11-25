@@ -7,9 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: HTML Lists
-		</title>
+		<title>Wagley CP12: HTML tables</title>
 		<meta 
 			name="description" 
 			content="Learn how to make tables in HTML">
@@ -55,7 +53,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			<a href="../index.html">Computer Programming 12</a>
@@ -171,6 +168,5 @@
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-tables/5316313024167936">Live example: tables</a></h2>
 			<p><script src="https://www.khanacademy.org/computer-programming/live-example-tables/5316313024167936/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script></p>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

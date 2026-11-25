@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			WagleyCP12: 
-			Formula Solver
-		</title>
+		<title>Wagley CP12: Formula Solver</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to read text input, apply style changes, and calculate things">
@@ -54,7 +51,6 @@
 	</head>
 
 	<body id="bodyID">
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 2.04 Skill-builder: <em>Formula solver</em>
 		</header>
@@ -148,6 +144,5 @@
 			
 		<script>
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			PROCESS - Using arrays
-		</title>
+		<title>Wagley CP12: PROCESS - Using arrays</title>
 		<meta 
 			name="description" 
 			content="Learn how use array variables">
@@ -51,7 +48,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -519,6 +515,5 @@ document.querySelector( '#buttonId' ).innerHTML = stringArr;</code><br></pre>
 			//INPUT: start questionLoader when the page is finished loading
 			document.body.onload							= questionLoader;
 		</script>
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

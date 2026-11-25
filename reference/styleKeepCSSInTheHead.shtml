@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			Style - Keep your CSS inside your &lt;head>
-		</title>
+		<title>Wagley CP12: STYLE - Keep your CSS inside your &lt;head></title>
 		<meta 
 			name="description" 
 			content="Programming style: use CSS inside the style block, not your HTML tags">
@@ -52,7 +49,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Keep your CSS inside your <code>&lt;head></code></em>
@@ -155,6 +151,5 @@
 
 		<script>		
 		</script>
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

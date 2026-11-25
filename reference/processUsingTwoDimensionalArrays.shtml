@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			drapak.ca - Computer Programming: 
-			PROCESS - Using two dimensional arrays and nested loops
-		</title>
+		<title>Wagley CP12: PROCESS - Using two dimensional arrays and nested loops</title>
 		<meta 
 			name="description" 
 			content="Learn how use two dimensional arrays and nested loops">
@@ -58,7 +55,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//PROCESS: <em>Using two dimensional arrays and nested loops</em>
@@ -251,7 +247,6 @@ var loopThroughArray = function ( exampleArray ) {
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-draw-a-maze/4749109846736896">Live example: Draw a maze</a></h2> 
 			<script src="https://www.khanacademy.org/computer-programming/live-example-draw-a-maze/4749109846736896/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
 		</article>
-		<!--#include virtual="/footer.html" -->		
 		<script>
 			//OUTPUT: this puts the grid information inside the div called #outputId
 			var outputGridCode = function ( htmlCode ) {  

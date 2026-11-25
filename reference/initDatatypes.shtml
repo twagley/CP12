@@ -43,7 +43,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			<a href="../index.html">Computer Programming 12</a>
 		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
@@ -128,6 +127,5 @@
 			</ul>
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

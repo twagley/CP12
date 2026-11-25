@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Keyboard reader
-		</title>
+		<title>Wagley CP12: Keyboard reader</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to read keypresses">
@@ -52,7 +49,6 @@
 	</head>
 
 	<body id="bodyID">
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 2.08 Skill-builder: <em>Keyboard reader</em>
 		</header>
@@ -104,6 +100,5 @@
 		<script>
 			var _0xa69d=["\x69\x6E\x20\x72\x65\x61\x64\x4B\x65\x79\x70\x72\x65\x73\x73\x2E\x2E\x2E","\x6C\x6F\x67","\x77\x68\x69\x63\x68","\x6B\x65\x79\x43\x6F\x64\x65","\x26\x23","\x3B","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x63\x6F\x64\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x68\x61\x72\x61\x63\x74\x65\x72\x49\x44","\x62\x6F\x64\x79\x49\x44","\x3C\x68\x32\x3E\x44\x61\x6E\x67\x20\x69\x74\x21\x3C\x2F\x68\x32\x3E","\x6F\x6E\x6B\x65\x79\x64\x6F\x77\x6E"];var readKeypress=function(_0x433fx2){console[_0xa69d[1]](_0xa69d[0]);var _0x433fx3=_0x433fx2[_0xa69d[2]]||_0x433fx2[_0xa69d[3]];var _0x433fx4=_0xa69d[4]+_0x433fx3+_0xa69d[5];console[_0xa69d[1]](_0x433fx4);document[_0xa69d[8]](_0xa69d[7])[_0xa69d[6]]=_0x433fx3;document[_0xa69d[8]](_0xa69d[9])[_0xa69d[6]]=_0x433fx4;if(_0x433fx3==9){document[_0xa69d[8]](_0xa69d[10])[_0xa69d[6]]=_0xa69d[11]};};window[_0xa69d[12]]=readKeypress;
 		</script>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

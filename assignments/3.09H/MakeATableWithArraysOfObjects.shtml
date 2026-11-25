@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Make a table with an array of objects
-		</title>
+		<title>Wagley CP12: Make a table with an array of objects</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript arrays to create a table">
@@ -60,7 +57,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
@@ -321,7 +317,6 @@
 			
 
 		</article>
-		<!--#include virtual="/footer.html" -->
  		<script>
 		</script>
 	</body>

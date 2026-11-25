@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			INPUT - Read the height and width of the screen
-		</title>
+		<title>Wagley CP12: INPUT - Read the height and width of the screen</title>
 		<meta 
 			name="description" 
 			content="Learn how to read the height and width of the screen">
@@ -50,7 +47,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INPUT: <em>Read the height and width of the screen</em>
@@ -276,6 +272,5 @@
 				outputScreenInfo( screenObj.informationMessage );
 			}
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

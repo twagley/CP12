@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Construct a Picture
-		</title>
+		<title>Wagley CP12: Construct a Picture</title>
 		<meta 
 			name="description" 
 			content="Assignment: organize datatypes into a table">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			1.06 Skill-builder: <em>Construct a picture</em>
 		</header>
@@ -245,7 +241,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 		<script>
 		</script>
 	</body>

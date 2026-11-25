@@ -6,10 +6,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			OUTPUT - Animating motion
-		</title>
+		<title>Wagley CP12: OUTPUT - Animating motion</title>
 		<meta 
 			name="description" 
 			content="Learn how to animate motion in Javascript">
@@ -72,7 +69,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			<a href="../index.html"> MAIN  </a>
@@ -318,7 +314,6 @@
 			<script src="https://www.khanacademy.org/computer-programming/live-example-reading-the-position-of-an-element/5614790404341760/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			// OUTPUT: animate the image's position
 			var animateImage = function () {  

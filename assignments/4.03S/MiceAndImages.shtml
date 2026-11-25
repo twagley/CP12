@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			Mice and images
-		</title>
+		<title>Wagley CP12: Mice and images</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use mice to place images on the screen">
@@ -55,7 +52,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 4.03S Skill-builder: <em>Mice and images</em>
 		</header>
@@ -255,7 +251,6 @@
 				<li>Add images inside an ID using <code>document.getElementById( ).appendChild( )</code></li>
 			</ol>
 		</article>
-		<!--#include virtual="/footer.html" -->
  		<script>
 			var _0xf275=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x6B\x61\x73\x61\x6E\x64\x62\x6F\x78\x2E\x6F\x72\x67\x2F\x70\x72\x6F\x67\x72\x61\x6D\x6D\x69\x6E\x67\x2D\x69\x6D\x61\x67\x65\x73\x2F\x63\x75\x74\x65\x2F\x53\x74\x61\x72\x2E\x70\x6E\x67","\x67\x65\x74\x43\x75\x72\x72\x65\x6E\x74\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x74\x6F\x70","\x63\x6C\x69\x65\x6E\x74\x59","\x6C\x65\x66\x74","\x63\x6C\x69\x65\x6E\x74\x58","\x64\x69\x73\x70\x6C\x61\x79\x50\x6F\x73\x69\x74\x69\x6F\x6E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x74\x6F\x70\x49\x64","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6C\x65\x66\x74\x49\x64","\x6D\x6F\x76\x65\x49\x6D\x61\x67\x65","\x73\x74\x79\x6C\x65","\x69\x6D\x61\x67\x65\x49\x64","\x70\x78","\x70\x6C\x61\x63\x65\x49\x6D\x61\x67\x65","\x69\x6D\x67","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x73\x72\x63","\x63\x75\x72\x72\x65\x6E\x74\x53\x72\x63","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x6F\x75\x74\x70\x75\x74\x49\x64","\x63\x6C\x65\x61\x6E\x55\x70\x54\x68\x65\x53\x63\x72\x65\x65\x6E","","\x6F\x75\x74\x70\x75\x74\x49\x6E\x73\x74\x72\x75\x63\x74\x69\x6F\x6E\x73","\x43\x6C\x69\x63\x6B\x20\x61\x6E\x79\x77\x68\x65\x72\x65\x20\x74\x6F\x20\x73\x74\x6F\x70\x2E\x2E\x2E","\x6F\x6E\x6D\x6F\x75\x73\x65\x64\x6F\x77\x6E","\x6F\x6E\x6D\x6F\x75\x73\x65\x6D\x6F\x76\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x23\x62\x75\x74\x74\x6F\x6E\x49\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72"];var mouseObj={top:0,left:0,currentSrc:_0xf275[0]};mouseObj[_0xf275[1]]= function(_0x11c6x2){this[_0xf275[2]]= _0x11c6x2[_0xf275[3]];this[_0xf275[4]]= _0x11c6x2[_0xf275[5]]};mouseObj[_0xf275[6]]= function(){document[_0xf275[9]](_0xf275[8])[_0xf275[7]]= this[_0xf275[2]];document[_0xf275[9]](_0xf275[10])[_0xf275[7]]= this[_0xf275[4]]};mouseObj[_0xf275[11]]= function(){var _0x11c6x3=document[_0xf275[9]](_0xf275[13])[_0xf275[12]];_0x11c6x3[_0xf275[2]]= this[_0xf275[2]]+ _0xf275[14];_0x11c6x3[_0xf275[4]]= this[_0xf275[4]]+ _0xf275[14]};mouseObj[_0xf275[15]]= function(){var _0x11c6x4=document[_0xf275[17]](_0xf275[16]);_0x11c6x4[_0xf275[18]]= this[_0xf275[19]];_0x11c6x4[_0xf275[12]][_0xf275[2]]= this[_0xf275[2]]+ _0xf275[14];_0x11c6x4[_0xf275[12]][_0xf275[4]]= this[_0xf275[4]]+ _0xf275[14];document[_0xf275[9]](_0xf275[21])[_0xf275[20]](_0x11c6x4)};mouseObj[_0xf275[22]]= function(){document[_0xf275[9]](_0xf275[21])[_0xf275[7]]= _0xf275[23]};mouseObj[_0xf275[24]]= function(){document[_0xf275[9]](_0xf275[21])[_0xf275[7]]= _0xf275[25]};document[_0xf275[26]]= function(){mouseObj[_0xf275[22]]();document[_0xf275[27]]= _0xf275[23]};document[_0xf275[30]](_0xf275[29])[_0xf275[28]]= function(){document[_0xf275[27]]= function(_0x11c6x2){mouseObj[_0xf275[1]](_0x11c6x2);mouseObj[_0xf275[6]]();mouseObj[_0xf275[11]]();mouseObj[_0xf275[15]]()};mouseObj[_0xf275[24]]()}
 		</script>

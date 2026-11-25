@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Modals!</title>
+		<title>Wagley CP12: Modals</title>
 
 		<meta 
 			charset="UTF-8">
@@ -62,7 +62,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 2.03 EXTRA: <em>Modals</em>
 		</header>
@@ -266,7 +265,6 @@
 					
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>
 

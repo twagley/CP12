@@ -41,7 +41,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			<a href="../index.html">Computer Programming 12</a>
@@ -214,6 +213,5 @@
 </span></code></pre>
 		</article>		
 				
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

@@ -4,10 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			OUTPUT - Animation callbacks
-		</title>
+		<title>Wagley CP12: OUTPUT - Animation callbacks</title>
 		<meta 
 			name="description" 
 			content="Learn how to use jQuery animation callbacks in Javascript">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//OUTPUT: <em>Animation callbacks</em>
@@ -347,7 +343,6 @@ $</span><span class="sc50">(</span><span class="sc41"> </span><span class="sc49"
 </span><span class="sc10">);</span></code></pre>
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			//OUTPUT: do all the source changes together, then all the animations together
 			var doAllSourceChangesThenAnimations = function () {

@@ -7,9 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			Create a map</title>
+		<title>Wagley CP12: Create a map</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use arrays of objects to create a map">
@@ -54,7 +52,6 @@
 	</head>
 
 	<body>
-		<!--include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 3.11 EXTRA: <em>Create a map</em>
 		</header>
@@ -121,7 +118,6 @@
 			</p>
 			
 		</article>
-		<!--#include virtual="/footer.html" -->
 		<script>
 
 			//INIT: define an array of objects of cities having a population over 300 000 

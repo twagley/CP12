@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			PROCESS - Functions: Definition, call, or reference?
-		</title>
+		<title>Wagley CP12: PROCESS - Functions: Definition, call, or reference?</title>
 		
 		<meta 
 			name="description" 
@@ -67,7 +64,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -300,7 +296,6 @@
 </span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc0">    </span><span class="sc10">("keydown", </span><span class="sc0"> </span><span class="question" data-answer='<span class="sc11">mainProcedure</span>' onclick="this.style.border = '1px solid orange';"></span><span class="sc10">);</span></code></pre>
 			
 		</article>
-		<!--#include virtual="/footer.html" -->	
 		<script>
 			 document.body.onload	=	questionLoader;
 		</script>

@@ -4,10 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>
-			drapak.ca - Computer Programming: 
-			PROCESS - Using arrays of objects to create a table
-		</title>
+		<title>Wagley CP12: PROCESS - Using arrays of objects to create a table</title>
 		<meta 
 			name="description" 
 			content="Learn how use arrays of objects to create a table">
@@ -45,7 +42,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//PROCESS: <em>Using arrays of objects to create a table</em>
@@ -213,7 +209,6 @@ var loopThroughArrayOfObjects = function ( exampleArr ) {
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-table/5106621926211584">Live example: Using arrays of objects to create a table</a></h2>
 			<script src="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-table/5106621926211584/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>-->
 		</article>
-		<!--#include virtual="/footer.html" -->		
 		<script>
 			var mainProcedure = function () {
 				//INIT:

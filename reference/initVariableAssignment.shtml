@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			INIT - Using variables
-		</title>
+		<title>Wagley CP12: INIT - Using variables</title>
 		<meta 
 			name="description" 
 			content="Learn how use variables in Javascript">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INIT: <em>Using variables</em>
@@ -274,6 +270,5 @@
 		</article>		
 		<script>
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

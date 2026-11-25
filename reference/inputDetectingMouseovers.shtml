@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			INPUT - Detecing mouseovers
-		</title>
+		<title>Wagley CP12: INPUT - Detecting mouseovers</title>
 		<meta 
 			name="description" 
 			content="Learn how to detect mouseovers with Javascript">
@@ -56,7 +53,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -268,7 +264,6 @@ document.querySelector( "#<var>exampleId</var>" ).onmouseout = "";	//PROCESS: re
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-detecting-mouseovers/4648473375408128">Live example: Detecting mouseovers</a></h2>
 			<script src="https://www.khanacademy.org/computer-programming/live-example-detecting-mouseovers/4648473375408128/embed.js?editor=yes&amp;buttons=yes&amp;author=yes&amp;embed=yes"></script>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			//OUTPUT: replace #imageId with a heart image
 			var showHeart = function () {

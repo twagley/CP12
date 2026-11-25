@@ -7,7 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: Cakey Clicker</title>
+		<title>Wagley CP12: Cakey Clicker</title>
 		<meta 
 			name="description" 
 			content="Use onclick and Javascript style manipulation to create a simple clicking game">
@@ -55,7 +55,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//MAKE: 2.05 Hand-in: <em>Cakey Clicker</em>
@@ -203,6 +202,5 @@
 					
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

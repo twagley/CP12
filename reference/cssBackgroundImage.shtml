@@ -6,10 +6,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming 12: 
-			CSS text formatting
-		</title>
+		<title>Wagley CP12: CSS background images</title>
 		<meta 
 			name="description" 
 			content="Learn how to create background images with CSS">
@@ -52,7 +49,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//CSS: <em>Background images</em>
@@ -159,6 +155,5 @@
 			<script src="https://www.khanacademy.org/computer-programming/live-example-css-text-formatting/5824430424064000/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script> 
 			-->
 		</article>						
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

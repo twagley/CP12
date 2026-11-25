@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			CSS applying styles using IDs
-		</title>
+		<title>Wagley CP12: CSS applying styles using IDs</title>
 		<meta 
 			name="description" 
 			content="Learn how to format HTML text with CSS">
@@ -62,7 +59,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//CSS: <em>Applying styles using Ids</em>
@@ -219,6 +215,5 @@
 			</ul>
 		</article>		
 				
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

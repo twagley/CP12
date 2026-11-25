@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Make a bar graph
-		</title>
+		<title>Wagley CP12: Make a bar graph</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript objects to create a graph">
@@ -80,7 +77,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //     MAKE: 3.02 Skill-builder: <em>Make a bar graph</em>
@@ -281,7 +277,6 @@
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 
  		<script>
 			//OUTPUT: change the graph divs to the calculated width

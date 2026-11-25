@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>1.02S Skill-builder: Survey Lists - CP12 Wagley</title>
+		<title>Wagley CP12: Survey lists</title>
 		<meta name="description" content="Assignment: answer a survey in HTML using lists">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="lists, Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -44,7 +44,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			<a href="../../index.html">Computer Programming 12</a>
 		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
@@ -163,6 +162,5 @@
 			</ol>
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

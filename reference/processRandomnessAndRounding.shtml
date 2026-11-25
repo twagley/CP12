@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			PROCESS: Randomness and Rounding
-		</title>
+		<title>Wagley CP12: PROCESS - Randomness and Rounding</title>
 		<meta 
 			name="description" 
 			content="Learn how use randomness and rounding in Javascript">
@@ -50,7 +47,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -307,6 +303,5 @@
 				document.body.onload = questionLoader;
 			</script>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

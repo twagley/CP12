@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>Wagley CP12: Style - Capitalizing tags</title>
+		<title>Wagley CP12: STYLE - Capitalizing tags</title>
 		<meta name="description" content="In programming, you should avoid using uppercase in your HTML tags.">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="programming style, capitalizing tags, Halifax, Nova Scotia, programing, computer programming, javascript, teaching, learning resources">
@@ -43,7 +43,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Capitalizing tags</em>
@@ -120,6 +119,5 @@
 </span><span class="sc1">&lt;/P&gt;</span><span class="sc0"></span></code></pre>
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			PROCESS: Basic Math
-		</title>
+		<title>Wagley CP12: PROCESS - Basic Math</title>
 		<meta 
 			name="description" 
 			content="Learn how use basic math in Javascript">
@@ -70,7 +67,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//PROCESS: <em>Basic math</em>
@@ -389,7 +385,6 @@
 		
 		</article>		
 
-		<!--#include virtual="/footer.html" -->
 
 		<script>
 		</script>

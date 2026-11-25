@@ -8,11 +8,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - 
-			Computer Programming 12: 
-			OUTPUT - Adding elements to an output HTML element
-		</title>
+		<title>Wagley CP12: OUTPUT - Adding elements to an output HTML element</title>
 		<meta 
 			name="description" 
 			content="Learn how to add elements to an output HTML element in Javascript">
@@ -54,7 +50,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//OUTPUT: <em>Adding elements directly to an output HTML element</em>
 		</header>
@@ -799,6 +794,5 @@
 			document.getElementById( "tableButtonID" ).onclick 		= createTable;
 			*/
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

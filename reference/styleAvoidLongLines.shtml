@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			Style - Avoid long lines
-		</title>
+		<title>Wagley CP12: STYLE - Avoid long lines</title>
 		<meta 
 			name="description" 
 			content="Avoid long blocks of code">
@@ -52,7 +49,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Avoid long lines</em>
@@ -99,7 +95,6 @@
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-avoid-long-lines-of-code/6260444783312896">Live example: Avoid long lines of code</a></h2> <script src="https://www.khanacademy.org/computer-programming/live-example-avoid-long-lines-of-code/6260444783312896/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 		<script>		
 		</script>
 	</body>

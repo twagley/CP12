@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			High or Low
-		</title>
+		<title>Wagley CP12: High or Low</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to convert your code to function pipelines">
@@ -75,7 +72,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.13 Skill-builder: 
@@ -141,7 +137,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 
  		<script>
 			//INIT: generate a random number when the page loads.

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Make a game board
-		</title>
+		<title>Wagley CP12: Make a game board</title>
 		<meta 
 			name="description" 
 			content="Assignment: Make a game board">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 1.08 Hand-in: <em>Make a game board</em>
 		</header>
@@ -375,7 +371,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 		<script>
 		</script>
 	</body>

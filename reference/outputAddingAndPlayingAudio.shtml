@@ -6,10 +6,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming 12: 
-			OUTPUT - Adding and playing audio
-		</title>
+		<title>Wagley CP12: OUTPUT - Adding and playing audio</title>
 		<meta 
 			name="description" 
 			content="Learn how to add and play audio in Javascript">
@@ -55,7 +52,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//OUTPUT: <em>Adding and playing audio</em>
@@ -187,6 +183,5 @@
 
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Font style console
-		</title>
+		<title>Wagley CP12: Font style console</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to read text input, apply style changes, and calculate things">
@@ -69,7 +66,6 @@
 	</head>
 
 	<body id="bodyId" onload="updateText();">
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 2.05 Hand-in: <em>Font style console</em>
 		</header>
@@ -238,7 +234,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 
  		<script>
 			var _0x30ee=["\x76\x61\x6C\x75\x65","\x69\x6E\x70\x75\x74\x54\x65\x78\x74\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6F\x75\x74\x70\x75\x74\x49\x44","\x66\x6F\x6E\x74\x57\x65\x69\x67\x68\x74","\x73\x74\x79\x6C\x65","\x62\x6F\x6C\x64","\x6E\x6F\x72\x6D\x61\x6C","\x66\x6F\x6E\x74\x53\x74\x79\x6C\x65","\x69\x74\x61\x6C\x69\x63","\x62\x6F\x72\x64\x65\x72","\x31\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x62\x6C\x61\x63\x6B","\x6E\x6F\x6E\x65","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72","\x70\x69\x6E\x6B","\x77\x68\x69\x74\x65","\x63\x6F\x6C\x6F\x72\x49\x6E\x70\x75\x74\x49\x44","\x63\x6F\x6C\x6F\x72","\x66\x6F\x6E\x74\x53\x69\x7A\x65\x49\x6E\x70\x75\x74\x49\x44","\x66\x6F\x6E\x74\x53\x69\x7A\x65","\x70\x78"];var updateText=function(){var _0xf65ex2=document[_0x30ee[2]](_0x30ee[1])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[3]]=_0xf65ex2;};var makeBold=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[5]]=_0x30ee[7]};var makeNormalWeight=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[5]]=_0x30ee[8]};var makeItalic=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[9]]=_0x30ee[10]};var makeNormalStyle=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[9]]=_0x30ee[8]};var makeBlackBorder=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[11]]=_0x30ee[12]};var makeNoBorder=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[11]]=_0x30ee[13]};var makePinkBackground=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[14]]=_0x30ee[15]};var makeWhiteBackground=function(){document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[14]]=_0x30ee[16]};var updateTextColor=function(){var _0xf65exc=document[_0x30ee[2]](_0x30ee[17])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[18]]=_0xf65exc;};var updateFontSize=function(){var _0xf65exe=document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]];document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};var reduceFontSize=function(){var _0xf65exe=parseInt(document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]);var _0xf65exe=_0xf65exe-10;document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]=_0xf65exe;document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};var increaseFontSize=function(){var _0xf65exe=parseInt(document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]);var _0xf65exe=_0xf65exe+10;document[_0x30ee[2]](_0x30ee[19])[_0x30ee[0]]=_0xf65exe;document[_0x30ee[2]](_0x30ee[4])[_0x30ee[6]][_0x30ee[20]]=_0xf65exe+_0x30ee[21];};

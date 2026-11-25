@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			PROCESS - Using string addition
-		</title>
+		<title>Wagley CP12: PROCESS - Using string addition</title>
 		<meta 
 			name="description" 
 			content="Learn how use string addition">
@@ -49,7 +46,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -261,6 +257,5 @@ var newSize = (16 + parseInt( '10px' ) ) + 'px';
 		<script>
 			document.body.onload = questionLoader;
 		</script>
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

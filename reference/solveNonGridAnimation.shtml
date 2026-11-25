@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: SOLVE: Non-grid animation</title>
+		<title>Wagley CP12: SOLVE - Non-grid animation</title>
 		<meta name="description" content="Learn how to use non-grid animation in Javascript">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
@@ -41,7 +41,6 @@
         </style>
     </head>
     <body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//SOLVE: <em>Frame-based animation that continues while you press the key</em>
@@ -295,6 +294,5 @@
     </span><span class="sc1">&lt;/body&gt;</span><span class="sc0">
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

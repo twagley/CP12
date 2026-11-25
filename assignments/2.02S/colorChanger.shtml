@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Color changer
-		</title>
+		<title>Wagley CP12: Color changer</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to read text input and apply style changes">
@@ -55,7 +52,6 @@
 	</head>
 
 	<body id="bodyID">
-		<!--#include virtual="/masthead.html" -->
 		
 		<header>
 			//MAKE: 2.02 Skill-builder: <em>Color changer</em>
@@ -145,7 +141,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 		
 		<script>
 			// ask for help if you can't figure this out - Drapak

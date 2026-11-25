@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			INPUT - Read element positions
-		</title>
+		<title>Wagley CP12: INPUT - Read element positions</title>
 		<meta 
 			name="description" 
 			content="Learn how to read element positions with Javascript">
@@ -64,7 +61,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INPUT: <em>Read element positions</em>
@@ -217,6 +213,5 @@
 
 
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

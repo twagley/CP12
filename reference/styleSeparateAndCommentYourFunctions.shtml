@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Separate and comment your functions</title></title>
+		<title>Wagley CP12: STYLE - Separate and comment your functions</title></title>
 		<meta name="description" content="Use alert() to help debug your javascript programs">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Separate and comment your functions, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
@@ -40,7 +40,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Separate and comment your functions</em>
@@ -153,6 +152,5 @@
 			</p>
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

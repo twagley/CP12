@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			drapak.ca - Computer Programming: PROCESS 
-			- Using arrays of objects to create a map
-		</title>
+		<title>Wagley CP12: PROCESS - Using arrays of objects to create a map</title>
 		<meta 
 			name="description" 
 			content="Learn how use arrays of objects to create a map">
@@ -86,7 +83,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//PROCESS: <em>Using arrays of objects to create a map</em>
@@ -451,7 +447,6 @@ var loopThroughArrayOfObjects = function ( exampleArr ) {
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 			
 		</article>
-		<!--#include virtual="/footer.html" -->		
 		<script>
 			//INIT: declare the array of objects of parking meter data
 			//		data taken from http://catalogue.hrm.opendata.arcgis.com/

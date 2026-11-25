@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			PROCESS: If-Else Conditionals
-		</title>
+		<title>Wagley CP12: PROCESS - If-Else Conditionals</title>
 		<meta 
 			name="description" 
 			content="Learn how use basic conditionals in Javascript">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//PROCESS: <em><code>if...else</code> conditionals</em>
@@ -304,7 +300,6 @@
 				</li>
 			</ul>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 
 		<script>
 			var amIHappy = function () {

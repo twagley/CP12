@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			SOLVE: Choose your own adventure
-		</title>
+		<title>Wagley CP12: SOLVE - Choose your own adventure</title>
 		<meta 
 			name="description" 
 			content="Learn how to create a choose your own adventure game in Javascript">
@@ -50,7 +47,6 @@
 	</head>
 
 	<body id="bodyId">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//SOLVE: <em>Choose your own adventure</em>
@@ -226,7 +222,6 @@
             </span><span class="sc50">}</span><span class="sc41">       
         </span><span class="sc1">&lt;/script&gt;</span></code></pre>
 		</article>		
-		<!--#include virtual="/footer.html" -->
         <script>
             //
             // Inspired by: 

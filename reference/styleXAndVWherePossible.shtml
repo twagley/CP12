@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			Style - Use cut and paste where possible
-		</title>
+		<title>Wagley CP12: STYLE - Use cut and paste where possible</title>
 		<meta 
 			name="description" 
 			content="Good programming style means adding comments to explain and remind.">
@@ -52,7 +49,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Use cut and paste where possible</em>
@@ -97,6 +93,5 @@
 
 		<script>
 		</script>
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

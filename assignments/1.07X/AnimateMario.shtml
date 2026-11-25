@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Animate Mario
-		</title>
+		<title>Wagley CP12: Animate Mario</title>
 		<meta 
 			name="description" 
 			content="Assignment: use CSS to animate Mario">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 1.07 EXTRA: <em>Animate Mario</em>
 		</header>
@@ -126,7 +122,6 @@
 			</p>
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 		<script>
 		</script>
 	</body>

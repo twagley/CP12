@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>drapak.ca - Computer Programming 12: INPUT - Read mouse movement and position</title>
+		<title>Wagley CP12: INPUT - Read mouse movement and position</title>
 		<meta name="description" content="Learn how to read mouse movement and position">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Halifax, Nova Scotia, computer programming, HTML, teaching, learning resources">
@@ -38,7 +38,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INPUT: <em>Read mouse movements and position</em>
@@ -199,7 +198,6 @@
 
 
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			//mouse OBJECT
 			// 	properties:

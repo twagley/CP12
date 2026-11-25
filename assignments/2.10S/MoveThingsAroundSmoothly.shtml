@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Move things around smoothly
-		</title>
+		<title>Wagley CP12: Move things around smoothly</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript and jQuery to move things around smoothly ">
@@ -55,7 +52,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
@@ -135,6 +131,5 @@
 			document.body.onload	=	placeLinkInitially;
 		</script>
 			
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

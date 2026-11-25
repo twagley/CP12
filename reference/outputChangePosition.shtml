@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			OUTPUT - Changing an element's position
-		</title>
+		<title>Wagley CP12: OUTPUT - Changing an element's position</title>
 		<meta 
 			name="description" 
 			content="Learn how to change positions of elements in Javascript">
@@ -60,7 +57,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//OUTPUT: <em>Changing an element's position</em>
@@ -243,6 +239,5 @@
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

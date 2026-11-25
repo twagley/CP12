@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			INIT - Using arrays
-		</title>
+		<title>Wagley CP12: INIT - Using arrays</title>
 		<meta 
 			name="description" 
 			content="Learn how use arrays in Javascript">
@@ -51,7 +48,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INIT: <em>Creating arrays</em>
@@ -432,6 +428,5 @@ console.log( 'noteArr:' + noteArr );</code></pre>
 			
 			console.log( 'noteArr:' + noteArr );
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

@@ -7,9 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: Make a rainbow
-		</title>
+		<title>Wagley CP12: Make a rainbow</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use an array to create a rainbow">
@@ -49,7 +47,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.07 Skill-builder: <em>Make a rainbow</em>
@@ -150,6 +147,5 @@
 			
 		</article>
  		<script src="../../demos/MakeARainbow.js"></script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Use descriptive function names</title></title>
+		<title>Wagley CP12: STYLE - Use descriptive function names</title></title>
 		<meta name="description" content="Use alert() to help debug your javascript programs">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Use descriptive function names, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
@@ -40,7 +40,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Use descriptive function names</em>
@@ -91,6 +90,5 @@
 
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

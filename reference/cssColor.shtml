@@ -45,7 +45,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//CSS: <em>Color</em>
@@ -156,6 +155,5 @@
 
 
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

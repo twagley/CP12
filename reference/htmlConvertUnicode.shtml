@@ -7,9 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			HTML: Display Unicode characters</title>
+		<title>Wagley CP12: HTML - Display Unicode characters</title>
 		<meta 
 			name="description" 
 			content="Learn how to display Unicode characters in HTML">
@@ -51,7 +49,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//HTML: <em>Converting to Unicode characters</em>
@@ -229,7 +226,6 @@
 				</li>
 			</ul>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		
 		<script>
 			var convertUnicode = function () {

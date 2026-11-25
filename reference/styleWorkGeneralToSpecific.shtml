@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>drapak.ca - Computer Programming 12: Style - Work from general to specific</title></title>
+		<title>Wagley CP12: STYLE - Work from general to specific</title></title>
 		<meta name="description" content="Use alert() to help debug your javascript programs">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Work from general to specific, Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
@@ -40,7 +40,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Work from general to specific</em>
@@ -106,6 +105,5 @@
 			</ol>
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

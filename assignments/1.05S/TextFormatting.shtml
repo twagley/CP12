@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Skill builder: Hello color
-		</title>
+		<title>Wagley CP12: Hello color</title>
 		<meta 
 			name="description" 
 			content="Hello color CSS assignment">
@@ -54,7 +51,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			1.05 Skill builder: <em>Hello color</em>
@@ -183,7 +179,6 @@
 			
 		</article>
 				
-		<!--#include virtual="/footer.html" -->
 		
 		<script>
 		</script>

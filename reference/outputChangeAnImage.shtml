@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			OUTPUT - Changing an image
-		</title>
+		<title>Wagley CP12: OUTPUT - Changing an image</title>
 		<meta 
 			name="description" 
 			content="Learn how to change the source of an image in Javascript">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//OUTPUT: <em>Changing an image</em>
@@ -118,7 +114,6 @@
 	
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 
 		<script>
 			//OUTPUT: replace the src of #imageId with a star

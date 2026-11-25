@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			INIT - Creating two dimensional arrays
-		</title>
+		<title>Wagley CP12: INIT - Creating two dimensional arrays</title>
 		<meta 
 			name="description" 
 			content="Learn how to create two dimensional arrays">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INIT: <em>Creating two dimensional arrays</em>
@@ -302,6 +298,5 @@ var <var>sampleArray</var> =<strong>[</strong>
 			-->
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

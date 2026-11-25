@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			PROCESS - Functional Programming
-		</title>
+		<title>Wagley CP12: PROCESS - Functional Programming</title>
 		<meta 
 			name="description" 
 			content="Learn how use function parameters and returns">
@@ -60,7 +57,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -271,7 +267,6 @@
 </span><span class="sc1">&lt;/html&gt;</span></code></pre>
 			
 		</article>
-		<!--#include virtual="/footer.html" -->		
 		<script>
 
 		</script>

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			INIT - Creating objects using object constructors
-		</title>
+		<title>Wagley CP12: INIT - Creating objects using object constructors</title>
 		<meta 
 			name="description" 
 			content="Learn how to create objects using object constructors">
@@ -56,7 +53,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INIT: <em>Creating objects using object constructors</em>
@@ -376,7 +372,6 @@
 			-->
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			// Note that object constructors start with UPPER CASE by the rules of good style
 			// object constructors pass variables into the function definition as usual

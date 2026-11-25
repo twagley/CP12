@@ -6,10 +6,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Move Things with Buttons
-		</title>
+		<title>Wagley CP12: Move Things with Buttons</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript to read current positions and move to a new one.">
@@ -61,7 +58,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
 			//MAKE: 2.06 Skill-builder: <em>Move things with buttons</em>
 		</header>
@@ -192,7 +188,6 @@
 			
 		</article>
 			
-		<!--#include virtual="/footer.html" -->
 
  		<script>
 			// This reads the distance per click and moves the star down by that amount

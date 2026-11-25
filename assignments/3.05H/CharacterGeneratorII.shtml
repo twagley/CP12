@@ -4,10 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			Character Generator
-		</title>
+		<title>Wagley CP12: Character Generator</title>
 		<meta 
 			name="description" 
 			content="Assignment: Use Javascript objects to randomly generate a character">
@@ -68,7 +65,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 		<header>
             <a href="../../index.html"> MAIN  </a>
             //MAKE: 3.05 Hand-in: <em>Character Generator</em>
@@ -351,7 +347,6 @@
 			
 			
 		</article>
-		<!--#include virtual="/footer.html" -->
  		<script>
 			var _0xb2eb=["\x69\x6E\x20\x6D\x61\x69\x6E\x50\x72\x6F\x63\x65\x64\x75\x72\x65\x2E\x2E\x2E","\x6C\x6F\x67","\x69\x6E\x20\x67\x65\x6E\x65\x72\x61\x74\x65\x43\x68\x61\x72\x61\x63\x74\x65\x72\x53\x74\x61\x74\x73\x2E\x2E\x2E","\x70\x61\x74\x69\x65\x6E\x63\x65","\x72\x61\x6E\x64\x6F\x6D","\x63\x65\x69\x6C","\x63\x75\x72\x69\x6F\x73\x69\x74\x79","\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67","\x70\x72\x65\x63\x69\x73\x69\x6F\x6E","\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73","\x74\x65\x61\x6D\x77\x6F\x72\x6B","\x69\x6E\x20\x66\x61\x64\x65\x47\x72\x61\x70\x68\x41\x77\x61\x79\x2E\x2E\x2E","\x30\x70\x78","\x61\x6E\x69\x6D\x61\x74\x65","\x23\x70\x61\x74\x69\x65\x6E\x63\x65\x47\x72\x61\x70\x68\x49\x44","\x23\x63\x75\x72\x69\x6F\x73\x69\x74\x79\x47\x72\x61\x70\x68\x49\x44","\x23\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67\x47\x72\x61\x70\x68\x49\x44","\x23\x70\x72\x65\x63\x69\x73\x69\x6F\x6E\x47\x72\x61\x70\x68\x49\x44","\x23\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73\x47\x72\x61\x70\x68\x49\x44","\x23\x74\x65\x61\x6D\x77\x6F\x72\x6B\x47\x72\x61\x70\x68\x49\x44","\x69\x6E\x20\x64\x69\x73\x70\x6C\x61\x79\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x2E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x70\x61\x74\x69\x65\x6E\x63\x65\x53\x63\x6F\x72\x65\x49\x44","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x75\x72\x69\x6F\x73\x69\x74\x79\x53\x63\x6F\x72\x65\x49\x44","\x74\x72\x6F\x75\x62\x6C\x65\x73\x68\x6F\x6F\x74\x69\x6E\x67\x53\x63\x6F\x72\x65\x49\x44","\x70\x72\x65\x63\x69\x73\x69\x6F\x6E\x53\x63\x6F\x72\x65\x49\x44","\x72\x65\x73\x6F\x75\x72\x63\x65\x66\x75\x6C\x6E\x65\x73\x73\x53\x63\x6F\x72\x65\x49\x44","\x74\x65\x61\x6D\x77\x6F\x72\x6B\x53\x63\x6F\x72\x65\x49\x44","\x69\x6E\x20\x61\x6E\x69\x6D\x61\x74\x65\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x2E","\x70\x78","\x6F\x6E\x63\x6C\x69\x63\x6B","\x62\x75\x74\x74\x6F\x6E\x49\x44"];var mainProcedure=function(){console[_0xb2eb[1]](_0xb2eb[0]);fadeGraphAway();var _0x561ax2=generateCharacterStats();displayStatistics(_0x561ax2);animateStatistics(_0x561ax2)};var generateCharacterStats=function(){console[_0xb2eb[1]](_0xb2eb[2]);var _0x561ax4={};_0x561ax4[_0xb2eb[3]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[6]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[7]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[8]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[9]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);_0x561ax4[_0xb2eb[10]]= Math[_0xb2eb[5]](Math[_0xb2eb[4]]()* 100);return _0x561ax4};var fadeGraphAway=function(){console[_0xb2eb[1]](_0xb2eb[11]);var _0x561ax6=200;$(_0xb2eb[14])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[15])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[16])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[17])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[18])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6});$(_0xb2eb[19])[_0xb2eb[13]]({width:_0xb2eb[12],opacity:0},{duration:_0x561ax6})};var displayStatistics=function(_0x561ax4){console[_0xb2eb[1]](_0xb2eb[20]+ _0x561ax4);document[_0xb2eb[23]](_0xb2eb[22])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[3]];document[_0xb2eb[23]](_0xb2eb[24])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[6]];document[_0xb2eb[23]](_0xb2eb[25])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[7]];document[_0xb2eb[23]](_0xb2eb[26])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[8]];document[_0xb2eb[23]](_0xb2eb[27])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[9]];document[_0xb2eb[23]](_0xb2eb[28])[_0xb2eb[21]]= _0x561ax4[_0xb2eb[10]]};var animateStatistics=function(_0x561ax4){console[_0xb2eb[1]](_0xb2eb[29]+ _0x561ax4);var _0x561ax9=30;setTimeout(function(){$(_0xb2eb[14])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[3]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[3]]* _0x561ax9})},200);setTimeout(function(){$(_0xb2eb[15])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[6]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[6]]* _0x561ax9})},400);setTimeout(function(){$(_0xb2eb[16])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[7]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[7]]* _0x561ax9})},600);setTimeout(function(){$(_0xb2eb[17])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[8]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[8]]* _0x561ax9})},800);setTimeout(function(){$(_0xb2eb[18])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[9]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[9]]* _0x561ax9})},1000);setTimeout(function(){$(_0xb2eb[19])[_0xb2eb[13]]({width:_0x561ax4[_0xb2eb[10]]+ _0xb2eb[30],opacity:1},{duration:_0x561ax4[_0xb2eb[10]]* _0x561ax9})},1200)};document[_0xb2eb[23]](_0xb2eb[32])[_0xb2eb[31]]= mainProcedure
 		</script>

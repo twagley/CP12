@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			Style - Use descriptive variable names
-		</title>
+		<title>Wagley CP12: STYLE - Use descriptive variable names</title>
 		<meta 
 			name="description" 
 			content="How to use descriptive names for variables">
@@ -79,7 +76,6 @@
 	</head>
 
 	<body onload="">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Use descriptive variable names</em>
@@ -337,6 +333,5 @@
 
 		<script>		
 		</script>
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

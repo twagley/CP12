@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			CSS Positioning
-		</title>
+		<title>Wagley CP12: CSS Positioning</title>
 		<meta 
 			name="description" 
 			content="Learn how to position elements using CSS">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//CSS: <em>Positioning</em>
@@ -381,6 +377,5 @@
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-css-positioning/6470565471846400">Live example: CSS Positioning</a></h2>
 			<script src="https://www.khanacademy.org/computer-programming/live-example-css-positioning/6470565471846400/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
 		</article>						
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

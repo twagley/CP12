@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>Wagley CP12: Style - Formatting code with tabs</title>
+		<title>Wagley CP12: STYLE - Formatting code with tabs</title>
 		<meta name="description" content="Good programming style means indenting your code with the tab key for human legibility.">
 		<meta name="author" content="Dave Drapak">
 		<meta name="keywords" content="Formatting code with tabs, Halifax, Nova Scotia, programing style, computer programming, javascript, teaching, learning resources">
@@ -42,7 +42,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
 			//STYLE: <em>Formatting code with tabs</em>
@@ -146,6 +145,5 @@
 
 		</article>
 
-		<!--#include virtual="/footer.html" -->		
 	</body>
 </html>

@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			drapak.ca - Computer Programming: 
-			INIT - Creating objects with methods
-		</title>
+		<title>Wagley CP12: INIT - Creating objects with methods</title>
 		<meta 
 			name="description" 
 			content="Learn how to create objects with methods">
@@ -54,7 +51,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//INIT: <em>Creating objects with methods</em>
@@ -398,7 +394,6 @@ window.onkeydown	= function (<var>keyEvent</var>) {
 			-->
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			// animationObj - displays and animates an image
 			//

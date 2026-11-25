@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			OUTPUT - Animating CSS properties
-		</title>
+		<title>Wagley CP12: OUTPUT - Animating CSS properties</title>
 		<meta 
 			name="description" 
 			content="Learn how to animate other CSS properties in Javascript">
@@ -62,7 +59,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
             <a href="../index.html"> MAIN      </a>
@@ -307,7 +303,6 @@ $( '#msPacmanId' ).animate( animationProperties );</code></pre>
 
 			
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			var animateBorder = function () {
 				$('#button1Id').animate( { borderWidth: 40 + "px"} );

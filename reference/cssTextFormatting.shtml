@@ -43,7 +43,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//CSS: <em>Text formatting</em>
@@ -209,6 +208,5 @@
 			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-css-text-formatting/5824430424064000">Live example: CSS text formatting</a></h2> 
 			<script src="https://www.khanacademy.org/computer-programming/live-example-css-text-formatting/5824430424064000/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script> 
 		</article>						
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

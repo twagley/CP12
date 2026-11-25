@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			HTML - Showing dice in unicode
-		</title>
+		<title>Wagley CP12: HTML - Showing dice in unicode</title>
 		<meta 
 			name="description" 
 			content="Learn how to show dice in HTML unicode">
@@ -57,7 +54,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
             <a href="../index.html"> MAIN  </a>
@@ -230,7 +226,6 @@
 				</li>
 			</ul>
 		</article>		
-		<!--#include virtual="/footer.html" -->
 		<script>
 			var rollDie = function () {
 				document.getElementById('outputId').innerHTML 

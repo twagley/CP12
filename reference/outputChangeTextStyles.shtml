@@ -7,10 +7,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 
-		<title>
-			Wagley CP12: 
-			OUTPUT - Changing text styles
-		</title>
+		<title>Wagley CP12: OUTPUT - Changing text styles</title>
 		<meta 
 			name="description" 
 			content="Learn how to change text styles in Javascript">
@@ -63,7 +60,6 @@
 	</head>
 
 	<body>
-		<!--#include virtual="/masthead.html" -->
 
 		<header>
 			//OUTPUT: <em>Changing text styles</em>
@@ -433,6 +429,5 @@
 			//INPUT: when the button is clicked on, change the button style
 			document.querySelector( '#buttonId' ).onclick = changeButtonStyle;
 		</script>
-		<!--#include virtual="/footer.html" -->
 	</body>
 </html>

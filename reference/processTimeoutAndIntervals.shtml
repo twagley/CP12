@@ -6,10 +6,7 @@
 			name="viewport" 
 			content="width=device-width, initial-scale=1">
 		
-		<title>
-			Wagley CP12: 
-			PROCESS - Timeout and intervals
-		</title>
+		<title>Wagley CP12: PROCESS - Timeout and intervals</title>
 		<meta 
 			name="description" 
 			content="Learn how use Javascript's timers and intervals">
@@ -51,7 +48,6 @@
 	</head>
 
 	<body onload="questionLoader();">
-		<!--#include virtual="/masthead.html" -->	
 		
 		<header>
             <a href="../index.html"> MAIN      </a>
@@ -300,7 +296,6 @@
 			<pre><code></code></pre>
 			-->
 		</article>
-		<!--#include virtual="/footer.html" -->		
 				<script>
 			//EXAMPLE ONE:
 			//PROCESS: delay for 2 seconds
