@@ -90,8 +90,8 @@
 			
 			<h3>Introducing jQuery</h3>
 			<p>
-				<strong>jQuery</strong> is a set of libraries developed by Google to help
-				make and run Google web apps.
+				<strong>jQuery</strong> is a set of libraries developed by software engineer John Resig in 2006 
+				to help make and run Google web apps.
 				The home of the jQuery community is at: <a href="https://jquery.com/">jquery.com</a>.
 			</p>
 			<p>jQuery's libraries allow you to do things like:</p>
