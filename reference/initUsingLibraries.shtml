@@ -115,7 +115,7 @@
 				</code>
 			</p>
 			<p>
-				Every time your page is loaded, it will now contact a google webserver, 
+				Every time your page is loaded, it will now contact a webserver, 
 				and download the library so that your browser can use it.
 				This slows down the load speed of your page a little.
 				Some people download their own copy of the library and point the 
