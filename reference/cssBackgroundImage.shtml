@@ -50,9 +50,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Background images</em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Background images</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

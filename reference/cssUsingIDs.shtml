@@ -60,9 +60,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Applying styles using Ids</em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Applying styles using Ids</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

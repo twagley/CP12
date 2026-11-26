@@ -55,9 +55,7 @@
 
 	<body>
 
-		<header>
-			//OUTPUT: <em>Animation callbacks</em>
-		</header>
+		<header><a href="../index.html#outputID">//OUTPUT:</a> <em>Animation callbacks</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

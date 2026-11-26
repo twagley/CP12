@@ -72,11 +72,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 2.13 Skill-builder: 
-			<em>High or Low</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 2.13 Skill-builder: <em>High or Low</em></header>
 				
 		<article>
 			<h2>Resources</h2>

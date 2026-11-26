@@ -62,10 +62,7 @@
 
 	<body>
 
-		<header>
-			<a href="../../index.html">Computer Programming 12</a> &mdash; 
-			<em>Assignment: Hello world!</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 1.01 Hand-in: <em>Hello world!</em></header>
 
 		<article>
 			<h2>Resources</h2>

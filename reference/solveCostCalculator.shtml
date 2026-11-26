@@ -251,9 +251,7 @@
     </head>
     <body onload="table.createTable();">
 
-		<header>
-			//SOLVE: <em>Cost calculator</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Cost calculator</em></header>
 
 		<article>
 		

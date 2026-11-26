@@ -55,9 +55,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Positioning</em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Positioning</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

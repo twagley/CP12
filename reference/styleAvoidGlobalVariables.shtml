@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Avoid global variables</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Avoid global variables</em></header>
 		
 		<article>
 			<h2>Global variables can sometimes be a sign of sloppy coding</h2>

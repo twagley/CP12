@@ -58,10 +58,7 @@
 
 	<body onload="questionLoader();">
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //PROCESS: <em>Functional Programming</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>Functional Programming</em></header>
 		
 		<article>
 

@@ -51,9 +51,7 @@
 	</head>
 
 	<body>
-		<header>
-			<em>1.03 Skill-builder:</em> Datatypes and Tables
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 1.03 Skill-builder: <em>Datatypes and Tables</em></header>
 				
 		<article>
 			<h2>Resources</h2>
@@ -135,7 +133,7 @@
 			</p>
 			<p>
 				You may also wish to use a 
-				<a href="../../examples/DatatypeCards.pdf">paper version</a> 
+				<a href="DatatypeCards.pdf">paper version</a> 
 				of this cut up into little cards.
 			</p>
 			

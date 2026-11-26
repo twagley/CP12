@@ -77,10 +77,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //     MAKE: 3.02 Skill-builder: <em>Make a bar graph</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.02 Skill-builder: <em>Make a bar graph</em></header>
 				
 		<article>
 

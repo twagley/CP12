@@ -94,9 +94,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Animation</em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Animation</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

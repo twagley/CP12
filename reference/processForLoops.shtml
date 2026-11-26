@@ -55,10 +55,7 @@
 
 	<body onload="questionLoader();">
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //PROCESS: <em><code>for</code> loops</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em><code>for</code> loops</em></header>
 		
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

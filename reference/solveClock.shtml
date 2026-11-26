@@ -44,9 +44,7 @@
 
 	<body>
 
-		<header>
-			//SOLVE: <em>A visual clock</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>A visual clock</em></header>
 
 		<article>
 		

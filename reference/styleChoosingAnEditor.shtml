@@ -42,9 +42,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Choosing an editor</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Choosing an editor</em></header>
 		
 		<article>							
 			<h2>Thankfully there are other editors in the world besides Notepad.</h2>

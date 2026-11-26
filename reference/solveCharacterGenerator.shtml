@@ -45,9 +45,7 @@
 
 	<body>
 
-		<header>
-			//SOLVE: <em>Character generator</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Character generator</em></header>
 
 		<article>
 		

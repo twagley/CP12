@@ -57,9 +57,7 @@
 
 	<body onload="questionLoader();">
 
-		<header>
-			//STYLE: <em>Space out mathematical expressions</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Space out mathematical expressions</em></header>
 
 		<article>
 			<h2>Math can be coded very legibly</h2>

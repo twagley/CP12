@@ -77,9 +77,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Use descriptive variable names</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Use descriptive variable names</em></header>
 		
 		<article>
 			<h1>Always choose self-describing variable names</h1>

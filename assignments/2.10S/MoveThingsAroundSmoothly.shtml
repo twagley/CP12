@@ -52,10 +52,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 2.10 Skill-builder: <em>Move things around smoothly</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 2.10 Skill-builder: <em>Move things around smoothly</em></header>
 				
 		<article>
 			<h2>Resources</h2>

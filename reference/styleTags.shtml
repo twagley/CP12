@@ -44,9 +44,7 @@
 
 	<body>
 		
-		<header>
-			//STYLE: <em>Capitalizing tags</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Capitalizing tags</em></header>
 		
 		<article>
 			<h1>Be a stylish programmer</h1>

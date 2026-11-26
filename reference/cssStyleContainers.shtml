@@ -71,9 +71,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Style containers &mdash; <code>&lt;div></code> and <code>&lt;span></code></em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Style containers &mdash; <code>&lt;div></code> and <code>&lt;span></code></em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

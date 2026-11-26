@@ -65,10 +65,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 3.05 Hand-in: <em>Character Generator</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.05 Hand-in: <em>Character Generator</em></header>
 				
 		<article>
 			<h2>Resources</h2>

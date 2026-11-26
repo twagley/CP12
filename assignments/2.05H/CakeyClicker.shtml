@@ -56,9 +56,7 @@
 
 	<body>
 
-		<header>
-			//MAKE: 2.05 Hand-in: <em>Cakey Clicker</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 2.05 Hand-in: <em>Cakey Clicker</em></header>
 				
 		<article>
 			<h2>Resources</h2>

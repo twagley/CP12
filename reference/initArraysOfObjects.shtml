@@ -42,9 +42,7 @@
 
 	<body onload="questionLoader();">
 
-		<header>
-			//INIT: <em>Creating arrays of objects</em>
-		</header>
+		<header><a href="../index.html#initID">//INIT:</a> <em>Creating arrays of objects</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

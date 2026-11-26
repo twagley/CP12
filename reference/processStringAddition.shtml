@@ -47,10 +47,7 @@
 
 	<body>
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //PROCESS: <em>String addition</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>String addition</em></header>
 		
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

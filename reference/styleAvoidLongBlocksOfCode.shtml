@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Avoid long blocks of code</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Avoid long blocks of code</em></header>
 		
 		<article>
 			<h2>Breaking large functions into sub-functions makes code much easier to understand</h2>

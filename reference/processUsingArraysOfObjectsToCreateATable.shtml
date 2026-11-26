@@ -43,9 +43,7 @@
 
 	<body>
 		
-		<header>
-			//PROCESS: <em>Using arrays of objects to create a table</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>Using arrays of objects to create a table</em></header>
 		
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

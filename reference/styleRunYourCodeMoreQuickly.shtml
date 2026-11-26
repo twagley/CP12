@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Run Your Code More Quickly</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Run Your Code More Quickly</em></header>
 		
 		<article>
 			<h2>Reduce the time between save and reload</h2>

@@ -42,9 +42,7 @@
     </head>
     <body>
 
-		<header>
-			//SOLVE: <em>Using basic physics</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Using basic physics</em></header>
 
 		<article>
 		

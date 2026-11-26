@@ -54,10 +54,7 @@
 
 	<body>
 
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //INPUT: <em>Detecting mouseovers</em>
-		</header>
+		<header><a href="../index.html#inputID">//INPUT:</a> <em>Detecting mouseovers</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Separate and comment your functions</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Separate and comment your functions</em></header>
 		
 		<article>
 			<h1>Good programming is about good organization</h1>

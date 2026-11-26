@@ -50,9 +50,7 @@
 
 	<body>
 		
-		<header>
-			//STYLE: <em>Use cut and paste where possible</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Use cut and paste where possible</em></header>
 		
 		<article>
 			<h2>Don't retype long, critical names</h2>

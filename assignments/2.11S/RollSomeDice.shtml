@@ -59,10 +59,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 2.11 Skill-builder: <em>Roll some dice</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 2.11 Skill-builder: <em>Roll some dice</em></header>
 				
 		<article>
 			<h2>Resources</h2>

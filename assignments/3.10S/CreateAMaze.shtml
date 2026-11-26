@@ -54,9 +54,7 @@
 	</head>
 
 	<body>
-		<header>
-			//MAKE: 3.10 Skill-builder: <em>Create a maze</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.10 Skill-builder: <em>Create a maze</em></header>
 				
 		<article>
 			<h2>Resources</h2>

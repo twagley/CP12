@@ -54,9 +54,7 @@
 	</head>
 
 	<body>
-		<header>
-			//MAKE: 1.07 EXTRA: <em>Animate Mario</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 1.07 EXTRA: <em>Animate Mario</em></header>
 				
 		<article>
 			<h2>Resources</h2>

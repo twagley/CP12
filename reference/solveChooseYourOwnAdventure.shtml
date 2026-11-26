@@ -48,9 +48,7 @@
 
 	<body id="bodyId">
 
-		<header>
-			//SOLVE: <em>Choose your own adventure</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Choose your own adventure</em></header>
 
 		<article>
 		

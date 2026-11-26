@@ -62,10 +62,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 3.01 Skill-builder: <em>Mad libs</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.01 Skill-builder: <em>Mad libs</em></header>
 				
 		<article>
 			<h2>Resources</h2>

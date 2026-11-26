@@ -65,10 +65,7 @@
 
 	<body>
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-			PROCESS: <em>Functions: Definition, call, or reference?</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>Functions: Definition, call, or reference?</em></header>
 		
 		<article>
 			<!--

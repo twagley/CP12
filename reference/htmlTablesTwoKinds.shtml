@@ -42,12 +42,8 @@
 
 	<body>
 
-		<header>
-			<a href="../index.html">Computer Programming 12</a>
 		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
-		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
-		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
 			// turn it into a clickable question
@@ -59,9 +55,8 @@
 					$(this).html($(this).attr('data-answer'));
 					});
 			}
-		</script> 
-			&mdash; <em>Two kinds of HTML tables</em>
-		</header>
+		</script>
+		<header><a href="../index.html#htmlID">//HTML:</a> <em>Two kinds of HTML tables</em></header>
 
 		<article>
 			<h1>Two general ways of displaying information in tables</h1>

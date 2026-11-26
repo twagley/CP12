@@ -48,10 +48,7 @@
 
 	<body>
 
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //PROCESS: <em>Randomness and rounding</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>Randomness and rounding</em></header>
 
 		<article>
 		

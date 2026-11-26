@@ -44,9 +44,7 @@
 
 	<body>
 
-		<header>
-			//EXAM: <em>Skills description</em>
-		</header>
+		<header><a href="../index.html#makeID">//EXAM:</a> <em>Skills description</em></header>
 
 		<article>
 			<h2>The Assignment</h2>
@@ -120,7 +118,7 @@
 				<li>a dating sim</li>
 				<li>Conway's game of life</li>
 				<br />
-				<li><a href="../examples/SieveExample.html">Sieve of Eratosthenes</a></li>
+				<li><a href="../demos/SieveExample.html">Sieve of Eratosthenes</a></li>
 				<li><a href="https://www.khanacademy.org/computer-programming/live-example-using-arrays-of-objects-to-create-a-map-of-cities-of-the-world/5512987497070592">A map creator</a></li>	
 			</ul>
 			

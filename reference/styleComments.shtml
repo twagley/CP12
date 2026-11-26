@@ -52,9 +52,7 @@
 
 	<body>
 		
-		<header>
-			//STYLE: <em>Add comments to communicate</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Add comments to communicate</em></header>
 		
 		<article>
 

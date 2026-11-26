@@ -50,10 +50,7 @@
 
 	<body onload="questionLoader();">
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //STYLE: <em>Using function pipelines</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Using function pipelines</em></header>
 		
 		<article>
 

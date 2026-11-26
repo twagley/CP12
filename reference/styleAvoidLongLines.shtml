@@ -50,9 +50,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Avoid long lines</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Avoid long lines</em></header>
 		
 		<article>
 			<h2>Break up long lines for easier legibility and printability</h2>

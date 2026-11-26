@@ -43,12 +43,8 @@
 
 	<body>
 
-		<header>
-			<a href="../index.html">Computer Programming 12</a>
 		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
-		
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
-		
 		<script>
 			// for this container: <span class="question" data-answer="the answer"></span>
 			// turn it into a clickable question
@@ -60,9 +56,8 @@
 					$(this).html($(this).attr('data-answer'));
 					});
 			}
-		</script> 
-			&mdash; <em>HTML Lists</em>
-		</header>
+		</script>
+		<header><a href="../index.html#htmlID">//HTML:</a> <em>HTML Lists</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

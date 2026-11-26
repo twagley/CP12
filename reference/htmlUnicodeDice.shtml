@@ -55,10 +55,7 @@
 
 	<body>
 
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //HTML and OUTPUT: <em>Unicode dice</em>
-		</header>
+		<header><a href="../index.html#htmlID">//HTML and OUTPUT:</a> <em>Unicode dice</em></header>
 
 		<article>
 

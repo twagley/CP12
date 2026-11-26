@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Use descriptive function names</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Use descriptive function names</em></header>
 		
 		<article>
 			<h1>Always choose self-describing function names</h1>

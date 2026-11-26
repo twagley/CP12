@@ -60,10 +60,7 @@
 
 	<body>
 
-		<header>
-            <a href="../index.html"> MAIN      </a>
-            //		OUTPUT: <em>Animating other CSS properties with jQuery</em>
-		</header>
+		<header><a href="../index.html#outputID">//OUTPUT:</a> <em>Animating other CSS properties with jQuery</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

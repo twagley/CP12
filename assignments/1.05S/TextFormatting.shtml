@@ -52,9 +52,7 @@
 
 	<body>
 
-		<header>
-			1.05 Skill builder: <em>Hello color</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 1.05 Skill-builder: <em>Hello color</em></header>
 
 		<article>
 

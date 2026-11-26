@@ -49,10 +49,7 @@
 
 	<body>
 		
-		<header>
-            <a href="../index.html"> MAIN  </a>
-            //PROCESS: <em>Using arrays</em>
-		</header>
+		<header><a href="../index.html#processID">//PROCESS:</a> <em>Using arrays</em></header>
 		
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>

@@ -43,9 +43,7 @@
 
 	<body onload="questionLoader();">
 		
-		<header>
-			//STYLE: <em>Formatting code with tabs</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Formatting code with tabs</em></header>
 		
 		<article>
 			<h2>Use tabs to show how tags are nested</h2>

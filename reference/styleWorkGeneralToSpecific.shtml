@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Work from general to specific</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Work from general to specific</em></header>
 		
 		<article>
 			<h2>Develop things in small chunks that work</h2>
@@ -74,7 +72,7 @@
 				</li>
 				<li>
 					<strong>Get the program recognizing keystrokes</strong>: <br />
-					Remember the <a href="../examples/KeyboardControlExample1.html">first example from Keyboard control</a>? 
+					Remember the <a href="../demos/KeyboardControlExample1.html">first example from Keyboard control</a>? 
 					Steal the Javascript and HTML code from it, 
 					and incorporate it into the <code>&lt;script&gt;</code> and <code>&lt;body&gt;</code> areas of your code.
 					<br />&nbsp;

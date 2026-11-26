@@ -42,9 +42,7 @@
     </head>
     <body>
 
-		<header>
-			//SOLVE: <em>Frame-based animation that continues while you press the key</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Frame-based animation that continues while you press the key</em></header>
 
 		<article>
 		

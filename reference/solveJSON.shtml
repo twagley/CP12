@@ -39,9 +39,7 @@
     </head>
     <body>
 
-		<header>
-			//SOLVE: <em>Saving and opening data files using JSON</em>
-		</header>
+		<header><a href="../index.html#solveID">//SOLVE:</a> <em>Saving and opening data files using JSON</em></header>
 
 		<article>
 		

@@ -39,9 +39,7 @@
 
 	<body>
 
-		<header>
-			//INPUT: <em>Read mouse movements and position</em>
-		</header>
+		<header><a href="../index.html#inputID">//INPUT:</a> <em>Read mouse movements and position</em></header>
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
 			<pre><code><span class="sc2">//INPUT: listen for mouse movements and get the coordinates

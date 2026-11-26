@@ -52,9 +52,7 @@
 
 	<body>
 
-		<header>
-			//INPUT: Getting information from websites
-		</header>
+		<header><a href="../index.html#inputID">//INPUT:</a> <em>Getting information from websites</em></header>
 
 		<article>
 

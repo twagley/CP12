@@ -54,9 +54,7 @@
 	</head>
 
 	<body>
-		<header>
-			//MAKE: 1.08 Hand-in: <em>Make a game board</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 1.08 Hand-in: <em>Make a game board</em></header>
 				
 		<article>
 			<h2>Resources</h2>

@@ -57,10 +57,7 @@
 	</head>
 
 	<body>
-		<header>
-            <a href="../../index.html"> MAIN  </a>
-            //MAKE: 3.09 Hand-in: <em>Make a table using an array of objects</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.09 Hand-in: <em>Make a table using an array of objects</em></header>
 				
 		<article>
 			<h2>Resources</h2>

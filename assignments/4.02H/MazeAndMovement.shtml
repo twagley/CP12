@@ -67,10 +67,7 @@
 	</head>
 
 	<body>
-		<header>
-			//MAKE: 4.02 Hand-in: 
-			<em>Make a maze and something to move on it</em>
-		</header>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 4.02 Hand-in: <em>Make a maze and something to move on it</em></header>
 				
 		<article>
 			<h2>Resources</h2>

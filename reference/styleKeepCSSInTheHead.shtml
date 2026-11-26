@@ -50,9 +50,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Keep your CSS inside your <code>&lt;head></code></em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Keep your CSS inside your <code>&lt;head></code></em></header>
 		
 		<article>
 		

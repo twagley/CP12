@@ -41,9 +41,7 @@
 
 	<body onload="">
 		
-		<header>
-			//STYLE: <em>Debug using the console log</em>
-		</header>
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Debug using the console log</em></header>
 		
 		<article>
 			<h2>The console log can send you information silently</h2>

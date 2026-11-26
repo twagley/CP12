@@ -68,9 +68,7 @@
 
 	<body>
 
-		<header>
-			//CSS: <em>Selectors: tags, Ids, and classes</em>
-		</header>
+		<header><a href="../index.html#htmlID">//CSS:</a> <em>Selectors: tags, Ids, and classes</em></header>
 
 		<article>
 			<h2 class="newcode">&lt;New code&gt;</h2>
