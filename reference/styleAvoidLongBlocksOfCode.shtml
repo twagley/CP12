@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Wagley CP12: STYLE - Avoid long blocks of code</title>
+		<meta name="description" content="Avoid long blocks of code">
+		<meta name="author" content="Dave Drapak">
+		<meta name="keywords" content="Halifax, Nova Scotia, programing style, computer programming, javascript, html, teaching, learning resources">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
+		
+		<script>
+			// for this container: <span class="question" data-answer="the answer"></span>
+			// turn it into a clickable question
+			function questionLoader() {
+				console.log('in questionLoader...');
+				var element	= $('.question');
+				element.html("<a href='javascript:void(0);'>Click to show answer...</a>");
+				element.click(function(){
+					$(this).html($(this).attr('data-answer'));
+					});
+			}
+		</script>	
+
+		<!--
+			Change log:
+				4. August 2015	- created!
+		-->
+
+		<script>		
+		</script>
+
+		<style>
+		</style>
+	</head>
+
+	<body onload="">
+		
+		<header><a href="../index.html#styleID">//STYLE:</a> <em>Avoid long blocks of code</em></header>
+		
+		<article>
+			<h2>Breaking large functions into sub-functions makes code much easier to understand</h2>
+			
+			<p>Having long blocks of code are a pain to read, and an even bigger pain to debug.</p>
+			<p>	
+				Here is a simple rule: if you have a function that is getting longer than <strong>20 lines of code</strong>, you should seriously consider spinning off blocks of code into their own functions.
+				This is especially important if you have nested loops or long <code>if ... else if</code> chains.
+				Debugging long blocks of code is a particularly painful experience that is best avoided.
+			</p>
+
+		</article>
+
+	</body>
+</html>

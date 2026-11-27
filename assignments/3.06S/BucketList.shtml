@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>Wagley CP12: Bucket list</title>
+		<meta 
+			name="description" 
+			content="Assignment: Use Javascript arrays to create a bucket list">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
+		
+		<script>
+			// for this container: <span class="question" data-answer="the answer"></span>
+			// turn it into a clickable question
+			function questionLoader() {
+				console.log('in questionLoader...');
+				var element	= $('.question');
+				element.html("<a href='javascript:void(0);'>Click to show answer...</a>");
+				element.click(function(){
+					$(this).html($(this).attr('data-answer'));
+					});
+			}
+		</script>
+
+		<!--
+			Change log:
+				1. November 2015	- created!									- Drapak
+				28. November 2018	- reworked for better style					- Drapak
+				Nov 12, 2026		- Clarity updates.  Changed to Wagley's bucket list			- Wagley
+		-->
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 3.06 Skill-builder: <em>Bucket list</em></header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: <a href="../../reference/initArrays.shtml">Creating arrays</a>
+				</li>
+				<br>
+				<li>
+					//PROCESS: <a href="../../reference/processUsingArrays.shtml">Using arrays</a>
+				</li>
+
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the empty 
+				<a href="3.06S-BucketList-LastName.html">template</a> as 
+				"<code>3.06S-BucketList-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use arrays and <code>.join()</code> to create a bucket list of 
+				things to do during your lifetime.<br>
+				The phrase <em>bucket list</em> was created by the screenwriter of the  
+				<a href="https://en.wikipedia.org/wiki/The_Bucket_List">2007 
+				movie starring Morgan Freeman</a>.<br>
+				It is a list of all the things someone wants to do before they "kick the bucket".
+			</p>
+			
+			<h2>For example</h2>
+
+			<h4>Wagley's bucket list</h4>
+			<div id="outputID"></div>
+			<p>
+				<button onclick="mainProcedure();">
+					Click to learn about my lifelong goals!
+				</button><br>		
+			</p>
+			
+			<h2>Hints</h2>
+			<ol>
+				<li>
+					Create a <code>&lt;div></code> with <code>id="outputId"</code> 
+					in the body of your code
+				</li>
+				<li>
+					Create a button that will trigger <code>mainProcedure</code>
+				</li>
+				<li>initialize your bucket list array</li>
+				<li>
+					create an output function that will insert a result into 
+					<code>outputId</code>
+				</li>
+				<li>
+					create a process function that will <code>.join()</code> 
+					your bucket list array together
+				</li>
+				<li>
+					create a <code>mainProcedure</code> function that will pass the bucket 
+					list array as an arugment/parameter to your process function, and then 
+					pass the results to your output function
+				</li>
+				<li>
+					reread //PROCESS: 
+					<a href="../../reference/processUsingArrays.shtml">Using arrays</a> for more info
+				</li>
+			</ol>
+			
+		</article>
+ 		<script>
+			console.log("non supporting");
+			var bucketArr,mainProcedure,makeList,outputList;(function(){function k(){return document}function m(){return outputList}function l(){return makeList}function i(){return bucketArr}function j(){return console}function n(){return String}function f(a,b){return a%b}function g(a,b){return a+ b}function h(a,b){return a<b}var a=(function(m,l){var u={},a={},j={},d={},i={},x={},w={},t={},s={},k={},r={},b={},y={};u._=l;var c=m.length;a._=[];;for(var v=0;h(v,c);v++){a._[v]=m.charAt(v)};for(var v=0;h(v,c);v++){j._=g(u._*(g(v,531)),(f(u._,46911)));;d._=g(u._*(g(v,733)),(f(u._,24860)));;i._=f(j._,c);;x._=f(d._,c);;w._=a._[i._];;o(i,a,x);p(x,a,w);q(u,j,d)};t._=n().fromCharCode(127);;var z='';var A='%';s._='#1';;k._='%';;r._='#0';;b._='#';;y._='#2';;return a._.join(z).split(A).join(t._).split(t._).map(e(b,r,k,s,t,y))})("rro/eidld a%uarZo dt grt htpeorbremKLsml/eepi%cbutntmtmeanran%%le rlob ti aiu oner/ hognnagia<le>%tnosr ehttd%ap r e o%ipctteba ule epvoolo chmnahe   heyDAuc sk%uolrcmmtousbe Elaeeaogtip ioku irol>aloeetltehJu latesIhinhsopiem  nidw aoeles%t,i in >rusaagninmyoeatvti ytud Ies<iauoerr% rpon ltaikp>unt<n mmsmurmr tagg%tt r%d:ionI doy% ht ni  ratlon c%SneuaPueise>:ihiigrp %aN %,imr%n / Hl<oire< oiL< hn ren>Duvpng  l rsyi tStavtsy%isi uaoo",1796299);function b(){j().log(a[0xb]);var b=l()(i());m()(b)}function c(c){var b={};j().log(g(a[0xc],c));b._=a[0xd];;r(b);b._=g(b._,c.join(a[0xf]));s(b);return b._}function d(b){j().log(g(a[0x11],b));k().getElementById(a[0x12]).innerHTML=b}console.log(a[0x0]);bucketArr=[a[0x1],a[0x2],a[0x3],a[0x4],a[0x5],a[0x6],a[0x7],a[0x8],a[0x9],a[0xa]];mainProcedure=b;makeList=c;outputList=d;function o(b,a,c){a._[b._]=a._[c._]}function p(c,a,b){a._[c._]=b._}function q(c,b,a){c._=f((g(b._,a._)),5476573)}function e(a,c,b,d,e,f){return  function(g){return g.split(f._).join(e._).split(d._).join(b._).split(c._).join(a._)}}function r(b){b._=g(b._,a[0xe])}function s(b){b._=g(b._,a[0x10])}})()
+				
+		</script>
+	</body>
+</html>

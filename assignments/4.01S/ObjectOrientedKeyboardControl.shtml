@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta 
+			charset="UTF-8">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+
+		<title>Wagley CP12: Object oriented keyboard control</title>
+		<meta 
+			name="description" 
+			content="Assignment: Object oriented keyboard control">
+		<meta 
+			name="author" 
+			content="Dave Drapak">
+		<meta 
+			name="keywords" 
+			content="Javascript, Halifax, Nova Scotia, computer programming, Javascript, teaching, learning resources">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-4.1.0.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../../css/general.css">
+		
+		<script>
+			// for this container: <span class="question" data-answer="the answer"></span>
+			// turn it into a clickable question
+			function questionLoader() {
+				console.log('in questionLoader...');
+				var element	= $('.question');
+				element.html("<a href='javascript:void(0);'>Click to show answer...</a>");
+				element.click(function(){
+					$(this).html($(this).attr('data-answer'));
+					});
+			}
+		</script>
+
+		<!--
+			Change log:
+				17. November 2015	- created!									- Drapak
+				11. December 2018	- updated style and assignment numbering	- Drapak
+		-->
+		
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<header><a href="../../index.html#makeID">//MAKE:</a> 4.01 Skill-builder: <em>Object-oriented keyboard control</em></header>
+				
+		<article>
+			<h2>Resources</h2>
+			<ul>
+				<li>
+					//INIT: 
+					<a href="../../reference/initObjectsWithMethods.shtml">Creating objects with methods</a>
+				</li>
+				<br />
+				<li>
+					//INPUT: 
+					<a href="../../reference/inputReadingKeypresses.shtml">Reading keypresses</a>
+				</li>
+				<br />
+				<li>
+					//PROCESS: 
+					<a href="../../reference/processIfElseConditionals.shtml">
+						<code>if...else</code> conditionals
+					</a>
+				</li>
+				<br />
+				<li>
+					//OUTPUT: 
+					<a href="../../reference/outputAnimatingMotion.shtml">animating motion with jQuery</a>
+				</li>
+			</ul>
+		
+			<h2>Saving your work</h2>
+			<p>
+				Use <code>Save as...</code> to save the 
+				<a href="4.01S-ObjectOrientedKeyboardControl-LastName.html">empty template</a>
+				as "<code>4.01S-ObjectOrientedKeyboardControl-LastName.html</code>" 
+				in your Computer Programming directory.
+			</p>
+			
+			<h2>The assignment</h2>
+			<p>
+				Use object oriented programming to animate 
+				something around the screen using the keyboard...
+			</p>
+						
+			<h2>Make it your own!</h2>
+			<p>
+				Use a sprite or image or character of your own design.
+				
+				Hint: think about what kind of image would fit well on top 
+				of the maze you made...
+			</p>
+			
+			<h2>Hints</h2>
+
+			<p>
+				Reread //INIT: 
+				<a href="../../reference/initObjectsWithMethods.shtml">Creating objects with methods</a> 
+				and combine and elaborate on the code examples.
+			</p>
+			
+			<h2><a href="https://www.khanacademy.org/computer-programming/live-example-object-oriented-motion-control/4779775622774784">Live example: Object oriented motion control</a></h2> 
+			<script src="https://www.khanacademy.org/computer-programming/live-example-object-oriented-motion-control/4779775622774784/embed.js?editor=yes&amp;buttons=no&amp;author=no&amp;embed=yes"></script>
+		</article>
+	</body>
+</html>
